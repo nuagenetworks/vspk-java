@@ -30,18 +30,18 @@ package vspk.v4_0.fetchers;
 
 import bambou.RestObject;
 import bambou.RestFetcher;
-import vspk.v4_0.Licensestatus;
+import vspk.v4_0.LicenseStatus;
 
-public class LicensestatusFetcher extends RestFetcher<Licensestatus> {
+public class LicenseStatusFetcher extends RestFetcher<LicenseStatus> {
 
    private static final long serialVersionUID = 1L;
    
-   public LicensestatusFetcher(RestObject parentObject) {
+   public LicenseStatusFetcher(RestObject parentObject) {
       super(parentObject);
    }
    
-   public Class<Licensestatus> getManagedClass() {
-      return Licensestatus.class;
+   public Class<LicenseStatus> getManagedClass() {
+      return LicenseStatus.class;
    }
 
    

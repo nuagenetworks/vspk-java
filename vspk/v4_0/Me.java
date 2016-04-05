@@ -65,6 +65,7 @@ import vspk.v4_0.fetchers.IngressAdvFwdEntryTemplatesFetcher;
 import vspk.v4_0.fetchers.JobsFetcher;
 import vspk.v4_0.fetchers.L2DomainsFetcher;
 import vspk.v4_0.fetchers.LicensesFetcher;
+import vspk.v4_0.fetchers.LicenseStatusFetcher;
 import vspk.v4_0.fetchers.MetadatasFetcher;
 import vspk.v4_0.fetchers.MetadataTagsFetcher;
 import vspk.v4_0.fetchers.MirrorDestinationsFetcher;
@@ -249,6 +250,9 @@ public class Me extends RestRootObject {
    private LicensesFetcher licenses;
    
    @JsonIgnore
+   private LicenseStatusFetcher licenseStatus;
+   
+   @JsonIgnore
    private MetadatasFetcher metadatas;
    
    @JsonIgnore
@@ -405,6 +409,8 @@ public class Me extends RestRootObject {
       l2Domains = new L2DomainsFetcher(this);
       
       licenses = new LicensesFetcher(this);
+      
+      licenseStatus = new LicenseStatusFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
       
@@ -700,6 +706,10 @@ public class Me extends RestRootObject {
    
    public LicensesFetcher getLicenses() {
       return licenses;
+   }
+   
+   public LicenseStatusFetcher getLicenseStatus() {
+      return licenseStatus;
    }
    
    public MetadatasFetcher getMetadatas() {
