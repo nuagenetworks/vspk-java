@@ -37,56 +37,38 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import vspk.v3_2.fetchers.AlarmsFetcher;
 import vspk.v3_2.fetchers.EnterprisePermissionsFetcher;
 import vspk.v3_2.fetchers.EventLogsFetcher;
-import vspk.v3_2.fetchers.GatewaysFetcher;
 import vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 import vspk.v3_2.fetchers.MetadatasFetcher;
 import vspk.v3_2.fetchers.PermissionsFetcher;
-import vspk.v3_2.fetchers.PortsFetcher;
-import vspk.v3_2.fetchers.WANServicesFetcher;
-import vspk.v3_2.fetchers.VsgRedundantPortsFetcher;
+import vspk.v3_2.fetchers.VLANsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class RedundancyGroup extends RestObject {
+public class VsgRedundantPort extends RestObject {
 
-   public final static String REST_NAME = "redundancygroup";
-   public final static String RESOURCE_NAME = "redundancygroups";
+   public final static String REST_NAME = "vsgredundantport";
+   public final static String RESOURCE_NAME = "vsgredundantports";
 
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
-   public enum Personality { DC7X50, HARDWARE_VTEP, NSG, OTHER, VRSG, VSA, VSG };
-   public enum RedundantGatewayStatus { FAILED, SUCCESS };
+   public enum PortType { ACCESS, NETWORK };
+   public enum Status { INITIALIZED, MISMATCH, ORPHAN, READY };
 
+   
+   @JsonProperty(value = "VLANRange")
+   protected String VLANRange;
+   
+   @JsonProperty(value = "associatedEgressQOSPolicyID")
+   protected String associatedEgressQOSPolicyID;
    
    @JsonProperty(value = "description")
    protected String description;
-   
-   @JsonProperty(value = "enterpriseID")
-   protected String enterpriseID;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
-   
-   @JsonProperty(value = "gatewayPeer1AutodiscoveredGatewayID")
-   protected String gatewayPeer1AutodiscoveredGatewayID;
-   
-   @JsonProperty(value = "gatewayPeer1ID")
-   protected String gatewayPeer1ID;
-   
-   @JsonProperty(value = "gatewayPeer1Name")
-   protected String gatewayPeer1Name;
-   
-   @JsonProperty(value = "gatewayPeer2AutodiscoveredGatewayID")
-   protected String gatewayPeer2AutodiscoveredGatewayID;
-   
-   @JsonProperty(value = "gatewayPeer2ID")
-   protected String gatewayPeer2ID;
-   
-   @JsonProperty(value = "gatewayPeer2Name")
-   protected String gatewayPeer2Name;
    
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
@@ -97,14 +79,26 @@ public class RedundancyGroup extends RestObject {
    @JsonProperty(value = "permittedAction")
    protected PermittedAction permittedAction;
    
-   @JsonProperty(value = "personality")
-   protected Personality personality;
+   @JsonProperty(value = "physicalName")
+   protected String physicalName;
    
-   @JsonProperty(value = "redundantGatewayStatus")
-   protected RedundantGatewayStatus redundantGatewayStatus;
+   @JsonProperty(value = "portPeer1ID")
+   protected String portPeer1ID;
    
-   @JsonProperty(value = "vtep")
-   protected String vtep;
+   @JsonProperty(value = "portPeer2ID")
+   protected String portPeer2ID;
+   
+   @JsonProperty(value = "portType")
+   protected PortType portType;
+   
+   @JsonProperty(value = "status")
+   protected Status status;
+   
+   @JsonProperty(value = "useUserMnemonic")
+   protected boolean useUserMnemonic;
+   
+   @JsonProperty(value = "userMnemonic")
+   protected String userMnemonic;
    
 
    
@@ -118,9 +112,6 @@ public class RedundancyGroup extends RestObject {
    private EventLogsFetcher eventLogs;
    
    @JsonIgnore
-   private GatewaysFetcher gateways;
-   
-   @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
@@ -130,16 +121,10 @@ public class RedundancyGroup extends RestObject {
    private PermissionsFetcher permissions;
    
    @JsonIgnore
-   private PortsFetcher ports;
-   
-   @JsonIgnore
-   private WANServicesFetcher wANServices;
-   
-   @JsonIgnore
-   private VsgRedundantPortsFetcher vsgRedundantPorts;
+   private VLANsFetcher vLANs;
    
 
-   public RedundancyGroup() {
+   public VsgRedundantPort() {
       
       alarms = new AlarmsFetcher(this);
       
@@ -147,35 +132,36 @@ public class RedundancyGroup extends RestObject {
       
       eventLogs = new EventLogsFetcher(this);
       
-      gateways = new GatewaysFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
       
       permissions = new PermissionsFetcher(this);
       
-      ports = new PortsFetcher(this);
-      
-      wANServices = new WANServicesFetcher(this);
-      
-      vsgRedundantPorts = new VsgRedundantPortsFetcher(this);
+      vLANs = new VLANsFetcher(this);
       
    }
 
+   public String getVLANRange() {
+      return VLANRange;
+   }
+
+   public void setVLANRange(String value) { 
+      this.VLANRange = value;
+   }
+   public String getAssociatedEgressQOSPolicyID() {
+      return associatedEgressQOSPolicyID;
+   }
+
+   public void setAssociatedEgressQOSPolicyID(String value) { 
+      this.associatedEgressQOSPolicyID = value;
+   }
    public String getDescription() {
       return description;
    }
 
    public void setDescription(String value) { 
       this.description = value;
-   }
-   public String getEnterpriseID() {
-      return enterpriseID;
-   }
-
-   public void setEnterpriseID(String value) { 
-      this.enterpriseID = value;
    }
    public EntityScope getEntityScope() {
       return entityScope;
@@ -190,48 +176,6 @@ public class RedundancyGroup extends RestObject {
 
    public void setExternalID(String value) { 
       this.externalID = value;
-   }
-   public String getGatewayPeer1AutodiscoveredGatewayID() {
-      return gatewayPeer1AutodiscoveredGatewayID;
-   }
-
-   public void setGatewayPeer1AutodiscoveredGatewayID(String value) { 
-      this.gatewayPeer1AutodiscoveredGatewayID = value;
-   }
-   public String getGatewayPeer1ID() {
-      return gatewayPeer1ID;
-   }
-
-   public void setGatewayPeer1ID(String value) { 
-      this.gatewayPeer1ID = value;
-   }
-   public String getGatewayPeer1Name() {
-      return gatewayPeer1Name;
-   }
-
-   public void setGatewayPeer1Name(String value) { 
-      this.gatewayPeer1Name = value;
-   }
-   public String getGatewayPeer2AutodiscoveredGatewayID() {
-      return gatewayPeer2AutodiscoveredGatewayID;
-   }
-
-   public void setGatewayPeer2AutodiscoveredGatewayID(String value) { 
-      this.gatewayPeer2AutodiscoveredGatewayID = value;
-   }
-   public String getGatewayPeer2ID() {
-      return gatewayPeer2ID;
-   }
-
-   public void setGatewayPeer2ID(String value) { 
-      this.gatewayPeer2ID = value;
-   }
-   public String getGatewayPeer2Name() {
-      return gatewayPeer2Name;
-   }
-
-   public void setGatewayPeer2Name(String value) { 
-      this.gatewayPeer2Name = value;
    }
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -254,26 +198,54 @@ public class RedundancyGroup extends RestObject {
    public void setPermittedAction(PermittedAction value) { 
       this.permittedAction = value;
    }
-   public Personality getPersonality() {
-      return personality;
+   public String getPhysicalName() {
+      return physicalName;
    }
 
-   public void setPersonality(Personality value) { 
-      this.personality = value;
+   public void setPhysicalName(String value) { 
+      this.physicalName = value;
    }
-   public RedundantGatewayStatus getRedundantGatewayStatus() {
-      return redundantGatewayStatus;
-   }
-
-   public void setRedundantGatewayStatus(RedundantGatewayStatus value) { 
-      this.redundantGatewayStatus = value;
-   }
-   public String getVtep() {
-      return vtep;
+   public String getPortPeer1ID() {
+      return portPeer1ID;
    }
 
-   public void setVtep(String value) { 
-      this.vtep = value;
+   public void setPortPeer1ID(String value) { 
+      this.portPeer1ID = value;
+   }
+   public String getPortPeer2ID() {
+      return portPeer2ID;
+   }
+
+   public void setPortPeer2ID(String value) { 
+      this.portPeer2ID = value;
+   }
+   public PortType getPortType() {
+      return portType;
+   }
+
+   public void setPortType(PortType value) { 
+      this.portType = value;
+   }
+   public Status getStatus() {
+      return status;
+   }
+
+   public void setStatus(Status value) { 
+      this.status = value;
+   }
+   public boolean getUseUserMnemonic() {
+      return useUserMnemonic;
+   }
+
+   public void setUseUserMnemonic(boolean value) { 
+      this.useUserMnemonic = value;
+   }
+   public String getUserMnemonic() {
+      return userMnemonic;
+   }
+
+   public void setUserMnemonic(String value) { 
+      this.userMnemonic = value;
    }
    
 
@@ -290,10 +262,6 @@ public class RedundancyGroup extends RestObject {
       return eventLogs;
    }
    
-   public GatewaysFetcher getGateways() {
-      return gateways;
-   }
-   
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
@@ -306,21 +274,13 @@ public class RedundancyGroup extends RestObject {
       return permissions;
    }
    
-   public PortsFetcher getPorts() {
-      return ports;
-   }
-   
-   public WANServicesFetcher getWANServices() {
-      return wANServices;
-   }
-   
-   public VsgRedundantPortsFetcher getVsgRedundantPorts() {
-      return vsgRedundantPorts;
+   public VLANsFetcher getVLANs() {
+      return vLANs;
    }
    
 
    public String toString() {
-      return "RedundancyGroup [" + "description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayPeer1AutodiscoveredGatewayID=" + gatewayPeer1AutodiscoveredGatewayID + ", gatewayPeer1ID=" + gatewayPeer1ID + ", gatewayPeer1Name=" + gatewayPeer1Name + ", gatewayPeer2AutodiscoveredGatewayID=" + gatewayPeer2AutodiscoveredGatewayID + ", gatewayPeer2ID=" + gatewayPeer2ID + ", gatewayPeer2Name=" + gatewayPeer2Name + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", permittedAction=" + permittedAction + ", personality=" + personality + ", redundantGatewayStatus=" + redundantGatewayStatus + ", vtep=" + vtep + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VsgRedundantPort [" + "VLANRange=" + VLANRange + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", permittedAction=" + permittedAction + ", physicalName=" + physicalName + ", portPeer1ID=" + portPeer1ID + ", portPeer2ID=" + portPeer2ID + ", portType=" + portType + ", status=" + status + ", useUserMnemonic=" + useUserMnemonic + ", userMnemonic=" + userMnemonic + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
 		        + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    
