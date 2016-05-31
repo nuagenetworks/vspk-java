@@ -42,6 +42,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "porttemplate", resourceName = "porttemplates")
 public class PortTemplate extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum PortType { ACCESS, NETWORK };

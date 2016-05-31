@@ -43,6 +43,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.EventLogsFetcher;
 @RestEntity(restName = "multicastchannelmap", resourceName = "multicastchannelmaps")
 public class MultiCastChannelMap extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
 

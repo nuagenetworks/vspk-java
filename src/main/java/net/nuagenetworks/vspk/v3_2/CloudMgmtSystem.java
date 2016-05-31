@@ -41,6 +41,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "cms", resourceName = "cms")
 public class CloudMgmtSystem extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
 

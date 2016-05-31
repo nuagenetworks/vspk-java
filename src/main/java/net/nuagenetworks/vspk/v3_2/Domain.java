@@ -72,6 +72,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.ExternalAppServicesFetcher;
 @RestEntity(restName = "domain", resourceName = "domains")
 public class Domain extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum PATEnabled { DISABLED, ENABLED, INHERITED };
    public enum DHCPBehavior { CONSUME, FLOOD, RELAY };

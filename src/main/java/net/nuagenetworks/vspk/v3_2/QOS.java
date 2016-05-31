@@ -43,6 +43,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.EventLogsFetcher;
 @RestEntity(restName = "qos", resourceName = "qos")
 public class QOS extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum ServiceClass { A, B, C, D, E, F, G, H, NONE };
    public enum EntityScope { ENTERPRISE, GLOBAL };

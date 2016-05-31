@@ -96,6 +96,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.SystemConfigsFetcher;
 @RestEntity(restName = "me", resourceName = "me")
 public class Me extends RestRootObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum AvatarType { BASE64, COMPUTEDURL, URL };

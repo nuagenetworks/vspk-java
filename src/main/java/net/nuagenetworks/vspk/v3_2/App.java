@@ -45,6 +45,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.EventLogsFetcher;
 @RestEntity(restName = "application", resourceName = "applications")
 public class App extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum AssociatedDomainType { DOMAIN, L2DOMAIN };

@@ -43,6 +43,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.StatisticsFetcher;
 @RestEntity(restName = "ingressadvfwdentrytemplate", resourceName = "ingressadvfwdentrytemplates")
 public class IngressAdvFwdEntryTemplate extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum FCOverride { A, B, C, D, E, F, G, H, NONE };
    public enum Action { DROP, FORWARD, REDIRECT };

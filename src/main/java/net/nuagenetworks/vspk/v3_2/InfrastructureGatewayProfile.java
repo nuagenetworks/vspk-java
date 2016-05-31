@@ -41,6 +41,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "infrastructuregatewayprofile", resourceName = "infrastructuregatewayprofiles")
 public class InfrastructureGatewayProfile extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum DeadTimer { FIVE_HOURS, FOUR_HOURS, NONE, ONE_HOUR, SIX_HOURS, TEN_MINUTES, THIRTY_MINUTES, THREE_HOURS, TWO_HOURS };
    public enum RemoteLogMode { DISABLED, RSYSLOG, SCP, SFTP };

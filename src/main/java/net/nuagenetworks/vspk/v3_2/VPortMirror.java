@@ -41,6 +41,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "vportmirror", resourceName = "vportmirrors")
 public class VPortMirror extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum MirrorDirection { BOTH, EGRESS, INGRESS };
    public enum EntityScope { ENTERPRISE, GLOBAL };

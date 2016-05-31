@@ -42,6 +42,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.EventLogsFetcher;
 @RestEntity(restName = "license", resourceName = "licenses")
 public class License extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum LicenseEncryption { ENCRYPTION_DISABLED, ENCRYPTION_ENABLED };
    public enum LicenseType { CLUSTERED, STANDARD };

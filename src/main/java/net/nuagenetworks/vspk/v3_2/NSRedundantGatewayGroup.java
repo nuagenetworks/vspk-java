@@ -45,6 +45,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.EventLogsFetcher;
 @RestEntity(restName = "nsgredundancygroup", resourceName = "nsgredundancygroups")
 public class NSRedundantGatewayGroup extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum RedundantGatewayStatus { FAILED, SUCCESS };
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };

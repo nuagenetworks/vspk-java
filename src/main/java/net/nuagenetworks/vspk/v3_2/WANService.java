@@ -45,6 +45,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.EventLogsFetcher;
 @RestEntity(restName = "service", resourceName = "services")
 public class WANService extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    public enum ServiceType { L2, L3 };

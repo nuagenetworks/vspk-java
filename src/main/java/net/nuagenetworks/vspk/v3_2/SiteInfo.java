@@ -41,6 +41,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "site", resourceName = "sites")
 public class SiteInfo extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
 

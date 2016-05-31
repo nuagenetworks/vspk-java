@@ -41,6 +41,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "uplinkroutedistinguisher", resourceName = "uplinkroutedistinguishers")
 public class UplinkRD extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum UplinkType { RD_PRIMARY1, RD_PRIMARY2, RD_SECONDARY1, RD_SECONDARY2 };

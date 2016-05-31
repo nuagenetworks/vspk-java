@@ -41,6 +41,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "statistics", resourceName = "statistics")
 public class Statistics extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
 
    

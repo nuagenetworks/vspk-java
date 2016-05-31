@@ -42,6 +42,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.NSPortTemplatesFetcher;
 @RestEntity(restName = "nsgatewaytemplate", resourceName = "nsgatewaytemplates")
 public class NSGatewayTemplate extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
 

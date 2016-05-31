@@ -42,6 +42,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.DSCPForwardingClassMappingsFetcher;
 @RestEntity(restName = "dscpforwardingclasstable", resourceName = "dscpforwardingclasstables")
 public class DSCPForwardingClassTable extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
 

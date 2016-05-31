@@ -44,6 +44,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.EventLogsFetcher;
 @RestEntity(restName = "externalservice", resourceName = "externalservices")
 public class ExternalService extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum ServiceType { L2, L3 };
    public enum Direction { INGRESS };

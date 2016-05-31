@@ -41,6 +41,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "networklayout", resourceName = "networklayout")
 public class NetworkLayout extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum ServiceType { ROUTER_ONLY, ROUTER_SWITCH, SUBNET_ONLY };
    public enum EntityScope { ENTERPRISE, GLOBAL };

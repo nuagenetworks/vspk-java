@@ -50,6 +50,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.EventLogsFetcher;
 @RestEntity(restName = "vrs", resourceName = "vrss")
 public class VRS extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum JSONRPCConnectionState { ADMIN_DOWN, DOWN, UP };
    public enum Personality { HARDWARE_VTEP, NONE, NSG, VRS, VRSG };

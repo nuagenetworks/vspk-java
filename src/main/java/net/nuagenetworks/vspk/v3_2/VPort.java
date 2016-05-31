@@ -58,6 +58,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.EventLogsFetcher;
 @RestEntity(restName = "vport", resourceName = "vports")
 public class VPort extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum AddressSpoofing { DISABLED, ENABLED, INHERITED };
    public enum EntityScope { ENTERPRISE, GLOBAL };

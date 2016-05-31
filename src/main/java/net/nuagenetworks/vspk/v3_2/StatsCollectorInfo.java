@@ -41,6 +41,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "statisticscollector", resourceName = "statisticscollector")
 public class StatsCollectorInfo extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum AddressType { fqdn, ip };
    public enum EntityScope { ENTERPRISE, GLOBAL };

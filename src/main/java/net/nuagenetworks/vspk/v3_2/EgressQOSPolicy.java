@@ -41,6 +41,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "egressqospolicy", resourceName = "egressqospolicies")
 public class EgressQOSPolicy extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum Queue1ForwardingClasses { A, B, C, D, E, F, G, H, NONE };

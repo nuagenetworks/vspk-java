@@ -41,6 +41,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "externalappservice", resourceName = "externalappservices")
 public class ExternalAppService extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EgressType { REDIRECT, ROUTE };
    public enum IngressType { REDIRECT, ROUTE };

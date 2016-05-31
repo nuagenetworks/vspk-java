@@ -67,6 +67,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.EventLogsFetcher;
 @RestEntity(restName = "l2domain", resourceName = "l2domains")
 public class L2Domain extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum IPType { IPV4, IPV6 };
    public enum MaintenanceMode { DISABLED, ENABLED, ENABLED_INHERITED };

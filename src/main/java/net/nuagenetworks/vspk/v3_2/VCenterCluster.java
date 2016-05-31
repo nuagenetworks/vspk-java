@@ -43,6 +43,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.VRSAddressRangesFetcher;
 @RestEntity(restName = "vcentercluster", resourceName = "vcenterclusters")
 public class VCenterCluster extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
 

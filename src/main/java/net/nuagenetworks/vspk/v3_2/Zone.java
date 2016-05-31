@@ -52,6 +52,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.EventLogsFetcher;
 @RestEntity(restName = "zone", resourceName = "zones")
 public class Zone extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum IPType { IPV4, IPV6 };
    public enum MaintenanceMode { DISABLED, ENABLED, ENABLED_INHERITED };

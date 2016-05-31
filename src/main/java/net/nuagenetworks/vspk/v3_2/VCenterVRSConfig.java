@@ -42,6 +42,8 @@ import net.nuagenetworks.vspk.v3_2.fetchers.VRSAddressRangesFetcher;
 @RestEntity(restName = "vrsconfig", resourceName = "vrsconfigs")
 public class VCenterVRSConfig extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
 

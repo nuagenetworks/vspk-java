@@ -38,6 +38,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @RestEntity(restName = "diskstat", resourceName = "diskstats")
 public class DiskStat extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum Unit { Bytes, EB, GB, KB, MB, PB, TB, YB, ZB };
    public enum EntityScope { ENTERPRISE, GLOBAL };
