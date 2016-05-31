@@ -43,6 +43,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 @RestEntity(restName = "group", resourceName = "groups")
 public class Group extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum ManagementMode { CMS, DEFAULT };
    public enum EntityScope { ENTERPRISE, GLOBAL };

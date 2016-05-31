@@ -83,6 +83,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.ExternalServicesFetcher;
 @RestEntity(restName = "enterprise", resourceName = "enterprises")
 public class Enterprise extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum AllowedForwardingClasses { A, B, C, D, E, F, G, H, NONE };
    public enum EncryptionManagementMode { DISABLED, MANAGED };

@@ -42,6 +42,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.QOSsFetcher;
 @RestEntity(restName = "policydecision", resourceName = "policydecisions")
 public class PolicyDecision extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
 

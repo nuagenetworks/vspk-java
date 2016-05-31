@@ -41,6 +41,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "egressfloatingipaclentrytemplate", resourceName = "egressfloatingipaclentrytemplates")
 public class FloatingIPACLTemplateEntry extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum Action { DROP, FORWARD, REDIRECT };
    public enum NetworkType { ANY, ENDPOINT_DOMAIN, ENDPOINT_SUBNET, ENDPOINT_ZONE, ENTERPRISE_NETWORK, INTERNET_POLICYGROUP, NETWORK_MACRO_GROUP, POLICYGROUP, PUBLIC_NETWORK, SUBNET, ZONE };

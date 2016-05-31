@@ -42,6 +42,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 @RestEntity(restName = "endpoint", resourceName = "endpoints")
 public class EndPoint extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
 

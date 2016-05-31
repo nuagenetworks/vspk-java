@@ -41,6 +41,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "component", resourceName = "components")
 public class VSDComponent extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum Status { ADMIN_DOWN, DOWN, UP };

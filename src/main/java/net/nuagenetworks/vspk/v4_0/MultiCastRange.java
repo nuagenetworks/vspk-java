@@ -42,6 +42,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 @RestEntity(restName = "multicastrange", resourceName = "multicastranges")
 public class MultiCastRange extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
 

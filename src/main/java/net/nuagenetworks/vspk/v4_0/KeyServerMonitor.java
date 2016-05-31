@@ -44,6 +44,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "keyservermonitor", resourceName = "keyservermonitors")
 public class KeyServerMonitor extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
 

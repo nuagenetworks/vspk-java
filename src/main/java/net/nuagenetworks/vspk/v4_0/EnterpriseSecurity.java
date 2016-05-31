@@ -42,6 +42,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.EnterpriseSecuredDatasFetcher;
 @RestEntity(restName = "enterprisesecurity", resourceName = "enterprisesecurities")
 public class EnterpriseSecurity extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
 

@@ -41,6 +41,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "addressmap", resourceName = "addressmaps")
 public class AddressMap extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum Type { ONE_TO_MANY_PAT, ONE_TO_ONE_NAT };

@@ -42,6 +42,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 @RestEntity(restName = "addressrange", resourceName = "addressranges")
 public class AddressRange extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum DHCPPoolType { BRIDGE, HOST };
    public enum EntityScope { ENTERPRISE, GLOBAL };

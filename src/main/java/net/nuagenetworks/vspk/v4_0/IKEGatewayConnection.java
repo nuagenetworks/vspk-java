@@ -42,6 +42,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.SubnetsFetcher;
 @RestEntity(restName = "ikegatewayconnection", resourceName = "ikegatewayconnections")
 public class IKEGatewayConnection extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum NSGIdentifierType { ID_DER_ASN1_DN, ID_FQDN, ID_IPV4_ADDR, ID_KEY_ID, ID_RFC822_ADDR };
    public enum NSGRole { INITIATOR, RESPONDER };

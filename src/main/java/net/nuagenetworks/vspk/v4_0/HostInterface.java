@@ -51,6 +51,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 @RestEntity(restName = "hostinterface", resourceName = "hostinterfaces")
 public class HostInterface extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum AttachedNetworkType { L2DOMAIN, SUBNET };

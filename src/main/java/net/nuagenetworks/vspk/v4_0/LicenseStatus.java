@@ -38,6 +38,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @RestEntity(restName = "licensestatus", resourceName = "licensestatus")
 public class LicenseStatus extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
 
    

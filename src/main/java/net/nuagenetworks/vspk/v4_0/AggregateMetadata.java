@@ -38,6 +38,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @RestEntity(restName = "aggregatemetadata", resourceName = "aggregatemetadatas")
 public class AggregateMetadata extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
 

@@ -42,6 +42,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 @RestEntity(restName = "applicationservice", resourceName = "applicationservices")
 public class ApplicationService extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum Direction { REFLEXIVE, UNIDIRECTIONAL };
    public enum EntityScope { ENTERPRISE, GLOBAL };

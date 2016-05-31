@@ -41,6 +41,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "infraconfig", resourceName = "infraconfig")
 public class InfrastructureConfig extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum ConfigStatus { FAILURE, SUCCESS, UNKNOWN };

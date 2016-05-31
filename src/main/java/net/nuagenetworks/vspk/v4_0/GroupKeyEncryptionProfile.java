@@ -41,6 +41,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "groupkeyencryptionprofile", resourceName = "groupkeyencryptionprofiles")
 public class GroupKeyEncryptionProfile extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum SEKPayloadEncryptionAlgorithm { RSA_1024 };
    public enum SEKPayloadSigningAlgorithm { SHA1withRSA, SHA224withRSA, SHA256withRSA, SHA384withRSA, SHA512withRSA };

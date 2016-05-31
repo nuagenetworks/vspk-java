@@ -54,6 +54,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 @RestEntity(restName = "nsgateway", resourceName = "nsgateways")
 public class NSGateway extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum TPMStatus { DISABLED, ENABLED_NOT_OPERATIONAL, ENABLED_OPERATIONAL, UNKNOWN };
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };

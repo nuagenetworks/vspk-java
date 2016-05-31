@@ -41,6 +41,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "routingpolicy", resourceName = "routingpolicies")
 public class RoutingPolicy extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum DefaultAction { ACCEPT, REJECT };
    public enum EntityScope { ENTERPRISE, GLOBAL };

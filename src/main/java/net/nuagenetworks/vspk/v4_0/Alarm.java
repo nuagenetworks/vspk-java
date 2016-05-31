@@ -41,6 +41,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "alarm", resourceName = "alarms")
 public class Alarm extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum Severity { CRITICAL, INFO, MAJOR, MINOR, WARNING };
    public enum EntityScope { ENTERPRISE, GLOBAL };

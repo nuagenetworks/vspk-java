@@ -42,6 +42,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "egressfloatingipacltemplate", resourceName = "egressfloatingipacltemplates")
 public class FloatingIPACLTemplate extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum PolicyState { DRAFT, LIVE };

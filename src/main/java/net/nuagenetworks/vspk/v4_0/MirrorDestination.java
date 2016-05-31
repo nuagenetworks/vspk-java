@@ -45,6 +45,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.VPortMirrorsFetcher;
 @RestEntity(restName = "mirrordestination", resourceName = "mirrordestinations")
 public class MirrorDestination extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
 

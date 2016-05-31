@@ -42,6 +42,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "ikegateway", resourceName = "ikegateways")
 public class IKEGateway extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum IKEVersion { V1, V2 };
    public enum EntityScope { ENTERPRISE, GLOBAL };

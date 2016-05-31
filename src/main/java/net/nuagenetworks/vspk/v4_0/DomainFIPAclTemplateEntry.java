@@ -41,6 +41,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "egressdomainfloatingipaclentrytemplate", resourceName = "egressdomainfloatingipaclentrytemplates")
 public class DomainFIPAclTemplateEntry extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum Action { DROP, FORWARD, REDIRECT };
    public enum DestinationType { NETWORK, NETWORKPOLICYGROUP, POLICYGROUP };

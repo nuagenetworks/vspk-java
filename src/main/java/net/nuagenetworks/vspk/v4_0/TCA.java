@@ -43,6 +43,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 @RestEntity(restName = "tca", resourceName = "tcas")
 public class TCA extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum Scope { GLOBAL, LOCAL };
    public enum Metric { BYTES_IN, BYTES_OUT, EGRESS_BYTE_COUNT, EGRESS_PACKET_COUNT, INGRESS_BYTE_COUNT, INGRESS_PACKET_COUNT, PACKETS_DROPPED_BY_RATE_LIMIT, PACKETS_IN, PACKETS_IN_DROPPED, PACKETS_IN_ERROR, PACKETS_OUT, PACKETS_OUT_DROPPED, PACKETS_OUT_ERROR };

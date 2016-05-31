@@ -38,6 +38,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @RestEntity(restName = "autodiscoveredhypervisor", resourceName = "autodiscoveredhypervisors")
 public class AutoDiscoverHypervisorFromCluster extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
 
    

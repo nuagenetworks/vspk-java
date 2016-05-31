@@ -42,6 +42,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.MultiCastChannelMapsFetcher;
 @RestEntity(restName = "multicastlist", resourceName = "multicastlists")
 public class MultiCastList extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum McastType { RECEIVE, SEND };
    public enum EntityScope { ENTERPRISE, GLOBAL };

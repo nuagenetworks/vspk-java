@@ -38,6 +38,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @RestEntity(restName = "autodiscoveredcluster", resourceName = "autodiscoveredclusters")
 public class AutoDiscoverCluster extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
 
    

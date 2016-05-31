@@ -45,6 +45,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 @RestEntity(restName = "ingressacltemplate", resourceName = "ingressacltemplates")
 public class IngressACLTemplate extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum PolicyState { DRAFT, LIVE };

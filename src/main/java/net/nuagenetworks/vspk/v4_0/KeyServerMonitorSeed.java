@@ -42,6 +42,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "keyservermonitorseed", resourceName = "keyservermonitorseeds")
 public class KeyServerMonitorSeed extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum SeedTrafficAuthenticationAlgorithm { HMAC_MD5, HMAC_SHA1, HMAC_SHA256, HMAC_SHA384, HMAC_SHA512 };
    public enum SeedTrafficEncryptionAlgorithm { AES_128_CBC, AES_192_CBC, AES_256_CBC, TRIPLE_DES_CBC };

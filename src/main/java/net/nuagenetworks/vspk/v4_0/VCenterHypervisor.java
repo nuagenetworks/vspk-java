@@ -43,6 +43,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.VRSAddressRangesFetcher;
 @RestEntity(restName = "vcenterhypervisor", resourceName = "vcenterhypervisors")
 public class VCenterHypervisor extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
 

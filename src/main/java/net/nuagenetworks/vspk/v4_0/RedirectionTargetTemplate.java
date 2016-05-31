@@ -43,6 +43,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 @RestEntity(restName = "redirectiontargettemplate", resourceName = "redirectiontargettemplates")
 public class RedirectionTargetTemplate extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EndPointType { L3, NONE, VIRTUAL_WIRE };
    public enum EntityScope { ENTERPRISE, GLOBAL };

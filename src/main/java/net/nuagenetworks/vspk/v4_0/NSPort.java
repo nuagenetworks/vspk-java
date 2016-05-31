@@ -49,6 +49,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 @RestEntity(restName = "nsport", resourceName = "nsports")
 public class NSPort extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum NATTraversal { FULL_NAT, NONE, ONE_TO_ONE_NAT };
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };

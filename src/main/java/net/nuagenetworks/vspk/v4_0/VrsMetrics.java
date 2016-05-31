@@ -38,6 +38,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @RestEntity(restName = "vrsmetrics", resourceName = "vrsmetrics")
 public class VrsMetrics extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
 
    

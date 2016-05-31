@@ -41,6 +41,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "ikeencryptionprofile", resourceName = "ikeencryptionprofiles")
 public class IKEEncryptionprofile extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum DPDMode { ON_DEMAND, PERIODIC, REPLY_ONLY };
    public enum IPSecAuthenticationAlgorithm { HMAC_SHA1, HMAC_SHA256, HMAC_SHA512 };

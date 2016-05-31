@@ -43,6 +43,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
 @RestEntity(restName = "ingressadvfwdtemplate", resourceName = "ingressadvfwdtemplates")
 public class IngressAdvFwdTemplate extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum PolicyState { DRAFT, LIVE };

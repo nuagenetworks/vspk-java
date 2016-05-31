@@ -41,6 +41,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "infrastructuregatewayprofile", resourceName = "infrastructuregatewayprofiles")
 public class InfrastructureGatewayProfile extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum RemoteLogMode { DISABLED, RSYSLOG, SCP, SFTP };
    public enum EntityScope { ENTERPRISE, GLOBAL };

@@ -42,6 +42,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 @RestEntity(restName = "permission", resourceName = "permissions")
 public class Permission extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    public enum EntityScope { ENTERPRISE, GLOBAL };

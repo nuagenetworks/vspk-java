@@ -41,6 +41,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "ikegatewayprofile", resourceName = "ikegatewayprofiles")
 public class IKEGatewayProfile extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum IKEGatewayIdentifierType { ID_DER_ASN1_DN, ID_FQDN, ID_IPV4_ADDR, ID_KEY_ID, ID_RFC822_ADDR };
    public enum ServiceClass { A, B, C, D, E, F, G, H, NONE };

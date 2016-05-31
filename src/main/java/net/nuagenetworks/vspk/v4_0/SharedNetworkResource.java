@@ -46,6 +46,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.StaticRoutesFetcher;
 @RestEntity(restName = "sharednetworkresource", resourceName = "sharednetworkresources")
 public class SharedNetworkResource extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum PermittedActionType { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    public enum EntityScope { ENTERPRISE, GLOBAL };

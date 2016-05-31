@@ -45,6 +45,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.EnterprisePermissionsFetcher;
 @RestEntity(restName = "vsgredundantport", resourceName = "vsgredundantports")
 public class VsgRedundantPort extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    public enum EntityScope { ENTERPRISE, GLOBAL };

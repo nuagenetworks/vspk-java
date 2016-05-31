@@ -43,6 +43,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.StatisticsFetcher;
 @RestEntity(restName = "egressaclentrytemplate", resourceName = "egressaclentrytemplates")
 public class EgressACLEntryTemplate extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum Action { DROP, FORWARD };
    public enum NetworkType { ANY, ENDPOINT_DOMAIN, ENDPOINT_SUBNET, ENDPOINT_ZONE, ENTERPRISE_NETWORK, INTERNET_POLICYGROUP, NETWORK_MACRO_GROUP, POLICYGROUP, PUBLIC_NETWORK, SUBNET, ZONE };

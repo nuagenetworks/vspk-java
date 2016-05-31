@@ -42,6 +42,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.VPortsFetcher;
 @RestEntity(restName = "multinicvport", resourceName = "multinicvports")
 public class MultiNICVPort extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
 

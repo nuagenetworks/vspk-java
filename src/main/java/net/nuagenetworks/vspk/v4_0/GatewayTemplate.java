@@ -42,6 +42,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.PortTemplatesFetcher;
 @RestEntity(restName = "gatewaytemplate", resourceName = "gatewaytemplates")
 public class GatewayTemplate extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum Personality { DC7X50, HARDWARE_VTEP, NSG, OTHER, VRSG, VSA, VSG };
    public enum EntityScope { ENTERPRISE, GLOBAL };

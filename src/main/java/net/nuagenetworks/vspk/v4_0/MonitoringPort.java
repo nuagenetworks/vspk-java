@@ -41,6 +41,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "monitoringport", resourceName = "monitoringports")
 public class MonitoringPort extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum ResiliencyState { backup, master, none };
    public enum EntityScope { ENTERPRISE, GLOBAL };

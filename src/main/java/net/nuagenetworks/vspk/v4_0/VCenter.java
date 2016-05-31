@@ -45,6 +45,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.AutodiscovereddatacentersFetcher;
 @RestEntity(restName = "vcenter", resourceName = "vcenters")
 public class VCenter extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
 

@@ -41,6 +41,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "keyservernotification", resourceName = "keyservernotifications")
 public class KeyServerNotification extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum NotificationType { CONFIG_UPDATE, ENCRYPTION_DISABLED, ENCRYPTION_ENABLED, REKEY, TEST };

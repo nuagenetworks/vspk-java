@@ -42,6 +42,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.EnterpriseNetworksFetcher;
 @RestEntity(restName = "networkmacrogroup", resourceName = "networkmacrogroups")
 public class NetworkMacroGroup extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
 

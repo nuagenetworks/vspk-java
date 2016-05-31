@@ -44,6 +44,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 @RestEntity(restName = "user", resourceName = "users")
 public class User extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum ManagementMode { CMS, DEFAULT };
    public enum EntityScope { ENTERPRISE, GLOBAL };

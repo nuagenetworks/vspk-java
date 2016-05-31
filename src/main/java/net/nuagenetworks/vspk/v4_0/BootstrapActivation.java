@@ -41,6 +41,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 @RestEntity(restName = "bootstrapactivation", resourceName = "bootstrapactivations")
 public class BootstrapActivation extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum Action { AUTHENTICATE, BOOTSTRAP_COMPLETE, CERTIFICATE_RENEW, CERTIFICATE_REVOKE, CERTIFICATE_SIGNED, CONFIRM, INITIATE, INITIATE_RENEW, NEW_NCPE_AUTH_REQUIRED, NO_AUTH_REQUIRED, ROLLBACK, ROLLED_BACK, UNSPECIFIED };
    public enum EntityScope { ENTERPRISE, GLOBAL };

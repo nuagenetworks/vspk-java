@@ -42,6 +42,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 @RestEntity(restName = "flowsecuritypolicy", resourceName = "flowsecuritypolicies")
 public class FlowSecurityPolicy extends RestObject {
 
+   private static final long serialVersionUID = 1L;
+
    
    public enum Action { DROP, FORWARD, REDIRECT };
    public enum EntityScope { ENTERPRISE, GLOBAL };
