@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
@@ -113,108 +114,138 @@ public class EgressQOSPolicy extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getParentQueueAssociatedRateLimiterID() {
       return parentQueueAssociatedRateLimiterID;
    }
 
+   @JsonIgnore
    public void setParentQueueAssociatedRateLimiterID(String value) { 
       this.parentQueueAssociatedRateLimiterID = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getAssocEgressQosId() {
       return assocEgressQosId;
    }
 
+   @JsonIgnore
    public void setAssocEgressQosId(String value) { 
       this.assocEgressQosId = value;
    }
+   @JsonIgnore
    public String getQueue1AssociatedRateLimiterID() {
       return queue1AssociatedRateLimiterID;
    }
 
+   @JsonIgnore
    public void setQueue1AssociatedRateLimiterID(String value) { 
       this.queue1AssociatedRateLimiterID = value;
    }
+   @JsonIgnore
    public java.util.List<Queue1ForwardingClasses> getQueue1ForwardingClasses() {
       return queue1ForwardingClasses;
    }
 
+   @JsonIgnore
    public void setQueue1ForwardingClasses(java.util.List<Queue1ForwardingClasses> value) { 
       this.queue1ForwardingClasses = value;
    }
+   @JsonIgnore
    public String getQueue2AssociatedRateLimiterID() {
       return queue2AssociatedRateLimiterID;
    }
 
+   @JsonIgnore
    public void setQueue2AssociatedRateLimiterID(String value) { 
       this.queue2AssociatedRateLimiterID = value;
    }
+   @JsonIgnore
    public java.util.List<Queue2ForwardingClasses> getQueue2ForwardingClasses() {
       return queue2ForwardingClasses;
    }
 
+   @JsonIgnore
    public void setQueue2ForwardingClasses(java.util.List<Queue2ForwardingClasses> value) { 
       this.queue2ForwardingClasses = value;
    }
+   @JsonIgnore
    public String getQueue3AssociatedRateLimiterID() {
       return queue3AssociatedRateLimiterID;
    }
 
+   @JsonIgnore
    public void setQueue3AssociatedRateLimiterID(String value) { 
       this.queue3AssociatedRateLimiterID = value;
    }
+   @JsonIgnore
    public java.util.List<Queue3ForwardingClasses> getQueue3ForwardingClasses() {
       return queue3ForwardingClasses;
    }
 
+   @JsonIgnore
    public void setQueue3ForwardingClasses(java.util.List<Queue3ForwardingClasses> value) { 
       this.queue3ForwardingClasses = value;
    }
+   @JsonIgnore
    public String getQueue4AssociatedRateLimiterID() {
       return queue4AssociatedRateLimiterID;
    }
 
+   @JsonIgnore
    public void setQueue4AssociatedRateLimiterID(String value) { 
       this.queue4AssociatedRateLimiterID = value;
    }
+   @JsonIgnore
    public java.util.List<Queue4ForwardingClasses> getQueue4ForwardingClasses() {
       return queue4ForwardingClasses;
    }
 
+   @JsonIgnore
    public void setQueue4ForwardingClasses(java.util.List<Queue4ForwardingClasses> value) { 
       this.queue4ForwardingClasses = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

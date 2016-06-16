@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
@@ -78,38 +79,48 @@ public class Statistics extends RestObject {
       
    }
 
+   @JsonIgnore
    public Long getVersion() {
       return version;
    }
 
+   @JsonIgnore
    public void setVersion(Long value) { 
       this.version = value;
    }
+   @JsonIgnore
    public Long getEndTime() {
       return endTime;
    }
 
+   @JsonIgnore
    public void setEndTime(Long value) { 
       this.endTime = value;
    }
+   @JsonIgnore
    public Long getStartTime() {
       return startTime;
    }
 
+   @JsonIgnore
    public void setStartTime(Long value) { 
       this.startTime = value;
    }
+   @JsonIgnore
    public java.util.Map<String, Long[]> getStatsData() {
       return statsData;
    }
 
+   @JsonIgnore
    public void setStatsData(java.util.Map<String, Long[]> value) { 
       this.statsData = value;
    }
+   @JsonIgnore
    public Long getNumberOfDataPoints() {
       return numberOfDataPoints;
    }
 
+   @JsonIgnore
    public void setNumberOfDataPoints(Long value) { 
       this.numberOfDataPoints = value;
    }

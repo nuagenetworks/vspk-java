@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
@@ -165,220 +166,282 @@ public class License extends RestObject {
       
    }
 
+   @JsonIgnore
    public Long getMajorRelease() {
       return majorRelease;
    }
 
+   @JsonIgnore
    public void setMajorRelease(Long value) { 
       this.majorRelease = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getPhone() {
       return phone;
    }
 
+   @JsonIgnore
    public void setPhone(String value) { 
       this.phone = value;
    }
+   @JsonIgnore
    public String getLicense() {
       return license;
    }
 
+   @JsonIgnore
    public void setLicense(String value) { 
       this.license = value;
    }
+   @JsonIgnore
    public LicenseEncryption getLicenseEncryption() {
       return licenseEncryption;
    }
 
+   @JsonIgnore
    public void setLicenseEncryption(LicenseEncryption value) { 
       this.licenseEncryption = value;
    }
+   @JsonIgnore
    public String getLicenseEntities() {
       return licenseEntities;
    }
 
+   @JsonIgnore
    public void setLicenseEntities(String value) { 
       this.licenseEntities = value;
    }
+   @JsonIgnore
    public Long getLicenseID() {
       return licenseID;
    }
 
+   @JsonIgnore
    public void setLicenseID(Long value) { 
       this.licenseID = value;
    }
+   @JsonIgnore
    public LicenseType getLicenseType() {
       return licenseType;
    }
 
+   @JsonIgnore
    public void setLicenseType(LicenseType value) { 
       this.licenseType = value;
    }
+   @JsonIgnore
    public Long getMinorRelease() {
       return minorRelease;
    }
 
+   @JsonIgnore
    public void setMinorRelease(Long value) { 
       this.minorRelease = value;
    }
+   @JsonIgnore
    public String getZip() {
       return zip;
    }
 
+   @JsonIgnore
    public void setZip(String value) { 
       this.zip = value;
    }
+   @JsonIgnore
    public String getCity() {
       return city;
    }
 
+   @JsonIgnore
    public void setCity(String value) { 
       this.city = value;
    }
+   @JsonIgnore
    public Long getAllowedCPEsCount() {
       return allowedCPEsCount;
    }
 
+   @JsonIgnore
    public void setAllowedCPEsCount(Long value) { 
       this.allowedCPEsCount = value;
    }
+   @JsonIgnore
    public Long getAllowedNICsCount() {
       return allowedNICsCount;
    }
 
+   @JsonIgnore
    public void setAllowedNICsCount(Long value) { 
       this.allowedNICsCount = value;
    }
+   @JsonIgnore
    public Long getAllowedVMsCount() {
       return allowedVMsCount;
    }
 
+   @JsonIgnore
    public void setAllowedVMsCount(Long value) { 
       this.allowedVMsCount = value;
    }
+   @JsonIgnore
    public Long getAllowedVRSGsCount() {
       return allowedVRSGsCount;
    }
 
+   @JsonIgnore
    public void setAllowedVRSGsCount(Long value) { 
       this.allowedVRSGsCount = value;
    }
+   @JsonIgnore
    public Long getAllowedVRSsCount() {
       return allowedVRSsCount;
    }
 
+   @JsonIgnore
    public void setAllowedVRSsCount(Long value) { 
       this.allowedVRSsCount = value;
    }
+   @JsonIgnore
    public String getEmail() {
       return email;
    }
 
+   @JsonIgnore
    public void setEmail(String value) { 
       this.email = value;
    }
+   @JsonIgnore
    public Boolean getEncryptionMode() {
       return encryptionMode;
    }
 
+   @JsonIgnore
    public void setEncryptionMode(Boolean value) { 
       this.encryptionMode = value;
    }
+   @JsonIgnore
    public String getUniqueLicenseIdentifier() {
       return uniqueLicenseIdentifier;
    }
 
+   @JsonIgnore
    public void setUniqueLicenseIdentifier(String value) { 
       this.uniqueLicenseIdentifier = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getCompany() {
       return company;
    }
 
+   @JsonIgnore
    public void setCompany(String value) { 
       this.company = value;
    }
+   @JsonIgnore
    public String getCountry() {
       return country;
    }
 
+   @JsonIgnore
    public void setCountry(String value) { 
       this.country = value;
    }
+   @JsonIgnore
    public String getProductVersion() {
       return productVersion;
    }
 
+   @JsonIgnore
    public void setProductVersion(String value) { 
       this.productVersion = value;
    }
+   @JsonIgnore
    public String getProvider() {
       return provider;
    }
 
+   @JsonIgnore
    public void setProvider(String value) { 
       this.provider = value;
    }
+   @JsonIgnore
    public Boolean getIsClusterLicense() {
       return isClusterLicense;
    }
 
+   @JsonIgnore
    public void setIsClusterLicense(Boolean value) { 
       this.isClusterLicense = value;
    }
+   @JsonIgnore
    public String getUserName() {
       return userName;
    }
 
+   @JsonIgnore
    public void setUserName(String value) { 
       this.userName = value;
    }
+   @JsonIgnore
    public String getState() {
       return state;
    }
 
+   @JsonIgnore
    public void setState(String value) { 
       this.state = value;
    }
+   @JsonIgnore
    public String getStreet() {
       return street;
    }
 
+   @JsonIgnore
    public void setStreet(String value) { 
       this.street = value;
    }
+   @JsonIgnore
    public String getCustomerKey() {
       return customerKey;
    }
 
+   @JsonIgnore
    public void setCustomerKey(String value) { 
       this.customerKey = value;
    }
+   @JsonIgnore
    public Float getExpirationDate() {
       return expirationDate;
    }
 
+   @JsonIgnore
    public void setExpirationDate(Float value) { 
       this.expirationDate = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

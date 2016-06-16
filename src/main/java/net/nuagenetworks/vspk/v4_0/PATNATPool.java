@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.NATMapEntriesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.AddressMapsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
@@ -132,115 +133,147 @@ public class PATNATPool extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getAddressRange() {
       return addressRange;
    }
 
+   @JsonIgnore
    public void setAddressRange(String value) { 
       this.addressRange = value;
    }
+   @JsonIgnore
    public String getDefaultPATIP() {
       return defaultPATIP;
    }
 
+   @JsonIgnore
    public void setDefaultPATIP(String value) { 
       this.defaultPATIP = value;
    }
+   @JsonIgnore
    public PermittedAction getPermittedAction() {
       return permittedAction;
    }
 
+   @JsonIgnore
    public void setPermittedAction(PermittedAction value) { 
       this.permittedAction = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public String getEndAddressRange() {
       return endAddressRange;
    }
 
+   @JsonIgnore
    public void setEndAddressRange(String value) { 
       this.endAddressRange = value;
    }
+   @JsonIgnore
    public String getEndSourceAddress() {
       return endSourceAddress;
    }
 
+   @JsonIgnore
    public void setEndSourceAddress(String value) { 
       this.endSourceAddress = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public Long getTranslationTimeout() {
       return translationTimeout;
    }
 
+   @JsonIgnore
    public void setTranslationTimeout(Long value) { 
       this.translationTimeout = value;
    }
+   @JsonIgnore
    public AssociatedGatewayId getAssociatedGatewayId() {
       return associatedGatewayId;
    }
 
+   @JsonIgnore
    public void setAssociatedGatewayId(AssociatedGatewayId value) { 
       this.associatedGatewayId = value;
    }
+   @JsonIgnore
    public String getAssociatedGatewayType() {
       return associatedGatewayType;
    }
 
+   @JsonIgnore
    public void setAssociatedGatewayType(String value) { 
       this.associatedGatewayType = value;
    }
+   @JsonIgnore
    public String getStartAddressRange() {
       return startAddressRange;
    }
 
+   @JsonIgnore
    public void setStartAddressRange(String value) { 
       this.startAddressRange = value;
    }
+   @JsonIgnore
    public String getStartSourceAddress() {
       return startSourceAddress;
    }
 
+   @JsonIgnore
    public void setStartSourceAddress(String value) { 
       this.startSourceAddress = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
    public Boolean getDynamicSourceEnabled() {
       return dynamicSourceEnabled;
    }
 
+   @JsonIgnore
    public void setDynamicSourceEnabled(Boolean value) { 
       this.dynamicSourceEnabled = value;
    }

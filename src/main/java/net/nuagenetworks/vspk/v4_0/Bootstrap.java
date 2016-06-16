@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
@@ -81,38 +82,48 @@ public class Bootstrap extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getInstallerID() {
       return installerID;
    }
 
+   @JsonIgnore
    public void setInstallerID(String value) { 
       this.installerID = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public Status getStatus() {
       return status;
    }
 
+   @JsonIgnore
    public void setStatus(Status value) { 
       this.status = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

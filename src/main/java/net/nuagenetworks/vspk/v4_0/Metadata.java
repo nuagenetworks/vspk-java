@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadataTagsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 
@@ -88,59 +89,75 @@ public class Metadata extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public java.util.List<String> getMetadataTagIDs() {
       return metadataTagIDs;
    }
 
+   @JsonIgnore
    public void setMetadataTagIDs(java.util.List<String> value) { 
       this.metadataTagIDs = value;
    }
+   @JsonIgnore
    public Boolean getNetworkNotificationDisabled() {
       return networkNotificationDisabled;
    }
 
+   @JsonIgnore
    public void setNetworkNotificationDisabled(Boolean value) { 
       this.networkNotificationDisabled = value;
    }
+   @JsonIgnore
    public String getBlob() {
       return blob;
    }
 
+   @JsonIgnore
    public void setBlob(String value) { 
       this.blob = value;
    }
+   @JsonIgnore
    public Boolean getGlobalMetadata() {
       return globalMetadata;
    }
 
+   @JsonIgnore
    public void setGlobalMetadata(Boolean value) { 
       this.globalMetadata = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

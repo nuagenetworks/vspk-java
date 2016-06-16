@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.UsersFetcher;
@@ -108,73 +109,93 @@ public class Group extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public ManagementMode getManagementMode() {
       return managementMode;
    }
 
+   @JsonIgnore
    public void setManagementMode(ManagementMode value) { 
       this.managementMode = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public Boolean getAccountRestrictions() {
       return accountRestrictions;
    }
 
+   @JsonIgnore
    public void setAccountRestrictions(Boolean value) { 
       this.accountRestrictions = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public Float getRestrictionDate() {
       return restrictionDate;
    }
 
+   @JsonIgnore
    public void setRestrictionDate(Float value) { 
       this.restrictionDate = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public Role getRole() {
       return role;
    }
 
+   @JsonIgnore
    public void setRole(Role value) { 
       this.role = value;
    }
+   @JsonIgnore
    public Boolean getPrivate_() {
       return private_;
    }
 
+   @JsonIgnore
    public void setPrivate_(Boolean value) { 
       this.private_ = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

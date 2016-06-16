@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EnterpriseSecuredDatasFetcher;
@@ -88,45 +89,57 @@ public class EnterpriseSecurity extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public Long getGatewaySecurityRevision() {
       return gatewaySecurityRevision;
    }
 
+   @JsonIgnore
    public void setGatewaySecurityRevision(Long value) { 
       this.gatewaySecurityRevision = value;
    }
+   @JsonIgnore
    public Long getRevision() {
       return revision;
    }
 
+   @JsonIgnore
    public void setRevision(Long value) { 
       this.revision = value;
    }
+   @JsonIgnore
    public String getEnterpriseID() {
       return enterpriseID;
    }
 
+   @JsonIgnore
    public void setEnterpriseID(String value) { 
       this.enterpriseID = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

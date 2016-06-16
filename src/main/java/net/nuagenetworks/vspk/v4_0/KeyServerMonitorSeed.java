@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.KeyServerMonitorEncryptedSeedsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
@@ -99,66 +100,84 @@ public class KeyServerMonitorSeed extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public SeedTrafficAuthenticationAlgorithm getSeedTrafficAuthenticationAlgorithm() {
       return seedTrafficAuthenticationAlgorithm;
    }
 
+   @JsonIgnore
    public void setSeedTrafficAuthenticationAlgorithm(SeedTrafficAuthenticationAlgorithm value) { 
       this.seedTrafficAuthenticationAlgorithm = value;
    }
+   @JsonIgnore
    public SeedTrafficEncryptionAlgorithm getSeedTrafficEncryptionAlgorithm() {
       return seedTrafficEncryptionAlgorithm;
    }
 
+   @JsonIgnore
    public void setSeedTrafficEncryptionAlgorithm(SeedTrafficEncryptionAlgorithm value) { 
       this.seedTrafficEncryptionAlgorithm = value;
    }
+   @JsonIgnore
    public Long getSeedTrafficEncryptionKeyLifetime() {
       return seedTrafficEncryptionKeyLifetime;
    }
 
+   @JsonIgnore
    public void setSeedTrafficEncryptionKeyLifetime(Long value) { 
       this.seedTrafficEncryptionKeyLifetime = value;
    }
+   @JsonIgnore
    public Long getLifetime() {
       return lifetime;
    }
 
+   @JsonIgnore
    public void setLifetime(Long value) { 
       this.lifetime = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public Long getCreationTime() {
       return creationTime;
    }
 
+   @JsonIgnore
    public void setCreationTime(Long value) { 
       this.creationTime = value;
    }
+   @JsonIgnore
    public Long getStartTime() {
       return startTime;
    }
 
+   @JsonIgnore
    public void setStartTime(Long value) { 
       this.startTime = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

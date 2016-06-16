@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VPortsFetcher;
@@ -100,59 +101,75 @@ public class FloatingIp extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public Boolean getAccessControl() {
       return accessControl;
    }
 
+   @JsonIgnore
    public void setAccessControl(Boolean value) { 
       this.accessControl = value;
    }
+   @JsonIgnore
    public String getAddress() {
       return address;
    }
 
+   @JsonIgnore
    public void setAddress(String value) { 
       this.address = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public Boolean getAssigned() {
       return assigned;
    }
 
+   @JsonIgnore
    public void setAssigned(Boolean value) { 
       this.assigned = value;
    }
+   @JsonIgnore
    public String getAssignedToObjectType() {
       return assignedToObjectType;
    }
 
+   @JsonIgnore
    public void setAssignedToObjectType(String value) { 
       this.assignedToObjectType = value;
    }
+   @JsonIgnore
    public String getAssociatedSharedNetworkResourceID() {
       return associatedSharedNetworkResourceID;
    }
 
+   @JsonIgnore
    public void setAssociatedSharedNetworkResourceID(String value) { 
       this.associatedSharedNetworkResourceID = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

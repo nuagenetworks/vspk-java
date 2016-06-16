@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
@@ -123,94 +124,120 @@ public class User extends RestObject {
       
    }
 
+   @JsonIgnore
    public ManagementMode getManagementMode() {
       return managementMode;
    }
 
+   @JsonIgnore
    public void setManagementMode(ManagementMode value) { 
       this.managementMode = value;
    }
+   @JsonIgnore
    public String getPassword() {
       return password;
    }
 
+   @JsonIgnore
    public void setPassword(String value) { 
       this.password = value;
    }
+   @JsonIgnore
    public String getLastName() {
       return lastName;
    }
 
+   @JsonIgnore
    public void setLastName(String value) { 
       this.lastName = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getFirstName() {
       return firstName;
    }
 
+   @JsonIgnore
    public void setFirstName(String value) { 
       this.firstName = value;
    }
+   @JsonIgnore
    public Boolean getDisabled() {
       return disabled;
    }
 
+   @JsonIgnore
    public void setDisabled(Boolean value) { 
       this.disabled = value;
    }
+   @JsonIgnore
    public String getEmail() {
       return email;
    }
 
+   @JsonIgnore
    public void setEmail(String value) { 
       this.email = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getMobileNumber() {
       return mobileNumber;
    }
 
+   @JsonIgnore
    public void setMobileNumber(String value) { 
       this.mobileNumber = value;
    }
+   @JsonIgnore
    public String getUserName() {
       return userName;
    }
 
+   @JsonIgnore
    public void setUserName(String value) { 
       this.userName = value;
    }
+   @JsonIgnore
    public String getAvatarData() {
       return avatarData;
    }
 
+   @JsonIgnore
    public void setAvatarData(String value) { 
       this.avatarData = value;
    }
+   @JsonIgnore
    public AvatarType getAvatarType() {
       return avatarType;
    }
 
+   @JsonIgnore
    public void setAvatarType(AvatarType value) { 
       this.avatarType = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

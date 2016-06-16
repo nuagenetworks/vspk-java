@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.VMResyncsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.AlarmsFetcher;
@@ -166,164 +167,210 @@ public class VM extends RestObject {
       
    }
 
+   @JsonIgnore
    public java.util.List<String> getL2DomainIDs() {
       return l2DomainIDs;
    }
 
+   @JsonIgnore
    public void setL2DomainIDs(java.util.List<String> value) { 
       this.l2DomainIDs = value;
    }
+   @JsonIgnore
    public String getVRSID() {
       return VRSID;
    }
 
+   @JsonIgnore
    public void setVRSID(String value) { 
       this.VRSID = value;
    }
+   @JsonIgnore
    public String getUUID() {
       return UUID;
    }
 
+   @JsonIgnore
    public void setUUID(String value) { 
       this.UUID = value;
    }
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public ReasonType getReasonType() {
       return reasonType;
    }
 
+   @JsonIgnore
    public void setReasonType(ReasonType value) { 
       this.reasonType = value;
    }
+   @JsonIgnore
    public Long getDeleteExpiry() {
       return deleteExpiry;
    }
 
+   @JsonIgnore
    public void setDeleteExpiry(Long value) { 
       this.deleteExpiry = value;
    }
+   @JsonIgnore
    public DeleteMode getDeleteMode() {
       return deleteMode;
    }
 
+   @JsonIgnore
    public void setDeleteMode(DeleteMode value) { 
       this.deleteMode = value;
    }
+   @JsonIgnore
    public VMResync getResyncInfo() {
       return resyncInfo;
    }
 
+   @JsonIgnore
    public void setResyncInfo(VMResync value) { 
       this.resyncInfo = value;
    }
+   @JsonIgnore
    public String getSiteIdentifier() {
       return siteIdentifier;
    }
 
+   @JsonIgnore
    public void setSiteIdentifier(String value) { 
       this.siteIdentifier = value;
    }
+   @JsonIgnore
    public java.util.List<VMInterface> getInterfaces() {
       return interfaces;
    }
 
+   @JsonIgnore
    public void setInterfaces(java.util.List<VMInterface> value) { 
       this.interfaces = value;
    }
+   @JsonIgnore
    public String getEnterpriseID() {
       return enterpriseID;
    }
 
+   @JsonIgnore
    public void setEnterpriseID(String value) { 
       this.enterpriseID = value;
    }
+   @JsonIgnore
    public String getEnterpriseName() {
       return enterpriseName;
    }
 
+   @JsonIgnore
    public void setEnterpriseName(String value) { 
       this.enterpriseName = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public java.util.List<String> getDomainIDs() {
       return domainIDs;
    }
 
+   @JsonIgnore
    public void setDomainIDs(java.util.List<String> value) { 
       this.domainIDs = value;
    }
+   @JsonIgnore
    public java.util.List<String> getZoneIDs() {
       return zoneIDs;
    }
 
+   @JsonIgnore
    public void setZoneIDs(java.util.List<String> value) { 
       this.zoneIDs = value;
    }
+   @JsonIgnore
    public String getAppName() {
       return appName;
    }
 
+   @JsonIgnore
    public void setAppName(String value) { 
       this.appName = value;
    }
+   @JsonIgnore
    public String getUserID() {
       return userID;
    }
 
+   @JsonIgnore
    public void setUserID(String value) { 
       this.userID = value;
    }
+   @JsonIgnore
    public String getUserName() {
       return userName;
    }
 
+   @JsonIgnore
    public void setUserName(String value) { 
       this.userName = value;
    }
+   @JsonIgnore
    public Status getStatus() {
       return status;
    }
 
+   @JsonIgnore
    public void setStatus(Status value) { 
       this.status = value;
    }
+   @JsonIgnore
    public java.util.List<String> getSubnetIDs() {
       return subnetIDs;
    }
 
+   @JsonIgnore
    public void setSubnetIDs(java.util.List<String> value) { 
       this.subnetIDs = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
    public String getHypervisorIP() {
       return hypervisorIP;
    }
 
+   @JsonIgnore
    public void setHypervisorIP(String value) { 
       this.hypervisorIP = value;
    }

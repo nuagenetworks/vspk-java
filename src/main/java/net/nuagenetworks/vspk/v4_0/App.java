@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.TiersFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
@@ -50,7 +51,7 @@ public class App extends RestObject {
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum AssociatedDomainType { DOMAIN, L2DOMAIN };
-   public enum AssociatedNetworkObjectType { DOMAIN, ENTERPRISE };
+   public enum AssociatedNetworkObjectType { DOMAIN, ENTERPRISE, ZONE };
 
    
    @JsonProperty(value = "name")
@@ -123,80 +124,102 @@ public class App extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getAssocEgressACLTemplateId() {
       return assocEgressACLTemplateId;
    }
 
+   @JsonIgnore
    public void setAssocEgressACLTemplateId(String value) { 
       this.assocEgressACLTemplateId = value;
    }
+   @JsonIgnore
    public String getAssocIngressACLTemplateId() {
       return assocIngressACLTemplateId;
    }
 
+   @JsonIgnore
    public void setAssocIngressACLTemplateId(String value) { 
       this.assocIngressACLTemplateId = value;
    }
+   @JsonIgnore
    public String getAssociatedDomainID() {
       return associatedDomainID;
    }
 
+   @JsonIgnore
    public void setAssociatedDomainID(String value) { 
       this.associatedDomainID = value;
    }
+   @JsonIgnore
    public AssociatedDomainType getAssociatedDomainType() {
       return associatedDomainType;
    }
 
+   @JsonIgnore
    public void setAssociatedDomainType(AssociatedDomainType value) { 
       this.associatedDomainType = value;
    }
+   @JsonIgnore
    public String getAssociatedNetworkObjectID() {
       return associatedNetworkObjectID;
    }
 
+   @JsonIgnore
    public void setAssociatedNetworkObjectID(String value) { 
       this.associatedNetworkObjectID = value;
    }
+   @JsonIgnore
    public AssociatedNetworkObjectType getAssociatedNetworkObjectType() {
       return associatedNetworkObjectType;
    }
 
+   @JsonIgnore
    public void setAssociatedNetworkObjectType(AssociatedNetworkObjectType value) { 
       this.associatedNetworkObjectType = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

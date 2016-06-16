@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.AlarmsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
@@ -115,80 +116,102 @@ public class TCA extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getURLEndPoint() {
       return URLEndPoint;
    }
 
+   @JsonIgnore
    public void setURLEndPoint(String value) { 
       this.URLEndPoint = value;
    }
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public Scope getScope() {
       return scope;
    }
 
+   @JsonIgnore
    public void setScope(Scope value) { 
       this.scope = value;
    }
+   @JsonIgnore
    public Long getPeriod() {
       return period;
    }
 
+   @JsonIgnore
    public void setPeriod(Long value) { 
       this.period = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public Metric getMetric() {
       return metric;
    }
 
+   @JsonIgnore
    public void setMetric(Metric value) { 
       this.metric = value;
    }
+   @JsonIgnore
    public Long getThreshold() {
       return threshold;
    }
 
+   @JsonIgnore
    public void setThreshold(Long value) { 
       this.threshold = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
    public Type getType() {
       return type;
    }
 
+   @JsonIgnore
    public void setType(Type value) { 
       this.type = value;
    }

@@ -32,6 +32,8 @@ import net.nuagenetworks.bambou.annotation.RestEntity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -77,66 +79,84 @@ public class VrsMetrics extends RestObject {
       
    }
 
+   @JsonIgnore
    public Boolean getALUbr0Status() {
       return ALUbr0Status;
    }
 
+   @JsonIgnore
    public void setALUbr0Status(Boolean value) { 
       this.ALUbr0Status = value;
    }
+   @JsonIgnore
    public Float getCPUUtilization() {
       return CPUUtilization;
    }
 
+   @JsonIgnore
    public void setCPUUtilization(Float value) { 
       this.CPUUtilization = value;
    }
+   @JsonIgnore
    public Boolean getVRSProcess() {
       return VRSProcess;
    }
 
+   @JsonIgnore
    public void setVRSProcess(Boolean value) { 
       this.VRSProcess = value;
    }
+   @JsonIgnore
    public Boolean getVRSVSCStatus() {
       return VRSVSCStatus;
    }
 
+   @JsonIgnore
    public void setVRSVSCStatus(Boolean value) { 
       this.VRSVSCStatus = value;
    }
+   @JsonIgnore
    public Boolean getReceivingMetrics() {
       return receivingMetrics;
    }
 
+   @JsonIgnore
    public void setReceivingMetrics(Boolean value) { 
       this.receivingMetrics = value;
    }
+   @JsonIgnore
    public Float getMemoryUtilization() {
       return memoryUtilization;
    }
 
+   @JsonIgnore
    public void setMemoryUtilization(Float value) { 
       this.memoryUtilization = value;
    }
+   @JsonIgnore
    public Boolean getJesxmonProcess() {
       return jesxmonProcess;
    }
 
+   @JsonIgnore
    public void setJesxmonProcess(Boolean value) { 
       this.jesxmonProcess = value;
    }
+   @JsonIgnore
    public String getAgentName() {
       return agentName;
    }
 
+   @JsonIgnore
    public void setAgentName(String value) { 
       this.agentName = value;
    }
+   @JsonIgnore
    public String getAssocVCenterHypervisorID() {
       return assocVCenterHypervisorID;
    }
 
+   @JsonIgnore
    public void setAssocVCenterHypervisorID(String value) { 
       this.assocVCenterHypervisorID = value;
    }

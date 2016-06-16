@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.TCAsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.AddressRangesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VMResyncsFetcher;
@@ -249,213 +250,273 @@ public class Subnet extends RestObject {
       
    }
 
+   @JsonIgnore
    public PATEnabled getPATEnabled() {
       return PATEnabled;
    }
 
+   @JsonIgnore
    public void setPATEnabled(PATEnabled value) { 
       this.PATEnabled = value;
    }
+   @JsonIgnore
    public IPType getIPType() {
       return IPType;
    }
 
+   @JsonIgnore
    public void setIPType(IPType value) { 
       this.IPType = value;
    }
+   @JsonIgnore
    public MaintenanceMode getMaintenanceMode() {
       return maintenanceMode;
    }
 
+   @JsonIgnore
    public void setMaintenanceMode(MaintenanceMode value) { 
       this.maintenanceMode = value;
    }
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getGateway() {
       return gateway;
    }
 
+   @JsonIgnore
    public void setGateway(String value) { 
       this.gateway = value;
    }
+   @JsonIgnore
    public String getGatewayMACAddress() {
       return gatewayMACAddress;
    }
 
+   @JsonIgnore
    public void setGatewayMACAddress(String value) { 
       this.gatewayMACAddress = value;
    }
+   @JsonIgnore
    public String getAddress() {
       return address;
    }
 
+   @JsonIgnore
    public void setAddress(String value) { 
       this.address = value;
    }
+   @JsonIgnore
    public String getTemplateID() {
       return templateID;
    }
 
+   @JsonIgnore
    public void setTemplateID(String value) { 
       this.templateID = value;
    }
+   @JsonIgnore
    public Long getServiceID() {
       return serviceID;
    }
 
+   @JsonIgnore
    public void setServiceID(Long value) { 
       this.serviceID = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public String getNetmask() {
       return netmask;
    }
 
+   @JsonIgnore
    public void setNetmask(String value) { 
       this.netmask = value;
    }
+   @JsonIgnore
    public Long getVnId() {
       return vnId;
    }
 
+   @JsonIgnore
    public void setVnId(Long value) { 
       this.vnId = value;
    }
+   @JsonIgnore
    public Encryption getEncryption() {
       return encryption;
    }
 
+   @JsonIgnore
    public void setEncryption(Encryption value) { 
       this.encryption = value;
    }
+   @JsonIgnore
    public Boolean getUnderlay() {
       return underlay;
    }
 
+   @JsonIgnore
    public void setUnderlay(Boolean value) { 
       this.underlay = value;
    }
+   @JsonIgnore
    public UnderlayEnabled getUnderlayEnabled() {
       return underlayEnabled;
    }
 
+   @JsonIgnore
    public void setUnderlayEnabled(UnderlayEnabled value) { 
       this.underlayEnabled = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public Long getPolicyGroupID() {
       return policyGroupID;
    }
 
+   @JsonIgnore
    public void setPolicyGroupID(Long value) { 
       this.policyGroupID = value;
    }
+   @JsonIgnore
    public String getRouteDistinguisher() {
       return routeDistinguisher;
    }
 
+   @JsonIgnore
    public void setRouteDistinguisher(String value) { 
       this.routeDistinguisher = value;
    }
+   @JsonIgnore
    public String getRouteTarget() {
       return routeTarget;
    }
 
+   @JsonIgnore
    public void setRouteTarget(String value) { 
       this.routeTarget = value;
    }
+   @JsonIgnore
    public Boolean getSplitSubnet() {
       return splitSubnet;
    }
 
+   @JsonIgnore
    public void setSplitSubnet(Boolean value) { 
       this.splitSubnet = value;
    }
+   @JsonIgnore
    public Boolean getProxyARP() {
       return proxyARP;
    }
 
+   @JsonIgnore
    public void setProxyARP(Boolean value) { 
       this.proxyARP = value;
    }
+   @JsonIgnore
    public String getAssociatedApplicationID() {
       return associatedApplicationID;
    }
 
+   @JsonIgnore
    public void setAssociatedApplicationID(String value) { 
       this.associatedApplicationID = value;
    }
+   @JsonIgnore
    public String getAssociatedApplicationObjectID() {
       return associatedApplicationObjectID;
    }
 
+   @JsonIgnore
    public void setAssociatedApplicationObjectID(String value) { 
       this.associatedApplicationObjectID = value;
    }
+   @JsonIgnore
    public AssociatedApplicationObjectType getAssociatedApplicationObjectType() {
       return associatedApplicationObjectType;
    }
 
+   @JsonIgnore
    public void setAssociatedApplicationObjectType(AssociatedApplicationObjectType value) { 
       this.associatedApplicationObjectType = value;
    }
+   @JsonIgnore
    public String getAssociatedMulticastChannelMapID() {
       return associatedMulticastChannelMapID;
    }
 
+   @JsonIgnore
    public void setAssociatedMulticastChannelMapID(String value) { 
       this.associatedMulticastChannelMapID = value;
    }
+   @JsonIgnore
    public String getAssociatedSharedNetworkResourceID() {
       return associatedSharedNetworkResourceID;
    }
 
+   @JsonIgnore
    public void setAssociatedSharedNetworkResourceID(String value) { 
       this.associatedSharedNetworkResourceID = value;
    }
+   @JsonIgnore
    public Boolean getPublic_() {
       return public_;
    }
 
+   @JsonIgnore
    public void setPublic_(Boolean value) { 
       this.public_ = value;
    }
+   @JsonIgnore
    public Multicast getMulticast() {
       return multicast;
    }
 
+   @JsonIgnore
    public void setMulticast(Multicast value) { 
       this.multicast = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

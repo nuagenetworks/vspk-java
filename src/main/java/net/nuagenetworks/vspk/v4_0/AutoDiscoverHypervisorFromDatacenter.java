@@ -32,6 +32,8 @@ import net.nuagenetworks.bambou.annotation.RestEntity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -59,24 +61,30 @@ public class AutoDiscoverHypervisorFromDatacenter extends RestObject {
       
    }
 
+   @JsonIgnore
    public java.util.List<String> getNetworkList() {
       return networkList;
    }
 
+   @JsonIgnore
    public void setNetworkList(java.util.List<String> value) { 
       this.networkList = value;
    }
+   @JsonIgnore
    public String getAssocVCenterDataCenterId() {
       return assocVCenterDataCenterId;
    }
 
+   @JsonIgnore
    public void setAssocVCenterDataCenterId(String value) { 
       this.assocVCenterDataCenterId = value;
    }
+   @JsonIgnore
    public String getHypervisorIP() {
       return hypervisorIP;
    }
 
+   @JsonIgnore
    public void setHypervisorIP(String value) { 
       this.hypervisorIP = value;
    }

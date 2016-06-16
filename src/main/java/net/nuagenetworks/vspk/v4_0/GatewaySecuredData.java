@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
@@ -85,52 +86,66 @@ public class GatewaySecuredData extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getData() {
       return data;
    }
 
+   @JsonIgnore
    public void setData(String value) { 
       this.data = value;
    }
+   @JsonIgnore
    public String getGatewayCertSerialNumber() {
       return gatewayCertSerialNumber;
    }
 
+   @JsonIgnore
    public void setGatewayCertSerialNumber(String value) { 
       this.gatewayCertSerialNumber = value;
    }
+   @JsonIgnore
    public String getKeyserverCertSerialNumber() {
       return keyserverCertSerialNumber;
    }
 
+   @JsonIgnore
    public void setKeyserverCertSerialNumber(String value) { 
       this.keyserverCertSerialNumber = value;
    }
+   @JsonIgnore
    public String getSignedData() {
       return signedData;
    }
 
+   @JsonIgnore
    public void setSignedData(String value) { 
       this.signedData = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
@@ -102,87 +103,111 @@ public class VPortMirror extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getVPortName() {
       return VPortName;
    }
 
+   @JsonIgnore
    public void setVPortName(String value) { 
       this.VPortName = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getNetworkName() {
       return networkName;
    }
 
+   @JsonIgnore
    public void setNetworkName(String value) { 
       this.networkName = value;
    }
+   @JsonIgnore
    public String getMirrorDestinationID() {
       return mirrorDestinationID;
    }
 
+   @JsonIgnore
    public void setMirrorDestinationID(String value) { 
       this.mirrorDestinationID = value;
    }
+   @JsonIgnore
    public String getMirrorDestinationName() {
       return mirrorDestinationName;
    }
 
+   @JsonIgnore
    public void setMirrorDestinationName(String value) { 
       this.mirrorDestinationName = value;
    }
+   @JsonIgnore
    public MirrorDirection getMirrorDirection() {
       return mirrorDirection;
    }
 
+   @JsonIgnore
    public void setMirrorDirection(MirrorDirection value) { 
       this.mirrorDirection = value;
    }
+   @JsonIgnore
    public String getEnterpiseName() {
       return enterpiseName;
    }
 
+   @JsonIgnore
    public void setEnterpiseName(String value) { 
       this.enterpiseName = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getDomainName() {
       return domainName;
    }
 
+   @JsonIgnore
    public void setDomainName(String value) { 
       this.domainName = value;
    }
+   @JsonIgnore
    public String getVportId() {
       return vportId;
    }
 
+   @JsonIgnore
    public void setVportId(String value) { 
       this.vportId = value;
    }
+   @JsonIgnore
    public String getAttachedNetworkType() {
       return attachedNetworkType;
    }
 
+   @JsonIgnore
    public void setAttachedNetworkType(String value) { 
       this.attachedNetworkType = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

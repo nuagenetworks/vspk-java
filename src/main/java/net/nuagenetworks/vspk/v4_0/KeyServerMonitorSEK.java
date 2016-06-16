@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
@@ -90,59 +91,75 @@ public class KeyServerMonitorSEK extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public SeedPayloadAuthenticationAlgorithm getSeedPayloadAuthenticationAlgorithm() {
       return seedPayloadAuthenticationAlgorithm;
    }
 
+   @JsonIgnore
    public void setSeedPayloadAuthenticationAlgorithm(SeedPayloadAuthenticationAlgorithm value) { 
       this.seedPayloadAuthenticationAlgorithm = value;
    }
+   @JsonIgnore
    public SeedPayloadEncryptionAlgorithm getSeedPayloadEncryptionAlgorithm() {
       return seedPayloadEncryptionAlgorithm;
    }
 
+   @JsonIgnore
    public void setSeedPayloadEncryptionAlgorithm(SeedPayloadEncryptionAlgorithm value) { 
       this.seedPayloadEncryptionAlgorithm = value;
    }
+   @JsonIgnore
    public Long getLifetime() {
       return lifetime;
    }
 
+   @JsonIgnore
    public void setLifetime(Long value) { 
       this.lifetime = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public Long getCreationTime() {
       return creationTime;
    }
 
+   @JsonIgnore
    public void setCreationTime(Long value) { 
       this.creationTime = value;
    }
+   @JsonIgnore
    public Long getStartTime() {
       return startTime;
    }
 
+   @JsonIgnore
    public void setStartTime(Long value) { 
       this.startTime = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

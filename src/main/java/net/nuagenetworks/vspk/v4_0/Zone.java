@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.TCAsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
@@ -200,136 +201,174 @@ public class Zone extends RestObject {
       
    }
 
+   @JsonIgnore
    public IPType getIPType() {
       return IPType;
    }
 
+   @JsonIgnore
    public void setIPType(IPType value) { 
       this.IPType = value;
    }
+   @JsonIgnore
    public MaintenanceMode getMaintenanceMode() {
       return maintenanceMode;
    }
 
+   @JsonIgnore
    public void setMaintenanceMode(MaintenanceMode value) { 
       this.maintenanceMode = value;
    }
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getAddress() {
       return address;
    }
 
+   @JsonIgnore
    public void setAddress(String value) { 
       this.address = value;
    }
+   @JsonIgnore
    public String getTemplateID() {
       return templateID;
    }
 
+   @JsonIgnore
    public void setTemplateID(String value) { 
       this.templateID = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public String getNetmask() {
       return netmask;
    }
 
+   @JsonIgnore
    public void setNetmask(String value) { 
       this.netmask = value;
    }
+   @JsonIgnore
    public Encryption getEncryption() {
       return encryption;
    }
 
+   @JsonIgnore
    public void setEncryption(Encryption value) { 
       this.encryption = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public Long getPolicyGroupID() {
       return policyGroupID;
    }
 
+   @JsonIgnore
    public void setPolicyGroupID(Long value) { 
       this.policyGroupID = value;
    }
+   @JsonIgnore
    public String getAssociatedApplicationID() {
       return associatedApplicationID;
    }
 
+   @JsonIgnore
    public void setAssociatedApplicationID(String value) { 
       this.associatedApplicationID = value;
    }
+   @JsonIgnore
    public String getAssociatedApplicationObjectID() {
       return associatedApplicationObjectID;
    }
 
+   @JsonIgnore
    public void setAssociatedApplicationObjectID(String value) { 
       this.associatedApplicationObjectID = value;
    }
+   @JsonIgnore
    public AssociatedApplicationObjectType getAssociatedApplicationObjectType() {
       return associatedApplicationObjectType;
    }
 
+   @JsonIgnore
    public void setAssociatedApplicationObjectType(AssociatedApplicationObjectType value) { 
       this.associatedApplicationObjectType = value;
    }
+   @JsonIgnore
    public String getAssociatedMulticastChannelMapID() {
       return associatedMulticastChannelMapID;
    }
 
+   @JsonIgnore
    public void setAssociatedMulticastChannelMapID(String value) { 
       this.associatedMulticastChannelMapID = value;
    }
+   @JsonIgnore
    public Boolean getPublicZone() {
       return publicZone;
    }
 
+   @JsonIgnore
    public void setPublicZone(Boolean value) { 
       this.publicZone = value;
    }
+   @JsonIgnore
    public Multicast getMulticast() {
       return multicast;
    }
 
+   @JsonIgnore
    public void setMulticast(Multicast value) { 
       this.multicast = value;
    }
+   @JsonIgnore
    public Long getNumberOfHostsInSubnets() {
       return numberOfHostsInSubnets;
    }
 
+   @JsonIgnore
    public void setNumberOfHostsInSubnets(Long value) { 
       this.numberOfHostsInSubnets = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

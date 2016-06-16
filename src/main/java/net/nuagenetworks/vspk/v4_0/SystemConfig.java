@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
@@ -415,801 +416,1029 @@ public class SystemConfig extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getACLAllowOrigin() {
       return ACLAllowOrigin;
    }
 
+   @JsonIgnore
    public void setACLAllowOrigin(String value) { 
       this.ACLAllowOrigin = value;
    }
+   @JsonIgnore
    public Long getECMPCount() {
       return ECMPCount;
    }
 
+   @JsonIgnore
    public void setECMPCount(Long value) { 
       this.ECMPCount = value;
    }
+   @JsonIgnore
    public Long getLDAPSyncInterval() {
       return LDAPSyncInterval;
    }
 
+   @JsonIgnore
    public void setLDAPSyncInterval(Long value) { 
       this.LDAPSyncInterval = value;
    }
+   @JsonIgnore
    public String getLDAPTrustStoreCertifcate() {
       return LDAPTrustStoreCertifcate;
    }
 
+   @JsonIgnore
    public void setLDAPTrustStoreCertifcate(String value) { 
       this.LDAPTrustStoreCertifcate = value;
    }
+   @JsonIgnore
    public String getLDAPTrustStorePassword() {
       return LDAPTrustStorePassword;
    }
 
+   @JsonIgnore
    public void setLDAPTrustStorePassword(String value) { 
       this.LDAPTrustStorePassword = value;
    }
+   @JsonIgnore
    public Long getADGatewayPurgeTime() {
       return ADGatewayPurgeTime;
    }
 
+   @JsonIgnore
    public void setADGatewayPurgeTime(Long value) { 
       this.ADGatewayPurgeTime = value;
    }
+   @JsonIgnore
    public Long getRDLowerLimit() {
       return RDLowerLimit;
    }
 
+   @JsonIgnore
    public void setRDLowerLimit(Long value) { 
       this.RDLowerLimit = value;
    }
+   @JsonIgnore
    public Long getRDPublicNetworkLowerLimit() {
       return RDPublicNetworkLowerLimit;
    }
 
+   @JsonIgnore
    public void setRDPublicNetworkLowerLimit(Long value) { 
       this.RDPublicNetworkLowerLimit = value;
    }
+   @JsonIgnore
    public Long getRDPublicNetworkUpperLimit() {
       return RDPublicNetworkUpperLimit;
    }
 
+   @JsonIgnore
    public void setRDPublicNetworkUpperLimit(Long value) { 
       this.RDPublicNetworkUpperLimit = value;
    }
+   @JsonIgnore
    public Long getRDUpperLimit() {
       return RDUpperLimit;
    }
 
+   @JsonIgnore
    public void setRDUpperLimit(Long value) { 
       this.RDUpperLimit = value;
    }
+   @JsonIgnore
    public Long getDHCPOptionSize() {
       return DHCPOptionSize;
    }
 
+   @JsonIgnore
    public void setDHCPOptionSize(Long value) { 
       this.DHCPOptionSize = value;
    }
+   @JsonIgnore
    public Long getVMCacheSize() {
       return VMCacheSize;
    }
 
+   @JsonIgnore
    public void setVMCacheSize(Long value) { 
       this.VMCacheSize = value;
    }
+   @JsonIgnore
    public Long getVMPurgeTime() {
       return VMPurgeTime;
    }
 
+   @JsonIgnore
    public void setVMPurgeTime(Long value) { 
       this.VMPurgeTime = value;
    }
+   @JsonIgnore
    public Long getVMResyncDeletionWaitTime() {
       return VMResyncDeletionWaitTime;
    }
 
+   @JsonIgnore
    public void setVMResyncDeletionWaitTime(Long value) { 
       this.VMResyncDeletionWaitTime = value;
    }
+   @JsonIgnore
    public Long getVMResyncOutstandingInterval() {
       return VMResyncOutstandingInterval;
    }
 
+   @JsonIgnore
    public void setVMResyncOutstandingInterval(Long value) { 
       this.VMResyncOutstandingInterval = value;
    }
+   @JsonIgnore
    public Long getVMUnreachableCleanupTime() {
       return VMUnreachableCleanupTime;
    }
 
+   @JsonIgnore
    public void setVMUnreachableCleanupTime(Long value) { 
       this.VMUnreachableCleanupTime = value;
    }
+   @JsonIgnore
    public Long getVMUnreachableTime() {
       return VMUnreachableTime;
    }
 
+   @JsonIgnore
    public void setVMUnreachableTime(Long value) { 
       this.VMUnreachableTime = value;
    }
+   @JsonIgnore
    public Long getVNIDLowerLimit() {
       return VNIDLowerLimit;
    }
 
+   @JsonIgnore
    public void setVNIDLowerLimit(Long value) { 
       this.VNIDLowerLimit = value;
    }
+   @JsonIgnore
    public Long getVNIDPublicNetworkLowerLimit() {
       return VNIDPublicNetworkLowerLimit;
    }
 
+   @JsonIgnore
    public void setVNIDPublicNetworkLowerLimit(Long value) { 
       this.VNIDPublicNetworkLowerLimit = value;
    }
+   @JsonIgnore
    public Long getVNIDPublicNetworkUpperLimit() {
       return VNIDPublicNetworkUpperLimit;
    }
 
+   @JsonIgnore
    public void setVNIDPublicNetworkUpperLimit(Long value) { 
       this.VNIDPublicNetworkUpperLimit = value;
    }
+   @JsonIgnore
    public Long getVNIDUpperLimit() {
       return VNIDUpperLimit;
    }
 
+   @JsonIgnore
    public void setVNIDUpperLimit(Long value) { 
       this.VNIDUpperLimit = value;
    }
+   @JsonIgnore
    public Long getAPIKeyRenewalInterval() {
       return APIKeyRenewalInterval;
    }
 
+   @JsonIgnore
    public void setAPIKeyRenewalInterval(Long value) { 
       this.APIKeyRenewalInterval = value;
    }
+   @JsonIgnore
    public Long getAPIKeyValidity() {
       return APIKeyValidity;
    }
 
+   @JsonIgnore
    public void setAPIKeyValidity(Long value) { 
       this.APIKeyValidity = value;
    }
+   @JsonIgnore
    public Long getVPortInitStatefulTimer() {
       return VPortInitStatefulTimer;
    }
 
+   @JsonIgnore
    public void setVPortInitStatefulTimer(Long value) { 
       this.VPortInitStatefulTimer = value;
    }
+   @JsonIgnore
    public Long getLRUCacheSizePerSubnet() {
       return LRUCacheSizePerSubnet;
    }
 
+   @JsonIgnore
    public void setLRUCacheSizePerSubnet(Long value) { 
       this.LRUCacheSizePerSubnet = value;
    }
+   @JsonIgnore
    public Boolean getVSCOnSameVersionAsVSD() {
       return VSCOnSameVersionAsVSD;
    }
 
+   @JsonIgnore
    public void setVSCOnSameVersionAsVSD(Boolean value) { 
       this.VSCOnSameVersionAsVSD = value;
    }
+   @JsonIgnore
    public Boolean getVSDReadOnlyMode() {
       return VSDReadOnlyMode;
    }
 
+   @JsonIgnore
    public void setVSDReadOnlyMode(Boolean value) { 
       this.VSDReadOnlyMode = value;
    }
+   @JsonIgnore
    public Boolean getVSDUpgradeIsComplete() {
       return VSDUpgradeIsComplete;
    }
 
+   @JsonIgnore
    public void setVSDUpgradeIsComplete(Boolean value) { 
       this.VSDUpgradeIsComplete = value;
    }
+   @JsonIgnore
    public Long getASNumber() {
       return ASNumber;
    }
 
+   @JsonIgnore
    public void setASNumber(Long value) { 
       this.ASNumber = value;
    }
+   @JsonIgnore
    public Long getRTLowerLimit() {
       return RTLowerLimit;
    }
 
+   @JsonIgnore
    public void setRTLowerLimit(Long value) { 
       this.RTLowerLimit = value;
    }
+   @JsonIgnore
    public Long getRTPublicNetworkLowerLimit() {
       return RTPublicNetworkLowerLimit;
    }
 
+   @JsonIgnore
    public void setRTPublicNetworkLowerLimit(Long value) { 
       this.RTPublicNetworkLowerLimit = value;
    }
+   @JsonIgnore
    public Long getRTPublicNetworkUpperLimit() {
       return RTPublicNetworkUpperLimit;
    }
 
+   @JsonIgnore
    public void setRTPublicNetworkUpperLimit(Long value) { 
       this.RTPublicNetworkUpperLimit = value;
    }
+   @JsonIgnore
    public Long getRTUpperLimit() {
       return RTUpperLimit;
    }
 
+   @JsonIgnore
    public void setRTUpperLimit(Long value) { 
       this.RTUpperLimit = value;
    }
+   @JsonIgnore
    public Long getEVPNBGPCommunityTagASNumber() {
       return EVPNBGPCommunityTagASNumber;
    }
 
+   @JsonIgnore
    public void setEVPNBGPCommunityTagASNumber(Long value) { 
       this.EVPNBGPCommunityTagASNumber = value;
    }
+   @JsonIgnore
    public Long getEVPNBGPCommunityTagLowerLimit() {
       return EVPNBGPCommunityTagLowerLimit;
    }
 
+   @JsonIgnore
    public void setEVPNBGPCommunityTagLowerLimit(Long value) { 
       this.EVPNBGPCommunityTagLowerLimit = value;
    }
+   @JsonIgnore
    public Long getEVPNBGPCommunityTagUpperLimit() {
       return EVPNBGPCommunityTagUpperLimit;
    }
 
+   @JsonIgnore
    public void setEVPNBGPCommunityTagUpperLimit(Long value) { 
       this.EVPNBGPCommunityTagUpperLimit = value;
    }
+   @JsonIgnore
    public Long getPageMaxSize() {
       return pageMaxSize;
    }
 
+   @JsonIgnore
    public void setPageMaxSize(Long value) { 
       this.pageMaxSize = value;
    }
+   @JsonIgnore
    public Long getPageSize() {
       return pageSize;
    }
 
+   @JsonIgnore
    public void setPageSize(Long value) { 
       this.pageSize = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public Long getMaxFailedLogins() {
       return maxFailedLogins;
    }
 
+   @JsonIgnore
    public void setMaxFailedLogins(Long value) { 
       this.maxFailedLogins = value;
    }
+   @JsonIgnore
    public Long getMaxResponse() {
       return maxResponse;
    }
 
+   @JsonIgnore
    public void setMaxResponse(Long value) { 
       this.maxResponse = value;
    }
+   @JsonIgnore
    public Long getServiceIDUpperLimit() {
       return serviceIDUpperLimit;
    }
 
+   @JsonIgnore
    public void setServiceIDUpperLimit(Long value) { 
       this.serviceIDUpperLimit = value;
    }
+   @JsonIgnore
    public Boolean getKeyServerMonitorEnabled() {
       return keyServerMonitorEnabled;
    }
 
+   @JsonIgnore
    public void setKeyServerMonitorEnabled(Boolean value) { 
       this.keyServerMonitorEnabled = value;
    }
+   @JsonIgnore
    public Long getKeyServerVSDDataSynchronizationInterval() {
       return keyServerVSDDataSynchronizationInterval;
    }
 
+   @JsonIgnore
    public void setKeyServerVSDDataSynchronizationInterval(Long value) { 
       this.keyServerVSDDataSynchronizationInterval = value;
    }
+   @JsonIgnore
    public Long getOffsetCustomerID() {
       return offsetCustomerID;
    }
 
+   @JsonIgnore
    public void setOffsetCustomerID(Long value) { 
       this.offsetCustomerID = value;
    }
+   @JsonIgnore
    public Long getOffsetServiceID() {
       return offsetServiceID;
    }
 
+   @JsonIgnore
    public void setOffsetServiceID(Long value) { 
       this.offsetServiceID = value;
    }
+   @JsonIgnore
    public String getEjbcaNSGCertificateProfile() {
       return ejbcaNSGCertificateProfile;
    }
 
+   @JsonIgnore
    public void setEjbcaNSGCertificateProfile(String value) { 
       this.ejbcaNSGCertificateProfile = value;
    }
+   @JsonIgnore
    public String getEjbcaNSGEndEntityProfile() {
       return ejbcaNSGEndEntityProfile;
    }
 
+   @JsonIgnore
    public void setEjbcaNSGEndEntityProfile(String value) { 
       this.ejbcaNSGEndEntityProfile = value;
    }
+   @JsonIgnore
    public String getEjbcaOCSPResponderCN() {
       return ejbcaOCSPResponderCN;
    }
 
+   @JsonIgnore
    public void setEjbcaOCSPResponderCN(String value) { 
       this.ejbcaOCSPResponderCN = value;
    }
+   @JsonIgnore
    public String getEjbcaOCSPResponderURI() {
       return ejbcaOCSPResponderURI;
    }
 
+   @JsonIgnore
    public void setEjbcaOCSPResponderURI(String value) { 
       this.ejbcaOCSPResponderURI = value;
    }
+   @JsonIgnore
    public String getEjbcaVspRootCa() {
       return ejbcaVspRootCa;
    }
 
+   @JsonIgnore
    public void setEjbcaVspRootCa(String value) { 
       this.ejbcaVspRootCa = value;
    }
+   @JsonIgnore
    public Long getAlarmsMaxPerObject() {
       return alarmsMaxPerObject;
    }
 
+   @JsonIgnore
    public void setAlarmsMaxPerObject(Long value) { 
       this.alarmsMaxPerObject = value;
    }
+   @JsonIgnore
    public Boolean getAllowEnterpriseAvatarOnNSG() {
       return allowEnterpriseAvatarOnNSG;
    }
 
+   @JsonIgnore
    public void setAllowEnterpriseAvatarOnNSG(Boolean value) { 
       this.allowEnterpriseAvatarOnNSG = value;
    }
+   @JsonIgnore
    public Long getInactiveTimeout() {
       return inactiveTimeout;
    }
 
+   @JsonIgnore
    public void setInactiveTimeout(Long value) { 
       this.inactiveTimeout = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public DomainTunnelType getDomainTunnelType() {
       return domainTunnelType;
    }
 
+   @JsonIgnore
    public void setDomainTunnelType(DomainTunnelType value) { 
       this.domainTunnelType = value;
    }
+   @JsonIgnore
    public Long getPostProcessorThreadsCount() {
       return postProcessorThreadsCount;
    }
 
+   @JsonIgnore
    public void setPostProcessorThreadsCount(Long value) { 
       this.postProcessorThreadsCount = value;
    }
+   @JsonIgnore
    public Long getGroupKeyDefaultSEKGenerationInterval() {
       return groupKeyDefaultSEKGenerationInterval;
    }
 
+   @JsonIgnore
    public void setGroupKeyDefaultSEKGenerationInterval(Long value) { 
       this.groupKeyDefaultSEKGenerationInterval = value;
    }
+   @JsonIgnore
    public Long getGroupKeyDefaultSEKLifetime() {
       return groupKeyDefaultSEKLifetime;
    }
 
+   @JsonIgnore
    public void setGroupKeyDefaultSEKLifetime(Long value) { 
       this.groupKeyDefaultSEKLifetime = value;
    }
+   @JsonIgnore
    public GroupKeyDefaultSEKPayloadEncryptionAlgorithm getGroupKeyDefaultSEKPayloadEncryptionAlgorithm() {
       return groupKeyDefaultSEKPayloadEncryptionAlgorithm;
    }
 
+   @JsonIgnore
    public void setGroupKeyDefaultSEKPayloadEncryptionAlgorithm(GroupKeyDefaultSEKPayloadEncryptionAlgorithm value) { 
       this.groupKeyDefaultSEKPayloadEncryptionAlgorithm = value;
    }
+   @JsonIgnore
    public GroupKeyDefaultSEKPayloadSigningAlgorithm getGroupKeyDefaultSEKPayloadSigningAlgorithm() {
       return groupKeyDefaultSEKPayloadSigningAlgorithm;
    }
 
+   @JsonIgnore
    public void setGroupKeyDefaultSEKPayloadSigningAlgorithm(GroupKeyDefaultSEKPayloadSigningAlgorithm value) { 
       this.groupKeyDefaultSEKPayloadSigningAlgorithm = value;
    }
+   @JsonIgnore
    public Long getGroupKeyDefaultSeedGenerationInterval() {
       return groupKeyDefaultSeedGenerationInterval;
    }
 
+   @JsonIgnore
    public void setGroupKeyDefaultSeedGenerationInterval(Long value) { 
       this.groupKeyDefaultSeedGenerationInterval = value;
    }
+   @JsonIgnore
    public Long getGroupKeyDefaultSeedLifetime() {
       return groupKeyDefaultSeedLifetime;
    }
 
+   @JsonIgnore
    public void setGroupKeyDefaultSeedLifetime(Long value) { 
       this.groupKeyDefaultSeedLifetime = value;
    }
+   @JsonIgnore
    public GroupKeyDefaultSeedPayloadAuthenticationAlgorithm getGroupKeyDefaultSeedPayloadAuthenticationAlgorithm() {
       return groupKeyDefaultSeedPayloadAuthenticationAlgorithm;
    }
 
+   @JsonIgnore
    public void setGroupKeyDefaultSeedPayloadAuthenticationAlgorithm(GroupKeyDefaultSeedPayloadAuthenticationAlgorithm value) { 
       this.groupKeyDefaultSeedPayloadAuthenticationAlgorithm = value;
    }
+   @JsonIgnore
    public GroupKeyDefaultSeedPayloadEncryptionAlgorithm getGroupKeyDefaultSeedPayloadEncryptionAlgorithm() {
       return groupKeyDefaultSeedPayloadEncryptionAlgorithm;
    }
 
+   @JsonIgnore
    public void setGroupKeyDefaultSeedPayloadEncryptionAlgorithm(GroupKeyDefaultSeedPayloadEncryptionAlgorithm value) { 
       this.groupKeyDefaultSeedPayloadEncryptionAlgorithm = value;
    }
+   @JsonIgnore
    public GroupKeyDefaultSeedPayloadSigningAlgorithm getGroupKeyDefaultSeedPayloadSigningAlgorithm() {
       return groupKeyDefaultSeedPayloadSigningAlgorithm;
    }
 
+   @JsonIgnore
    public void setGroupKeyDefaultSeedPayloadSigningAlgorithm(GroupKeyDefaultSeedPayloadSigningAlgorithm value) { 
       this.groupKeyDefaultSeedPayloadSigningAlgorithm = value;
    }
+   @JsonIgnore
    public GroupKeyDefaultTrafficAuthenticationAlgorithm getGroupKeyDefaultTrafficAuthenticationAlgorithm() {
       return groupKeyDefaultTrafficAuthenticationAlgorithm;
    }
 
+   @JsonIgnore
    public void setGroupKeyDefaultTrafficAuthenticationAlgorithm(GroupKeyDefaultTrafficAuthenticationAlgorithm value) { 
       this.groupKeyDefaultTrafficAuthenticationAlgorithm = value;
    }
+   @JsonIgnore
    public GroupKeyDefaultTrafficEncryptionAlgorithm getGroupKeyDefaultTrafficEncryptionAlgorithm() {
       return groupKeyDefaultTrafficEncryptionAlgorithm;
    }
 
+   @JsonIgnore
    public void setGroupKeyDefaultTrafficEncryptionAlgorithm(GroupKeyDefaultTrafficEncryptionAlgorithm value) { 
       this.groupKeyDefaultTrafficEncryptionAlgorithm = value;
    }
+   @JsonIgnore
    public Long getGroupKeyDefaultTrafficEncryptionKeyLifetime() {
       return groupKeyDefaultTrafficEncryptionKeyLifetime;
    }
 
+   @JsonIgnore
    public void setGroupKeyDefaultTrafficEncryptionKeyLifetime(Long value) { 
       this.groupKeyDefaultTrafficEncryptionKeyLifetime = value;
    }
+   @JsonIgnore
    public Long getGroupKeyGenerationIntervalOnForcedReKey() {
       return groupKeyGenerationIntervalOnForcedReKey;
    }
 
+   @JsonIgnore
    public void setGroupKeyGenerationIntervalOnForcedReKey(Long value) { 
       this.groupKeyGenerationIntervalOnForcedReKey = value;
    }
+   @JsonIgnore
    public Long getGroupKeyGenerationIntervalOnRevoke() {
       return groupKeyGenerationIntervalOnRevoke;
    }
 
+   @JsonIgnore
    public void setGroupKeyGenerationIntervalOnRevoke(Long value) { 
       this.groupKeyGenerationIntervalOnRevoke = value;
    }
+   @JsonIgnore
    public Long getGroupKeyMinimumSEKGenerationInterval() {
       return groupKeyMinimumSEKGenerationInterval;
    }
 
+   @JsonIgnore
    public void setGroupKeyMinimumSEKGenerationInterval(Long value) { 
       this.groupKeyMinimumSEKGenerationInterval = value;
    }
+   @JsonIgnore
    public Long getGroupKeyMinimumSEKLifetime() {
       return groupKeyMinimumSEKLifetime;
    }
 
+   @JsonIgnore
    public void setGroupKeyMinimumSEKLifetime(Long value) { 
       this.groupKeyMinimumSEKLifetime = value;
    }
+   @JsonIgnore
    public Long getGroupKeyMinimumSeedGenerationInterval() {
       return groupKeyMinimumSeedGenerationInterval;
    }
 
+   @JsonIgnore
    public void setGroupKeyMinimumSeedGenerationInterval(Long value) { 
       this.groupKeyMinimumSeedGenerationInterval = value;
    }
+   @JsonIgnore
    public Long getGroupKeyMinimumSeedLifetime() {
       return groupKeyMinimumSeedLifetime;
    }
 
+   @JsonIgnore
    public void setGroupKeyMinimumSeedLifetime(Long value) { 
       this.groupKeyMinimumSeedLifetime = value;
    }
+   @JsonIgnore
    public Long getGroupKeyMinimumTrafficEncryptionKeyLifetime() {
       return groupKeyMinimumTrafficEncryptionKeyLifetime;
    }
 
+   @JsonIgnore
    public void setGroupKeyMinimumTrafficEncryptionKeyLifetime(Long value) { 
       this.groupKeyMinimumTrafficEncryptionKeyLifetime = value;
    }
+   @JsonIgnore
    public String getNsgBootstrapEndpoint() {
       return nsgBootstrapEndpoint;
    }
 
+   @JsonIgnore
    public void setNsgBootstrapEndpoint(String value) { 
       this.nsgBootstrapEndpoint = value;
    }
+   @JsonIgnore
    public String getNsgConfigEndpoint() {
       return nsgConfigEndpoint;
    }
 
+   @JsonIgnore
    public void setNsgConfigEndpoint(String value) { 
       this.nsgConfigEndpoint = value;
    }
+   @JsonIgnore
    public String getNsgLocalUiUrl() {
       return nsgLocalUiUrl;
    }
 
+   @JsonIgnore
    public void setNsgLocalUiUrl(String value) { 
       this.nsgLocalUiUrl = value;
    }
+   @JsonIgnore
    public Long getEsiID() {
       return esiID;
    }
 
+   @JsonIgnore
    public void setEsiID(Long value) { 
       this.esiID = value;
    }
+   @JsonIgnore
    public Boolean getStackTraceEnabled() {
       return stackTraceEnabled;
    }
 
+   @JsonIgnore
    public void setStackTraceEnabled(Boolean value) { 
       this.stackTraceEnabled = value;
    }
+   @JsonIgnore
    public Long getStatefulACLNonTCPTimeout() {
       return statefulACLNonTCPTimeout;
    }
 
+   @JsonIgnore
    public void setStatefulACLNonTCPTimeout(Long value) { 
       this.statefulACLNonTCPTimeout = value;
    }
+   @JsonIgnore
    public Long getStatefulACLTCPTimeout() {
       return statefulACLTCPTimeout;
    }
 
+   @JsonIgnore
    public void setStatefulACLTCPTimeout(Long value) { 
       this.statefulACLTCPTimeout = value;
    }
+   @JsonIgnore
    public Long getStaticWANServicePurgeTime() {
       return staticWANServicePurgeTime;
    }
 
+   @JsonIgnore
    public void setStaticWANServicePurgeTime(Long value) { 
       this.staticWANServicePurgeTime = value;
    }
+   @JsonIgnore
    public String getStatsCollectorAddress() {
       return statsCollectorAddress;
    }
 
+   @JsonIgnore
    public void setStatsCollectorAddress(String value) { 
       this.statsCollectorAddress = value;
    }
+   @JsonIgnore
    public String getStatsCollectorPort() {
       return statsCollectorPort;
    }
 
+   @JsonIgnore
    public void setStatsCollectorPort(String value) { 
       this.statsCollectorPort = value;
    }
+   @JsonIgnore
    public String getStatsCollectorProtoBufPort() {
       return statsCollectorProtoBufPort;
    }
 
+   @JsonIgnore
    public void setStatsCollectorProtoBufPort(String value) { 
       this.statsCollectorProtoBufPort = value;
    }
+   @JsonIgnore
    public Long getStatsMaxDataPoints() {
       return statsMaxDataPoints;
    }
 
+   @JsonIgnore
    public void setStatsMaxDataPoints(Long value) { 
       this.statsMaxDataPoints = value;
    }
+   @JsonIgnore
    public Long getStatsMinDuration() {
       return statsMinDuration;
    }
 
+   @JsonIgnore
    public void setStatsMinDuration(Long value) { 
       this.statsMinDuration = value;
    }
+   @JsonIgnore
    public Long getStatsNumberOfDataPoints() {
       return statsNumberOfDataPoints;
    }
 
+   @JsonIgnore
    public void setStatsNumberOfDataPoints(Long value) { 
       this.statsNumberOfDataPoints = value;
    }
+   @JsonIgnore
    public String getStatsTSDBServerAddress() {
       return statsTSDBServerAddress;
    }
 
+   @JsonIgnore
    public void setStatsTSDBServerAddress(String value) { 
       this.statsTSDBServerAddress = value;
    }
+   @JsonIgnore
    public Long getSubnetResyncInterval() {
       return subnetResyncInterval;
    }
 
+   @JsonIgnore
    public void setSubnetResyncInterval(Long value) { 
       this.subnetResyncInterval = value;
    }
+   @JsonIgnore
    public Long getSubnetResyncOutstandingInterval() {
       return subnetResyncOutstandingInterval;
    }
 
+   @JsonIgnore
    public void setSubnetResyncOutstandingInterval(Long value) { 
       this.subnetResyncOutstandingInterval = value;
    }
+   @JsonIgnore
    public Long getCustomerIDUpperLimit() {
       return customerIDUpperLimit;
    }
 
+   @JsonIgnore
    public void setCustomerIDUpperLimit(Long value) { 
       this.customerIDUpperLimit = value;
    }
+   @JsonIgnore
    public String getCustomerKey() {
       return customerKey;
    }
 
+   @JsonIgnore
    public void setCustomerKey(String value) { 
       this.customerKey = value;
    }
+   @JsonIgnore
    public String getAvatarBasePath() {
       return avatarBasePath;
    }
 
+   @JsonIgnore
    public void setAvatarBasePath(String value) { 
       this.avatarBasePath = value;
    }
+   @JsonIgnore
    public String getAvatarBaseURL() {
       return avatarBaseURL;
    }
 
+   @JsonIgnore
    public void setAvatarBaseURL(String value) { 
       this.avatarBaseURL = value;
    }
+   @JsonIgnore
    public Long getEventLogCleanupInterval() {
       return eventLogCleanupInterval;
    }
 
+   @JsonIgnore
    public void setEventLogCleanupInterval(Long value) { 
       this.eventLogCleanupInterval = value;
    }
+   @JsonIgnore
    public Long getEventLogEntryMaxAge() {
       return eventLogEntryMaxAge;
    }
 
+   @JsonIgnore
    public void setEventLogEntryMaxAge(Long value) { 
       this.eventLogEntryMaxAge = value;
    }
+   @JsonIgnore
    public Long getEventProcessorInterval() {
       return eventProcessorInterval;
    }
 
+   @JsonIgnore
    public void setEventProcessorInterval(Long value) { 
       this.eventProcessorInterval = value;
    }
+   @JsonIgnore
    public Long getEventProcessorMaxEventsCount() {
       return eventProcessorMaxEventsCount;
    }
 
+   @JsonIgnore
    public void setEventProcessorMaxEventsCount(Long value) { 
       this.eventProcessorMaxEventsCount = value;
    }
+   @JsonIgnore
    public Long getEventProcessorTimeout() {
       return eventProcessorTimeout;
    }
 
+   @JsonIgnore
    public void setEventProcessorTimeout(Long value) { 
       this.eventProcessorTimeout = value;
    }
+   @JsonIgnore
    public Long getTwoFactorCodeExpiry() {
       return twoFactorCodeExpiry;
    }
 
+   @JsonIgnore
    public void setTwoFactorCodeExpiry(Long value) { 
       this.twoFactorCodeExpiry = value;
    }
+   @JsonIgnore
    public Long getTwoFactorCodeLength() {
       return twoFactorCodeLength;
    }
 
+   @JsonIgnore
    public void setTwoFactorCodeLength(Long value) { 
       this.twoFactorCodeLength = value;
    }
+   @JsonIgnore
    public Long getTwoFactorCodeSeedLength() {
       return twoFactorCodeSeedLength;
    }
 
+   @JsonIgnore
    public void setTwoFactorCodeSeedLength(Long value) { 
       this.twoFactorCodeSeedLength = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
    public Long getDynamicWANServiceDiffTime() {
       return dynamicWANServiceDiffTime;
    }
 
+   @JsonIgnore
    public void setDynamicWANServiceDiffTime(Long value) { 
       this.dynamicWANServiceDiffTime = value;
    }
+   @JsonIgnore
    public String getSyslogDestinationHost() {
       return syslogDestinationHost;
    }
 
+   @JsonIgnore
    public void setSyslogDestinationHost(String value) { 
       this.syslogDestinationHost = value;
    }
+   @JsonIgnore
    public Long getSyslogDestinationPort() {
       return syslogDestinationPort;
    }
 
+   @JsonIgnore
    public void setSyslogDestinationPort(Long value) { 
       this.syslogDestinationPort = value;
    }
+   @JsonIgnore
    public Long getSysmonCleanupTaskInterval() {
       return sysmonCleanupTaskInterval;
    }
 
+   @JsonIgnore
    public void setSysmonCleanupTaskInterval(Long value) { 
       this.sysmonCleanupTaskInterval = value;
    }
+   @JsonIgnore
    public Long getSysmonNodePresenceTimeout() {
       return sysmonNodePresenceTimeout;
    }
 
+   @JsonIgnore
    public void setSysmonNodePresenceTimeout(Long value) { 
       this.sysmonNodePresenceTimeout = value;
    }
+   @JsonIgnore
    public Long getSysmonProbeResponseTimeout() {
       return sysmonProbeResponseTimeout;
    }
 
+   @JsonIgnore
    public void setSysmonProbeResponseTimeout(Long value) { 
       this.sysmonProbeResponseTimeout = value;
    }
+   @JsonIgnore
    public String getSystemAvatarData() {
       return systemAvatarData;
    }
 
+   @JsonIgnore
    public void setSystemAvatarData(String value) { 
       this.systemAvatarData = value;
    }
+   @JsonIgnore
    public SystemAvatarType getSystemAvatarType() {
       return systemAvatarType;
    }
 
+   @JsonIgnore
    public void setSystemAvatarType(SystemAvatarType value) { 
       this.systemAvatarType = value;
    }

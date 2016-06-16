@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
@@ -98,80 +99,102 @@ public class Location extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public Float getLatitude() {
       return latitude;
    }
 
+   @JsonIgnore
    public void setLatitude(Float value) { 
       this.latitude = value;
    }
+   @JsonIgnore
    public String getAddress() {
       return address;
    }
 
+   @JsonIgnore
    public void setAddress(String value) { 
       this.address = value;
    }
+   @JsonIgnore
    public Boolean getIgnoreGeocode() {
       return ignoreGeocode;
    }
 
+   @JsonIgnore
    public void setIgnoreGeocode(Boolean value) { 
       this.ignoreGeocode = value;
    }
+   @JsonIgnore
    public String getTimeZoneID() {
       return timeZoneID;
    }
 
+   @JsonIgnore
    public void setTimeZoneID(String value) { 
       this.timeZoneID = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getLocality() {
       return locality;
    }
 
+   @JsonIgnore
    public void setLocality(String value) { 
       this.locality = value;
    }
+   @JsonIgnore
    public Float getLongitude() {
       return longitude;
    }
 
+   @JsonIgnore
    public void setLongitude(Float value) { 
       this.longitude = value;
    }
+   @JsonIgnore
    public String getCountry() {
       return country;
    }
 
+   @JsonIgnore
    public void setCountry(String value) { 
       this.country = value;
    }
+   @JsonIgnore
    public String getState() {
       return state;
    }
 
+   @JsonIgnore
    public void setState(String value) { 
       this.state = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

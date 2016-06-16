@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.PATNATPoolsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
@@ -156,115 +157,147 @@ public class VLAN extends RestObject {
       
    }
 
+   @JsonIgnore
    public Long getValue() {
       return value;
    }
 
+   @JsonIgnore
    public void setValue(Long value) { 
       this.value = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getGatewayID() {
       return gatewayID;
    }
 
+   @JsonIgnore
    public void setGatewayID(String value) { 
       this.gatewayID = value;
    }
+   @JsonIgnore
    public Boolean getReadonly() {
       return readonly;
    }
 
+   @JsonIgnore
    public void setReadonly(Boolean value) { 
       this.readonly = value;
    }
+   @JsonIgnore
    public String getTemplateID() {
       return templateID;
    }
 
+   @JsonIgnore
    public void setTemplateID(String value) { 
       this.templateID = value;
    }
+   @JsonIgnore
    public PermittedAction getPermittedAction() {
       return permittedAction;
    }
 
+   @JsonIgnore
    public void setPermittedAction(PermittedAction value) { 
       this.permittedAction = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public Boolean getRestricted() {
       return restricted;
    }
 
+   @JsonIgnore
    public void setRestricted(Boolean value) { 
       this.restricted = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getVportID() {
       return vportID;
    }
 
+   @JsonIgnore
    public void setVportID(String value) { 
       this.vportID = value;
    }
+   @JsonIgnore
    public Boolean getUseUserMnemonic() {
       return useUserMnemonic;
    }
 
+   @JsonIgnore
    public void setUseUserMnemonic(Boolean value) { 
       this.useUserMnemonic = value;
    }
+   @JsonIgnore
    public String getUserMnemonic() {
       return userMnemonic;
    }
 
+   @JsonIgnore
    public void setUserMnemonic(String value) { 
       this.userMnemonic = value;
    }
+   @JsonIgnore
    public String getAssociatedBGPProfileID() {
       return associatedBGPProfileID;
    }
 
+   @JsonIgnore
    public void setAssociatedBGPProfileID(String value) { 
       this.associatedBGPProfileID = value;
    }
+   @JsonIgnore
    public String getAssociatedEgressQOSPolicyID() {
       return associatedEgressQOSPolicyID;
    }
 
+   @JsonIgnore
    public void setAssociatedEgressQOSPolicyID(String value) { 
       this.associatedEgressQOSPolicyID = value;
    }
+   @JsonIgnore
    public Status getStatus() {
       return status;
    }
 
+   @JsonIgnore
    public void setStatus(Status value) { 
       this.status = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

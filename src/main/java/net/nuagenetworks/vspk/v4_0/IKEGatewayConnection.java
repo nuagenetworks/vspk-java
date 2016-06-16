@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.SubnetsFetcher;
@@ -124,122 +125,156 @@ public class IKEGatewayConnection extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getNSGIdentifier() {
       return NSGIdentifier;
    }
 
+   @JsonIgnore
    public void setNSGIdentifier(String value) { 
       this.NSGIdentifier = value;
    }
+   @JsonIgnore
    public NSGIdentifierType getNSGIdentifierType() {
       return NSGIdentifierType;
    }
 
+   @JsonIgnore
    public void setNSGIdentifierType(NSGIdentifierType value) { 
       this.NSGIdentifierType = value;
    }
+   @JsonIgnore
    public NSGRole getNSGRole() {
       return NSGRole;
    }
 
+   @JsonIgnore
    public void setNSGRole(NSGRole value) { 
       this.NSGRole = value;
    }
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public Long getSequence() {
       return sequence;
    }
 
+   @JsonIgnore
    public void setSequence(Long value) { 
       this.sequence = value;
    }
+   @JsonIgnore
    public Boolean getAllowAnySubnet() {
       return allowAnySubnet;
    }
 
+   @JsonIgnore
    public void setAllowAnySubnet(Boolean value) { 
       this.allowAnySubnet = value;
    }
+   @JsonIgnore
    public String getUnencryptedPSK() {
       return unencryptedPSK;
    }
 
+   @JsonIgnore
    public void setUnencryptedPSK(String value) { 
       this.unencryptedPSK = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getPortVLANName() {
       return portVLANName;
    }
 
+   @JsonIgnore
    public void setPortVLANName(String value) { 
       this.portVLANName = value;
    }
+   @JsonIgnore
    public Long getPriority() {
       return priority;
    }
 
+   @JsonIgnore
    public void setPriority(Long value) { 
       this.priority = value;
    }
+   @JsonIgnore
    public String getAssociatedIKEAuthenticationID() {
       return associatedIKEAuthenticationID;
    }
 
+   @JsonIgnore
    public void setAssociatedIKEAuthenticationID(String value) { 
       this.associatedIKEAuthenticationID = value;
    }
+   @JsonIgnore
    public AssociatedIKEAuthenticationType getAssociatedIKEAuthenticationType() {
       return associatedIKEAuthenticationType;
    }
 
+   @JsonIgnore
    public void setAssociatedIKEAuthenticationType(AssociatedIKEAuthenticationType value) { 
       this.associatedIKEAuthenticationType = value;
    }
+   @JsonIgnore
    public String getAssociatedIKEEncryptionProfileID() {
       return associatedIKEEncryptionProfileID;
    }
 
+   @JsonIgnore
    public void setAssociatedIKEEncryptionProfileID(String value) { 
       this.associatedIKEEncryptionProfileID = value;
    }
+   @JsonIgnore
    public String getAssociatedIKEGatewayProfileID() {
       return associatedIKEGatewayProfileID;
    }
 
+   @JsonIgnore
    public void setAssociatedIKEGatewayProfileID(String value) { 
       this.associatedIKEGatewayProfileID = value;
    }
+   @JsonIgnore
    public String getAssociatedVLANID() {
       return associatedVLANID;
    }
 
+   @JsonIgnore
    public void setAssociatedVLANID(String value) { 
       this.associatedVLANID = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

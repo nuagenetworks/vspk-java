@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
@@ -143,171 +144,219 @@ public class GroupKeyEncryptionProfile extends RestObject {
       
    }
 
+   @JsonIgnore
    public Long getSEKGenerationInterval() {
       return SEKGenerationInterval;
    }
 
+   @JsonIgnore
    public void setSEKGenerationInterval(Long value) { 
       this.SEKGenerationInterval = value;
    }
+   @JsonIgnore
    public Long getSEKLifetime() {
       return SEKLifetime;
    }
 
+   @JsonIgnore
    public void setSEKLifetime(Long value) { 
       this.SEKLifetime = value;
    }
+   @JsonIgnore
    public SEKPayloadEncryptionAlgorithm getSEKPayloadEncryptionAlgorithm() {
       return SEKPayloadEncryptionAlgorithm;
    }
 
+   @JsonIgnore
    public void setSEKPayloadEncryptionAlgorithm(SEKPayloadEncryptionAlgorithm value) { 
       this.SEKPayloadEncryptionAlgorithm = value;
    }
+   @JsonIgnore
    public String getSEKPayloadEncryptionBCAlgorithm() {
       return SEKPayloadEncryptionBCAlgorithm;
    }
 
+   @JsonIgnore
    public void setSEKPayloadEncryptionBCAlgorithm(String value) { 
       this.SEKPayloadEncryptionBCAlgorithm = value;
    }
+   @JsonIgnore
    public Long getSEKPayloadEncryptionKeyLength() {
       return SEKPayloadEncryptionKeyLength;
    }
 
+   @JsonIgnore
    public void setSEKPayloadEncryptionKeyLength(Long value) { 
       this.SEKPayloadEncryptionKeyLength = value;
    }
+   @JsonIgnore
    public SEKPayloadSigningAlgorithm getSEKPayloadSigningAlgorithm() {
       return SEKPayloadSigningAlgorithm;
    }
 
+   @JsonIgnore
    public void setSEKPayloadSigningAlgorithm(SEKPayloadSigningAlgorithm value) { 
       this.SEKPayloadSigningAlgorithm = value;
    }
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public Long getSeedGenerationInterval() {
       return seedGenerationInterval;
    }
 
+   @JsonIgnore
    public void setSeedGenerationInterval(Long value) { 
       this.seedGenerationInterval = value;
    }
+   @JsonIgnore
    public Long getSeedLifetime() {
       return seedLifetime;
    }
 
+   @JsonIgnore
    public void setSeedLifetime(Long value) { 
       this.seedLifetime = value;
    }
+   @JsonIgnore
    public SeedPayloadAuthenticationAlgorithm getSeedPayloadAuthenticationAlgorithm() {
       return seedPayloadAuthenticationAlgorithm;
    }
 
+   @JsonIgnore
    public void setSeedPayloadAuthenticationAlgorithm(SeedPayloadAuthenticationAlgorithm value) { 
       this.seedPayloadAuthenticationAlgorithm = value;
    }
+   @JsonIgnore
    public String getSeedPayloadAuthenticationBCAlgorithm() {
       return seedPayloadAuthenticationBCAlgorithm;
    }
 
+   @JsonIgnore
    public void setSeedPayloadAuthenticationBCAlgorithm(String value) { 
       this.seedPayloadAuthenticationBCAlgorithm = value;
    }
+   @JsonIgnore
    public Long getSeedPayloadAuthenticationKeyLength() {
       return seedPayloadAuthenticationKeyLength;
    }
 
+   @JsonIgnore
    public void setSeedPayloadAuthenticationKeyLength(Long value) { 
       this.seedPayloadAuthenticationKeyLength = value;
    }
+   @JsonIgnore
    public SeedPayloadEncryptionAlgorithm getSeedPayloadEncryptionAlgorithm() {
       return seedPayloadEncryptionAlgorithm;
    }
 
+   @JsonIgnore
    public void setSeedPayloadEncryptionAlgorithm(SeedPayloadEncryptionAlgorithm value) { 
       this.seedPayloadEncryptionAlgorithm = value;
    }
+   @JsonIgnore
    public String getSeedPayloadEncryptionBCAlgorithm() {
       return seedPayloadEncryptionBCAlgorithm;
    }
 
+   @JsonIgnore
    public void setSeedPayloadEncryptionBCAlgorithm(String value) { 
       this.seedPayloadEncryptionBCAlgorithm = value;
    }
+   @JsonIgnore
    public Long getSeedPayloadEncryptionKeyLength() {
       return seedPayloadEncryptionKeyLength;
    }
 
+   @JsonIgnore
    public void setSeedPayloadEncryptionKeyLength(Long value) { 
       this.seedPayloadEncryptionKeyLength = value;
    }
+   @JsonIgnore
    public SeedPayloadSigningAlgorithm getSeedPayloadSigningAlgorithm() {
       return seedPayloadSigningAlgorithm;
    }
 
+   @JsonIgnore
    public void setSeedPayloadSigningAlgorithm(SeedPayloadSigningAlgorithm value) { 
       this.seedPayloadSigningAlgorithm = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public TrafficAuthenticationAlgorithm getTrafficAuthenticationAlgorithm() {
       return trafficAuthenticationAlgorithm;
    }
 
+   @JsonIgnore
    public void setTrafficAuthenticationAlgorithm(TrafficAuthenticationAlgorithm value) { 
       this.trafficAuthenticationAlgorithm = value;
    }
+   @JsonIgnore
    public TrafficEncryptionAlgorithm getTrafficEncryptionAlgorithm() {
       return trafficEncryptionAlgorithm;
    }
 
+   @JsonIgnore
    public void setTrafficEncryptionAlgorithm(TrafficEncryptionAlgorithm value) { 
       this.trafficEncryptionAlgorithm = value;
    }
+   @JsonIgnore
    public Long getTrafficEncryptionKeyLifetime() {
       return trafficEncryptionKeyLifetime;
    }
 
+   @JsonIgnore
    public void setTrafficEncryptionKeyLifetime(Long value) { 
       this.trafficEncryptionKeyLifetime = value;
    }
+   @JsonIgnore
    public String getAssociatedEnterpriseID() {
       return associatedEnterpriseID;
    }
 
+   @JsonIgnore
    public void setAssociatedEnterpriseID(String value) { 
       this.associatedEnterpriseID = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

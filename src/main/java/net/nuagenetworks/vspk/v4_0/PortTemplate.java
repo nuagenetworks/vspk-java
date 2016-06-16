@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VLANTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
@@ -98,66 +99,84 @@ public class PortTemplate extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getVLANRange() {
       return VLANRange;
    }
 
+   @JsonIgnore
    public void setVLANRange(String value) { 
       this.VLANRange = value;
    }
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public String getPhysicalName() {
       return physicalName;
    }
 
+   @JsonIgnore
    public void setPhysicalName(String value) { 
       this.physicalName = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public PortType getPortType() {
       return portType;
    }
 
+   @JsonIgnore
    public void setPortType(PortType value) { 
       this.portType = value;
    }
+   @JsonIgnore
    public String getAssociatedEgressQOSPolicyID() {
       return associatedEgressQOSPolicyID;
    }
 
+   @JsonIgnore
    public void setAssociatedEgressQOSPolicyID(String value) { 
       this.associatedEgressQOSPolicyID = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

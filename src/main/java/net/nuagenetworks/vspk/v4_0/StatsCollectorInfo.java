@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
@@ -86,52 +87,66 @@ public class StatsCollectorInfo extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public AddressType getAddressType() {
       return addressType;
    }
 
+   @JsonIgnore
    public void setAddressType(AddressType value) { 
       this.addressType = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getPort() {
       return port;
    }
 
+   @JsonIgnore
    public void setPort(String value) { 
       this.port = value;
    }
+   @JsonIgnore
    public String getIpAddress() {
       return ipAddress;
    }
 
+   @JsonIgnore
    public void setIpAddress(String value) { 
       this.ipAddress = value;
    }
+   @JsonIgnore
    public String getProtoBufPort() {
       return protoBufPort;
    }
 
+   @JsonIgnore
    public void setProtoBufPort(String value) { 
       this.protoBufPort = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

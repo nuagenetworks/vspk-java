@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.KeyServerMonitorEncryptedSeedsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.KeyServerMonitorSeedsFetcher;
@@ -112,73 +113,93 @@ public class KeyServerMonitor extends RestObject {
       
    }
 
+   @JsonIgnore
    public Long getLastUpdateTime() {
       return lastUpdateTime;
    }
 
+   @JsonIgnore
    public void setLastUpdateTime(Long value) { 
       this.lastUpdateTime = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public Long getGatewaySecuredDataRecordCount() {
       return gatewaySecuredDataRecordCount;
    }
 
+   @JsonIgnore
    public void setGatewaySecuredDataRecordCount(Long value) { 
       this.gatewaySecuredDataRecordCount = value;
    }
+   @JsonIgnore
    public Long getKeyserverMonitorEncryptedSEKCount() {
       return keyserverMonitorEncryptedSEKCount;
    }
 
+   @JsonIgnore
    public void setKeyserverMonitorEncryptedSEKCount(Long value) { 
       this.keyserverMonitorEncryptedSEKCount = value;
    }
+   @JsonIgnore
    public Long getKeyserverMonitorEncryptedSeedCount() {
       return keyserverMonitorEncryptedSeedCount;
    }
 
+   @JsonIgnore
    public void setKeyserverMonitorEncryptedSeedCount(Long value) { 
       this.keyserverMonitorEncryptedSeedCount = value;
    }
+   @JsonIgnore
    public Long getKeyserverMonitorSEKCount() {
       return keyserverMonitorSEKCount;
    }
 
+   @JsonIgnore
    public void setKeyserverMonitorSEKCount(Long value) { 
       this.keyserverMonitorSEKCount = value;
    }
+   @JsonIgnore
    public Long getKeyserverMonitorSeedCount() {
       return keyserverMonitorSeedCount;
    }
 
+   @JsonIgnore
    public void setKeyserverMonitorSeedCount(Long value) { 
       this.keyserverMonitorSeedCount = value;
    }
+   @JsonIgnore
    public Long getEnterpriseSecuredDataRecordCount() {
       return enterpriseSecuredDataRecordCount;
    }
 
+   @JsonIgnore
    public void setEnterpriseSecuredDataRecordCount(Long value) { 
       this.enterpriseSecuredDataRecordCount = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

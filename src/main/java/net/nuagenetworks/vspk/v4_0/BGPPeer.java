@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
@@ -80,38 +81,48 @@ public class BGPPeer extends RestObject {
       
    }
 
+   @JsonIgnore
    public Long getLastStateChange() {
       return lastStateChange;
    }
 
+   @JsonIgnore
    public void setLastStateChange(Long value) { 
       this.lastStateChange = value;
    }
+   @JsonIgnore
    public String getAddress() {
       return address;
    }
 
+   @JsonIgnore
    public void setAddress(String value) { 
       this.address = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public Status getStatus() {
       return status;
    }
 
+   @JsonIgnore
    public void setStatus(Status value) { 
       this.status = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

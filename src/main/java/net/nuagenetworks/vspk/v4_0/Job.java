@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
@@ -94,66 +95,84 @@ public class Job extends RestObject {
       
    }
 
+   @JsonIgnore
    public Object getParameters() {
       return parameters;
    }
 
+   @JsonIgnore
    public void setParameters(Object value) { 
       this.parameters = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public Object getResult() {
       return result;
    }
 
+   @JsonIgnore
    public void setResult(Object value) { 
       this.result = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public Command getCommand() {
       return command;
    }
 
+   @JsonIgnore
    public void setCommand(Command value) { 
       this.command = value;
    }
+   @JsonIgnore
    public Float getProgress() {
       return progress;
    }
 
+   @JsonIgnore
    public void setProgress(Float value) { 
       this.progress = value;
    }
+   @JsonIgnore
    public AssocEntityType getAssocEntityType() {
       return assocEntityType;
    }
 
+   @JsonIgnore
    public void setAssocEntityType(AssocEntityType value) { 
       this.assocEntityType = value;
    }
+   @JsonIgnore
    public Status getStatus() {
       return status;
    }
 
+   @JsonIgnore
    public void setStatus(Status value) { 
       this.status = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

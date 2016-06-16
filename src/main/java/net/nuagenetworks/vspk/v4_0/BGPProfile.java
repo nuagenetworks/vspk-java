@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
@@ -97,80 +98,102 @@ public class BGPProfile extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public Long getDampeningHalfLife() {
       return dampeningHalfLife;
    }
 
+   @JsonIgnore
    public void setDampeningHalfLife(Long value) { 
       this.dampeningHalfLife = value;
    }
+   @JsonIgnore
    public Long getDampeningMaxSuppress() {
       return dampeningMaxSuppress;
    }
 
+   @JsonIgnore
    public void setDampeningMaxSuppress(Long value) { 
       this.dampeningMaxSuppress = value;
    }
+   @JsonIgnore
    public String getDampeningName() {
       return dampeningName;
    }
 
+   @JsonIgnore
    public void setDampeningName(String value) { 
       this.dampeningName = value;
    }
+   @JsonIgnore
    public Long getDampeningReuse() {
       return dampeningReuse;
    }
 
+   @JsonIgnore
    public void setDampeningReuse(Long value) { 
       this.dampeningReuse = value;
    }
+   @JsonIgnore
    public Long getDampeningSuppress() {
       return dampeningSuppress;
    }
 
+   @JsonIgnore
    public void setDampeningSuppress(Long value) { 
       this.dampeningSuppress = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getAssociatedExportRoutingPolicyID() {
       return associatedExportRoutingPolicyID;
    }
 
+   @JsonIgnore
    public void setAssociatedExportRoutingPolicyID(String value) { 
       this.associatedExportRoutingPolicyID = value;
    }
+   @JsonIgnore
    public String getAssociatedImportRoutingPolicyID() {
       return associatedImportRoutingPolicyID;
    }
 
+   @JsonIgnore
    public void setAssociatedImportRoutingPolicyID(String value) { 
       this.associatedImportRoutingPolicyID = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

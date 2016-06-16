@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
@@ -100,87 +101,111 @@ public class IKEPSK extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public String getSignature() {
       return signature;
    }
 
+   @JsonIgnore
    public void setSignature(String value) { 
       this.signature = value;
    }
+   @JsonIgnore
    public Long getSigningCertificateSerialNumber() {
       return signingCertificateSerialNumber;
    }
 
+   @JsonIgnore
    public void setSigningCertificateSerialNumber(Long value) { 
       this.signingCertificateSerialNumber = value;
    }
+   @JsonIgnore
    public String getEncryptedPSK() {
       return encryptedPSK;
    }
 
+   @JsonIgnore
    public void setEncryptedPSK(String value) { 
       this.encryptedPSK = value;
    }
+   @JsonIgnore
    public Long getEncryptingCertificateSerialNumber() {
       return encryptingCertificateSerialNumber;
    }
 
+   @JsonIgnore
    public void setEncryptingCertificateSerialNumber(Long value) { 
       this.encryptingCertificateSerialNumber = value;
    }
+   @JsonIgnore
    public String getUnencryptedPSK() {
       return unencryptedPSK;
    }
 
+   @JsonIgnore
    public void setUnencryptedPSK(String value) { 
       this.unencryptedPSK = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getAssociatedEnterpriseID() {
       return associatedEnterpriseID;
    }
 
+   @JsonIgnore
    public void setAssociatedEnterpriseID(String value) { 
       this.associatedEnterpriseID = value;
    }
+   @JsonIgnore
    public Boolean getAutoCreated() {
       return autoCreated;
    }
 
+   @JsonIgnore
    public void setAutoCreated(Boolean value) { 
       this.autoCreated = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

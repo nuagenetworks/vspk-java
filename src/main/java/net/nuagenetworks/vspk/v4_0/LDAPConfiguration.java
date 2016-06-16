@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
@@ -106,101 +107,129 @@ public class LDAPConfiguration extends RestObject {
       
    }
 
+   @JsonIgnore
    public Boolean getSSLEnabled() {
       return SSLEnabled;
    }
 
+   @JsonIgnore
    public void setSSLEnabled(Boolean value) { 
       this.SSLEnabled = value;
    }
+   @JsonIgnore
    public String getPassword() {
       return password;
    }
 
+   @JsonIgnore
    public void setPassword(String value) { 
       this.password = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public Boolean getAcceptAllCertificates() {
       return acceptAllCertificates;
    }
 
+   @JsonIgnore
    public void setAcceptAllCertificates(Boolean value) { 
       this.acceptAllCertificates = value;
    }
+   @JsonIgnore
    public String getCertificate() {
       return certificate;
    }
 
+   @JsonIgnore
    public void setCertificate(String value) { 
       this.certificate = value;
    }
+   @JsonIgnore
    public String getServer() {
       return server;
    }
 
+   @JsonIgnore
    public void setServer(String value) { 
       this.server = value;
    }
+   @JsonIgnore
    public Boolean getEnabled() {
       return enabled;
    }
 
+   @JsonIgnore
    public void setEnabled(Boolean value) { 
       this.enabled = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getPort() {
       return port;
    }
 
+   @JsonIgnore
    public void setPort(String value) { 
       this.port = value;
    }
+   @JsonIgnore
    public String getGroupDN() {
       return groupDN;
    }
 
+   @JsonIgnore
    public void setGroupDN(String value) { 
       this.groupDN = value;
    }
+   @JsonIgnore
    public String getUserDNTemplate() {
       return userDNTemplate;
    }
 
+   @JsonIgnore
    public void setUserDNTemplate(String value) { 
       this.userDNTemplate = value;
    }
+   @JsonIgnore
    public Boolean getAuthorizationEnabled() {
       return authorizationEnabled;
    }
 
+   @JsonIgnore
    public void setAuthorizationEnabled(Boolean value) { 
       this.authorizationEnabled = value;
    }
+   @JsonIgnore
    public String getAuthorizingUserDN() {
       return authorizingUserDN;
    }
 
+   @JsonIgnore
    public void setAuthorizingUserDN(String value) { 
       this.authorizingUserDN = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

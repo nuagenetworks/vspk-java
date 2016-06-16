@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
@@ -109,101 +110,129 @@ public class IKEGatewayProfile extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getIKEGatewayIdentifier() {
       return IKEGatewayIdentifier;
    }
 
+   @JsonIgnore
    public void setIKEGatewayIdentifier(String value) { 
       this.IKEGatewayIdentifier = value;
    }
+   @JsonIgnore
    public IKEGatewayIdentifierType getIKEGatewayIdentifierType() {
       return IKEGatewayIdentifierType;
    }
 
+   @JsonIgnore
    public void setIKEGatewayIdentifierType(IKEGatewayIdentifierType value) { 
       this.IKEGatewayIdentifierType = value;
    }
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public ServiceClass getServiceClass() {
       return serviceClass;
    }
 
+   @JsonIgnore
    public void setServiceClass(ServiceClass value) { 
       this.serviceClass = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public Boolean getAntiReplayCheck() {
       return antiReplayCheck;
    }
 
+   @JsonIgnore
    public void setAntiReplayCheck(Boolean value) { 
       this.antiReplayCheck = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getAssociatedEnterpriseID() {
       return associatedEnterpriseID;
    }
 
+   @JsonIgnore
    public void setAssociatedEnterpriseID(String value) { 
       this.associatedEnterpriseID = value;
    }
+   @JsonIgnore
    public String getAssociatedIKEAuthenticationID() {
       return associatedIKEAuthenticationID;
    }
 
+   @JsonIgnore
    public void setAssociatedIKEAuthenticationID(String value) { 
       this.associatedIKEAuthenticationID = value;
    }
+   @JsonIgnore
    public AssociatedIKEAuthenticationType getAssociatedIKEAuthenticationType() {
       return associatedIKEAuthenticationType;
    }
 
+   @JsonIgnore
    public void setAssociatedIKEAuthenticationType(AssociatedIKEAuthenticationType value) { 
       this.associatedIKEAuthenticationType = value;
    }
+   @JsonIgnore
    public String getAssociatedIKEEncryptionProfileID() {
       return associatedIKEEncryptionProfileID;
    }
 
+   @JsonIgnore
    public void setAssociatedIKEEncryptionProfileID(String value) { 
       this.associatedIKEEncryptionProfileID = value;
    }
+   @JsonIgnore
    public String getAssociatedIKEGatewayID() {
       return associatedIKEGatewayID;
    }
 
+   @JsonIgnore
    public void setAssociatedIKEGatewayID(String value) { 
       this.associatedIKEGatewayID = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

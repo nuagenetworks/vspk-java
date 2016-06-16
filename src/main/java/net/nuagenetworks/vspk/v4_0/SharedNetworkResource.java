@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.AddressRangesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.DHCPOptionsFetcher;
@@ -179,192 +180,246 @@ public class SharedNetworkResource extends RestObject {
       
    }
 
+   @JsonIgnore
    public Long getECMPCount() {
       return ECMPCount;
    }
 
+   @JsonIgnore
    public void setECMPCount(Long value) { 
       this.ECMPCount = value;
    }
+   @JsonIgnore
    public Boolean getDHCPManaged() {
       return DHCPManaged;
    }
 
+   @JsonIgnore
    public void setDHCPManaged(Boolean value) { 
       this.DHCPManaged = value;
    }
+   @JsonIgnore
    public String getBackHaulRouteDistinguisher() {
       return backHaulRouteDistinguisher;
    }
 
+   @JsonIgnore
    public void setBackHaulRouteDistinguisher(String value) { 
       this.backHaulRouteDistinguisher = value;
    }
+   @JsonIgnore
    public String getBackHaulRouteTarget() {
       return backHaulRouteTarget;
    }
 
+   @JsonIgnore
    public void setBackHaulRouteTarget(String value) { 
       this.backHaulRouteTarget = value;
    }
+   @JsonIgnore
    public Long getBackHaulVNID() {
       return backHaulVNID;
    }
 
+   @JsonIgnore
    public void setBackHaulVNID(Long value) { 
       this.backHaulVNID = value;
    }
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getGateway() {
       return gateway;
    }
 
+   @JsonIgnore
    public void setGateway(String value) { 
       this.gateway = value;
    }
+   @JsonIgnore
    public Boolean getAccessRestrictionEnabled() {
       return accessRestrictionEnabled;
    }
 
+   @JsonIgnore
    public void setAccessRestrictionEnabled(Boolean value) { 
       this.accessRestrictionEnabled = value;
    }
+   @JsonIgnore
    public String getAddress() {
       return address;
    }
 
+   @JsonIgnore
    public void setAddress(String value) { 
       this.address = value;
    }
+   @JsonIgnore
    public PermittedActionType getPermittedActionType() {
       return permittedActionType;
    }
 
+   @JsonIgnore
    public void setPermittedActionType(PermittedActionType value) { 
       this.permittedActionType = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public String getNetmask() {
       return netmask;
    }
 
+   @JsonIgnore
    public void setNetmask(String value) { 
       this.netmask = value;
    }
+   @JsonIgnore
    public String getSharedResourceParentID() {
       return sharedResourceParentID;
    }
 
+   @JsonIgnore
    public void setSharedResourceParentID(String value) { 
       this.sharedResourceParentID = value;
    }
+   @JsonIgnore
    public Long getVnID() {
       return vnID;
    }
 
+   @JsonIgnore
    public void setVnID(Long value) { 
       this.vnID = value;
    }
+   @JsonIgnore
    public Boolean getUnderlay() {
       return underlay;
    }
 
+   @JsonIgnore
    public void setUnderlay(Boolean value) { 
       this.underlay = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getDomainRouteDistinguisher() {
       return domainRouteDistinguisher;
    }
 
+   @JsonIgnore
    public void setDomainRouteDistinguisher(String value) { 
       this.domainRouteDistinguisher = value;
    }
+   @JsonIgnore
    public String getDomainRouteTarget() {
       return domainRouteTarget;
    }
 
+   @JsonIgnore
    public void setDomainRouteTarget(String value) { 
       this.domainRouteTarget = value;
    }
+   @JsonIgnore
    public String getUplinkGWVlanAttachmentID() {
       return uplinkGWVlanAttachmentID;
    }
 
+   @JsonIgnore
    public void setUplinkGWVlanAttachmentID(String value) { 
       this.uplinkGWVlanAttachmentID = value;
    }
+   @JsonIgnore
    public String getUplinkInterfaceIP() {
       return uplinkInterfaceIP;
    }
 
+   @JsonIgnore
    public void setUplinkInterfaceIP(String value) { 
       this.uplinkInterfaceIP = value;
    }
+   @JsonIgnore
    public String getUplinkInterfaceMAC() {
       return uplinkInterfaceMAC;
    }
 
+   @JsonIgnore
    public void setUplinkInterfaceMAC(String value) { 
       this.uplinkInterfaceMAC = value;
    }
+   @JsonIgnore
    public String getUplinkVPortName() {
       return uplinkVPortName;
    }
 
+   @JsonIgnore
    public void setUplinkVPortName(String value) { 
       this.uplinkVPortName = value;
    }
+   @JsonIgnore
    public String getAssociatedPATMapperID() {
       return associatedPATMapperID;
    }
 
+   @JsonIgnore
    public void setAssociatedPATMapperID(String value) { 
       this.associatedPATMapperID = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
    public Boolean getDynamicPATAllocationEnabled() {
       return dynamicPATAllocationEnabled;
    }
 
+   @JsonIgnore
    public void setDynamicPATAllocationEnabled(Boolean value) { 
       this.dynamicPATAllocationEnabled = value;
    }
+   @JsonIgnore
    public Type getType() {
       return type;
    }
 
+   @JsonIgnore
    public void setType(Type value) { 
       this.type = value;
    }

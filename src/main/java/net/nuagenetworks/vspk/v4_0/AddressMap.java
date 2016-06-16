@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
@@ -92,66 +93,84 @@ public class AddressMap extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getPrivateIP() {
       return privateIP;
    }
 
+   @JsonIgnore
    public void setPrivateIP(String value) { 
       this.privateIP = value;
    }
+   @JsonIgnore
    public String getPrivatePort() {
       return privatePort;
    }
 
+   @JsonIgnore
    public void setPrivatePort(String value) { 
       this.privatePort = value;
    }
+   @JsonIgnore
    public String getAssociatedPATNATPoolID() {
       return associatedPATNATPoolID;
    }
 
+   @JsonIgnore
    public void setAssociatedPATNATPoolID(String value) { 
       this.associatedPATNATPoolID = value;
    }
+   @JsonIgnore
    public String getPublicIP() {
       return publicIP;
    }
 
+   @JsonIgnore
    public void setPublicIP(String value) { 
       this.publicIP = value;
    }
+   @JsonIgnore
    public String getPublicPort() {
       return publicPort;
    }
 
+   @JsonIgnore
    public void setPublicPort(String value) { 
       this.publicPort = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
    public Type getType() {
       return type;
    }
 
+   @JsonIgnore
    public void setType(Type value) { 
       this.type = value;
    }

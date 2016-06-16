@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
@@ -141,164 +142,210 @@ public class IKEEncryptionprofile extends RestObject {
       
    }
 
+   @JsonIgnore
    public Long getDPDInterval() {
       return DPDInterval;
    }
 
+   @JsonIgnore
    public void setDPDInterval(Long value) { 
       this.DPDInterval = value;
    }
+   @JsonIgnore
    public DPDMode getDPDMode() {
       return DPDMode;
    }
 
+   @JsonIgnore
    public void setDPDMode(DPDMode value) { 
       this.DPDMode = value;
    }
+   @JsonIgnore
    public Long getDPDRetryInterval() {
       return DPDRetryInterval;
    }
 
+   @JsonIgnore
    public void setDPDRetryInterval(Long value) { 
       this.DPDRetryInterval = value;
    }
+   @JsonIgnore
    public Long getDPDTimeout() {
       return DPDTimeout;
    }
 
+   @JsonIgnore
    public void setDPDTimeout(Long value) { 
       this.DPDTimeout = value;
    }
+   @JsonIgnore
    public IPSecAuthenticationAlgorithm getIPSecAuthenticationAlgorithm() {
       return IPSecAuthenticationAlgorithm;
    }
 
+   @JsonIgnore
    public void setIPSecAuthenticationAlgorithm(IPSecAuthenticationAlgorithm value) { 
       this.IPSecAuthenticationAlgorithm = value;
    }
+   @JsonIgnore
    public Boolean getIPSecDontFragment() {
       return IPSecDontFragment;
    }
 
+   @JsonIgnore
    public void setIPSecDontFragment(Boolean value) { 
       this.IPSecDontFragment = value;
    }
+   @JsonIgnore
    public Boolean getIPSecEnablePFS() {
       return IPSecEnablePFS;
    }
 
+   @JsonIgnore
    public void setIPSecEnablePFS(Boolean value) { 
       this.IPSecEnablePFS = value;
    }
+   @JsonIgnore
    public IPSecEncryptionAlgorithm getIPSecEncryptionAlgorithm() {
       return IPSecEncryptionAlgorithm;
    }
 
+   @JsonIgnore
    public void setIPSecEncryptionAlgorithm(IPSecEncryptionAlgorithm value) { 
       this.IPSecEncryptionAlgorithm = value;
    }
+   @JsonIgnore
    public Boolean getIPSecPreFragment() {
       return IPSecPreFragment;
    }
 
+   @JsonIgnore
    public void setIPSecPreFragment(Boolean value) { 
       this.IPSecPreFragment = value;
    }
+   @JsonIgnore
    public Long getIPSecSALifetime() {
       return IPSecSALifetime;
    }
 
+   @JsonIgnore
    public void setIPSecSALifetime(Long value) { 
       this.IPSecSALifetime = value;
    }
+   @JsonIgnore
    public IPSecSAReplayWindowSize getIPSecSAReplayWindowSize() {
       return IPSecSAReplayWindowSize;
    }
 
+   @JsonIgnore
    public void setIPSecSAReplayWindowSize(IPSecSAReplayWindowSize value) { 
       this.IPSecSAReplayWindowSize = value;
    }
+   @JsonIgnore
    public ISAKMPAuthenticationMode getISAKMPAuthenticationMode() {
       return ISAKMPAuthenticationMode;
    }
 
+   @JsonIgnore
    public void setISAKMPAuthenticationMode(ISAKMPAuthenticationMode value) { 
       this.ISAKMPAuthenticationMode = value;
    }
+   @JsonIgnore
    public ISAKMPDiffieHelmanGroupIdentifier getISAKMPDiffieHelmanGroupIdentifier() {
       return ISAKMPDiffieHelmanGroupIdentifier;
    }
 
+   @JsonIgnore
    public void setISAKMPDiffieHelmanGroupIdentifier(ISAKMPDiffieHelmanGroupIdentifier value) { 
       this.ISAKMPDiffieHelmanGroupIdentifier = value;
    }
+   @JsonIgnore
    public ISAKMPEncryptionAlgorithm getISAKMPEncryptionAlgorithm() {
       return ISAKMPEncryptionAlgorithm;
    }
 
+   @JsonIgnore
    public void setISAKMPEncryptionAlgorithm(ISAKMPEncryptionAlgorithm value) { 
       this.ISAKMPEncryptionAlgorithm = value;
    }
+   @JsonIgnore
    public Long getISAKMPEncryptionKeyLifetime() {
       return ISAKMPEncryptionKeyLifetime;
    }
 
+   @JsonIgnore
    public void setISAKMPEncryptionKeyLifetime(Long value) { 
       this.ISAKMPEncryptionKeyLifetime = value;
    }
+   @JsonIgnore
    public ISAKMPHashAlgorithm getISAKMPHashAlgorithm() {
       return ISAKMPHashAlgorithm;
    }
 
+   @JsonIgnore
    public void setISAKMPHashAlgorithm(ISAKMPHashAlgorithm value) { 
       this.ISAKMPHashAlgorithm = value;
    }
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public Long getSequence() {
       return sequence;
    }
 
+   @JsonIgnore
    public void setSequence(Long value) { 
       this.sequence = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getAssociatedEnterpriseID() {
       return associatedEnterpriseID;
    }
 
+   @JsonIgnore
    public void setAssociatedEnterpriseID(String value) { 
       this.associatedEnterpriseID = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

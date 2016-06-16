@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
@@ -91,66 +92,84 @@ public class VCenterEAMConfig extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getEamServerIP() {
       return eamServerIP;
    }
 
+   @JsonIgnore
    public void setEamServerIP(String value) { 
       this.eamServerIP = value;
    }
+   @JsonIgnore
    public Long getEamServerPortNumber() {
       return eamServerPortNumber;
    }
 
+   @JsonIgnore
    public void setEamServerPortNumber(Long value) { 
       this.eamServerPortNumber = value;
    }
+   @JsonIgnore
    public String getEamServerPortType() {
       return eamServerPortType;
    }
 
+   @JsonIgnore
    public void setEamServerPortType(String value) { 
       this.eamServerPortType = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getVibURL() {
       return vibURL;
    }
 
+   @JsonIgnore
    public void setVibURL(String value) { 
       this.vibURL = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getOvfURL() {
       return ovfURL;
    }
 
+   @JsonIgnore
    public void setOvfURL(String value) { 
       this.ovfURL = value;
    }
+   @JsonIgnore
    public String getExtensionKey() {
       return extensionKey;
    }
 
+   @JsonIgnore
    public void setExtensionKey(String value) { 
       this.extensionKey = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

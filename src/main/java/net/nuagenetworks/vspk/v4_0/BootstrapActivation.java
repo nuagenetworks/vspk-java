@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
@@ -110,108 +111,138 @@ public class BootstrapActivation extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getCacert() {
       return cacert;
    }
 
+   @JsonIgnore
    public void setCacert(String value) { 
       this.cacert = value;
    }
+   @JsonIgnore
    public String getHash() {
       return hash;
    }
 
+   @JsonIgnore
    public void setHash(String value) { 
       this.hash = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public Action getAction() {
       return action;
    }
 
+   @JsonIgnore
    public void setAction(Action value) { 
       this.action = value;
    }
+   @JsonIgnore
    public String getSeed() {
       return seed;
    }
 
+   @JsonIgnore
    public void setSeed(String value) { 
       this.seed = value;
    }
+   @JsonIgnore
    public String getCert() {
       return cert;
    }
 
+   @JsonIgnore
    public void setCert(String value) { 
       this.cert = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getConfigURL() {
       return configURL;
    }
 
+   @JsonIgnore
    public void setConfigURL(String value) { 
       this.configURL = value;
    }
+   @JsonIgnore
    public String getTpmOwnerPassword() {
       return tpmOwnerPassword;
    }
 
+   @JsonIgnore
    public void setTpmOwnerPassword(String value) { 
       this.tpmOwnerPassword = value;
    }
+   @JsonIgnore
    public Long getTpmState() {
       return tpmState;
    }
 
+   @JsonIgnore
    public void setTpmState(Long value) { 
       this.tpmState = value;
    }
+   @JsonIgnore
    public String getSrkPassword() {
       return srkPassword;
    }
 
+   @JsonIgnore
    public void setSrkPassword(String value) { 
       this.srkPassword = value;
    }
+   @JsonIgnore
    public Long getVsdTime() {
       return vsdTime;
    }
 
+   @JsonIgnore
    public void setVsdTime(Long value) { 
       this.vsdTime = value;
    }
+   @JsonIgnore
    public String getCsr() {
       return csr;
    }
 
+   @JsonIgnore
    public void setCsr(String value) { 
       this.csr = value;
    }
+   @JsonIgnore
    public String getStatus() {
       return status;
    }
 
+   @JsonIgnore
    public void setStatus(String value) { 
       this.status = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

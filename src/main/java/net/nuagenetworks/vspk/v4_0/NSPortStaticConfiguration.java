@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
@@ -88,59 +89,75 @@ public class NSPortStaticConfiguration extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getDNSAddress() {
       return DNSAddress;
    }
 
+   @JsonIgnore
    public void setDNSAddress(String value) { 
       this.DNSAddress = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getGateway() {
       return gateway;
    }
 
+   @JsonIgnore
    public void setGateway(String value) { 
       this.gateway = value;
    }
+   @JsonIgnore
    public String getAddress() {
       return address;
    }
 
+   @JsonIgnore
    public void setAddress(String value) { 
       this.address = value;
    }
+   @JsonIgnore
    public String getNetmask() {
       return netmask;
    }
 
+   @JsonIgnore
    public void setNetmask(String value) { 
       this.netmask = value;
    }
+   @JsonIgnore
    public Boolean getEnabled() {
       return enabled;
    }
 
+   @JsonIgnore
    public void setEnabled(Boolean value) { 
       this.enabled = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

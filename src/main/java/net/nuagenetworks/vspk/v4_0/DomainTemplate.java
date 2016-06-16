@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.RedirectionTargetTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
@@ -196,80 +197,102 @@ public class DomainTemplate extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public Encryption getEncryption() {
       return encryption;
    }
 
+   @JsonIgnore
    public void setEncryption(Encryption value) { 
       this.encryption = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public PolicyChangeStatus getPolicyChangeStatus() {
       return policyChangeStatus;
    }
 
+   @JsonIgnore
    public void setPolicyChangeStatus(PolicyChangeStatus value) { 
       this.policyChangeStatus = value;
    }
+   @JsonIgnore
    public String getAssociatedBGPProfileID() {
       return associatedBGPProfileID;
    }
 
+   @JsonIgnore
    public void setAssociatedBGPProfileID(String value) { 
       this.associatedBGPProfileID = value;
    }
+   @JsonIgnore
    public String getAssociatedMulticastChannelMapID() {
       return associatedMulticastChannelMapID;
    }
 
+   @JsonIgnore
    public void setAssociatedMulticastChannelMapID(String value) { 
       this.associatedMulticastChannelMapID = value;
    }
+   @JsonIgnore
    public String getAssociatedPATMapperID() {
       return associatedPATMapperID;
    }
 
+   @JsonIgnore
    public void setAssociatedPATMapperID(String value) { 
       this.associatedPATMapperID = value;
    }
+   @JsonIgnore
    public Multicast getMulticast() {
       return multicast;
    }
 
+   @JsonIgnore
    public void setMulticast(Multicast value) { 
       this.multicast = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

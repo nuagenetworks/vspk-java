@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.TCAsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
@@ -148,108 +149,138 @@ public class Tier extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getGateway() {
       return gateway;
    }
 
+   @JsonIgnore
    public void setGateway(String value) { 
       this.gateway = value;
    }
+   @JsonIgnore
    public String getAddress() {
       return address;
    }
 
+   @JsonIgnore
    public void setAddress(String value) { 
       this.address = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public String getMetadata() {
       return metadata;
    }
 
+   @JsonIgnore
    public void setMetadata(String value) { 
       this.metadata = value;
    }
+   @JsonIgnore
    public String getNetmask() {
       return netmask;
    }
 
+   @JsonIgnore
    public void setNetmask(String value) { 
       this.netmask = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getAssociatedApplicationID() {
       return associatedApplicationID;
    }
 
+   @JsonIgnore
    public void setAssociatedApplicationID(String value) { 
       this.associatedApplicationID = value;
    }
+   @JsonIgnore
    public String getAssociatedFloatingIPPoolID() {
       return associatedFloatingIPPoolID;
    }
 
+   @JsonIgnore
    public void setAssociatedFloatingIPPoolID(String value) { 
       this.associatedFloatingIPPoolID = value;
    }
+   @JsonIgnore
    public String getAssociatedNetworkMacroID() {
       return associatedNetworkMacroID;
    }
 
+   @JsonIgnore
    public void setAssociatedNetworkMacroID(String value) { 
       this.associatedNetworkMacroID = value;
    }
+   @JsonIgnore
    public String getAssociatedNetworkObjectID() {
       return associatedNetworkObjectID;
    }
 
+   @JsonIgnore
    public void setAssociatedNetworkObjectID(String value) { 
       this.associatedNetworkObjectID = value;
    }
+   @JsonIgnore
    public AssociatedNetworkObjectType getAssociatedNetworkObjectType() {
       return associatedNetworkObjectType;
    }
 
+   @JsonIgnore
    public void setAssociatedNetworkObjectType(AssociatedNetworkObjectType value) { 
       this.associatedNetworkObjectType = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
    public Type getType() {
       return type;
    }
 
+   @JsonIgnore
    public void setType(Type value) { 
       this.type = value;
    }

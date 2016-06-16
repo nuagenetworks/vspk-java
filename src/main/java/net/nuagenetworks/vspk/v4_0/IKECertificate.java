@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
@@ -100,87 +101,111 @@ public class IKECertificate extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getPEMEncoded() {
       return PEMEncoded;
    }
 
+   @JsonIgnore
    public void setPEMEncoded(String value) { 
       this.PEMEncoded = value;
    }
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public Long getSerialNumber() {
       return serialNumber;
    }
 
+   @JsonIgnore
    public void setSerialNumber(Long value) { 
       this.serialNumber = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public Float getNotAfter() {
       return notAfter;
    }
 
+   @JsonIgnore
    public void setNotAfter(Float value) { 
       this.notAfter = value;
    }
+   @JsonIgnore
    public Float getNotBefore() {
       return notBefore;
    }
 
+   @JsonIgnore
    public void setNotBefore(Float value) { 
       this.notBefore = value;
    }
+   @JsonIgnore
    public String getAssociatedEnterpriseID() {
       return associatedEnterpriseID;
    }
 
+   @JsonIgnore
    public void setAssociatedEnterpriseID(String value) { 
       this.associatedEnterpriseID = value;
    }
+   @JsonIgnore
    public String getIssuerDN() {
       return issuerDN;
    }
 
+   @JsonIgnore
    public void setIssuerDN(String value) { 
       this.issuerDN = value;
    }
+   @JsonIgnore
    public String getSubjectDN() {
       return subjectDN;
    }
 
+   @JsonIgnore
    public void setSubjectDN(String value) { 
       this.subjectDN = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

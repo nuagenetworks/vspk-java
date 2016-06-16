@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.L2DomainsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.L2DomainTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.RateLimitersFetcher;
@@ -397,185 +398,237 @@ public class Enterprise extends RestObject {
       
    }
 
+   @JsonIgnore
    public Boolean getLDAPAuthorizationEnabled() {
       return LDAPAuthorizationEnabled;
    }
 
+   @JsonIgnore
    public void setLDAPAuthorizationEnabled(Boolean value) { 
       this.LDAPAuthorizationEnabled = value;
    }
+   @JsonIgnore
    public Boolean getLDAPEnabled() {
       return LDAPEnabled;
    }
 
+   @JsonIgnore
    public void setLDAPEnabled(Boolean value) { 
       this.LDAPEnabled = value;
    }
+   @JsonIgnore
    public Boolean getBGPEnabled() {
       return BGPEnabled;
    }
 
+   @JsonIgnore
    public void setBGPEnabled(Boolean value) { 
       this.BGPEnabled = value;
    }
+   @JsonIgnore
    public Long getDHCPLeaseInterval() {
       return DHCPLeaseInterval;
    }
 
+   @JsonIgnore
    public void setDHCPLeaseInterval(Long value) { 
       this.DHCPLeaseInterval = value;
    }
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getReceiveMultiCastListID() {
       return receiveMultiCastListID;
    }
 
+   @JsonIgnore
    public void setReceiveMultiCastListID(String value) { 
       this.receiveMultiCastListID = value;
    }
+   @JsonIgnore
    public String getSendMultiCastListID() {
       return sendMultiCastListID;
    }
 
+   @JsonIgnore
    public void setSendMultiCastListID(String value) { 
       this.sendMultiCastListID = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public Boolean getAllowAdvancedQOSConfiguration() {
       return allowAdvancedQOSConfiguration;
    }
 
+   @JsonIgnore
    public void setAllowAdvancedQOSConfiguration(Boolean value) { 
       this.allowAdvancedQOSConfiguration = value;
    }
+   @JsonIgnore
    public Boolean getAllowGatewayManagement() {
       return allowGatewayManagement;
    }
 
+   @JsonIgnore
    public void setAllowGatewayManagement(Boolean value) { 
       this.allowGatewayManagement = value;
    }
+   @JsonIgnore
    public Boolean getAllowTrustedForwardingClass() {
       return allowTrustedForwardingClass;
    }
 
+   @JsonIgnore
    public void setAllowTrustedForwardingClass(Boolean value) { 
       this.allowTrustedForwardingClass = value;
    }
+   @JsonIgnore
    public java.util.List<AllowedForwardingClasses> getAllowedForwardingClasses() {
       return allowedForwardingClasses;
    }
 
+   @JsonIgnore
    public void setAllowedForwardingClasses(java.util.List<AllowedForwardingClasses> value) { 
       this.allowedForwardingClasses = value;
    }
+   @JsonIgnore
    public Long getFloatingIPsQuota() {
       return floatingIPsQuota;
    }
 
+   @JsonIgnore
    public void setFloatingIPsQuota(Long value) { 
       this.floatingIPsQuota = value;
    }
+   @JsonIgnore
    public Long getFloatingIPsUsed() {
       return floatingIPsUsed;
    }
 
+   @JsonIgnore
    public void setFloatingIPsUsed(Long value) { 
       this.floatingIPsUsed = value;
    }
+   @JsonIgnore
    public EncryptionManagementMode getEncryptionManagementMode() {
       return encryptionManagementMode;
    }
 
+   @JsonIgnore
    public void setEncryptionManagementMode(EncryptionManagementMode value) { 
       this.encryptionManagementMode = value;
    }
+   @JsonIgnore
    public String getEnterpriseProfileID() {
       return enterpriseProfileID;
    }
 
+   @JsonIgnore
    public void setEnterpriseProfileID(String value) { 
       this.enterpriseProfileID = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public Long getLocalAS() {
       return localAS;
    }
 
+   @JsonIgnore
    public void setLocalAS(Long value) { 
       this.localAS = value;
    }
+   @JsonIgnore
    public String getAssociatedEnterpriseSecurityID() {
       return associatedEnterpriseSecurityID;
    }
 
+   @JsonIgnore
    public void setAssociatedEnterpriseSecurityID(String value) { 
       this.associatedEnterpriseSecurityID = value;
    }
+   @JsonIgnore
    public String getAssociatedGroupKeyEncryptionProfileID() {
       return associatedGroupKeyEncryptionProfileID;
    }
 
+   @JsonIgnore
    public void setAssociatedGroupKeyEncryptionProfileID(String value) { 
       this.associatedGroupKeyEncryptionProfileID = value;
    }
+   @JsonIgnore
    public String getAssociatedKeyServerMonitorID() {
       return associatedKeyServerMonitorID;
    }
 
+   @JsonIgnore
    public void setAssociatedKeyServerMonitorID(String value) { 
       this.associatedKeyServerMonitorID = value;
    }
+   @JsonIgnore
    public Long getCustomerID() {
       return customerID;
    }
 
+   @JsonIgnore
    public void setCustomerID(Long value) { 
       this.customerID = value;
    }
+   @JsonIgnore
    public String getAvatarData() {
       return avatarData;
    }
 
+   @JsonIgnore
    public void setAvatarData(String value) { 
       this.avatarData = value;
    }
+   @JsonIgnore
    public AvatarType getAvatarType() {
       return avatarType;
    }
 
+   @JsonIgnore
    public void setAvatarType(AvatarType value) { 
       this.avatarType = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

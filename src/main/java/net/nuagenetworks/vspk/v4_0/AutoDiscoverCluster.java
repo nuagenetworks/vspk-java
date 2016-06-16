@@ -32,6 +32,8 @@ import net.nuagenetworks.bambou.annotation.RestEntity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -59,24 +61,30 @@ public class AutoDiscoverCluster extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getManagedObjectID() {
       return managedObjectID;
    }
 
+   @JsonIgnore
    public void setManagedObjectID(String value) { 
       this.managedObjectID = value;
    }
+   @JsonIgnore
    public String getAssocVCenterDataCenterId() {
       return assocVCenterDataCenterId;
    }
 
+   @JsonIgnore
    public void setAssocVCenterDataCenterId(String value) { 
       this.assocVCenterDataCenterId = value;
    }

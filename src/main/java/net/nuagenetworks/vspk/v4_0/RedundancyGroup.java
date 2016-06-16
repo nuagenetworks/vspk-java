@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.GatewaysFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.WANServicesFetcher;
@@ -75,6 +76,9 @@ public class RedundancyGroup extends RestObject {
    
    @JsonProperty(value = "gatewayPeer2AutodiscoveredGatewayID")
    protected String gatewayPeer2AutodiscoveredGatewayID;
+   
+   @JsonProperty(value = "gatewayPeer2ID")
+   protected String gatewayPeer2ID;
    
    @JsonProperty(value = "gatewayPeer2Name")
    protected String gatewayPeer2Name;
@@ -160,108 +164,147 @@ public class RedundancyGroup extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getGatewayPeer1AutodiscoveredGatewayID() {
       return gatewayPeer1AutodiscoveredGatewayID;
    }
 
+   @JsonIgnore
    public void setGatewayPeer1AutodiscoveredGatewayID(String value) { 
       this.gatewayPeer1AutodiscoveredGatewayID = value;
    }
+   @JsonIgnore
    public String getGatewayPeer1ID() {
       return gatewayPeer1ID;
    }
 
+   @JsonIgnore
    public void setGatewayPeer1ID(String value) { 
       this.gatewayPeer1ID = value;
    }
+   @JsonIgnore
    public String getGatewayPeer1Name() {
       return gatewayPeer1Name;
    }
 
+   @JsonIgnore
    public void setGatewayPeer1Name(String value) { 
       this.gatewayPeer1Name = value;
    }
+   @JsonIgnore
    public String getGatewayPeer2AutodiscoveredGatewayID() {
       return gatewayPeer2AutodiscoveredGatewayID;
    }
 
+   @JsonIgnore
    public void setGatewayPeer2AutodiscoveredGatewayID(String value) { 
       this.gatewayPeer2AutodiscoveredGatewayID = value;
    }
+   @JsonIgnore
+   public String getGatewayPeer2ID() {
+      return gatewayPeer2ID;
+   }
+
+   @JsonIgnore
+   public void setGatewayPeer2ID(String value) { 
+      this.gatewayPeer2ID = value;
+   }
+   @JsonIgnore
    public String getGatewayPeer2Name() {
       return gatewayPeer2Name;
    }
 
+   @JsonIgnore
    public void setGatewayPeer2Name(String value) { 
       this.gatewayPeer2Name = value;
    }
+   @JsonIgnore
    public RedundantGatewayStatus getRedundantGatewayStatus() {
       return redundantGatewayStatus;
    }
 
+   @JsonIgnore
    public void setRedundantGatewayStatus(RedundantGatewayStatus value) { 
       this.redundantGatewayStatus = value;
    }
+   @JsonIgnore
    public PermittedAction getPermittedAction() {
       return permittedAction;
    }
 
+   @JsonIgnore
    public void setPermittedAction(PermittedAction value) { 
       this.permittedAction = value;
    }
+   @JsonIgnore
    public Personality getPersonality() {
       return personality;
    }
 
+   @JsonIgnore
    public void setPersonality(Personality value) { 
       this.personality = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public String getEnterpriseID() {
       return enterpriseID;
    }
 
+   @JsonIgnore
    public void setEnterpriseID(String value) { 
       this.enterpriseID = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getVtep() {
       return vtep;
    }
 
+   @JsonIgnore
    public void setVtep(String value) { 
       this.vtep = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }
@@ -320,7 +363,7 @@ public class RedundancyGroup extends RestObject {
    
 
    public String toString() {
-      return "RedundancyGroup [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", gatewayPeer1AutodiscoveredGatewayID=" + gatewayPeer1AutodiscoveredGatewayID + ", gatewayPeer1ID=" + gatewayPeer1ID + ", gatewayPeer1Name=" + gatewayPeer1Name + ", gatewayPeer2AutodiscoveredGatewayID=" + gatewayPeer2AutodiscoveredGatewayID + ", gatewayPeer2Name=" + gatewayPeer2Name + ", redundantGatewayStatus=" + redundantGatewayStatus + ", permittedAction=" + permittedAction + ", personality=" + personality + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", vtep=" + vtep + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "RedundancyGroup [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", gatewayPeer1AutodiscoveredGatewayID=" + gatewayPeer1AutodiscoveredGatewayID + ", gatewayPeer1ID=" + gatewayPeer1ID + ", gatewayPeer1Name=" + gatewayPeer1Name + ", gatewayPeer2AutodiscoveredGatewayID=" + gatewayPeer2AutodiscoveredGatewayID + ", gatewayPeer2ID=" + gatewayPeer2ID + ", gatewayPeer2Name=" + gatewayPeer2Name + ", redundantGatewayStatus=" + redundantGatewayStatus + ", permittedAction=" + permittedAction + ", personality=" + personality + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", vtep=" + vtep + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

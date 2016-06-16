@@ -32,6 +32,8 @@ import net.nuagenetworks.bambou.annotation.RestEntity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -80,73 +82,93 @@ public class LicenseStatus extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getTotalLicensedNICsCount() {
       return totalLicensedNICsCount;
    }
 
+   @JsonIgnore
    public void setTotalLicensedNICsCount(String value) { 
       this.totalLicensedNICsCount = value;
    }
+   @JsonIgnore
    public String getTotalLicensedNSGsCount() {
       return totalLicensedNSGsCount;
    }
 
+   @JsonIgnore
    public void setTotalLicensedNSGsCount(String value) { 
       this.totalLicensedNSGsCount = value;
    }
+   @JsonIgnore
    public String getTotalLicensedUsedNICsCount() {
       return totalLicensedUsedNICsCount;
    }
 
+   @JsonIgnore
    public void setTotalLicensedUsedNICsCount(String value) { 
       this.totalLicensedUsedNICsCount = value;
    }
+   @JsonIgnore
    public String getTotalLicensedUsedNSGsCount() {
       return totalLicensedUsedNSGsCount;
    }
 
+   @JsonIgnore
    public void setTotalLicensedUsedNSGsCount(String value) { 
       this.totalLicensedUsedNSGsCount = value;
    }
+   @JsonIgnore
    public String getTotalLicensedUsedVMsCount() {
       return totalLicensedUsedVMsCount;
    }
 
+   @JsonIgnore
    public void setTotalLicensedUsedVMsCount(String value) { 
       this.totalLicensedUsedVMsCount = value;
    }
+   @JsonIgnore
    public String getTotalLicensedUsedVRSGsCount() {
       return totalLicensedUsedVRSGsCount;
    }
 
+   @JsonIgnore
    public void setTotalLicensedUsedVRSGsCount(String value) { 
       this.totalLicensedUsedVRSGsCount = value;
    }
+   @JsonIgnore
    public String getTotalLicensedUsedVRSsCount() {
       return totalLicensedUsedVRSsCount;
    }
 
+   @JsonIgnore
    public void setTotalLicensedUsedVRSsCount(String value) { 
       this.totalLicensedUsedVRSsCount = value;
    }
+   @JsonIgnore
    public String getTotalLicensedVMsCount() {
       return totalLicensedVMsCount;
    }
 
+   @JsonIgnore
    public void setTotalLicensedVMsCount(String value) { 
       this.totalLicensedVMsCount = value;
    }
+   @JsonIgnore
    public String getTotalLicensedVRSGsCount() {
       return totalLicensedVRSGsCount;
    }
 
+   @JsonIgnore
    public void setTotalLicensedVRSGsCount(String value) { 
       this.totalLicensedVRSGsCount = value;
    }
+   @JsonIgnore
    public String getTotalLicensedVRSsCount() {
       return totalLicensedVRSsCount;
    }
 
+   @JsonIgnore
    public void setTotalLicensedVRSsCount(String value) { 
       this.totalLicensedVRSsCount = value;
    }

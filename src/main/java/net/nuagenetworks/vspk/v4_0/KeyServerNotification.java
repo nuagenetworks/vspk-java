@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
@@ -80,38 +81,48 @@ public class KeyServerNotification extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getBase64JSONString() {
       return base64JSONString;
    }
 
+   @JsonIgnore
    public void setBase64JSONString(String value) { 
       this.base64JSONString = value;
    }
+   @JsonIgnore
    public Object getMessage() {
       return message;
    }
 
+   @JsonIgnore
    public void setMessage(Object value) { 
       this.message = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public NotificationType getNotificationType() {
       return notificationType;
    }
 
+   @JsonIgnore
    public void setNotificationType(NotificationType value) { 
       this.notificationType = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }
