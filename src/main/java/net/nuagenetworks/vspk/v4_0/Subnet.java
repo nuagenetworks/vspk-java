@@ -150,7 +150,7 @@ public class Subnet extends RestObject {
    @JsonProperty(value = "associatedSharedNetworkResourceID")
    protected String associatedSharedNetworkResourceID;
    
-   @JsonProperty(value = "public_")
+   @JsonProperty(value = "public")
    protected Boolean public_;
    
    @JsonProperty(value = "multicast")

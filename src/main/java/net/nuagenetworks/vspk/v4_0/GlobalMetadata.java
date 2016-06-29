@@ -67,7 +67,7 @@ public class GlobalMetadata extends RestObject {
    @JsonProperty(value = "blob")
    protected String blob;
    
-   @JsonProperty(value = "globalMetadata")
+   @JsonProperty(value = "global")
    protected Boolean globalMetadata;
    
    @JsonProperty(value = "entityScope")

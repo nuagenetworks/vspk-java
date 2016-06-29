@@ -76,7 +76,7 @@ public class Group extends RestObject {
    @JsonProperty(value = "role")
    protected Role role;
    
-   @JsonProperty(value = "private_")
+   @JsonProperty(value = "private")
    protected Boolean private_;
    
    @JsonProperty(value = "externalID")
