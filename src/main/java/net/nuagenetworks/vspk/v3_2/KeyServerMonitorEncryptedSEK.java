@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v3_2.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 
@@ -88,59 +89,75 @@ public class KeyServerMonitorEncryptedSEK extends RestObject {
       
    }
 
+   @JsonIgnore
    public Float getNSGCertificateSerialNumber() {
       return NSGCertificateSerialNumber;
    }
 
+   @JsonIgnore
    public void setNSGCertificateSerialNumber(Float value) { 
       this.NSGCertificateSerialNumber = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getGatewaySecuredDataID() {
       return gatewaySecuredDataID;
    }
 
+   @JsonIgnore
    public void setGatewaySecuredDataID(String value) { 
       this.gatewaySecuredDataID = value;
    }
+   @JsonIgnore
    public Float getKeyServerCertificateSerialNumber() {
       return keyServerCertificateSerialNumber;
    }
 
+   @JsonIgnore
    public void setKeyServerCertificateSerialNumber(Float value) { 
       this.keyServerCertificateSerialNumber = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public Float getAssociatedKeyServerMonitorSEKCreationTime() {
       return associatedKeyServerMonitorSEKCreationTime;
    }
 
+   @JsonIgnore
    public void setAssociatedKeyServerMonitorSEKCreationTime(Float value) { 
       this.associatedKeyServerMonitorSEKCreationTime = value;
    }
+   @JsonIgnore
    public String getAssociatedKeyServerMonitorSEKID() {
       return associatedKeyServerMonitorSEKID;
    }
 
+   @JsonIgnore
    public void setAssociatedKeyServerMonitorSEKID(String value) { 
       this.associatedKeyServerMonitorSEKID = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

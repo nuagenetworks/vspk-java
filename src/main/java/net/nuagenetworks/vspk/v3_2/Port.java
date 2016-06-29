@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v3_2.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.VLANsFetcher;
@@ -145,115 +146,147 @@ public class Port extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getVLANRange() {
       return VLANRange;
    }
 
+   @JsonIgnore
    public void setVLANRange(String value) { 
       this.VLANRange = value;
    }
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getTemplateID() {
       return templateID;
    }
 
+   @JsonIgnore
    public void setTemplateID(String value) { 
       this.templateID = value;
    }
+   @JsonIgnore
    public PermittedAction getPermittedAction() {
       return permittedAction;
    }
 
+   @JsonIgnore
    public void setPermittedAction(PermittedAction value) { 
       this.permittedAction = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public String getPhysicalName() {
       return physicalName;
    }
 
+   @JsonIgnore
    public void setPhysicalName(String value) { 
       this.physicalName = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public PortType getPortType() {
       return portType;
    }
 
+   @JsonIgnore
    public void setPortType(PortType value) { 
       this.portType = value;
    }
+   @JsonIgnore
    public Boolean getIsResilient() {
       return isResilient;
    }
 
+   @JsonIgnore
    public void setIsResilient(Boolean value) { 
       this.isResilient = value;
    }
+   @JsonIgnore
    public Boolean getUseUserMnemonic() {
       return useUserMnemonic;
    }
 
+   @JsonIgnore
    public void setUseUserMnemonic(Boolean value) { 
       this.useUserMnemonic = value;
    }
+   @JsonIgnore
    public String getUserMnemonic() {
       return userMnemonic;
    }
 
+   @JsonIgnore
    public void setUserMnemonic(String value) { 
       this.userMnemonic = value;
    }
+   @JsonIgnore
    public String getAssociatedEgressQOSPolicyID() {
       return associatedEgressQOSPolicyID;
    }
 
+   @JsonIgnore
    public void setAssociatedEgressQOSPolicyID(String value) { 
       this.associatedEgressQOSPolicyID = value;
    }
+   @JsonIgnore
    public String getAssociatedRedundantPortID() {
       return associatedRedundantPortID;
    }
 
+   @JsonIgnore
    public void setAssociatedRedundantPortID(String value) { 
       this.associatedRedundantPortID = value;
    }
+   @JsonIgnore
    public Status getStatus() {
       return status;
    }
 
+   @JsonIgnore
    public void setStatus(Status value) { 
       this.status = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

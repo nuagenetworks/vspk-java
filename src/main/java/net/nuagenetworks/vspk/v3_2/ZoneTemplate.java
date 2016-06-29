@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v3_2.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.QOSsFetcher;
@@ -125,94 +126,120 @@ public class ZoneTemplate extends RestObject {
       
    }
 
+   @JsonIgnore
    public IPType getIPType() {
       return IPType;
    }
 
+   @JsonIgnore
    public void setIPType(IPType value) { 
       this.IPType = value;
    }
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getAddress() {
       return address;
    }
 
+   @JsonIgnore
    public void setAddress(String value) { 
       this.address = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public String getNetmask() {
       return netmask;
    }
 
+   @JsonIgnore
    public void setNetmask(String value) { 
       this.netmask = value;
    }
+   @JsonIgnore
    public Encryption getEncryption() {
       return encryption;
    }
 
+   @JsonIgnore
    public void setEncryption(Encryption value) { 
       this.encryption = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getAssociatedMulticastChannelMapID() {
       return associatedMulticastChannelMapID;
    }
 
+   @JsonIgnore
    public void setAssociatedMulticastChannelMapID(String value) { 
       this.associatedMulticastChannelMapID = value;
    }
+   @JsonIgnore
    public Boolean getPublicZone() {
       return publicZone;
    }
 
+   @JsonIgnore
    public void setPublicZone(Boolean value) { 
       this.publicZone = value;
    }
+   @JsonIgnore
    public Multicast getMulticast() {
       return multicast;
    }
 
+   @JsonIgnore
    public void setMulticast(Multicast value) { 
       this.multicast = value;
    }
+   @JsonIgnore
    public Long getNumberOfHostsInSubnets() {
       return numberOfHostsInSubnets;
    }
 
+   @JsonIgnore
    public void setNumberOfHostsInSubnets(Long value) { 
       this.numberOfHostsInSubnets = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

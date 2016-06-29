@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v3_2.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 
@@ -94,73 +95,93 @@ public class KeyServerMonitorEncryptedSeed extends RestObject {
       
    }
 
+   @JsonIgnore
    public Long getSEKCreationTime() {
       return SEKCreationTime;
    }
 
+   @JsonIgnore
    public void setSEKCreationTime(Long value) { 
       this.SEKCreationTime = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public Long getKeyServerCertificateSerialNumber() {
       return keyServerCertificateSerialNumber;
    }
 
+   @JsonIgnore
    public void setKeyServerCertificateSerialNumber(Long value) { 
       this.keyServerCertificateSerialNumber = value;
    }
+   @JsonIgnore
    public String getEnterpriseSecuredDataID() {
       return enterpriseSecuredDataID;
    }
 
+   @JsonIgnore
    public void setEnterpriseSecuredDataID(String value) { 
       this.enterpriseSecuredDataID = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public Long getAssociatedKeyServerMonitorSEKCreationTime() {
       return associatedKeyServerMonitorSEKCreationTime;
    }
 
+   @JsonIgnore
    public void setAssociatedKeyServerMonitorSEKCreationTime(Long value) { 
       this.associatedKeyServerMonitorSEKCreationTime = value;
    }
+   @JsonIgnore
    public String getAssociatedKeyServerMonitorSEKID() {
       return associatedKeyServerMonitorSEKID;
    }
 
+   @JsonIgnore
    public void setAssociatedKeyServerMonitorSEKID(String value) { 
       this.associatedKeyServerMonitorSEKID = value;
    }
+   @JsonIgnore
    public Long getAssociatedKeyServerMonitorSeedCreationTime() {
       return associatedKeyServerMonitorSeedCreationTime;
    }
 
+   @JsonIgnore
    public void setAssociatedKeyServerMonitorSeedCreationTime(Long value) { 
       this.associatedKeyServerMonitorSeedCreationTime = value;
    }
+   @JsonIgnore
    public String getAssociatedKeyServerMonitorSeedID() {
       return associatedKeyServerMonitorSeedID;
    }
 
+   @JsonIgnore
    public void setAssociatedKeyServerMonitorSeedID(String value) { 
       this.associatedKeyServerMonitorSeedID = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

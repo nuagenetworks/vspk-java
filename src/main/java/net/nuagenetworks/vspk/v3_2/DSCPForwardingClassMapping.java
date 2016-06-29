@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v3_2.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 
@@ -80,38 +81,48 @@ public class DSCPForwardingClassMapping extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getDSCP() {
       return DSCP;
    }
 
+   @JsonIgnore
    public void setDSCP(String value) { 
       this.DSCP = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public ForwardingClass getForwardingClass() {
       return forwardingClass;
    }
 
+   @JsonIgnore
    public void setForwardingClass(ForwardingClass value) { 
       this.forwardingClass = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

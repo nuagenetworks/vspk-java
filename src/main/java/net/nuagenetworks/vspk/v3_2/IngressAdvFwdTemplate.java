@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v3_2.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.IngressAdvFwdEntryTemplatesFetcher;
@@ -108,73 +109,93 @@ public class IngressAdvFwdTemplate extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public Boolean getActive() {
       return active;
    }
 
+   @JsonIgnore
    public void setActive(Boolean value) { 
       this.active = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public PolicyState getPolicyState() {
       return policyState;
    }
 
+   @JsonIgnore
    public void setPolicyState(PolicyState value) { 
       this.policyState = value;
    }
+   @JsonIgnore
    public Long getPriority() {
       return priority;
    }
 
+   @JsonIgnore
    public void setPriority(Long value) { 
       this.priority = value;
    }
+   @JsonIgnore
    public PriorityType getPriorityType() {
       return priorityType;
    }
 
+   @JsonIgnore
    public void setPriorityType(PriorityType value) { 
       this.priorityType = value;
    }
+   @JsonIgnore
    public String getAssociatedLiveEntityID() {
       return associatedLiveEntityID;
    }
 
+   @JsonIgnore
    public void setAssociatedLiveEntityID(String value) { 
       this.associatedLiveEntityID = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

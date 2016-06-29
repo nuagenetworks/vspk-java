@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v3_2.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 
@@ -138,7 +139,6 @@ public class InfrastructureGatewayProfile extends RestObject {
       upgradeAction = UpgradeAction.NONE;
       statsCollectorPort = 29090L;
       systemSyncScheduler = "0 0 * * 0";
-      deadTimer = DeadTimer.ONE_HOUR;
       useTwoFactor = true;
       remoteLogMode = RemoteLogMode.DISABLED;
       datapathSyncTimeout = 1000L;
@@ -149,171 +149,219 @@ public class InfrastructureGatewayProfile extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getNTPServerKey() {
       return NTPServerKey;
    }
 
+   @JsonIgnore
    public void setNTPServerKey(String value) { 
       this.NTPServerKey = value;
    }
+   @JsonIgnore
    public Long getNTPServerKeyID() {
       return NTPServerKeyID;
    }
 
+   @JsonIgnore
    public void setNTPServerKeyID(Long value) { 
       this.NTPServerKeyID = value;
    }
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public Long getDatapathSyncTimeout() {
       return datapathSyncTimeout;
    }
 
+   @JsonIgnore
    public void setDatapathSyncTimeout(Long value) { 
       this.datapathSyncTimeout = value;
    }
+   @JsonIgnore
    public DeadTimer getDeadTimer() {
       return deadTimer;
    }
 
+   @JsonIgnore
    public void setDeadTimer(DeadTimer value) { 
       this.deadTimer = value;
    }
+   @JsonIgnore
    public String getRemoteLogDirPath() {
       return remoteLogDirPath;
    }
 
+   @JsonIgnore
    public void setRemoteLogDirPath(String value) { 
       this.remoteLogDirPath = value;
    }
+   @JsonIgnore
    public RemoteLogMode getRemoteLogMode() {
       return remoteLogMode;
    }
 
+   @JsonIgnore
    public void setRemoteLogMode(RemoteLogMode value) { 
       this.remoteLogMode = value;
    }
+   @JsonIgnore
    public String getRemoteLogPassword() {
       return remoteLogPassword;
    }
 
+   @JsonIgnore
    public void setRemoteLogPassword(String value) { 
       this.remoteLogPassword = value;
    }
+   @JsonIgnore
    public String getRemoteLogServerAddress() {
       return remoteLogServerAddress;
    }
 
+   @JsonIgnore
    public void setRemoteLogServerAddress(String value) { 
       this.remoteLogServerAddress = value;
    }
+   @JsonIgnore
    public Long getRemoteLogServerPort() {
       return remoteLogServerPort;
    }
 
+   @JsonIgnore
    public void setRemoteLogServerPort(Long value) { 
       this.remoteLogServerPort = value;
    }
+   @JsonIgnore
    public String getRemoteLogUsername() {
       return remoteLogUsername;
    }
 
+   @JsonIgnore
    public void setRemoteLogUsername(String value) { 
       this.remoteLogUsername = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public String getMetadataUpgradePath() {
       return metadataUpgradePath;
    }
 
+   @JsonIgnore
    public void setMetadataUpgradePath(String value) { 
       this.metadataUpgradePath = value;
    }
+   @JsonIgnore
    public Long getFlowEvictionThreshold() {
       return flowEvictionThreshold;
    }
 
+   @JsonIgnore
    public void setFlowEvictionThreshold(Long value) { 
       this.flowEvictionThreshold = value;
    }
+   @JsonIgnore
    public String getEnterpriseID() {
       return enterpriseID;
    }
 
+   @JsonIgnore
    public void setEnterpriseID(String value) { 
       this.enterpriseID = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public UpgradeAction getUpgradeAction() {
       return upgradeAction;
    }
 
+   @JsonIgnore
    public void setUpgradeAction(UpgradeAction value) { 
       this.upgradeAction = value;
    }
+   @JsonIgnore
    public String getProxyDNSName() {
       return proxyDNSName;
    }
 
+   @JsonIgnore
    public void setProxyDNSName(String value) { 
       this.proxyDNSName = value;
    }
+   @JsonIgnore
    public Boolean getUseTwoFactor() {
       return useTwoFactor;
    }
 
+   @JsonIgnore
    public void setUseTwoFactor(Boolean value) { 
       this.useTwoFactor = value;
    }
+   @JsonIgnore
    public Long getStatsCollectorPort() {
       return statsCollectorPort;
    }
 
+   @JsonIgnore
    public void setStatsCollectorPort(Long value) { 
       this.statsCollectorPort = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
    public String getSystemSyncScheduler() {
       return systemSyncScheduler;
    }
 
+   @JsonIgnore
    public void setSystemSyncScheduler(String value) { 
       this.systemSyncScheduler = value;
    }
+   @JsonIgnore
    public SystemSyncWindow getSystemSyncWindow() {
       return systemSyncWindow;
    }
 
+   @JsonIgnore
    public void setSystemSyncWindow(SystemSyncWindow value) { 
       this.systemSyncWindow = value;
    }

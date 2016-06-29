@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v3_2.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.EnterprisesFetcher;
@@ -134,101 +135,129 @@ public class EnterpriseProfile extends RestObject {
       
    }
 
+   @JsonIgnore
    public Long getDHCPLeaseInterval() {
       return DHCPLeaseInterval;
    }
 
+   @JsonIgnore
    public void setDHCPLeaseInterval(Long value) { 
       this.DHCPLeaseInterval = value;
    }
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getReceiveMultiCastListID() {
       return receiveMultiCastListID;
    }
 
+   @JsonIgnore
    public void setReceiveMultiCastListID(String value) { 
       this.receiveMultiCastListID = value;
    }
+   @JsonIgnore
    public String getSendMultiCastListID() {
       return sendMultiCastListID;
    }
 
+   @JsonIgnore
    public void setSendMultiCastListID(String value) { 
       this.sendMultiCastListID = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public Boolean getAllowAdvancedQOSConfiguration() {
       return allowAdvancedQOSConfiguration;
    }
 
+   @JsonIgnore
    public void setAllowAdvancedQOSConfiguration(Boolean value) { 
       this.allowAdvancedQOSConfiguration = value;
    }
+   @JsonIgnore
    public Boolean getAllowGatewayManagement() {
       return allowGatewayManagement;
    }
 
+   @JsonIgnore
    public void setAllowGatewayManagement(Boolean value) { 
       this.allowGatewayManagement = value;
    }
+   @JsonIgnore
    public Boolean getAllowTrustedForwardingClass() {
       return allowTrustedForwardingClass;
    }
 
+   @JsonIgnore
    public void setAllowTrustedForwardingClass(Boolean value) { 
       this.allowTrustedForwardingClass = value;
    }
+   @JsonIgnore
    public java.util.List<AllowedForwardingClasses> getAllowedForwardingClasses() {
       return allowedForwardingClasses;
    }
 
+   @JsonIgnore
    public void setAllowedForwardingClasses(java.util.List<AllowedForwardingClasses> value) { 
       this.allowedForwardingClasses = value;
    }
+   @JsonIgnore
    public Long getFloatingIPsQuota() {
       return floatingIPsQuota;
    }
 
+   @JsonIgnore
    public void setFloatingIPsQuota(Long value) { 
       this.floatingIPsQuota = value;
    }
+   @JsonIgnore
    public EncryptionManagementMode getEncryptionManagementMode() {
       return encryptionManagementMode;
    }
 
+   @JsonIgnore
    public void setEncryptionManagementMode(EncryptionManagementMode value) { 
       this.encryptionManagementMode = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

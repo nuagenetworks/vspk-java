@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v3_2.fetchers.NATMapEntriesFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
@@ -108,73 +109,93 @@ public class PATNATPool extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getAddressRange() {
       return addressRange;
    }
 
+   @JsonIgnore
    public void setAddressRange(String value) { 
       this.addressRange = value;
    }
+   @JsonIgnore
    public String getDefaultPATIP() {
       return defaultPATIP;
    }
 
+   @JsonIgnore
    public void setDefaultPATIP(String value) { 
       this.defaultPATIP = value;
    }
+   @JsonIgnore
    public PermittedAction getPermittedAction() {
       return permittedAction;
    }
 
+   @JsonIgnore
    public void setPermittedAction(PermittedAction value) { 
       this.permittedAction = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getAssociatedGatewayId() {
       return associatedGatewayId;
    }
 
+   @JsonIgnore
    public void setAssociatedGatewayId(String value) { 
       this.associatedGatewayId = value;
    }
+   @JsonIgnore
    public AssociatedGatewayType getAssociatedGatewayType() {
       return associatedGatewayType;
    }
 
+   @JsonIgnore
    public void setAssociatedGatewayType(AssociatedGatewayType value) { 
       this.associatedGatewayType = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

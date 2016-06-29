@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v3_2.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.EventLogsFetcher;
@@ -94,59 +95,75 @@ public class DHCPOption extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getValue() {
       return value;
    }
 
+   @JsonIgnore
    public void setValue(String value) { 
       this.value = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public Long getActualType() {
       return actualType;
    }
 
+   @JsonIgnore
    public void setActualType(Long value) { 
       this.actualType = value;
    }
+   @JsonIgnore
    public java.util.List<String> getActualValues() {
       return actualValues;
    }
 
+   @JsonIgnore
    public void setActualValues(java.util.List<String> value) { 
       this.actualValues = value;
    }
+   @JsonIgnore
    public String getLength() {
       return length;
    }
 
+   @JsonIgnore
    public void setLength(String value) { 
       this.length = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
    public String getType() {
       return type;
    }
 
+   @JsonIgnore
    public void setType(String value) { 
       this.type = value;
    }

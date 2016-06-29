@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v3_2.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 
@@ -83,45 +84,57 @@ public class NetworkLayout extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public ServiceType getServiceType() {
       return serviceType;
    }
 
+   @JsonIgnore
    public void setServiceType(ServiceType value) { 
       this.serviceType = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getRouteReflectorIP() {
       return routeReflectorIP;
    }
 
+   @JsonIgnore
    public void setRouteReflectorIP(String value) { 
       this.routeReflectorIP = value;
    }
+   @JsonIgnore
    public Long getAutonomousSystemNum() {
       return autonomousSystemNum;
    }
 
+   @JsonIgnore
    public void setAutonomousSystemNum(Long value) { 
       this.autonomousSystemNum = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

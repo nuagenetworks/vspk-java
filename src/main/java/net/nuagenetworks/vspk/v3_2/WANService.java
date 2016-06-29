@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v3_2.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.AlarmsFetcher;
@@ -157,150 +158,192 @@ public class WANService extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getWANServiceIdentifier() {
       return WANServiceIdentifier;
    }
 
+   @JsonIgnore
    public void setWANServiceIdentifier(String value) { 
       this.WANServiceIdentifier = value;
    }
+   @JsonIgnore
    public Boolean getIRBEnabled() {
       return IRBEnabled;
    }
 
+   @JsonIgnore
    public void setIRBEnabled(Boolean value) { 
       this.IRBEnabled = value;
    }
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public PermittedAction getPermittedAction() {
       return permittedAction;
    }
 
+   @JsonIgnore
    public void setPermittedAction(PermittedAction value) { 
       this.permittedAction = value;
    }
+   @JsonIgnore
    public String getServicePolicy() {
       return servicePolicy;
    }
 
+   @JsonIgnore
    public void setServicePolicy(String value) { 
       this.servicePolicy = value;
    }
+   @JsonIgnore
    public ServiceType getServiceType() {
       return serviceType;
    }
 
+   @JsonIgnore
    public void setServiceType(ServiceType value) { 
       this.serviceType = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public Long getVnId() {
       return vnId;
    }
 
+   @JsonIgnore
    public void setVnId(Long value) { 
       this.vnId = value;
    }
+   @JsonIgnore
    public String getEnterpriseName() {
       return enterpriseName;
    }
 
+   @JsonIgnore
    public void setEnterpriseName(String value) { 
       this.enterpriseName = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getDomainName() {
       return domainName;
    }
 
+   @JsonIgnore
    public void setDomainName(String value) { 
       this.domainName = value;
    }
+   @JsonIgnore
    public ConfigType getConfigType() {
       return configType;
    }
 
+   @JsonIgnore
    public void setConfigType(ConfigType value) { 
       this.configType = value;
    }
+   @JsonIgnore
    public Boolean getOrphan() {
       return orphan;
    }
 
+   @JsonIgnore
    public void setOrphan(Boolean value) { 
       this.orphan = value;
    }
+   @JsonIgnore
    public Boolean getUseUserMnemonic() {
       return useUserMnemonic;
    }
 
+   @JsonIgnore
    public void setUseUserMnemonic(Boolean value) { 
       this.useUserMnemonic = value;
    }
+   @JsonIgnore
    public String getUserMnemonic() {
       return userMnemonic;
    }
 
+   @JsonIgnore
    public void setUserMnemonic(String value) { 
       this.userMnemonic = value;
    }
+   @JsonIgnore
    public String getAssociatedDomainID() {
       return associatedDomainID;
    }
 
+   @JsonIgnore
    public void setAssociatedDomainID(String value) { 
       this.associatedDomainID = value;
    }
+   @JsonIgnore
    public String getAssociatedVPNConnectID() {
       return associatedVPNConnectID;
    }
 
+   @JsonIgnore
    public void setAssociatedVPNConnectID(String value) { 
       this.associatedVPNConnectID = value;
    }
+   @JsonIgnore
    public TunnelType getTunnelType() {
       return tunnelType;
    }
 
+   @JsonIgnore
    public void setTunnelType(TunnelType value) { 
       this.tunnelType = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
    public String getExternalRouteTarget() {
       return externalRouteTarget;
    }
 
+   @JsonIgnore
    public void setExternalRouteTarget(String value) { 
       this.externalRouteTarget = value;
    }

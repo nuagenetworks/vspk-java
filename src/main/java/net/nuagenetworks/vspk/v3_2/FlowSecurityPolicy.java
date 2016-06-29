@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v3_2.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.EventLogsFetcher;
@@ -103,73 +104,93 @@ public class FlowSecurityPolicy extends RestObject {
       
    }
 
+   @JsonIgnore
    public Action getAction() {
       return action;
    }
 
+   @JsonIgnore
    public void setAction(Action value) { 
       this.action = value;
    }
+   @JsonIgnore
    public String getDestinationAddressOverwrite() {
       return destinationAddressOverwrite;
    }
 
+   @JsonIgnore
    public void setDestinationAddressOverwrite(String value) { 
       this.destinationAddressOverwrite = value;
    }
+   @JsonIgnore
    public String getFlowID() {
       return flowID;
    }
 
+   @JsonIgnore
    public void setFlowID(String value) { 
       this.flowID = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getSourceAddressOverwrite() {
       return sourceAddressOverwrite;
    }
 
+   @JsonIgnore
    public void setSourceAddressOverwrite(String value) { 
       this.sourceAddressOverwrite = value;
    }
+   @JsonIgnore
    public Long getPriority() {
       return priority;
    }
 
+   @JsonIgnore
    public void setPriority(Long value) { 
       this.priority = value;
    }
+   @JsonIgnore
    public String getAssociatedApplicationServiceID() {
       return associatedApplicationServiceID;
    }
 
+   @JsonIgnore
    public void setAssociatedApplicationServiceID(String value) { 
       this.associatedApplicationServiceID = value;
    }
+   @JsonIgnore
    public String getAssociatedNetworkObjectID() {
       return associatedNetworkObjectID;
    }
 
+   @JsonIgnore
    public void setAssociatedNetworkObjectID(String value) { 
       this.associatedNetworkObjectID = value;
    }
+   @JsonIgnore
    public AssociatedNetworkObjectType getAssociatedNetworkObjectType() {
       return associatedNetworkObjectType;
    }
 
+   @JsonIgnore
    public void setAssociatedNetworkObjectType(AssociatedNetworkObjectType value) { 
       this.associatedNetworkObjectType = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

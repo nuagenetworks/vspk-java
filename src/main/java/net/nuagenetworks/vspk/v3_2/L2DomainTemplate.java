@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v3_2.fetchers.L2DomainsFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.AddressRangesFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.RedirectionTargetTemplatesFetcher;
@@ -188,101 +189,129 @@ public class L2DomainTemplate extends RestObject {
       
    }
 
+   @JsonIgnore
    public Boolean getDHCPManaged() {
       return DHCPManaged;
    }
 
+   @JsonIgnore
    public void setDHCPManaged(Boolean value) { 
       this.DHCPManaged = value;
    }
+   @JsonIgnore
    public IPType getIPType() {
       return IPType;
    }
 
+   @JsonIgnore
    public void setIPType(IPType value) { 
       this.IPType = value;
    }
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getGateway() {
       return gateway;
    }
 
+   @JsonIgnore
    public void setGateway(String value) { 
       this.gateway = value;
    }
+   @JsonIgnore
    public String getAddress() {
       return address;
    }
 
+   @JsonIgnore
    public void setAddress(String value) { 
       this.address = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public String getNetmask() {
       return netmask;
    }
 
+   @JsonIgnore
    public void setNetmask(String value) { 
       this.netmask = value;
    }
+   @JsonIgnore
    public Encryption getEncryption() {
       return encryption;
    }
 
+   @JsonIgnore
    public void setEncryption(Encryption value) { 
       this.encryption = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public PolicyChangeStatus getPolicyChangeStatus() {
       return policyChangeStatus;
    }
 
+   @JsonIgnore
    public void setPolicyChangeStatus(PolicyChangeStatus value) { 
       this.policyChangeStatus = value;
    }
+   @JsonIgnore
    public String getAssociatedMulticastChannelMapID() {
       return associatedMulticastChannelMapID;
    }
 
+   @JsonIgnore
    public void setAssociatedMulticastChannelMapID(String value) { 
       this.associatedMulticastChannelMapID = value;
    }
+   @JsonIgnore
    public Multicast getMulticast() {
       return multicast;
    }
 
+   @JsonIgnore
    public void setMulticast(Multicast value) { 
       this.multicast = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

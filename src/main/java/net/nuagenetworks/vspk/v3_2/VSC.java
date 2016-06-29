@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v3_2.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.BGPPeersFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.AlarmsFetcher;
@@ -167,157 +168,201 @@ public class VSC extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getManagementIP() {
       return managementIP;
    }
 
+   @JsonIgnore
    public void setManagementIP(String value) { 
       this.managementIP = value;
    }
+   @JsonIgnore
    public Long getLastStateChange() {
       return lastStateChange;
    }
 
+   @JsonIgnore
    public void setLastStateChange(Long value) { 
       this.lastStateChange = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getAddress() {
       return address;
    }
 
+   @JsonIgnore
    public void setAddress(String value) { 
       this.address = value;
    }
+   @JsonIgnore
    public Float getPeakCPUUsage() {
       return peakCPUUsage;
    }
 
+   @JsonIgnore
    public void setPeakCPUUsage(Float value) { 
       this.peakCPUUsage = value;
    }
+   @JsonIgnore
    public Float getPeakMemoryUsage() {
       return peakMemoryUsage;
    }
 
+   @JsonIgnore
    public void setPeakMemoryUsage(Float value) { 
       this.peakMemoryUsage = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public java.util.List<String> getMessages() {
       return messages;
    }
 
+   @JsonIgnore
    public void setMessages(java.util.List<String> value) { 
       this.messages = value;
    }
+   @JsonIgnore
    public java.util.List<DiskStat> getDisks() {
       return disks;
    }
 
+   @JsonIgnore
    public void setDisks(java.util.List<DiskStat> value) { 
       this.disks = value;
    }
+   @JsonIgnore
    public Boolean getAlreadyMarkedForUnavailable() {
       return alreadyMarkedForUnavailable;
    }
 
+   @JsonIgnore
    public void setAlreadyMarkedForUnavailable(Boolean value) { 
       this.alreadyMarkedForUnavailable = value;
    }
+   @JsonIgnore
    public Long getUnavailableTimestamp() {
       return unavailableTimestamp;
    }
 
+   @JsonIgnore
    public void setUnavailableTimestamp(Long value) { 
       this.unavailableTimestamp = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getLocation() {
       return location;
    }
 
+   @JsonIgnore
    public void setLocation(String value) { 
       this.location = value;
    }
+   @JsonIgnore
    public String getProductVersion() {
       return productVersion;
    }
 
+   @JsonIgnore
    public void setProductVersion(String value) { 
       this.productVersion = value;
    }
+   @JsonIgnore
    public java.util.List<String> getVsds() {
       return vsds;
    }
 
+   @JsonIgnore
    public void setVsds(java.util.List<String> value) { 
       this.vsds = value;
    }
+   @JsonIgnore
    public Status getStatus() {
       return status;
    }
 
+   @JsonIgnore
    public void setStatus(Status value) { 
       this.status = value;
    }
+   @JsonIgnore
    public Float getCurrentCPUUsage() {
       return currentCPUUsage;
    }
 
+   @JsonIgnore
    public void setCurrentCPUUsage(Float value) { 
       this.currentCPUUsage = value;
    }
+   @JsonIgnore
    public Float getCurrentMemoryUsage() {
       return currentMemoryUsage;
    }
 
+   @JsonIgnore
    public void setCurrentMemoryUsage(Float value) { 
       this.currentMemoryUsage = value;
    }
+   @JsonIgnore
    public Float getAverageCPUUsage() {
       return averageCPUUsage;
    }
 
+   @JsonIgnore
    public void setAverageCPUUsage(Float value) { 
       this.averageCPUUsage = value;
    }
+   @JsonIgnore
    public Float getAverageMemoryUsage() {
       return averageMemoryUsage;
    }
 
+   @JsonIgnore
    public void setAverageMemoryUsage(Float value) { 
       this.averageMemoryUsage = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

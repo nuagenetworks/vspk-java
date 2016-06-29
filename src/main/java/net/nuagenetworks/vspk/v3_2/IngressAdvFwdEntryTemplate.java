@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v3_2.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.JobsFetcher;
@@ -173,199 +174,255 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
       
    }
 
+   @JsonIgnore
    public FCOverride getFCOverride() {
       return FCOverride;
    }
 
+   @JsonIgnore
    public void setFCOverride(FCOverride value) { 
       this.FCOverride = value;
    }
+   @JsonIgnore
    public String getDSCP() {
       return DSCP;
    }
 
+   @JsonIgnore
    public void setDSCP(String value) { 
       this.DSCP = value;
    }
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public Action getAction() {
       return action;
    }
 
+   @JsonIgnore
    public void setAction(Action value) { 
       this.action = value;
    }
+   @JsonIgnore
    public String getAddressOverride() {
       return addressOverride;
    }
 
+   @JsonIgnore
    public void setAddressOverride(String value) { 
       this.addressOverride = value;
    }
+   @JsonIgnore
    public String getRedirectVPortTagID() {
       return redirectVPortTagID;
    }
 
+   @JsonIgnore
    public void setRedirectVPortTagID(String value) { 
       this.redirectVPortTagID = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public String getDestinationPort() {
       return destinationPort;
    }
 
+   @JsonIgnore
    public void setDestinationPort(String value) { 
       this.destinationPort = value;
    }
+   @JsonIgnore
    public String getNetworkID() {
       return networkID;
    }
 
+   @JsonIgnore
    public void setNetworkID(String value) { 
       this.networkID = value;
    }
+   @JsonIgnore
    public NetworkType getNetworkType() {
       return networkType;
    }
 
+   @JsonIgnore
    public void setNetworkType(NetworkType value) { 
       this.networkType = value;
    }
+   @JsonIgnore
    public Boolean getFlowLoggingEnabled() {
       return flowLoggingEnabled;
    }
 
+   @JsonIgnore
    public void setFlowLoggingEnabled(Boolean value) { 
       this.flowLoggingEnabled = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getLocationID() {
       return locationID;
    }
 
+   @JsonIgnore
    public void setLocationID(String value) { 
       this.locationID = value;
    }
+   @JsonIgnore
    public LocationType getLocationType() {
       return locationType;
    }
 
+   @JsonIgnore
    public void setLocationType(LocationType value) { 
       this.locationType = value;
    }
+   @JsonIgnore
    public PolicyState getPolicyState() {
       return policyState;
    }
 
+   @JsonIgnore
    public void setPolicyState(PolicyState value) { 
       this.policyState = value;
    }
+   @JsonIgnore
    public String getSourcePort() {
       return sourcePort;
    }
 
+   @JsonIgnore
    public void setSourcePort(String value) { 
       this.sourcePort = value;
    }
+   @JsonIgnore
    public UplinkPreference getUplinkPreference() {
       return uplinkPreference;
    }
 
+   @JsonIgnore
    public void setUplinkPreference(UplinkPreference value) { 
       this.uplinkPreference = value;
    }
+   @JsonIgnore
    public Long getPriority() {
       return priority;
    }
 
+   @JsonIgnore
    public void setPriority(Long value) { 
       this.priority = value;
    }
+   @JsonIgnore
    public String getProtocol() {
       return protocol;
    }
 
+   @JsonIgnore
    public void setProtocol(String value) { 
       this.protocol = value;
    }
+   @JsonIgnore
    public String getAssociatedApplicationID() {
       return associatedApplicationID;
    }
 
+   @JsonIgnore
    public void setAssociatedApplicationID(String value) { 
       this.associatedApplicationID = value;
    }
+   @JsonIgnore
    public String getAssociatedApplicationObjectID() {
       return associatedApplicationObjectID;
    }
 
+   @JsonIgnore
    public void setAssociatedApplicationObjectID(String value) { 
       this.associatedApplicationObjectID = value;
    }
+   @JsonIgnore
    public AssociatedApplicationObjectType getAssociatedApplicationObjectType() {
       return associatedApplicationObjectType;
    }
 
+   @JsonIgnore
    public void setAssociatedApplicationObjectType(AssociatedApplicationObjectType value) { 
       this.associatedApplicationObjectType = value;
    }
+   @JsonIgnore
    public String getAssociatedLiveEntityID() {
       return associatedLiveEntityID;
    }
 
+   @JsonIgnore
    public void setAssociatedLiveEntityID(String value) { 
       this.associatedLiveEntityID = value;
    }
+   @JsonIgnore
    public String getStatsID() {
       return statsID;
    }
 
+   @JsonIgnore
    public void setStatsID(String value) { 
       this.statsID = value;
    }
+   @JsonIgnore
    public Boolean getStatsLoggingEnabled() {
       return statsLoggingEnabled;
    }
 
+   @JsonIgnore
    public void setStatsLoggingEnabled(Boolean value) { 
       this.statsLoggingEnabled = value;
    }
+   @JsonIgnore
    public String getEtherType() {
       return etherType;
    }
 
+   @JsonIgnore
    public void setEtherType(String value) { 
       this.etherType = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

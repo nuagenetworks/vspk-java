@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v3_2.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 
@@ -85,52 +86,66 @@ public class Certificate extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getPemEncoded() {
       return pemEncoded;
    }
 
+   @JsonIgnore
    public void setPemEncoded(String value) { 
       this.pemEncoded = value;
    }
+   @JsonIgnore
    public Long getSerialNumber() {
       return serialNumber;
    }
 
+   @JsonIgnore
    public void setSerialNumber(Long value) { 
       this.serialNumber = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getIssuerDN() {
       return issuerDN;
    }
 
+   @JsonIgnore
    public void setIssuerDN(String value) { 
       this.issuerDN = value;
    }
+   @JsonIgnore
    public String getSubjectDN() {
       return subjectDN;
    }
 
+   @JsonIgnore
    public void setSubjectDN(String value) { 
       this.subjectDN = value;
    }
+   @JsonIgnore
    public String getPublicKey() {
       return publicKey;
    }
 
+   @JsonIgnore
    public void setPublicKey(String value) { 
       this.publicKey = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

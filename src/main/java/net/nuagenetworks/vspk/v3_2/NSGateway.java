@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v3_2.fetchers.PATNATPoolsFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.MetadatasFetcher;
@@ -201,157 +202,201 @@ public class NSGateway extends RestObject {
       
    }
 
+   @JsonIgnore
    public Boolean getNATTraversalEnabled() {
       return NATTraversalEnabled;
    }
 
+   @JsonIgnore
    public void setNATTraversalEnabled(Boolean value) { 
       this.NATTraversalEnabled = value;
    }
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getDatapathID() {
       return datapathID;
    }
 
+   @JsonIgnore
    public void setDatapathID(String value) { 
       this.datapathID = value;
    }
+   @JsonIgnore
    public String getRedundancyGroupID() {
       return redundancyGroupID;
    }
 
+   @JsonIgnore
    public void setRedundancyGroupID(String value) { 
       this.redundancyGroupID = value;
    }
+   @JsonIgnore
    public String getTemplateID() {
       return templateID;
    }
 
+   @JsonIgnore
    public void setTemplateID(String value) { 
       this.templateID = value;
    }
+   @JsonIgnore
    public Boolean getPending() {
       return pending;
    }
 
+   @JsonIgnore
    public void setPending(Boolean value) { 
       this.pending = value;
    }
+   @JsonIgnore
    public PermittedAction getPermittedAction() {
       return permittedAction;
    }
 
+   @JsonIgnore
    public void setPermittedAction(PermittedAction value) { 
       this.permittedAction = value;
    }
+   @JsonIgnore
    public Personality getPersonality() {
       return personality;
    }
 
+   @JsonIgnore
    public void setPersonality(Personality value) { 
       this.personality = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public String getEnterpriseID() {
       return enterpriseID;
    }
 
+   @JsonIgnore
    public void setEnterpriseID(String value) { 
       this.enterpriseID = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getLocationID() {
       return locationID;
    }
 
+   @JsonIgnore
    public void setLocationID(String value) { 
       this.locationID = value;
    }
+   @JsonIgnore
    public ConfigurationReloadState getConfigurationReloadState() {
       return configurationReloadState;
    }
 
+   @JsonIgnore
    public void setConfigurationReloadState(ConfigurationReloadState value) { 
       this.configurationReloadState = value;
    }
+   @JsonIgnore
    public ConfigurationStatus getConfigurationStatus() {
       return configurationStatus;
    }
 
+   @JsonIgnore
    public void setConfigurationStatus(ConfigurationStatus value) { 
       this.configurationStatus = value;
    }
+   @JsonIgnore
    public String getBootstrapID() {
       return bootstrapID;
    }
 
+   @JsonIgnore
    public void setBootstrapID(String value) { 
       this.bootstrapID = value;
    }
+   @JsonIgnore
    public BootstrapStatus getBootstrapStatus() {
       return bootstrapStatus;
    }
 
+   @JsonIgnore
    public void setBootstrapStatus(BootstrapStatus value) { 
       this.bootstrapStatus = value;
    }
+   @JsonIgnore
    public String getAssociatedGatewaySecurityID() {
       return associatedGatewaySecurityID;
    }
 
+   @JsonIgnore
    public void setAssociatedGatewaySecurityID(String value) { 
       this.associatedGatewaySecurityID = value;
    }
+   @JsonIgnore
    public String getAssociatedGatewaySecurityProfileID() {
       return associatedGatewaySecurityProfileID;
    }
 
+   @JsonIgnore
    public void setAssociatedGatewaySecurityProfileID(String value) { 
       this.associatedGatewaySecurityProfileID = value;
    }
+   @JsonIgnore
    public String getAutoDiscGatewayID() {
       return autoDiscGatewayID;
    }
 
+   @JsonIgnore
    public void setAutoDiscGatewayID(String value) { 
       this.autoDiscGatewayID = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
    public String getSystemID() {
       return systemID;
    }
 
+   @JsonIgnore
    public void setSystemID(String value) { 
       this.systemID = value;
    }

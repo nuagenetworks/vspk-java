@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v3_2.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.VMsFetcher;
@@ -158,192 +159,246 @@ public class QOS extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getFIPCommittedBurstSize() {
       return FIPCommittedBurstSize;
    }
 
+   @JsonIgnore
    public void setFIPCommittedBurstSize(String value) { 
       this.FIPCommittedBurstSize = value;
    }
+   @JsonIgnore
    public String getFIPCommittedInformationRate() {
       return FIPCommittedInformationRate;
    }
 
+   @JsonIgnore
    public void setFIPCommittedInformationRate(String value) { 
       this.FIPCommittedInformationRate = value;
    }
+   @JsonIgnore
    public String getFIPPeakBurstSize() {
       return FIPPeakBurstSize;
    }
 
+   @JsonIgnore
    public void setFIPPeakBurstSize(String value) { 
       this.FIPPeakBurstSize = value;
    }
+   @JsonIgnore
    public String getFIPPeakInformationRate() {
       return FIPPeakInformationRate;
    }
 
+   @JsonIgnore
    public void setFIPPeakInformationRate(String value) { 
       this.FIPPeakInformationRate = value;
    }
+   @JsonIgnore
    public Boolean getFIPRateLimitingActive() {
       return FIPRateLimitingActive;
    }
 
+   @JsonIgnore
    public void setFIPRateLimitingActive(Boolean value) { 
       this.FIPRateLimitingActive = value;
    }
+   @JsonIgnore
    public String getBUMCommittedBurstSize() {
       return BUMCommittedBurstSize;
    }
 
+   @JsonIgnore
    public void setBUMCommittedBurstSize(String value) { 
       this.BUMCommittedBurstSize = value;
    }
+   @JsonIgnore
    public String getBUMCommittedInformationRate() {
       return BUMCommittedInformationRate;
    }
 
+   @JsonIgnore
    public void setBUMCommittedInformationRate(String value) { 
       this.BUMCommittedInformationRate = value;
    }
+   @JsonIgnore
    public String getBUMPeakBurstSize() {
       return BUMPeakBurstSize;
    }
 
+   @JsonIgnore
    public void setBUMPeakBurstSize(String value) { 
       this.BUMPeakBurstSize = value;
    }
+   @JsonIgnore
    public String getBUMPeakInformationRate() {
       return BUMPeakInformationRate;
    }
 
+   @JsonIgnore
    public void setBUMPeakInformationRate(String value) { 
       this.BUMPeakInformationRate = value;
    }
+   @JsonIgnore
    public Boolean getBUMRateLimitingActive() {
       return BUMRateLimitingActive;
    }
 
+   @JsonIgnore
    public void setBUMRateLimitingActive(Boolean value) { 
       this.BUMRateLimitingActive = value;
    }
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public Boolean getRateLimitingActive() {
       return rateLimitingActive;
    }
 
+   @JsonIgnore
    public void setRateLimitingActive(Boolean value) { 
       this.rateLimitingActive = value;
    }
+   @JsonIgnore
    public Boolean getActive() {
       return active;
    }
 
+   @JsonIgnore
    public void setActive(Boolean value) { 
       this.active = value;
    }
+   @JsonIgnore
    public String getPeak() {
       return peak;
    }
 
+   @JsonIgnore
    public void setPeak(String value) { 
       this.peak = value;
    }
+   @JsonIgnore
    public ServiceClass getServiceClass() {
       return serviceClass;
    }
 
+   @JsonIgnore
    public void setServiceClass(ServiceClass value) { 
       this.serviceClass = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public Boolean getRewriteForwardingClass() {
       return rewriteForwardingClass;
    }
 
+   @JsonIgnore
    public void setRewriteForwardingClass(Boolean value) { 
       this.rewriteForwardingClass = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getCommittedBurstSize() {
       return committedBurstSize;
    }
 
+   @JsonIgnore
    public void setCommittedBurstSize(String value) { 
       this.committedBurstSize = value;
    }
+   @JsonIgnore
    public String getCommittedInformationRate() {
       return committedInformationRate;
    }
 
+   @JsonIgnore
    public void setCommittedInformationRate(String value) { 
       this.committedInformationRate = value;
    }
+   @JsonIgnore
    public Boolean getTrustedForwardingClass() {
       return trustedForwardingClass;
    }
 
+   @JsonIgnore
    public void setTrustedForwardingClass(Boolean value) { 
       this.trustedForwardingClass = value;
    }
+   @JsonIgnore
    public String getAssocQosId() {
       return assocQosId;
    }
 
+   @JsonIgnore
    public void setAssocQosId(String value) { 
       this.assocQosId = value;
    }
+   @JsonIgnore
    public String getAssociatedDSCPForwardingClassTableID() {
       return associatedDSCPForwardingClassTableID;
    }
 
+   @JsonIgnore
    public void setAssociatedDSCPForwardingClassTableID(String value) { 
       this.associatedDSCPForwardingClassTableID = value;
    }
+   @JsonIgnore
    public String getAssociatedDSCPForwardingClassTableName() {
       return associatedDSCPForwardingClassTableName;
    }
 
+   @JsonIgnore
    public void setAssociatedDSCPForwardingClassTableName(String value) { 
       this.associatedDSCPForwardingClassTableName = value;
    }
+   @JsonIgnore
    public String getBurst() {
       return burst;
    }
 
+   @JsonIgnore
    public void setBurst(String value) { 
       this.burst = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

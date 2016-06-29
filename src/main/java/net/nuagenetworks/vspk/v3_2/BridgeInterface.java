@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v3_2.fetchers.TCAsFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.RedirectionTargetsFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.MetadatasFetcher;
@@ -167,129 +168,165 @@ public class BridgeInterface extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getVPortID() {
       return VPortID;
    }
 
+   @JsonIgnore
    public void setVPortID(String value) { 
       this.VPortID = value;
    }
+   @JsonIgnore
    public String getVPortName() {
       return VPortName;
    }
 
+   @JsonIgnore
    public void setVPortName(String value) { 
       this.VPortName = value;
    }
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getGateway() {
       return gateway;
    }
 
+   @JsonIgnore
    public void setGateway(String value) { 
       this.gateway = value;
    }
+   @JsonIgnore
    public String getNetmask() {
       return netmask;
    }
 
+   @JsonIgnore
    public void setNetmask(String value) { 
       this.netmask = value;
    }
+   @JsonIgnore
    public String getNetworkName() {
       return networkName;
    }
 
+   @JsonIgnore
    public void setNetworkName(String value) { 
       this.networkName = value;
    }
+   @JsonIgnore
    public String getTierID() {
       return tierID;
    }
 
+   @JsonIgnore
    public void setTierID(String value) { 
       this.tierID = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getPolicyDecisionID() {
       return policyDecisionID;
    }
 
+   @JsonIgnore
    public void setPolicyDecisionID(String value) { 
       this.policyDecisionID = value;
    }
+   @JsonIgnore
    public String getDomainID() {
       return domainID;
    }
 
+   @JsonIgnore
    public void setDomainID(String value) { 
       this.domainID = value;
    }
+   @JsonIgnore
    public String getDomainName() {
       return domainName;
    }
 
+   @JsonIgnore
    public void setDomainName(String value) { 
       this.domainName = value;
    }
+   @JsonIgnore
    public String getZoneID() {
       return zoneID;
    }
 
+   @JsonIgnore
    public void setZoneID(String value) { 
       this.zoneID = value;
    }
+   @JsonIgnore
    public String getZoneName() {
       return zoneName;
    }
 
+   @JsonIgnore
    public void setZoneName(String value) { 
       this.zoneName = value;
    }
+   @JsonIgnore
    public String getAssociatedFloatingIPAddress() {
       return associatedFloatingIPAddress;
    }
 
+   @JsonIgnore
    public void setAssociatedFloatingIPAddress(String value) { 
       this.associatedFloatingIPAddress = value;
    }
+   @JsonIgnore
    public String getAttachedNetworkID() {
       return attachedNetworkID;
    }
 
+   @JsonIgnore
    public void setAttachedNetworkID(String value) { 
       this.attachedNetworkID = value;
    }
+   @JsonIgnore
    public AttachedNetworkType getAttachedNetworkType() {
       return attachedNetworkType;
    }
 
+   @JsonIgnore
    public void setAttachedNetworkType(AttachedNetworkType value) { 
       this.attachedNetworkType = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

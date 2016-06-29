@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v3_2.fetchers.WANServicesFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
@@ -122,80 +123,102 @@ public class AutoDiscoveredGateway extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getGatewayID() {
       return gatewayID;
    }
 
+   @JsonIgnore
    public void setGatewayID(String value) { 
       this.gatewayID = value;
    }
+   @JsonIgnore
    public String getPeer() {
       return peer;
    }
 
+   @JsonIgnore
    public void setPeer(String value) { 
       this.peer = value;
    }
+   @JsonIgnore
    public Personality getPersonality() {
       return personality;
    }
 
+   @JsonIgnore
    public void setPersonality(Personality value) { 
       this.personality = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public java.util.List<String> getControllers() {
       return controllers;
    }
 
+   @JsonIgnore
    public void setControllers(java.util.List<String> value) { 
       this.controllers = value;
    }
+   @JsonIgnore
    public String getVtep() {
       return vtep;
    }
 
+   @JsonIgnore
    public void setVtep(String value) { 
       this.vtep = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
    public String getSystemID() {
       return systemID;
    }
 
+   @JsonIgnore
    public void setSystemID(String value) { 
       this.systemID = value;
    }

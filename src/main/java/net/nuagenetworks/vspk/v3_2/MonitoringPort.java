@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v3_2.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 
@@ -96,73 +97,93 @@ public class MonitoringPort extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public Long getLastStateChange() {
       return lastStateChange;
    }
 
+   @JsonIgnore
    public void setLastStateChange(Long value) { 
       this.lastStateChange = value;
    }
+   @JsonIgnore
    public Boolean getAccess() {
       return access;
    }
 
+   @JsonIgnore
    public void setAccess(Boolean value) { 
       this.access = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public ResiliencyState getResiliencyState() {
       return resiliencyState;
    }
 
+   @JsonIgnore
    public void setResiliencyState(ResiliencyState value) { 
       this.resiliencyState = value;
    }
+   @JsonIgnore
    public Boolean getResilient() {
       return resilient;
    }
 
+   @JsonIgnore
    public void setResilient(Boolean value) { 
       this.resilient = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public Boolean getUplink() {
       return uplink;
    }
 
+   @JsonIgnore
    public void setUplink(Boolean value) { 
       this.uplink = value;
    }
+   @JsonIgnore
    public State getState() {
       return state;
    }
 
+   @JsonIgnore
    public void setState(State value) { 
       this.state = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

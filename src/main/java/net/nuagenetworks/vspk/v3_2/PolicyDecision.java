@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v3_2.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.QOSsFetcher;
@@ -103,80 +104,102 @@ public class PolicyDecision extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public java.util.List<com.fasterxml.jackson.databind.JsonNode> getEgressACLs() {
       return egressACLs;
    }
 
+   @JsonIgnore
    public void setEgressACLs(java.util.List<com.fasterxml.jackson.databind.JsonNode> value) { 
       this.egressACLs = value;
    }
+   @JsonIgnore
    public Object getEgressQos() {
       return egressQos;
    }
 
+   @JsonIgnore
    public void setEgressQos(Object value) { 
       this.egressQos = value;
    }
+   @JsonIgnore
    public java.util.List<com.fasterxml.jackson.databind.JsonNode> getFipACLs() {
       return fipACLs;
    }
 
+   @JsonIgnore
    public void setFipACLs(java.util.List<com.fasterxml.jackson.databind.JsonNode> value) { 
       this.fipACLs = value;
    }
+   @JsonIgnore
    public java.util.List<com.fasterxml.jackson.databind.JsonNode> getIngressACLs() {
       return ingressACLs;
    }
 
+   @JsonIgnore
    public void setIngressACLs(java.util.List<com.fasterxml.jackson.databind.JsonNode> value) { 
       this.ingressACLs = value;
    }
+   @JsonIgnore
    public java.util.List<com.fasterxml.jackson.databind.JsonNode> getIngressAdvFwd() {
       return ingressAdvFwd;
    }
 
+   @JsonIgnore
    public void setIngressAdvFwd(java.util.List<com.fasterxml.jackson.databind.JsonNode> value) { 
       this.ingressAdvFwd = value;
    }
+   @JsonIgnore
    public java.util.List<com.fasterxml.jackson.databind.JsonNode> getIngressExternalServiceACLs() {
       return ingressExternalServiceACLs;
    }
 
+   @JsonIgnore
    public void setIngressExternalServiceACLs(java.util.List<com.fasterxml.jackson.databind.JsonNode> value) { 
       this.ingressExternalServiceACLs = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public Object getQos() {
       return qos;
    }
 
+   @JsonIgnore
    public void setQos(Object value) { 
       this.qos = value;
    }
+   @JsonIgnore
    public StatisticsPolicy getStats() {
       return stats;
    }
 
+   @JsonIgnore
    public void setStats(StatisticsPolicy value) { 
       this.stats = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

@@ -32,6 +32,8 @@ import net.nuagenetworks.bambou.annotation.RestEntity;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -73,52 +75,66 @@ public class DiskStat extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public Float getSize() {
       return size;
    }
 
+   @JsonIgnore
    public void setSize(Float value) { 
       this.size = value;
    }
+   @JsonIgnore
    public Unit getUnit() {
       return unit;
    }
 
+   @JsonIgnore
    public void setUnit(Unit value) { 
       this.unit = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public Float getUsed() {
       return used;
    }
 
+   @JsonIgnore
    public void setUsed(Float value) { 
       this.used = value;
    }
+   @JsonIgnore
    public Float getAvailable() {
       return available;
    }
 
+   @JsonIgnore
    public void setAvailable(Float value) { 
       this.available = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

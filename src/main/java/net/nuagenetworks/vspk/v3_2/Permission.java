@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v3_2.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.EventLogsFetcher;
@@ -98,66 +99,84 @@ public class Permission extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public PermittedAction getPermittedAction() {
       return permittedAction;
    }
 
+   @JsonIgnore
    public void setPermittedAction(PermittedAction value) { 
       this.permittedAction = value;
    }
+   @JsonIgnore
    public String getPermittedEntityDescription() {
       return permittedEntityDescription;
    }
 
+   @JsonIgnore
    public void setPermittedEntityDescription(String value) { 
       this.permittedEntityDescription = value;
    }
+   @JsonIgnore
    public String getPermittedEntityID() {
       return permittedEntityID;
    }
 
+   @JsonIgnore
    public void setPermittedEntityID(String value) { 
       this.permittedEntityID = value;
    }
+   @JsonIgnore
    public String getPermittedEntityName() {
       return permittedEntityName;
    }
 
+   @JsonIgnore
    public void setPermittedEntityName(String value) { 
       this.permittedEntityName = value;
    }
+   @JsonIgnore
    public String getPermittedEntityType() {
       return permittedEntityType;
    }
 
+   @JsonIgnore
    public void setPermittedEntityType(String value) { 
       this.permittedEntityType = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

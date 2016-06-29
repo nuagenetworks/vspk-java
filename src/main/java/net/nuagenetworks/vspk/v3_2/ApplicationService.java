@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v3_2.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.EventLogsFetcher;
@@ -108,80 +109,102 @@ public class ApplicationService extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getDSCP() {
       return DSCP;
    }
 
+   @JsonIgnore
    public void setDSCP(String value) { 
       this.DSCP = value;
    }
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public String getDestinationPort() {
       return destinationPort;
    }
 
+   @JsonIgnore
    public void setDestinationPort(String value) { 
       this.destinationPort = value;
    }
+   @JsonIgnore
    public Direction getDirection() {
       return direction;
    }
 
+   @JsonIgnore
    public void setDirection(Direction value) { 
       this.direction = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getSourcePort() {
       return sourcePort;
    }
 
+   @JsonIgnore
    public void setSourcePort(String value) { 
       this.sourcePort = value;
    }
+   @JsonIgnore
    public String getProtocol() {
       return protocol;
    }
 
+   @JsonIgnore
    public void setProtocol(String value) { 
       this.protocol = value;
    }
+   @JsonIgnore
    public String getEtherType() {
       return etherType;
    }
 
+   @JsonIgnore
    public void setEtherType(String value) { 
       this.etherType = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

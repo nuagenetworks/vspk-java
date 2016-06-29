@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v3_2.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.MetadataTagsFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
@@ -66,7 +67,7 @@ public class GlobalMetadata extends RestObject {
    @JsonProperty(value = "blob")
    protected String blob;
    
-   @JsonProperty(value = "globalMetadata")
+   @JsonProperty(value = "global")
    protected Boolean globalMetadata;
    
    @JsonProperty(value = "entityScope")
@@ -97,66 +98,84 @@ public class GlobalMetadata extends RestObject {
       
    }
 
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public java.util.List<String> getMetadataTagIDs() {
       return metadataTagIDs;
    }
 
+   @JsonIgnore
    public void setMetadataTagIDs(java.util.List<String> value) { 
       this.metadataTagIDs = value;
    }
+   @JsonIgnore
    public Boolean getNetworkNotificationDisabled() {
       return networkNotificationDisabled;
    }
 
+   @JsonIgnore
    public void setNetworkNotificationDisabled(Boolean value) { 
       this.networkNotificationDisabled = value;
    }
+   @JsonIgnore
    public String getBlob() {
       return blob;
    }
 
+   @JsonIgnore
    public void setBlob(String value) { 
       this.blob = value;
    }
+   @JsonIgnore
    public Boolean getGlobalMetadata() {
       return globalMetadata;
    }
 
+   @JsonIgnore
    public void setGlobalMetadata(Boolean value) { 
       this.globalMetadata = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }

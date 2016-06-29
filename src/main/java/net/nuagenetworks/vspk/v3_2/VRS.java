@@ -34,6 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 import net.nuagenetworks.vspk.v3_2.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.AlarmsFetcher;
 import net.nuagenetworks.vspk.v3_2.fetchers.GlobalMetadatasFetcher;
@@ -244,283 +245,363 @@ public class VRS extends RestObject {
       
    }
 
+   @JsonIgnore
    public JSONRPCConnectionState getJSONRPCConnectionState() {
       return JSONRPCConnectionState;
    }
 
+   @JsonIgnore
    public void setJSONRPCConnectionState(JSONRPCConnectionState value) { 
       this.JSONRPCConnectionState = value;
    }
+   @JsonIgnore
    public String getName() {
       return name;
    }
 
+   @JsonIgnore
    public void setName(String value) { 
       this.name = value;
    }
+   @JsonIgnore
    public String getManagementIP() {
       return managementIP;
    }
 
+   @JsonIgnore
    public void setManagementIP(String value) { 
       this.managementIP = value;
    }
+   @JsonIgnore
    public java.util.List<String> getParentIDs() {
       return parentIDs;
    }
 
+   @JsonIgnore
    public void setParentIDs(java.util.List<String> value) { 
       this.parentIDs = value;
    }
+   @JsonIgnore
    public String getLastEventName() {
       return lastEventName;
    }
 
+   @JsonIgnore
    public void setLastEventName(String value) { 
       this.lastEventName = value;
    }
+   @JsonIgnore
    public String getLastEventObject() {
       return lastEventObject;
    }
 
+   @JsonIgnore
    public void setLastEventObject(String value) { 
       this.lastEventObject = value;
    }
+   @JsonIgnore
    public Long getLastEventTimestamp() {
       return lastEventTimestamp;
    }
 
+   @JsonIgnore
    public void setLastEventTimestamp(Long value) { 
       this.lastEventTimestamp = value;
    }
+   @JsonIgnore
    public Long getLastStateChange() {
       return lastStateChange;
    }
 
+   @JsonIgnore
    public void setLastStateChange(Long value) { 
       this.lastStateChange = value;
    }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
 
+   @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   @JsonIgnore
    public Boolean getDbSynced() {
       return dbSynced;
    }
 
+   @JsonIgnore
    public void setDbSynced(Boolean value) { 
       this.dbSynced = value;
    }
+   @JsonIgnore
    public String getAddress() {
       return address;
    }
 
+   @JsonIgnore
    public void setAddress(String value) { 
       this.address = value;
    }
+   @JsonIgnore
    public Float getPeakCPUUsage() {
       return peakCPUUsage;
    }
 
+   @JsonIgnore
    public void setPeakCPUUsage(Float value) { 
       this.peakCPUUsage = value;
    }
+   @JsonIgnore
    public Float getPeakMemoryUsage() {
       return peakMemoryUsage;
    }
 
+   @JsonIgnore
    public void setPeakMemoryUsage(Float value) { 
       this.peakMemoryUsage = value;
    }
+   @JsonIgnore
    public String getPeer() {
       return peer;
    }
 
+   @JsonIgnore
    public void setPeer(String value) { 
       this.peer = value;
    }
+   @JsonIgnore
    public Personality getPersonality() {
       return personality;
    }
 
+   @JsonIgnore
    public void setPersonality(Personality value) { 
       this.personality = value;
    }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
 
+   @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
    }
+   @JsonIgnore
    public java.util.List<String> getMessages() {
       return messages;
    }
 
+   @JsonIgnore
    public void setMessages(java.util.List<String> value) { 
       this.messages = value;
    }
+   @JsonIgnore
    public java.util.List<DiskStat> getDisks() {
       return disks;
    }
 
+   @JsonIgnore
    public void setDisks(java.util.List<DiskStat> value) { 
       this.disks = value;
    }
+   @JsonIgnore
    public ClusterNodeRole getClusterNodeRole() {
       return clusterNodeRole;
    }
 
+   @JsonIgnore
    public void setClusterNodeRole(ClusterNodeRole value) { 
       this.clusterNodeRole = value;
    }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
 
+   @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   @JsonIgnore
    public String getLocation() {
       return location;
    }
 
+   @JsonIgnore
    public void setLocation(String value) { 
       this.location = value;
    }
+   @JsonIgnore
    public Role getRole() {
       return role;
    }
 
+   @JsonIgnore
    public void setRole(Role value) { 
       this.role = value;
    }
+   @JsonIgnore
    public Long getUptime() {
       return uptime;
    }
 
+   @JsonIgnore
    public void setUptime(Long value) { 
       this.uptime = value;
    }
+   @JsonIgnore
    public String getProductVersion() {
       return productVersion;
    }
 
+   @JsonIgnore
    public void setProductVersion(String value) { 
       this.productVersion = value;
    }
+   @JsonIgnore
    public Boolean getIsResilient() {
       return isResilient;
    }
 
+   @JsonIgnore
    public void setIsResilient(Boolean value) { 
       this.isResilient = value;
    }
+   @JsonIgnore
    public Status getStatus() {
       return status;
    }
 
+   @JsonIgnore
    public void setStatus(Status value) { 
       this.status = value;
    }
+   @JsonIgnore
    public Boolean getMultiNICVPortEnabled() {
       return multiNICVPortEnabled;
    }
 
+   @JsonIgnore
    public void setMultiNICVPortEnabled(Boolean value) { 
       this.multiNICVPortEnabled = value;
    }
+   @JsonIgnore
    public Long getNumberOfBridgeInterfaces() {
       return numberOfBridgeInterfaces;
    }
 
+   @JsonIgnore
    public void setNumberOfBridgeInterfaces(Long value) { 
       this.numberOfBridgeInterfaces = value;
    }
+   @JsonIgnore
    public Long getNumberOfHostInterfaces() {
       return numberOfHostInterfaces;
    }
 
+   @JsonIgnore
    public void setNumberOfHostInterfaces(Long value) { 
       this.numberOfHostInterfaces = value;
    }
+   @JsonIgnore
    public Long getNumberOfVirtualMachines() {
       return numberOfVirtualMachines;
    }
 
+   @JsonIgnore
    public void setNumberOfVirtualMachines(Long value) { 
       this.numberOfVirtualMachines = value;
    }
+   @JsonIgnore
    public Float getCurrentCPUUsage() {
       return currentCPUUsage;
    }
 
+   @JsonIgnore
    public void setCurrentCPUUsage(Float value) { 
       this.currentCPUUsage = value;
    }
+   @JsonIgnore
    public Float getCurrentMemoryUsage() {
       return currentMemoryUsage;
    }
 
+   @JsonIgnore
    public void setCurrentMemoryUsage(Float value) { 
       this.currentMemoryUsage = value;
    }
+   @JsonIgnore
    public Float getAverageCPUUsage() {
       return averageCPUUsage;
    }
 
+   @JsonIgnore
    public void setAverageCPUUsage(Float value) { 
       this.averageCPUUsage = value;
    }
+   @JsonIgnore
    public Float getAverageMemoryUsage() {
       return averageMemoryUsage;
    }
 
+   @JsonIgnore
    public void setAverageMemoryUsage(Float value) { 
       this.averageMemoryUsage = value;
    }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
 
+   @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
    public Boolean getDynamic() {
       return dynamic;
    }
 
+   @JsonIgnore
    public void setDynamic(Boolean value) { 
       this.dynamic = value;
    }
+   @JsonIgnore
    public HypervisorConnectionState getHypervisorConnectionState() {
       return hypervisorConnectionState;
    }
 
+   @JsonIgnore
    public void setHypervisorConnectionState(HypervisorConnectionState value) { 
       this.hypervisorConnectionState = value;
    }
+   @JsonIgnore
    public String getHypervisorIdentifier() {
       return hypervisorIdentifier;
    }
 
+   @JsonIgnore
    public void setHypervisorIdentifier(String value) { 
       this.hypervisorIdentifier = value;
    }
+   @JsonIgnore
    public String getHypervisorName() {
       return hypervisorName;
    }
 
+   @JsonIgnore
    public void setHypervisorName(String value) { 
       this.hypervisorName = value;
    }
+   @JsonIgnore
    public String getHypervisorType() {
       return hypervisorType;
    }
 
+   @JsonIgnore
    public void setHypervisorType(String value) { 
       this.hypervisorType = value;
    }
