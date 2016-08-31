@@ -29,14 +29,14 @@ package net.nuagenetworks.vspk.v4_0.fetchers;
 
 import net.nuagenetworks.bambou.RestObject;
 import net.nuagenetworks.bambou.RestFetcher;
-import net.nuagenetworks.vspk.v4_0.GatewaySecurityProfile;
+import net.nuagenetworks.vspk.v4_0.ContainerInterface;
 
-public class GatewaySecurityProfilesFetcher extends RestFetcher<GatewaySecurityProfile> {
+public class ContainerInterfacesFetcher extends RestFetcher<ContainerInterface> {
 
    private static final long serialVersionUID = 1L;
    
-   public GatewaySecurityProfilesFetcher(RestObject parentRestObj) {
-      super(parentRestObj, GatewaySecurityProfile.class);
+   public ContainerInterfacesFetcher(RestObject parentRestObj) {
+      super(parentRestObj, ContainerInterface.class);
    }
    
    

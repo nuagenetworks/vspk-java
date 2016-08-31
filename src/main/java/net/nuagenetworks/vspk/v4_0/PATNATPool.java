@@ -40,6 +40,9 @@ import net.nuagenetworks.vspk.v4_0.fetchers.AddressMapsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EnterprisePermissionsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.StatisticsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.StatisticsPoliciesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.BulkStatisticsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "patnatpool", resourceName = "patnatpools")
@@ -50,7 +53,7 @@ public class PATNATPool extends RestObject {
    
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    public enum EntityScope { ENTERPRISE, GLOBAL };
-   public enum AssociatedGatewayId { AUTO_DISC_GATEWAY, GATEWAY, IKEV2_GATEWAY, NSGATEWAY };
+   public enum AssociatedGatewayType { AUTO_DISC_GATEWAY, GATEWAY, IKE_GATEWAY, NSGATEWAY };
 
    
    @JsonProperty(value = "name")
@@ -80,14 +83,17 @@ public class PATNATPool extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
-   @JsonProperty(value = "translationTimeout")
-   protected Long translationTimeout;
-   
    @JsonProperty(value = "associatedGatewayId")
-   protected AssociatedGatewayId associatedGatewayId;
+   protected String associatedGatewayId;
    
    @JsonProperty(value = "associatedGatewayType")
-   protected String associatedGatewayType;
+   protected AssociatedGatewayType associatedGatewayType;
+   
+   @JsonProperty(value = "associatedSubnetId")
+   protected String associatedSubnetId;
+   
+   @JsonProperty(value = "associatedVlanId")
+   protected String associatedVlanId;
    
    @JsonProperty(value = "startAddressRange")
    protected String startAddressRange;
@@ -118,6 +124,15 @@ public class PATNATPool extends RestObject {
    @JsonIgnore
    private EnterprisePermissionsFetcher enterprisePermissions;
    
+   @JsonIgnore
+   private StatisticsFetcher statistics;
+   
+   @JsonIgnore
+   private StatisticsPoliciesFetcher statisticsPolicies;
+   
+   @JsonIgnore
+   private BulkStatisticsFetcher bulkStatistics;
+   
 
    public PATNATPool() {
       
@@ -130,6 +145,12 @@ public class PATNATPool extends RestObject {
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       enterprisePermissions = new EnterprisePermissionsFetcher(this);
+      
+      statistics = new StatisticsFetcher(this);
+      
+      statisticsPolicies = new StatisticsPoliciesFetcher(this);
+      
+      bulkStatistics = new BulkStatisticsFetcher(this);
       
    }
 
@@ -215,31 +236,40 @@ public class PATNATPool extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
-   public Long getTranslationTimeout() {
-      return translationTimeout;
-   }
-
-   @JsonIgnore
-   public void setTranslationTimeout(Long value) { 
-      this.translationTimeout = value;
-   }
-   @JsonIgnore
-   public AssociatedGatewayId getAssociatedGatewayId() {
+   public String getAssociatedGatewayId() {
       return associatedGatewayId;
    }
 
    @JsonIgnore
-   public void setAssociatedGatewayId(AssociatedGatewayId value) { 
+   public void setAssociatedGatewayId(String value) { 
       this.associatedGatewayId = value;
    }
    @JsonIgnore
-   public String getAssociatedGatewayType() {
+   public AssociatedGatewayType getAssociatedGatewayType() {
       return associatedGatewayType;
    }
 
    @JsonIgnore
-   public void setAssociatedGatewayType(String value) { 
+   public void setAssociatedGatewayType(AssociatedGatewayType value) { 
       this.associatedGatewayType = value;
+   }
+   @JsonIgnore
+   public String getAssociatedSubnetId() {
+      return associatedSubnetId;
+   }
+
+   @JsonIgnore
+   public void setAssociatedSubnetId(String value) { 
+      this.associatedSubnetId = value;
+   }
+   @JsonIgnore
+   public String getAssociatedVlanId() {
+      return associatedVlanId;
+   }
+
+   @JsonIgnore
+   public void setAssociatedVlanId(String value) { 
+      this.associatedVlanId = value;
    }
    @JsonIgnore
    public String getStartAddressRange() {
@@ -305,9 +335,24 @@ public class PATNATPool extends RestObject {
       return enterprisePermissions;
    }
    
+   @JsonIgnore
+   public StatisticsFetcher getStatistics() {
+      return statistics;
+   }
+   
+   @JsonIgnore
+   public StatisticsPoliciesFetcher getStatisticsPolicies() {
+      return statisticsPolicies;
+   }
+   
+   @JsonIgnore
+   public BulkStatisticsFetcher getBulkStatistics() {
+      return bulkStatistics;
+   }
+   
 
    public String toString() {
-      return "PATNATPool [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", addressRange=" + addressRange + ", defaultPATIP=" + defaultPATIP + ", permittedAction=" + permittedAction + ", description=" + description + ", endAddressRange=" + endAddressRange + ", endSourceAddress=" + endSourceAddress + ", entityScope=" + entityScope + ", translationTimeout=" + translationTimeout + ", associatedGatewayId=" + associatedGatewayId + ", associatedGatewayType=" + associatedGatewayType + ", startAddressRange=" + startAddressRange + ", startSourceAddress=" + startSourceAddress + ", externalID=" + externalID + ", dynamicSourceEnabled=" + dynamicSourceEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "PATNATPool [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", addressRange=" + addressRange + ", defaultPATIP=" + defaultPATIP + ", permittedAction=" + permittedAction + ", description=" + description + ", endAddressRange=" + endAddressRange + ", endSourceAddress=" + endSourceAddress + ", entityScope=" + entityScope + ", associatedGatewayId=" + associatedGatewayId + ", associatedGatewayType=" + associatedGatewayType + ", associatedSubnetId=" + associatedSubnetId + ", associatedVlanId=" + associatedVlanId + ", startAddressRange=" + startAddressRange + ", startSourceAddress=" + startSourceAddress + ", externalID=" + externalID + ", dynamicSourceEnabled=" + dynamicSourceEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

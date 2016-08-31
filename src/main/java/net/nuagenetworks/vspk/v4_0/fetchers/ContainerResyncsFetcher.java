@@ -29,14 +29,14 @@ package net.nuagenetworks.vspk.v4_0.fetchers;
 
 import net.nuagenetworks.bambou.RestObject;
 import net.nuagenetworks.bambou.RestFetcher;
-import net.nuagenetworks.vspk.v4_0.AutoDiscoverHypervisorFromDatacenter;
+import net.nuagenetworks.vspk.v4_0.ContainerResync;
 
-public class AutoDiscoverHypervisorFromDatacentersFetcher extends RestFetcher<AutoDiscoverHypervisorFromDatacenter> {
+public class ContainerResyncsFetcher extends RestFetcher<ContainerResync> {
 
    private static final long serialVersionUID = 1L;
    
-   public AutoDiscoverHypervisorFromDatacentersFetcher(RestObject parentRestObj) {
-      super(parentRestObj, AutoDiscoverHypervisorFromDatacenter.class);
+   public ContainerResyncsFetcher(RestObject parentRestObj) {
+      super(parentRestObj, ContainerResync.class);
    }
    
    

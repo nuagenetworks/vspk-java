@@ -1,0 +1,200 @@
+/*
+  Copyright (c) 2015, Alcatel-Lucent Inc
+  All rights reserved.
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met:
+      * Redistributions of source code must retain the above copyright
+        notice, this list of conditions and the following disclaimer.
+      * Redistributions in binary form must reproduce the above copyright
+        notice, this list of conditions and the following disclaimer in the
+        documentation and/or other materials provided with the distribution.
+      * Neither the name of the copyright holder nor the names of its contributors
+        may be used to endorse or promote products derived from this software without
+        specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+  ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+  DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY
+  DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+  LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+  ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+*/
+
+package net.nuagenetworks.vspk.v4_0;
+
+import net.nuagenetworks.bambou.RestObject;
+import net.nuagenetworks.bambou.annotation.RestEntity;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+@RestEntity(restName = "nsginfo", resourceName = "nsginfos")
+public class NSGInfo extends RestObject {
+
+   private static final long serialVersionUID = 1L;
+
+   
+   public enum TPMStatus { DISABLED, ENABLED_NOT_OPERATIONAL, ENABLED_OPERATIONAL, UNKNOWN };
+   public enum Family { ANY, NSG_E, NSG_V };
+   public enum EntityScope { ENTERPRISE, GLOBAL };
+
+   
+   @JsonProperty(value = "MACAddress")
+   protected String MACAddress;
+   
+   @JsonProperty(value = "SKU")
+   protected String SKU;
+   
+   @JsonProperty(value = "TPMStatus")
+   protected TPMStatus TPMStatus;
+   
+   @JsonProperty(value = "CPUType")
+   protected String CPUType;
+   
+   @JsonProperty(value = "NSGVersion")
+   protected String NSGVersion;
+   
+   @JsonProperty(value = "UUID")
+   protected String UUID;
+   
+   @JsonProperty(value = "family")
+   protected Family family;
+   
+   @JsonProperty(value = "serialNumber")
+   protected String serialNumber;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "associatedNSGatewayID")
+   protected String associatedNSGatewayID;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+
+   
+
+   public NSGInfo() {
+      
+   }
+
+   @JsonIgnore
+   public String getMACAddress() {
+      return MACAddress;
+   }
+
+   @JsonIgnore
+   public void setMACAddress(String value) { 
+      this.MACAddress = value;
+   }
+   @JsonIgnore
+   public String getSKU() {
+      return SKU;
+   }
+
+   @JsonIgnore
+   public void setSKU(String value) { 
+      this.SKU = value;
+   }
+   @JsonIgnore
+   public TPMStatus getTPMStatus() {
+      return TPMStatus;
+   }
+
+   @JsonIgnore
+   public void setTPMStatus(TPMStatus value) { 
+      this.TPMStatus = value;
+   }
+   @JsonIgnore
+   public String getCPUType() {
+      return CPUType;
+   }
+
+   @JsonIgnore
+   public void setCPUType(String value) { 
+      this.CPUType = value;
+   }
+   @JsonIgnore
+   public String getNSGVersion() {
+      return NSGVersion;
+   }
+
+   @JsonIgnore
+   public void setNSGVersion(String value) { 
+      this.NSGVersion = value;
+   }
+   @JsonIgnore
+   public String getUUID() {
+      return UUID;
+   }
+
+   @JsonIgnore
+   public void setUUID(String value) { 
+      this.UUID = value;
+   }
+   @JsonIgnore
+   public Family getFamily() {
+      return family;
+   }
+
+   @JsonIgnore
+   public void setFamily(Family value) { 
+      this.family = value;
+   }
+   @JsonIgnore
+   public String getSerialNumber() {
+      return serialNumber;
+   }
+
+   @JsonIgnore
+   public void setSerialNumber(String value) { 
+      this.serialNumber = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getAssociatedNSGatewayID() {
+      return associatedNSGatewayID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedNSGatewayID(String value) { 
+      this.associatedNSGatewayID = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   
+
+   
+
+   public String toString() {
+      return "NSGInfo [" + "MACAddress=" + MACAddress + ", SKU=" + SKU + ", TPMStatus=" + TPMStatus + ", CPUType=" + CPUType + ", NSGVersion=" + NSGVersion + ", UUID=" + UUID + ", family=" + family + ", serialNumber=" + serialNumber + ", entityScope=" + entityScope + ", associatedNSGatewayID=" + associatedNSGatewayID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+              + lastUpdatedDate + ", owner=" + owner  + "]";
+   }
+   
+   
+}

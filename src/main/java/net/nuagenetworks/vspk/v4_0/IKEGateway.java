@@ -36,6 +36,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.IKEGatewayConfigsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IKESubnetsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
@@ -80,6 +81,9 @@ public class IKEGateway extends RestObject {
    private MetadatasFetcher metadatas;
    
    @JsonIgnore
+   private IKEGatewayConfigsFetcher iKEGatewayConfigs;
+   
+   @JsonIgnore
    private IKESubnetsFetcher iKESubnets;
    
    @JsonIgnore
@@ -89,6 +93,8 @@ public class IKEGateway extends RestObject {
    public IKEGateway() {
       
       metadatas = new MetadatasFetcher(this);
+      
+      iKEGatewayConfigs = new IKEGatewayConfigsFetcher(this);
       
       iKESubnets = new IKESubnetsFetcher(this);
       
@@ -174,6 +180,11 @@ public class IKEGateway extends RestObject {
    @JsonIgnore
    public MetadatasFetcher getMetadatas() {
       return metadatas;
+   }
+   
+   @JsonIgnore
+   public IKEGatewayConfigsFetcher getIKEGatewayConfigs() {
+      return iKEGatewayConfigs;
    }
    
    @JsonIgnore

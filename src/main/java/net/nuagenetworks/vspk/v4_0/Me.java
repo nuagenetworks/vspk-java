@@ -40,6 +40,7 @@ import net.nuagenetworks.vspk.v4_0.fetchers.VCenterEAMConfigsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.RateLimitersFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GatewaysFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GatewayTemplatesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.PATMappersFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.PATNATPoolsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.TCAsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VCentersFetcher;
@@ -50,6 +51,9 @@ import net.nuagenetworks.vspk.v4_0.fetchers.CertificatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadataTagsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NetworkLayoutsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.KeyServerMembersFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ZFBAutoAssignmentsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ZFBRequestsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.BGPNeighborsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.BGPProfilesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EgressACLEntryTemplatesFetcher;
@@ -79,6 +83,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.PolicyGroupsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.DomainsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.ZonesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ContainersFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ContainerInterfacesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.HostInterfacesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.RoutingPoliciesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.UplinkRDsFetcher;
@@ -173,6 +179,9 @@ public class Me extends RestRootObject {
    private GatewayTemplatesFetcher gatewayTemplates;
    
    @JsonIgnore
+   private PATMappersFetcher pATMappers;
+   
+   @JsonIgnore
    private PATNATPoolsFetcher pATNATPools;
    
    @JsonIgnore
@@ -201,6 +210,15 @@ public class Me extends RestRootObject {
    
    @JsonIgnore
    private NetworkLayoutsFetcher networkLayouts;
+   
+   @JsonIgnore
+   private KeyServerMembersFetcher keyServerMembers;
+   
+   @JsonIgnore
+   private ZFBAutoAssignmentsFetcher zFBAutoAssignments;
+   
+   @JsonIgnore
+   private ZFBRequestsFetcher zFBRequests;
    
    @JsonIgnore
    private BGPNeighborsFetcher bGPNeighbors;
@@ -290,6 +308,12 @@ public class Me extends RestRootObject {
    private ZonesFetcher zones;
    
    @JsonIgnore
+   private ContainersFetcher containers;
+   
+   @JsonIgnore
+   private ContainerInterfacesFetcher containerInterfaces;
+   
+   @JsonIgnore
    private HostInterfacesFetcher hostInterfaces;
    
    @JsonIgnore
@@ -359,6 +383,8 @@ public class Me extends RestRootObject {
       
       gatewayTemplates = new GatewayTemplatesFetcher(this);
       
+      pATMappers = new PATMappersFetcher(this);
+      
       pATNATPools = new PATNATPoolsFetcher(this);
       
       tCAs = new TCAsFetcher(this);
@@ -378,6 +404,12 @@ public class Me extends RestRootObject {
       metadataTags = new MetadataTagsFetcher(this);
       
       networkLayouts = new NetworkLayoutsFetcher(this);
+      
+      keyServerMembers = new KeyServerMembersFetcher(this);
+      
+      zFBAutoAssignments = new ZFBAutoAssignmentsFetcher(this);
+      
+      zFBRequests = new ZFBRequestsFetcher(this);
       
       bGPNeighbors = new BGPNeighborsFetcher(this);
       
@@ -436,6 +468,10 @@ public class Me extends RestRootObject {
       domains = new DomainsFetcher(this);
       
       zones = new ZonesFetcher(this);
+      
+      containers = new ContainersFetcher(this);
+      
+      containerInterfaces = new ContainerInterfacesFetcher(this);
       
       hostInterfaces = new HostInterfacesFetcher(this);
       
@@ -641,6 +677,11 @@ public class Me extends RestRootObject {
    }
    
    @JsonIgnore
+   public PATMappersFetcher getPATMappers() {
+      return pATMappers;
+   }
+   
+   @JsonIgnore
    public PATNATPoolsFetcher getPATNATPools() {
       return pATNATPools;
    }
@@ -688,6 +729,21 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public NetworkLayoutsFetcher getNetworkLayouts() {
       return networkLayouts;
+   }
+   
+   @JsonIgnore
+   public KeyServerMembersFetcher getKeyServerMembers() {
+      return keyServerMembers;
+   }
+   
+   @JsonIgnore
+   public ZFBAutoAssignmentsFetcher getZFBAutoAssignments() {
+      return zFBAutoAssignments;
+   }
+   
+   @JsonIgnore
+   public ZFBRequestsFetcher getZFBRequests() {
+      return zFBRequests;
    }
    
    @JsonIgnore
@@ -833,6 +889,16 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public ZonesFetcher getZones() {
       return zones;
+   }
+   
+   @JsonIgnore
+   public ContainersFetcher getContainers() {
+      return containers;
+   }
+   
+   @JsonIgnore
+   public ContainerInterfacesFetcher getContainerInterfaces() {
+      return containerInterfaces;
    }
    
    @JsonIgnore

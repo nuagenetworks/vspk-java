@@ -45,14 +45,14 @@ public class IKEEncryptionprofile extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum DPDMode { ON_DEMAND, PERIODIC, REPLY_ONLY };
-   public enum IPSecAuthenticationAlgorithm { HMAC_SHA1, HMAC_SHA256, HMAC_SHA512 };
-   public enum IPSecEncryptionAlgorithm { AES128, AES192, AES256, TRIPLE_DES };
-   public enum IPSecSAReplayWindowSize { WINDOW_SIZE_0, WINDOW_SIZE_1024, WINDOW_SIZE_128, WINDOW_SIZE_256, WINDOW_SIZE_32, WINDOW_SIZE_512, WINDOW_SIZE_64 };
-   public enum ISAKMPAuthenticationMode { PRE_SHARED_KEY, RSA_SIGNATURE };
-   public enum ISAKMPDiffieHelmanGroupIdentifier { GROUP_14_2048_BIT_DH, GROUP_15_3072_BIT_DH, GROUP_16_4096_BIT_DH, GROUP_19_256_BIT_ECDH, GROUP_1_768_BIT_DH, GROUP_20_384_BIT_ECDH, GROUP_24_2048_BIT_ECDH, GROUP_2_1024_BIT_DH, GROUP_5_1536_BIT_DH };
+   public enum DPDMode { ON_DEMAND, REPLY_ONLY };
+   public enum IPsecAuthenticationAlgorithm { HMAC_SHA1, HMAC_SHA256, HMAC_SHA512 };
+   public enum IPsecEncryptionAlgorithm { AES128, AES192, AES256, TRIPLE_DES };
+   public enum IPsecSAReplayWindowSize { WINDOW_SIZE_0, WINDOW_SIZE_1024, WINDOW_SIZE_128, WINDOW_SIZE_256, WINDOW_SIZE_32, WINDOW_SIZE_512, WINDOW_SIZE_64 };
+   public enum ISAKMPAuthenticationMode { PRE_SHARED_KEY };
+   public enum ISAKMPDiffieHelmanGroupIdentifier { GROUP_14_2048_BIT_DH, GROUP_15_3072_BIT_DH, GROUP_16_4096_BIT_DH, GROUP_17_6144_BIT_DH, GROUP_18_8192_BIT_DH, GROUP_1_768_BIT_DH, GROUP_2_1024_BIT_DH, GROUP_5_1536_BIT_DH };
    public enum ISAKMPEncryptionAlgorithm { AES128, AES192, AES256, TRIPLE_DES };
-   public enum ISAKMPHashAlgorithm { MD5, SHA1, SHA256 };
+   public enum ISAKMPHashAlgorithm { SHA1, SHA256 };
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -62,32 +62,29 @@ public class IKEEncryptionprofile extends RestObject {
    @JsonProperty(value = "DPDMode")
    protected DPDMode DPDMode;
    
-   @JsonProperty(value = "DPDRetryInterval")
-   protected Long DPDRetryInterval;
-   
    @JsonProperty(value = "DPDTimeout")
    protected Long DPDTimeout;
    
-   @JsonProperty(value = "IPSecAuthenticationAlgorithm")
-   protected IPSecAuthenticationAlgorithm IPSecAuthenticationAlgorithm;
+   @JsonProperty(value = "IPsecAuthenticationAlgorithm")
+   protected IPsecAuthenticationAlgorithm IPsecAuthenticationAlgorithm;
    
-   @JsonProperty(value = "IPSecDontFragment")
-   protected Boolean IPSecDontFragment;
+   @JsonProperty(value = "IPsecDontFragment")
+   protected Boolean IPsecDontFragment;
    
-   @JsonProperty(value = "IPSecEnablePFS")
-   protected Boolean IPSecEnablePFS;
+   @JsonProperty(value = "IPsecEnablePFS")
+   protected Boolean IPsecEnablePFS;
    
-   @JsonProperty(value = "IPSecEncryptionAlgorithm")
-   protected IPSecEncryptionAlgorithm IPSecEncryptionAlgorithm;
+   @JsonProperty(value = "IPsecEncryptionAlgorithm")
+   protected IPsecEncryptionAlgorithm IPsecEncryptionAlgorithm;
    
-   @JsonProperty(value = "IPSecPreFragment")
-   protected Boolean IPSecPreFragment;
+   @JsonProperty(value = "IPsecPreFragment")
+   protected Boolean IPsecPreFragment;
    
-   @JsonProperty(value = "IPSecSALifetime")
-   protected Long IPSecSALifetime;
+   @JsonProperty(value = "IPsecSALifetime")
+   protected Long IPsecSALifetime;
    
-   @JsonProperty(value = "IPSecSAReplayWindowSize")
-   protected IPSecSAReplayWindowSize IPSecSAReplayWindowSize;
+   @JsonProperty(value = "IPsecSAReplayWindowSize")
+   protected IPsecSAReplayWindowSize IPsecSAReplayWindowSize;
    
    @JsonProperty(value = "ISAKMPAuthenticationMode")
    protected ISAKMPAuthenticationMode ISAKMPAuthenticationMode;
@@ -161,15 +158,6 @@ public class IKEEncryptionprofile extends RestObject {
       this.DPDMode = value;
    }
    @JsonIgnore
-   public Long getDPDRetryInterval() {
-      return DPDRetryInterval;
-   }
-
-   @JsonIgnore
-   public void setDPDRetryInterval(Long value) { 
-      this.DPDRetryInterval = value;
-   }
-   @JsonIgnore
    public Long getDPDTimeout() {
       return DPDTimeout;
    }
@@ -179,67 +167,67 @@ public class IKEEncryptionprofile extends RestObject {
       this.DPDTimeout = value;
    }
    @JsonIgnore
-   public IPSecAuthenticationAlgorithm getIPSecAuthenticationAlgorithm() {
-      return IPSecAuthenticationAlgorithm;
+   public IPsecAuthenticationAlgorithm getIPsecAuthenticationAlgorithm() {
+      return IPsecAuthenticationAlgorithm;
    }
 
    @JsonIgnore
-   public void setIPSecAuthenticationAlgorithm(IPSecAuthenticationAlgorithm value) { 
-      this.IPSecAuthenticationAlgorithm = value;
+   public void setIPsecAuthenticationAlgorithm(IPsecAuthenticationAlgorithm value) { 
+      this.IPsecAuthenticationAlgorithm = value;
    }
    @JsonIgnore
-   public Boolean getIPSecDontFragment() {
-      return IPSecDontFragment;
-   }
-
-   @JsonIgnore
-   public void setIPSecDontFragment(Boolean value) { 
-      this.IPSecDontFragment = value;
-   }
-   @JsonIgnore
-   public Boolean getIPSecEnablePFS() {
-      return IPSecEnablePFS;
+   public Boolean getIPsecDontFragment() {
+      return IPsecDontFragment;
    }
 
    @JsonIgnore
-   public void setIPSecEnablePFS(Boolean value) { 
-      this.IPSecEnablePFS = value;
+   public void setIPsecDontFragment(Boolean value) { 
+      this.IPsecDontFragment = value;
    }
    @JsonIgnore
-   public IPSecEncryptionAlgorithm getIPSecEncryptionAlgorithm() {
-      return IPSecEncryptionAlgorithm;
-   }
-
-   @JsonIgnore
-   public void setIPSecEncryptionAlgorithm(IPSecEncryptionAlgorithm value) { 
-      this.IPSecEncryptionAlgorithm = value;
-   }
-   @JsonIgnore
-   public Boolean getIPSecPreFragment() {
-      return IPSecPreFragment;
+   public Boolean getIPsecEnablePFS() {
+      return IPsecEnablePFS;
    }
 
    @JsonIgnore
-   public void setIPSecPreFragment(Boolean value) { 
-      this.IPSecPreFragment = value;
+   public void setIPsecEnablePFS(Boolean value) { 
+      this.IPsecEnablePFS = value;
    }
    @JsonIgnore
-   public Long getIPSecSALifetime() {
-      return IPSecSALifetime;
-   }
-
-   @JsonIgnore
-   public void setIPSecSALifetime(Long value) { 
-      this.IPSecSALifetime = value;
-   }
-   @JsonIgnore
-   public IPSecSAReplayWindowSize getIPSecSAReplayWindowSize() {
-      return IPSecSAReplayWindowSize;
+   public IPsecEncryptionAlgorithm getIPsecEncryptionAlgorithm() {
+      return IPsecEncryptionAlgorithm;
    }
 
    @JsonIgnore
-   public void setIPSecSAReplayWindowSize(IPSecSAReplayWindowSize value) { 
-      this.IPSecSAReplayWindowSize = value;
+   public void setIPsecEncryptionAlgorithm(IPsecEncryptionAlgorithm value) { 
+      this.IPsecEncryptionAlgorithm = value;
+   }
+   @JsonIgnore
+   public Boolean getIPsecPreFragment() {
+      return IPsecPreFragment;
+   }
+
+   @JsonIgnore
+   public void setIPsecPreFragment(Boolean value) { 
+      this.IPsecPreFragment = value;
+   }
+   @JsonIgnore
+   public Long getIPsecSALifetime() {
+      return IPsecSALifetime;
+   }
+
+   @JsonIgnore
+   public void setIPsecSALifetime(Long value) { 
+      this.IPsecSALifetime = value;
+   }
+   @JsonIgnore
+   public IPsecSAReplayWindowSize getIPsecSAReplayWindowSize() {
+      return IPsecSAReplayWindowSize;
+   }
+
+   @JsonIgnore
+   public void setIPsecSAReplayWindowSize(IPsecSAReplayWindowSize value) { 
+      this.IPsecSAReplayWindowSize = value;
    }
    @JsonIgnore
    public ISAKMPAuthenticationMode getISAKMPAuthenticationMode() {
@@ -364,7 +352,7 @@ public class IKEEncryptionprofile extends RestObject {
    
 
    public String toString() {
-      return "IKEEncryptionprofile [" + "DPDInterval=" + DPDInterval + ", DPDMode=" + DPDMode + ", DPDRetryInterval=" + DPDRetryInterval + ", DPDTimeout=" + DPDTimeout + ", IPSecAuthenticationAlgorithm=" + IPSecAuthenticationAlgorithm + ", IPSecDontFragment=" + IPSecDontFragment + ", IPSecEnablePFS=" + IPSecEnablePFS + ", IPSecEncryptionAlgorithm=" + IPSecEncryptionAlgorithm + ", IPSecPreFragment=" + IPSecPreFragment + ", IPSecSALifetime=" + IPSecSALifetime + ", IPSecSAReplayWindowSize=" + IPSecSAReplayWindowSize + ", ISAKMPAuthenticationMode=" + ISAKMPAuthenticationMode + ", ISAKMPDiffieHelmanGroupIdentifier=" + ISAKMPDiffieHelmanGroupIdentifier + ", ISAKMPEncryptionAlgorithm=" + ISAKMPEncryptionAlgorithm + ", ISAKMPEncryptionKeyLifetime=" + ISAKMPEncryptionKeyLifetime + ", ISAKMPHashAlgorithm=" + ISAKMPHashAlgorithm + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", sequence=" + sequence + ", description=" + description + ", entityScope=" + entityScope + ", associatedEnterpriseID=" + associatedEnterpriseID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "IKEEncryptionprofile [" + "DPDInterval=" + DPDInterval + ", DPDMode=" + DPDMode + ", DPDTimeout=" + DPDTimeout + ", IPsecAuthenticationAlgorithm=" + IPsecAuthenticationAlgorithm + ", IPsecDontFragment=" + IPsecDontFragment + ", IPsecEnablePFS=" + IPsecEnablePFS + ", IPsecEncryptionAlgorithm=" + IPsecEncryptionAlgorithm + ", IPsecPreFragment=" + IPsecPreFragment + ", IPsecSALifetime=" + IPsecSALifetime + ", IPsecSAReplayWindowSize=" + IPsecSAReplayWindowSize + ", ISAKMPAuthenticationMode=" + ISAKMPAuthenticationMode + ", ISAKMPDiffieHelmanGroupIdentifier=" + ISAKMPDiffieHelmanGroupIdentifier + ", ISAKMPEncryptionAlgorithm=" + ISAKMPEncryptionAlgorithm + ", ISAKMPEncryptionKeyLifetime=" + ISAKMPEncryptionKeyLifetime + ", ISAKMPHashAlgorithm=" + ISAKMPHashAlgorithm + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", sequence=" + sequence + ", description=" + description + ", entityScope=" + entityScope + ", associatedEnterpriseID=" + associatedEnterpriseID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

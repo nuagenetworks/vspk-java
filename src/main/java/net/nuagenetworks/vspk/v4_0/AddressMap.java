@@ -37,6 +37,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.StatisticsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.StatisticsPoliciesFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "addressmap", resourceName = "addressmaps")
@@ -46,7 +48,7 @@ public class AddressMap extends RestObject {
 
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
-   public enum Type { ONE_TO_MANY_PAT, ONE_TO_ONE_NAT };
+   public enum Type { MANY_TO_ONE_PAT, ONE_TO_ONE_NAT };
 
    
    @JsonProperty(value = "lastUpdatedBy")
@@ -59,7 +61,7 @@ public class AddressMap extends RestObject {
    protected String privateIP;
    
    @JsonProperty(value = "privatePort")
-   protected String privatePort;
+   protected Long privatePort;
    
    @JsonProperty(value = "associatedPATNATPoolID")
    protected String associatedPATNATPoolID;
@@ -68,7 +70,7 @@ public class AddressMap extends RestObject {
    protected String publicIP;
    
    @JsonProperty(value = "publicPort")
-   protected String publicPort;
+   protected Long publicPort;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
@@ -84,12 +86,22 @@ public class AddressMap extends RestObject {
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private StatisticsFetcher statistics;
+   
+   @JsonIgnore
+   private StatisticsPoliciesFetcher statisticsPolicies;
+   
 
    public AddressMap() {
       
       metadatas = new MetadatasFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      statistics = new StatisticsFetcher(this);
+      
+      statisticsPolicies = new StatisticsPoliciesFetcher(this);
       
    }
 
@@ -121,12 +133,12 @@ public class AddressMap extends RestObject {
       this.privateIP = value;
    }
    @JsonIgnore
-   public String getPrivatePort() {
+   public Long getPrivatePort() {
       return privatePort;
    }
 
    @JsonIgnore
-   public void setPrivatePort(String value) { 
+   public void setPrivatePort(Long value) { 
       this.privatePort = value;
    }
    @JsonIgnore
@@ -148,12 +160,12 @@ public class AddressMap extends RestObject {
       this.publicIP = value;
    }
    @JsonIgnore
-   public String getPublicPort() {
+   public Long getPublicPort() {
       return publicPort;
    }
 
    @JsonIgnore
-   public void setPublicPort(String value) { 
+   public void setPublicPort(Long value) { 
       this.publicPort = value;
    }
    @JsonIgnore
@@ -185,6 +197,16 @@ public class AddressMap extends RestObject {
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public StatisticsFetcher getStatistics() {
+      return statistics;
+   }
+   
+   @JsonIgnore
+   public StatisticsPoliciesFetcher getStatisticsPolicies() {
+      return statisticsPolicies;
    }
    
 

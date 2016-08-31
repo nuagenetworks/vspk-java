@@ -45,9 +45,19 @@ public class Bootstrap extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum ZFBMatchAttribute { NONE, MAC_ADDRESS, IP_ADDRESS, HOSTNAME, NSGATEWAY_ID, SERIAL_NUMBER };
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum Status { ACTIVE, CERTIFICATE_SIGNED, INACTIVE, NOTIFICATION_APP_REQ_ACK, NOTIFICATION_APP_REQ_SENT };
 
+   
+   @JsonProperty(value = "ZFBInfo")
+   protected String ZFBInfo;
+   
+   @JsonProperty(value = "ZFBMatchAttribute")
+   protected ZFBMatchAttribute ZFBMatchAttribute;
+   
+   @JsonProperty(value = "ZFBMatchValue")
+   protected String ZFBMatchValue;
    
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
@@ -82,6 +92,33 @@ public class Bootstrap extends RestObject {
       
    }
 
+   @JsonIgnore
+   public String getZFBInfo() {
+      return ZFBInfo;
+   }
+
+   @JsonIgnore
+   public void setZFBInfo(String value) { 
+      this.ZFBInfo = value;
+   }
+   @JsonIgnore
+   public ZFBMatchAttribute getZFBMatchAttribute() {
+      return ZFBMatchAttribute;
+   }
+
+   @JsonIgnore
+   public void setZFBMatchAttribute(ZFBMatchAttribute value) { 
+      this.ZFBMatchAttribute = value;
+   }
+   @JsonIgnore
+   public String getZFBMatchValue() {
+      return ZFBMatchValue;
+   }
+
+   @JsonIgnore
+   public void setZFBMatchValue(String value) { 
+      this.ZFBMatchValue = value;
+   }
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -142,7 +179,7 @@ public class Bootstrap extends RestObject {
    
 
    public String toString() {
-      return "Bootstrap [" + "lastUpdatedBy=" + lastUpdatedBy + ", installerID=" + installerID + ", entityScope=" + entityScope + ", status=" + status + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Bootstrap [" + "ZFBInfo=" + ZFBInfo + ", ZFBMatchAttribute=" + ZFBMatchAttribute + ", ZFBMatchValue=" + ZFBMatchValue + ", lastUpdatedBy=" + lastUpdatedBy + ", installerID=" + installerID + ", entityScope=" + entityScope + ", status=" + status + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

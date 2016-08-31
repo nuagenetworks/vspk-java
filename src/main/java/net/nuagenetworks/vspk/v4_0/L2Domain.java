@@ -52,6 +52,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.IngressAdvFwdTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IngressExternalServiceTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.PolicyGroupsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ContainersFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ContainerInterfacesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.QOSsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.HostInterfacesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.UplinkRDsFetcher;
@@ -206,6 +208,12 @@ public class L2Domain extends RestObject {
    private PolicyGroupsFetcher policyGroups;
    
    @JsonIgnore
+   private ContainersFetcher containers;
+   
+   @JsonIgnore
+   private ContainerInterfacesFetcher containerInterfaces;
+   
+   @JsonIgnore
    private QOSsFetcher qOSs;
    
    @JsonIgnore
@@ -275,6 +283,10 @@ public class L2Domain extends RestObject {
       jobs = new JobsFetcher(this);
       
       policyGroups = new PolicyGroupsFetcher(this);
+      
+      containers = new ContainersFetcher(this);
+      
+      containerInterfaces = new ContainerInterfacesFetcher(this);
       
       qOSs = new QOSsFetcher(this);
       
@@ -602,6 +614,16 @@ public class L2Domain extends RestObject {
    @JsonIgnore
    public PolicyGroupsFetcher getPolicyGroups() {
       return policyGroups;
+   }
+   
+   @JsonIgnore
+   public ContainersFetcher getContainers() {
+      return containers;
+   }
+   
+   @JsonIgnore
+   public ContainerInterfacesFetcher getContainerInterfaces() {
+      return containerInterfaces;
    }
    
    @JsonIgnore

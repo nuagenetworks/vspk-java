@@ -39,7 +39,6 @@ import net.nuagenetworks.vspk.v4_0.fetchers.TCAsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.RedirectionTargetsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.AggregateMetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.BGPNeighborsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.DHCPOptionsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VirtualIPsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.AlarmsFetcher;
@@ -47,6 +46,9 @@ import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VMInterfacesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.PolicyGroupsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ContainersFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ContainerInterfacesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.PortMappingsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.QOSsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.HostInterfacesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VPortMirrorsFetcher;
@@ -67,7 +69,7 @@ public class VPort extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum OperationalState { DOWN, INIT, UP };
    public enum Multicast { DISABLED, ENABLED, INHERITED };
-   public enum Type { BRIDGE, HOST, VM };
+   public enum Type { BRIDGE, CONTAINER, HOST, VM };
    public enum SystemType { HARDWARE, HARDWARE_VTEP, NUAGE_1, NUAGE_2, NUAGE_VRSG, SOFTWARE };
 
    
@@ -143,9 +145,6 @@ public class VPort extends RestObject {
    private AggregateMetadatasFetcher aggregateMetadatas;
    
    @JsonIgnore
-   private BGPNeighborsFetcher bGPNeighbors;
-   
-   @JsonIgnore
    private DHCPOptionsFetcher dHCPOptions;
    
    @JsonIgnore
@@ -165,6 +164,15 @@ public class VPort extends RestObject {
    
    @JsonIgnore
    private PolicyGroupsFetcher policyGroups;
+   
+   @JsonIgnore
+   private ContainersFetcher containers;
+   
+   @JsonIgnore
+   private ContainerInterfacesFetcher containerInterfaces;
+   
+   @JsonIgnore
+   private PortMappingsFetcher portMappings;
    
    @JsonIgnore
    private QOSsFetcher qOSs;
@@ -205,8 +213,6 @@ public class VPort extends RestObject {
       
       aggregateMetadatas = new AggregateMetadatasFetcher(this);
       
-      bGPNeighbors = new BGPNeighborsFetcher(this);
-      
       dHCPOptions = new DHCPOptionsFetcher(this);
       
       virtualIPs = new VirtualIPsFetcher(this);
@@ -220,6 +226,12 @@ public class VPort extends RestObject {
       vMInterfaces = new VMInterfacesFetcher(this);
       
       policyGroups = new PolicyGroupsFetcher(this);
+      
+      containers = new ContainersFetcher(this);
+      
+      containerInterfaces = new ContainerInterfacesFetcher(this);
+      
+      portMappings = new PortMappingsFetcher(this);
       
       qOSs = new QOSsFetcher(this);
       
@@ -434,11 +446,6 @@ public class VPort extends RestObject {
    }
    
    @JsonIgnore
-   public BGPNeighborsFetcher getBGPNeighbors() {
-      return bGPNeighbors;
-   }
-   
-   @JsonIgnore
    public DHCPOptionsFetcher getDHCPOptions() {
       return dHCPOptions;
    }
@@ -471,6 +478,21 @@ public class VPort extends RestObject {
    @JsonIgnore
    public PolicyGroupsFetcher getPolicyGroups() {
       return policyGroups;
+   }
+   
+   @JsonIgnore
+   public ContainersFetcher getContainers() {
+      return containers;
+   }
+   
+   @JsonIgnore
+   public ContainerInterfacesFetcher getContainerInterfaces() {
+      return containerInterfaces;
+   }
+   
+   @JsonIgnore
+   public PortMappingsFetcher getPortMappings() {
+      return portMappings;
    }
    
    @JsonIgnore

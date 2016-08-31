@@ -38,7 +38,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ContainersFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GroupsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.AvatarsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -104,7 +106,13 @@ public class User extends RestObject {
    private VMsFetcher vMs;
    
    @JsonIgnore
+   private ContainersFetcher containers;
+   
+   @JsonIgnore
    private GroupsFetcher groups;
+   
+   @JsonIgnore
+   private AvatarsFetcher avatars;
    
    @JsonIgnore
    private EventLogsFetcher eventLogs;
@@ -118,7 +126,11 @@ public class User extends RestObject {
       
       vMs = new VMsFetcher(this);
       
+      containers = new ContainersFetcher(this);
+      
       groups = new GroupsFetcher(this);
+      
+      avatars = new AvatarsFetcher(this);
       
       eventLogs = new EventLogsFetcher(this);
       
@@ -260,8 +272,18 @@ public class User extends RestObject {
    }
    
    @JsonIgnore
+   public ContainersFetcher getContainers() {
+      return containers;
+   }
+   
+   @JsonIgnore
    public GroupsFetcher getGroups() {
       return groups;
+   }
+   
+   @JsonIgnore
+   public AvatarsFetcher getAvatars() {
+      return avatars;
    }
    
    @JsonIgnore

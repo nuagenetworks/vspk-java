@@ -39,6 +39,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VRSAddressRangesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.VRSMetricsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.VRSRedeploymentpoliciesFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "vcenterhypervisor", resourceName = "vcenterhypervisors")
@@ -70,6 +72,9 @@ public class VCenterHypervisor extends RestObject {
    
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "lastVRSDeployedDate")
+   protected Float lastVRSDeployedDate;
    
    @JsonProperty(value = "dataDNS1")
    protected String dataDNS1;
@@ -103,6 +108,9 @@ public class VCenterHypervisor extends RestObject {
    
    @JsonProperty(value = "separateDataNetwork")
    protected Boolean separateDataNetwork;
+   
+   @JsonProperty(value = "deploymentCount")
+   protected Long deploymentCount;
    
    @JsonProperty(value = "personality")
    protected String personality;
@@ -227,9 +235,6 @@ public class VCenterHypervisor extends RestObject {
    @JsonProperty(value = "vrsId")
    protected String vrsId;
    
-   @JsonProperty(value = "vrsMetricsID")
-   protected String vrsMetricsID;
-   
    @JsonProperty(value = "vrsPassword")
    protected String vrsPassword;
    
@@ -313,6 +318,12 @@ public class VCenterHypervisor extends RestObject {
    @JsonIgnore
    private VRSAddressRangesFetcher vRSAddressRanges;
    
+   @JsonIgnore
+   private VRSMetricsFetcher vRSMetrics;
+   
+   @JsonIgnore
+   private VRSRedeploymentpoliciesFetcher vRSRedeploymentpolicies;
+   
 
    public VCenterHypervisor() {
       
@@ -323,6 +334,10 @@ public class VCenterHypervisor extends RestObject {
       jobs = new JobsFetcher(this);
       
       vRSAddressRanges = new VRSAddressRangesFetcher(this);
+      
+      vRSMetrics = new VRSMetricsFetcher(this);
+      
+      vRSRedeploymentpolicies = new VRSRedeploymentpoliciesFetcher(this);
       
    }
 
@@ -388,6 +403,15 @@ public class VCenterHypervisor extends RestObject {
    @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public Float getLastVRSDeployedDate() {
+      return lastVRSDeployedDate;
+   }
+
+   @JsonIgnore
+   public void setLastVRSDeployedDate(Float value) { 
+      this.lastVRSDeployedDate = value;
    }
    @JsonIgnore
    public String getDataDNS1() {
@@ -487,6 +511,15 @@ public class VCenterHypervisor extends RestObject {
    @JsonIgnore
    public void setSeparateDataNetwork(Boolean value) { 
       this.separateDataNetwork = value;
+   }
+   @JsonIgnore
+   public Long getDeploymentCount() {
+      return deploymentCount;
+   }
+
+   @JsonIgnore
+   public void setDeploymentCount(Long value) { 
+      this.deploymentCount = value;
    }
    @JsonIgnore
    public String getPersonality() {
@@ -858,15 +891,6 @@ public class VCenterHypervisor extends RestObject {
       this.vrsId = value;
    }
    @JsonIgnore
-   public String getVrsMetricsID() {
-      return vrsMetricsID;
-   }
-
-   @JsonIgnore
-   public void setVrsMetricsID(String value) { 
-      this.vrsMetricsID = value;
-   }
-   @JsonIgnore
    public String getVrsPassword() {
       return vrsPassword;
    }
@@ -1096,9 +1120,19 @@ public class VCenterHypervisor extends RestObject {
       return vRSAddressRanges;
    }
    
+   @JsonIgnore
+   public VRSMetricsFetcher getVRSMetrics() {
+      return vRSMetrics;
+   }
+   
+   @JsonIgnore
+   public VRSRedeploymentpoliciesFetcher getVRSRedeploymentpolicies() {
+      return vRSRedeploymentpolicies;
+   }
+   
 
    public String toString() {
-      return "VCenterHypervisor [" + "vCenterIP=" + vCenterIP + ", vCenterPassword=" + vCenterPassword + ", vCenterUser=" + vCenterUser + ", VRSMetricsID=" + VRSMetricsID + ", vRequireNuageMetadata=" + vRequireNuageMetadata + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", dataDNS1=" + dataDNS1 + ", dataDNS2=" + dataDNS2 + ", dataGateway=" + dataGateway + ", dataIPAddress=" + dataIPAddress + ", dataNetmask=" + dataNetmask + ", dataNetworkPortgroup=" + dataNetworkPortgroup + ", datapathSyncTimeout=" + datapathSyncTimeout + ", scope=" + scope + ", secondaryNuageController=" + secondaryNuageController + ", genericSplitActivation=" + genericSplitActivation + ", separateDataNetwork=" + separateDataNetwork + ", personality=" + personality + ", description=" + description + ", metadataServerIP=" + metadataServerIP + ", metadataServerListenPort=" + metadataServerListenPort + ", metadataServerPort=" + metadataServerPort + ", metadataServiceEnabled=" + metadataServiceEnabled + ", networkUplinkInterface=" + networkUplinkInterface + ", networkUplinkInterfaceGateway=" + networkUplinkInterfaceGateway + ", networkUplinkInterfaceIp=" + networkUplinkInterfaceIp + ", networkUplinkInterfaceNetmask=" + networkUplinkInterfaceNetmask + ", nfsLogServer=" + nfsLogServer + ", nfsMountPath=" + nfsMountPath + ", mgmtDNS1=" + mgmtDNS1 + ", mgmtDNS2=" + mgmtDNS2 + ", mgmtGateway=" + mgmtGateway + ", mgmtIPAddress=" + mgmtIPAddress + ", mgmtNetmask=" + mgmtNetmask + ", mgmtNetworkPortgroup=" + mgmtNetworkPortgroup + ", dhcpRelayServer=" + dhcpRelayServer + ", siteId=" + siteId + ", allowDataDHCP=" + allowDataDHCP + ", allowMgmtDHCP=" + allowMgmtDHCP + ", flowEvictionThreshold=" + flowEvictionThreshold + ", vmNetworkPortgroup=" + vmNetworkPortgroup + ", entityScope=" + entityScope + ", toolboxDeploymentMode=" + toolboxDeploymentMode + ", toolboxGroup=" + toolboxGroup + ", toolboxIP=" + toolboxIP + ", toolboxPassword=" + toolboxPassword + ", toolboxUserName=" + toolboxUserName + ", portgroupMetadata=" + portgroupMetadata + ", novaClientVersion=" + novaClientVersion + ", novaMetadataServiceAuthUrl=" + novaMetadataServiceAuthUrl + ", novaMetadataServiceEndpoint=" + novaMetadataServiceEndpoint + ", novaMetadataServicePassword=" + novaMetadataServicePassword + ", novaMetadataServiceTenant=" + novaMetadataServiceTenant + ", novaMetadataServiceUsername=" + novaMetadataServiceUsername + ", novaMetadataSharedSecret=" + novaMetadataSharedSecret + ", novaRegionName=" + novaRegionName + ", primaryNuageController=" + primaryNuageController + ", vrsId=" + vrsId + ", vrsMetricsID=" + vrsMetricsID + ", vrsPassword=" + vrsPassword + ", vrsUserName=" + vrsUserName + ", staticRoute=" + staticRoute + ", staticRouteGateway=" + staticRouteGateway + ", staticRouteNetmask=" + staticRouteNetmask + ", ntpServer1=" + ntpServer1 + ", ntpServer2=" + ntpServer2 + ", mtu=" + mtu + ", multiVMSsupport=" + multiVMSsupport + ", multicastReceiveInterface=" + multicastReceiveInterface + ", multicastReceiveInterfaceIP=" + multicastReceiveInterfaceIP + ", multicastReceiveInterfaceNetmask=" + multicastReceiveInterfaceNetmask + ", multicastReceiveRange=" + multicastReceiveRange + ", multicastSendInterface=" + multicastSendInterface + ", multicastSendInterfaceIP=" + multicastSendInterfaceIP + ", multicastSendInterfaceNetmask=" + multicastSendInterfaceNetmask + ", multicastSourcePortgroup=" + multicastSourcePortgroup + ", customizedScriptURL=" + customizedScriptURL + ", availableNetworks=" + availableNetworks + ", externalID=" + externalID + ", hypervisorIP=" + hypervisorIP + ", hypervisorPassword=" + hypervisorPassword + ", hypervisorUser=" + hypervisorUser + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VCenterHypervisor [" + "vCenterIP=" + vCenterIP + ", vCenterPassword=" + vCenterPassword + ", vCenterUser=" + vCenterUser + ", VRSMetricsID=" + VRSMetricsID + ", vRequireNuageMetadata=" + vRequireNuageMetadata + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", lastVRSDeployedDate=" + lastVRSDeployedDate + ", dataDNS1=" + dataDNS1 + ", dataDNS2=" + dataDNS2 + ", dataGateway=" + dataGateway + ", dataIPAddress=" + dataIPAddress + ", dataNetmask=" + dataNetmask + ", dataNetworkPortgroup=" + dataNetworkPortgroup + ", datapathSyncTimeout=" + datapathSyncTimeout + ", scope=" + scope + ", secondaryNuageController=" + secondaryNuageController + ", genericSplitActivation=" + genericSplitActivation + ", separateDataNetwork=" + separateDataNetwork + ", deploymentCount=" + deploymentCount + ", personality=" + personality + ", description=" + description + ", metadataServerIP=" + metadataServerIP + ", metadataServerListenPort=" + metadataServerListenPort + ", metadataServerPort=" + metadataServerPort + ", metadataServiceEnabled=" + metadataServiceEnabled + ", networkUplinkInterface=" + networkUplinkInterface + ", networkUplinkInterfaceGateway=" + networkUplinkInterfaceGateway + ", networkUplinkInterfaceIp=" + networkUplinkInterfaceIp + ", networkUplinkInterfaceNetmask=" + networkUplinkInterfaceNetmask + ", nfsLogServer=" + nfsLogServer + ", nfsMountPath=" + nfsMountPath + ", mgmtDNS1=" + mgmtDNS1 + ", mgmtDNS2=" + mgmtDNS2 + ", mgmtGateway=" + mgmtGateway + ", mgmtIPAddress=" + mgmtIPAddress + ", mgmtNetmask=" + mgmtNetmask + ", mgmtNetworkPortgroup=" + mgmtNetworkPortgroup + ", dhcpRelayServer=" + dhcpRelayServer + ", siteId=" + siteId + ", allowDataDHCP=" + allowDataDHCP + ", allowMgmtDHCP=" + allowMgmtDHCP + ", flowEvictionThreshold=" + flowEvictionThreshold + ", vmNetworkPortgroup=" + vmNetworkPortgroup + ", entityScope=" + entityScope + ", toolboxDeploymentMode=" + toolboxDeploymentMode + ", toolboxGroup=" + toolboxGroup + ", toolboxIP=" + toolboxIP + ", toolboxPassword=" + toolboxPassword + ", toolboxUserName=" + toolboxUserName + ", portgroupMetadata=" + portgroupMetadata + ", novaClientVersion=" + novaClientVersion + ", novaMetadataServiceAuthUrl=" + novaMetadataServiceAuthUrl + ", novaMetadataServiceEndpoint=" + novaMetadataServiceEndpoint + ", novaMetadataServicePassword=" + novaMetadataServicePassword + ", novaMetadataServiceTenant=" + novaMetadataServiceTenant + ", novaMetadataServiceUsername=" + novaMetadataServiceUsername + ", novaMetadataSharedSecret=" + novaMetadataSharedSecret + ", novaRegionName=" + novaRegionName + ", primaryNuageController=" + primaryNuageController + ", vrsId=" + vrsId + ", vrsPassword=" + vrsPassword + ", vrsUserName=" + vrsUserName + ", staticRoute=" + staticRoute + ", staticRouteGateway=" + staticRouteGateway + ", staticRouteNetmask=" + staticRouteNetmask + ", ntpServer1=" + ntpServer1 + ", ntpServer2=" + ntpServer2 + ", mtu=" + mtu + ", multiVMSsupport=" + multiVMSsupport + ", multicastReceiveInterface=" + multicastReceiveInterface + ", multicastReceiveInterfaceIP=" + multicastReceiveInterfaceIP + ", multicastReceiveInterfaceNetmask=" + multicastReceiveInterfaceNetmask + ", multicastReceiveRange=" + multicastReceiveRange + ", multicastSendInterface=" + multicastSendInterface + ", multicastSendInterfaceIP=" + multicastSendInterfaceIP + ", multicastSendInterfaceNetmask=" + multicastSendInterfaceNetmask + ", multicastSourcePortgroup=" + multicastSourcePortgroup + ", customizedScriptURL=" + customizedScriptURL + ", availableNetworks=" + availableNetworks + ", externalID=" + externalID + ", hypervisorIP=" + hypervisorIP + ", hypervisorPassword=" + hypervisorPassword + ", hypervisorUser=" + hypervisorUser + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

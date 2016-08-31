@@ -40,6 +40,7 @@ import net.nuagenetworks.vspk.v4_0.fetchers.EgressACLEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ContainersFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -111,6 +112,9 @@ public class EgressACLTemplate extends RestObject {
    private JobsFetcher jobs;
    
    @JsonIgnore
+   private ContainersFetcher containers;
+   
+   @JsonIgnore
    private EventLogsFetcher eventLogs;
    
 
@@ -125,6 +129,8 @@ public class EgressACLTemplate extends RestObject {
       vMs = new VMsFetcher(this);
       
       jobs = new JobsFetcher(this);
+      
+      containers = new ContainersFetcher(this);
       
       eventLogs = new EventLogsFetcher(this);
       
@@ -273,6 +279,11 @@ public class EgressACLTemplate extends RestObject {
    @JsonIgnore
    public JobsFetcher getJobs() {
       return jobs;
+   }
+   
+   @JsonIgnore
+   public ContainersFetcher getContainers() {
+      return containers;
    }
    
    @JsonIgnore

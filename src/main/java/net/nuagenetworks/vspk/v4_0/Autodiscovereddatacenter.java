@@ -43,6 +43,7 @@ public class Autodiscovereddatacenter extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "name")
@@ -51,8 +52,17 @@ public class Autodiscovereddatacenter extends RestObject {
    @JsonProperty(value = "managedObjectID")
    protected String managedObjectID;
    
-   @JsonProperty(value = "assocVCenterId")
-   protected String assocVCenterId;
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "associatedVCenterID")
+   protected String associatedVCenterID;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
    
 
    
@@ -80,20 +90,47 @@ public class Autodiscovereddatacenter extends RestObject {
       this.managedObjectID = value;
    }
    @JsonIgnore
-   public String getAssocVCenterId() {
-      return assocVCenterId;
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
    }
 
    @JsonIgnore
-   public void setAssocVCenterId(String value) { 
-      this.assocVCenterId = value;
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getAssociatedVCenterID() {
+      return associatedVCenterID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedVCenterID(String value) { 
+      this.associatedVCenterID = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
    }
    
 
    
 
    public String toString() {
-      return "Autodiscovereddatacenter [" + "name=" + name + ", managedObjectID=" + managedObjectID + ", assocVCenterId=" + assocVCenterId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Autodiscovereddatacenter [" + "name=" + name + ", managedObjectID=" + managedObjectID + ", lastUpdatedBy=" + lastUpdatedBy + ", entityScope=" + entityScope + ", associatedVCenterID=" + associatedVCenterID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

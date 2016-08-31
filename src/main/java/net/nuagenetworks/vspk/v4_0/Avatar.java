@@ -39,8 +39,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "gatewaysecurityprofile", resourceName = "gatewaysecurityprofiles")
-public class GatewaySecurityProfile extends RestObject {
+@RestEntity(restName = "avatar", resourceName = "avatars")
+public class Avatar extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
@@ -51,17 +51,14 @@ public class GatewaySecurityProfile extends RestObject {
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
    
-   @JsonProperty(value = "gatewayID")
-   protected String gatewayID;
-   
-   @JsonProperty(value = "revision")
-   protected Long revision;
-   
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
+   
+   @JsonProperty(value = "type")
+   protected String type;
    
 
    
@@ -72,7 +69,7 @@ public class GatewaySecurityProfile extends RestObject {
    private GlobalMetadatasFetcher globalMetadatas;
    
 
-   public GatewaySecurityProfile() {
+   public Avatar() {
       
       metadatas = new MetadatasFetcher(this);
       
@@ -88,24 +85,6 @@ public class GatewaySecurityProfile extends RestObject {
    @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public String getGatewayID() {
-      return gatewayID;
-   }
-
-   @JsonIgnore
-   public void setGatewayID(String value) { 
-      this.gatewayID = value;
-   }
-   @JsonIgnore
-   public Long getRevision() {
-      return revision;
-   }
-
-   @JsonIgnore
-   public void setRevision(Long value) { 
-      this.revision = value;
    }
    @JsonIgnore
    public EntityScope getEntityScope() {
@@ -125,6 +104,15 @@ public class GatewaySecurityProfile extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getType() {
+      return type;
+   }
+
+   @JsonIgnore
+   public void setType(String value) { 
+      this.type = value;
+   }
    
 
    
@@ -140,7 +128,7 @@ public class GatewaySecurityProfile extends RestObject {
    
 
    public String toString() {
-      return "GatewaySecurityProfile [" + "lastUpdatedBy=" + lastUpdatedBy + ", gatewayID=" + gatewayID + ", revision=" + revision + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Avatar [" + "lastUpdatedBy=" + lastUpdatedBy + ", entityScope=" + entityScope + ", externalID=" + externalID + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

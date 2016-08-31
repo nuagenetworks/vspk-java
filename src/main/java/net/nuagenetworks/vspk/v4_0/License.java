@@ -57,6 +57,9 @@ public class License extends RestObject {
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "additionalSupportedVersions")
+   protected String additionalSupportedVersions;
+   
    @JsonProperty(value = "phone")
    protected String phone;
    
@@ -183,6 +186,15 @@ public class License extends RestObject {
    @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getAdditionalSupportedVersions() {
+      return additionalSupportedVersions;
+   }
+
+   @JsonIgnore
+   public void setAdditionalSupportedVersions(String value) { 
+      this.additionalSupportedVersions = value;
    }
    @JsonIgnore
    public String getPhone() {
@@ -465,7 +477,7 @@ public class License extends RestObject {
    
 
    public String toString() {
-      return "License [" + "majorRelease=" + majorRelease + ", lastUpdatedBy=" + lastUpdatedBy + ", phone=" + phone + ", license=" + license + ", licenseEncryption=" + licenseEncryption + ", licenseEntities=" + licenseEntities + ", licenseID=" + licenseID + ", licenseType=" + licenseType + ", minorRelease=" + minorRelease + ", zip=" + zip + ", city=" + city + ", allowedCPEsCount=" + allowedCPEsCount + ", allowedNICsCount=" + allowedNICsCount + ", allowedVMsCount=" + allowedVMsCount + ", allowedVRSGsCount=" + allowedVRSGsCount + ", allowedVRSsCount=" + allowedVRSsCount + ", email=" + email + ", encryptionMode=" + encryptionMode + ", uniqueLicenseIdentifier=" + uniqueLicenseIdentifier + ", entityScope=" + entityScope + ", company=" + company + ", country=" + country + ", productVersion=" + productVersion + ", provider=" + provider + ", isClusterLicense=" + isClusterLicense + ", userName=" + userName + ", state=" + state + ", street=" + street + ", customerKey=" + customerKey + ", expirationDate=" + expirationDate + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "License [" + "majorRelease=" + majorRelease + ", lastUpdatedBy=" + lastUpdatedBy + ", additionalSupportedVersions=" + additionalSupportedVersions + ", phone=" + phone + ", license=" + license + ", licenseEncryption=" + licenseEncryption + ", licenseEntities=" + licenseEntities + ", licenseID=" + licenseID + ", licenseType=" + licenseType + ", minorRelease=" + minorRelease + ", zip=" + zip + ", city=" + city + ", allowedCPEsCount=" + allowedCPEsCount + ", allowedNICsCount=" + allowedNICsCount + ", allowedVMsCount=" + allowedVMsCount + ", allowedVRSGsCount=" + allowedVRSGsCount + ", allowedVRSsCount=" + allowedVRSsCount + ", email=" + email + ", encryptionMode=" + encryptionMode + ", uniqueLicenseIdentifier=" + uniqueLicenseIdentifier + ", entityScope=" + entityScope + ", company=" + company + ", country=" + country + ", productVersion=" + productVersion + ", provider=" + provider + ", isClusterLicense=" + isClusterLicense + ", userName=" + userName + ", state=" + state + ", street=" + street + ", customerKey=" + customerKey + ", expirationDate=" + expirationDate + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

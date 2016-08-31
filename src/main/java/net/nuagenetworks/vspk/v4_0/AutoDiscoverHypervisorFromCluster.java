@@ -43,13 +43,23 @@ public class AutoDiscoverHypervisorFromCluster extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum EntityScope { ENTERPRISE, GLOBAL };
 
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
    @JsonProperty(value = "networkList")
    protected java.util.List<String> networkList;
    
-   @JsonProperty(value = "assocClusterId")
-   protected String assocClusterId;
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "assocEntityID")
+   protected String assocEntityID;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
    
    @JsonProperty(value = "hypervisorIP")
    protected String hypervisorIP;
@@ -62,6 +72,15 @@ public class AutoDiscoverHypervisorFromCluster extends RestObject {
    }
 
    @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
    public java.util.List<String> getNetworkList() {
       return networkList;
    }
@@ -71,13 +90,31 @@ public class AutoDiscoverHypervisorFromCluster extends RestObject {
       this.networkList = value;
    }
    @JsonIgnore
-   public String getAssocClusterId() {
-      return assocClusterId;
+   public EntityScope getEntityScope() {
+      return entityScope;
    }
 
    @JsonIgnore
-   public void setAssocClusterId(String value) { 
-      this.assocClusterId = value;
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getAssocEntityID() {
+      return assocEntityID;
+   }
+
+   @JsonIgnore
+   public void setAssocEntityID(String value) { 
+      this.assocEntityID = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
    }
    @JsonIgnore
    public String getHypervisorIP() {
@@ -93,7 +130,7 @@ public class AutoDiscoverHypervisorFromCluster extends RestObject {
    
 
    public String toString() {
-      return "AutoDiscoverHypervisorFromCluster [" + "networkList=" + networkList + ", assocClusterId=" + assocClusterId + ", hypervisorIP=" + hypervisorIP + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "AutoDiscoverHypervisorFromCluster [" + "lastUpdatedBy=" + lastUpdatedBy + ", networkList=" + networkList + ", entityScope=" + entityScope + ", assocEntityID=" + assocEntityID + ", externalID=" + externalID + ", hypervisorIP=" + hypervisorIP + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

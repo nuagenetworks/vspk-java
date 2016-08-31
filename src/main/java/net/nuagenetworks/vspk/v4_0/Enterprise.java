@@ -47,6 +47,7 @@ import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadataTagsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NetworkMacroGroupsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.KeyServerMonitorsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ZFBRequestsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.BGPProfilesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EgressQOSPoliciesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.SharedNetworkResourcesFetcher;
@@ -56,6 +57,7 @@ import net.nuagenetworks.vspk.v4_0.fetchers.IKEGatewaysFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IKEGatewayProfilesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IKEPSKsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.AlarmsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.AlarmsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.InfrastructurePortProfilesFetcher;
@@ -64,6 +66,7 @@ import net.nuagenetworks.vspk.v4_0.fetchers.EnterpriseSecuritiesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.DomainsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.DomainTemplatesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ContainersFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.RoutingPoliciesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.AppsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.ApplicationServicesFetcher;
@@ -76,6 +79,7 @@ import net.nuagenetworks.vspk.v4_0.fetchers.NSGatewayTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NSRedundantGatewayGroupsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.PublicNetworkMacrosFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MultiCastListsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.AvatarsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.ExternalAppServicesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.ExternalServicesFetcher;
@@ -210,6 +214,9 @@ public class Enterprise extends RestObject {
    private KeyServerMonitorsFetcher keyServerMonitors;
    
    @JsonIgnore
+   private ZFBRequestsFetcher zFBRequests;
+   
+   @JsonIgnore
    private BGPProfilesFetcher bGPProfiles;
    
    @JsonIgnore
@@ -237,6 +244,9 @@ public class Enterprise extends RestObject {
    private AlarmsFetcher alarms;
    
    @JsonIgnore
+   private AlarmsFetcher alarms;
+   
+   @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
@@ -259,6 +269,9 @@ public class Enterprise extends RestObject {
    
    @JsonIgnore
    private DomainTemplatesFetcher domainTemplates;
+   
+   @JsonIgnore
+   private ContainersFetcher containers;
    
    @JsonIgnore
    private RoutingPoliciesFetcher routingPolicies;
@@ -297,6 +310,9 @@ public class Enterprise extends RestObject {
    private MultiCastListsFetcher multiCastLists;
    
    @JsonIgnore
+   private AvatarsFetcher avatars;
+   
+   @JsonIgnore
    private EventLogsFetcher eventLogs;
    
    @JsonIgnore
@@ -332,6 +348,8 @@ public class Enterprise extends RestObject {
       
       keyServerMonitors = new KeyServerMonitorsFetcher(this);
       
+      zFBRequests = new ZFBRequestsFetcher(this);
+      
       bGPProfiles = new BGPProfilesFetcher(this);
       
       egressQOSPolicies = new EgressQOSPoliciesFetcher(this);
@@ -350,6 +368,8 @@ public class Enterprise extends RestObject {
       
       alarms = new AlarmsFetcher(this);
       
+      alarms = new AlarmsFetcher(this);
+      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       vMs = new VMsFetcher(this);
@@ -365,6 +385,8 @@ public class Enterprise extends RestObject {
       domains = new DomainsFetcher(this);
       
       domainTemplates = new DomainTemplatesFetcher(this);
+      
+      containers = new ContainersFetcher(this);
       
       routingPolicies = new RoutingPoliciesFetcher(this);
       
@@ -389,6 +411,8 @@ public class Enterprise extends RestObject {
       publicNetworkMacros = new PublicNetworkMacrosFetcher(this);
       
       multiCastLists = new MultiCastListsFetcher(this);
+      
+      avatars = new AvatarsFetcher(this);
       
       eventLogs = new EventLogsFetcher(this);
       
@@ -696,6 +720,11 @@ public class Enterprise extends RestObject {
    }
    
    @JsonIgnore
+   public ZFBRequestsFetcher getZFBRequests() {
+      return zFBRequests;
+   }
+   
+   @JsonIgnore
    public BGPProfilesFetcher getBGPProfiles() {
       return bGPProfiles;
    }
@@ -741,6 +770,11 @@ public class Enterprise extends RestObject {
    }
    
    @JsonIgnore
+   public AlarmsFetcher getAlarms() {
+      return alarms;
+   }
+   
+   @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
@@ -778,6 +812,11 @@ public class Enterprise extends RestObject {
    @JsonIgnore
    public DomainTemplatesFetcher getDomainTemplates() {
       return domainTemplates;
+   }
+   
+   @JsonIgnore
+   public ContainersFetcher getContainers() {
+      return containers;
    }
    
    @JsonIgnore
@@ -838,6 +877,11 @@ public class Enterprise extends RestObject {
    @JsonIgnore
    public MultiCastListsFetcher getMultiCastLists() {
       return multiCastLists;
+   }
+   
+   @JsonIgnore
+   public AvatarsFetcher getAvatars() {
+      return avatars;
    }
    
    @JsonIgnore

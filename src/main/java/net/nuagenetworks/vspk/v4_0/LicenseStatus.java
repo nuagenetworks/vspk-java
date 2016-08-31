@@ -43,37 +43,44 @@ public class LicenseStatus extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
    @JsonProperty(value = "totalLicensedNICsCount")
-   protected String totalLicensedNICsCount;
+   protected Long totalLicensedNICsCount;
    
    @JsonProperty(value = "totalLicensedNSGsCount")
-   protected String totalLicensedNSGsCount;
+   protected Long totalLicensedNSGsCount;
    
    @JsonProperty(value = "totalLicensedUsedNICsCount")
-   protected String totalLicensedUsedNICsCount;
+   protected Long totalLicensedUsedNICsCount;
    
    @JsonProperty(value = "totalLicensedUsedNSGsCount")
-   protected String totalLicensedUsedNSGsCount;
+   protected Long totalLicensedUsedNSGsCount;
    
    @JsonProperty(value = "totalLicensedUsedVMsCount")
-   protected String totalLicensedUsedVMsCount;
+   protected Long totalLicensedUsedVMsCount;
    
    @JsonProperty(value = "totalLicensedUsedVRSGsCount")
-   protected String totalLicensedUsedVRSGsCount;
+   protected Long totalLicensedUsedVRSGsCount;
    
    @JsonProperty(value = "totalLicensedUsedVRSsCount")
-   protected String totalLicensedUsedVRSsCount;
+   protected Long totalLicensedUsedVRSsCount;
    
    @JsonProperty(value = "totalLicensedVMsCount")
-   protected String totalLicensedVMsCount;
+   protected Long totalLicensedVMsCount;
    
    @JsonProperty(value = "totalLicensedVRSGsCount")
-   protected String totalLicensedVRSGsCount;
+   protected Long totalLicensedVRSGsCount;
    
    @JsonProperty(value = "totalLicensedVRSsCount")
-   protected String totalLicensedVRSsCount;
+   protected Long totalLicensedVRSsCount;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
    
 
    
@@ -83,101 +90,119 @@ public class LicenseStatus extends RestObject {
    }
 
    @JsonIgnore
-   public String getTotalLicensedNICsCount() {
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public Long getTotalLicensedNICsCount() {
       return totalLicensedNICsCount;
    }
 
    @JsonIgnore
-   public void setTotalLicensedNICsCount(String value) { 
+   public void setTotalLicensedNICsCount(Long value) { 
       this.totalLicensedNICsCount = value;
    }
    @JsonIgnore
-   public String getTotalLicensedNSGsCount() {
+   public Long getTotalLicensedNSGsCount() {
       return totalLicensedNSGsCount;
    }
 
    @JsonIgnore
-   public void setTotalLicensedNSGsCount(String value) { 
+   public void setTotalLicensedNSGsCount(Long value) { 
       this.totalLicensedNSGsCount = value;
    }
    @JsonIgnore
-   public String getTotalLicensedUsedNICsCount() {
+   public Long getTotalLicensedUsedNICsCount() {
       return totalLicensedUsedNICsCount;
    }
 
    @JsonIgnore
-   public void setTotalLicensedUsedNICsCount(String value) { 
+   public void setTotalLicensedUsedNICsCount(Long value) { 
       this.totalLicensedUsedNICsCount = value;
    }
    @JsonIgnore
-   public String getTotalLicensedUsedNSGsCount() {
+   public Long getTotalLicensedUsedNSGsCount() {
       return totalLicensedUsedNSGsCount;
    }
 
    @JsonIgnore
-   public void setTotalLicensedUsedNSGsCount(String value) { 
+   public void setTotalLicensedUsedNSGsCount(Long value) { 
       this.totalLicensedUsedNSGsCount = value;
    }
    @JsonIgnore
-   public String getTotalLicensedUsedVMsCount() {
+   public Long getTotalLicensedUsedVMsCount() {
       return totalLicensedUsedVMsCount;
    }
 
    @JsonIgnore
-   public void setTotalLicensedUsedVMsCount(String value) { 
+   public void setTotalLicensedUsedVMsCount(Long value) { 
       this.totalLicensedUsedVMsCount = value;
    }
    @JsonIgnore
-   public String getTotalLicensedUsedVRSGsCount() {
+   public Long getTotalLicensedUsedVRSGsCount() {
       return totalLicensedUsedVRSGsCount;
    }
 
    @JsonIgnore
-   public void setTotalLicensedUsedVRSGsCount(String value) { 
+   public void setTotalLicensedUsedVRSGsCount(Long value) { 
       this.totalLicensedUsedVRSGsCount = value;
    }
    @JsonIgnore
-   public String getTotalLicensedUsedVRSsCount() {
+   public Long getTotalLicensedUsedVRSsCount() {
       return totalLicensedUsedVRSsCount;
    }
 
    @JsonIgnore
-   public void setTotalLicensedUsedVRSsCount(String value) { 
+   public void setTotalLicensedUsedVRSsCount(Long value) { 
       this.totalLicensedUsedVRSsCount = value;
    }
    @JsonIgnore
-   public String getTotalLicensedVMsCount() {
+   public Long getTotalLicensedVMsCount() {
       return totalLicensedVMsCount;
    }
 
    @JsonIgnore
-   public void setTotalLicensedVMsCount(String value) { 
+   public void setTotalLicensedVMsCount(Long value) { 
       this.totalLicensedVMsCount = value;
    }
    @JsonIgnore
-   public String getTotalLicensedVRSGsCount() {
+   public Long getTotalLicensedVRSGsCount() {
       return totalLicensedVRSGsCount;
    }
 
    @JsonIgnore
-   public void setTotalLicensedVRSGsCount(String value) { 
+   public void setTotalLicensedVRSGsCount(Long value) { 
       this.totalLicensedVRSGsCount = value;
    }
    @JsonIgnore
-   public String getTotalLicensedVRSsCount() {
+   public Long getTotalLicensedVRSsCount() {
       return totalLicensedVRSsCount;
    }
 
    @JsonIgnore
-   public void setTotalLicensedVRSsCount(String value) { 
+   public void setTotalLicensedVRSsCount(Long value) { 
       this.totalLicensedVRSsCount = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
    }
    
 
    
 
    public String toString() {
-      return "LicenseStatus [" + "totalLicensedNICsCount=" + totalLicensedNICsCount + ", totalLicensedNSGsCount=" + totalLicensedNSGsCount + ", totalLicensedUsedNICsCount=" + totalLicensedUsedNICsCount + ", totalLicensedUsedNSGsCount=" + totalLicensedUsedNSGsCount + ", totalLicensedUsedVMsCount=" + totalLicensedUsedVMsCount + ", totalLicensedUsedVRSGsCount=" + totalLicensedUsedVRSGsCount + ", totalLicensedUsedVRSsCount=" + totalLicensedUsedVRSsCount + ", totalLicensedVMsCount=" + totalLicensedVMsCount + ", totalLicensedVRSGsCount=" + totalLicensedVRSGsCount + ", totalLicensedVRSsCount=" + totalLicensedVRSsCount + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "LicenseStatus [" + "entityScope=" + entityScope + ", totalLicensedNICsCount=" + totalLicensedNICsCount + ", totalLicensedNSGsCount=" + totalLicensedNSGsCount + ", totalLicensedUsedNICsCount=" + totalLicensedUsedNICsCount + ", totalLicensedUsedNSGsCount=" + totalLicensedUsedNSGsCount + ", totalLicensedUsedVMsCount=" + totalLicensedUsedVMsCount + ", totalLicensedUsedVRSGsCount=" + totalLicensedUsedVRSGsCount + ", totalLicensedUsedVRSsCount=" + totalLicensedUsedVRSsCount + ", totalLicensedVMsCount=" + totalLicensedVMsCount + ", totalLicensedVRSGsCount=" + totalLicensedVRSGsCount + ", totalLicensedVRSsCount=" + totalLicensedVRSsCount + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

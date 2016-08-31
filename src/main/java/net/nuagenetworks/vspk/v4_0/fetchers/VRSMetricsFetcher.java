@@ -29,14 +29,14 @@ package net.nuagenetworks.vspk.v4_0.fetchers;
 
 import net.nuagenetworks.bambou.RestObject;
 import net.nuagenetworks.bambou.RestFetcher;
-import net.nuagenetworks.vspk.v4_0.VrsMetrics;
+import net.nuagenetworks.vspk.v4_0.VRSMetrics;
 
-public class VrsMetricsFetcher extends RestFetcher<VrsMetrics> {
+public class VRSMetricsFetcher extends RestFetcher<VRSMetrics> {
 
    private static final long serialVersionUID = 1L;
    
-   public VrsMetricsFetcher(RestObject parentRestObj) {
-      super(parentRestObj, VrsMetrics.class);
+   public VRSMetricsFetcher(RestObject parentRestObj) {
+      super(parentRestObj, VRSMetrics.class);
    }
    
    

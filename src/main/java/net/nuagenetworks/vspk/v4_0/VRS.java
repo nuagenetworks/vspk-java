@@ -41,6 +41,7 @@ import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MonitoringPortsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ContainersFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VPortsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.HSCsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VSCsFetcher;
@@ -56,6 +57,7 @@ public class VRS extends RestObject {
    
    public enum JSONRPCConnectionState { ADMIN_DOWN, DOWN, UP };
    public enum Personality { HARDWARE_VTEP, NONE, NSG, VRS, VRSG };
+   public enum LicensedState { LICENSED, UNLICENSED };
    public enum ClusterNodeRole { NONE, PRIMARY, SECONDARY };
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum Role { MASTER, NONE, SLAVE };
@@ -128,6 +130,9 @@ public class VRS extends RestObject {
    @JsonProperty(value = "revertFailedCount")
    protected Long revertFailedCount;
    
+   @JsonProperty(value = "licensedState")
+   protected LicensedState licensedState;
+   
    @JsonProperty(value = "disks")
    protected java.util.List<DiskStat> disks;
    
@@ -169,6 +174,9 @@ public class VRS extends RestObject {
    
    @JsonProperty(value = "numberOfBridgeInterfaces")
    protected Long numberOfBridgeInterfaces;
+   
+   @JsonProperty(value = "numberOfContainers")
+   protected Long numberOfContainers;
    
    @JsonProperty(value = "numberOfHostInterfaces")
    protected Long numberOfHostInterfaces;
@@ -227,6 +235,9 @@ public class VRS extends RestObject {
    private MonitoringPortsFetcher monitoringPorts;
    
    @JsonIgnore
+   private ContainersFetcher containers;
+   
+   @JsonIgnore
    private VPortsFetcher vPorts;
    
    @JsonIgnore
@@ -255,6 +266,8 @@ public class VRS extends RestObject {
       jobs = new JobsFetcher(this);
       
       monitoringPorts = new MonitoringPortsFetcher(this);
+      
+      containers = new ContainersFetcher(this);
       
       vPorts = new VPortsFetcher(this);
       
@@ -458,6 +471,15 @@ public class VRS extends RestObject {
       this.revertFailedCount = value;
    }
    @JsonIgnore
+   public LicensedState getLicensedState() {
+      return licensedState;
+   }
+
+   @JsonIgnore
+   public void setLicensedState(LicensedState value) { 
+      this.licensedState = value;
+   }
+   @JsonIgnore
    public java.util.List<DiskStat> getDisks() {
       return disks;
    }
@@ -582,6 +604,15 @@ public class VRS extends RestObject {
    @JsonIgnore
    public void setNumberOfBridgeInterfaces(Long value) { 
       this.numberOfBridgeInterfaces = value;
+   }
+   @JsonIgnore
+   public Long getNumberOfContainers() {
+      return numberOfContainers;
+   }
+
+   @JsonIgnore
+   public void setNumberOfContainers(Long value) { 
+      this.numberOfContainers = value;
    }
    @JsonIgnore
    public Long getNumberOfHostInterfaces() {
@@ -725,6 +756,11 @@ public class VRS extends RestObject {
    }
    
    @JsonIgnore
+   public ContainersFetcher getContainers() {
+      return containers;
+   }
+   
+   @JsonIgnore
    public VPortsFetcher getVPorts() {
       return vPorts;
    }
@@ -751,7 +787,7 @@ public class VRS extends RestObject {
    
 
    public String toString() {
-      return "VRS [" + "JSONRPCConnectionState=" + JSONRPCConnectionState + ", name=" + name + ", managementIP=" + managementIP + ", parentIDs=" + parentIDs + ", lastEventName=" + lastEventName + ", lastEventObject=" + lastEventObject + ", lastEventTimestamp=" + lastEventTimestamp + ", lastStateChange=" + lastStateChange + ", lastUpdatedBy=" + lastUpdatedBy + ", dbSynced=" + dbSynced + ", address=" + address + ", peakCPUUsage=" + peakCPUUsage + ", peakMemoryUsage=" + peakMemoryUsage + ", peer=" + peer + ", personality=" + personality + ", description=" + description + ", messages=" + messages + ", revertBehaviorEnabled=" + revertBehaviorEnabled + ", revertCompleted=" + revertCompleted + ", revertCount=" + revertCount + ", revertFailedCount=" + revertFailedCount + ", disks=" + disks + ", clusterNodeRole=" + clusterNodeRole + ", entityScope=" + entityScope + ", location=" + location + ", role=" + role + ", uptime=" + uptime + ", primaryVSCConnectionLost=" + primaryVSCConnectionLost + ", productVersion=" + productVersion + ", isResilient=" + isResilient + ", vscConfigState=" + vscConfigState + ", vscCurrentState=" + vscCurrentState + ", status=" + status + ", multiNICVPortEnabled=" + multiNICVPortEnabled + ", numberOfBridgeInterfaces=" + numberOfBridgeInterfaces + ", numberOfHostInterfaces=" + numberOfHostInterfaces + ", numberOfVirtualMachines=" + numberOfVirtualMachines + ", currentCPUUsage=" + currentCPUUsage + ", currentMemoryUsage=" + currentMemoryUsage + ", averageCPUUsage=" + averageCPUUsage + ", averageMemoryUsage=" + averageMemoryUsage + ", externalID=" + externalID + ", dynamic=" + dynamic + ", hypervisorConnectionState=" + hypervisorConnectionState + ", hypervisorIdentifier=" + hypervisorIdentifier + ", hypervisorName=" + hypervisorName + ", hypervisorType=" + hypervisorType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VRS [" + "JSONRPCConnectionState=" + JSONRPCConnectionState + ", name=" + name + ", managementIP=" + managementIP + ", parentIDs=" + parentIDs + ", lastEventName=" + lastEventName + ", lastEventObject=" + lastEventObject + ", lastEventTimestamp=" + lastEventTimestamp + ", lastStateChange=" + lastStateChange + ", lastUpdatedBy=" + lastUpdatedBy + ", dbSynced=" + dbSynced + ", address=" + address + ", peakCPUUsage=" + peakCPUUsage + ", peakMemoryUsage=" + peakMemoryUsage + ", peer=" + peer + ", personality=" + personality + ", description=" + description + ", messages=" + messages + ", revertBehaviorEnabled=" + revertBehaviorEnabled + ", revertCompleted=" + revertCompleted + ", revertCount=" + revertCount + ", revertFailedCount=" + revertFailedCount + ", licensedState=" + licensedState + ", disks=" + disks + ", clusterNodeRole=" + clusterNodeRole + ", entityScope=" + entityScope + ", location=" + location + ", role=" + role + ", uptime=" + uptime + ", primaryVSCConnectionLost=" + primaryVSCConnectionLost + ", productVersion=" + productVersion + ", isResilient=" + isResilient + ", vscConfigState=" + vscConfigState + ", vscCurrentState=" + vscCurrentState + ", status=" + status + ", multiNICVPortEnabled=" + multiNICVPortEnabled + ", numberOfBridgeInterfaces=" + numberOfBridgeInterfaces + ", numberOfContainers=" + numberOfContainers + ", numberOfHostInterfaces=" + numberOfHostInterfaces + ", numberOfVirtualMachines=" + numberOfVirtualMachines + ", currentCPUUsage=" + currentCPUUsage + ", currentMemoryUsage=" + currentMemoryUsage + ", averageCPUUsage=" + averageCPUUsage + ", averageMemoryUsage=" + averageMemoryUsage + ", externalID=" + externalID + ", dynamic=" + dynamic + ", hypervisorConnectionState=" + hypervisorConnectionState + ", hypervisorIdentifier=" + hypervisorIdentifier + ", hypervisorName=" + hypervisorName + ", hypervisorType=" + hypervisorType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -91,6 +91,9 @@ public class BootstrapActivation extends RestObject {
    @JsonProperty(value = "status")
    protected String status;
    
+   @JsonProperty(value = "autoBootstrap")
+   protected Boolean autoBootstrap;
+   
    @JsonProperty(value = "externalID")
    protected String externalID;
    
@@ -238,6 +241,15 @@ public class BootstrapActivation extends RestObject {
       this.status = value;
    }
    @JsonIgnore
+   public Boolean getAutoBootstrap() {
+      return autoBootstrap;
+   }
+
+   @JsonIgnore
+   public void setAutoBootstrap(Boolean value) { 
+      this.autoBootstrap = value;
+   }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
@@ -261,7 +273,7 @@ public class BootstrapActivation extends RestObject {
    
 
    public String toString() {
-      return "BootstrapActivation [" + "cacert=" + cacert + ", hash=" + hash + ", lastUpdatedBy=" + lastUpdatedBy + ", action=" + action + ", seed=" + seed + ", cert=" + cert + ", entityScope=" + entityScope + ", configURL=" + configURL + ", tpmOwnerPassword=" + tpmOwnerPassword + ", tpmState=" + tpmState + ", srkPassword=" + srkPassword + ", vsdTime=" + vsdTime + ", csr=" + csr + ", status=" + status + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "BootstrapActivation [" + "cacert=" + cacert + ", hash=" + hash + ", lastUpdatedBy=" + lastUpdatedBy + ", action=" + action + ", seed=" + seed + ", cert=" + cert + ", entityScope=" + entityScope + ", configURL=" + configURL + ", tpmOwnerPassword=" + tpmOwnerPassword + ", tpmState=" + tpmState + ", srkPassword=" + srkPassword + ", vsdTime=" + vsdTime + ", csr=" + csr + ", status=" + status + ", autoBootstrap=" + autoBootstrap + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

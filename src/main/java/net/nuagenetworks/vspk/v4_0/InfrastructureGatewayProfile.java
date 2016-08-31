@@ -48,7 +48,6 @@ public class InfrastructureGatewayProfile extends RestObject {
    public enum RemoteLogMode { DISABLED, RSYSLOG, SCP, SFTP };
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum UpgradeAction { DOWNLOAD_AND_UPGRADE_AT_WINDOW, DOWNLOAD_AND_UPGRADE_NOW, DOWNLOAD_ONLY, NONE, UPGRADE_AT_BOOTSTRAPPING, UPGRADE_NOW };
-   public enum SystemSyncWindow { FIVE_HOURS, FOUR_HOURS, NONE, ONE_HOUR, SIX_HOURS, TEN_MINUTES, THIRTY_MINUTES, THREE_HOURS, TWO_HOURS };
 
    
    @JsonProperty(value = "NTPServerKey")
@@ -72,14 +71,8 @@ public class InfrastructureGatewayProfile extends RestObject {
    @JsonProperty(value = "deadTimerEnabled")
    protected Boolean deadTimerEnabled;
    
-   @JsonProperty(value = "remoteLogDirPath")
-   protected String remoteLogDirPath;
-   
    @JsonProperty(value = "remoteLogMode")
    protected RemoteLogMode remoteLogMode;
-   
-   @JsonProperty(value = "remoteLogPassword")
-   protected String remoteLogPassword;
    
    @JsonProperty(value = "remoteLogServerAddress")
    protected String remoteLogServerAddress;
@@ -87,23 +80,11 @@ public class InfrastructureGatewayProfile extends RestObject {
    @JsonProperty(value = "remoteLogServerPort")
    protected Long remoteLogServerPort;
    
-   @JsonProperty(value = "remoteLogUsername")
-   protected String remoteLogUsername;
-   
    @JsonProperty(value = "description")
    protected String description;
    
    @JsonProperty(value = "metadataUpgradePath")
    protected String metadataUpgradePath;
-   
-   @JsonProperty(value = "revertBehaviour")
-   protected Boolean revertBehaviour;
-   
-   @JsonProperty(value = "revertTimer")
-   protected Long revertTimer;
-   
-   @JsonProperty(value = "flowEvictionThreshold")
-   protected Long flowEvictionThreshold;
    
    @JsonProperty(value = "enterpriseID")
    protected String enterpriseID;
@@ -116,6 +97,9 @@ public class InfrastructureGatewayProfile extends RestObject {
    
    @JsonProperty(value = "controllerLessEnabled")
    protected Boolean controllerLessEnabled;
+   
+   @JsonProperty(value = "forceImmediateSystemSync")
+   protected Boolean forceImmediateSystemSync;
    
    @JsonProperty(value = "upgradeAction")
    protected UpgradeAction upgradeAction;
@@ -134,9 +118,6 @@ public class InfrastructureGatewayProfile extends RestObject {
    
    @JsonProperty(value = "systemSyncScheduler")
    protected String systemSyncScheduler;
-   
-   @JsonProperty(value = "systemSyncWindow")
-   protected SystemSyncWindow systemSyncWindow;
    
 
    
@@ -227,15 +208,6 @@ public class InfrastructureGatewayProfile extends RestObject {
       this.deadTimerEnabled = value;
    }
    @JsonIgnore
-   public String getRemoteLogDirPath() {
-      return remoteLogDirPath;
-   }
-
-   @JsonIgnore
-   public void setRemoteLogDirPath(String value) { 
-      this.remoteLogDirPath = value;
-   }
-   @JsonIgnore
    public RemoteLogMode getRemoteLogMode() {
       return remoteLogMode;
    }
@@ -243,15 +215,6 @@ public class InfrastructureGatewayProfile extends RestObject {
    @JsonIgnore
    public void setRemoteLogMode(RemoteLogMode value) { 
       this.remoteLogMode = value;
-   }
-   @JsonIgnore
-   public String getRemoteLogPassword() {
-      return remoteLogPassword;
-   }
-
-   @JsonIgnore
-   public void setRemoteLogPassword(String value) { 
-      this.remoteLogPassword = value;
    }
    @JsonIgnore
    public String getRemoteLogServerAddress() {
@@ -272,15 +235,6 @@ public class InfrastructureGatewayProfile extends RestObject {
       this.remoteLogServerPort = value;
    }
    @JsonIgnore
-   public String getRemoteLogUsername() {
-      return remoteLogUsername;
-   }
-
-   @JsonIgnore
-   public void setRemoteLogUsername(String value) { 
-      this.remoteLogUsername = value;
-   }
-   @JsonIgnore
    public String getDescription() {
       return description;
    }
@@ -297,33 +251,6 @@ public class InfrastructureGatewayProfile extends RestObject {
    @JsonIgnore
    public void setMetadataUpgradePath(String value) { 
       this.metadataUpgradePath = value;
-   }
-   @JsonIgnore
-   public Boolean getRevertBehaviour() {
-      return revertBehaviour;
-   }
-
-   @JsonIgnore
-   public void setRevertBehaviour(Boolean value) { 
-      this.revertBehaviour = value;
-   }
-   @JsonIgnore
-   public Long getRevertTimer() {
-      return revertTimer;
-   }
-
-   @JsonIgnore
-   public void setRevertTimer(Long value) { 
-      this.revertTimer = value;
-   }
-   @JsonIgnore
-   public Long getFlowEvictionThreshold() {
-      return flowEvictionThreshold;
-   }
-
-   @JsonIgnore
-   public void setFlowEvictionThreshold(Long value) { 
-      this.flowEvictionThreshold = value;
    }
    @JsonIgnore
    public String getEnterpriseID() {
@@ -360,6 +287,15 @@ public class InfrastructureGatewayProfile extends RestObject {
    @JsonIgnore
    public void setControllerLessEnabled(Boolean value) { 
       this.controllerLessEnabled = value;
+   }
+   @JsonIgnore
+   public Boolean getForceImmediateSystemSync() {
+      return forceImmediateSystemSync;
+   }
+
+   @JsonIgnore
+   public void setForceImmediateSystemSync(Boolean value) { 
+      this.forceImmediateSystemSync = value;
    }
    @JsonIgnore
    public UpgradeAction getUpgradeAction() {
@@ -415,15 +351,6 @@ public class InfrastructureGatewayProfile extends RestObject {
    public void setSystemSyncScheduler(String value) { 
       this.systemSyncScheduler = value;
    }
-   @JsonIgnore
-   public SystemSyncWindow getSystemSyncWindow() {
-      return systemSyncWindow;
-   }
-
-   @JsonIgnore
-   public void setSystemSyncWindow(SystemSyncWindow value) { 
-      this.systemSyncWindow = value;
-   }
    
 
    
@@ -439,7 +366,7 @@ public class InfrastructureGatewayProfile extends RestObject {
    
 
    public String toString() {
-      return "InfrastructureGatewayProfile [" + "NTPServerKey=" + NTPServerKey + ", NTPServerKeyID=" + NTPServerKeyID + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", datapathSyncTimeout=" + datapathSyncTimeout + ", deadTimer=" + deadTimer + ", deadTimerEnabled=" + deadTimerEnabled + ", remoteLogDirPath=" + remoteLogDirPath + ", remoteLogMode=" + remoteLogMode + ", remoteLogPassword=" + remoteLogPassword + ", remoteLogServerAddress=" + remoteLogServerAddress + ", remoteLogServerPort=" + remoteLogServerPort + ", remoteLogUsername=" + remoteLogUsername + ", description=" + description + ", metadataUpgradePath=" + metadataUpgradePath + ", revertBehaviour=" + revertBehaviour + ", revertTimer=" + revertTimer + ", flowEvictionThreshold=" + flowEvictionThreshold + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", controllerLessDuration=" + controllerLessDuration + ", controllerLessEnabled=" + controllerLessEnabled + ", upgradeAction=" + upgradeAction + ", proxyDNSName=" + proxyDNSName + ", useTwoFactor=" + useTwoFactor + ", statsCollectorPort=" + statsCollectorPort + ", externalID=" + externalID + ", systemSyncScheduler=" + systemSyncScheduler + ", systemSyncWindow=" + systemSyncWindow + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "InfrastructureGatewayProfile [" + "NTPServerKey=" + NTPServerKey + ", NTPServerKeyID=" + NTPServerKeyID + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", datapathSyncTimeout=" + datapathSyncTimeout + ", deadTimer=" + deadTimer + ", deadTimerEnabled=" + deadTimerEnabled + ", remoteLogMode=" + remoteLogMode + ", remoteLogServerAddress=" + remoteLogServerAddress + ", remoteLogServerPort=" + remoteLogServerPort + ", description=" + description + ", metadataUpgradePath=" + metadataUpgradePath + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", controllerLessDuration=" + controllerLessDuration + ", controllerLessEnabled=" + controllerLessEnabled + ", forceImmediateSystemSync=" + forceImmediateSystemSync + ", upgradeAction=" + upgradeAction + ", proxyDNSName=" + proxyDNSName + ", useTwoFactor=" + useTwoFactor + ", statsCollectorPort=" + statsCollectorPort + ", externalID=" + externalID + ", systemSyncScheduler=" + systemSyncScheduler + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

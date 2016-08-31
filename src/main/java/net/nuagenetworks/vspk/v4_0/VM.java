@@ -104,8 +104,8 @@ public class VM extends RestObject {
    @JsonProperty(value = "zoneIDs")
    protected java.util.List<String> zoneIDs;
    
-   @JsonProperty(value = "appName")
-   protected String appName;
+   @JsonProperty(value = "orchestrationID")
+   protected String orchestrationID;
    
    @JsonProperty(value = "userID")
    protected String userID;
@@ -312,13 +312,13 @@ public class VM extends RestObject {
       this.zoneIDs = value;
    }
    @JsonIgnore
-   public String getAppName() {
-      return appName;
+   public String getOrchestrationID() {
+      return orchestrationID;
    }
 
    @JsonIgnore
-   public void setAppName(String value) { 
-      this.appName = value;
+   public void setOrchestrationID(String value) { 
+      this.orchestrationID = value;
    }
    @JsonIgnore
    public String getUserID() {
@@ -414,7 +414,7 @@ public class VM extends RestObject {
    
 
    public String toString() {
-      return "VM [" + "l2DomainIDs=" + l2DomainIDs + ", VRSID=" + VRSID + ", UUID=" + UUID + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", reasonType=" + reasonType + ", deleteExpiry=" + deleteExpiry + ", deleteMode=" + deleteMode + ", resyncInfo=" + resyncInfo + ", siteIdentifier=" + siteIdentifier + ", interfaces=" + interfaces + ", enterpriseID=" + enterpriseID + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", domainIDs=" + domainIDs + ", zoneIDs=" + zoneIDs + ", appName=" + appName + ", userID=" + userID + ", userName=" + userName + ", status=" + status + ", subnetIDs=" + subnetIDs + ", externalID=" + externalID + ", hypervisorIP=" + hypervisorIP + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VM [" + "l2DomainIDs=" + l2DomainIDs + ", VRSID=" + VRSID + ", UUID=" + UUID + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", reasonType=" + reasonType + ", deleteExpiry=" + deleteExpiry + ", deleteMode=" + deleteMode + ", resyncInfo=" + resyncInfo + ", siteIdentifier=" + siteIdentifier + ", interfaces=" + interfaces + ", enterpriseID=" + enterpriseID + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", domainIDs=" + domainIDs + ", zoneIDs=" + zoneIDs + ", orchestrationID=" + orchestrationID + ", userID=" + userID + ", userName=" + userName + ", status=" + status + ", subnetIDs=" + subnetIDs + ", externalID=" + externalID + ", hypervisorIP=" + hypervisorIP + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

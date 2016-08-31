@@ -35,6 +35,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v4_0.fetchers.PATIPEntriesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.AddressRangesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.DHCPOptionsFetcher;
@@ -139,6 +140,9 @@ public class SharedNetworkResource extends RestObject {
 
    
    @JsonIgnore
+   private PATIPEntriesFetcher pATIPEntries;
+   
+   @JsonIgnore
    private AddressRangesFetcher addressRanges;
    
    @JsonIgnore
@@ -163,6 +167,8 @@ public class SharedNetworkResource extends RestObject {
    public SharedNetworkResource() {
       type = Type.PUBLIC;
       DHCPManaged = true;
+      
+      pATIPEntries = new PATIPEntriesFetcher(this);
       
       addressRanges = new AddressRangesFetcher(this);
       
@@ -425,6 +431,11 @@ public class SharedNetworkResource extends RestObject {
    }
    
 
+   
+   @JsonIgnore
+   public PATIPEntriesFetcher getPATIPEntries() {
+      return pATIPEntries;
+   }
    
    @JsonIgnore
    public AddressRangesFetcher getAddressRanges() {

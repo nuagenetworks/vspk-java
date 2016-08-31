@@ -37,63 +37,100 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "autodiscoveredcomputeresource", resourceName = "autodiscoveredcomputeresources")
-public class AutoDiscoverHypervisorFromDatacenter extends RestObject {
+@RestEntity(restName = "autodiscoveredcluster", resourceName = "autodiscoveredclusters")
+public class AutoDiscoverClusters extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
+   public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "networkList")
-   protected java.util.List<String> networkList;
+   @JsonProperty(value = "name")
+   protected String name;
    
-   @JsonProperty(value = "assocVCenterDataCenterId")
-   protected String assocVCenterDataCenterId;
+   @JsonProperty(value = "managedObjectID")
+   protected String managedObjectID;
    
-   @JsonProperty(value = "hypervisorIP")
-   protected String hypervisorIP;
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "assocVCenterDataCenterID")
+   protected String assocVCenterDataCenterID;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
    
 
    
 
-   public AutoDiscoverHypervisorFromDatacenter() {
+   public AutoDiscoverClusters() {
       
    }
 
    @JsonIgnore
-   public java.util.List<String> getNetworkList() {
-      return networkList;
+   public String getName() {
+      return name;
    }
 
    @JsonIgnore
-   public void setNetworkList(java.util.List<String> value) { 
-      this.networkList = value;
+   public void setName(String value) { 
+      this.name = value;
    }
    @JsonIgnore
-   public String getAssocVCenterDataCenterId() {
-      return assocVCenterDataCenterId;
-   }
-
-   @JsonIgnore
-   public void setAssocVCenterDataCenterId(String value) { 
-      this.assocVCenterDataCenterId = value;
-   }
-   @JsonIgnore
-   public String getHypervisorIP() {
-      return hypervisorIP;
+   public String getManagedObjectID() {
+      return managedObjectID;
    }
 
    @JsonIgnore
-   public void setHypervisorIP(String value) { 
-      this.hypervisorIP = value;
+   public void setManagedObjectID(String value) { 
+      this.managedObjectID = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getAssocVCenterDataCenterID() {
+      return assocVCenterDataCenterID;
+   }
+
+   @JsonIgnore
+   public void setAssocVCenterDataCenterID(String value) { 
+      this.assocVCenterDataCenterID = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
    }
    
 
    
 
    public String toString() {
-      return "AutoDiscoverHypervisorFromDatacenter [" + "networkList=" + networkList + ", assocVCenterDataCenterId=" + assocVCenterDataCenterId + ", hypervisorIP=" + hypervisorIP + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "AutoDiscoverClusters [" + "name=" + name + ", managedObjectID=" + managedObjectID + ", lastUpdatedBy=" + lastUpdatedBy + ", entityScope=" + entityScope + ", assocVCenterDataCenterID=" + assocVCenterDataCenterID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

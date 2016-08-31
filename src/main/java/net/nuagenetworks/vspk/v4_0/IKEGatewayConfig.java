@@ -35,65 +35,100 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "autodiscoveredcluster", resourceName = "autodiscoveredclusters")
-public class AutoDiscoverCluster extends RestObject {
+@RestEntity(restName = "ikegatewayconfig", resourceName = "ikegatewayconfig")
+public class IKEGatewayConfig extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
+   public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
-   @JsonProperty(value = "managedObjectID")
-   protected String managedObjectID;
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
    
-   @JsonProperty(value = "assocVCenterDataCenterId")
-   protected String assocVCenterDataCenterId;
+   @JsonProperty(value = "config")
+   protected Object config;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
    
 
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
+   @JsonIgnore
+   private GlobalMetadatasFetcher globalMetadatas;
+   
 
-   public AutoDiscoverCluster() {
+   public IKEGatewayConfig() {
+      
+      metadatas = new MetadatasFetcher(this);
+      
+      globalMetadatas = new GlobalMetadatasFetcher(this);
       
    }
 
    @JsonIgnore
-   public String getName() {
-      return name;
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    @JsonIgnore
-   public String getManagedObjectID() {
-      return managedObjectID;
-   }
-
-   @JsonIgnore
-   public void setManagedObjectID(String value) { 
-      this.managedObjectID = value;
-   }
-   @JsonIgnore
-   public String getAssocVCenterDataCenterId() {
-      return assocVCenterDataCenterId;
+   public EntityScope getEntityScope() {
+      return entityScope;
    }
 
    @JsonIgnore
-   public void setAssocVCenterDataCenterId(String value) { 
-      this.assocVCenterDataCenterId = value;
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public Object getConfig() {
+      return config;
+   }
+
+   @JsonIgnore
+   public void setConfig(Object value) { 
+      this.config = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
    }
    
 
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
+   @JsonIgnore
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
    
 
    public String toString() {
-      return "AutoDiscoverCluster [" + "name=" + name + ", managedObjectID=" + managedObjectID + ", assocVCenterDataCenterId=" + assocVCenterDataCenterId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "IKEGatewayConfig [" + "lastUpdatedBy=" + lastUpdatedBy + ", entityScope=" + entityScope + ", config=" + config + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -47,6 +47,7 @@ import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.LocationsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.BootstrapsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.BootstrapActivationsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.NSGInfosFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NSPortsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.SubnetsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
@@ -59,6 +60,7 @@ public class NSGateway extends RestObject {
 
    
    public enum TPMStatus { DISABLED, ENABLED_NOT_OPERATIONAL, ENABLED_OPERATIONAL, UNKNOWN };
+   public enum Family { ANY, NSG_E, NSG_V };
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    public enum Personality { DC7X50, HARDWARE_VTEP, NSG, OTHER, VRSG, VSA, VSG };
    public enum EntityScope { ENTERPRISE, GLOBAL };
@@ -67,14 +69,32 @@ public class NSGateway extends RestObject {
    public enum BootstrapStatus { ACTIVE, CERTIFICATE_SIGNED, INACTIVE, NOTIFICATION_APP_REQ_ACK, NOTIFICATION_APP_REQ_SENT };
 
    
+   @JsonProperty(value = "MACAddress")
+   protected String MACAddress;
+   
    @JsonProperty(value = "NATTraversalEnabled")
    protected Boolean NATTraversalEnabled;
+   
+   @JsonProperty(value = "SKU")
+   protected String SKU;
    
    @JsonProperty(value = "TPMStatus")
    protected TPMStatus TPMStatus;
    
+   @JsonProperty(value = "CPUType")
+   protected String CPUType;
+   
+   @JsonProperty(value = "NSGVersion")
+   protected String NSGVersion;
+   
+   @JsonProperty(value = "UUID")
+   protected String UUID;
+   
    @JsonProperty(value = "name")
    protected String name;
+   
+   @JsonProperty(value = "family")
+   protected Family family;
    
    @JsonProperty(value = "lastConfigurationReloadTimestamp")
    protected Long lastConfigurationReloadTimestamp;
@@ -93,6 +113,9 @@ public class NSGateway extends RestObject {
    
    @JsonProperty(value = "pending")
    protected Boolean pending;
+   
+   @JsonProperty(value = "serialNumber")
+   protected String serialNumber;
    
    @JsonProperty(value = "permittedAction")
    protected PermittedAction permittedAction;
@@ -129,6 +152,9 @@ public class NSGateway extends RestObject {
    
    @JsonProperty(value = "associatedGatewaySecurityProfileID")
    protected String associatedGatewaySecurityProfileID;
+   
+   @JsonProperty(value = "associatedNSGInfoID")
+   protected String associatedNSGInfoID;
    
    @JsonProperty(value = "autoDiscGatewayID")
    protected String autoDiscGatewayID;
@@ -178,6 +204,9 @@ public class NSGateway extends RestObject {
    private BootstrapActivationsFetcher bootstrapActivations;
    
    @JsonIgnore
+   private NSGInfosFetcher nSGInfos;
+   
+   @JsonIgnore
    private NSPortsFetcher nSPorts;
    
    @JsonIgnore
@@ -213,6 +242,8 @@ public class NSGateway extends RestObject {
       
       bootstrapActivations = new BootstrapActivationsFetcher(this);
       
+      nSGInfos = new NSGInfosFetcher(this);
+      
       nSPorts = new NSPortsFetcher(this);
       
       subnets = new SubnetsFetcher(this);
@@ -222,6 +253,15 @@ public class NSGateway extends RestObject {
    }
 
    @JsonIgnore
+   public String getMACAddress() {
+      return MACAddress;
+   }
+
+   @JsonIgnore
+   public void setMACAddress(String value) { 
+      this.MACAddress = value;
+   }
+   @JsonIgnore
    public Boolean getNATTraversalEnabled() {
       return NATTraversalEnabled;
    }
@@ -229,6 +269,15 @@ public class NSGateway extends RestObject {
    @JsonIgnore
    public void setNATTraversalEnabled(Boolean value) { 
       this.NATTraversalEnabled = value;
+   }
+   @JsonIgnore
+   public String getSKU() {
+      return SKU;
+   }
+
+   @JsonIgnore
+   public void setSKU(String value) { 
+      this.SKU = value;
    }
    @JsonIgnore
    public TPMStatus getTPMStatus() {
@@ -240,6 +289,33 @@ public class NSGateway extends RestObject {
       this.TPMStatus = value;
    }
    @JsonIgnore
+   public String getCPUType() {
+      return CPUType;
+   }
+
+   @JsonIgnore
+   public void setCPUType(String value) { 
+      this.CPUType = value;
+   }
+   @JsonIgnore
+   public String getNSGVersion() {
+      return NSGVersion;
+   }
+
+   @JsonIgnore
+   public void setNSGVersion(String value) { 
+      this.NSGVersion = value;
+   }
+   @JsonIgnore
+   public String getUUID() {
+      return UUID;
+   }
+
+   @JsonIgnore
+   public void setUUID(String value) { 
+      this.UUID = value;
+   }
+   @JsonIgnore
    public String getName() {
       return name;
    }
@@ -247,6 +323,15 @@ public class NSGateway extends RestObject {
    @JsonIgnore
    public void setName(String value) { 
       this.name = value;
+   }
+   @JsonIgnore
+   public Family getFamily() {
+      return family;
+   }
+
+   @JsonIgnore
+   public void setFamily(Family value) { 
+      this.family = value;
    }
    @JsonIgnore
    public Long getLastConfigurationReloadTimestamp() {
@@ -301,6 +386,15 @@ public class NSGateway extends RestObject {
    @JsonIgnore
    public void setPending(Boolean value) { 
       this.pending = value;
+   }
+   @JsonIgnore
+   public String getSerialNumber() {
+      return serialNumber;
+   }
+
+   @JsonIgnore
+   public void setSerialNumber(String value) { 
+      this.serialNumber = value;
    }
    @JsonIgnore
    public PermittedAction getPermittedAction() {
@@ -411,6 +505,15 @@ public class NSGateway extends RestObject {
       this.associatedGatewaySecurityProfileID = value;
    }
    @JsonIgnore
+   public String getAssociatedNSGInfoID() {
+      return associatedNSGInfoID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedNSGInfoID(String value) { 
+      this.associatedNSGInfoID = value;
+   }
+   @JsonIgnore
    public String getAutoDiscGatewayID() {
       return autoDiscGatewayID;
    }
@@ -501,6 +604,11 @@ public class NSGateway extends RestObject {
    }
    
    @JsonIgnore
+   public NSGInfosFetcher getNSGInfos() {
+      return nSGInfos;
+   }
+   
+   @JsonIgnore
    public NSPortsFetcher getNSPorts() {
       return nSPorts;
    }
@@ -517,7 +625,7 @@ public class NSGateway extends RestObject {
    
 
    public String toString() {
-      return "NSGateway [" + "NATTraversalEnabled=" + NATTraversalEnabled + ", TPMStatus=" + TPMStatus + ", name=" + name + ", lastConfigurationReloadTimestamp=" + lastConfigurationReloadTimestamp + ", lastUpdatedBy=" + lastUpdatedBy + ", datapathID=" + datapathID + ", redundancyGroupID=" + redundancyGroupID + ", templateID=" + templateID + ", pending=" + pending + ", permittedAction=" + permittedAction + ", personality=" + personality + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", locationID=" + locationID + ", configurationReloadState=" + configurationReloadState + ", configurationStatus=" + configurationStatus + ", bootstrapID=" + bootstrapID + ", bootstrapStatus=" + bootstrapStatus + ", associatedGatewaySecurityID=" + associatedGatewaySecurityID + ", associatedGatewaySecurityProfileID=" + associatedGatewaySecurityProfileID + ", autoDiscGatewayID=" + autoDiscGatewayID + ", externalID=" + externalID + ", systemID=" + systemID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NSGateway [" + "MACAddress=" + MACAddress + ", NATTraversalEnabled=" + NATTraversalEnabled + ", SKU=" + SKU + ", TPMStatus=" + TPMStatus + ", CPUType=" + CPUType + ", NSGVersion=" + NSGVersion + ", UUID=" + UUID + ", name=" + name + ", family=" + family + ", lastConfigurationReloadTimestamp=" + lastConfigurationReloadTimestamp + ", lastUpdatedBy=" + lastUpdatedBy + ", datapathID=" + datapathID + ", redundancyGroupID=" + redundancyGroupID + ", templateID=" + templateID + ", pending=" + pending + ", serialNumber=" + serialNumber + ", permittedAction=" + permittedAction + ", personality=" + personality + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", locationID=" + locationID + ", configurationReloadState=" + configurationReloadState + ", configurationStatus=" + configurationStatus + ", bootstrapID=" + bootstrapID + ", bootstrapStatus=" + bootstrapStatus + ", associatedGatewaySecurityID=" + associatedGatewaySecurityID + ", associatedGatewaySecurityProfileID=" + associatedGatewaySecurityProfileID + ", associatedNSGInfoID=" + associatedNSGInfoID + ", autoDiscGatewayID=" + autoDiscGatewayID + ", externalID=" + externalID + ", systemID=" + systemID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

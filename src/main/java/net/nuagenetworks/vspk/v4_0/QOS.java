@@ -38,6 +38,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ContainersFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -144,6 +145,9 @@ public class QOS extends RestObject {
    private VMsFetcher vMs;
    
    @JsonIgnore
+   private ContainersFetcher containers;
+   
+   @JsonIgnore
    private EventLogsFetcher eventLogs;
    
 
@@ -154,6 +158,8 @@ public class QOS extends RestObject {
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       vMs = new VMsFetcher(this);
+      
+      containers = new ContainersFetcher(this);
       
       eventLogs = new EventLogsFetcher(this);
       
@@ -418,6 +424,11 @@ public class QOS extends RestObject {
    @JsonIgnore
    public VMsFetcher getVMs() {
       return vMs;
+   }
+   
+   @JsonIgnore
+   public ContainersFetcher getContainers() {
+      return containers;
    }
    
    @JsonIgnore

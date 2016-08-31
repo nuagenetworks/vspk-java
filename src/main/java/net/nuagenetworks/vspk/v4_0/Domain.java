@@ -44,6 +44,7 @@ import net.nuagenetworks.vspk.v4_0.fetchers.EgressACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.DomainFIPAclTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.FloatingIPACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.DHCPOptionsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.LinksFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.FloatingIpsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
@@ -57,6 +58,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.PolicyGroupsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.DomainsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.DomainTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.ZonesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ContainersFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ContainerInterfacesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.QOSsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.HostInterfacesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.RoutingPoliciesFetcher;
@@ -237,6 +240,9 @@ public class Domain extends RestObject {
    private DHCPOptionsFetcher dHCPOptions;
    
    @JsonIgnore
+   private LinksFetcher links;
+   
+   @JsonIgnore
    private FloatingIpsFetcher floatingIps;
    
    @JsonIgnore
@@ -274,6 +280,12 @@ public class Domain extends RestObject {
    
    @JsonIgnore
    private ZonesFetcher zones;
+   
+   @JsonIgnore
+   private ContainersFetcher containers;
+   
+   @JsonIgnore
+   private ContainerInterfacesFetcher containerInterfaces;
    
    @JsonIgnore
    private QOSsFetcher qOSs;
@@ -343,6 +355,8 @@ public class Domain extends RestObject {
       
       dHCPOptions = new DHCPOptionsFetcher(this);
       
+      links = new LinksFetcher(this);
+      
       floatingIps = new FloatingIpsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
@@ -368,6 +382,10 @@ public class Domain extends RestObject {
       domainTemplates = new DomainTemplatesFetcher(this);
       
       zones = new ZonesFetcher(this);
+      
+      containers = new ContainersFetcher(this);
+      
+      containerInterfaces = new ContainerInterfacesFetcher(this);
       
       qOSs = new QOSsFetcher(this);
       
@@ -790,6 +808,11 @@ public class Domain extends RestObject {
    }
    
    @JsonIgnore
+   public LinksFetcher getLinks() {
+      return links;
+   }
+   
+   @JsonIgnore
    public FloatingIpsFetcher getFloatingIps() {
       return floatingIps;
    }
@@ -852,6 +875,16 @@ public class Domain extends RestObject {
    @JsonIgnore
    public ZonesFetcher getZones() {
       return zones;
+   }
+   
+   @JsonIgnore
+   public ContainersFetcher getContainers() {
+      return containers;
+   }
+   
+   @JsonIgnore
+   public ContainerInterfacesFetcher getContainerInterfaces() {
+      return containerInterfaces;
    }
    
    @JsonIgnore
