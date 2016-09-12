@@ -45,8 +45,6 @@ import net.nuagenetworks.vspk.v4_0.fetchers.DomainFIPAclTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.FloatingIPACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.DHCPOptionsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.LinksFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.LinksFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.LinksFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.FloatingIpsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
@@ -259,12 +257,6 @@ public class Domain extends RestObject {
    private LinksFetcher links;
    
    @JsonIgnore
-   private LinksFetcher links;
-   
-   @JsonIgnore
-   private LinksFetcher links;
-   
-   @JsonIgnore
    private FloatingIpsFetcher floatingIps;
    
    @JsonIgnore
@@ -379,10 +371,6 @@ public class Domain extends RestObject {
       floatingIPACLTemplates = new FloatingIPACLTemplatesFetcher(this);
       
       dHCPOptions = new DHCPOptionsFetcher(this);
-      
-      links = new LinksFetcher(this);
-      
-      links = new LinksFetcher(this);
       
       links = new LinksFetcher(this);
       
@@ -872,16 +860,6 @@ public class Domain extends RestObject {
    @JsonIgnore
    public DHCPOptionsFetcher getDHCPOptions() {
       return dHCPOptions;
-   }
-   
-   @JsonIgnore
-   public LinksFetcher getLinks() {
-      return links;
-   }
-   
-   @JsonIgnore
-   public LinksFetcher getLinks() {
-      return links;
    }
    
    @JsonIgnore

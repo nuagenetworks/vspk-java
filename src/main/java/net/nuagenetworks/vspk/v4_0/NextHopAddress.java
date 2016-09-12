@@ -35,68 +35,40 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "nexthop", resourceName = "nexthops")
+@RestEntity(restName = "nexthopaddress", resourceName = "nexthopaddress")
 public class NextHopAddress extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
-   public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   @JsonProperty(value = "address")
+   protected String address;
    
    @JsonProperty(value = "routeDistinguisher")
    protected String routeDistinguisher;
    
-   @JsonProperty(value = "ip")
-   protected String ip;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
+   @JsonProperty(value = "type")
+   protected String type;
    
 
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
-   
-   @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
    
 
    public NextHopAddress() {
       
-      metadatas = new MetadatasFetcher(this);
-      
-      globalMetadatas = new GlobalMetadatasFetcher(this);
-      
    }
 
    @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
+   public String getAddress() {
+      return address;
    }
 
    @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
+   public void setAddress(String value) { 
+      this.address = value;
    }
    @JsonIgnore
    public String getRouteDistinguisher() {
@@ -108,39 +80,20 @@ public class NextHopAddress extends RestObject {
       this.routeDistinguisher = value;
    }
    @JsonIgnore
-   public String getIp() {
-      return ip;
+   public String getType() {
+      return type;
    }
 
    @JsonIgnore
-   public void setIp(String value) { 
-      this.ip = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
+   public void setType(String value) { 
+      this.type = value;
    }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
-   
-   @JsonIgnore
-   public GlobalMetadatasFetcher getGlobalMetadatas() {
-      return globalMetadatas;
-   }
    
 
    public String toString() {
-      return "NextHopAddress [" + "lastUpdatedBy=" + lastUpdatedBy + ", entityScope=" + entityScope + ", routeDistinguisher=" + routeDistinguisher + ", ip=" + ip + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NextHopAddress [" + "address=" + address + ", routeDistinguisher=" + routeDistinguisher + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    
