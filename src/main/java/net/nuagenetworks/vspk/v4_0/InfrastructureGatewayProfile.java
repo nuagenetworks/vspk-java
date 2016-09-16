@@ -129,8 +129,6 @@ public class InfrastructureGatewayProfile extends RestObject {
    
 
    public InfrastructureGatewayProfile() {
-      flowEvictionThreshold = 2500L;
-      systemSyncWindow = SystemSyncWindow.ONE_HOUR;
       upgradeAction = UpgradeAction.NONE;
       statsCollectorPort = 29090L;
       systemSyncScheduler = "0 0 * * 0";
