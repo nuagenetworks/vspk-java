@@ -59,7 +59,7 @@ import net.nuagenetworks.vspk.v4_0.fetchers.IKEGatewaysFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IKEGatewayProfilesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IKEPSKsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.AlarmsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.AlarmsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.AllAlarmsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EnterpriseNetworksFetcher;
@@ -258,7 +258,7 @@ public class Enterprise extends RestObject {
    private AlarmsFetcher alarms;
    
    @JsonIgnore
-   private AlarmsFetcher alarms;
+   private AllAlarmsFetcher allAlarms;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
@@ -386,7 +386,7 @@ public class Enterprise extends RestObject {
       
       alarms = new AlarmsFetcher(this);
       
-      alarms = new AlarmsFetcher(this);
+      allAlarms = new AllAlarmsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
@@ -816,8 +816,8 @@ public class Enterprise extends RestObject {
    }
    
    @JsonIgnore
-   public AlarmsFetcher getAlarms() {
-      return alarms;
+   public AllAlarmsFetcher getAllAlarms() {
+      return allAlarms;
    }
    
    @JsonIgnore
