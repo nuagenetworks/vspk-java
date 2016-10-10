@@ -37,25 +37,26 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.NSPortTemplatesFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "nsgatewaytemplate", resourceName = "nsgatewaytemplates")
-public class NSGatewayTemplate extends RestObject {
+@RestEntity(restName = "infrastructureaccessprofile", resourceName = "infrastructureaccessprofiles")
+public class Infrastructureaccessprofile extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
-   public enum SSHService { DISABLED, ENABLED };
-   public enum InstanceSSHOverride { ALLOWED, DISALLOWED };
+   public enum SSHAuthMode { PASSWORD_BASED };
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "SSHService")
-   protected SSHService SSHService;
+   @JsonProperty(value = "SSHAuthMode")
+   protected SSHAuthMode SSHAuthMode;
    
    @JsonProperty(value = "name")
    protected String name;
+   
+   @JsonProperty(value = "password")
+   protected String password;
    
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
@@ -63,20 +64,14 @@ public class NSGatewayTemplate extends RestObject {
    @JsonProperty(value = "description")
    protected String description;
    
-   @JsonProperty(value = "infrastructureAccessProfileID")
-   protected String infrastructureAccessProfileID;
-   
-   @JsonProperty(value = "infrastructureProfileID")
-   protected String infrastructureProfileID;
-   
-   @JsonProperty(value = "instanceSSHOverride")
-   protected InstanceSSHOverride instanceSSHOverride;
-   
    @JsonProperty(value = "enterpriseID")
    protected String enterpriseID;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
+   
+   @JsonProperty(value = "userName")
+   protected String userName;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
@@ -89,28 +84,23 @@ public class NSGatewayTemplate extends RestObject {
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
-   @JsonIgnore
-   private NSPortTemplatesFetcher nSPortTemplates;
-   
 
-   public NSGatewayTemplate() {
+   public Infrastructureaccessprofile() {
       
       metadatas = new MetadatasFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
-      nSPortTemplates = new NSPortTemplatesFetcher(this);
-      
    }
 
    @JsonIgnore
-   public SSHService getSSHService() {
-      return SSHService;
+   public SSHAuthMode getSSHAuthMode() {
+      return SSHAuthMode;
    }
 
    @JsonIgnore
-   public void setSSHService(SSHService value) { 
-      this.SSHService = value;
+   public void setSSHAuthMode(SSHAuthMode value) { 
+      this.SSHAuthMode = value;
    }
    @JsonIgnore
    public String getName() {
@@ -120,6 +110,15 @@ public class NSGatewayTemplate extends RestObject {
    @JsonIgnore
    public void setName(String value) { 
       this.name = value;
+   }
+   @JsonIgnore
+   public String getPassword() {
+      return password;
+   }
+
+   @JsonIgnore
+   public void setPassword(String value) { 
+      this.password = value;
    }
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -140,33 +139,6 @@ public class NSGatewayTemplate extends RestObject {
       this.description = value;
    }
    @JsonIgnore
-   public String getInfrastructureAccessProfileID() {
-      return infrastructureAccessProfileID;
-   }
-
-   @JsonIgnore
-   public void setInfrastructureAccessProfileID(String value) { 
-      this.infrastructureAccessProfileID = value;
-   }
-   @JsonIgnore
-   public String getInfrastructureProfileID() {
-      return infrastructureProfileID;
-   }
-
-   @JsonIgnore
-   public void setInfrastructureProfileID(String value) { 
-      this.infrastructureProfileID = value;
-   }
-   @JsonIgnore
-   public InstanceSSHOverride getInstanceSSHOverride() {
-      return instanceSSHOverride;
-   }
-
-   @JsonIgnore
-   public void setInstanceSSHOverride(InstanceSSHOverride value) { 
-      this.instanceSSHOverride = value;
-   }
-   @JsonIgnore
    public String getEnterpriseID() {
       return enterpriseID;
    }
@@ -183,6 +155,15 @@ public class NSGatewayTemplate extends RestObject {
    @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getUserName() {
+      return userName;
+   }
+
+   @JsonIgnore
+   public void setUserName(String value) { 
+      this.userName = value;
    }
    @JsonIgnore
    public String getExternalID() {
@@ -206,14 +187,9 @@ public class NSGatewayTemplate extends RestObject {
       return globalMetadatas;
    }
    
-   @JsonIgnore
-   public NSPortTemplatesFetcher getNSPortTemplates() {
-      return nSPortTemplates;
-   }
-   
 
    public String toString() {
-      return "NSGatewayTemplate [" + "SSHService=" + SSHService + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", infrastructureAccessProfileID=" + infrastructureAccessProfileID + ", infrastructureProfileID=" + infrastructureProfileID + ", instanceSSHOverride=" + instanceSSHOverride + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Infrastructureaccessprofile [" + "SSHAuthMode=" + SSHAuthMode + ", name=" + name + ", password=" + password + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", userName=" + userName + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

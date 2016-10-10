@@ -49,6 +49,7 @@ public class VCenterHypervisor extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum DestinationMirrorPort { ens160, ens161, ens224, ens256, no_mirror };
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -103,6 +104,9 @@ public class VCenterHypervisor extends RestObject {
    @JsonProperty(value = "secondaryNuageController")
    protected String secondaryNuageController;
    
+   @JsonProperty(value = "removedFromVCenterInventory")
+   protected Boolean removedFromVCenterInventory;
+   
    @JsonProperty(value = "genericSplitActivation")
    protected Boolean genericSplitActivation;
    
@@ -117,6 +121,9 @@ public class VCenterHypervisor extends RestObject {
    
    @JsonProperty(value = "description")
    protected String description;
+   
+   @JsonProperty(value = "destinationMirrorPort")
+   protected DestinationMirrorPort destinationMirrorPort;
    
    @JsonProperty(value = "metadataServerIP")
    protected String metadataServerIP;
@@ -168,6 +175,9 @@ public class VCenterHypervisor extends RestObject {
    
    @JsonProperty(value = "dhcpRelayServer")
    protected String dhcpRelayServer;
+   
+   @JsonProperty(value = "mirrorNetworkPortgroup")
+   protected String mirrorNetworkPortgroup;
    
    @JsonProperty(value = "siteId")
    protected String siteId;
@@ -495,6 +505,15 @@ public class VCenterHypervisor extends RestObject {
       this.secondaryNuageController = value;
    }
    @JsonIgnore
+   public Boolean getRemovedFromVCenterInventory() {
+      return removedFromVCenterInventory;
+   }
+
+   @JsonIgnore
+   public void setRemovedFromVCenterInventory(Boolean value) { 
+      this.removedFromVCenterInventory = value;
+   }
+   @JsonIgnore
    public Boolean getGenericSplitActivation() {
       return genericSplitActivation;
    }
@@ -538,6 +557,15 @@ public class VCenterHypervisor extends RestObject {
    @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
+   }
+   @JsonIgnore
+   public DestinationMirrorPort getDestinationMirrorPort() {
+      return destinationMirrorPort;
+   }
+
+   @JsonIgnore
+   public void setDestinationMirrorPort(DestinationMirrorPort value) { 
+      this.destinationMirrorPort = value;
    }
    @JsonIgnore
    public String getMetadataServerIP() {
@@ -691,6 +719,15 @@ public class VCenterHypervisor extends RestObject {
    @JsonIgnore
    public void setDhcpRelayServer(String value) { 
       this.dhcpRelayServer = value;
+   }
+   @JsonIgnore
+   public String getMirrorNetworkPortgroup() {
+      return mirrorNetworkPortgroup;
+   }
+
+   @JsonIgnore
+   public void setMirrorNetworkPortgroup(String value) { 
+      this.mirrorNetworkPortgroup = value;
    }
    @JsonIgnore
    public String getSiteId() {
@@ -1132,7 +1169,7 @@ public class VCenterHypervisor extends RestObject {
    
 
    public String toString() {
-      return "VCenterHypervisor [" + "vCenterIP=" + vCenterIP + ", vCenterPassword=" + vCenterPassword + ", vCenterUser=" + vCenterUser + ", VRSMetricsID=" + VRSMetricsID + ", vRequireNuageMetadata=" + vRequireNuageMetadata + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", lastVRSDeployedDate=" + lastVRSDeployedDate + ", dataDNS1=" + dataDNS1 + ", dataDNS2=" + dataDNS2 + ", dataGateway=" + dataGateway + ", dataIPAddress=" + dataIPAddress + ", dataNetmask=" + dataNetmask + ", dataNetworkPortgroup=" + dataNetworkPortgroup + ", datapathSyncTimeout=" + datapathSyncTimeout + ", scope=" + scope + ", secondaryNuageController=" + secondaryNuageController + ", genericSplitActivation=" + genericSplitActivation + ", separateDataNetwork=" + separateDataNetwork + ", deploymentCount=" + deploymentCount + ", personality=" + personality + ", description=" + description + ", metadataServerIP=" + metadataServerIP + ", metadataServerListenPort=" + metadataServerListenPort + ", metadataServerPort=" + metadataServerPort + ", metadataServiceEnabled=" + metadataServiceEnabled + ", networkUplinkInterface=" + networkUplinkInterface + ", networkUplinkInterfaceGateway=" + networkUplinkInterfaceGateway + ", networkUplinkInterfaceIp=" + networkUplinkInterfaceIp + ", networkUplinkInterfaceNetmask=" + networkUplinkInterfaceNetmask + ", nfsLogServer=" + nfsLogServer + ", nfsMountPath=" + nfsMountPath + ", mgmtDNS1=" + mgmtDNS1 + ", mgmtDNS2=" + mgmtDNS2 + ", mgmtGateway=" + mgmtGateway + ", mgmtIPAddress=" + mgmtIPAddress + ", mgmtNetmask=" + mgmtNetmask + ", mgmtNetworkPortgroup=" + mgmtNetworkPortgroup + ", dhcpRelayServer=" + dhcpRelayServer + ", siteId=" + siteId + ", allowDataDHCP=" + allowDataDHCP + ", allowMgmtDHCP=" + allowMgmtDHCP + ", flowEvictionThreshold=" + flowEvictionThreshold + ", vmNetworkPortgroup=" + vmNetworkPortgroup + ", entityScope=" + entityScope + ", toolboxDeploymentMode=" + toolboxDeploymentMode + ", toolboxGroup=" + toolboxGroup + ", toolboxIP=" + toolboxIP + ", toolboxPassword=" + toolboxPassword + ", toolboxUserName=" + toolboxUserName + ", portgroupMetadata=" + portgroupMetadata + ", novaClientVersion=" + novaClientVersion + ", novaMetadataServiceAuthUrl=" + novaMetadataServiceAuthUrl + ", novaMetadataServiceEndpoint=" + novaMetadataServiceEndpoint + ", novaMetadataServicePassword=" + novaMetadataServicePassword + ", novaMetadataServiceTenant=" + novaMetadataServiceTenant + ", novaMetadataServiceUsername=" + novaMetadataServiceUsername + ", novaMetadataSharedSecret=" + novaMetadataSharedSecret + ", novaRegionName=" + novaRegionName + ", primaryNuageController=" + primaryNuageController + ", vrsId=" + vrsId + ", vrsPassword=" + vrsPassword + ", vrsUserName=" + vrsUserName + ", staticRoute=" + staticRoute + ", staticRouteGateway=" + staticRouteGateway + ", staticRouteNetmask=" + staticRouteNetmask + ", ntpServer1=" + ntpServer1 + ", ntpServer2=" + ntpServer2 + ", mtu=" + mtu + ", multiVMSsupport=" + multiVMSsupport + ", multicastReceiveInterface=" + multicastReceiveInterface + ", multicastReceiveInterfaceIP=" + multicastReceiveInterfaceIP + ", multicastReceiveInterfaceNetmask=" + multicastReceiveInterfaceNetmask + ", multicastReceiveRange=" + multicastReceiveRange + ", multicastSendInterface=" + multicastSendInterface + ", multicastSendInterfaceIP=" + multicastSendInterfaceIP + ", multicastSendInterfaceNetmask=" + multicastSendInterfaceNetmask + ", multicastSourcePortgroup=" + multicastSourcePortgroup + ", customizedScriptURL=" + customizedScriptURL + ", availableNetworks=" + availableNetworks + ", externalID=" + externalID + ", hypervisorIP=" + hypervisorIP + ", hypervisorPassword=" + hypervisorPassword + ", hypervisorUser=" + hypervisorUser + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VCenterHypervisor [" + "vCenterIP=" + vCenterIP + ", vCenterPassword=" + vCenterPassword + ", vCenterUser=" + vCenterUser + ", VRSMetricsID=" + VRSMetricsID + ", vRequireNuageMetadata=" + vRequireNuageMetadata + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", lastVRSDeployedDate=" + lastVRSDeployedDate + ", dataDNS1=" + dataDNS1 + ", dataDNS2=" + dataDNS2 + ", dataGateway=" + dataGateway + ", dataIPAddress=" + dataIPAddress + ", dataNetmask=" + dataNetmask + ", dataNetworkPortgroup=" + dataNetworkPortgroup + ", datapathSyncTimeout=" + datapathSyncTimeout + ", scope=" + scope + ", secondaryNuageController=" + secondaryNuageController + ", removedFromVCenterInventory=" + removedFromVCenterInventory + ", genericSplitActivation=" + genericSplitActivation + ", separateDataNetwork=" + separateDataNetwork + ", deploymentCount=" + deploymentCount + ", personality=" + personality + ", description=" + description + ", destinationMirrorPort=" + destinationMirrorPort + ", metadataServerIP=" + metadataServerIP + ", metadataServerListenPort=" + metadataServerListenPort + ", metadataServerPort=" + metadataServerPort + ", metadataServiceEnabled=" + metadataServiceEnabled + ", networkUplinkInterface=" + networkUplinkInterface + ", networkUplinkInterfaceGateway=" + networkUplinkInterfaceGateway + ", networkUplinkInterfaceIp=" + networkUplinkInterfaceIp + ", networkUplinkInterfaceNetmask=" + networkUplinkInterfaceNetmask + ", nfsLogServer=" + nfsLogServer + ", nfsMountPath=" + nfsMountPath + ", mgmtDNS1=" + mgmtDNS1 + ", mgmtDNS2=" + mgmtDNS2 + ", mgmtGateway=" + mgmtGateway + ", mgmtIPAddress=" + mgmtIPAddress + ", mgmtNetmask=" + mgmtNetmask + ", mgmtNetworkPortgroup=" + mgmtNetworkPortgroup + ", dhcpRelayServer=" + dhcpRelayServer + ", mirrorNetworkPortgroup=" + mirrorNetworkPortgroup + ", siteId=" + siteId + ", allowDataDHCP=" + allowDataDHCP + ", allowMgmtDHCP=" + allowMgmtDHCP + ", flowEvictionThreshold=" + flowEvictionThreshold + ", vmNetworkPortgroup=" + vmNetworkPortgroup + ", entityScope=" + entityScope + ", toolboxDeploymentMode=" + toolboxDeploymentMode + ", toolboxGroup=" + toolboxGroup + ", toolboxIP=" + toolboxIP + ", toolboxPassword=" + toolboxPassword + ", toolboxUserName=" + toolboxUserName + ", portgroupMetadata=" + portgroupMetadata + ", novaClientVersion=" + novaClientVersion + ", novaMetadataServiceAuthUrl=" + novaMetadataServiceAuthUrl + ", novaMetadataServiceEndpoint=" + novaMetadataServiceEndpoint + ", novaMetadataServicePassword=" + novaMetadataServicePassword + ", novaMetadataServiceTenant=" + novaMetadataServiceTenant + ", novaMetadataServiceUsername=" + novaMetadataServiceUsername + ", novaMetadataSharedSecret=" + novaMetadataSharedSecret + ", novaRegionName=" + novaRegionName + ", primaryNuageController=" + primaryNuageController + ", vrsId=" + vrsId + ", vrsPassword=" + vrsPassword + ", vrsUserName=" + vrsUserName + ", staticRoute=" + staticRoute + ", staticRouteGateway=" + staticRouteGateway + ", staticRouteNetmask=" + staticRouteNetmask + ", ntpServer1=" + ntpServer1 + ", ntpServer2=" + ntpServer2 + ", mtu=" + mtu + ", multiVMSsupport=" + multiVMSsupport + ", multicastReceiveInterface=" + multicastReceiveInterface + ", multicastReceiveInterfaceIP=" + multicastReceiveInterfaceIP + ", multicastReceiveInterfaceNetmask=" + multicastReceiveInterfaceNetmask + ", multicastReceiveRange=" + multicastReceiveRange + ", multicastSendInterface=" + multicastSendInterface + ", multicastSendInterfaceIP=" + multicastSendInterfaceIP + ", multicastSendInterfaceNetmask=" + multicastSendInterfaceNetmask + ", multicastSourcePortgroup=" + multicastSourcePortgroup + ", customizedScriptURL=" + customizedScriptURL + ", availableNetworks=" + availableNetworks + ", externalID=" + externalID + ", hypervisorIP=" + hypervisorIP + ", hypervisorPassword=" + hypervisorPassword + ", hypervisorUser=" + hypervisorUser + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

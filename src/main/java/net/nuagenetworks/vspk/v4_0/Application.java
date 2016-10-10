@@ -109,6 +109,9 @@ public class Application extends RestObject {
    @JsonProperty(value = "etherType")
    protected String etherType;
    
+   @JsonProperty(value = "symmetry")
+   protected Boolean symmetry;
+   
 
    
    @JsonIgnore
@@ -297,6 +300,15 @@ public class Application extends RestObject {
    public void setEtherType(String value) { 
       this.etherType = value;
    }
+   @JsonIgnore
+   public Boolean getSymmetry() {
+      return symmetry;
+   }
+
+   @JsonIgnore
+   public void setSymmetry(Boolean value) { 
+      this.symmetry = value;
+   }
    
 
    
@@ -312,7 +324,7 @@ public class Application extends RestObject {
    
 
    public String toString() {
-      return "Application [" + "DSCP=" + DSCP + ", name=" + name + ", readOnly=" + readOnly + ", performanceMonitorType=" + performanceMonitorType + ", description=" + description + ", destinationIP=" + destinationIP + ", destinationPort=" + destinationPort + ", enablePPS=" + enablePPS + ", oneWayDelay=" + oneWayDelay + ", oneWayJitter=" + oneWayJitter + ", oneWayLoss=" + oneWayLoss + ", postClassificationPath=" + postClassificationPath + ", sourceIP=" + sourceIP + ", sourcePort=" + sourcePort + ", optimizePathSelection=" + optimizePathSelection + ", preClassificationPath=" + preClassificationPath + ", protocol=" + protocol + ", associatedL7ApplicationSignatureID=" + associatedL7ApplicationSignatureID + ", etherType=" + etherType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Application [" + "DSCP=" + DSCP + ", name=" + name + ", readOnly=" + readOnly + ", performanceMonitorType=" + performanceMonitorType + ", description=" + description + ", destinationIP=" + destinationIP + ", destinationPort=" + destinationPort + ", enablePPS=" + enablePPS + ", oneWayDelay=" + oneWayDelay + ", oneWayJitter=" + oneWayJitter + ", oneWayLoss=" + oneWayLoss + ", postClassificationPath=" + postClassificationPath + ", sourceIP=" + sourceIP + ", sourcePort=" + sourcePort + ", optimizePathSelection=" + optimizePathSelection + ", preClassificationPath=" + preClassificationPath + ", protocol=" + protocol + ", associatedL7ApplicationSignatureID=" + associatedL7ApplicationSignatureID + ", etherType=" + etherType + ", symmetry=" + symmetry + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

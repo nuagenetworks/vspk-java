@@ -61,9 +61,11 @@ public class NSGateway extends RestObject {
 
    
    public enum TPMStatus { DISABLED, ENABLED_NOT_OPERATIONAL, ENABLED_OPERATIONAL, UNKNOWN };
+   public enum SSHService { DISABLED, ENABLED, INHERITED };
    public enum Family { ANY, NSG_E, NSG_V };
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    public enum Personality { DC7X50, HARDWARE_VTEP, NSG, NSGBR, OTHER, VRSG, VSA, VSG };
+   public enum InheritedSSHServiceState { DISABLED, ENABLED };
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum ConfigurationReloadState { APPLIED, PENDING, SENT, UNKNOWN };
    public enum ConfigurationStatus { FAILURE, SUCCESS, UNKNOWN };
@@ -87,6 +89,9 @@ public class NSGateway extends RestObject {
    
    @JsonProperty(value = "NSGVersion")
    protected String NSGVersion;
+   
+   @JsonProperty(value = "SSHService")
+   protected SSHService SSHService;
    
    @JsonProperty(value = "UUID")
    protected String UUID;
@@ -129,6 +134,9 @@ public class NSGateway extends RestObject {
    
    @JsonProperty(value = "libraries")
    protected String libraries;
+   
+   @JsonProperty(value = "inheritedSSHServiceState")
+   protected InheritedSSHServiceState inheritedSSHServiceState;
    
    @JsonProperty(value = "enterpriseID")
    protected String enterpriseID;
@@ -316,6 +324,15 @@ public class NSGateway extends RestObject {
       this.NSGVersion = value;
    }
    @JsonIgnore
+   public SSHService getSSHService() {
+      return SSHService;
+   }
+
+   @JsonIgnore
+   public void setSSHService(SSHService value) { 
+      this.SSHService = value;
+   }
+   @JsonIgnore
    public String getUUID() {
       return UUID;
    }
@@ -440,6 +457,15 @@ public class NSGateway extends RestObject {
    @JsonIgnore
    public void setLibraries(String value) { 
       this.libraries = value;
+   }
+   @JsonIgnore
+   public InheritedSSHServiceState getInheritedSSHServiceState() {
+      return inheritedSSHServiceState;
+   }
+
+   @JsonIgnore
+   public void setInheritedSSHServiceState(InheritedSSHServiceState value) { 
+      this.inheritedSSHServiceState = value;
    }
    @JsonIgnore
    public String getEnterpriseID() {
@@ -648,7 +674,7 @@ public class NSGateway extends RestObject {
    
 
    public String toString() {
-      return "NSGateway [" + "MACAddress=" + MACAddress + ", NATTraversalEnabled=" + NATTraversalEnabled + ", SKU=" + SKU + ", TPMStatus=" + TPMStatus + ", CPUType=" + CPUType + ", NSGVersion=" + NSGVersion + ", UUID=" + UUID + ", name=" + name + ", family=" + family + ", lastConfigurationReloadTimestamp=" + lastConfigurationReloadTimestamp + ", lastUpdatedBy=" + lastUpdatedBy + ", datapathID=" + datapathID + ", redundancyGroupID=" + redundancyGroupID + ", templateID=" + templateID + ", pending=" + pending + ", serialNumber=" + serialNumber + ", permittedAction=" + permittedAction + ", personality=" + personality + ", description=" + description + ", libraries=" + libraries + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", locationID=" + locationID + ", configurationReloadState=" + configurationReloadState + ", configurationStatus=" + configurationStatus + ", bootstrapID=" + bootstrapID + ", bootstrapStatus=" + bootstrapStatus + ", associatedGatewaySecurityID=" + associatedGatewaySecurityID + ", associatedGatewaySecurityProfileID=" + associatedGatewaySecurityProfileID + ", associatedNSGInfoID=" + associatedNSGInfoID + ", autoDiscGatewayID=" + autoDiscGatewayID + ", externalID=" + externalID + ", systemID=" + systemID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NSGateway [" + "MACAddress=" + MACAddress + ", NATTraversalEnabled=" + NATTraversalEnabled + ", SKU=" + SKU + ", TPMStatus=" + TPMStatus + ", CPUType=" + CPUType + ", NSGVersion=" + NSGVersion + ", SSHService=" + SSHService + ", UUID=" + UUID + ", name=" + name + ", family=" + family + ", lastConfigurationReloadTimestamp=" + lastConfigurationReloadTimestamp + ", lastUpdatedBy=" + lastUpdatedBy + ", datapathID=" + datapathID + ", redundancyGroupID=" + redundancyGroupID + ", templateID=" + templateID + ", pending=" + pending + ", serialNumber=" + serialNumber + ", permittedAction=" + permittedAction + ", personality=" + personality + ", description=" + description + ", libraries=" + libraries + ", inheritedSSHServiceState=" + inheritedSSHServiceState + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", locationID=" + locationID + ", configurationReloadState=" + configurationReloadState + ", configurationStatus=" + configurationStatus + ", bootstrapID=" + bootstrapID + ", bootstrapStatus=" + bootstrapStatus + ", associatedGatewaySecurityID=" + associatedGatewaySecurityID + ", associatedGatewaySecurityProfileID=" + associatedGatewaySecurityProfileID + ", associatedNSGInfoID=" + associatedNSGInfoID + ", autoDiscGatewayID=" + autoDiscGatewayID + ", externalID=" + externalID + ", systemID=" + systemID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

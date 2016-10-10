@@ -48,6 +48,7 @@ import net.nuagenetworks.vspk.v4_0.fetchers.PerformanceMonitorsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadataTagsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NetworkMacroGroupsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.NetworkPerformanceMeasurementsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.KeyServerMonitorsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.ZFBRequestsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.BGPProfilesFetcher;
@@ -225,6 +226,9 @@ public class Enterprise extends RestObject {
    private NetworkMacroGroupsFetcher networkMacroGroups;
    
    @JsonIgnore
+   private NetworkPerformanceMeasurementsFetcher networkPerformanceMeasurements;
+   
+   @JsonIgnore
    private KeyServerMonitorsFetcher keyServerMonitors;
    
    @JsonIgnore
@@ -363,6 +367,8 @@ public class Enterprise extends RestObject {
       metadataTags = new MetadataTagsFetcher(this);
       
       networkMacroGroups = new NetworkMacroGroupsFetcher(this);
+      
+      networkPerformanceMeasurements = new NetworkPerformanceMeasurementsFetcher(this);
       
       keyServerMonitors = new KeyServerMonitorsFetcher(this);
       
@@ -758,6 +764,11 @@ public class Enterprise extends RestObject {
    @JsonIgnore
    public NetworkMacroGroupsFetcher getNetworkMacroGroups() {
       return networkMacroGroups;
+   }
+   
+   @JsonIgnore
+   public NetworkPerformanceMeasurementsFetcher getNetworkPerformanceMeasurements() {
+      return networkPerformanceMeasurements;
    }
    
    @JsonIgnore

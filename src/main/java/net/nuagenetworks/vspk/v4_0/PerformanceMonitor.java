@@ -53,6 +53,9 @@ public class PerformanceMonitor extends RestObject {
    @JsonProperty(value = "payloadSize")
    protected Long payloadSize;
    
+   @JsonProperty(value = "readOnly")
+   protected Boolean readOnly;
+   
    @JsonProperty(value = "serviceClass")
    protected ServiceClass serviceClass;
    
@@ -94,6 +97,15 @@ public class PerformanceMonitor extends RestObject {
    @JsonIgnore
    public void setPayloadSize(Long value) { 
       this.payloadSize = value;
+   }
+   @JsonIgnore
+   public Boolean getReadOnly() {
+      return readOnly;
+   }
+
+   @JsonIgnore
+   public void setReadOnly(Boolean value) { 
+      this.readOnly = value;
    }
    @JsonIgnore
    public ServiceClass getServiceClass() {
@@ -141,7 +153,7 @@ public class PerformanceMonitor extends RestObject {
    
 
    public String toString() {
-      return "PerformanceMonitor [" + "name=" + name + ", payloadSize=" + payloadSize + ", serviceClass=" + serviceClass + ", description=" + description + ", interval=" + interval + ", numberOfPackets=" + numberOfPackets + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "PerformanceMonitor [" + "name=" + name + ", payloadSize=" + payloadSize + ", readOnly=" + readOnly + ", serviceClass=" + serviceClass + ", description=" + description + ", interval=" + interval + ", numberOfPackets=" + numberOfPackets + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    
