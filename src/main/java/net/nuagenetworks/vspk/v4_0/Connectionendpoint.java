@@ -37,113 +37,89 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "brconnections", resourceName = "brconnections")
-public class BRConnection extends RestObject {
+@RestEntity(restName = "connectionendpoint", resourceName = "connectionendpoints")
+public class Connectionendpoint extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
-   public enum AdvertisementCriteria { GATEWAY_PING, LINK_BASED, OPENFLOW };
-   public enum Mode { Static };
+   public enum IPType { IPV4 };
+   public enum EndPointType { SOURCE };
 
    
-   @JsonProperty(value = "DNSAddress")
-   protected String DNSAddress;
+   @JsonProperty(value = "IPAddress")
+   protected String IPAddress;
    
-   @JsonProperty(value = "gateway")
-   protected String gateway;
+   @JsonProperty(value = "IPType")
+   protected IPType IPType;
    
-   @JsonProperty(value = "address")
-   protected String address;
+   @JsonProperty(value = "name")
+   protected String name;
    
-   @JsonProperty(value = "advertisementCriteria")
-   protected AdvertisementCriteria advertisementCriteria;
+   @JsonProperty(value = "description")
+   protected String description;
    
-   @JsonProperty(value = "netmask")
-   protected String netmask;
-   
-   @JsonProperty(value = "mode")
-   protected Mode mode;
-   
-   @JsonProperty(value = "uplinkID")
-   protected Long uplinkID;
+   @JsonProperty(value = "endPointType")
+   protected EndPointType endPointType;
    
 
    
 
-   public BRConnection() {
+   public Connectionendpoint() {
       
    }
 
    @JsonIgnore
-   public String getDNSAddress() {
-      return DNSAddress;
+   public String getIPAddress() {
+      return IPAddress;
    }
 
    @JsonIgnore
-   public void setDNSAddress(String value) { 
-      this.DNSAddress = value;
+   public void setIPAddress(String value) { 
+      this.IPAddress = value;
    }
    @JsonIgnore
-   public String getGateway() {
-      return gateway;
-   }
-
-   @JsonIgnore
-   public void setGateway(String value) { 
-      this.gateway = value;
-   }
-   @JsonIgnore
-   public String getAddress() {
-      return address;
+   public IPType getIPType() {
+      return IPType;
    }
 
    @JsonIgnore
-   public void setAddress(String value) { 
-      this.address = value;
+   public void setIPType(IPType value) { 
+      this.IPType = value;
    }
    @JsonIgnore
-   public AdvertisementCriteria getAdvertisementCriteria() {
-      return advertisementCriteria;
-   }
-
-   @JsonIgnore
-   public void setAdvertisementCriteria(AdvertisementCriteria value) { 
-      this.advertisementCriteria = value;
-   }
-   @JsonIgnore
-   public String getNetmask() {
-      return netmask;
+   public String getName() {
+      return name;
    }
 
    @JsonIgnore
-   public void setNetmask(String value) { 
-      this.netmask = value;
+   public void setName(String value) { 
+      this.name = value;
    }
    @JsonIgnore
-   public Mode getMode() {
-      return mode;
-   }
-
-   @JsonIgnore
-   public void setMode(Mode value) { 
-      this.mode = value;
-   }
-   @JsonIgnore
-   public Long getUplinkID() {
-      return uplinkID;
+   public String getDescription() {
+      return description;
    }
 
    @JsonIgnore
-   public void setUplinkID(Long value) { 
-      this.uplinkID = value;
+   public void setDescription(String value) { 
+      this.description = value;
+   }
+   @JsonIgnore
+   public EndPointType getEndPointType() {
+      return endPointType;
+   }
+
+   @JsonIgnore
+   public void setEndPointType(EndPointType value) { 
+      this.endPointType = value;
    }
    
 
    
 
    public String toString() {
-      return "BRConnection [" + "DNSAddress=" + DNSAddress + ", gateway=" + gateway + ", address=" + address + ", advertisementCriteria=" + advertisementCriteria + ", netmask=" + netmask + ", mode=" + mode + ", uplinkID=" + uplinkID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Connectionendpoint [" + "IPAddress=" + IPAddress + ", IPType=" + IPType + ", name=" + name + ", description=" + description + ", endPointType=" + endPointType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

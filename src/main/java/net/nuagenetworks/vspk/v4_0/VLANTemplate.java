@@ -68,6 +68,9 @@ public class VLANTemplate extends RestObject {
    @JsonProperty(value = "associatedVSCProfileID")
    protected String associatedVSCProfileID;
    
+   @JsonProperty(value = "ducVlan")
+   protected Boolean ducVlan;
+   
    @JsonProperty(value = "externalID")
    protected String externalID;
    
@@ -153,6 +156,15 @@ public class VLANTemplate extends RestObject {
       this.associatedVSCProfileID = value;
    }
    @JsonIgnore
+   public Boolean getDucVlan() {
+      return ducVlan;
+   }
+
+   @JsonIgnore
+   public void setDucVlan(Boolean value) { 
+      this.ducVlan = value;
+   }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
@@ -186,7 +198,7 @@ public class VLANTemplate extends RestObject {
    
 
    public String toString() {
-      return "VLANTemplate [" + "value=" + value + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", entityScope=" + entityScope + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", associatedVSCProfileID=" + associatedVSCProfileID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VLANTemplate [" + "value=" + value + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", entityScope=" + entityScope + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", associatedVSCProfileID=" + associatedVSCProfileID + ", ducVlan=" + ducVlan + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

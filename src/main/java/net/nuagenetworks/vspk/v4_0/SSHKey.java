@@ -37,113 +37,76 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "brconnections", resourceName = "brconnections")
-public class BRConnection extends RestObject {
+@RestEntity(restName = "sshkey", resourceName = "sshkeys")
+public class SSHKey extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
-   public enum AdvertisementCriteria { GATEWAY_PING, LINK_BASED, OPENFLOW };
-   public enum Mode { Static };
+   public enum KeyType { RSA };
 
    
-   @JsonProperty(value = "DNSAddress")
-   protected String DNSAddress;
+   @JsonProperty(value = "name")
+   protected String name;
    
-   @JsonProperty(value = "gateway")
-   protected String gateway;
+   @JsonProperty(value = "description")
+   protected String description;
    
-   @JsonProperty(value = "address")
-   protected String address;
+   @JsonProperty(value = "keyType")
+   protected KeyType keyType;
    
-   @JsonProperty(value = "advertisementCriteria")
-   protected AdvertisementCriteria advertisementCriteria;
-   
-   @JsonProperty(value = "netmask")
-   protected String netmask;
-   
-   @JsonProperty(value = "mode")
-   protected Mode mode;
-   
-   @JsonProperty(value = "uplinkID")
-   protected Long uplinkID;
+   @JsonProperty(value = "publicKey")
+   protected String publicKey;
    
 
    
 
-   public BRConnection() {
+   public SSHKey() {
       
    }
 
    @JsonIgnore
-   public String getDNSAddress() {
-      return DNSAddress;
+   public String getName() {
+      return name;
    }
 
    @JsonIgnore
-   public void setDNSAddress(String value) { 
-      this.DNSAddress = value;
+   public void setName(String value) { 
+      this.name = value;
    }
    @JsonIgnore
-   public String getGateway() {
-      return gateway;
-   }
-
-   @JsonIgnore
-   public void setGateway(String value) { 
-      this.gateway = value;
-   }
-   @JsonIgnore
-   public String getAddress() {
-      return address;
+   public String getDescription() {
+      return description;
    }
 
    @JsonIgnore
-   public void setAddress(String value) { 
-      this.address = value;
+   public void setDescription(String value) { 
+      this.description = value;
    }
    @JsonIgnore
-   public AdvertisementCriteria getAdvertisementCriteria() {
-      return advertisementCriteria;
-   }
-
-   @JsonIgnore
-   public void setAdvertisementCriteria(AdvertisementCriteria value) { 
-      this.advertisementCriteria = value;
-   }
-   @JsonIgnore
-   public String getNetmask() {
-      return netmask;
+   public KeyType getKeyType() {
+      return keyType;
    }
 
    @JsonIgnore
-   public void setNetmask(String value) { 
-      this.netmask = value;
+   public void setKeyType(KeyType value) { 
+      this.keyType = value;
    }
    @JsonIgnore
-   public Mode getMode() {
-      return mode;
-   }
-
-   @JsonIgnore
-   public void setMode(Mode value) { 
-      this.mode = value;
-   }
-   @JsonIgnore
-   public Long getUplinkID() {
-      return uplinkID;
+   public String getPublicKey() {
+      return publicKey;
    }
 
    @JsonIgnore
-   public void setUplinkID(Long value) { 
-      this.uplinkID = value;
+   public void setPublicKey(String value) { 
+      this.publicKey = value;
    }
    
 
    
 
    public String toString() {
-      return "BRConnection [" + "DNSAddress=" + DNSAddress + ", gateway=" + gateway + ", address=" + address + ", advertisementCriteria=" + advertisementCriteria + ", netmask=" + netmask + ", mode=" + mode + ", uplinkID=" + uplinkID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "SSHKey [" + "name=" + name + ", description=" + description + ", keyType=" + keyType + ", publicKey=" + publicKey + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

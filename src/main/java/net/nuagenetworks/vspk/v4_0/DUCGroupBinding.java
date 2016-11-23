@@ -37,113 +37,75 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "brconnections", resourceName = "brconnections")
-public class BRConnection extends RestObject {
+@RestEntity(restName = "ducgroupbinding", resourceName = "ducgroupbindings")
+public class DUCGroupBinding extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
-   public enum AdvertisementCriteria { GATEWAY_PING, LINK_BASED, OPENFLOW };
-   public enum Mode { Static };
 
    
-   @JsonProperty(value = "DNSAddress")
-   protected String DNSAddress;
+   @JsonProperty(value = "id")
+   protected String id;
    
-   @JsonProperty(value = "gateway")
-   protected String gateway;
+   @JsonProperty(value = "oneWayDelay")
+   protected Long oneWayDelay;
    
-   @JsonProperty(value = "address")
-   protected String address;
+   @JsonProperty(value = "priority")
+   protected Long priority;
    
-   @JsonProperty(value = "advertisementCriteria")
-   protected AdvertisementCriteria advertisementCriteria;
-   
-   @JsonProperty(value = "netmask")
-   protected String netmask;
-   
-   @JsonProperty(value = "mode")
-   protected Mode mode;
-   
-   @JsonProperty(value = "uplinkID")
-   protected Long uplinkID;
+   @JsonProperty(value = "associatedDUCGroupID")
+   protected String associatedDUCGroupID;
    
 
    
 
-   public BRConnection() {
+   public DUCGroupBinding() {
       
    }
 
    @JsonIgnore
-   public String getDNSAddress() {
-      return DNSAddress;
+   public String getId() {
+      return id;
    }
 
    @JsonIgnore
-   public void setDNSAddress(String value) { 
-      this.DNSAddress = value;
+   public void setId(String value) { 
+      this.id = value;
    }
    @JsonIgnore
-   public String getGateway() {
-      return gateway;
-   }
-
-   @JsonIgnore
-   public void setGateway(String value) { 
-      this.gateway = value;
-   }
-   @JsonIgnore
-   public String getAddress() {
-      return address;
+   public Long getOneWayDelay() {
+      return oneWayDelay;
    }
 
    @JsonIgnore
-   public void setAddress(String value) { 
-      this.address = value;
+   public void setOneWayDelay(Long value) { 
+      this.oneWayDelay = value;
    }
    @JsonIgnore
-   public AdvertisementCriteria getAdvertisementCriteria() {
-      return advertisementCriteria;
-   }
-
-   @JsonIgnore
-   public void setAdvertisementCriteria(AdvertisementCriteria value) { 
-      this.advertisementCriteria = value;
-   }
-   @JsonIgnore
-   public String getNetmask() {
-      return netmask;
+   public Long getPriority() {
+      return priority;
    }
 
    @JsonIgnore
-   public void setNetmask(String value) { 
-      this.netmask = value;
+   public void setPriority(Long value) { 
+      this.priority = value;
    }
    @JsonIgnore
-   public Mode getMode() {
-      return mode;
-   }
-
-   @JsonIgnore
-   public void setMode(Mode value) { 
-      this.mode = value;
-   }
-   @JsonIgnore
-   public Long getUplinkID() {
-      return uplinkID;
+   public String getAssociatedDUCGroupID() {
+      return associatedDUCGroupID;
    }
 
    @JsonIgnore
-   public void setUplinkID(Long value) { 
-      this.uplinkID = value;
+   public void setAssociatedDUCGroupID(String value) { 
+      this.associatedDUCGroupID = value;
    }
    
 
    
 
    public String toString() {
-      return "BRConnection [" + "DNSAddress=" + DNSAddress + ", gateway=" + gateway + ", address=" + address + ", advertisementCriteria=" + advertisementCriteria + ", netmask=" + netmask + ", mode=" + mode + ", uplinkID=" + uplinkID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "DUCGroupBinding [" + "id=" + id + ", oneWayDelay=" + oneWayDelay + ", priority=" + priority + ", associatedDUCGroupID=" + associatedDUCGroupID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

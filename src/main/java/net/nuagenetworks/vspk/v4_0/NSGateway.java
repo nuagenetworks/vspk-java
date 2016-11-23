@@ -63,8 +63,9 @@ public class NSGateway extends RestObject {
    public enum TPMStatus { DISABLED, ENABLED_NOT_OPERATIONAL, ENABLED_OPERATIONAL, UNKNOWN };
    public enum SSHService { DISABLED, ENABLED, INHERITED };
    public enum Family { ANY, NSG_E, NSG_V };
+   public enum DerivedSSHServiceState { INHERITED_DISABLED, INHERITED_ENABLED, INSTANCE_DISABLED, INSTANCE_ENABLED, UNKNOWN };
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
-   public enum Personality { DC7X50, HARDWARE_VTEP, NSG, NSGBR, OTHER, VRSG, VSA, VSG };
+   public enum Personality { DC7X50, HARDWARE_VTEP, NSG, NSGBR, NSGDUC, OTHER, VRSG, VSA, VSG };
    public enum InheritedSSHServiceState { DISABLED, ENABLED };
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum ConfigurationReloadState { APPLIED, PENDING, SENT, UNKNOWN };
@@ -122,6 +123,9 @@ public class NSGateway extends RestObject {
    
    @JsonProperty(value = "serialNumber")
    protected String serialNumber;
+   
+   @JsonProperty(value = "derivedSSHServiceState")
+   protected DerivedSSHServiceState derivedSSHServiceState;
    
    @JsonProperty(value = "permittedAction")
    protected PermittedAction permittedAction;
@@ -423,6 +427,15 @@ public class NSGateway extends RestObject {
       this.serialNumber = value;
    }
    @JsonIgnore
+   public DerivedSSHServiceState getDerivedSSHServiceState() {
+      return derivedSSHServiceState;
+   }
+
+   @JsonIgnore
+   public void setDerivedSSHServiceState(DerivedSSHServiceState value) { 
+      this.derivedSSHServiceState = value;
+   }
+   @JsonIgnore
    public PermittedAction getPermittedAction() {
       return permittedAction;
    }
@@ -674,7 +687,7 @@ public class NSGateway extends RestObject {
    
 
    public String toString() {
-      return "NSGateway [" + "MACAddress=" + MACAddress + ", NATTraversalEnabled=" + NATTraversalEnabled + ", SKU=" + SKU + ", TPMStatus=" + TPMStatus + ", CPUType=" + CPUType + ", NSGVersion=" + NSGVersion + ", SSHService=" + SSHService + ", UUID=" + UUID + ", name=" + name + ", family=" + family + ", lastConfigurationReloadTimestamp=" + lastConfigurationReloadTimestamp + ", lastUpdatedBy=" + lastUpdatedBy + ", datapathID=" + datapathID + ", redundancyGroupID=" + redundancyGroupID + ", templateID=" + templateID + ", pending=" + pending + ", serialNumber=" + serialNumber + ", permittedAction=" + permittedAction + ", personality=" + personality + ", description=" + description + ", libraries=" + libraries + ", inheritedSSHServiceState=" + inheritedSSHServiceState + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", locationID=" + locationID + ", configurationReloadState=" + configurationReloadState + ", configurationStatus=" + configurationStatus + ", bootstrapID=" + bootstrapID + ", bootstrapStatus=" + bootstrapStatus + ", associatedGatewaySecurityID=" + associatedGatewaySecurityID + ", associatedGatewaySecurityProfileID=" + associatedGatewaySecurityProfileID + ", associatedNSGInfoID=" + associatedNSGInfoID + ", autoDiscGatewayID=" + autoDiscGatewayID + ", externalID=" + externalID + ", systemID=" + systemID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NSGateway [" + "MACAddress=" + MACAddress + ", NATTraversalEnabled=" + NATTraversalEnabled + ", SKU=" + SKU + ", TPMStatus=" + TPMStatus + ", CPUType=" + CPUType + ", NSGVersion=" + NSGVersion + ", SSHService=" + SSHService + ", UUID=" + UUID + ", name=" + name + ", family=" + family + ", lastConfigurationReloadTimestamp=" + lastConfigurationReloadTimestamp + ", lastUpdatedBy=" + lastUpdatedBy + ", datapathID=" + datapathID + ", redundancyGroupID=" + redundancyGroupID + ", templateID=" + templateID + ", pending=" + pending + ", serialNumber=" + serialNumber + ", derivedSSHServiceState=" + derivedSSHServiceState + ", permittedAction=" + permittedAction + ", personality=" + personality + ", description=" + description + ", libraries=" + libraries + ", inheritedSSHServiceState=" + inheritedSSHServiceState + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", locationID=" + locationID + ", configurationReloadState=" + configurationReloadState + ", configurationStatus=" + configurationStatus + ", bootstrapID=" + bootstrapID + ", bootstrapStatus=" + bootstrapStatus + ", associatedGatewaySecurityID=" + associatedGatewaySecurityID + ", associatedGatewaySecurityProfileID=" + associatedGatewaySecurityProfileID + ", associatedNSGInfoID=" + associatedNSGInfoID + ", autoDiscGatewayID=" + autoDiscGatewayID + ", externalID=" + externalID + ", systemID=" + systemID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

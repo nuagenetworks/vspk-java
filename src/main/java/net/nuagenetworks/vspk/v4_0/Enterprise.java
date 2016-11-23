@@ -79,6 +79,7 @@ import net.nuagenetworks.vspk.v4_0.fetchers.DSCPForwardingClassTablesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.UsersFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NSGatewaysFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NSGatewayTemplatesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.NSGGroupsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NSRedundantGatewayGroupsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.PublicNetworkMacrosFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MultiCastListsFetcher;
@@ -319,6 +320,9 @@ public class Enterprise extends RestObject {
    private NSGatewayTemplatesFetcher nSGatewayTemplates;
    
    @JsonIgnore
+   private NSGGroupsFetcher nSGGroups;
+   
+   @JsonIgnore
    private NSRedundantGatewayGroupsFetcher nSRedundantGatewayGroups;
    
    @JsonIgnore
@@ -429,6 +433,8 @@ public class Enterprise extends RestObject {
       nSGateways = new NSGatewaysFetcher(this);
       
       nSGatewayTemplates = new NSGatewayTemplatesFetcher(this);
+      
+      nSGGroups = new NSGGroupsFetcher(this);
       
       nSRedundantGatewayGroups = new NSRedundantGatewayGroupsFetcher(this);
       
@@ -919,6 +925,11 @@ public class Enterprise extends RestObject {
    @JsonIgnore
    public NSGatewayTemplatesFetcher getNSGatewayTemplates() {
       return nSGatewayTemplates;
+   }
+   
+   @JsonIgnore
+   public NSGGroupsFetcher getNSGGroups() {
+      return nSGGroups;
    }
    
    @JsonIgnore

@@ -110,6 +110,9 @@ public class VLAN extends RestObject {
    @JsonProperty(value = "status")
    protected Status status;
    
+   @JsonProperty(value = "ducVlan")
+   protected Boolean ducVlan;
+   
    @JsonProperty(value = "externalID")
    protected String externalID;
    
@@ -329,6 +332,15 @@ public class VLAN extends RestObject {
       this.status = value;
    }
    @JsonIgnore
+   public Boolean getDucVlan() {
+      return ducVlan;
+   }
+
+   @JsonIgnore
+   public void setDucVlan(Boolean value) { 
+      this.ducVlan = value;
+   }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
@@ -397,7 +409,7 @@ public class VLAN extends RestObject {
    
 
    public String toString() {
-      return "VLAN [" + "value=" + value + ", lastUpdatedBy=" + lastUpdatedBy + ", gatewayID=" + gatewayID + ", readonly=" + readonly + ", templateID=" + templateID + ", permittedAction=" + permittedAction + ", description=" + description + ", restricted=" + restricted + ", entityScope=" + entityScope + ", vportID=" + vportID + ", useUserMnemonic=" + useUserMnemonic + ", userMnemonic=" + userMnemonic + ", associatedBGPProfileID=" + associatedBGPProfileID + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", associatedUplinkConnectionID=" + associatedUplinkConnectionID + ", associatedVSCProfileID=" + associatedVSCProfileID + ", status=" + status + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VLAN [" + "value=" + value + ", lastUpdatedBy=" + lastUpdatedBy + ", gatewayID=" + gatewayID + ", readonly=" + readonly + ", templateID=" + templateID + ", permittedAction=" + permittedAction + ", description=" + description + ", restricted=" + restricted + ", entityScope=" + entityScope + ", vportID=" + vportID + ", useUserMnemonic=" + useUserMnemonic + ", userMnemonic=" + userMnemonic + ", associatedBGPProfileID=" + associatedBGPProfileID + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", associatedUplinkConnectionID=" + associatedUplinkConnectionID + ", associatedVSCProfileID=" + associatedVSCProfileID + ", status=" + status + ", ducVlan=" + ducVlan + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

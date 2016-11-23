@@ -45,8 +45,9 @@ public class Infrastructureaccessprofile extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum SSHAuthMode { PASSWORD_BASED };
+   public enum SSHAuthMode { KEY_BASED, PASSWORD_AND_KEY_BASED, PASSWORD_BASED };
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum SourceIPFilter { DISABLED, ENABLED };
 
    
    @JsonProperty(value = "SSHAuthMode")
@@ -69,6 +70,9 @@ public class Infrastructureaccessprofile extends RestObject {
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
+   
+   @JsonProperty(value = "sourceIPFilter")
+   protected SourceIPFilter sourceIPFilter;
    
    @JsonProperty(value = "userName")
    protected String userName;
@@ -157,6 +161,15 @@ public class Infrastructureaccessprofile extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
+   public SourceIPFilter getSourceIPFilter() {
+      return sourceIPFilter;
+   }
+
+   @JsonIgnore
+   public void setSourceIPFilter(SourceIPFilter value) { 
+      this.sourceIPFilter = value;
+   }
+   @JsonIgnore
    public String getUserName() {
       return userName;
    }
@@ -189,7 +202,7 @@ public class Infrastructureaccessprofile extends RestObject {
    
 
    public String toString() {
-      return "Infrastructureaccessprofile [" + "SSHAuthMode=" + SSHAuthMode + ", name=" + name + ", password=" + password + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", userName=" + userName + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Infrastructureaccessprofile [" + "SSHAuthMode=" + SSHAuthMode + ", name=" + name + ", password=" + password + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", sourceIPFilter=" + sourceIPFilter + ", userName=" + userName + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

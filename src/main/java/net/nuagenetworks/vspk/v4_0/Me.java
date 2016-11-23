@@ -47,6 +47,7 @@ import net.nuagenetworks.vspk.v4_0.fetchers.VCentersFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VCenterHypervisorsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.RedirectionTargetsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.RedundancyGroupsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.PerformanceMonitorsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.CertificatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadataTagsFetcher;
@@ -71,6 +72,7 @@ import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VMInterfacesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.CloudMgmtSystemsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.UnderlaysFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.InfrastructureGatewayProfilesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.InfrastructureVscProfilesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IngressACLEntryTemplatesFetcher;
@@ -92,11 +94,13 @@ import net.nuagenetworks.vspk.v4_0.fetchers.VCenterVRSConfigsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.UsersFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NSGatewaysFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NSGatewayTemplatesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.NSGGroupsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NSRedundantGatewayGroupsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VSPsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.StaticRoutesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.StatsCollectorInfosFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.SubnetsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.DUCGroupsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MultiCastChannelMapsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.AutoDiscoveredGatewaysFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.ExternalAppServicesFetcher;
@@ -201,6 +205,9 @@ public class Me extends RestRootObject {
    private RedundancyGroupsFetcher redundancyGroups;
    
    @JsonIgnore
+   private PerformanceMonitorsFetcher performanceMonitors;
+   
+   @JsonIgnore
    private CertificatesFetcher certificates;
    
    @JsonIgnore
@@ -273,6 +280,9 @@ public class Me extends RestRootObject {
    private CloudMgmtSystemsFetcher cloudMgmtSystems;
    
    @JsonIgnore
+   private UnderlaysFetcher underlays;
+   
+   @JsonIgnore
    private InfrastructureGatewayProfilesFetcher infrastructureGatewayProfiles;
    
    @JsonIgnore
@@ -336,6 +346,9 @@ public class Me extends RestRootObject {
    private NSGatewayTemplatesFetcher nSGatewayTemplates;
    
    @JsonIgnore
+   private NSGGroupsFetcher nSGGroups;
+   
+   @JsonIgnore
    private NSRedundantGatewayGroupsFetcher nSRedundantGatewayGroups;
    
    @JsonIgnore
@@ -349,6 +362,9 @@ public class Me extends RestRootObject {
    
    @JsonIgnore
    private SubnetsFetcher subnets;
+   
+   @JsonIgnore
+   private DUCGroupsFetcher dUCGroups;
    
    @JsonIgnore
    private MultiCastChannelMapsFetcher multiCastChannelMaps;
@@ -391,6 +407,8 @@ public class Me extends RestRootObject {
       redirectionTargets = new RedirectionTargetsFetcher(this);
       
       redundancyGroups = new RedundancyGroupsFetcher(this);
+      
+      performanceMonitors = new PerformanceMonitorsFetcher(this);
       
       certificates = new CertificatesFetcher(this);
       
@@ -440,6 +458,8 @@ public class Me extends RestRootObject {
       
       cloudMgmtSystems = new CloudMgmtSystemsFetcher(this);
       
+      underlays = new UnderlaysFetcher(this);
+      
       infrastructureGatewayProfiles = new InfrastructureGatewayProfilesFetcher(this);
       
       infrastructureVscProfiles = new InfrastructureVscProfilesFetcher(this);
@@ -482,6 +502,8 @@ public class Me extends RestRootObject {
       
       nSGatewayTemplates = new NSGatewayTemplatesFetcher(this);
       
+      nSGGroups = new NSGGroupsFetcher(this);
+      
       nSRedundantGatewayGroups = new NSRedundantGatewayGroupsFetcher(this);
       
       vSPs = new VSPsFetcher(this);
@@ -491,6 +513,8 @@ public class Me extends RestRootObject {
       statsCollectorInfos = new StatsCollectorInfosFetcher(this);
       
       subnets = new SubnetsFetcher(this);
+      
+      dUCGroups = new DUCGroupsFetcher(this);
       
       multiCastChannelMaps = new MultiCastChannelMapsFetcher(this);
       
@@ -712,6 +736,11 @@ public class Me extends RestRootObject {
    }
    
    @JsonIgnore
+   public PerformanceMonitorsFetcher getPerformanceMonitors() {
+      return performanceMonitors;
+   }
+   
+   @JsonIgnore
    public CertificatesFetcher getCertificates() {
       return certificates;
    }
@@ -832,6 +861,11 @@ public class Me extends RestRootObject {
    }
    
    @JsonIgnore
+   public UnderlaysFetcher getUnderlays() {
+      return underlays;
+   }
+   
+   @JsonIgnore
    public InfrastructureGatewayProfilesFetcher getInfrastructureGatewayProfiles() {
       return infrastructureGatewayProfiles;
    }
@@ -937,6 +971,11 @@ public class Me extends RestRootObject {
    }
    
    @JsonIgnore
+   public NSGGroupsFetcher getNSGGroups() {
+      return nSGGroups;
+   }
+   
+   @JsonIgnore
    public NSRedundantGatewayGroupsFetcher getNSRedundantGatewayGroups() {
       return nSRedundantGatewayGroups;
    }
@@ -959,6 +998,11 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public SubnetsFetcher getSubnets() {
       return subnets;
+   }
+   
+   @JsonIgnore
+   public DUCGroupsFetcher getDUCGroups() {
+      return dUCGroups;
    }
    
    @JsonIgnore

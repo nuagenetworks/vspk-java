@@ -35,6 +35,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v4_0.fetchers.UnderlaysFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "uplinkconnection", resourceName = "uplinkconnections")
@@ -44,8 +45,9 @@ public class UplinkConnection extends RestObject {
 
    
    public enum Address { IPv4, IPv6 };
+   public enum AdvertisementCriteria { CONTROL_SESSION, GATEWAY_PING, OPERATIONAL_LINK };
    public enum Mode { Any, Dynamic, PPPoE, Static };
-   public enum Role { PRIMARY, SECONDARY, TERTIARY, UNKNOWN };
+   public enum Role { NONE, PRIMARY, SECONDARY, TERTIARY, UNKNOWN };
 
    
    @JsonProperty(value = "DNSAddress")
@@ -54,8 +56,14 @@ public class UplinkConnection extends RestObject {
    @JsonProperty(value = "password")
    protected String password;
    
+   @JsonProperty(value = "gateway")
+   protected String gateway;
+   
    @JsonProperty(value = "address")
    protected Address address;
+   
+   @JsonProperty(value = "advertisementCriteria")
+   protected AdvertisementCriteria advertisementCriteria;
    
    @JsonProperty(value = "netmask")
    protected String netmask;
@@ -66,16 +74,27 @@ public class UplinkConnection extends RestObject {
    @JsonProperty(value = "role")
    protected Role role;
    
+   @JsonProperty(value = "uplinkID")
+   protected String uplinkID;
+   
    @JsonProperty(value = "username")
    protected String username;
+   
+   @JsonProperty(value = "assocUnderlayID")
+   protected String assocUnderlayID;
    
    @JsonProperty(value = "associatedVSCProfileID")
    protected String associatedVSCProfileID;
    
 
    
+   @JsonIgnore
+   private UnderlaysFetcher underlays;
+   
 
    public UplinkConnection() {
+      
+      underlays = new UnderlaysFetcher(this);
       
    }
 
@@ -98,6 +117,15 @@ public class UplinkConnection extends RestObject {
       this.password = value;
    }
    @JsonIgnore
+   public String getGateway() {
+      return gateway;
+   }
+
+   @JsonIgnore
+   public void setGateway(String value) { 
+      this.gateway = value;
+   }
+   @JsonIgnore
    public Address getAddress() {
       return address;
    }
@@ -105,6 +133,15 @@ public class UplinkConnection extends RestObject {
    @JsonIgnore
    public void setAddress(Address value) { 
       this.address = value;
+   }
+   @JsonIgnore
+   public AdvertisementCriteria getAdvertisementCriteria() {
+      return advertisementCriteria;
+   }
+
+   @JsonIgnore
+   public void setAdvertisementCriteria(AdvertisementCriteria value) { 
+      this.advertisementCriteria = value;
    }
    @JsonIgnore
    public String getNetmask() {
@@ -134,6 +171,15 @@ public class UplinkConnection extends RestObject {
       this.role = value;
    }
    @JsonIgnore
+   public String getUplinkID() {
+      return uplinkID;
+   }
+
+   @JsonIgnore
+   public void setUplinkID(String value) { 
+      this.uplinkID = value;
+   }
+   @JsonIgnore
    public String getUsername() {
       return username;
    }
@@ -141,6 +187,15 @@ public class UplinkConnection extends RestObject {
    @JsonIgnore
    public void setUsername(String value) { 
       this.username = value;
+   }
+   @JsonIgnore
+   public String getAssocUnderlayID() {
+      return assocUnderlayID;
+   }
+
+   @JsonIgnore
+   public void setAssocUnderlayID(String value) { 
+      this.assocUnderlayID = value;
    }
    @JsonIgnore
    public String getAssociatedVSCProfileID() {
@@ -154,9 +209,14 @@ public class UplinkConnection extends RestObject {
    
 
    
+   @JsonIgnore
+   public UnderlaysFetcher getUnderlays() {
+      return underlays;
+   }
+   
 
    public String toString() {
-      return "UplinkConnection [" + "DNSAddress=" + DNSAddress + ", password=" + password + ", address=" + address + ", netmask=" + netmask + ", mode=" + mode + ", role=" + role + ", username=" + username + ", associatedVSCProfileID=" + associatedVSCProfileID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "UplinkConnection [" + "DNSAddress=" + DNSAddress + ", password=" + password + ", gateway=" + gateway + ", address=" + address + ", advertisementCriteria=" + advertisementCriteria + ", netmask=" + netmask + ", mode=" + mode + ", role=" + role + ", uplinkID=" + uplinkID + ", username=" + username + ", assocUnderlayID=" + assocUnderlayID + ", associatedVSCProfileID=" + associatedVSCProfileID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

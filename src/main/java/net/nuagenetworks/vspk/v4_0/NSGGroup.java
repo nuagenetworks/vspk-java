@@ -35,115 +35,99 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v4_0.fetchers.NSGatewaysFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.DUCGroupBindingsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "brconnections", resourceName = "brconnections")
-public class BRConnection extends RestObject {
+@RestEntity(restName = "nsggroup", resourceName = "nsggroups")
+public class NSGGroup extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
-   public enum AdvertisementCriteria { GATEWAY_PING, LINK_BASED, OPENFLOW };
-   public enum Mode { Static };
 
    
-   @JsonProperty(value = "DNSAddress")
-   protected String DNSAddress;
+   @JsonProperty(value = "name")
+   protected String name;
    
-   @JsonProperty(value = "gateway")
-   protected String gateway;
+   @JsonProperty(value = "id")
+   protected String id;
    
-   @JsonProperty(value = "address")
-   protected String address;
+   @JsonProperty(value = "description ")
+   protected String description ;
    
-   @JsonProperty(value = "advertisementCriteria")
-   protected AdvertisementCriteria advertisementCriteria;
-   
-   @JsonProperty(value = "netmask")
-   protected String netmask;
-   
-   @JsonProperty(value = "mode")
-   protected Mode mode;
-   
-   @JsonProperty(value = "uplinkID")
-   protected Long uplinkID;
+   @JsonProperty(value = "associatedNSGs")
+   protected java.util.List<String> associatedNSGs;
    
 
    
+   @JsonIgnore
+   private NSGatewaysFetcher nSGateways;
+   
+   @JsonIgnore
+   private DUCGroupBindingsFetcher dUCGroupBindings;
+   
 
-   public BRConnection() {
+   public NSGGroup() {
+      
+      nSGateways = new NSGatewaysFetcher(this);
+      
+      dUCGroupBindings = new DUCGroupBindingsFetcher(this);
       
    }
 
    @JsonIgnore
-   public String getDNSAddress() {
-      return DNSAddress;
+   public String getName() {
+      return name;
    }
 
    @JsonIgnore
-   public void setDNSAddress(String value) { 
-      this.DNSAddress = value;
+   public void setName(String value) { 
+      this.name = value;
    }
    @JsonIgnore
-   public String getGateway() {
-      return gateway;
-   }
-
-   @JsonIgnore
-   public void setGateway(String value) { 
-      this.gateway = value;
-   }
-   @JsonIgnore
-   public String getAddress() {
-      return address;
+   public String getId() {
+      return id;
    }
 
    @JsonIgnore
-   public void setAddress(String value) { 
-      this.address = value;
+   public void setId(String value) { 
+      this.id = value;
    }
    @JsonIgnore
-   public AdvertisementCriteria getAdvertisementCriteria() {
-      return advertisementCriteria;
-   }
-
-   @JsonIgnore
-   public void setAdvertisementCriteria(AdvertisementCriteria value) { 
-      this.advertisementCriteria = value;
-   }
-   @JsonIgnore
-   public String getNetmask() {
-      return netmask;
+   public String getDescription () {
+      return description ;
    }
 
    @JsonIgnore
-   public void setNetmask(String value) { 
-      this.netmask = value;
+   public void setDescription (String value) { 
+      this.description  = value;
    }
    @JsonIgnore
-   public Mode getMode() {
-      return mode;
-   }
-
-   @JsonIgnore
-   public void setMode(Mode value) { 
-      this.mode = value;
-   }
-   @JsonIgnore
-   public Long getUplinkID() {
-      return uplinkID;
+   public java.util.List<String> getAssociatedNSGs() {
+      return associatedNSGs;
    }
 
    @JsonIgnore
-   public void setUplinkID(Long value) { 
-      this.uplinkID = value;
+   public void setAssociatedNSGs(java.util.List<String> value) { 
+      this.associatedNSGs = value;
    }
    
 
+   
+   @JsonIgnore
+   public NSGatewaysFetcher getNSGateways() {
+      return nSGateways;
+   }
+   
+   @JsonIgnore
+   public DUCGroupBindingsFetcher getDUCGroupBindings() {
+      return dUCGroupBindings;
+   }
    
 
    public String toString() {
-      return "BRConnection [" + "DNSAddress=" + DNSAddress + ", gateway=" + gateway + ", address=" + address + ", advertisementCriteria=" + advertisementCriteria + ", netmask=" + netmask + ", mode=" + mode + ", uplinkID=" + uplinkID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NSGGroup [" + "name=" + name + ", id=" + id + ", description =" + description  + ", associatedNSGs=" + associatedNSGs + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

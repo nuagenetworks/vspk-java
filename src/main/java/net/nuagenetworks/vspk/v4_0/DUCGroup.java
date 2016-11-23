@@ -35,115 +35,100 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v4_0.fetchers.NSGatewaysFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "brconnections", resourceName = "brconnections")
-public class BRConnection extends RestObject {
+@RestEntity(restName = "ducgroup", resourceName = "ducgroups")
+public class DUCGroup extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
-   public enum AdvertisementCriteria { GATEWAY_PING, LINK_BASED, OPENFLOW };
-   public enum Mode { Static };
 
    
-   @JsonProperty(value = "DNSAddress")
-   protected String DNSAddress;
+   @JsonProperty(value = "name")
+   protected String name;
    
-   @JsonProperty(value = "gateway")
-   protected String gateway;
+   @JsonProperty(value = "id")
+   protected String id;
    
-   @JsonProperty(value = "address")
-   protected String address;
+   @JsonProperty(value = "Description ")
+   protected String Description ;
    
-   @JsonProperty(value = "advertisementCriteria")
-   protected AdvertisementCriteria advertisementCriteria;
+   @JsonProperty(value = "associatedDUCs")
+   protected java.util.List<String> associatedDUCs;
    
-   @JsonProperty(value = "netmask")
-   protected String netmask;
-   
-   @JsonProperty(value = "mode")
-   protected Mode mode;
-   
-   @JsonProperty(value = "uplinkID")
-   protected Long uplinkID;
+   @JsonProperty(value = "associatedPerformanceMonitorID")
+   protected String associatedPerformanceMonitorID;
    
 
    
+   @JsonIgnore
+   private NSGatewaysFetcher nSGateways;
+   
 
-   public BRConnection() {
+   public DUCGroup() {
+      
+      nSGateways = new NSGatewaysFetcher(this);
       
    }
 
    @JsonIgnore
-   public String getDNSAddress() {
-      return DNSAddress;
+   public String getName() {
+      return name;
    }
 
    @JsonIgnore
-   public void setDNSAddress(String value) { 
-      this.DNSAddress = value;
+   public void setName(String value) { 
+      this.name = value;
    }
    @JsonIgnore
-   public String getGateway() {
-      return gateway;
-   }
-
-   @JsonIgnore
-   public void setGateway(String value) { 
-      this.gateway = value;
-   }
-   @JsonIgnore
-   public String getAddress() {
-      return address;
+   public String getId() {
+      return id;
    }
 
    @JsonIgnore
-   public void setAddress(String value) { 
-      this.address = value;
+   public void setId(String value) { 
+      this.id = value;
    }
    @JsonIgnore
-   public AdvertisementCriteria getAdvertisementCriteria() {
-      return advertisementCriteria;
-   }
-
-   @JsonIgnore
-   public void setAdvertisementCriteria(AdvertisementCriteria value) { 
-      this.advertisementCriteria = value;
-   }
-   @JsonIgnore
-   public String getNetmask() {
-      return netmask;
+   public String getDescription () {
+      return Description ;
    }
 
    @JsonIgnore
-   public void setNetmask(String value) { 
-      this.netmask = value;
+   public void setDescription (String value) { 
+      this.Description  = value;
    }
    @JsonIgnore
-   public Mode getMode() {
-      return mode;
-   }
-
-   @JsonIgnore
-   public void setMode(Mode value) { 
-      this.mode = value;
-   }
-   @JsonIgnore
-   public Long getUplinkID() {
-      return uplinkID;
+   public java.util.List<String> getAssociatedDUCs() {
+      return associatedDUCs;
    }
 
    @JsonIgnore
-   public void setUplinkID(Long value) { 
-      this.uplinkID = value;
+   public void setAssociatedDUCs(java.util.List<String> value) { 
+      this.associatedDUCs = value;
+   }
+   @JsonIgnore
+   public String getAssociatedPerformanceMonitorID() {
+      return associatedPerformanceMonitorID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedPerformanceMonitorID(String value) { 
+      this.associatedPerformanceMonitorID = value;
    }
    
 
+   
+   @JsonIgnore
+   public NSGatewaysFetcher getNSGateways() {
+      return nSGateways;
+   }
    
 
    public String toString() {
-      return "BRConnection [" + "DNSAddress=" + DNSAddress + ", gateway=" + gateway + ", address=" + address + ", advertisementCriteria=" + advertisementCriteria + ", netmask=" + netmask + ", mode=" + mode + ", uplinkID=" + uplinkID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "DUCGroup [" + "name=" + name + ", id=" + id + ", Description =" + Description  + ", associatedDUCs=" + associatedDUCs + ", associatedPerformanceMonitorID=" + associatedPerformanceMonitorID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    
