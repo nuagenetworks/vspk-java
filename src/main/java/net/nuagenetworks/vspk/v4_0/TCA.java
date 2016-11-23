@@ -120,7 +120,6 @@ public class TCA extends RestObject {
    
 
    public TCA() {
-      scope = Scope.LOCAL;
       metric = Metric.BYTES_IN;
       type = Type.ROLLING_AVERAGE;
       
