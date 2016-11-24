@@ -45,6 +45,12 @@ public class LicenseStatus extends RestObject {
    
 
    
+   @JsonProperty(value = "accumulateLicensesEnabled")
+   protected String accumulateLicensesEnabled;
+   
+   @JsonProperty(value = "totalLicensedGatewaysCount ")
+   protected Long totalLicensedGatewaysCount ;
+   
    @JsonProperty(value = "totalLicensedNICsCount")
    protected Long totalLicensedNICsCount;
    
@@ -75,6 +81,9 @@ public class LicenseStatus extends RestObject {
    @JsonProperty(value = "totalLicensedVRSsCount")
    protected Long totalLicensedVRSsCount;
    
+   @JsonProperty(value = "totalUsedGatewaysCount ")
+   protected Long totalUsedGatewaysCount ;
+   
 
    
 
@@ -82,6 +91,24 @@ public class LicenseStatus extends RestObject {
       
    }
 
+   @JsonIgnore
+   public String getAccumulateLicensesEnabled() {
+      return accumulateLicensesEnabled;
+   }
+
+   @JsonIgnore
+   public void setAccumulateLicensesEnabled(String value) { 
+      this.accumulateLicensesEnabled = value;
+   }
+   @JsonIgnore
+   public Long getTotalLicensedGatewaysCount () {
+      return totalLicensedGatewaysCount ;
+   }
+
+   @JsonIgnore
+   public void setTotalLicensedGatewaysCount (Long value) { 
+      this.totalLicensedGatewaysCount  = value;
+   }
    @JsonIgnore
    public Long getTotalLicensedNICsCount() {
       return totalLicensedNICsCount;
@@ -172,12 +199,21 @@ public class LicenseStatus extends RestObject {
    public void setTotalLicensedVRSsCount(Long value) { 
       this.totalLicensedVRSsCount = value;
    }
+   @JsonIgnore
+   public Long getTotalUsedGatewaysCount () {
+      return totalUsedGatewaysCount ;
+   }
+
+   @JsonIgnore
+   public void setTotalUsedGatewaysCount (Long value) { 
+      this.totalUsedGatewaysCount  = value;
+   }
    
 
    
 
    public String toString() {
-      return "LicenseStatus [" + "totalLicensedNICsCount=" + totalLicensedNICsCount + ", totalLicensedNSGsCount=" + totalLicensedNSGsCount + ", totalLicensedUsedNICsCount=" + totalLicensedUsedNICsCount + ", totalLicensedUsedNSGsCount=" + totalLicensedUsedNSGsCount + ", totalLicensedUsedVMsCount=" + totalLicensedUsedVMsCount + ", totalLicensedUsedVRSGsCount=" + totalLicensedUsedVRSGsCount + ", totalLicensedUsedVRSsCount=" + totalLicensedUsedVRSsCount + ", totalLicensedVMsCount=" + totalLicensedVMsCount + ", totalLicensedVRSGsCount=" + totalLicensedVRSGsCount + ", totalLicensedVRSsCount=" + totalLicensedVRSsCount + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "LicenseStatus [" + "accumulateLicensesEnabled=" + accumulateLicensesEnabled + ", totalLicensedGatewaysCount =" + totalLicensedGatewaysCount  + ", totalLicensedNICsCount=" + totalLicensedNICsCount + ", totalLicensedNSGsCount=" + totalLicensedNSGsCount + ", totalLicensedUsedNICsCount=" + totalLicensedUsedNICsCount + ", totalLicensedUsedNSGsCount=" + totalLicensedUsedNSGsCount + ", totalLicensedUsedVMsCount=" + totalLicensedUsedVMsCount + ", totalLicensedUsedVRSGsCount=" + totalLicensedUsedVRSGsCount + ", totalLicensedUsedVRSsCount=" + totalLicensedUsedVRSsCount + ", totalLicensedVMsCount=" + totalLicensedVMsCount + ", totalLicensedVRSGsCount=" + totalLicensedVRSGsCount + ", totalLicensedVRSsCount=" + totalLicensedVRSsCount + ", totalUsedGatewaysCount =" + totalUsedGatewaysCount  + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    
