@@ -136,6 +136,9 @@ public class Me extends RestRootObject {
    @JsonProperty(value = "elasticSearchUIAddress")
    protected String elasticSearchUIAddress;
    
+   @JsonProperty(value = "flowCollectionEnabled")
+   protected Boolean flowCollectionEnabled;
+   
    @JsonProperty(value = "email")
    protected String email;
    
@@ -156,6 +159,9 @@ public class Me extends RestRootObject {
    
    @JsonProperty(value = "userName")
    protected String userName;
+   
+   @JsonProperty(value = "statisticsEnabled")
+   protected Boolean statisticsEnabled;
    
    @JsonProperty(value = "avatarData")
    protected String avatarData;
@@ -583,6 +589,15 @@ public class Me extends RestRootObject {
       this.elasticSearchUIAddress = value;
    }
    @JsonIgnore
+   public Boolean getFlowCollectionEnabled() {
+      return flowCollectionEnabled;
+   }
+
+   @JsonIgnore
+   public void setFlowCollectionEnabled(Boolean value) { 
+      this.flowCollectionEnabled = value;
+   }
+   @JsonIgnore
    public String getEmail() {
       return email;
    }
@@ -644,6 +659,15 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public void setUserName(String value) { 
       this.userName = value;
+   }
+   @JsonIgnore
+   public Boolean getStatisticsEnabled() {
+      return statisticsEnabled;
+   }
+
+   @JsonIgnore
+   public void setStatisticsEnabled(Boolean value) { 
+      this.statisticsEnabled = value;
    }
    @JsonIgnore
    public String getAvatarData() {
@@ -1032,7 +1056,7 @@ public class Me extends RestRootObject {
    
 
    public String toString() {
-      return "Me [" + "password=" + password + ", lastName=" + lastName + ", lastUpdatedBy=" + lastUpdatedBy + ", firstName=" + firstName + ", disabled=" + disabled + ", elasticSearchUIAddress=" + elasticSearchUIAddress + ", email=" + email + ", enterpriseID=" + enterpriseID + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", mobileNumber=" + mobileNumber + ", role=" + role + ", userName=" + userName + ", avatarData=" + avatarData + ", avatarType=" + avatarType + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Me [" + "password=" + password + ", lastName=" + lastName + ", lastUpdatedBy=" + lastUpdatedBy + ", firstName=" + firstName + ", disabled=" + disabled + ", elasticSearchUIAddress=" + elasticSearchUIAddress + ", flowCollectionEnabled=" + flowCollectionEnabled + ", email=" + email + ", enterpriseID=" + enterpriseID + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", mobileNumber=" + mobileNumber + ", role=" + role + ", userName=" + userName + ", statisticsEnabled=" + statisticsEnabled + ", avatarData=" + avatarData + ", avatarType=" + avatarType + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + ", apiKey=" + apiKey  + "]";
    }
    

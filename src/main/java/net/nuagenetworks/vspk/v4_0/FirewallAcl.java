@@ -35,10 +35,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v4_0.fetchers.FirewallRulesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.DomainsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "monitorscope", resourceName = "monitorscopes")
-public class Monitorscope extends RestObject {
+@RestEntity(restName = "firewallacl", resourceName = "firewallacls")
+public class FirewallAcl extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
@@ -48,25 +50,35 @@ public class Monitorscope extends RestObject {
    @JsonProperty(value = "name")
    protected String name;
    
-   @JsonProperty(value = "readOnly")
-   protected Boolean readOnly;
+   @JsonProperty(value = "active")
+   protected Boolean active;
    
-   @JsonProperty(value = "destinationNSGs")
-   protected java.util.List<String> destinationNSGs;
+   @JsonProperty(value = "defaultAllowIP")
+   protected Boolean defaultAllowIP;
    
-   @JsonProperty(value = "allowAllDestinationNSGs")
-   protected Boolean allowAllDestinationNSGs;
+   @JsonProperty(value = "defaultAllowNonIP")
+   protected Boolean defaultAllowNonIP;
    
-   @JsonProperty(value = "allowAllSourceNSGs")
-   protected Boolean allowAllSourceNSGs;
+   @JsonProperty(value = "description")
+   protected String description;
    
-   @JsonProperty(value = "sourceNSGs")
-   protected java.util.List<String> sourceNSGs;
-   
-
+   @JsonProperty(value = "ruleIds")
+   protected java.util.List<String> ruleIds;
    
 
-   public Monitorscope() {
+   
+   @JsonIgnore
+   private FirewallRulesFetcher firewallRules;
+   
+   @JsonIgnore
+   private DomainsFetcher domains;
+   
+
+   public FirewallAcl() {
+      
+      firewallRules = new FirewallRulesFetcher(this);
+      
+      domains = new DomainsFetcher(this);
       
    }
 
@@ -80,56 +92,66 @@ public class Monitorscope extends RestObject {
       this.name = value;
    }
    @JsonIgnore
-   public Boolean getReadOnly() {
-      return readOnly;
+   public Boolean getActive() {
+      return active;
    }
 
    @JsonIgnore
-   public void setReadOnly(Boolean value) { 
-      this.readOnly = value;
+   public void setActive(Boolean value) { 
+      this.active = value;
    }
    @JsonIgnore
-   public java.util.List<String> getDestinationNSGs() {
-      return destinationNSGs;
-   }
-
-   @JsonIgnore
-   public void setDestinationNSGs(java.util.List<String> value) { 
-      this.destinationNSGs = value;
-   }
-   @JsonIgnore
-   public Boolean getAllowAllDestinationNSGs() {
-      return allowAllDestinationNSGs;
+   public Boolean getDefaultAllowIP() {
+      return defaultAllowIP;
    }
 
    @JsonIgnore
-   public void setAllowAllDestinationNSGs(Boolean value) { 
-      this.allowAllDestinationNSGs = value;
+   public void setDefaultAllowIP(Boolean value) { 
+      this.defaultAllowIP = value;
    }
    @JsonIgnore
-   public Boolean getAllowAllSourceNSGs() {
-      return allowAllSourceNSGs;
-   }
-
-   @JsonIgnore
-   public void setAllowAllSourceNSGs(Boolean value) { 
-      this.allowAllSourceNSGs = value;
-   }
-   @JsonIgnore
-   public java.util.List<String> getSourceNSGs() {
-      return sourceNSGs;
+   public Boolean getDefaultAllowNonIP() {
+      return defaultAllowNonIP;
    }
 
    @JsonIgnore
-   public void setSourceNSGs(java.util.List<String> value) { 
-      this.sourceNSGs = value;
+   public void setDefaultAllowNonIP(Boolean value) { 
+      this.defaultAllowNonIP = value;
+   }
+   @JsonIgnore
+   public String getDescription() {
+      return description;
+   }
+
+   @JsonIgnore
+   public void setDescription(String value) { 
+      this.description = value;
+   }
+   @JsonIgnore
+   public java.util.List<String> getRuleIds() {
+      return ruleIds;
+   }
+
+   @JsonIgnore
+   public void setRuleIds(java.util.List<String> value) { 
+      this.ruleIds = value;
    }
    
 
+   
+   @JsonIgnore
+   public FirewallRulesFetcher getFirewallRules() {
+      return firewallRules;
+   }
+   
+   @JsonIgnore
+   public DomainsFetcher getDomains() {
+      return domains;
+   }
    
 
    public String toString() {
-      return "Monitorscope [" + "name=" + name + ", readOnly=" + readOnly + ", destinationNSGs=" + destinationNSGs + ", allowAllDestinationNSGs=" + allowAllDestinationNSGs + ", allowAllSourceNSGs=" + allowAllSourceNSGs + ", sourceNSGs=" + sourceNSGs + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "FirewallAcl [" + "name=" + name + ", active=" + active + ", defaultAllowIP=" + defaultAllowIP + ", defaultAllowNonIP=" + defaultAllowNonIP + ", description=" + description + ", ruleIds=" + ruleIds + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

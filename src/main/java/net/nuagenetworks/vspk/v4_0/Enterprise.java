@@ -54,6 +54,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.ZFBRequestsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.BGPProfilesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EgressQOSPoliciesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.SharedNetworkResourcesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.FirewallAclsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.FirewallRulesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IKECertificatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IKEEncryptionprofilesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IKEGatewaysFetcher;
@@ -245,6 +247,12 @@ public class Enterprise extends RestObject {
    private SharedNetworkResourcesFetcher sharedNetworkResources;
    
    @JsonIgnore
+   private FirewallAclsFetcher firewallAcls;
+   
+   @JsonIgnore
+   private FirewallRulesFetcher firewallRules;
+   
+   @JsonIgnore
    private IKECertificatesFetcher iKECertificates;
    
    @JsonIgnore
@@ -383,6 +391,10 @@ public class Enterprise extends RestObject {
       egressQOSPolicies = new EgressQOSPoliciesFetcher(this);
       
       sharedNetworkResources = new SharedNetworkResourcesFetcher(this);
+      
+      firewallAcls = new FirewallAclsFetcher(this);
+      
+      firewallRules = new FirewallRulesFetcher(this);
       
       iKECertificates = new IKECertificatesFetcher(this);
       
@@ -800,6 +812,16 @@ public class Enterprise extends RestObject {
    @JsonIgnore
    public SharedNetworkResourcesFetcher getSharedNetworkResources() {
       return sharedNetworkResources;
+   }
+   
+   @JsonIgnore
+   public FirewallAclsFetcher getFirewallAcls() {
+      return firewallAcls;
+   }
+   
+   @JsonIgnore
+   public FirewallRulesFetcher getFirewallRules() {
+      return firewallRules;
    }
    
    @JsonIgnore

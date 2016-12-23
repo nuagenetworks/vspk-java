@@ -45,6 +45,7 @@ import net.nuagenetworks.vspk.v4_0.fetchers.DomainFIPAclTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.FloatingIPACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.DHCPOptionsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.LinksFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.FirewallAclsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.FloatingIpsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
@@ -257,6 +258,9 @@ public class Domain extends RestObject {
    private LinksFetcher links;
    
    @JsonIgnore
+   private FirewallAclsFetcher firewallAcls;
+   
+   @JsonIgnore
    private FloatingIpsFetcher floatingIps;
    
    @JsonIgnore
@@ -373,6 +377,8 @@ public class Domain extends RestObject {
       dHCPOptions = new DHCPOptionsFetcher(this);
       
       links = new LinksFetcher(this);
+      
+      firewallAcls = new FirewallAclsFetcher(this);
       
       floatingIps = new FloatingIpsFetcher(this);
       
@@ -865,6 +871,11 @@ public class Domain extends RestObject {
    @JsonIgnore
    public LinksFetcher getLinks() {
       return links;
+   }
+   
+   @JsonIgnore
+   public FirewallAclsFetcher getFirewallAcls() {
+      return firewallAcls;
    }
    
    @JsonIgnore

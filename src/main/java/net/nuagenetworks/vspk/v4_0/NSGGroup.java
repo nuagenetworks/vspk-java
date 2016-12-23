@@ -50,11 +50,8 @@ public class NSGGroup extends RestObject {
    @JsonProperty(value = "name")
    protected String name;
    
-   @JsonProperty(value = "id")
-   protected String id;
-   
-   @JsonProperty(value = "description ")
-   protected String description ;
+   @JsonProperty(value = "description")
+   protected String description;
    
    @JsonProperty(value = "associatedNSGs")
    protected java.util.List<String> associatedNSGs;
@@ -86,22 +83,13 @@ public class NSGGroup extends RestObject {
       this.name = value;
    }
    @JsonIgnore
-   public String getId() {
-      return id;
+   public String getDescription() {
+      return description;
    }
 
    @JsonIgnore
-   public void setId(String value) { 
-      this.id = value;
-   }
-   @JsonIgnore
-   public String getDescription () {
-      return description ;
-   }
-
-   @JsonIgnore
-   public void setDescription (String value) { 
-      this.description  = value;
+   public void setDescription(String value) { 
+      this.description = value;
    }
    @JsonIgnore
    public java.util.List<String> getAssociatedNSGs() {
@@ -127,7 +115,7 @@ public class NSGGroup extends RestObject {
    
 
    public String toString() {
-      return "NSGGroup [" + "name=" + name + ", id=" + id + ", description =" + description  + ", associatedNSGs=" + associatedNSGs + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NSGGroup [" + "name=" + name + ", description=" + description + ", associatedNSGs=" + associatedNSGs + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

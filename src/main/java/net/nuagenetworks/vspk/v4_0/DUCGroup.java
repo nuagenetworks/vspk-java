@@ -49,11 +49,8 @@ public class DUCGroup extends RestObject {
    @JsonProperty(value = "name")
    protected String name;
    
-   @JsonProperty(value = "id")
-   protected String id;
-   
-   @JsonProperty(value = "Description ")
-   protected String Description ;
+   @JsonProperty(value = "description")
+   protected String description;
    
    @JsonProperty(value = "associatedDUCs")
    protected java.util.List<String> associatedDUCs;
@@ -83,22 +80,13 @@ public class DUCGroup extends RestObject {
       this.name = value;
    }
    @JsonIgnore
-   public String getId() {
-      return id;
+   public String getDescription() {
+      return description;
    }
 
    @JsonIgnore
-   public void setId(String value) { 
-      this.id = value;
-   }
-   @JsonIgnore
-   public String getDescription () {
-      return Description ;
-   }
-
-   @JsonIgnore
-   public void setDescription (String value) { 
-      this.Description  = value;
+   public void setDescription(String value) { 
+      this.description = value;
    }
    @JsonIgnore
    public java.util.List<String> getAssociatedDUCs() {
@@ -128,7 +116,7 @@ public class DUCGroup extends RestObject {
    
 
    public String toString() {
-      return "DUCGroup [" + "name=" + name + ", id=" + id + ", Description =" + Description  + ", associatedDUCs=" + associatedDUCs + ", associatedPerformanceMonitorID=" + associatedPerformanceMonitorID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "DUCGroup [" + "name=" + name + ", description=" + description + ", associatedDUCs=" + associatedDUCs + ", associatedPerformanceMonitorID=" + associatedPerformanceMonitorID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    
