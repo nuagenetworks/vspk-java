@@ -72,6 +72,9 @@ public class NSGInfo extends RestObject {
    @JsonProperty(value = "serialNumber")
    protected String serialNumber;
    
+   @JsonProperty(value = "libraries")
+   protected String libraries;
+   
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
@@ -161,6 +164,15 @@ public class NSGInfo extends RestObject {
       this.serialNumber = value;
    }
    @JsonIgnore
+   public String getLibraries() {
+      return libraries;
+   }
+
+   @JsonIgnore
+   public void setLibraries(String value) { 
+      this.libraries = value;
+   }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
@@ -192,7 +204,7 @@ public class NSGInfo extends RestObject {
    
 
    public String toString() {
-      return "NSGInfo [" + "MACAddress=" + MACAddress + ", SKU=" + SKU + ", TPMStatus=" + TPMStatus + ", CPUType=" + CPUType + ", NSGVersion=" + NSGVersion + ", UUID=" + UUID + ", family=" + family + ", serialNumber=" + serialNumber + ", entityScope=" + entityScope + ", associatedNSGatewayID=" + associatedNSGatewayID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NSGInfo [" + "MACAddress=" + MACAddress + ", SKU=" + SKU + ", TPMStatus=" + TPMStatus + ", CPUType=" + CPUType + ", NSGVersion=" + NSGVersion + ", UUID=" + UUID + ", family=" + family + ", serialNumber=" + serialNumber + ", libraries=" + libraries + ", entityScope=" + entityScope + ", associatedNSGatewayID=" + associatedNSGatewayID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

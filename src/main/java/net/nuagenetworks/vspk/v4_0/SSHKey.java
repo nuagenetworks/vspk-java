@@ -37,37 +37,31 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "autodiscoveredcluster", resourceName = "autodiscoveredclusters")
-public class AutoDiscoverClusters extends RestObject {
+@RestEntity(restName = "sshkey", resourceName = "sshkeys")
+public class SSHKey extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum KeyType { RSA };
 
    
    @JsonProperty(value = "name")
    protected String name;
    
-   @JsonProperty(value = "managedObjectID")
-   protected String managedObjectID;
+   @JsonProperty(value = "description")
+   protected String description;
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
+   @JsonProperty(value = "keyType")
+   protected KeyType keyType;
    
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
-   
-   @JsonProperty(value = "assocVCenterDataCenterID")
-   protected String assocVCenterDataCenterID;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
+   @JsonProperty(value = "publicKey")
+   protected String publicKey;
    
 
    
 
-   public AutoDiscoverClusters() {
+   public SSHKey() {
       
    }
 
@@ -81,56 +75,38 @@ public class AutoDiscoverClusters extends RestObject {
       this.name = value;
    }
    @JsonIgnore
-   public String getManagedObjectID() {
-      return managedObjectID;
+   public String getDescription() {
+      return description;
    }
 
    @JsonIgnore
-   public void setManagedObjectID(String value) { 
-      this.managedObjectID = value;
+   public void setDescription(String value) { 
+      this.description = value;
    }
    @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
+   public KeyType getKeyType() {
+      return keyType;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
+   public void setKeyType(KeyType value) { 
+      this.keyType = value;
    }
    @JsonIgnore
-   public String getAssocVCenterDataCenterID() {
-      return assocVCenterDataCenterID;
-   }
-
-   @JsonIgnore
-   public void setAssocVCenterDataCenterID(String value) { 
-      this.assocVCenterDataCenterID = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
+   public String getPublicKey() {
+      return publicKey;
    }
 
    @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
+   public void setPublicKey(String value) { 
+      this.publicKey = value;
    }
    
 
    
 
    public String toString() {
-      return "AutoDiscoverClusters [" + "name=" + name + ", managedObjectID=" + managedObjectID + ", lastUpdatedBy=" + lastUpdatedBy + ", entityScope=" + entityScope + ", assocVCenterDataCenterID=" + assocVCenterDataCenterID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "SSHKey [" + "name=" + name + ", description=" + description + ", keyType=" + keyType + ", publicKey=" + publicKey + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

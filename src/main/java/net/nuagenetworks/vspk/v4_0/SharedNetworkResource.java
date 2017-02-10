@@ -53,6 +53,7 @@ public class SharedNetworkResource extends RestObject {
    
    public enum PermittedActionType { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum UseGlobalMAC { DISABLED, ENABLED };
    public enum Type { FLOATING, L2DOMAIN, PUBLIC, UPLINK_SUBNET };
 
    
@@ -79,6 +80,9 @@ public class SharedNetworkResource extends RestObject {
    
    @JsonProperty(value = "gateway")
    protected String gateway;
+   
+   @JsonProperty(value = "gatewayMACAddress")
+   protected String gatewayMACAddress;
    
    @JsonProperty(value = "accessRestrictionEnabled")
    protected Boolean accessRestrictionEnabled;
@@ -124,6 +128,9 @@ public class SharedNetworkResource extends RestObject {
    
    @JsonProperty(value = "uplinkVPortName")
    protected String uplinkVPortName;
+   
+   @JsonProperty(value = "useGlobalMAC")
+   protected UseGlobalMAC useGlobalMAC;
    
    @JsonProperty(value = "associatedPATMapperID")
    protected String associatedPATMapperID;
@@ -257,6 +264,15 @@ public class SharedNetworkResource extends RestObject {
    @JsonIgnore
    public void setGateway(String value) { 
       this.gateway = value;
+   }
+   @JsonIgnore
+   public String getGatewayMACAddress() {
+      return gatewayMACAddress;
+   }
+
+   @JsonIgnore
+   public void setGatewayMACAddress(String value) { 
+      this.gatewayMACAddress = value;
    }
    @JsonIgnore
    public Boolean getAccessRestrictionEnabled() {
@@ -394,6 +410,15 @@ public class SharedNetworkResource extends RestObject {
       this.uplinkVPortName = value;
    }
    @JsonIgnore
+   public UseGlobalMAC getUseGlobalMAC() {
+      return useGlobalMAC;
+   }
+
+   @JsonIgnore
+   public void setUseGlobalMAC(UseGlobalMAC value) { 
+      this.useGlobalMAC = value;
+   }
+   @JsonIgnore
    public String getAssociatedPATMapperID() {
       return associatedPATMapperID;
    }
@@ -474,7 +499,7 @@ public class SharedNetworkResource extends RestObject {
    
 
    public String toString() {
-      return "SharedNetworkResource [" + "ECMPCount=" + ECMPCount + ", DHCPManaged=" + DHCPManaged + ", backHaulRouteDistinguisher=" + backHaulRouteDistinguisher + ", backHaulRouteTarget=" + backHaulRouteTarget + ", backHaulVNID=" + backHaulVNID + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", gateway=" + gateway + ", accessRestrictionEnabled=" + accessRestrictionEnabled + ", address=" + address + ", permittedActionType=" + permittedActionType + ", description=" + description + ", netmask=" + netmask + ", sharedResourceParentID=" + sharedResourceParentID + ", vnID=" + vnID + ", underlay=" + underlay + ", entityScope=" + entityScope + ", domainRouteDistinguisher=" + domainRouteDistinguisher + ", domainRouteTarget=" + domainRouteTarget + ", uplinkGWVlanAttachmentID=" + uplinkGWVlanAttachmentID + ", uplinkInterfaceIP=" + uplinkInterfaceIP + ", uplinkInterfaceMAC=" + uplinkInterfaceMAC + ", uplinkVPortName=" + uplinkVPortName + ", associatedPATMapperID=" + associatedPATMapperID + ", externalID=" + externalID + ", dynamicPATAllocationEnabled=" + dynamicPATAllocationEnabled + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "SharedNetworkResource [" + "ECMPCount=" + ECMPCount + ", DHCPManaged=" + DHCPManaged + ", backHaulRouteDistinguisher=" + backHaulRouteDistinguisher + ", backHaulRouteTarget=" + backHaulRouteTarget + ", backHaulVNID=" + backHaulVNID + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", accessRestrictionEnabled=" + accessRestrictionEnabled + ", address=" + address + ", permittedActionType=" + permittedActionType + ", description=" + description + ", netmask=" + netmask + ", sharedResourceParentID=" + sharedResourceParentID + ", vnID=" + vnID + ", underlay=" + underlay + ", entityScope=" + entityScope + ", domainRouteDistinguisher=" + domainRouteDistinguisher + ", domainRouteTarget=" + domainRouteTarget + ", uplinkGWVlanAttachmentID=" + uplinkGWVlanAttachmentID + ", uplinkInterfaceIP=" + uplinkInterfaceIP + ", uplinkInterfaceMAC=" + uplinkInterfaceMAC + ", uplinkVPortName=" + uplinkVPortName + ", useGlobalMAC=" + useGlobalMAC + ", associatedPATMapperID=" + associatedPATMapperID + ", externalID=" + externalID + ", dynamicPATAllocationEnabled=" + dynamicPATAllocationEnabled + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

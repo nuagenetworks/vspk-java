@@ -49,7 +49,7 @@ public class AutoDiscoveredGateway extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum Personality { DC7X50, HARDWARE_VTEP, NSG, OTHER, VRSG, VSA, VSG };
+   public enum Personality { DC7X50, HARDWARE_VTEP, NSG, OTHER, VRSB, VRSG, VSA, VSG };
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -76,6 +76,9 @@ public class AutoDiscoveredGateway extends RestObject {
    
    @JsonProperty(value = "controllers")
    protected java.util.List<String> controllers;
+   
+   @JsonProperty(value = "useGatewayVLANVNID")
+   protected Boolean useGatewayVLANVNID;
    
    @JsonProperty(value = "vtep")
    protected String vtep;
@@ -196,6 +199,15 @@ public class AutoDiscoveredGateway extends RestObject {
       this.controllers = value;
    }
    @JsonIgnore
+   public Boolean getUseGatewayVLANVNID() {
+      return useGatewayVLANVNID;
+   }
+
+   @JsonIgnore
+   public void setUseGatewayVLANVNID(Boolean value) { 
+      this.useGatewayVLANVNID = value;
+   }
+   @JsonIgnore
    public String getVtep() {
       return vtep;
    }
@@ -257,7 +269,7 @@ public class AutoDiscoveredGateway extends RestObject {
    
 
    public String toString() {
-      return "AutoDiscoveredGateway [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", gatewayID=" + gatewayID + ", peer=" + peer + ", personality=" + personality + ", description=" + description + ", entityScope=" + entityScope + ", controllers=" + controllers + ", vtep=" + vtep + ", externalID=" + externalID + ", systemID=" + systemID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "AutoDiscoveredGateway [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", gatewayID=" + gatewayID + ", peer=" + peer + ", personality=" + personality + ", description=" + description + ", entityScope=" + entityScope + ", controllers=" + controllers + ", useGatewayVLANVNID=" + useGatewayVLANVNID + ", vtep=" + vtep + ", externalID=" + externalID + ", systemID=" + systemID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

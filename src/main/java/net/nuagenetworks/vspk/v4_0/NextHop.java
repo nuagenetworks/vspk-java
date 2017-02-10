@@ -39,8 +39,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "nsportstaticconfiguration", resourceName = "nsportstaticconfigurations")
-public class NSPortStaticConfiguration extends RestObject {
+@RestEntity(restName = "nexthop", resourceName = "nexthops")
+public class NextHop extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
@@ -48,26 +48,17 @@ public class NSPortStaticConfiguration extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "DNSAddress")
-   protected String DNSAddress;
-   
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
    
-   @JsonProperty(value = "gateway")
-   protected String gateway;
-   
-   @JsonProperty(value = "address")
-   protected String address;
-   
-   @JsonProperty(value = "netmask")
-   protected String netmask;
-   
-   @JsonProperty(value = "enabled")
-   protected Boolean enabled;
-   
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
+   
+   @JsonProperty(value = "routeDistinguisher")
+   protected String routeDistinguisher;
+   
+   @JsonProperty(value = "ip")
+   protected String ip;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
@@ -81,7 +72,7 @@ public class NSPortStaticConfiguration extends RestObject {
    private GlobalMetadatasFetcher globalMetadatas;
    
 
-   public NSPortStaticConfiguration() {
+   public NextHop() {
       
       metadatas = new MetadatasFetcher(this);
       
@@ -89,15 +80,6 @@ public class NSPortStaticConfiguration extends RestObject {
       
    }
 
-   @JsonIgnore
-   public String getDNSAddress() {
-      return DNSAddress;
-   }
-
-   @JsonIgnore
-   public void setDNSAddress(String value) { 
-      this.DNSAddress = value;
-   }
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -108,42 +90,6 @@ public class NSPortStaticConfiguration extends RestObject {
       this.lastUpdatedBy = value;
    }
    @JsonIgnore
-   public String getGateway() {
-      return gateway;
-   }
-
-   @JsonIgnore
-   public void setGateway(String value) { 
-      this.gateway = value;
-   }
-   @JsonIgnore
-   public String getAddress() {
-      return address;
-   }
-
-   @JsonIgnore
-   public void setAddress(String value) { 
-      this.address = value;
-   }
-   @JsonIgnore
-   public String getNetmask() {
-      return netmask;
-   }
-
-   @JsonIgnore
-   public void setNetmask(String value) { 
-      this.netmask = value;
-   }
-   @JsonIgnore
-   public Boolean getEnabled() {
-      return enabled;
-   }
-
-   @JsonIgnore
-   public void setEnabled(Boolean value) { 
-      this.enabled = value;
-   }
-   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
@@ -151,6 +97,24 @@ public class NSPortStaticConfiguration extends RestObject {
    @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getRouteDistinguisher() {
+      return routeDistinguisher;
+   }
+
+   @JsonIgnore
+   public void setRouteDistinguisher(String value) { 
+      this.routeDistinguisher = value;
+   }
+   @JsonIgnore
+   public String getIp() {
+      return ip;
+   }
+
+   @JsonIgnore
+   public void setIp(String value) { 
+      this.ip = value;
    }
    @JsonIgnore
    public String getExternalID() {
@@ -176,7 +140,7 @@ public class NSPortStaticConfiguration extends RestObject {
    
 
    public String toString() {
-      return "NSPortStaticConfiguration [" + "DNSAddress=" + DNSAddress + ", lastUpdatedBy=" + lastUpdatedBy + ", gateway=" + gateway + ", address=" + address + ", netmask=" + netmask + ", enabled=" + enabled + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NextHop [" + "lastUpdatedBy=" + lastUpdatedBy + ", entityScope=" + entityScope + ", routeDistinguisher=" + routeDistinguisher + ", ip=" + ip + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

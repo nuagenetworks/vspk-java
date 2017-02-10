@@ -49,14 +49,25 @@ public class SubnetTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum IPType { IPV4, IPV6 };
+   public enum DPI { DISABLED, ENABLED, INHERITED };
+   public enum IPType { DUALSTACK, IPV4, IPV6 };
    public enum Encryption { DISABLED, ENABLED, INHERITED };
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum UseGlobalMAC { DISABLED, ENABLED };
    public enum Multicast { DISABLED, ENABLED, INHERITED };
 
    
+   @JsonProperty(value = "DPI")
+   protected DPI DPI;
+   
    @JsonProperty(value = "IPType")
    protected IPType IPType;
+   
+   @JsonProperty(value = "IPv6Gateway")
+   protected String IPv6Gateway;
+   
+   @JsonProperty(value = "IPv6address")
+   protected String IPv6address;
    
    @JsonProperty(value = "name")
    protected String name;
@@ -87,6 +98,9 @@ public class SubnetTemplate extends RestObject {
    
    @JsonProperty(value = "proxyARP")
    protected Boolean proxyARP;
+   
+   @JsonProperty(value = "useGlobalMAC")
+   protected UseGlobalMAC useGlobalMAC;
    
    @JsonProperty(value = "associatedMulticastChannelMapID")
    protected String associatedMulticastChannelMapID;
@@ -137,6 +151,15 @@ public class SubnetTemplate extends RestObject {
    }
 
    @JsonIgnore
+   public DPI getDPI() {
+      return DPI;
+   }
+
+   @JsonIgnore
+   public void setDPI(DPI value) { 
+      this.DPI = value;
+   }
+   @JsonIgnore
    public IPType getIPType() {
       return IPType;
    }
@@ -144,6 +167,24 @@ public class SubnetTemplate extends RestObject {
    @JsonIgnore
    public void setIPType(IPType value) { 
       this.IPType = value;
+   }
+   @JsonIgnore
+   public String getIPv6Gateway() {
+      return IPv6Gateway;
+   }
+
+   @JsonIgnore
+   public void setIPv6Gateway(String value) { 
+      this.IPv6Gateway = value;
+   }
+   @JsonIgnore
+   public String getIPv6address() {
+      return IPv6address;
+   }
+
+   @JsonIgnore
+   public void setIPv6address(String value) { 
+      this.IPv6address = value;
    }
    @JsonIgnore
    public String getName() {
@@ -236,6 +277,15 @@ public class SubnetTemplate extends RestObject {
       this.proxyARP = value;
    }
    @JsonIgnore
+   public UseGlobalMAC getUseGlobalMAC() {
+      return useGlobalMAC;
+   }
+
+   @JsonIgnore
+   public void setUseGlobalMAC(UseGlobalMAC value) { 
+      this.useGlobalMAC = value;
+   }
+   @JsonIgnore
    public String getAssociatedMulticastChannelMapID() {
       return associatedMulticastChannelMapID;
    }
@@ -297,7 +347,7 @@ public class SubnetTemplate extends RestObject {
    
 
    public String toString() {
-      return "SubnetTemplate [" + "IPType=" + IPType + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", gateway=" + gateway + ", address=" + address + ", description=" + description + ", netmask=" + netmask + ", encryption=" + encryption + ", entityScope=" + entityScope + ", splitSubnet=" + splitSubnet + ", proxyARP=" + proxyARP + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", multicast=" + multicast + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "SubnetTemplate [" + "DPI=" + DPI + ", IPType=" + IPType + ", IPv6Gateway=" + IPv6Gateway + ", IPv6address=" + IPv6address + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", gateway=" + gateway + ", address=" + address + ", description=" + description + ", netmask=" + netmask + ", encryption=" + encryption + ", entityScope=" + entityScope + ", splitSubnet=" + splitSubnet + ", proxyARP=" + proxyARP + ", useGlobalMAC=" + useGlobalMAC + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", multicast=" + multicast + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

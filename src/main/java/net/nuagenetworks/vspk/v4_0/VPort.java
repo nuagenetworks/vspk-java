@@ -52,6 +52,7 @@ import net.nuagenetworks.vspk.v4_0.fetchers.PortMappingsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.QOSsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.HostInterfacesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VPortMirrorsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ApplicationperformancemanagementsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.BridgeInterfacesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VRSsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.StatisticsFetcher;
@@ -65,6 +66,7 @@ public class VPort extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum DPI { DISABLED, ENABLED, INHERITED };
    public enum AddressSpoofing { DISABLED, ENABLED, INHERITED };
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum OperationalState { DOWN, INIT, UP };
@@ -75,6 +77,9 @@ public class VPort extends RestObject {
    
    @JsonProperty(value = "VLANID")
    protected String VLANID;
+   
+   @JsonProperty(value = "DPI")
+   protected DPI DPI;
    
    @JsonProperty(value = "name")
    protected String name;
@@ -184,6 +189,9 @@ public class VPort extends RestObject {
    private VPortMirrorsFetcher vPortMirrors;
    
    @JsonIgnore
+   private ApplicationperformancemanagementsFetcher applicationperformancemanagements;
+   
+   @JsonIgnore
    private BridgeInterfacesFetcher bridgeInterfaces;
    
    @JsonIgnore
@@ -239,6 +247,8 @@ public class VPort extends RestObject {
       
       vPortMirrors = new VPortMirrorsFetcher(this);
       
+      applicationperformancemanagements = new ApplicationperformancemanagementsFetcher(this);
+      
       bridgeInterfaces = new BridgeInterfacesFetcher(this);
       
       vRSs = new VRSsFetcher(this);
@@ -259,6 +269,15 @@ public class VPort extends RestObject {
    @JsonIgnore
    public void setVLANID(String value) { 
       this.VLANID = value;
+   }
+   @JsonIgnore
+   public DPI getDPI() {
+      return DPI;
+   }
+
+   @JsonIgnore
+   public void setDPI(DPI value) { 
+      this.DPI = value;
    }
    @JsonIgnore
    public String getName() {
@@ -511,6 +530,11 @@ public class VPort extends RestObject {
    }
    
    @JsonIgnore
+   public ApplicationperformancemanagementsFetcher getApplicationperformancemanagements() {
+      return applicationperformancemanagements;
+   }
+   
+   @JsonIgnore
    public BridgeInterfacesFetcher getBridgeInterfaces() {
       return bridgeInterfaces;
    }
@@ -537,7 +561,7 @@ public class VPort extends RestObject {
    
 
    public String toString() {
-      return "VPort [" + "VLANID=" + VLANID + ", name=" + name + ", hasAttachedInterfaces=" + hasAttachedInterfaces + ", lastUpdatedBy=" + lastUpdatedBy + ", active=" + active + ", addressSpoofing=" + addressSpoofing + ", description=" + description + ", entityScope=" + entityScope + ", domainID=" + domainID + ", zoneID=" + zoneID + ", operationalState=" + operationalState + ", associatedFloatingIPID=" + associatedFloatingIPID + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSendMulticastChannelMapID=" + associatedSendMulticastChannelMapID + ", multiNICVPortID=" + multiNICVPortID + ", multicast=" + multicast + ", externalID=" + externalID + ", type=" + type + ", systemType=" + systemType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VPort [" + "VLANID=" + VLANID + ", DPI=" + DPI + ", name=" + name + ", hasAttachedInterfaces=" + hasAttachedInterfaces + ", lastUpdatedBy=" + lastUpdatedBy + ", active=" + active + ", addressSpoofing=" + addressSpoofing + ", description=" + description + ", entityScope=" + entityScope + ", domainID=" + domainID + ", zoneID=" + zoneID + ", operationalState=" + operationalState + ", associatedFloatingIPID=" + associatedFloatingIPID + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSendMulticastChannelMapID=" + associatedSendMulticastChannelMapID + ", multiNICVPortID=" + multiNICVPortID + ", multicast=" + multicast + ", externalID=" + externalID + ", type=" + type + ", systemType=" + systemType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

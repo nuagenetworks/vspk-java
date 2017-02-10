@@ -55,6 +55,9 @@ public class VRSRedeploymentpolicy extends RestObject {
    @JsonProperty(value = "CPUUtilizationThreshold")
    protected Float CPUUtilizationThreshold;
    
+   @JsonProperty(value = "VRSCorrectiveActionDelay")
+   protected Long VRSCorrectiveActionDelay;
+   
    @JsonProperty(value = "VRSProcessRedeploymentEnabled")
    protected Boolean VRSProcessRedeploymentEnabled;
    
@@ -118,6 +121,15 @@ public class VRSRedeploymentpolicy extends RestObject {
    @JsonIgnore
    public void setCPUUtilizationThreshold(Float value) { 
       this.CPUUtilizationThreshold = value;
+   }
+   @JsonIgnore
+   public Long getVRSCorrectiveActionDelay() {
+      return VRSCorrectiveActionDelay;
+   }
+
+   @JsonIgnore
+   public void setVRSCorrectiveActionDelay(Long value) { 
+      this.VRSCorrectiveActionDelay = value;
    }
    @JsonIgnore
    public Boolean getVRSProcessRedeploymentEnabled() {
@@ -214,7 +226,7 @@ public class VRSRedeploymentpolicy extends RestObject {
    
 
    public String toString() {
-      return "VRSRedeploymentpolicy [" + "ALUbr0StatusRedeploymentEnabled=" + ALUbr0StatusRedeploymentEnabled + ", CPUUtilizationRedeploymentEnabled=" + CPUUtilizationRedeploymentEnabled + ", CPUUtilizationThreshold=" + CPUUtilizationThreshold + ", VRSProcessRedeploymentEnabled=" + VRSProcessRedeploymentEnabled + ", VRSVSCStatusRedeploymentEnabled=" + VRSVSCStatusRedeploymentEnabled + ", lastUpdatedBy=" + lastUpdatedBy + ", redeploymentDelay=" + redeploymentDelay + ", memoryUtilizationRedeploymentEnabled=" + memoryUtilizationRedeploymentEnabled + ", memoryUtilizationThreshold=" + memoryUtilizationThreshold + ", deploymentCountThreshold=" + deploymentCountThreshold + ", jesxmonProcessRedeploymentEnabled=" + jesxmonProcessRedeploymentEnabled + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VRSRedeploymentpolicy [" + "ALUbr0StatusRedeploymentEnabled=" + ALUbr0StatusRedeploymentEnabled + ", CPUUtilizationRedeploymentEnabled=" + CPUUtilizationRedeploymentEnabled + ", CPUUtilizationThreshold=" + CPUUtilizationThreshold + ", VRSCorrectiveActionDelay=" + VRSCorrectiveActionDelay + ", VRSProcessRedeploymentEnabled=" + VRSProcessRedeploymentEnabled + ", VRSVSCStatusRedeploymentEnabled=" + VRSVSCStatusRedeploymentEnabled + ", lastUpdatedBy=" + lastUpdatedBy + ", redeploymentDelay=" + redeploymentDelay + ", memoryUtilizationRedeploymentEnabled=" + memoryUtilizationRedeploymentEnabled + ", memoryUtilizationThreshold=" + memoryUtilizationThreshold + ", deploymentCountThreshold=" + deploymentCountThreshold + ", jesxmonProcessRedeploymentEnabled=" + jesxmonProcessRedeploymentEnabled + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

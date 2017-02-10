@@ -46,7 +46,7 @@ public class NATMapEntry extends RestObject {
 
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
-   public enum Type { ONE_TO_ONE_NAT, ONE_TO_MANY_PAT, MANY_TO_ONE_PAT, UNKNOWN };
+   public enum Type { MANY_TO_ONE_PAT, ONE_TO_MANY_PAT, ONE_TO_ONE_NAT, UNKNOWN };
 
    
    @JsonProperty(value = "lastUpdatedBy")
@@ -58,17 +58,11 @@ public class NATMapEntry extends RestObject {
    @JsonProperty(value = "privateIP")
    protected String privateIP;
    
-   @JsonProperty(value = "privatePort")
-   protected Long privatePort;
-   
    @JsonProperty(value = "associatedPATNATPoolID")
    protected String associatedPATNATPoolID;
    
    @JsonProperty(value = "publicIP")
    protected String publicIP;
-   
-   @JsonProperty(value = "publicPort")
-   protected Long publicPort;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
@@ -121,15 +115,6 @@ public class NATMapEntry extends RestObject {
       this.privateIP = value;
    }
    @JsonIgnore
-   public Long getPrivatePort() {
-      return privatePort;
-   }
-
-   @JsonIgnore
-   public void setPrivatePort(Long value) { 
-      this.privatePort = value;
-   }
-   @JsonIgnore
    public String getAssociatedPATNATPoolID() {
       return associatedPATNATPoolID;
    }
@@ -146,15 +131,6 @@ public class NATMapEntry extends RestObject {
    @JsonIgnore
    public void setPublicIP(String value) { 
       this.publicIP = value;
-   }
-   @JsonIgnore
-   public Long getPublicPort() {
-      return publicPort;
-   }
-
-   @JsonIgnore
-   public void setPublicPort(Long value) { 
-      this.publicPort = value;
    }
    @JsonIgnore
    public String getExternalID() {
@@ -189,7 +165,7 @@ public class NATMapEntry extends RestObject {
    
 
    public String toString() {
-      return "NATMapEntry [" + "lastUpdatedBy=" + lastUpdatedBy + ", entityScope=" + entityScope + ", privateIP=" + privateIP + ", privatePort=" + privatePort + ", associatedPATNATPoolID=" + associatedPATNATPoolID + ", publicIP=" + publicIP + ", publicPort=" + publicPort + ", externalID=" + externalID + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NATMapEntry [" + "lastUpdatedBy=" + lastUpdatedBy + ", entityScope=" + entityScope + ", privateIP=" + privateIP + ", associatedPATNATPoolID=" + associatedPATNATPoolID + ", publicIP=" + publicIP + ", externalID=" + externalID + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

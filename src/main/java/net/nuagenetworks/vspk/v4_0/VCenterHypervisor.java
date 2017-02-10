@@ -49,6 +49,8 @@ public class VCenterHypervisor extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum VRSState { DEPLOYED, DEPLOYING, NOT_DEPLOYED, TIMEDOUT, UPGRADING };
+   public enum DestinationMirrorPort { ens160, ens161, ens224, ens256, no_mirror };
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -61,14 +63,23 @@ public class VCenterHypervisor extends RestObject {
    @JsonProperty(value = "vCenterUser")
    protected String vCenterUser;
    
+   @JsonProperty(value = "VRSConfigurationTimeLimit")
+   protected Long VRSConfigurationTimeLimit;
+   
    @JsonProperty(value = "VRSMetricsID")
    protected String VRSMetricsID;
+   
+   @JsonProperty(value = "VRSState")
+   protected VRSState VRSState;
    
    @JsonProperty(value = "vRequireNuageMetadata")
    protected Boolean vRequireNuageMetadata;
    
    @JsonProperty(value = "name")
    protected String name;
+   
+   @JsonProperty(value = "managedObjectID")
+   protected String managedObjectID;
    
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
@@ -103,6 +114,9 @@ public class VCenterHypervisor extends RestObject {
    @JsonProperty(value = "secondaryNuageController")
    protected String secondaryNuageController;
    
+   @JsonProperty(value = "removedFromVCenterInventory")
+   protected Boolean removedFromVCenterInventory;
+   
    @JsonProperty(value = "genericSplitActivation")
    protected Boolean genericSplitActivation;
    
@@ -117,6 +131,9 @@ public class VCenterHypervisor extends RestObject {
    
    @JsonProperty(value = "description")
    protected String description;
+   
+   @JsonProperty(value = "destinationMirrorPort")
+   protected DestinationMirrorPort destinationMirrorPort;
    
    @JsonProperty(value = "metadataServerIP")
    protected String metadataServerIP;
@@ -168,6 +185,9 @@ public class VCenterHypervisor extends RestObject {
    
    @JsonProperty(value = "dhcpRelayServer")
    protected String dhcpRelayServer;
+   
+   @JsonProperty(value = "mirrorNetworkPortgroup")
+   protected String mirrorNetworkPortgroup;
    
    @JsonProperty(value = "siteId")
    protected String siteId;
@@ -228,6 +248,24 @@ public class VCenterHypervisor extends RestObject {
    
    @JsonProperty(value = "novaRegionName")
    protected String novaRegionName;
+   
+   @JsonProperty(value = "upgradePackagePassword")
+   protected String upgradePackagePassword;
+   
+   @JsonProperty(value = "upgradePackageURL")
+   protected String upgradePackageURL;
+   
+   @JsonProperty(value = "upgradePackageUsername")
+   protected String upgradePackageUsername;
+   
+   @JsonProperty(value = "upgradeScriptTimeLimit")
+   protected Long upgradeScriptTimeLimit;
+   
+   @JsonProperty(value = "upgradeStatus")
+   protected String upgradeStatus;
+   
+   @JsonProperty(value = "upgradeTimedout")
+   protected Boolean upgradeTimedout;
    
    @JsonProperty(value = "primaryNuageController")
    protected String primaryNuageController;
@@ -291,6 +329,9 @@ public class VCenterHypervisor extends RestObject {
    
    @JsonProperty(value = "availableNetworks")
    protected java.util.List<String> availableNetworks;
+   
+   @JsonProperty(value = "ovfURL")
+   protected String ovfURL;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
@@ -369,6 +410,15 @@ public class VCenterHypervisor extends RestObject {
       this.vCenterUser = value;
    }
    @JsonIgnore
+   public Long getVRSConfigurationTimeLimit() {
+      return VRSConfigurationTimeLimit;
+   }
+
+   @JsonIgnore
+   public void setVRSConfigurationTimeLimit(Long value) { 
+      this.VRSConfigurationTimeLimit = value;
+   }
+   @JsonIgnore
    public String getVRSMetricsID() {
       return VRSMetricsID;
    }
@@ -376,6 +426,15 @@ public class VCenterHypervisor extends RestObject {
    @JsonIgnore
    public void setVRSMetricsID(String value) { 
       this.VRSMetricsID = value;
+   }
+   @JsonIgnore
+   public VRSState getVRSState() {
+      return VRSState;
+   }
+
+   @JsonIgnore
+   public void setVRSState(VRSState value) { 
+      this.VRSState = value;
    }
    @JsonIgnore
    public Boolean getVRequireNuageMetadata() {
@@ -394,6 +453,15 @@ public class VCenterHypervisor extends RestObject {
    @JsonIgnore
    public void setName(String value) { 
       this.name = value;
+   }
+   @JsonIgnore
+   public String getManagedObjectID() {
+      return managedObjectID;
+   }
+
+   @JsonIgnore
+   public void setManagedObjectID(String value) { 
+      this.managedObjectID = value;
    }
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -495,6 +563,15 @@ public class VCenterHypervisor extends RestObject {
       this.secondaryNuageController = value;
    }
    @JsonIgnore
+   public Boolean getRemovedFromVCenterInventory() {
+      return removedFromVCenterInventory;
+   }
+
+   @JsonIgnore
+   public void setRemovedFromVCenterInventory(Boolean value) { 
+      this.removedFromVCenterInventory = value;
+   }
+   @JsonIgnore
    public Boolean getGenericSplitActivation() {
       return genericSplitActivation;
    }
@@ -538,6 +615,15 @@ public class VCenterHypervisor extends RestObject {
    @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
+   }
+   @JsonIgnore
+   public DestinationMirrorPort getDestinationMirrorPort() {
+      return destinationMirrorPort;
+   }
+
+   @JsonIgnore
+   public void setDestinationMirrorPort(DestinationMirrorPort value) { 
+      this.destinationMirrorPort = value;
    }
    @JsonIgnore
    public String getMetadataServerIP() {
@@ -691,6 +777,15 @@ public class VCenterHypervisor extends RestObject {
    @JsonIgnore
    public void setDhcpRelayServer(String value) { 
       this.dhcpRelayServer = value;
+   }
+   @JsonIgnore
+   public String getMirrorNetworkPortgroup() {
+      return mirrorNetworkPortgroup;
+   }
+
+   @JsonIgnore
+   public void setMirrorNetworkPortgroup(String value) { 
+      this.mirrorNetworkPortgroup = value;
    }
    @JsonIgnore
    public String getSiteId() {
@@ -871,6 +966,60 @@ public class VCenterHypervisor extends RestObject {
    @JsonIgnore
    public void setNovaRegionName(String value) { 
       this.novaRegionName = value;
+   }
+   @JsonIgnore
+   public String getUpgradePackagePassword() {
+      return upgradePackagePassword;
+   }
+
+   @JsonIgnore
+   public void setUpgradePackagePassword(String value) { 
+      this.upgradePackagePassword = value;
+   }
+   @JsonIgnore
+   public String getUpgradePackageURL() {
+      return upgradePackageURL;
+   }
+
+   @JsonIgnore
+   public void setUpgradePackageURL(String value) { 
+      this.upgradePackageURL = value;
+   }
+   @JsonIgnore
+   public String getUpgradePackageUsername() {
+      return upgradePackageUsername;
+   }
+
+   @JsonIgnore
+   public void setUpgradePackageUsername(String value) { 
+      this.upgradePackageUsername = value;
+   }
+   @JsonIgnore
+   public Long getUpgradeScriptTimeLimit() {
+      return upgradeScriptTimeLimit;
+   }
+
+   @JsonIgnore
+   public void setUpgradeScriptTimeLimit(Long value) { 
+      this.upgradeScriptTimeLimit = value;
+   }
+   @JsonIgnore
+   public String getUpgradeStatus() {
+      return upgradeStatus;
+   }
+
+   @JsonIgnore
+   public void setUpgradeStatus(String value) { 
+      this.upgradeStatus = value;
+   }
+   @JsonIgnore
+   public Boolean getUpgradeTimedout() {
+      return upgradeTimedout;
+   }
+
+   @JsonIgnore
+   public void setUpgradeTimedout(Boolean value) { 
+      this.upgradeTimedout = value;
    }
    @JsonIgnore
    public String getPrimaryNuageController() {
@@ -1062,6 +1211,15 @@ public class VCenterHypervisor extends RestObject {
       this.availableNetworks = value;
    }
    @JsonIgnore
+   public String getOvfURL() {
+      return ovfURL;
+   }
+
+   @JsonIgnore
+   public void setOvfURL(String value) { 
+      this.ovfURL = value;
+   }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
@@ -1132,7 +1290,7 @@ public class VCenterHypervisor extends RestObject {
    
 
    public String toString() {
-      return "VCenterHypervisor [" + "vCenterIP=" + vCenterIP + ", vCenterPassword=" + vCenterPassword + ", vCenterUser=" + vCenterUser + ", VRSMetricsID=" + VRSMetricsID + ", vRequireNuageMetadata=" + vRequireNuageMetadata + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", lastVRSDeployedDate=" + lastVRSDeployedDate + ", dataDNS1=" + dataDNS1 + ", dataDNS2=" + dataDNS2 + ", dataGateway=" + dataGateway + ", dataIPAddress=" + dataIPAddress + ", dataNetmask=" + dataNetmask + ", dataNetworkPortgroup=" + dataNetworkPortgroup + ", datapathSyncTimeout=" + datapathSyncTimeout + ", scope=" + scope + ", secondaryNuageController=" + secondaryNuageController + ", genericSplitActivation=" + genericSplitActivation + ", separateDataNetwork=" + separateDataNetwork + ", deploymentCount=" + deploymentCount + ", personality=" + personality + ", description=" + description + ", metadataServerIP=" + metadataServerIP + ", metadataServerListenPort=" + metadataServerListenPort + ", metadataServerPort=" + metadataServerPort + ", metadataServiceEnabled=" + metadataServiceEnabled + ", networkUplinkInterface=" + networkUplinkInterface + ", networkUplinkInterfaceGateway=" + networkUplinkInterfaceGateway + ", networkUplinkInterfaceIp=" + networkUplinkInterfaceIp + ", networkUplinkInterfaceNetmask=" + networkUplinkInterfaceNetmask + ", nfsLogServer=" + nfsLogServer + ", nfsMountPath=" + nfsMountPath + ", mgmtDNS1=" + mgmtDNS1 + ", mgmtDNS2=" + mgmtDNS2 + ", mgmtGateway=" + mgmtGateway + ", mgmtIPAddress=" + mgmtIPAddress + ", mgmtNetmask=" + mgmtNetmask + ", mgmtNetworkPortgroup=" + mgmtNetworkPortgroup + ", dhcpRelayServer=" + dhcpRelayServer + ", siteId=" + siteId + ", allowDataDHCP=" + allowDataDHCP + ", allowMgmtDHCP=" + allowMgmtDHCP + ", flowEvictionThreshold=" + flowEvictionThreshold + ", vmNetworkPortgroup=" + vmNetworkPortgroup + ", entityScope=" + entityScope + ", toolboxDeploymentMode=" + toolboxDeploymentMode + ", toolboxGroup=" + toolboxGroup + ", toolboxIP=" + toolboxIP + ", toolboxPassword=" + toolboxPassword + ", toolboxUserName=" + toolboxUserName + ", portgroupMetadata=" + portgroupMetadata + ", novaClientVersion=" + novaClientVersion + ", novaMetadataServiceAuthUrl=" + novaMetadataServiceAuthUrl + ", novaMetadataServiceEndpoint=" + novaMetadataServiceEndpoint + ", novaMetadataServicePassword=" + novaMetadataServicePassword + ", novaMetadataServiceTenant=" + novaMetadataServiceTenant + ", novaMetadataServiceUsername=" + novaMetadataServiceUsername + ", novaMetadataSharedSecret=" + novaMetadataSharedSecret + ", novaRegionName=" + novaRegionName + ", primaryNuageController=" + primaryNuageController + ", vrsId=" + vrsId + ", vrsPassword=" + vrsPassword + ", vrsUserName=" + vrsUserName + ", staticRoute=" + staticRoute + ", staticRouteGateway=" + staticRouteGateway + ", staticRouteNetmask=" + staticRouteNetmask + ", ntpServer1=" + ntpServer1 + ", ntpServer2=" + ntpServer2 + ", mtu=" + mtu + ", multiVMSsupport=" + multiVMSsupport + ", multicastReceiveInterface=" + multicastReceiveInterface + ", multicastReceiveInterfaceIP=" + multicastReceiveInterfaceIP + ", multicastReceiveInterfaceNetmask=" + multicastReceiveInterfaceNetmask + ", multicastReceiveRange=" + multicastReceiveRange + ", multicastSendInterface=" + multicastSendInterface + ", multicastSendInterfaceIP=" + multicastSendInterfaceIP + ", multicastSendInterfaceNetmask=" + multicastSendInterfaceNetmask + ", multicastSourcePortgroup=" + multicastSourcePortgroup + ", customizedScriptURL=" + customizedScriptURL + ", availableNetworks=" + availableNetworks + ", externalID=" + externalID + ", hypervisorIP=" + hypervisorIP + ", hypervisorPassword=" + hypervisorPassword + ", hypervisorUser=" + hypervisorUser + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VCenterHypervisor [" + "vCenterIP=" + vCenterIP + ", vCenterPassword=" + vCenterPassword + ", vCenterUser=" + vCenterUser + ", VRSConfigurationTimeLimit=" + VRSConfigurationTimeLimit + ", VRSMetricsID=" + VRSMetricsID + ", VRSState=" + VRSState + ", vRequireNuageMetadata=" + vRequireNuageMetadata + ", name=" + name + ", managedObjectID=" + managedObjectID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastVRSDeployedDate=" + lastVRSDeployedDate + ", dataDNS1=" + dataDNS1 + ", dataDNS2=" + dataDNS2 + ", dataGateway=" + dataGateway + ", dataIPAddress=" + dataIPAddress + ", dataNetmask=" + dataNetmask + ", dataNetworkPortgroup=" + dataNetworkPortgroup + ", datapathSyncTimeout=" + datapathSyncTimeout + ", scope=" + scope + ", secondaryNuageController=" + secondaryNuageController + ", removedFromVCenterInventory=" + removedFromVCenterInventory + ", genericSplitActivation=" + genericSplitActivation + ", separateDataNetwork=" + separateDataNetwork + ", deploymentCount=" + deploymentCount + ", personality=" + personality + ", description=" + description + ", destinationMirrorPort=" + destinationMirrorPort + ", metadataServerIP=" + metadataServerIP + ", metadataServerListenPort=" + metadataServerListenPort + ", metadataServerPort=" + metadataServerPort + ", metadataServiceEnabled=" + metadataServiceEnabled + ", networkUplinkInterface=" + networkUplinkInterface + ", networkUplinkInterfaceGateway=" + networkUplinkInterfaceGateway + ", networkUplinkInterfaceIp=" + networkUplinkInterfaceIp + ", networkUplinkInterfaceNetmask=" + networkUplinkInterfaceNetmask + ", nfsLogServer=" + nfsLogServer + ", nfsMountPath=" + nfsMountPath + ", mgmtDNS1=" + mgmtDNS1 + ", mgmtDNS2=" + mgmtDNS2 + ", mgmtGateway=" + mgmtGateway + ", mgmtIPAddress=" + mgmtIPAddress + ", mgmtNetmask=" + mgmtNetmask + ", mgmtNetworkPortgroup=" + mgmtNetworkPortgroup + ", dhcpRelayServer=" + dhcpRelayServer + ", mirrorNetworkPortgroup=" + mirrorNetworkPortgroup + ", siteId=" + siteId + ", allowDataDHCP=" + allowDataDHCP + ", allowMgmtDHCP=" + allowMgmtDHCP + ", flowEvictionThreshold=" + flowEvictionThreshold + ", vmNetworkPortgroup=" + vmNetworkPortgroup + ", entityScope=" + entityScope + ", toolboxDeploymentMode=" + toolboxDeploymentMode + ", toolboxGroup=" + toolboxGroup + ", toolboxIP=" + toolboxIP + ", toolboxPassword=" + toolboxPassword + ", toolboxUserName=" + toolboxUserName + ", portgroupMetadata=" + portgroupMetadata + ", novaClientVersion=" + novaClientVersion + ", novaMetadataServiceAuthUrl=" + novaMetadataServiceAuthUrl + ", novaMetadataServiceEndpoint=" + novaMetadataServiceEndpoint + ", novaMetadataServicePassword=" + novaMetadataServicePassword + ", novaMetadataServiceTenant=" + novaMetadataServiceTenant + ", novaMetadataServiceUsername=" + novaMetadataServiceUsername + ", novaMetadataSharedSecret=" + novaMetadataSharedSecret + ", novaRegionName=" + novaRegionName + ", upgradePackagePassword=" + upgradePackagePassword + ", upgradePackageURL=" + upgradePackageURL + ", upgradePackageUsername=" + upgradePackageUsername + ", upgradeScriptTimeLimit=" + upgradeScriptTimeLimit + ", upgradeStatus=" + upgradeStatus + ", upgradeTimedout=" + upgradeTimedout + ", primaryNuageController=" + primaryNuageController + ", vrsId=" + vrsId + ", vrsPassword=" + vrsPassword + ", vrsUserName=" + vrsUserName + ", staticRoute=" + staticRoute + ", staticRouteGateway=" + staticRouteGateway + ", staticRouteNetmask=" + staticRouteNetmask + ", ntpServer1=" + ntpServer1 + ", ntpServer2=" + ntpServer2 + ", mtu=" + mtu + ", multiVMSsupport=" + multiVMSsupport + ", multicastReceiveInterface=" + multicastReceiveInterface + ", multicastReceiveInterfaceIP=" + multicastReceiveInterfaceIP + ", multicastReceiveInterfaceNetmask=" + multicastReceiveInterfaceNetmask + ", multicastReceiveRange=" + multicastReceiveRange + ", multicastSendInterface=" + multicastSendInterface + ", multicastSendInterfaceIP=" + multicastSendInterfaceIP + ", multicastSendInterfaceNetmask=" + multicastSendInterfaceNetmask + ", multicastSourcePortgroup=" + multicastSourcePortgroup + ", customizedScriptURL=" + customizedScriptURL + ", availableNetworks=" + availableNetworks + ", ovfURL=" + ovfURL + ", externalID=" + externalID + ", hypervisorIP=" + hypervisorIP + ", hypervisorPassword=" + hypervisorPassword + ", hypervisorUser=" + hypervisorUser + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

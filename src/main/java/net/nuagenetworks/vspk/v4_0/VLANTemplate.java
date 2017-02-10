@@ -37,6 +37,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.UplinkConnectionsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.BRConnectionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "vlantemplate", resourceName = "vlantemplates")
@@ -63,6 +65,12 @@ public class VLANTemplate extends RestObject {
    @JsonProperty(value = "associatedEgressQOSPolicyID")
    protected String associatedEgressQOSPolicyID;
    
+   @JsonProperty(value = "associatedVSCProfileID")
+   protected String associatedVSCProfileID;
+   
+   @JsonProperty(value = "ducVlan")
+   protected Boolean ducVlan;
+   
    @JsonProperty(value = "externalID")
    protected String externalID;
    
@@ -74,12 +82,22 @@ public class VLANTemplate extends RestObject {
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private UplinkConnectionsFetcher uplinkConnections;
+   
+   @JsonIgnore
+   private BRConnectionsFetcher bRConnections;
+   
 
    public VLANTemplate() {
       
       metadatas = new MetadatasFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      uplinkConnections = new UplinkConnectionsFetcher(this);
+      
+      bRConnections = new BRConnectionsFetcher(this);
       
    }
 
@@ -129,6 +147,24 @@ public class VLANTemplate extends RestObject {
       this.associatedEgressQOSPolicyID = value;
    }
    @JsonIgnore
+   public String getAssociatedVSCProfileID() {
+      return associatedVSCProfileID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedVSCProfileID(String value) { 
+      this.associatedVSCProfileID = value;
+   }
+   @JsonIgnore
+   public Boolean getDucVlan() {
+      return ducVlan;
+   }
+
+   @JsonIgnore
+   public void setDucVlan(Boolean value) { 
+      this.ducVlan = value;
+   }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
@@ -150,9 +186,19 @@ public class VLANTemplate extends RestObject {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public UplinkConnectionsFetcher getUplinkConnections() {
+      return uplinkConnections;
+   }
+   
+   @JsonIgnore
+   public BRConnectionsFetcher getBRConnections() {
+      return bRConnections;
+   }
+   
 
    public String toString() {
-      return "VLANTemplate [" + "value=" + value + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", entityScope=" + entityScope + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VLANTemplate [" + "value=" + value + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", entityScope=" + entityScope + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", associatedVSCProfileID=" + associatedVSCProfileID + ", ducVlan=" + ducVlan + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

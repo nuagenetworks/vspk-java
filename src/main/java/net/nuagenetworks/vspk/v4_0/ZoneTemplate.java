@@ -48,11 +48,15 @@ public class ZoneTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum DPI { DISABLED, ENABLED, INHERITED };
    public enum IPType { IPV4, IPV6 };
    public enum Encryption { DISABLED, ENABLED, INHERITED };
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum Multicast { DISABLED, ENABLED, INHERITED };
 
+   
+   @JsonProperty(value = "DPI")
+   protected DPI DPI;
    
    @JsonProperty(value = "IPType")
    protected IPType IPType;
@@ -126,6 +130,15 @@ public class ZoneTemplate extends RestObject {
       
    }
 
+   @JsonIgnore
+   public DPI getDPI() {
+      return DPI;
+   }
+
+   @JsonIgnore
+   public void setDPI(DPI value) { 
+      this.DPI = value;
+   }
    @JsonIgnore
    public IPType getIPType() {
       return IPType;
@@ -273,7 +286,7 @@ public class ZoneTemplate extends RestObject {
    
 
    public String toString() {
-      return "ZoneTemplate [" + "IPType=" + IPType + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", address=" + address + ", description=" + description + ", netmask=" + netmask + ", encryption=" + encryption + ", entityScope=" + entityScope + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", publicZone=" + publicZone + ", multicast=" + multicast + ", numberOfHostsInSubnets=" + numberOfHostsInSubnets + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "ZoneTemplate [" + "DPI=" + DPI + ", IPType=" + IPType + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", address=" + address + ", description=" + description + ", netmask=" + netmask + ", encryption=" + encryption + ", entityScope=" + entityScope + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", publicZone=" + publicZone + ", multicast=" + multicast + ", numberOfHostsInSubnets=" + numberOfHostsInSubnets + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

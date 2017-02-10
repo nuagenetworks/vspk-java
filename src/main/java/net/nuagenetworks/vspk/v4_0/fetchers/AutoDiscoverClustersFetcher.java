@@ -29,14 +29,14 @@ package net.nuagenetworks.vspk.v4_0.fetchers;
 
 import net.nuagenetworks.bambou.RestObject;
 import net.nuagenetworks.bambou.RestFetcher;
-import net.nuagenetworks.vspk.v4_0.AutoDiscoverClusters;
+import net.nuagenetworks.vspk.v4_0.AutoDiscoverCluster;
 
-public class AutoDiscoverClustersFetcher extends RestFetcher<AutoDiscoverClusters> {
+public class AutoDiscoverClustersFetcher extends RestFetcher<AutoDiscoverCluster> {
 
    private static final long serialVersionUID = 1L;
    
    public AutoDiscoverClustersFetcher(RestObject parentRestObj) {
-      super(parentRestObj, AutoDiscoverClusters.class);
+      super(parentRestObj, AutoDiscoverCluster.class);
    }
    
    

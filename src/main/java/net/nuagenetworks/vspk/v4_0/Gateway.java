@@ -54,7 +54,7 @@ public class Gateway extends RestObject {
 
    
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
-   public enum Personality { DC7X50, HARDWARE_VTEP, NSG, OTHER, VRSG, VSA, VSG };
+   public enum Personality { DC7X50, HARDWARE_VTEP, NSG, OTHER, VRSB, VRSG, VSA, VSG };
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -90,6 +90,9 @@ public class Gateway extends RestObject {
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
+   
+   @JsonProperty(value = "useGatewayVLANVNID")
+   protected Boolean useGatewayVLANVNID;
    
    @JsonProperty(value = "vtep")
    protected String vtep;
@@ -261,6 +264,15 @@ public class Gateway extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
+   public Boolean getUseGatewayVLANVNID() {
+      return useGatewayVLANVNID;
+   }
+
+   @JsonIgnore
+   public void setUseGatewayVLANVNID(Boolean value) { 
+      this.useGatewayVLANVNID = value;
+   }
+   @JsonIgnore
    public String getVtep() {
       return vtep;
    }
@@ -351,7 +363,7 @@ public class Gateway extends RestObject {
    
 
    public String toString() {
-      return "Gateway [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", redundancyGroupID=" + redundancyGroupID + ", peer=" + peer + ", templateID=" + templateID + ", pending=" + pending + ", permittedAction=" + permittedAction + ", personality=" + personality + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", vtep=" + vtep + ", autoDiscGatewayID=" + autoDiscGatewayID + ", externalID=" + externalID + ", systemID=" + systemID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Gateway [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", redundancyGroupID=" + redundancyGroupID + ", peer=" + peer + ", templateID=" + templateID + ", pending=" + pending + ", permittedAction=" + permittedAction + ", personality=" + personality + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", useGatewayVLANVNID=" + useGatewayVLANVNID + ", vtep=" + vtep + ", autoDiscGatewayID=" + autoDiscGatewayID + ", externalID=" + externalID + ", systemID=" + systemID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

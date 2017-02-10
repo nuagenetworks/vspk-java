@@ -46,8 +46,14 @@ public class NSGatewayTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum SSHService { DISABLED, ENABLED };
+   public enum Personality { NSG, NSGBR };
+   public enum InstanceSSHOverride { ALLOWED, DISALLOWED };
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
+   
+   @JsonProperty(value = "SSHService")
+   protected SSHService SSHService;
    
    @JsonProperty(value = "name")
    protected String name;
@@ -55,11 +61,20 @@ public class NSGatewayTemplate extends RestObject {
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "personality")
+   protected Personality personality;
+   
    @JsonProperty(value = "description")
    protected String description;
    
+   @JsonProperty(value = "infrastructureAccessProfileID")
+   protected String infrastructureAccessProfileID;
+   
    @JsonProperty(value = "infrastructureProfileID")
    protected String infrastructureProfileID;
+   
+   @JsonProperty(value = "instanceSSHOverride")
+   protected InstanceSSHOverride instanceSSHOverride;
    
    @JsonProperty(value = "enterpriseID")
    protected String enterpriseID;
@@ -93,6 +108,15 @@ public class NSGatewayTemplate extends RestObject {
    }
 
    @JsonIgnore
+   public SSHService getSSHService() {
+      return SSHService;
+   }
+
+   @JsonIgnore
+   public void setSSHService(SSHService value) { 
+      this.SSHService = value;
+   }
+   @JsonIgnore
    public String getName() {
       return name;
    }
@@ -111,6 +135,15 @@ public class NSGatewayTemplate extends RestObject {
       this.lastUpdatedBy = value;
    }
    @JsonIgnore
+   public Personality getPersonality() {
+      return personality;
+   }
+
+   @JsonIgnore
+   public void setPersonality(Personality value) { 
+      this.personality = value;
+   }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
@@ -120,6 +153,15 @@ public class NSGatewayTemplate extends RestObject {
       this.description = value;
    }
    @JsonIgnore
+   public String getInfrastructureAccessProfileID() {
+      return infrastructureAccessProfileID;
+   }
+
+   @JsonIgnore
+   public void setInfrastructureAccessProfileID(String value) { 
+      this.infrastructureAccessProfileID = value;
+   }
+   @JsonIgnore
    public String getInfrastructureProfileID() {
       return infrastructureProfileID;
    }
@@ -127,6 +169,15 @@ public class NSGatewayTemplate extends RestObject {
    @JsonIgnore
    public void setInfrastructureProfileID(String value) { 
       this.infrastructureProfileID = value;
+   }
+   @JsonIgnore
+   public InstanceSSHOverride getInstanceSSHOverride() {
+      return instanceSSHOverride;
+   }
+
+   @JsonIgnore
+   public void setInstanceSSHOverride(InstanceSSHOverride value) { 
+      this.instanceSSHOverride = value;
    }
    @JsonIgnore
    public String getEnterpriseID() {
@@ -175,7 +226,7 @@ public class NSGatewayTemplate extends RestObject {
    
 
    public String toString() {
-      return "NSGatewayTemplate [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", infrastructureProfileID=" + infrastructureProfileID + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NSGatewayTemplate [" + "SSHService=" + SSHService + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", personality=" + personality + ", description=" + description + ", infrastructureAccessProfileID=" + infrastructureAccessProfileID + ", infrastructureProfileID=" + infrastructureProfileID + ", instanceSSHOverride=" + instanceSSHOverride + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

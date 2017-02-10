@@ -37,20 +37,25 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import net.nuagenetworks.vspk.v4_0.fetchers.L2DomainsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.L2DomainTemplatesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.L7applicationsignaturesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.RateLimitersFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GatewaysFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GatewayTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.PATNATPoolsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.LDAPConfigurationsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.RedundancyGroupsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.PerformanceMonitorsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadataTagsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NetworkMacroGroupsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.NetworkPerformanceMeasurementsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.KeyServerMonitorsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.ZFBRequestsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.BGPProfilesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EgressQOSPoliciesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.SharedNetworkResourcesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.FirewallAclsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.FirewallRulesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IKECertificatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IKEEncryptionprofilesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IKEGatewaysFetcher;
@@ -60,7 +65,6 @@ import net.nuagenetworks.vspk.v4_0.fetchers.AlarmsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.AllAlarmsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.InfrastructurePortProfilesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EnterpriseNetworksFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EnterpriseSecuritiesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
@@ -68,7 +72,8 @@ import net.nuagenetworks.vspk.v4_0.fetchers.DomainsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.DomainTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.ContainersFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.RoutingPoliciesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.AppsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ApplicationsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ApplicationperformancemanagementsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.ApplicationServicesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GroupsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GroupKeyEncryptionProfilesFetcher;
@@ -76,6 +81,7 @@ import net.nuagenetworks.vspk.v4_0.fetchers.DSCPForwardingClassTablesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.UsersFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NSGatewaysFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NSGatewayTemplatesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.NSGGroupsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NSRedundantGatewayGroupsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.PublicNetworkMacrosFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MultiCastListsFetcher;
@@ -124,6 +130,9 @@ public class Enterprise extends RestObject {
    @JsonProperty(value = "description")
    protected String description;
    
+   @JsonProperty(value = "dictionaryVersion")
+   protected Long dictionaryVersion;
+   
    @JsonProperty(value = "allowAdvancedQOSConfiguration")
    protected Boolean allowAdvancedQOSConfiguration;
    
@@ -141,6 +150,9 @@ public class Enterprise extends RestObject {
    
    @JsonProperty(value = "floatingIPsUsed")
    protected Long floatingIPsUsed;
+   
+   @JsonProperty(value = "enableApplicationPerformanceManagement")
+   protected Boolean enableApplicationPerformanceManagement;
    
    @JsonProperty(value = "encryptionManagementMode")
    protected EncryptionManagementMode encryptionManagementMode;
@@ -184,6 +196,9 @@ public class Enterprise extends RestObject {
    private L2DomainTemplatesFetcher l2DomainTemplates;
    
    @JsonIgnore
+   private L7applicationsignaturesFetcher l7applicationsignatures;
+   
+   @JsonIgnore
    private RateLimitersFetcher rateLimiters;
    
    @JsonIgnore
@@ -202,6 +217,9 @@ public class Enterprise extends RestObject {
    private RedundancyGroupsFetcher redundancyGroups;
    
    @JsonIgnore
+   private PerformanceMonitorsFetcher performanceMonitors;
+   
+   @JsonIgnore
    private MetadatasFetcher metadatas;
    
    @JsonIgnore
@@ -209,6 +227,9 @@ public class Enterprise extends RestObject {
    
    @JsonIgnore
    private NetworkMacroGroupsFetcher networkMacroGroups;
+   
+   @JsonIgnore
+   private NetworkPerformanceMeasurementsFetcher networkPerformanceMeasurements;
    
    @JsonIgnore
    private KeyServerMonitorsFetcher keyServerMonitors;
@@ -224,6 +245,12 @@ public class Enterprise extends RestObject {
    
    @JsonIgnore
    private SharedNetworkResourcesFetcher sharedNetworkResources;
+   
+   @JsonIgnore
+   private FirewallAclsFetcher firewallAcls;
+   
+   @JsonIgnore
+   private FirewallRulesFetcher firewallRules;
    
    @JsonIgnore
    private IKECertificatesFetcher iKECertificates;
@@ -253,9 +280,6 @@ public class Enterprise extends RestObject {
    private VMsFetcher vMs;
    
    @JsonIgnore
-   private InfrastructurePortProfilesFetcher infrastructurePortProfiles;
-   
-   @JsonIgnore
    private EnterpriseNetworksFetcher enterpriseNetworks;
    
    @JsonIgnore
@@ -277,7 +301,10 @@ public class Enterprise extends RestObject {
    private RoutingPoliciesFetcher routingPolicies;
    
    @JsonIgnore
-   private AppsFetcher apps;
+   private ApplicationsFetcher applications;
+   
+   @JsonIgnore
+   private ApplicationperformancemanagementsFetcher applicationperformancemanagements;
    
    @JsonIgnore
    private ApplicationServicesFetcher applicationServices;
@@ -299,6 +326,9 @@ public class Enterprise extends RestObject {
    
    @JsonIgnore
    private NSGatewayTemplatesFetcher nSGatewayTemplates;
+   
+   @JsonIgnore
+   private NSGGroupsFetcher nSGGroups;
    
    @JsonIgnore
    private NSRedundantGatewayGroupsFetcher nSRedundantGatewayGroups;
@@ -328,6 +358,8 @@ public class Enterprise extends RestObject {
       
       l2DomainTemplates = new L2DomainTemplatesFetcher(this);
       
+      l7applicationsignatures = new L7applicationsignaturesFetcher(this);
+      
       rateLimiters = new RateLimitersFetcher(this);
       
       gateways = new GatewaysFetcher(this);
@@ -340,11 +372,15 @@ public class Enterprise extends RestObject {
       
       redundancyGroups = new RedundancyGroupsFetcher(this);
       
+      performanceMonitors = new PerformanceMonitorsFetcher(this);
+      
       metadatas = new MetadatasFetcher(this);
       
       metadataTags = new MetadataTagsFetcher(this);
       
       networkMacroGroups = new NetworkMacroGroupsFetcher(this);
+      
+      networkPerformanceMeasurements = new NetworkPerformanceMeasurementsFetcher(this);
       
       keyServerMonitors = new KeyServerMonitorsFetcher(this);
       
@@ -355,6 +391,10 @@ public class Enterprise extends RestObject {
       egressQOSPolicies = new EgressQOSPoliciesFetcher(this);
       
       sharedNetworkResources = new SharedNetworkResourcesFetcher(this);
+      
+      firewallAcls = new FirewallAclsFetcher(this);
+      
+      firewallRules = new FirewallRulesFetcher(this);
       
       iKECertificates = new IKECertificatesFetcher(this);
       
@@ -374,8 +414,6 @@ public class Enterprise extends RestObject {
       
       vMs = new VMsFetcher(this);
       
-      infrastructurePortProfiles = new InfrastructurePortProfilesFetcher(this);
-      
       enterpriseNetworks = new EnterpriseNetworksFetcher(this);
       
       enterpriseSecurities = new EnterpriseSecuritiesFetcher(this);
@@ -390,7 +428,9 @@ public class Enterprise extends RestObject {
       
       routingPolicies = new RoutingPoliciesFetcher(this);
       
-      apps = new AppsFetcher(this);
+      applications = new ApplicationsFetcher(this);
+      
+      applicationperformancemanagements = new ApplicationperformancemanagementsFetcher(this);
       
       applicationServices = new ApplicationServicesFetcher(this);
       
@@ -405,6 +445,8 @@ public class Enterprise extends RestObject {
       nSGateways = new NSGatewaysFetcher(this);
       
       nSGatewayTemplates = new NSGatewayTemplatesFetcher(this);
+      
+      nSGGroups = new NSGGroupsFetcher(this);
       
       nSRedundantGatewayGroups = new NSRedundantGatewayGroupsFetcher(this);
       
@@ -504,6 +546,15 @@ public class Enterprise extends RestObject {
       this.description = value;
    }
    @JsonIgnore
+   public Long getDictionaryVersion() {
+      return dictionaryVersion;
+   }
+
+   @JsonIgnore
+   public void setDictionaryVersion(Long value) { 
+      this.dictionaryVersion = value;
+   }
+   @JsonIgnore
    public Boolean getAllowAdvancedQOSConfiguration() {
       return allowAdvancedQOSConfiguration;
    }
@@ -556,6 +607,15 @@ public class Enterprise extends RestObject {
    @JsonIgnore
    public void setFloatingIPsUsed(Long value) { 
       this.floatingIPsUsed = value;
+   }
+   @JsonIgnore
+   public Boolean getEnableApplicationPerformanceManagement() {
+      return enableApplicationPerformanceManagement;
+   }
+
+   @JsonIgnore
+   public void setEnableApplicationPerformanceManagement(Boolean value) { 
+      this.enableApplicationPerformanceManagement = value;
    }
    @JsonIgnore
    public EncryptionManagementMode getEncryptionManagementMode() {
@@ -670,6 +730,11 @@ public class Enterprise extends RestObject {
    }
    
    @JsonIgnore
+   public L7applicationsignaturesFetcher getL7applicationsignatures() {
+      return l7applicationsignatures;
+   }
+   
+   @JsonIgnore
    public RateLimitersFetcher getRateLimiters() {
       return rateLimiters;
    }
@@ -700,6 +765,11 @@ public class Enterprise extends RestObject {
    }
    
    @JsonIgnore
+   public PerformanceMonitorsFetcher getPerformanceMonitors() {
+      return performanceMonitors;
+   }
+   
+   @JsonIgnore
    public MetadatasFetcher getMetadatas() {
       return metadatas;
    }
@@ -712,6 +782,11 @@ public class Enterprise extends RestObject {
    @JsonIgnore
    public NetworkMacroGroupsFetcher getNetworkMacroGroups() {
       return networkMacroGroups;
+   }
+   
+   @JsonIgnore
+   public NetworkPerformanceMeasurementsFetcher getNetworkPerformanceMeasurements() {
+      return networkPerformanceMeasurements;
    }
    
    @JsonIgnore
@@ -737,6 +812,16 @@ public class Enterprise extends RestObject {
    @JsonIgnore
    public SharedNetworkResourcesFetcher getSharedNetworkResources() {
       return sharedNetworkResources;
+   }
+   
+   @JsonIgnore
+   public FirewallAclsFetcher getFirewallAcls() {
+      return firewallAcls;
+   }
+   
+   @JsonIgnore
+   public FirewallRulesFetcher getFirewallRules() {
+      return firewallRules;
    }
    
    @JsonIgnore
@@ -785,11 +870,6 @@ public class Enterprise extends RestObject {
    }
    
    @JsonIgnore
-   public InfrastructurePortProfilesFetcher getInfrastructurePortProfiles() {
-      return infrastructurePortProfiles;
-   }
-   
-   @JsonIgnore
    public EnterpriseNetworksFetcher getEnterpriseNetworks() {
       return enterpriseNetworks;
    }
@@ -825,8 +905,13 @@ public class Enterprise extends RestObject {
    }
    
    @JsonIgnore
-   public AppsFetcher getApps() {
-      return apps;
+   public ApplicationsFetcher getApplications() {
+      return applications;
+   }
+   
+   @JsonIgnore
+   public ApplicationperformancemanagementsFetcher getApplicationperformancemanagements() {
+      return applicationperformancemanagements;
    }
    
    @JsonIgnore
@@ -862,6 +947,11 @@ public class Enterprise extends RestObject {
    @JsonIgnore
    public NSGatewayTemplatesFetcher getNSGatewayTemplates() {
       return nSGatewayTemplates;
+   }
+   
+   @JsonIgnore
+   public NSGGroupsFetcher getNSGGroups() {
+      return nSGGroups;
    }
    
    @JsonIgnore
@@ -901,7 +991,7 @@ public class Enterprise extends RestObject {
    
 
    public String toString() {
-      return "Enterprise [" + "LDAPAuthorizationEnabled=" + LDAPAuthorizationEnabled + ", LDAPEnabled=" + LDAPEnabled + ", BGPEnabled=" + BGPEnabled + ", DHCPLeaseInterval=" + DHCPLeaseInterval + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", receiveMultiCastListID=" + receiveMultiCastListID + ", sendMultiCastListID=" + sendMultiCastListID + ", description=" + description + ", allowAdvancedQOSConfiguration=" + allowAdvancedQOSConfiguration + ", allowGatewayManagement=" + allowGatewayManagement + ", allowTrustedForwardingClass=" + allowTrustedForwardingClass + ", allowedForwardingClasses=" + allowedForwardingClasses + ", floatingIPsQuota=" + floatingIPsQuota + ", floatingIPsUsed=" + floatingIPsUsed + ", encryptionManagementMode=" + encryptionManagementMode + ", enterpriseProfileID=" + enterpriseProfileID + ", entityScope=" + entityScope + ", localAS=" + localAS + ", associatedEnterpriseSecurityID=" + associatedEnterpriseSecurityID + ", associatedGroupKeyEncryptionProfileID=" + associatedGroupKeyEncryptionProfileID + ", associatedKeyServerMonitorID=" + associatedKeyServerMonitorID + ", customerID=" + customerID + ", avatarData=" + avatarData + ", avatarType=" + avatarType + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Enterprise [" + "LDAPAuthorizationEnabled=" + LDAPAuthorizationEnabled + ", LDAPEnabled=" + LDAPEnabled + ", BGPEnabled=" + BGPEnabled + ", DHCPLeaseInterval=" + DHCPLeaseInterval + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", receiveMultiCastListID=" + receiveMultiCastListID + ", sendMultiCastListID=" + sendMultiCastListID + ", description=" + description + ", dictionaryVersion=" + dictionaryVersion + ", allowAdvancedQOSConfiguration=" + allowAdvancedQOSConfiguration + ", allowGatewayManagement=" + allowGatewayManagement + ", allowTrustedForwardingClass=" + allowTrustedForwardingClass + ", allowedForwardingClasses=" + allowedForwardingClasses + ", floatingIPsQuota=" + floatingIPsQuota + ", floatingIPsUsed=" + floatingIPsUsed + ", enableApplicationPerformanceManagement=" + enableApplicationPerformanceManagement + ", encryptionManagementMode=" + encryptionManagementMode + ", enterpriseProfileID=" + enterpriseProfileID + ", entityScope=" + entityScope + ", localAS=" + localAS + ", associatedEnterpriseSecurityID=" + associatedEnterpriseSecurityID + ", associatedGroupKeyEncryptionProfileID=" + associatedGroupKeyEncryptionProfileID + ", associatedKeyServerMonitorID=" + associatedKeyServerMonitorID + ", customerID=" + customerID + ", avatarData=" + avatarData + ", avatarType=" + avatarType + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

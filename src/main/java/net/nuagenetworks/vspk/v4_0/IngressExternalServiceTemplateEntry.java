@@ -64,6 +64,9 @@ public class IngressExternalServiceTemplateEntry extends RestObject {
    @JsonProperty(value = "ICMPType")
    protected String ICMPType;
    
+   @JsonProperty(value = "IPv6AddressOverride")
+   protected String IPv6AddressOverride;
+   
    @JsonProperty(value = "DSCP")
    protected String DSCP;
    
@@ -204,6 +207,15 @@ public class IngressExternalServiceTemplateEntry extends RestObject {
    @JsonIgnore
    public void setICMPType(String value) { 
       this.ICMPType = value;
+   }
+   @JsonIgnore
+   public String getIPv6AddressOverride() {
+      return IPv6AddressOverride;
+   }
+
+   @JsonIgnore
+   public void setIPv6AddressOverride(String value) { 
+      this.IPv6AddressOverride = value;
    }
    @JsonIgnore
    public String getDSCP() {
@@ -491,7 +503,7 @@ public class IngressExternalServiceTemplateEntry extends RestObject {
    
 
    public String toString() {
-      return "IngressExternalServiceTemplateEntry [" + "ACLTemplateName=" + ACLTemplateName + ", ICMPCode=" + ICMPCode + ", ICMPType=" + ICMPType + ", DSCP=" + DSCP + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", action=" + action + ", addressOverride=" + addressOverride + ", redirectExternalServiceEndPointID=" + redirectExternalServiceEndPointID + ", description=" + description + ", destinationPort=" + destinationPort + ", networkID=" + networkID + ", networkType=" + networkType + ", mirrorDestinationID=" + mirrorDestinationID + ", flowLoggingEnabled=" + flowLoggingEnabled + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", locationID=" + locationID + ", locationType=" + locationType + ", policyState=" + policyState + ", domainName=" + domainName + ", sourcePort=" + sourcePort + ", priority=" + priority + ", protocol=" + protocol + ", associatedApplicationID=" + associatedApplicationID + ", associatedApplicationObjectID=" + associatedApplicationObjectID + ", associatedApplicationObjectType=" + associatedApplicationObjectType + ", associatedLiveEntityID=" + associatedLiveEntityID + ", statsID=" + statsID + ", statsLoggingEnabled=" + statsLoggingEnabled + ", etherType=" + etherType + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "IngressExternalServiceTemplateEntry [" + "ACLTemplateName=" + ACLTemplateName + ", ICMPCode=" + ICMPCode + ", ICMPType=" + ICMPType + ", IPv6AddressOverride=" + IPv6AddressOverride + ", DSCP=" + DSCP + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", action=" + action + ", addressOverride=" + addressOverride + ", redirectExternalServiceEndPointID=" + redirectExternalServiceEndPointID + ", description=" + description + ", destinationPort=" + destinationPort + ", networkID=" + networkID + ", networkType=" + networkType + ", mirrorDestinationID=" + mirrorDestinationID + ", flowLoggingEnabled=" + flowLoggingEnabled + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", locationID=" + locationID + ", locationType=" + locationType + ", policyState=" + policyState + ", domainName=" + domainName + ", sourcePort=" + sourcePort + ", priority=" + priority + ", protocol=" + protocol + ", associatedApplicationID=" + associatedApplicationID + ", associatedApplicationObjectID=" + associatedApplicationObjectID + ", associatedApplicationObjectType=" + associatedApplicationObjectType + ", associatedLiveEntityID=" + associatedLiveEntityID + ", statsID=" + statsID + ", statsLoggingEnabled=" + statsLoggingEnabled + ", etherType=" + etherType + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

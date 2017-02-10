@@ -46,7 +46,7 @@ public class GatewayTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum Personality { DC7X50, HARDWARE_VTEP, NSG, OTHER, VRSG, VSA, VSG };
+   public enum Personality { DC7X50, HARDWARE_VTEP, NSG, OTHER, VRSB, VRSG, VSA, VSG };
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    

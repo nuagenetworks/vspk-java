@@ -29,14 +29,14 @@ package net.nuagenetworks.vspk.v4_0.fetchers;
 
 import net.nuagenetworks.bambou.RestObject;
 import net.nuagenetworks.bambou.RestFetcher;
-import net.nuagenetworks.vspk.v4_0.NSPortStaticConfiguration;
+import net.nuagenetworks.vspk.v4_0.DUCGroupBinding;
 
-public class NSPortStaticConfigurationsFetcher extends RestFetcher<NSPortStaticConfiguration> {
+public class DUCGroupBindingsFetcher extends RestFetcher<DUCGroupBinding> {
 
    private static final long serialVersionUID = 1L;
    
-   public NSPortStaticConfigurationsFetcher(RestObject parentRestObj) {
-      super(parentRestObj, NSPortStaticConfiguration.class);
+   public DUCGroupBindingsFetcher(RestObject parentRestObj) {
+      super(parentRestObj, DUCGroupBinding.class);
    }
    
    

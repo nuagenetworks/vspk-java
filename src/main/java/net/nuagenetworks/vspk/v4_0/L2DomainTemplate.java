@@ -58,15 +58,20 @@ public class L2DomainTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum DPI { DISABLED, ENABLED, INHERITED };
    public enum IPType { IPV4, IPV6 };
    public enum Encryption { DISABLED, ENABLED };
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum PolicyChangeStatus { APPLIED, DISCARDED, STARTED };
+   public enum UseGlobalMAC { DISABLED, ENABLED };
    public enum Multicast { DISABLED, ENABLED, INHERITED };
 
    
    @JsonProperty(value = "DHCPManaged")
    protected Boolean DHCPManaged;
+   
+   @JsonProperty(value = "DPI")
+   protected DPI DPI;
    
    @JsonProperty(value = "IPType")
    protected IPType IPType;
@@ -79,6 +84,9 @@ public class L2DomainTemplate extends RestObject {
    
    @JsonProperty(value = "gateway")
    protected String gateway;
+   
+   @JsonProperty(value = "gatewayMACAddress")
+   protected String gatewayMACAddress;
    
    @JsonProperty(value = "address")
    protected String address;
@@ -97,6 +105,9 @@ public class L2DomainTemplate extends RestObject {
    
    @JsonProperty(value = "policyChangeStatus")
    protected PolicyChangeStatus policyChangeStatus;
+   
+   @JsonProperty(value = "useGlobalMAC")
+   protected UseGlobalMAC useGlobalMAC;
    
    @JsonProperty(value = "associatedMulticastChannelMapID")
    protected String associatedMulticastChannelMapID;
@@ -199,6 +210,15 @@ public class L2DomainTemplate extends RestObject {
       this.DHCPManaged = value;
    }
    @JsonIgnore
+   public DPI getDPI() {
+      return DPI;
+   }
+
+   @JsonIgnore
+   public void setDPI(DPI value) { 
+      this.DPI = value;
+   }
+   @JsonIgnore
    public IPType getIPType() {
       return IPType;
    }
@@ -233,6 +253,15 @@ public class L2DomainTemplate extends RestObject {
    @JsonIgnore
    public void setGateway(String value) { 
       this.gateway = value;
+   }
+   @JsonIgnore
+   public String getGatewayMACAddress() {
+      return gatewayMACAddress;
+   }
+
+   @JsonIgnore
+   public void setGatewayMACAddress(String value) { 
+      this.gatewayMACAddress = value;
    }
    @JsonIgnore
    public String getAddress() {
@@ -287,6 +316,15 @@ public class L2DomainTemplate extends RestObject {
    @JsonIgnore
    public void setPolicyChangeStatus(PolicyChangeStatus value) { 
       this.policyChangeStatus = value;
+   }
+   @JsonIgnore
+   public UseGlobalMAC getUseGlobalMAC() {
+      return useGlobalMAC;
+   }
+
+   @JsonIgnore
+   public void setUseGlobalMAC(UseGlobalMAC value) { 
+      this.useGlobalMAC = value;
    }
    @JsonIgnore
    public String getAssociatedMulticastChannelMapID() {
@@ -395,7 +433,7 @@ public class L2DomainTemplate extends RestObject {
    
 
    public String toString() {
-      return "L2DomainTemplate [" + "DHCPManaged=" + DHCPManaged + ", IPType=" + IPType + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", gateway=" + gateway + ", address=" + address + ", description=" + description + ", netmask=" + netmask + ", encryption=" + encryption + ", entityScope=" + entityScope + ", policyChangeStatus=" + policyChangeStatus + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", multicast=" + multicast + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "L2DomainTemplate [" + "DHCPManaged=" + DHCPManaged + ", DPI=" + DPI + ", IPType=" + IPType + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", address=" + address + ", description=" + description + ", netmask=" + netmask + ", encryption=" + encryption + ", entityScope=" + entityScope + ", policyChangeStatus=" + policyChangeStatus + ", useGlobalMAC=" + useGlobalMAC + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", multicast=" + multicast + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

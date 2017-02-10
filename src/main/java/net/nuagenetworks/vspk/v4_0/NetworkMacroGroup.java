@@ -58,6 +58,9 @@ public class NetworkMacroGroup extends RestObject {
    @JsonProperty(value = "description")
    protected String description;
    
+   @JsonProperty(value = "networkMacros")
+   protected java.util.List<String> networkMacros;
+   
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
@@ -114,6 +117,15 @@ public class NetworkMacroGroup extends RestObject {
       this.description = value;
    }
    @JsonIgnore
+   public java.util.List<String> getNetworkMacros() {
+      return networkMacros;
+   }
+
+   @JsonIgnore
+   public void setNetworkMacros(java.util.List<String> value) { 
+      this.networkMacros = value;
+   }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
@@ -151,7 +163,7 @@ public class NetworkMacroGroup extends RestObject {
    
 
    public String toString() {
-      return "NetworkMacroGroup [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NetworkMacroGroup [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", networkMacros=" + networkMacros + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

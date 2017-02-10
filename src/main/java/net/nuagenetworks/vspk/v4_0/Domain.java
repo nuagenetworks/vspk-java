@@ -45,6 +45,7 @@ import net.nuagenetworks.vspk.v4_0.fetchers.DomainFIPAclTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.FloatingIPACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.DHCPOptionsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.LinksFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.FirewallAclsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.FloatingIpsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
@@ -66,6 +67,7 @@ import net.nuagenetworks.vspk.v4_0.fetchers.RoutingPoliciesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.UplinkRDsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VPNConnectionsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VPortsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ApplicationperformancemanagementbindingsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.BridgeInterfacesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GroupsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.StaticRoutesFetcher;
@@ -83,7 +85,8 @@ public class Domain extends RestObject {
 
    
    public enum PATEnabled { DISABLED, ENABLED, INHERITED };
-   public enum DHCPBehavior { CONSUME, FLOOD, RELAY };
+   public enum DHCPBehavior { CONSUME, FLOOD, OVERLAY_RELAY, UNDERLAY_RELAY };
+   public enum DPI { DISABLED, ENABLED };
    public enum MaintenanceMode { DISABLED, ENABLED, ENABLED_INHERITED };
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    public enum Encryption { DISABLED, ENABLED };
@@ -111,6 +114,9 @@ public class Domain extends RestObject {
    @JsonProperty(value = "DHCPServerAddress")
    protected String DHCPServerAddress;
    
+   @JsonProperty(value = "DPI")
+   protected DPI DPI;
+   
    @JsonProperty(value = "labelID")
    protected Long labelID;
    
@@ -119,6 +125,12 @@ public class Domain extends RestObject {
    
    @JsonProperty(value = "backHaulRouteTarget")
    protected String backHaulRouteTarget;
+   
+   @JsonProperty(value = "backHaulSubnetIPAddress")
+   protected String backHaulSubnetIPAddress;
+   
+   @JsonProperty(value = "backHaulSubnetMask")
+   protected String backHaulSubnetMask;
    
    @JsonProperty(value = "backHaulVNID")
    protected Long backHaulVNID;
@@ -170,6 +182,12 @@ public class Domain extends RestObject {
    
    @JsonProperty(value = "policyChangeStatus")
    protected PolicyChangeStatus policyChangeStatus;
+   
+   @JsonProperty(value = "domainID")
+   protected Long domainID;
+   
+   @JsonProperty(value = "domainVLANID")
+   protected Long domainVLANID;
    
    @JsonProperty(value = "routeDistinguisher")
    protected String routeDistinguisher;
@@ -243,6 +261,9 @@ public class Domain extends RestObject {
    private LinksFetcher links;
    
    @JsonIgnore
+   private FirewallAclsFetcher firewallAcls;
+   
+   @JsonIgnore
    private FloatingIpsFetcher floatingIps;
    
    @JsonIgnore
@@ -306,6 +327,9 @@ public class Domain extends RestObject {
    private VPortsFetcher vPorts;
    
    @JsonIgnore
+   private ApplicationperformancemanagementbindingsFetcher applicationperformancemanagementbindings;
+   
+   @JsonIgnore
    private BridgeInterfacesFetcher bridgeInterfaces;
    
    @JsonIgnore
@@ -357,6 +381,8 @@ public class Domain extends RestObject {
       
       links = new LinksFetcher(this);
       
+      firewallAcls = new FirewallAclsFetcher(this);
+      
       floatingIps = new FloatingIpsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
@@ -398,6 +424,8 @@ public class Domain extends RestObject {
       vPNConnections = new VPNConnectionsFetcher(this);
       
       vPorts = new VPortsFetcher(this);
+      
+      applicationperformancemanagementbindings = new ApplicationperformancemanagementbindingsFetcher(this);
       
       bridgeInterfaces = new BridgeInterfacesFetcher(this);
       
@@ -463,6 +491,15 @@ public class Domain extends RestObject {
       this.DHCPServerAddress = value;
    }
    @JsonIgnore
+   public DPI getDPI() {
+      return DPI;
+   }
+
+   @JsonIgnore
+   public void setDPI(DPI value) { 
+      this.DPI = value;
+   }
+   @JsonIgnore
    public Long getLabelID() {
       return labelID;
    }
@@ -488,6 +525,24 @@ public class Domain extends RestObject {
    @JsonIgnore
    public void setBackHaulRouteTarget(String value) { 
       this.backHaulRouteTarget = value;
+   }
+   @JsonIgnore
+   public String getBackHaulSubnetIPAddress() {
+      return backHaulSubnetIPAddress;
+   }
+
+   @JsonIgnore
+   public void setBackHaulSubnetIPAddress(String value) { 
+      this.backHaulSubnetIPAddress = value;
+   }
+   @JsonIgnore
+   public String getBackHaulSubnetMask() {
+      return backHaulSubnetMask;
+   }
+
+   @JsonIgnore
+   public void setBackHaulSubnetMask(String value) { 
+      this.backHaulSubnetMask = value;
    }
    @JsonIgnore
    public Long getBackHaulVNID() {
@@ -641,6 +696,24 @@ public class Domain extends RestObject {
    @JsonIgnore
    public void setPolicyChangeStatus(PolicyChangeStatus value) { 
       this.policyChangeStatus = value;
+   }
+   @JsonIgnore
+   public Long getDomainID() {
+      return domainID;
+   }
+
+   @JsonIgnore
+   public void setDomainID(Long value) { 
+      this.domainID = value;
+   }
+   @JsonIgnore
+   public Long getDomainVLANID() {
+      return domainVLANID;
+   }
+
+   @JsonIgnore
+   public void setDomainVLANID(Long value) { 
+      this.domainVLANID = value;
    }
    @JsonIgnore
    public String getRouteDistinguisher() {
@@ -813,6 +886,11 @@ public class Domain extends RestObject {
    }
    
    @JsonIgnore
+   public FirewallAclsFetcher getFirewallAcls() {
+      return firewallAcls;
+   }
+   
+   @JsonIgnore
    public FloatingIpsFetcher getFloatingIps() {
       return floatingIps;
    }
@@ -918,6 +996,11 @@ public class Domain extends RestObject {
    }
    
    @JsonIgnore
+   public ApplicationperformancemanagementbindingsFetcher getApplicationperformancemanagementbindings() {
+      return applicationperformancemanagementbindings;
+   }
+   
+   @JsonIgnore
    public BridgeInterfacesFetcher getBridgeInterfaces() {
       return bridgeInterfaces;
    }
@@ -959,7 +1042,7 @@ public class Domain extends RestObject {
    
 
    public String toString() {
-      return "Domain [" + "PATEnabled=" + PATEnabled + ", ECMPCount=" + ECMPCount + ", BGPEnabled=" + BGPEnabled + ", DHCPBehavior=" + DHCPBehavior + ", DHCPServerAddress=" + DHCPServerAddress + ", labelID=" + labelID + ", backHaulRouteDistinguisher=" + backHaulRouteDistinguisher + ", backHaulRouteTarget=" + backHaulRouteTarget + ", backHaulVNID=" + backHaulVNID + ", maintenanceMode=" + maintenanceMode + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", leakingEnabled=" + leakingEnabled + ", secondaryDHCPServerAddress=" + secondaryDHCPServerAddress + ", templateID=" + templateID + ", permittedAction=" + permittedAction + ", serviceID=" + serviceID + ", description=" + description + ", dhcpServerAddresses=" + dhcpServerAddresses + ", globalRoutingEnabled=" + globalRoutingEnabled + ", importRouteTarget=" + importRouteTarget + ", encryption=" + encryption + ", underlayEnabled=" + underlayEnabled + ", entityScope=" + entityScope + ", policyChangeStatus=" + policyChangeStatus + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", uplinkPreference=" + uplinkPreference + ", applicationDeploymentPolicy=" + applicationDeploymentPolicy + ", associatedBGPProfileID=" + associatedBGPProfileID + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedPATMapperID=" + associatedPATMapperID + ", stretched=" + stretched + ", multicast=" + multicast + ", tunnelType=" + tunnelType + ", customerID=" + customerID + ", exportRouteTarget=" + exportRouteTarget + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Domain [" + "PATEnabled=" + PATEnabled + ", ECMPCount=" + ECMPCount + ", BGPEnabled=" + BGPEnabled + ", DHCPBehavior=" + DHCPBehavior + ", DHCPServerAddress=" + DHCPServerAddress + ", DPI=" + DPI + ", labelID=" + labelID + ", backHaulRouteDistinguisher=" + backHaulRouteDistinguisher + ", backHaulRouteTarget=" + backHaulRouteTarget + ", backHaulSubnetIPAddress=" + backHaulSubnetIPAddress + ", backHaulSubnetMask=" + backHaulSubnetMask + ", backHaulVNID=" + backHaulVNID + ", maintenanceMode=" + maintenanceMode + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", leakingEnabled=" + leakingEnabled + ", secondaryDHCPServerAddress=" + secondaryDHCPServerAddress + ", templateID=" + templateID + ", permittedAction=" + permittedAction + ", serviceID=" + serviceID + ", description=" + description + ", dhcpServerAddresses=" + dhcpServerAddresses + ", globalRoutingEnabled=" + globalRoutingEnabled + ", importRouteTarget=" + importRouteTarget + ", encryption=" + encryption + ", underlayEnabled=" + underlayEnabled + ", entityScope=" + entityScope + ", policyChangeStatus=" + policyChangeStatus + ", domainID=" + domainID + ", domainVLANID=" + domainVLANID + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", uplinkPreference=" + uplinkPreference + ", applicationDeploymentPolicy=" + applicationDeploymentPolicy + ", associatedBGPProfileID=" + associatedBGPProfileID + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedPATMapperID=" + associatedPATMapperID + ", stretched=" + stretched + ", multicast=" + multicast + ", tunnelType=" + tunnelType + ", customerID=" + customerID + ", exportRouteTarget=" + exportRouteTarget + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

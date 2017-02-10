@@ -59,6 +59,7 @@ import net.nuagenetworks.vspk.v4_0.fetchers.HostInterfacesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.UplinkRDsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VPNConnectionsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VPortsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ApplicationperformancemanagementbindingsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.BridgeInterfacesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GroupsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.StaticRoutesFetcher;
@@ -73,6 +74,7 @@ public class L2Domain extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum DPI { DISABLED, ENABLED };
    public enum IPType { IPV4, IPV6 };
    public enum MaintenanceMode { DISABLED, ENABLED, ENABLED_INHERITED };
    public enum Encryption { DISABLED, ENABLED };
@@ -84,6 +86,9 @@ public class L2Domain extends RestObject {
    
    @JsonProperty(value = "DHCPManaged")
    protected Boolean DHCPManaged;
+   
+   @JsonProperty(value = "DPI")
+   protected DPI DPI;
    
    @JsonProperty(value = "IPType")
    protected IPType IPType;
@@ -229,6 +234,9 @@ public class L2Domain extends RestObject {
    private VPortsFetcher vPorts;
    
    @JsonIgnore
+   private ApplicationperformancemanagementbindingsFetcher applicationperformancemanagementbindings;
+   
+   @JsonIgnore
    private BridgeInterfacesFetcher bridgeInterfaces;
    
    @JsonIgnore
@@ -298,6 +306,8 @@ public class L2Domain extends RestObject {
       
       vPorts = new VPortsFetcher(this);
       
+      applicationperformancemanagementbindings = new ApplicationperformancemanagementbindingsFetcher(this);
+      
       bridgeInterfaces = new BridgeInterfacesFetcher(this);
       
       groups = new GroupsFetcher(this);
@@ -320,6 +330,15 @@ public class L2Domain extends RestObject {
    @JsonIgnore
    public void setDHCPManaged(Boolean value) { 
       this.DHCPManaged = value;
+   }
+   @JsonIgnore
+   public DPI getDPI() {
+      return DPI;
+   }
+
+   @JsonIgnore
+   public void setDPI(DPI value) { 
+      this.DPI = value;
    }
    @JsonIgnore
    public IPType getIPType() {
@@ -652,6 +671,11 @@ public class L2Domain extends RestObject {
    }
    
    @JsonIgnore
+   public ApplicationperformancemanagementbindingsFetcher getApplicationperformancemanagementbindings() {
+      return applicationperformancemanagementbindings;
+   }
+   
+   @JsonIgnore
    public BridgeInterfacesFetcher getBridgeInterfaces() {
       return bridgeInterfaces;
    }
@@ -683,7 +707,7 @@ public class L2Domain extends RestObject {
    
 
    public String toString() {
-      return "L2Domain [" + "DHCPManaged=" + DHCPManaged + ", IPType=" + IPType + ", maintenanceMode=" + maintenanceMode + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", address=" + address + ", templateID=" + templateID + ", serviceID=" + serviceID + ", description=" + description + ", netmask=" + netmask + ", vnId=" + vnId + ", encryption=" + encryption + ", entityScope=" + entityScope + ", policyChangeStatus=" + policyChangeStatus + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", uplinkPreference=" + uplinkPreference + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSharedNetworkResourceID=" + associatedSharedNetworkResourceID + ", stretched=" + stretched + ", multicast=" + multicast + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "L2Domain [" + "DHCPManaged=" + DHCPManaged + ", DPI=" + DPI + ", IPType=" + IPType + ", maintenanceMode=" + maintenanceMode + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", address=" + address + ", templateID=" + templateID + ", serviceID=" + serviceID + ", description=" + description + ", netmask=" + netmask + ", vnId=" + vnId + ", encryption=" + encryption + ", entityScope=" + entityScope + ", policyChangeStatus=" + policyChangeStatus + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", uplinkPreference=" + uplinkPreference + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSharedNetworkResourceID=" + associatedSharedNetworkResourceID + ", stretched=" + stretched + ", multicast=" + multicast + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

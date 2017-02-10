@@ -43,6 +43,9 @@ import net.nuagenetworks.vspk.v4_0.fetchers.IKEGatewayConnectionsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.AlarmsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EnterprisePermissionsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.UplinkConnectionsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.BRConnectionsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.LtestatisticsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -99,8 +102,17 @@ public class VLAN extends RestObject {
    @JsonProperty(value = "associatedEgressQOSPolicyID")
    protected String associatedEgressQOSPolicyID;
    
+   @JsonProperty(value = "associatedUplinkConnectionID")
+   protected String associatedUplinkConnectionID;
+   
+   @JsonProperty(value = "associatedVSCProfileID")
+   protected String associatedVSCProfileID;
+   
    @JsonProperty(value = "status")
    protected Status status;
+   
+   @JsonProperty(value = "ducVlan")
+   protected Boolean ducVlan;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
@@ -132,6 +144,15 @@ public class VLAN extends RestObject {
    private EnterprisePermissionsFetcher enterprisePermissions;
    
    @JsonIgnore
+   private UplinkConnectionsFetcher uplinkConnections;
+   
+   @JsonIgnore
+   private BRConnectionsFetcher bRConnections;
+   
+   @JsonIgnore
+   private LtestatisticsFetcher ltestatistics;
+   
+   @JsonIgnore
    private EventLogsFetcher eventLogs;
    
 
@@ -152,6 +173,12 @@ public class VLAN extends RestObject {
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       enterprisePermissions = new EnterprisePermissionsFetcher(this);
+      
+      uplinkConnections = new UplinkConnectionsFetcher(this);
+      
+      bRConnections = new BRConnectionsFetcher(this);
+      
+      ltestatistics = new LtestatisticsFetcher(this);
       
       eventLogs = new EventLogsFetcher(this);
       
@@ -284,6 +311,24 @@ public class VLAN extends RestObject {
       this.associatedEgressQOSPolicyID = value;
    }
    @JsonIgnore
+   public String getAssociatedUplinkConnectionID() {
+      return associatedUplinkConnectionID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedUplinkConnectionID(String value) { 
+      this.associatedUplinkConnectionID = value;
+   }
+   @JsonIgnore
+   public String getAssociatedVSCProfileID() {
+      return associatedVSCProfileID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedVSCProfileID(String value) { 
+      this.associatedVSCProfileID = value;
+   }
+   @JsonIgnore
    public Status getStatus() {
       return status;
    }
@@ -291,6 +336,15 @@ public class VLAN extends RestObject {
    @JsonIgnore
    public void setStatus(Status value) { 
       this.status = value;
+   }
+   @JsonIgnore
+   public Boolean getDucVlan() {
+      return ducVlan;
+   }
+
+   @JsonIgnore
+   public void setDucVlan(Boolean value) { 
+      this.ducVlan = value;
    }
    @JsonIgnore
    public String getExternalID() {
@@ -345,13 +399,28 @@ public class VLAN extends RestObject {
    }
    
    @JsonIgnore
+   public UplinkConnectionsFetcher getUplinkConnections() {
+      return uplinkConnections;
+   }
+   
+   @JsonIgnore
+   public BRConnectionsFetcher getBRConnections() {
+      return bRConnections;
+   }
+   
+   @JsonIgnore
+   public LtestatisticsFetcher getLtestatistics() {
+      return ltestatistics;
+   }
+   
+   @JsonIgnore
    public EventLogsFetcher getEventLogs() {
       return eventLogs;
    }
    
 
    public String toString() {
-      return "VLAN [" + "value=" + value + ", lastUpdatedBy=" + lastUpdatedBy + ", gatewayID=" + gatewayID + ", readonly=" + readonly + ", templateID=" + templateID + ", permittedAction=" + permittedAction + ", description=" + description + ", restricted=" + restricted + ", entityScope=" + entityScope + ", vportID=" + vportID + ", useUserMnemonic=" + useUserMnemonic + ", userMnemonic=" + userMnemonic + ", associatedBGPProfileID=" + associatedBGPProfileID + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", status=" + status + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VLAN [" + "value=" + value + ", lastUpdatedBy=" + lastUpdatedBy + ", gatewayID=" + gatewayID + ", readonly=" + readonly + ", templateID=" + templateID + ", permittedAction=" + permittedAction + ", description=" + description + ", restricted=" + restricted + ", entityScope=" + entityScope + ", vportID=" + vportID + ", useUserMnemonic=" + useUserMnemonic + ", userMnemonic=" + userMnemonic + ", associatedBGPProfileID=" + associatedBGPProfileID + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", associatedUplinkConnectionID=" + associatedUplinkConnectionID + ", associatedVSCProfileID=" + associatedVSCProfileID + ", status=" + status + ", ducVlan=" + ducVlan + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

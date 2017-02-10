@@ -60,6 +60,9 @@ public class EnterpriseProfile extends RestObject {
    @JsonProperty(value = "DHCPLeaseInterval")
    protected Long DHCPLeaseInterval;
    
+   @JsonProperty(value = "DPIEnabled")
+   protected Boolean DPIEnabled;
+   
    @JsonProperty(value = "name")
    protected String name;
    
@@ -89,6 +92,9 @@ public class EnterpriseProfile extends RestObject {
    
    @JsonProperty(value = "floatingIPsQuota")
    protected Long floatingIPsQuota;
+   
+   @JsonProperty(value = "enableApplicationPerformanceManagement")
+   protected Boolean enableApplicationPerformanceManagement;
    
    @JsonProperty(value = "encryptionManagementMode")
    protected EncryptionManagementMode encryptionManagementMode;
@@ -155,6 +161,15 @@ public class EnterpriseProfile extends RestObject {
    @JsonIgnore
    public void setDHCPLeaseInterval(Long value) { 
       this.DHCPLeaseInterval = value;
+   }
+   @JsonIgnore
+   public Boolean getDPIEnabled() {
+      return DPIEnabled;
+   }
+
+   @JsonIgnore
+   public void setDPIEnabled(Boolean value) { 
+      this.DPIEnabled = value;
    }
    @JsonIgnore
    public String getName() {
@@ -247,6 +262,15 @@ public class EnterpriseProfile extends RestObject {
       this.floatingIPsQuota = value;
    }
    @JsonIgnore
+   public Boolean getEnableApplicationPerformanceManagement() {
+      return enableApplicationPerformanceManagement;
+   }
+
+   @JsonIgnore
+   public void setEnableApplicationPerformanceManagement(Boolean value) { 
+      this.enableApplicationPerformanceManagement = value;
+   }
+   @JsonIgnore
    public EncryptionManagementMode getEncryptionManagementMode() {
       return encryptionManagementMode;
    }
@@ -308,7 +332,7 @@ public class EnterpriseProfile extends RestObject {
    
 
    public String toString() {
-      return "EnterpriseProfile [" + "BGPEnabled=" + BGPEnabled + ", DHCPLeaseInterval=" + DHCPLeaseInterval + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", receiveMultiCastListID=" + receiveMultiCastListID + ", sendMultiCastListID=" + sendMultiCastListID + ", description=" + description + ", allowAdvancedQOSConfiguration=" + allowAdvancedQOSConfiguration + ", allowGatewayManagement=" + allowGatewayManagement + ", allowTrustedForwardingClass=" + allowTrustedForwardingClass + ", allowedForwardingClasses=" + allowedForwardingClasses + ", floatingIPsQuota=" + floatingIPsQuota + ", encryptionManagementMode=" + encryptionManagementMode + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "EnterpriseProfile [" + "BGPEnabled=" + BGPEnabled + ", DHCPLeaseInterval=" + DHCPLeaseInterval + ", DPIEnabled=" + DPIEnabled + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", receiveMultiCastListID=" + receiveMultiCastListID + ", sendMultiCastListID=" + sendMultiCastListID + ", description=" + description + ", allowAdvancedQOSConfiguration=" + allowAdvancedQOSConfiguration + ", allowGatewayManagement=" + allowGatewayManagement + ", allowTrustedForwardingClass=" + allowTrustedForwardingClass + ", allowedForwardingClasses=" + allowedForwardingClasses + ", floatingIPsQuota=" + floatingIPsQuota + ", enableApplicationPerformanceManagement=" + enableApplicationPerformanceManagement + ", encryptionManagementMode=" + encryptionManagementMode + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

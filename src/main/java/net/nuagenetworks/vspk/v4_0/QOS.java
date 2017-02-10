@@ -106,6 +106,18 @@ public class QOS extends RestObject {
    @JsonProperty(value = "rewriteForwardingClass")
    protected Boolean rewriteForwardingClass;
    
+   @JsonProperty(value = "EgressFIPCommittedBurstSize")
+   protected String EgressFIPCommittedBurstSize;
+   
+   @JsonProperty(value = "EgressFIPCommittedInformationRate")
+   protected String EgressFIPCommittedInformationRate;
+   
+   @JsonProperty(value = "EgressFIPPeakBurstSize")
+   protected String EgressFIPPeakBurstSize;
+   
+   @JsonProperty(value = "EgressFIPPeakInformationRate")
+   protected String EgressFIPPeakInformationRate;
+   
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
@@ -328,6 +340,42 @@ public class QOS extends RestObject {
       this.rewriteForwardingClass = value;
    }
    @JsonIgnore
+   public String getEgressFIPCommittedBurstSize() {
+      return EgressFIPCommittedBurstSize;
+   }
+
+   @JsonIgnore
+   public void setEgressFIPCommittedBurstSize(String value) { 
+      this.EgressFIPCommittedBurstSize = value;
+   }
+   @JsonIgnore
+   public String getEgressFIPCommittedInformationRate() {
+      return EgressFIPCommittedInformationRate;
+   }
+
+   @JsonIgnore
+   public void setEgressFIPCommittedInformationRate(String value) { 
+      this.EgressFIPCommittedInformationRate = value;
+   }
+   @JsonIgnore
+   public String getEgressFIPPeakBurstSize() {
+      return EgressFIPPeakBurstSize;
+   }
+
+   @JsonIgnore
+   public void setEgressFIPPeakBurstSize(String value) { 
+      this.EgressFIPPeakBurstSize = value;
+   }
+   @JsonIgnore
+   public String getEgressFIPPeakInformationRate() {
+      return EgressFIPPeakInformationRate;
+   }
+
+   @JsonIgnore
+   public void setEgressFIPPeakInformationRate(String value) { 
+      this.EgressFIPPeakInformationRate = value;
+   }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
@@ -438,7 +486,7 @@ public class QOS extends RestObject {
    
 
    public String toString() {
-      return "QOS [" + "FIPCommittedBurstSize=" + FIPCommittedBurstSize + ", FIPCommittedInformationRate=" + FIPCommittedInformationRate + ", FIPPeakBurstSize=" + FIPPeakBurstSize + ", FIPPeakInformationRate=" + FIPPeakInformationRate + ", FIPRateLimitingActive=" + FIPRateLimitingActive + ", BUMCommittedBurstSize=" + BUMCommittedBurstSize + ", BUMCommittedInformationRate=" + BUMCommittedInformationRate + ", BUMPeakBurstSize=" + BUMPeakBurstSize + ", BUMPeakInformationRate=" + BUMPeakInformationRate + ", BUMRateLimitingActive=" + BUMRateLimitingActive + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", rateLimitingActive=" + rateLimitingActive + ", active=" + active + ", peak=" + peak + ", serviceClass=" + serviceClass + ", description=" + description + ", rewriteForwardingClass=" + rewriteForwardingClass + ", entityScope=" + entityScope + ", committedBurstSize=" + committedBurstSize + ", committedInformationRate=" + committedInformationRate + ", trustedForwardingClass=" + trustedForwardingClass + ", assocQosId=" + assocQosId + ", associatedDSCPForwardingClassTableID=" + associatedDSCPForwardingClassTableID + ", associatedDSCPForwardingClassTableName=" + associatedDSCPForwardingClassTableName + ", burst=" + burst + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "QOS [" + "FIPCommittedBurstSize=" + FIPCommittedBurstSize + ", FIPCommittedInformationRate=" + FIPCommittedInformationRate + ", FIPPeakBurstSize=" + FIPPeakBurstSize + ", FIPPeakInformationRate=" + FIPPeakInformationRate + ", FIPRateLimitingActive=" + FIPRateLimitingActive + ", BUMCommittedBurstSize=" + BUMCommittedBurstSize + ", BUMCommittedInformationRate=" + BUMCommittedInformationRate + ", BUMPeakBurstSize=" + BUMPeakBurstSize + ", BUMPeakInformationRate=" + BUMPeakInformationRate + ", BUMRateLimitingActive=" + BUMRateLimitingActive + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", rateLimitingActive=" + rateLimitingActive + ", active=" + active + ", peak=" + peak + ", serviceClass=" + serviceClass + ", description=" + description + ", rewriteForwardingClass=" + rewriteForwardingClass + ", EgressFIPCommittedBurstSize=" + EgressFIPCommittedBurstSize + ", EgressFIPCommittedInformationRate=" + EgressFIPCommittedInformationRate + ", EgressFIPPeakBurstSize=" + EgressFIPPeakBurstSize + ", EgressFIPPeakInformationRate=" + EgressFIPPeakInformationRate + ", entityScope=" + entityScope + ", committedBurstSize=" + committedBurstSize + ", committedInformationRate=" + committedInformationRate + ", trustedForwardingClass=" + trustedForwardingClass + ", assocQosId=" + assocQosId + ", associatedDSCPForwardingClassTableID=" + associatedDSCPForwardingClassTableID + ", associatedDSCPForwardingClassTableName=" + associatedDSCPForwardingClassTableName + ", burst=" + burst + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -29,14 +29,14 @@ package net.nuagenetworks.vspk.v4_0.fetchers;
 
 import net.nuagenetworks.bambou.RestObject;
 import net.nuagenetworks.bambou.RestFetcher;
-import net.nuagenetworks.vspk.v4_0.InfrastructurePortProfile;
+import net.nuagenetworks.vspk.v4_0.UplinkConnection;
 
-public class InfrastructurePortProfilesFetcher extends RestFetcher<InfrastructurePortProfile> {
+public class UplinkConnectionsFetcher extends RestFetcher<UplinkConnection> {
 
    private static final long serialVersionUID = 1L;
    
-   public InfrastructurePortProfilesFetcher(RestObject parentRestObj) {
-      super(parentRestObj, InfrastructurePortProfile.class);
+   public UplinkConnectionsFetcher(RestObject parentRestObj) {
+      super(parentRestObj, UplinkConnection.class);
    }
    
    

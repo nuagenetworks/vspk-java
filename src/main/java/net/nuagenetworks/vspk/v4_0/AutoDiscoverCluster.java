@@ -35,69 +35,39 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "infrastructureportprofile", resourceName = "infrastructureportprofiles")
-public class InfrastructurePortProfile extends RestObject {
+@RestEntity(restName = "autodiscoveredcluster", resourceName = "autodiscoveredclusters")
+public class AutoDiscoverCluster extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
-   public enum Speed { AUTONEGOTIATE, BASET10, BASET1000, BASETX100, BASEX10G };
-   public enum UplinkTag { PRIMARY, SECONDARY, TERTIARY, UNKNOWN };
-   public enum Duplex { FULL, HALF, SIMPLEX };
 
    
    @JsonProperty(value = "name")
    protected String name;
    
+   @JsonProperty(value = "managedObjectID")
+   protected String managedObjectID;
+   
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "description")
-   protected String description;
-   
-   @JsonProperty(value = "enterpriseID")
-   protected String enterpriseID;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
-   @JsonProperty(value = "speed")
-   protected Speed speed;
-   
-   @JsonProperty(value = "uplinkTag")
-   protected UplinkTag uplinkTag;
-   
-   @JsonProperty(value = "mtu")
-   protected Long mtu;
-   
-   @JsonProperty(value = "duplex")
-   protected Duplex duplex;
+   @JsonProperty(value = "assocVCenterDataCenterID")
+   protected String assocVCenterDataCenterID;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
    
 
    
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
-   
-   @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
-   
 
-   public InfrastructurePortProfile() {
-      duplex = Duplex.FULL;
-      speed = Speed.AUTONEGOTIATE;
-      mtu = 1500L;
-      
-      metadatas = new MetadatasFetcher(this);
-      
-      globalMetadatas = new GlobalMetadatasFetcher(this);
+   public AutoDiscoverCluster() {
       
    }
 
@@ -111,6 +81,15 @@ public class InfrastructurePortProfile extends RestObject {
       this.name = value;
    }
    @JsonIgnore
+   public String getManagedObjectID() {
+      return managedObjectID;
+   }
+
+   @JsonIgnore
+   public void setManagedObjectID(String value) { 
+      this.managedObjectID = value;
+   }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
@@ -118,24 +97,6 @@ public class InfrastructurePortProfile extends RestObject {
    @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public String getDescription() {
-      return description;
-   }
-
-   @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
-   }
-   @JsonIgnore
-   public String getEnterpriseID() {
-      return enterpriseID;
-   }
-
-   @JsonIgnore
-   public void setEnterpriseID(String value) { 
-      this.enterpriseID = value;
    }
    @JsonIgnore
    public EntityScope getEntityScope() {
@@ -147,40 +108,13 @@ public class InfrastructurePortProfile extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
-   public Speed getSpeed() {
-      return speed;
+   public String getAssocVCenterDataCenterID() {
+      return assocVCenterDataCenterID;
    }
 
    @JsonIgnore
-   public void setSpeed(Speed value) { 
-      this.speed = value;
-   }
-   @JsonIgnore
-   public UplinkTag getUplinkTag() {
-      return uplinkTag;
-   }
-
-   @JsonIgnore
-   public void setUplinkTag(UplinkTag value) { 
-      this.uplinkTag = value;
-   }
-   @JsonIgnore
-   public Long getMtu() {
-      return mtu;
-   }
-
-   @JsonIgnore
-   public void setMtu(Long value) { 
-      this.mtu = value;
-   }
-   @JsonIgnore
-   public Duplex getDuplex() {
-      return duplex;
-   }
-
-   @JsonIgnore
-   public void setDuplex(Duplex value) { 
-      this.duplex = value;
+   public void setAssocVCenterDataCenterID(String value) { 
+      this.assocVCenterDataCenterID = value;
    }
    @JsonIgnore
    public String getExternalID() {
@@ -194,19 +128,9 @@ public class InfrastructurePortProfile extends RestObject {
    
 
    
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
-   
-   @JsonIgnore
-   public GlobalMetadatasFetcher getGlobalMetadatas() {
-      return globalMetadatas;
-   }
-   
 
    public String toString() {
-      return "InfrastructurePortProfile [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", speed=" + speed + ", uplinkTag=" + uplinkTag + ", mtu=" + mtu + ", duplex=" + duplex + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "AutoDiscoverCluster [" + "name=" + name + ", managedObjectID=" + managedObjectID + ", lastUpdatedBy=" + lastUpdatedBy + ", entityScope=" + entityScope + ", assocVCenterDataCenterID=" + assocVCenterDataCenterID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

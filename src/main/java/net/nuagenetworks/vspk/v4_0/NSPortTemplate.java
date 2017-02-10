@@ -48,6 +48,7 @@ public class NSPortTemplate extends RestObject {
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum PortType { ACCESS, NETWORK };
+   public enum Speed { AUTONEGOTIATE, BASET10, BASET1000, BASETX100, BASEX10G };
 
    
    @JsonProperty(value = "VLANRange")
@@ -74,11 +75,14 @@ public class NSPortTemplate extends RestObject {
    @JsonProperty(value = "portType")
    protected PortType portType;
    
+   @JsonProperty(value = "speed")
+   protected Speed speed;
+   
    @JsonProperty(value = "associatedEgressQOSPolicyID")
    protected String associatedEgressQOSPolicyID;
    
-   @JsonProperty(value = "associatedVSCProfileID")
-   protected String associatedVSCProfileID;
+   @JsonProperty(value = "mtu")
+   protected Long mtu;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
@@ -178,6 +182,15 @@ public class NSPortTemplate extends RestObject {
       this.portType = value;
    }
    @JsonIgnore
+   public Speed getSpeed() {
+      return speed;
+   }
+
+   @JsonIgnore
+   public void setSpeed(Speed value) { 
+      this.speed = value;
+   }
+   @JsonIgnore
    public String getAssociatedEgressQOSPolicyID() {
       return associatedEgressQOSPolicyID;
    }
@@ -187,13 +200,13 @@ public class NSPortTemplate extends RestObject {
       this.associatedEgressQOSPolicyID = value;
    }
    @JsonIgnore
-   public String getAssociatedVSCProfileID() {
-      return associatedVSCProfileID;
+   public Long getMtu() {
+      return mtu;
    }
 
    @JsonIgnore
-   public void setAssociatedVSCProfileID(String value) { 
-      this.associatedVSCProfileID = value;
+   public void setMtu(Long value) { 
+      this.mtu = value;
    }
    @JsonIgnore
    public String getExternalID() {
@@ -224,7 +237,7 @@ public class NSPortTemplate extends RestObject {
    
 
    public String toString() {
-      return "NSPortTemplate [" + "VLANRange=" + VLANRange + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", physicalName=" + physicalName + ", infrastructureProfileID=" + infrastructureProfileID + ", entityScope=" + entityScope + ", portType=" + portType + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", associatedVSCProfileID=" + associatedVSCProfileID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NSPortTemplate [" + "VLANRange=" + VLANRange + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", physicalName=" + physicalName + ", infrastructureProfileID=" + infrastructureProfileID + ", entityScope=" + entityScope + ", portType=" + portType + ", speed=" + speed + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", mtu=" + mtu + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

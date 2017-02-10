@@ -47,6 +47,7 @@ import net.nuagenetworks.vspk.v4_0.fetchers.VCentersFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VCenterHypervisorsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.RedirectionTargetsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.RedundancyGroupsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.PerformanceMonitorsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.CertificatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadataTagsFetcher;
@@ -71,8 +72,9 @@ import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VMInterfacesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.CloudMgmtSystemsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.UnderlaysFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.InfrastructureAccessProfilesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.InfrastructureGatewayProfilesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.InfrastructurePortProfilesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.InfrastructureVscProfilesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IngressACLEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IngressACLTemplatesFetcher;
@@ -93,12 +95,13 @@ import net.nuagenetworks.vspk.v4_0.fetchers.VCenterVRSConfigsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.UsersFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NSGatewaysFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NSGatewayTemplatesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.NSGGroupsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NSRedundantGatewayGroupsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VSPsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.NSPortStaticConfigurationsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.StaticRoutesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.StatsCollectorInfosFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.SubnetsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.DUCGroupsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MultiCastChannelMapsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.AutoDiscoveredGatewaysFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.ExternalAppServicesFetcher;
@@ -131,6 +134,12 @@ public class Me extends RestRootObject {
    @JsonProperty(value = "disabled")
    protected Boolean disabled;
    
+   @JsonProperty(value = "elasticSearchUIAddress")
+   protected String elasticSearchUIAddress;
+   
+   @JsonProperty(value = "flowCollectionEnabled")
+   protected Boolean flowCollectionEnabled;
+   
    @JsonProperty(value = "email")
    protected String email;
    
@@ -151,6 +160,9 @@ public class Me extends RestRootObject {
    
    @JsonProperty(value = "userName")
    protected String userName;
+   
+   @JsonProperty(value = "statisticsEnabled")
+   protected Boolean statisticsEnabled;
    
    @JsonProperty(value = "avatarData")
    protected String avatarData;
@@ -198,6 +210,9 @@ public class Me extends RestRootObject {
    
    @JsonIgnore
    private RedundancyGroupsFetcher redundancyGroups;
+   
+   @JsonIgnore
+   private PerformanceMonitorsFetcher performanceMonitors;
    
    @JsonIgnore
    private CertificatesFetcher certificates;
@@ -272,10 +287,13 @@ public class Me extends RestRootObject {
    private CloudMgmtSystemsFetcher cloudMgmtSystems;
    
    @JsonIgnore
-   private InfrastructureGatewayProfilesFetcher infrastructureGatewayProfiles;
+   private UnderlaysFetcher underlays;
    
    @JsonIgnore
-   private InfrastructurePortProfilesFetcher infrastructurePortProfiles;
+   private InfrastructureAccessProfilesFetcher infrastructureAccessProfiles;
+   
+   @JsonIgnore
+   private InfrastructureGatewayProfilesFetcher infrastructureGatewayProfiles;
    
    @JsonIgnore
    private InfrastructureVscProfilesFetcher infrastructureVscProfiles;
@@ -338,13 +356,13 @@ public class Me extends RestRootObject {
    private NSGatewayTemplatesFetcher nSGatewayTemplates;
    
    @JsonIgnore
+   private NSGGroupsFetcher nSGGroups;
+   
+   @JsonIgnore
    private NSRedundantGatewayGroupsFetcher nSRedundantGatewayGroups;
    
    @JsonIgnore
    private VSPsFetcher vSPs;
-   
-   @JsonIgnore
-   private NSPortStaticConfigurationsFetcher nSPortStaticConfigurations;
    
    @JsonIgnore
    private StaticRoutesFetcher staticRoutes;
@@ -354,6 +372,9 @@ public class Me extends RestRootObject {
    
    @JsonIgnore
    private SubnetsFetcher subnets;
+   
+   @JsonIgnore
+   private DUCGroupsFetcher dUCGroups;
    
    @JsonIgnore
    private MultiCastChannelMapsFetcher multiCastChannelMaps;
@@ -396,6 +417,8 @@ public class Me extends RestRootObject {
       redirectionTargets = new RedirectionTargetsFetcher(this);
       
       redundancyGroups = new RedundancyGroupsFetcher(this);
+      
+      performanceMonitors = new PerformanceMonitorsFetcher(this);
       
       certificates = new CertificatesFetcher(this);
       
@@ -445,9 +468,11 @@ public class Me extends RestRootObject {
       
       cloudMgmtSystems = new CloudMgmtSystemsFetcher(this);
       
-      infrastructureGatewayProfiles = new InfrastructureGatewayProfilesFetcher(this);
+      underlays = new UnderlaysFetcher(this);
       
-      infrastructurePortProfiles = new InfrastructurePortProfilesFetcher(this);
+      infrastructureAccessProfiles = new InfrastructureAccessProfilesFetcher(this);
+      
+      infrastructureGatewayProfiles = new InfrastructureGatewayProfilesFetcher(this);
       
       infrastructureVscProfiles = new InfrastructureVscProfilesFetcher(this);
       
@@ -489,17 +514,19 @@ public class Me extends RestRootObject {
       
       nSGatewayTemplates = new NSGatewayTemplatesFetcher(this);
       
+      nSGGroups = new NSGGroupsFetcher(this);
+      
       nSRedundantGatewayGroups = new NSRedundantGatewayGroupsFetcher(this);
       
       vSPs = new VSPsFetcher(this);
-      
-      nSPortStaticConfigurations = new NSPortStaticConfigurationsFetcher(this);
       
       staticRoutes = new StaticRoutesFetcher(this);
       
       statsCollectorInfos = new StatsCollectorInfosFetcher(this);
       
       subnets = new SubnetsFetcher(this);
+      
+      dUCGroups = new DUCGroupsFetcher(this);
       
       multiCastChannelMaps = new MultiCastChannelMapsFetcher(this);
       
@@ -557,6 +584,24 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public void setDisabled(Boolean value) { 
       this.disabled = value;
+   }
+   @JsonIgnore
+   public String getElasticSearchUIAddress() {
+      return elasticSearchUIAddress;
+   }
+
+   @JsonIgnore
+   public void setElasticSearchUIAddress(String value) { 
+      this.elasticSearchUIAddress = value;
+   }
+   @JsonIgnore
+   public Boolean getFlowCollectionEnabled() {
+      return flowCollectionEnabled;
+   }
+
+   @JsonIgnore
+   public void setFlowCollectionEnabled(Boolean value) { 
+      this.flowCollectionEnabled = value;
    }
    @JsonIgnore
    public String getEmail() {
@@ -620,6 +665,15 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public void setUserName(String value) { 
       this.userName = value;
+   }
+   @JsonIgnore
+   public Boolean getStatisticsEnabled() {
+      return statisticsEnabled;
+   }
+
+   @JsonIgnore
+   public void setStatisticsEnabled(Boolean value) { 
+      this.statisticsEnabled = value;
    }
    @JsonIgnore
    public String getAvatarData() {
@@ -709,6 +763,11 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public RedundancyGroupsFetcher getRedundancyGroups() {
       return redundancyGroups;
+   }
+   
+   @JsonIgnore
+   public PerformanceMonitorsFetcher getPerformanceMonitors() {
+      return performanceMonitors;
    }
    
    @JsonIgnore
@@ -832,13 +891,18 @@ public class Me extends RestRootObject {
    }
    
    @JsonIgnore
-   public InfrastructureGatewayProfilesFetcher getInfrastructureGatewayProfiles() {
-      return infrastructureGatewayProfiles;
+   public UnderlaysFetcher getUnderlays() {
+      return underlays;
    }
    
    @JsonIgnore
-   public InfrastructurePortProfilesFetcher getInfrastructurePortProfiles() {
-      return infrastructurePortProfiles;
+   public InfrastructureAccessProfilesFetcher getInfrastructureAccessProfiles() {
+      return infrastructureAccessProfiles;
+   }
+   
+   @JsonIgnore
+   public InfrastructureGatewayProfilesFetcher getInfrastructureGatewayProfiles() {
+      return infrastructureGatewayProfiles;
    }
    
    @JsonIgnore
@@ -942,6 +1006,11 @@ public class Me extends RestRootObject {
    }
    
    @JsonIgnore
+   public NSGGroupsFetcher getNSGGroups() {
+      return nSGGroups;
+   }
+   
+   @JsonIgnore
    public NSRedundantGatewayGroupsFetcher getNSRedundantGatewayGroups() {
       return nSRedundantGatewayGroups;
    }
@@ -949,11 +1018,6 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public VSPsFetcher getVSPs() {
       return vSPs;
-   }
-   
-   @JsonIgnore
-   public NSPortStaticConfigurationsFetcher getNSPortStaticConfigurations() {
-      return nSPortStaticConfigurations;
    }
    
    @JsonIgnore
@@ -969,6 +1033,11 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public SubnetsFetcher getSubnets() {
       return subnets;
+   }
+   
+   @JsonIgnore
+   public DUCGroupsFetcher getDUCGroups() {
+      return dUCGroups;
    }
    
    @JsonIgnore
@@ -998,7 +1067,7 @@ public class Me extends RestRootObject {
    
 
    public String toString() {
-      return "Me [" + "password=" + password + ", lastName=" + lastName + ", lastUpdatedBy=" + lastUpdatedBy + ", firstName=" + firstName + ", disabled=" + disabled + ", email=" + email + ", enterpriseID=" + enterpriseID + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", mobileNumber=" + mobileNumber + ", role=" + role + ", userName=" + userName + ", avatarData=" + avatarData + ", avatarType=" + avatarType + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Me [" + "password=" + password + ", lastName=" + lastName + ", lastUpdatedBy=" + lastUpdatedBy + ", firstName=" + firstName + ", disabled=" + disabled + ", elasticSearchUIAddress=" + elasticSearchUIAddress + ", flowCollectionEnabled=" + flowCollectionEnabled + ", email=" + email + ", enterpriseID=" + enterpriseID + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", mobileNumber=" + mobileNumber + ", role=" + role + ", userName=" + userName + ", statisticsEnabled=" + statisticsEnabled + ", avatarData=" + avatarData + ", avatarType=" + avatarType + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + ", apiKey=" + apiKey  + "]";
    }
    

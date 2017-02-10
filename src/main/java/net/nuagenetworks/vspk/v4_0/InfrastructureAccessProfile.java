@@ -36,26 +36,28 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.TiersFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.FlowsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "application", resourceName = "applications")
-public class App extends RestObject {
+@RestEntity(restName = "infrastructureaccessprofile", resourceName = "infrastructureaccessprofiles")
+public class InfrastructureAccessProfile extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
+   public enum SSHAuthMode { KEY_BASED, PASSWORD_AND_KEY_BASED, PASSWORD_BASED };
    public enum EntityScope { ENTERPRISE, GLOBAL };
-   public enum AssociatedDomainType { DOMAIN, L2DOMAIN };
-   public enum AssociatedNetworkObjectType { DOMAIN, ENTERPRISE, ZONE };
+   public enum SourceIPFilter { DISABLED, ENABLED };
 
+   
+   @JsonProperty(value = "SSHAuthMode")
+   protected SSHAuthMode SSHAuthMode;
    
    @JsonProperty(value = "name")
    protected String name;
+   
+   @JsonProperty(value = "password")
+   protected String password;
    
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
@@ -63,26 +65,17 @@ public class App extends RestObject {
    @JsonProperty(value = "description")
    protected String description;
    
+   @JsonProperty(value = "enterpriseID")
+   protected String enterpriseID;
+   
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
-   @JsonProperty(value = "assocEgressACLTemplateId")
-   protected String assocEgressACLTemplateId;
+   @JsonProperty(value = "sourceIPFilter")
+   protected SourceIPFilter sourceIPFilter;
    
-   @JsonProperty(value = "assocIngressACLTemplateId")
-   protected String assocIngressACLTemplateId;
-   
-   @JsonProperty(value = "associatedDomainID")
-   protected String associatedDomainID;
-   
-   @JsonProperty(value = "associatedDomainType")
-   protected AssociatedDomainType associatedDomainType;
-   
-   @JsonProperty(value = "associatedNetworkObjectID")
-   protected String associatedNetworkObjectID;
-   
-   @JsonProperty(value = "associatedNetworkObjectType")
-   protected AssociatedNetworkObjectType associatedNetworkObjectType;
+   @JsonProperty(value = "userName")
+   protected String userName;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
@@ -93,37 +86,26 @@ public class App extends RestObject {
    private MetadatasFetcher metadatas;
    
    @JsonIgnore
-   private TiersFetcher tiers;
-   
-   @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
-   @JsonIgnore
-   private FlowsFetcher flows;
-   
-   @JsonIgnore
-   private JobsFetcher jobs;
-   
-   @JsonIgnore
-   private EventLogsFetcher eventLogs;
-   
 
-   public App() {
+   public InfrastructureAccessProfile() {
       
       metadatas = new MetadatasFetcher(this);
       
-      tiers = new TiersFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
-      
-      flows = new FlowsFetcher(this);
-      
-      jobs = new JobsFetcher(this);
-      
-      eventLogs = new EventLogsFetcher(this);
       
    }
 
+   @JsonIgnore
+   public SSHAuthMode getSSHAuthMode() {
+      return SSHAuthMode;
+   }
+
+   @JsonIgnore
+   public void setSSHAuthMode(SSHAuthMode value) { 
+      this.SSHAuthMode = value;
+   }
    @JsonIgnore
    public String getName() {
       return name;
@@ -132,6 +114,15 @@ public class App extends RestObject {
    @JsonIgnore
    public void setName(String value) { 
       this.name = value;
+   }
+   @JsonIgnore
+   public String getPassword() {
+      return password;
+   }
+
+   @JsonIgnore
+   public void setPassword(String value) { 
+      this.password = value;
    }
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -152,6 +143,15 @@ public class App extends RestObject {
       this.description = value;
    }
    @JsonIgnore
+   public String getEnterpriseID() {
+      return enterpriseID;
+   }
+
+   @JsonIgnore
+   public void setEnterpriseID(String value) { 
+      this.enterpriseID = value;
+   }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
@@ -161,58 +161,22 @@ public class App extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
-   public String getAssocEgressACLTemplateId() {
-      return assocEgressACLTemplateId;
+   public SourceIPFilter getSourceIPFilter() {
+      return sourceIPFilter;
    }
 
    @JsonIgnore
-   public void setAssocEgressACLTemplateId(String value) { 
-      this.assocEgressACLTemplateId = value;
+   public void setSourceIPFilter(SourceIPFilter value) { 
+      this.sourceIPFilter = value;
    }
    @JsonIgnore
-   public String getAssocIngressACLTemplateId() {
-      return assocIngressACLTemplateId;
-   }
-
-   @JsonIgnore
-   public void setAssocIngressACLTemplateId(String value) { 
-      this.assocIngressACLTemplateId = value;
-   }
-   @JsonIgnore
-   public String getAssociatedDomainID() {
-      return associatedDomainID;
+   public String getUserName() {
+      return userName;
    }
 
    @JsonIgnore
-   public void setAssociatedDomainID(String value) { 
-      this.associatedDomainID = value;
-   }
-   @JsonIgnore
-   public AssociatedDomainType getAssociatedDomainType() {
-      return associatedDomainType;
-   }
-
-   @JsonIgnore
-   public void setAssociatedDomainType(AssociatedDomainType value) { 
-      this.associatedDomainType = value;
-   }
-   @JsonIgnore
-   public String getAssociatedNetworkObjectID() {
-      return associatedNetworkObjectID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedNetworkObjectID(String value) { 
-      this.associatedNetworkObjectID = value;
-   }
-   @JsonIgnore
-   public AssociatedNetworkObjectType getAssociatedNetworkObjectType() {
-      return associatedNetworkObjectType;
-   }
-
-   @JsonIgnore
-   public void setAssociatedNetworkObjectType(AssociatedNetworkObjectType value) { 
-      this.associatedNetworkObjectType = value;
+   public void setUserName(String value) { 
+      this.userName = value;
    }
    @JsonIgnore
    public String getExternalID() {
@@ -232,33 +196,13 @@ public class App extends RestObject {
    }
    
    @JsonIgnore
-   public TiersFetcher getTiers() {
-      return tiers;
-   }
-   
-   @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
-   @JsonIgnore
-   public FlowsFetcher getFlows() {
-      return flows;
-   }
-   
-   @JsonIgnore
-   public JobsFetcher getJobs() {
-      return jobs;
-   }
-   
-   @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
-   }
-   
 
    public String toString() {
-      return "App [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", entityScope=" + entityScope + ", assocEgressACLTemplateId=" + assocEgressACLTemplateId + ", assocIngressACLTemplateId=" + assocIngressACLTemplateId + ", associatedDomainID=" + associatedDomainID + ", associatedDomainType=" + associatedDomainType + ", associatedNetworkObjectID=" + associatedNetworkObjectID + ", associatedNetworkObjectType=" + associatedNetworkObjectType + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "InfrastructureAccessProfile [" + "SSHAuthMode=" + SSHAuthMode + ", name=" + name + ", password=" + password + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", sourceIPFilter=" + sourceIPFilter + ", userName=" + userName + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

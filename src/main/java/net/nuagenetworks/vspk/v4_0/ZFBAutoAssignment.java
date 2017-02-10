@@ -65,8 +65,14 @@ public class ZFBAutoAssignment extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
+   @JsonProperty(value = "priority")
+   protected Long priority;
+   
    @JsonProperty(value = "associatedEnterpriseID")
    protected String associatedEnterpriseID;
+   
+   @JsonProperty(value = "associatedEnterpriseName")
+   protected String associatedEnterpriseName;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
@@ -133,6 +139,15 @@ public class ZFBAutoAssignment extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
+   public Long getPriority() {
+      return priority;
+   }
+
+   @JsonIgnore
+   public void setPriority(Long value) { 
+      this.priority = value;
+   }
+   @JsonIgnore
    public String getAssociatedEnterpriseID() {
       return associatedEnterpriseID;
    }
@@ -140,6 +155,15 @@ public class ZFBAutoAssignment extends RestObject {
    @JsonIgnore
    public void setAssociatedEnterpriseID(String value) { 
       this.associatedEnterpriseID = value;
+   }
+   @JsonIgnore
+   public String getAssociatedEnterpriseName() {
+      return associatedEnterpriseName;
+   }
+
+   @JsonIgnore
+   public void setAssociatedEnterpriseName(String value) { 
+      this.associatedEnterpriseName = value;
    }
    @JsonIgnore
    public String getExternalID() {
@@ -155,7 +179,7 @@ public class ZFBAutoAssignment extends RestObject {
    
 
    public String toString() {
-      return "ZFBAutoAssignment [" + "ZFBMatchAttribute=" + ZFBMatchAttribute + ", ZFBMatchAttributeValues=" + ZFBMatchAttributeValues + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", entityScope=" + entityScope + ", associatedEnterpriseID=" + associatedEnterpriseID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "ZFBAutoAssignment [" + "ZFBMatchAttribute=" + ZFBMatchAttribute + ", ZFBMatchAttributeValues=" + ZFBMatchAttributeValues + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", entityScope=" + entityScope + ", priority=" + priority + ", associatedEnterpriseID=" + associatedEnterpriseID + ", associatedEnterpriseName=" + associatedEnterpriseName + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

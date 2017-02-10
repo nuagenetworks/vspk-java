@@ -47,11 +47,15 @@ public class AddressRange extends RestObject {
 
    
    public enum DHCPPoolType { BRIDGE, HOST };
+   public enum IPType { DUALSTACK, IPV4, IPV6 };
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "DHCPPoolType")
    protected DHCPPoolType DHCPPoolType;
+   
+   @JsonProperty(value = "IPType")
+   protected IPType IPType;
    
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
@@ -99,6 +103,15 @@ public class AddressRange extends RestObject {
    @JsonIgnore
    public void setDHCPPoolType(DHCPPoolType value) { 
       this.DHCPPoolType = value;
+   }
+   @JsonIgnore
+   public IPType getIPType() {
+      return IPType;
+   }
+
+   @JsonIgnore
+   public void setIPType(IPType value) { 
+      this.IPType = value;
    }
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -165,7 +178,7 @@ public class AddressRange extends RestObject {
    
 
    public String toString() {
-      return "AddressRange [" + "DHCPPoolType=" + DHCPPoolType + ", lastUpdatedBy=" + lastUpdatedBy + ", maxAddress=" + maxAddress + ", minAddress=" + minAddress + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "AddressRange [" + "DHCPPoolType=" + DHCPPoolType + ", IPType=" + IPType + ", lastUpdatedBy=" + lastUpdatedBy + ", maxAddress=" + maxAddress + ", minAddress=" + minAddress + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

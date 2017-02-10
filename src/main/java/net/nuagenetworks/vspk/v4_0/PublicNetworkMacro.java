@@ -46,12 +46,15 @@ public class PublicNetworkMacro extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum IPType { IPV4, IPV6 };
+   public enum IPType { DUALSTACK, IPV4, IPV6 };
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "IPType")
    protected IPType IPType;
+   
+   @JsonProperty(value = "IPv6Address")
+   protected String IPv6Address;
    
    @JsonProperty(value = "name")
    protected String name;
@@ -101,6 +104,15 @@ public class PublicNetworkMacro extends RestObject {
    @JsonIgnore
    public void setIPType(IPType value) { 
       this.IPType = value;
+   }
+   @JsonIgnore
+   public String getIPv6Address() {
+      return IPv6Address;
+   }
+
+   @JsonIgnore
+   public void setIPv6Address(String value) { 
+      this.IPv6Address = value;
    }
    @JsonIgnore
    public String getName() {
@@ -176,7 +188,7 @@ public class PublicNetworkMacro extends RestObject {
    
 
    public String toString() {
-      return "PublicNetworkMacro [" + "IPType=" + IPType + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", address=" + address + ", netmask=" + netmask + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "PublicNetworkMacro [" + "IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", address=" + address + ", netmask=" + netmask + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

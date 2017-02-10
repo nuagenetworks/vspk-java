@@ -61,11 +61,15 @@ public class DomainTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum DPI { DISABLED, ENABLED };
    public enum Encryption { DISABLED, ENABLED };
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum PolicyChangeStatus { APPLIED, DISCARDED, STARTED };
    public enum Multicast { DISABLED, ENABLED, INHERITED };
 
+   
+   @JsonProperty(value = "DPI")
+   protected DPI DPI;
    
    @JsonProperty(value = "name")
    protected String name;
@@ -197,6 +201,15 @@ public class DomainTemplate extends RestObject {
       
    }
 
+   @JsonIgnore
+   public DPI getDPI() {
+      return DPI;
+   }
+
+   @JsonIgnore
+   public void setDPI(DPI value) { 
+      this.DPI = value;
+   }
    @JsonIgnore
    public String getName() {
       return name;
@@ -391,7 +404,7 @@ public class DomainTemplate extends RestObject {
    
 
    public String toString() {
-      return "DomainTemplate [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", encryption=" + encryption + ", entityScope=" + entityScope + ", policyChangeStatus=" + policyChangeStatus + ", associatedBGPProfileID=" + associatedBGPProfileID + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedPATMapperID=" + associatedPATMapperID + ", multicast=" + multicast + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "DomainTemplate [" + "DPI=" + DPI + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", encryption=" + encryption + ", entityScope=" + entityScope + ", policyChangeStatus=" + policyChangeStatus + ", associatedBGPProfileID=" + associatedBGPProfileID + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedPATMapperID=" + associatedPATMapperID + ", multicast=" + multicast + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -48,11 +48,15 @@ public class IKEGateway extends RestObject {
 
    
    public enum IKEVersion { V1, V2 };
+   public enum IKEv1Mode { AGGRESSIVE, MAIN, NONE };
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "IKEVersion")
    protected IKEVersion IKEVersion;
+   
+   @JsonProperty(value = "IKEv1Mode")
+   protected IKEv1Mode IKEv1Mode;
    
    @JsonProperty(value = "IPAddress")
    protected String IPAddress;
@@ -110,6 +114,15 @@ public class IKEGateway extends RestObject {
    @JsonIgnore
    public void setIKEVersion(IKEVersion value) { 
       this.IKEVersion = value;
+   }
+   @JsonIgnore
+   public IKEv1Mode getIKEv1Mode() {
+      return IKEv1Mode;
+   }
+
+   @JsonIgnore
+   public void setIKEv1Mode(IKEv1Mode value) { 
+      this.IKEv1Mode = value;
    }
    @JsonIgnore
    public String getIPAddress() {
@@ -199,7 +212,7 @@ public class IKEGateway extends RestObject {
    
 
    public String toString() {
-      return "IKEGateway [" + "IKEVersion=" + IKEVersion + ", IPAddress=" + IPAddress + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", entityScope=" + entityScope + ", associatedEnterpriseID=" + associatedEnterpriseID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "IKEGateway [" + "IKEVersion=" + IKEVersion + ", IKEv1Mode=" + IKEv1Mode + ", IPAddress=" + IPAddress + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", entityScope=" + entityScope + ", associatedEnterpriseID=" + associatedEnterpriseID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

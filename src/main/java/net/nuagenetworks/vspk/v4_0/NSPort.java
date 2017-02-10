@@ -41,7 +41,6 @@ import net.nuagenetworks.vspk.v4_0.fetchers.VLANsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.AlarmsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EnterprisePermissionsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.NSPortStaticConfigurationsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.StatisticsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.StatisticsPoliciesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
@@ -57,6 +56,7 @@ public class NSPort extends RestObject {
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum PortType { ACCESS, NETWORK };
+   public enum Speed { AUTONEGOTIATE, BASE10, BASET1000, BASETX100, BASEX10G };
    public enum Status { INITIALIZED, MISMATCH, ORPHAN, READY };
 
    
@@ -84,14 +84,14 @@ public class NSPort extends RestObject {
    @JsonProperty(value = "physicalName")
    protected String physicalName;
    
-   @JsonProperty(value = "infrastructureProfileID")
-   protected String infrastructureProfileID;
-   
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
    @JsonProperty(value = "portType")
    protected PortType portType;
+   
+   @JsonProperty(value = "speed")
+   protected Speed speed;
    
    @JsonProperty(value = "useUserMnemonic")
    protected Boolean useUserMnemonic;
@@ -105,11 +105,11 @@ public class NSPort extends RestObject {
    @JsonProperty(value = "associatedRedundantPortID")
    protected String associatedRedundantPortID;
    
-   @JsonProperty(value = "associatedVSCProfileID")
-   protected String associatedVSCProfileID;
-   
    @JsonProperty(value = "status")
    protected Status status;
+   
+   @JsonProperty(value = "mtu")
+   protected Long mtu;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
@@ -135,9 +135,6 @@ public class NSPort extends RestObject {
    private EnterprisePermissionsFetcher enterprisePermissions;
    
    @JsonIgnore
-   private NSPortStaticConfigurationsFetcher nSPortStaticConfigurations;
-   
-   @JsonIgnore
    private StatisticsFetcher statistics;
    
    @JsonIgnore
@@ -160,8 +157,6 @@ public class NSPort extends RestObject {
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       enterprisePermissions = new EnterprisePermissionsFetcher(this);
-      
-      nSPortStaticConfigurations = new NSPortStaticConfigurationsFetcher(this);
       
       statistics = new StatisticsFetcher(this);
       
@@ -244,15 +239,6 @@ public class NSPort extends RestObject {
       this.physicalName = value;
    }
    @JsonIgnore
-   public String getInfrastructureProfileID() {
-      return infrastructureProfileID;
-   }
-
-   @JsonIgnore
-   public void setInfrastructureProfileID(String value) { 
-      this.infrastructureProfileID = value;
-   }
-   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
@@ -269,6 +255,15 @@ public class NSPort extends RestObject {
    @JsonIgnore
    public void setPortType(PortType value) { 
       this.portType = value;
+   }
+   @JsonIgnore
+   public Speed getSpeed() {
+      return speed;
+   }
+
+   @JsonIgnore
+   public void setSpeed(Speed value) { 
+      this.speed = value;
    }
    @JsonIgnore
    public Boolean getUseUserMnemonic() {
@@ -307,15 +302,6 @@ public class NSPort extends RestObject {
       this.associatedRedundantPortID = value;
    }
    @JsonIgnore
-   public String getAssociatedVSCProfileID() {
-      return associatedVSCProfileID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedVSCProfileID(String value) { 
-      this.associatedVSCProfileID = value;
-   }
-   @JsonIgnore
    public Status getStatus() {
       return status;
    }
@@ -323,6 +309,15 @@ public class NSPort extends RestObject {
    @JsonIgnore
    public void setStatus(Status value) { 
       this.status = value;
+   }
+   @JsonIgnore
+   public Long getMtu() {
+      return mtu;
+   }
+
+   @JsonIgnore
+   public void setMtu(Long value) { 
+      this.mtu = value;
    }
    @JsonIgnore
    public String getExternalID() {
@@ -367,11 +362,6 @@ public class NSPort extends RestObject {
    }
    
    @JsonIgnore
-   public NSPortStaticConfigurationsFetcher getNSPortStaticConfigurations() {
-      return nSPortStaticConfigurations;
-   }
-   
-   @JsonIgnore
    public StatisticsFetcher getStatistics() {
       return statistics;
    }
@@ -388,7 +378,7 @@ public class NSPort extends RestObject {
    
 
    public String toString() {
-      return "NSPort [" + "NATTraversal=" + NATTraversal + ", VLANRange=" + VLANRange + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", templateID=" + templateID + ", permittedAction=" + permittedAction + ", description=" + description + ", physicalName=" + physicalName + ", infrastructureProfileID=" + infrastructureProfileID + ", entityScope=" + entityScope + ", portType=" + portType + ", useUserMnemonic=" + useUserMnemonic + ", userMnemonic=" + userMnemonic + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", associatedRedundantPortID=" + associatedRedundantPortID + ", associatedVSCProfileID=" + associatedVSCProfileID + ", status=" + status + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NSPort [" + "NATTraversal=" + NATTraversal + ", VLANRange=" + VLANRange + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", templateID=" + templateID + ", permittedAction=" + permittedAction + ", description=" + description + ", physicalName=" + physicalName + ", entityScope=" + entityScope + ", portType=" + portType + ", speed=" + speed + ", useUserMnemonic=" + useUserMnemonic + ", userMnemonic=" + userMnemonic + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", associatedRedundantPortID=" + associatedRedundantPortID + ", status=" + status + ", mtu=" + mtu + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

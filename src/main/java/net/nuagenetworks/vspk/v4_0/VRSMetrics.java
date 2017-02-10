@@ -61,6 +61,9 @@ public class VRSMetrics extends RestObject {
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "reDeploy")
+   protected Boolean reDeploy;
+   
    @JsonProperty(value = "receivingMetrics")
    protected Boolean receivingMetrics;
    
@@ -135,6 +138,15 @@ public class VRSMetrics extends RestObject {
       this.lastUpdatedBy = value;
    }
    @JsonIgnore
+   public Boolean getReDeploy() {
+      return reDeploy;
+   }
+
+   @JsonIgnore
+   public void setReDeploy(Boolean value) { 
+      this.reDeploy = value;
+   }
+   @JsonIgnore
    public Boolean getReceivingMetrics() {
       return receivingMetrics;
    }
@@ -202,7 +214,7 @@ public class VRSMetrics extends RestObject {
    
 
    public String toString() {
-      return "VRSMetrics [" + "ALUbr0Status=" + ALUbr0Status + ", CPUUtilization=" + CPUUtilization + ", VRSProcess=" + VRSProcess + ", VRSVSCStatus=" + VRSVSCStatus + ", lastUpdatedBy=" + lastUpdatedBy + ", receivingMetrics=" + receivingMetrics + ", memoryUtilization=" + memoryUtilization + ", jesxmonProcess=" + jesxmonProcess + ", agentName=" + agentName + ", entityScope=" + entityScope + ", associatedVCenterHypervisorID=" + associatedVCenterHypervisorID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VRSMetrics [" + "ALUbr0Status=" + ALUbr0Status + ", CPUUtilization=" + CPUUtilization + ", VRSProcess=" + VRSProcess + ", VRSVSCStatus=" + VRSVSCStatus + ", lastUpdatedBy=" + lastUpdatedBy + ", reDeploy=" + reDeploy + ", receivingMetrics=" + receivingMetrics + ", memoryUtilization=" + memoryUtilization + ", jesxmonProcess=" + jesxmonProcess + ", agentName=" + agentName + ", entityScope=" + entityScope + ", associatedVCenterHypervisorID=" + associatedVCenterHypervisorID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    
