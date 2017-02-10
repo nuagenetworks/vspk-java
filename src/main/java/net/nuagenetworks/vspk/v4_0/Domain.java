@@ -85,7 +85,7 @@ public class Domain extends RestObject {
 
    
    public enum PATEnabled { DISABLED, ENABLED, INHERITED };
-   public enum DHCPBehavior { CONSUME, FLOOD, RELAY };
+   public enum DHCPBehavior { CONSUME, FLOOD, OVERLAY_RELAY, UNDERLAY_RELAY };
    public enum DPI { DISABLED, ENABLED };
    public enum MaintenanceMode { DISABLED, ENABLED, ENABLED_INHERITED };
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
@@ -185,6 +185,9 @@ public class Domain extends RestObject {
    
    @JsonProperty(value = "domainID")
    protected Long domainID;
+   
+   @JsonProperty(value = "domainVLANID")
+   protected Long domainVLANID;
    
    @JsonProperty(value = "routeDistinguisher")
    protected String routeDistinguisher;
@@ -704,6 +707,15 @@ public class Domain extends RestObject {
       this.domainID = value;
    }
    @JsonIgnore
+   public Long getDomainVLANID() {
+      return domainVLANID;
+   }
+
+   @JsonIgnore
+   public void setDomainVLANID(Long value) { 
+      this.domainVLANID = value;
+   }
+   @JsonIgnore
    public String getRouteDistinguisher() {
       return routeDistinguisher;
    }
@@ -1030,7 +1042,7 @@ public class Domain extends RestObject {
    
 
    public String toString() {
-      return "Domain [" + "PATEnabled=" + PATEnabled + ", ECMPCount=" + ECMPCount + ", BGPEnabled=" + BGPEnabled + ", DHCPBehavior=" + DHCPBehavior + ", DHCPServerAddress=" + DHCPServerAddress + ", DPI=" + DPI + ", labelID=" + labelID + ", backHaulRouteDistinguisher=" + backHaulRouteDistinguisher + ", backHaulRouteTarget=" + backHaulRouteTarget + ", backHaulSubnetIPAddress=" + backHaulSubnetIPAddress + ", backHaulSubnetMask=" + backHaulSubnetMask + ", backHaulVNID=" + backHaulVNID + ", maintenanceMode=" + maintenanceMode + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", leakingEnabled=" + leakingEnabled + ", secondaryDHCPServerAddress=" + secondaryDHCPServerAddress + ", templateID=" + templateID + ", permittedAction=" + permittedAction + ", serviceID=" + serviceID + ", description=" + description + ", dhcpServerAddresses=" + dhcpServerAddresses + ", globalRoutingEnabled=" + globalRoutingEnabled + ", importRouteTarget=" + importRouteTarget + ", encryption=" + encryption + ", underlayEnabled=" + underlayEnabled + ", entityScope=" + entityScope + ", policyChangeStatus=" + policyChangeStatus + ", domainID=" + domainID + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", uplinkPreference=" + uplinkPreference + ", applicationDeploymentPolicy=" + applicationDeploymentPolicy + ", associatedBGPProfileID=" + associatedBGPProfileID + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedPATMapperID=" + associatedPATMapperID + ", stretched=" + stretched + ", multicast=" + multicast + ", tunnelType=" + tunnelType + ", customerID=" + customerID + ", exportRouteTarget=" + exportRouteTarget + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Domain [" + "PATEnabled=" + PATEnabled + ", ECMPCount=" + ECMPCount + ", BGPEnabled=" + BGPEnabled + ", DHCPBehavior=" + DHCPBehavior + ", DHCPServerAddress=" + DHCPServerAddress + ", DPI=" + DPI + ", labelID=" + labelID + ", backHaulRouteDistinguisher=" + backHaulRouteDistinguisher + ", backHaulRouteTarget=" + backHaulRouteTarget + ", backHaulSubnetIPAddress=" + backHaulSubnetIPAddress + ", backHaulSubnetMask=" + backHaulSubnetMask + ", backHaulVNID=" + backHaulVNID + ", maintenanceMode=" + maintenanceMode + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", leakingEnabled=" + leakingEnabled + ", secondaryDHCPServerAddress=" + secondaryDHCPServerAddress + ", templateID=" + templateID + ", permittedAction=" + permittedAction + ", serviceID=" + serviceID + ", description=" + description + ", dhcpServerAddresses=" + dhcpServerAddresses + ", globalRoutingEnabled=" + globalRoutingEnabled + ", importRouteTarget=" + importRouteTarget + ", encryption=" + encryption + ", underlayEnabled=" + underlayEnabled + ", entityScope=" + entityScope + ", policyChangeStatus=" + policyChangeStatus + ", domainID=" + domainID + ", domainVLANID=" + domainVLANID + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", uplinkPreference=" + uplinkPreference + ", applicationDeploymentPolicy=" + applicationDeploymentPolicy + ", associatedBGPProfileID=" + associatedBGPProfileID + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedPATMapperID=" + associatedPATMapperID + ", stretched=" + stretched + ", multicast=" + multicast + ", tunnelType=" + tunnelType + ", customerID=" + customerID + ", exportRouteTarget=" + exportRouteTarget + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -97,6 +97,9 @@ public class IngressACLTemplate extends RestObject {
    @JsonProperty(value = "associatedLiveEntityID")
    protected String associatedLiveEntityID;
    
+   @JsonProperty(value = "autoGeneratePriority")
+   protected Boolean autoGeneratePriority;
+   
    @JsonProperty(value = "externalID")
    protected String externalID;
    
@@ -269,6 +272,15 @@ public class IngressACLTemplate extends RestObject {
       this.associatedLiveEntityID = value;
    }
    @JsonIgnore
+   public Boolean getAutoGeneratePriority() {
+      return autoGeneratePriority;
+   }
+
+   @JsonIgnore
+   public void setAutoGeneratePriority(Boolean value) { 
+      this.autoGeneratePriority = value;
+   }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
@@ -317,7 +329,7 @@ public class IngressACLTemplate extends RestObject {
    
 
    public String toString() {
-      return "IngressACLTemplate [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", active=" + active + ", defaultAllowIP=" + defaultAllowIP + ", defaultAllowNonIP=" + defaultAllowNonIP + ", description=" + description + ", allowAddressSpoof=" + allowAddressSpoof + ", allowL2AddressSpoof=" + allowL2AddressSpoof + ", entityScope=" + entityScope + ", policyState=" + policyState + ", priority=" + priority + ", priorityType=" + priorityType + ", assocAclTemplateId=" + assocAclTemplateId + ", associatedLiveEntityID=" + associatedLiveEntityID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "IngressACLTemplate [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", active=" + active + ", defaultAllowIP=" + defaultAllowIP + ", defaultAllowNonIP=" + defaultAllowNonIP + ", description=" + description + ", allowAddressSpoof=" + allowAddressSpoof + ", allowL2AddressSpoof=" + allowL2AddressSpoof + ", entityScope=" + entityScope + ", policyState=" + policyState + ", priority=" + priority + ", priorityType=" + priorityType + ", assocAclTemplateId=" + assocAclTemplateId + ", associatedLiveEntityID=" + associatedLiveEntityID + ", autoGeneratePriority=" + autoGeneratePriority + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

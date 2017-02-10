@@ -45,6 +45,7 @@ import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EnterprisePermissionsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.UplinkConnectionsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.BRConnectionsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.LtestatisticsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -149,6 +150,9 @@ public class VLAN extends RestObject {
    private BRConnectionsFetcher bRConnections;
    
    @JsonIgnore
+   private LtestatisticsFetcher ltestatistics;
+   
+   @JsonIgnore
    private EventLogsFetcher eventLogs;
    
 
@@ -173,6 +177,8 @@ public class VLAN extends RestObject {
       uplinkConnections = new UplinkConnectionsFetcher(this);
       
       bRConnections = new BRConnectionsFetcher(this);
+      
+      ltestatistics = new LtestatisticsFetcher(this);
       
       eventLogs = new EventLogsFetcher(this);
       
@@ -400,6 +406,11 @@ public class VLAN extends RestObject {
    @JsonIgnore
    public BRConnectionsFetcher getBRConnections() {
       return bRConnections;
+   }
+   
+   @JsonIgnore
+   public LtestatisticsFetcher getLtestatistics() {
+      return ltestatistics;
    }
    
    @JsonIgnore

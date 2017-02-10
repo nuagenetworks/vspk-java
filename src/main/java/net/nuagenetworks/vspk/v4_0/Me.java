@@ -73,6 +73,7 @@ import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VMInterfacesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.CloudMgmtSystemsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.UnderlaysFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.InfrastructureAccessProfilesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.InfrastructureGatewayProfilesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.InfrastructureVscProfilesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IngressACLEntryTemplatesFetcher;
@@ -289,6 +290,9 @@ public class Me extends RestRootObject {
    private UnderlaysFetcher underlays;
    
    @JsonIgnore
+   private InfrastructureAccessProfilesFetcher infrastructureAccessProfiles;
+   
+   @JsonIgnore
    private InfrastructureGatewayProfilesFetcher infrastructureGatewayProfiles;
    
    @JsonIgnore
@@ -465,6 +469,8 @@ public class Me extends RestRootObject {
       cloudMgmtSystems = new CloudMgmtSystemsFetcher(this);
       
       underlays = new UnderlaysFetcher(this);
+      
+      infrastructureAccessProfiles = new InfrastructureAccessProfilesFetcher(this);
       
       infrastructureGatewayProfiles = new InfrastructureGatewayProfilesFetcher(this);
       
@@ -887,6 +893,11 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public UnderlaysFetcher getUnderlays() {
       return underlays;
+   }
+   
+   @JsonIgnore
+   public InfrastructureAccessProfilesFetcher getInfrastructureAccessProfiles() {
+      return infrastructureAccessProfiles;
    }
    
    @JsonIgnore

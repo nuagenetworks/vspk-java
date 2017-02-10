@@ -43,7 +43,7 @@ public class BRConnection extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum AdvertisementCriteria { GATEWAY_PING, LINK_BASED, OPENFLOW };
+   public enum AdvertisementCriteria { FATE_SHARING, GATEWAY_PING, LINK_BASED, OPENFLOW };
    public enum Mode { Static };
 
    

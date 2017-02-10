@@ -64,6 +64,7 @@ public class Subnet extends RestObject {
 
    
    public enum PATEnabled { DISABLED, ENABLED, INHERITED };
+   public enum DHCPRelayStatus { DISABLED, ENABLED };
    public enum DPI { DISABLED, ENABLED, INHERITED };
    public enum IPType { DUALSTACK, IPV4, IPV6 };
    public enum MaintenanceMode { DISABLED, ENABLED, ENABLED_INHERITED };
@@ -78,6 +79,9 @@ public class Subnet extends RestObject {
    
    @JsonProperty(value = "PATEnabled")
    protected PATEnabled PATEnabled;
+   
+   @JsonProperty(value = "DHCPRelayStatus")
+   protected DHCPRelayStatus DHCPRelayStatus;
    
    @JsonProperty(value = "DPI")
    protected DPI DPI;
@@ -300,6 +304,15 @@ public class Subnet extends RestObject {
    @JsonIgnore
    public void setPATEnabled(PATEnabled value) { 
       this.PATEnabled = value;
+   }
+   @JsonIgnore
+   public DHCPRelayStatus getDHCPRelayStatus() {
+      return DHCPRelayStatus;
+   }
+
+   @JsonIgnore
+   public void setDHCPRelayStatus(DHCPRelayStatus value) { 
+      this.DHCPRelayStatus = value;
    }
    @JsonIgnore
    public DPI getDPI() {
@@ -712,7 +725,7 @@ public class Subnet extends RestObject {
    
 
    public String toString() {
-      return "Subnet [" + "PATEnabled=" + PATEnabled + ", DPI=" + DPI + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", IPv6Gateway=" + IPv6Gateway + ", maintenanceMode=" + maintenanceMode + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", address=" + address + ", defaultAction=" + defaultAction + ", templateID=" + templateID + ", serviceID=" + serviceID + ", description=" + description + ", netmask=" + netmask + ", vnId=" + vnId + ", encryption=" + encryption + ", underlay=" + underlay + ", underlayEnabled=" + underlayEnabled + ", entityScope=" + entityScope + ", policyGroupID=" + policyGroupID + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", splitSubnet=" + splitSubnet + ", proxyARP=" + proxyARP + ", useGlobalMAC=" + useGlobalMAC + ", associatedApplicationID=" + associatedApplicationID + ", associatedApplicationObjectID=" + associatedApplicationObjectID + ", associatedApplicationObjectType=" + associatedApplicationObjectType + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSharedNetworkResourceID=" + associatedSharedNetworkResourceID + ", public_=" + public_ + ", multicast=" + multicast + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Subnet [" + "PATEnabled=" + PATEnabled + ", DHCPRelayStatus=" + DHCPRelayStatus + ", DPI=" + DPI + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", IPv6Gateway=" + IPv6Gateway + ", maintenanceMode=" + maintenanceMode + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", address=" + address + ", defaultAction=" + defaultAction + ", templateID=" + templateID + ", serviceID=" + serviceID + ", description=" + description + ", netmask=" + netmask + ", vnId=" + vnId + ", encryption=" + encryption + ", underlay=" + underlay + ", underlayEnabled=" + underlayEnabled + ", entityScope=" + entityScope + ", policyGroupID=" + policyGroupID + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", splitSubnet=" + splitSubnet + ", proxyARP=" + proxyARP + ", useGlobalMAC=" + useGlobalMAC + ", associatedApplicationID=" + associatedApplicationID + ", associatedApplicationObjectID=" + associatedApplicationObjectID + ", associatedApplicationObjectType=" + associatedApplicationObjectType + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSharedNetworkResourceID=" + associatedSharedNetworkResourceID + ", public_=" + public_ + ", multicast=" + multicast + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

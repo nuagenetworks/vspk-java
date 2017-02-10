@@ -207,6 +207,18 @@ public class VCenter extends RestObject {
    @JsonProperty(value = "ipAddress")
    protected String ipAddress;
    
+   @JsonProperty(value = "upgradePackagePassword")
+   protected String upgradePackagePassword;
+   
+   @JsonProperty(value = "upgradePackageURL")
+   protected String upgradePackageURL;
+   
+   @JsonProperty(value = "upgradePackageUsername")
+   protected String upgradePackageUsername;
+   
+   @JsonProperty(value = "upgradeScriptTimeLimit")
+   protected Long upgradeScriptTimeLimit;
+   
    @JsonProperty(value = "primaryNuageController")
    protected String primaryNuageController;
    
@@ -787,6 +799,42 @@ public class VCenter extends RestObject {
       this.ipAddress = value;
    }
    @JsonIgnore
+   public String getUpgradePackagePassword() {
+      return upgradePackagePassword;
+   }
+
+   @JsonIgnore
+   public void setUpgradePackagePassword(String value) { 
+      this.upgradePackagePassword = value;
+   }
+   @JsonIgnore
+   public String getUpgradePackageURL() {
+      return upgradePackageURL;
+   }
+
+   @JsonIgnore
+   public void setUpgradePackageURL(String value) { 
+      this.upgradePackageURL = value;
+   }
+   @JsonIgnore
+   public String getUpgradePackageUsername() {
+      return upgradePackageUsername;
+   }
+
+   @JsonIgnore
+   public void setUpgradePackageUsername(String value) { 
+      this.upgradePackageUsername = value;
+   }
+   @JsonIgnore
+   public Long getUpgradeScriptTimeLimit() {
+      return upgradeScriptTimeLimit;
+   }
+
+   @JsonIgnore
+   public void setUpgradeScriptTimeLimit(Long value) { 
+      this.upgradeScriptTimeLimit = value;
+   }
+   @JsonIgnore
    public String getPrimaryNuageController() {
       return primaryNuageController;
    }
@@ -1060,7 +1108,7 @@ public class VCenter extends RestObject {
    
 
    public String toString() {
-      return "VCenter [" + "VRSConfigurationTimeLimit=" + VRSConfigurationTimeLimit + ", vRequireNuageMetadata=" + vRequireNuageMetadata + ", name=" + name + ", password=" + password + ", lastUpdatedBy=" + lastUpdatedBy + ", dataDNS1=" + dataDNS1 + ", dataDNS2=" + dataDNS2 + ", dataGateway=" + dataGateway + ", dataNetworkPortgroup=" + dataNetworkPortgroup + ", datapathSyncTimeout=" + datapathSyncTimeout + ", secondaryNuageController=" + secondaryNuageController + ", genericSplitActivation=" + genericSplitActivation + ", separateDataNetwork=" + separateDataNetwork + ", personality=" + personality + ", description=" + description + ", destinationMirrorPort=" + destinationMirrorPort + ", metadataServerIP=" + metadataServerIP + ", metadataServerListenPort=" + metadataServerListenPort + ", metadataServerPort=" + metadataServerPort + ", metadataServiceEnabled=" + metadataServiceEnabled + ", networkUplinkInterface=" + networkUplinkInterface + ", networkUplinkInterfaceGateway=" + networkUplinkInterfaceGateway + ", networkUplinkInterfaceIp=" + networkUplinkInterfaceIp + ", networkUplinkInterfaceNetmask=" + networkUplinkInterfaceNetmask + ", nfsLogServer=" + nfsLogServer + ", nfsMountPath=" + nfsMountPath + ", mgmtDNS1=" + mgmtDNS1 + ", mgmtDNS2=" + mgmtDNS2 + ", mgmtGateway=" + mgmtGateway + ", mgmtNetworkPortgroup=" + mgmtNetworkPortgroup + ", dhcpRelayServer=" + dhcpRelayServer + ", mirrorNetworkPortgroup=" + mirrorNetworkPortgroup + ", siteId=" + siteId + ", oldAgencyName=" + oldAgencyName + ", allowDataDHCP=" + allowDataDHCP + ", allowMgmtDHCP=" + allowMgmtDHCP + ", flowEvictionThreshold=" + flowEvictionThreshold + ", vmNetworkPortgroup=" + vmNetworkPortgroup + ", entityScope=" + entityScope + ", connectionStatus=" + connectionStatus + ", portgroupMetadata=" + portgroupMetadata + ", hostLevelManagement=" + hostLevelManagement + ", novaClientVersion=" + novaClientVersion + ", novaMetadataServiceAuthUrl=" + novaMetadataServiceAuthUrl + ", novaMetadataServiceEndpoint=" + novaMetadataServiceEndpoint + ", novaMetadataServicePassword=" + novaMetadataServicePassword + ", novaMetadataServiceTenant=" + novaMetadataServiceTenant + ", novaMetadataServiceUsername=" + novaMetadataServiceUsername + ", novaMetadataSharedSecret=" + novaMetadataSharedSecret + ", novaRegionName=" + novaRegionName + ", ipAddress=" + ipAddress + ", primaryNuageController=" + primaryNuageController + ", vrsConfigID=" + vrsConfigID + ", vrsPassword=" + vrsPassword + ", vrsUserName=" + vrsUserName + ", userName=" + userName + ", staticRoute=" + staticRoute + ", staticRouteGateway=" + staticRouteGateway + ", staticRouteNetmask=" + staticRouteNetmask + ", ntpServer1=" + ntpServer1 + ", ntpServer2=" + ntpServer2 + ", httpPort=" + httpPort + ", httpsPort=" + httpsPort + ", mtu=" + mtu + ", multiVMSsupport=" + multiVMSsupport + ", multicastReceiveInterface=" + multicastReceiveInterface + ", multicastReceiveInterfaceIP=" + multicastReceiveInterfaceIP + ", multicastReceiveInterfaceNetmask=" + multicastReceiveInterfaceNetmask + ", multicastReceiveRange=" + multicastReceiveRange + ", multicastSendInterface=" + multicastSendInterface + ", multicastSendInterfaceIP=" + multicastSendInterfaceIP + ", multicastSendInterfaceNetmask=" + multicastSendInterfaceNetmask + ", multicastSourcePortgroup=" + multicastSourcePortgroup + ", customizedScriptURL=" + customizedScriptURL + ", autoResolveFrequency=" + autoResolveFrequency + ", ovfURL=" + ovfURL + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VCenter [" + "VRSConfigurationTimeLimit=" + VRSConfigurationTimeLimit + ", vRequireNuageMetadata=" + vRequireNuageMetadata + ", name=" + name + ", password=" + password + ", lastUpdatedBy=" + lastUpdatedBy + ", dataDNS1=" + dataDNS1 + ", dataDNS2=" + dataDNS2 + ", dataGateway=" + dataGateway + ", dataNetworkPortgroup=" + dataNetworkPortgroup + ", datapathSyncTimeout=" + datapathSyncTimeout + ", secondaryNuageController=" + secondaryNuageController + ", genericSplitActivation=" + genericSplitActivation + ", separateDataNetwork=" + separateDataNetwork + ", personality=" + personality + ", description=" + description + ", destinationMirrorPort=" + destinationMirrorPort + ", metadataServerIP=" + metadataServerIP + ", metadataServerListenPort=" + metadataServerListenPort + ", metadataServerPort=" + metadataServerPort + ", metadataServiceEnabled=" + metadataServiceEnabled + ", networkUplinkInterface=" + networkUplinkInterface + ", networkUplinkInterfaceGateway=" + networkUplinkInterfaceGateway + ", networkUplinkInterfaceIp=" + networkUplinkInterfaceIp + ", networkUplinkInterfaceNetmask=" + networkUplinkInterfaceNetmask + ", nfsLogServer=" + nfsLogServer + ", nfsMountPath=" + nfsMountPath + ", mgmtDNS1=" + mgmtDNS1 + ", mgmtDNS2=" + mgmtDNS2 + ", mgmtGateway=" + mgmtGateway + ", mgmtNetworkPortgroup=" + mgmtNetworkPortgroup + ", dhcpRelayServer=" + dhcpRelayServer + ", mirrorNetworkPortgroup=" + mirrorNetworkPortgroup + ", siteId=" + siteId + ", oldAgencyName=" + oldAgencyName + ", allowDataDHCP=" + allowDataDHCP + ", allowMgmtDHCP=" + allowMgmtDHCP + ", flowEvictionThreshold=" + flowEvictionThreshold + ", vmNetworkPortgroup=" + vmNetworkPortgroup + ", entityScope=" + entityScope + ", connectionStatus=" + connectionStatus + ", portgroupMetadata=" + portgroupMetadata + ", hostLevelManagement=" + hostLevelManagement + ", novaClientVersion=" + novaClientVersion + ", novaMetadataServiceAuthUrl=" + novaMetadataServiceAuthUrl + ", novaMetadataServiceEndpoint=" + novaMetadataServiceEndpoint + ", novaMetadataServicePassword=" + novaMetadataServicePassword + ", novaMetadataServiceTenant=" + novaMetadataServiceTenant + ", novaMetadataServiceUsername=" + novaMetadataServiceUsername + ", novaMetadataSharedSecret=" + novaMetadataSharedSecret + ", novaRegionName=" + novaRegionName + ", ipAddress=" + ipAddress + ", upgradePackagePassword=" + upgradePackagePassword + ", upgradePackageURL=" + upgradePackageURL + ", upgradePackageUsername=" + upgradePackageUsername + ", upgradeScriptTimeLimit=" + upgradeScriptTimeLimit + ", primaryNuageController=" + primaryNuageController + ", vrsConfigID=" + vrsConfigID + ", vrsPassword=" + vrsPassword + ", vrsUserName=" + vrsUserName + ", userName=" + userName + ", staticRoute=" + staticRoute + ", staticRouteGateway=" + staticRouteGateway + ", staticRouteNetmask=" + staticRouteNetmask + ", ntpServer1=" + ntpServer1 + ", ntpServer2=" + ntpServer2 + ", httpPort=" + httpPort + ", httpsPort=" + httpsPort + ", mtu=" + mtu + ", multiVMSsupport=" + multiVMSsupport + ", multicastReceiveInterface=" + multicastReceiveInterface + ", multicastReceiveInterfaceIP=" + multicastReceiveInterfaceIP + ", multicastReceiveInterfaceNetmask=" + multicastReceiveInterfaceNetmask + ", multicastReceiveRange=" + multicastReceiveRange + ", multicastSendInterface=" + multicastSendInterface + ", multicastSendInterfaceIP=" + multicastSendInterfaceIP + ", multicastSendInterfaceNetmask=" + multicastSendInterfaceNetmask + ", multicastSourcePortgroup=" + multicastSourcePortgroup + ", customizedScriptURL=" + customizedScriptURL + ", autoResolveFrequency=" + autoResolveFrequency + ", ovfURL=" + ovfURL + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

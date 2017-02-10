@@ -40,7 +40,7 @@ import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "infrastructureaccessprofile", resourceName = "infrastructureaccessprofiles")
-public class Infrastructureaccessprofile extends RestObject {
+public class InfrastructureAccessProfile extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
@@ -89,7 +89,7 @@ public class Infrastructureaccessprofile extends RestObject {
    private GlobalMetadatasFetcher globalMetadatas;
    
 
-   public Infrastructureaccessprofile() {
+   public InfrastructureAccessProfile() {
       
       metadatas = new MetadatasFetcher(this);
       
@@ -202,7 +202,7 @@ public class Infrastructureaccessprofile extends RestObject {
    
 
    public String toString() {
-      return "Infrastructureaccessprofile [" + "SSHAuthMode=" + SSHAuthMode + ", name=" + name + ", password=" + password + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", sourceIPFilter=" + sourceIPFilter + ", userName=" + userName + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "InfrastructureAccessProfile [" + "SSHAuthMode=" + SSHAuthMode + ", name=" + name + ", password=" + password + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", sourceIPFilter=" + sourceIPFilter + ", userName=" + userName + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

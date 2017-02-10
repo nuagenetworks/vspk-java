@@ -37,35 +37,27 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.EnterpriseNetworksFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "networkmacrogroup", resourceName = "networkmacrogroups")
-public class NetworkMacroGroup extends RestObject {
+@RestEntity(restName = "ltestatistics", resourceName = "ltestatistics")
+public class Ltestatistics extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
-   public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
+   @JsonProperty(value = "version")
+   protected Long version;
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
+   @JsonProperty(value = "endTime")
+   protected Long endTime;
    
-   @JsonProperty(value = "description")
-   protected String description;
+   @JsonProperty(value = "startTime")
+   protected Long startTime;
    
-   @JsonProperty(value = "networkMacros")
-   protected java.util.List<String> networkMacros;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
+   @JsonProperty(value = "statsData")
+   protected java.util.List<com.fasterxml.jackson.databind.JsonNode> statsData;
    
 
    
@@ -75,73 +67,50 @@ public class NetworkMacroGroup extends RestObject {
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
-   @JsonIgnore
-   private EnterpriseNetworksFetcher enterpriseNetworks;
-   
 
-   public NetworkMacroGroup() {
+   public Ltestatistics() {
       
       metadatas = new MetadatasFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
-      enterpriseNetworks = new EnterpriseNetworksFetcher(this);
-      
    }
 
    @JsonIgnore
-   public String getName() {
-      return name;
+   public Long getVersion() {
+      return version;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
+   public void setVersion(Long value) { 
+      this.version = value;
    }
    @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public String getDescription() {
-      return description;
+   public Long getEndTime() {
+      return endTime;
    }
 
    @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
+   public void setEndTime(Long value) { 
+      this.endTime = value;
    }
    @JsonIgnore
-   public java.util.List<String> getNetworkMacros() {
-      return networkMacros;
-   }
-
-   @JsonIgnore
-   public void setNetworkMacros(java.util.List<String> value) { 
-      this.networkMacros = value;
-   }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
+   public Long getStartTime() {
+      return startTime;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
+   public void setStartTime(Long value) { 
+      this.startTime = value;
    }
    @JsonIgnore
-   public String getExternalID() {
-      return externalID;
+   public java.util.List<com.fasterxml.jackson.databind.JsonNode> getStatsData() {
+      return statsData;
    }
 
    @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
+   public void setStatsData(java.util.List<com.fasterxml.jackson.databind.JsonNode> value) { 
+      this.statsData = value;
    }
    
 
@@ -156,14 +125,9 @@ public class NetworkMacroGroup extends RestObject {
       return globalMetadatas;
    }
    
-   @JsonIgnore
-   public EnterpriseNetworksFetcher getEnterpriseNetworks() {
-      return enterpriseNetworks;
-   }
-   
 
    public String toString() {
-      return "NetworkMacroGroup [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", networkMacros=" + networkMacros + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Ltestatistics [" + "version=" + version + ", endTime=" + endTime + ", startTime=" + startTime + ", statsData=" + statsData + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

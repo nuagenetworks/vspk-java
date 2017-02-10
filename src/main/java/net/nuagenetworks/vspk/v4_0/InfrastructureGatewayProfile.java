@@ -87,6 +87,9 @@ public class InfrastructureGatewayProfile extends RestObject {
    @JsonProperty(value = "metadataUpgradePath")
    protected String metadataUpgradePath;
    
+   @JsonProperty(value = "flowEvictionThreshold")
+   protected Long flowEvictionThreshold;
+   
    @JsonProperty(value = "enterpriseID")
    protected String enterpriseID;
    
@@ -107,6 +110,9 @@ public class InfrastructureGatewayProfile extends RestObject {
    
    @JsonProperty(value = "forceImmediateSystemSync")
    protected Boolean forceImmediateSystemSync;
+   
+   @JsonProperty(value = "openFlowAuditTimer")
+   protected Long openFlowAuditTimer;
    
    @JsonProperty(value = "upgradeAction")
    protected UpgradeAction upgradeAction;
@@ -258,6 +264,15 @@ public class InfrastructureGatewayProfile extends RestObject {
       this.metadataUpgradePath = value;
    }
    @JsonIgnore
+   public Long getFlowEvictionThreshold() {
+      return flowEvictionThreshold;
+   }
+
+   @JsonIgnore
+   public void setFlowEvictionThreshold(Long value) { 
+      this.flowEvictionThreshold = value;
+   }
+   @JsonIgnore
    public String getEnterpriseID() {
       return enterpriseID;
    }
@@ -319,6 +334,15 @@ public class InfrastructureGatewayProfile extends RestObject {
    @JsonIgnore
    public void setForceImmediateSystemSync(Boolean value) { 
       this.forceImmediateSystemSync = value;
+   }
+   @JsonIgnore
+   public Long getOpenFlowAuditTimer() {
+      return openFlowAuditTimer;
+   }
+
+   @JsonIgnore
+   public void setOpenFlowAuditTimer(Long value) { 
+      this.openFlowAuditTimer = value;
    }
    @JsonIgnore
    public UpgradeAction getUpgradeAction() {
@@ -389,7 +413,7 @@ public class InfrastructureGatewayProfile extends RestObject {
    
 
    public String toString() {
-      return "InfrastructureGatewayProfile [" + "NTPServerKey=" + NTPServerKey + ", NTPServerKeyID=" + NTPServerKeyID + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", datapathSyncTimeout=" + datapathSyncTimeout + ", deadTimer=" + deadTimer + ", deadTimerEnabled=" + deadTimerEnabled + ", remoteLogMode=" + remoteLogMode + ", remoteLogServerAddress=" + remoteLogServerAddress + ", remoteLogServerPort=" + remoteLogServerPort + ", description=" + description + ", metadataUpgradePath=" + metadataUpgradePath + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", controllerLessDuration=" + controllerLessDuration + ", controllerLessEnabled=" + controllerLessEnabled + ", controllerLessForwardingMode=" + controllerLessForwardingMode + ", controllerLessRemoteDuration=" + controllerLessRemoteDuration + ", forceImmediateSystemSync=" + forceImmediateSystemSync + ", upgradeAction=" + upgradeAction + ", proxyDNSName=" + proxyDNSName + ", useTwoFactor=" + useTwoFactor + ", statsCollectorPort=" + statsCollectorPort + ", externalID=" + externalID + ", systemSyncScheduler=" + systemSyncScheduler + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "InfrastructureGatewayProfile [" + "NTPServerKey=" + NTPServerKey + ", NTPServerKeyID=" + NTPServerKeyID + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", datapathSyncTimeout=" + datapathSyncTimeout + ", deadTimer=" + deadTimer + ", deadTimerEnabled=" + deadTimerEnabled + ", remoteLogMode=" + remoteLogMode + ", remoteLogServerAddress=" + remoteLogServerAddress + ", remoteLogServerPort=" + remoteLogServerPort + ", description=" + description + ", metadataUpgradePath=" + metadataUpgradePath + ", flowEvictionThreshold=" + flowEvictionThreshold + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", controllerLessDuration=" + controllerLessDuration + ", controllerLessEnabled=" + controllerLessEnabled + ", controllerLessForwardingMode=" + controllerLessForwardingMode + ", controllerLessRemoteDuration=" + controllerLessRemoteDuration + ", forceImmediateSystemSync=" + forceImmediateSystemSync + ", openFlowAuditTimer=" + openFlowAuditTimer + ", upgradeAction=" + upgradeAction + ", proxyDNSName=" + proxyDNSName + ", useTwoFactor=" + useTwoFactor + ", statsCollectorPort=" + statsCollectorPort + ", externalID=" + externalID + ", systemSyncScheduler=" + systemSyncScheduler + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    
