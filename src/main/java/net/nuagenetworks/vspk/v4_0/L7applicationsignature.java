@@ -46,20 +46,23 @@ public class L7applicationsignature extends RestObject {
    
 
    
-   @JsonProperty(value = "GUID")
-   protected String GUID;
-   
    @JsonProperty(value = "name")
    protected String name;
    
    @JsonProperty(value = "category")
    protected String category;
    
+   @JsonProperty(value = "readonly")
+   protected Boolean readonly;
+   
    @JsonProperty(value = "description")
    protected String description;
    
    @JsonProperty(value = "dictionaryVersion")
    protected Long dictionaryVersion;
+   
+   @JsonProperty(value = "guidstring")
+   protected String guidstring;
    
 
    
@@ -73,15 +76,6 @@ public class L7applicationsignature extends RestObject {
       
    }
 
-   @JsonIgnore
-   public String getGUID() {
-      return GUID;
-   }
-
-   @JsonIgnore
-   public void setGUID(String value) { 
-      this.GUID = value;
-   }
    @JsonIgnore
    public String getName() {
       return name;
@@ -101,6 +95,15 @@ public class L7applicationsignature extends RestObject {
       this.category = value;
    }
    @JsonIgnore
+   public Boolean getReadonly() {
+      return readonly;
+   }
+
+   @JsonIgnore
+   public void setReadonly(Boolean value) { 
+      this.readonly = value;
+   }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
@@ -118,6 +121,15 @@ public class L7applicationsignature extends RestObject {
    public void setDictionaryVersion(Long value) { 
       this.dictionaryVersion = value;
    }
+   @JsonIgnore
+   public String getGuidstring() {
+      return guidstring;
+   }
+
+   @JsonIgnore
+   public void setGuidstring(String value) { 
+      this.guidstring = value;
+   }
    
 
    
@@ -128,7 +140,7 @@ public class L7applicationsignature extends RestObject {
    
 
    public String toString() {
-      return "L7applicationsignature [" + "GUID=" + GUID + ", name=" + name + ", category=" + category + ", description=" + description + ", dictionaryVersion=" + dictionaryVersion + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "L7applicationsignature [" + "name=" + name + ", category=" + category + ", readonly=" + readonly + ", description=" + description + ", dictionaryVersion=" + dictionaryVersion + ", guidstring=" + guidstring + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    
