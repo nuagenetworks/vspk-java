@@ -87,6 +87,12 @@ public class License extends RestObject {
    @JsonProperty(value = "city")
    protected String city;
    
+   @JsonProperty(value = "allowedAVRSGsCount")
+   protected Long allowedAVRSGsCount;
+   
+   @JsonProperty(value = "allowedAVRSsCount")
+   protected Long allowedAVRSsCount;
+   
    @JsonProperty(value = "allowedCPEsCount")
    protected Long allowedCPEsCount;
    
@@ -143,6 +149,9 @@ public class License extends RestObject {
    
    @JsonProperty(value = "expirationDate")
    protected Float expirationDate;
+   
+   @JsonProperty(value = "expiryTimestamp")
+   protected Long expiryTimestamp;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
@@ -276,6 +285,24 @@ public class License extends RestObject {
    @JsonIgnore
    public void setCity(String value) { 
       this.city = value;
+   }
+   @JsonIgnore
+   public Long getAllowedAVRSGsCount() {
+      return allowedAVRSGsCount;
+   }
+
+   @JsonIgnore
+   public void setAllowedAVRSGsCount(Long value) { 
+      this.allowedAVRSGsCount = value;
+   }
+   @JsonIgnore
+   public Long getAllowedAVRSsCount() {
+      return allowedAVRSsCount;
+   }
+
+   @JsonIgnore
+   public void setAllowedAVRSsCount(Long value) { 
+      this.allowedAVRSsCount = value;
    }
    @JsonIgnore
    public Long getAllowedCPEsCount() {
@@ -449,6 +476,15 @@ public class License extends RestObject {
       this.expirationDate = value;
    }
    @JsonIgnore
+   public Long getExpiryTimestamp() {
+      return expiryTimestamp;
+   }
+
+   @JsonIgnore
+   public void setExpiryTimestamp(Long value) { 
+      this.expiryTimestamp = value;
+   }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
@@ -477,7 +513,7 @@ public class License extends RestObject {
    
 
    public String toString() {
-      return "License [" + "majorRelease=" + majorRelease + ", lastUpdatedBy=" + lastUpdatedBy + ", additionalSupportedVersions=" + additionalSupportedVersions + ", phone=" + phone + ", license=" + license + ", licenseEncryption=" + licenseEncryption + ", licenseEntities=" + licenseEntities + ", licenseID=" + licenseID + ", licenseType=" + licenseType + ", minorRelease=" + minorRelease + ", zip=" + zip + ", city=" + city + ", allowedCPEsCount=" + allowedCPEsCount + ", allowedNICsCount=" + allowedNICsCount + ", allowedVMsCount=" + allowedVMsCount + ", allowedVRSGsCount=" + allowedVRSGsCount + ", allowedVRSsCount=" + allowedVRSsCount + ", email=" + email + ", encryptionMode=" + encryptionMode + ", uniqueLicenseIdentifier=" + uniqueLicenseIdentifier + ", entityScope=" + entityScope + ", company=" + company + ", country=" + country + ", productVersion=" + productVersion + ", provider=" + provider + ", isClusterLicense=" + isClusterLicense + ", userName=" + userName + ", state=" + state + ", street=" + street + ", customerKey=" + customerKey + ", expirationDate=" + expirationDate + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "License [" + "majorRelease=" + majorRelease + ", lastUpdatedBy=" + lastUpdatedBy + ", additionalSupportedVersions=" + additionalSupportedVersions + ", phone=" + phone + ", license=" + license + ", licenseEncryption=" + licenseEncryption + ", licenseEntities=" + licenseEntities + ", licenseID=" + licenseID + ", licenseType=" + licenseType + ", minorRelease=" + minorRelease + ", zip=" + zip + ", city=" + city + ", allowedAVRSGsCount=" + allowedAVRSGsCount + ", allowedAVRSsCount=" + allowedAVRSsCount + ", allowedCPEsCount=" + allowedCPEsCount + ", allowedNICsCount=" + allowedNICsCount + ", allowedVMsCount=" + allowedVMsCount + ", allowedVRSGsCount=" + allowedVRSGsCount + ", allowedVRSsCount=" + allowedVRSsCount + ", email=" + email + ", encryptionMode=" + encryptionMode + ", uniqueLicenseIdentifier=" + uniqueLicenseIdentifier + ", entityScope=" + entityScope + ", company=" + company + ", country=" + country + ", productVersion=" + productVersion + ", provider=" + provider + ", isClusterLicense=" + isClusterLicense + ", userName=" + userName + ", state=" + state + ", street=" + street + ", customerKey=" + customerKey + ", expirationDate=" + expirationDate + ", expiryTimestamp=" + expiryTimestamp + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    
