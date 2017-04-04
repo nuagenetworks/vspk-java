@@ -134,8 +134,8 @@ public class Me extends RestRootObject {
    @JsonProperty(value = "disabled")
    protected Boolean disabled;
    
-   @JsonProperty(value = "elasticSearchAddress")
-   protected String elasticSearchAddress;
+   @JsonProperty(value = "elasticSearchUIAddress")
+   protected String elasticSearchUIAddress;
    
    @JsonProperty(value = "flowCollectionEnabled")
    protected Boolean flowCollectionEnabled;
@@ -586,13 +586,13 @@ public class Me extends RestRootObject {
       this.disabled = value;
    }
    @JsonIgnore
-   public String getElasticSearchAddress() {
-      return elasticSearchAddress;
+   public String getElasticSearchUIAddress() {
+      return elasticSearchUIAddress;
    }
 
    @JsonIgnore
-   public void setElasticSearchAddress(String value) { 
-      this.elasticSearchAddress = value;
+   public void setElasticSearchUIAddress(String value) { 
+      this.elasticSearchUIAddress = value;
    }
    @JsonIgnore
    public Boolean getFlowCollectionEnabled() {
@@ -1067,7 +1067,7 @@ public class Me extends RestRootObject {
    
 
    public String toString() {
-      return "Me [" + "password=" + password + ", lastName=" + lastName + ", lastUpdatedBy=" + lastUpdatedBy + ", firstName=" + firstName + ", disabled=" + disabled + ", elasticSearchAddress=" + elasticSearchAddress + ", flowCollectionEnabled=" + flowCollectionEnabled + ", email=" + email + ", enterpriseID=" + enterpriseID + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", mobileNumber=" + mobileNumber + ", role=" + role + ", userName=" + userName + ", statisticsEnabled=" + statisticsEnabled + ", avatarData=" + avatarData + ", avatarType=" + avatarType + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Me [" + "password=" + password + ", lastName=" + lastName + ", lastUpdatedBy=" + lastUpdatedBy + ", firstName=" + firstName + ", disabled=" + disabled + ", elasticSearchUIAddress=" + elasticSearchUIAddress + ", flowCollectionEnabled=" + flowCollectionEnabled + ", email=" + email + ", enterpriseID=" + enterpriseID + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", mobileNumber=" + mobileNumber + ", role=" + role + ", userName=" + userName + ", statisticsEnabled=" + statisticsEnabled + ", avatarData=" + avatarData + ", avatarType=" + avatarType + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + ", apiKey=" + apiKey  + "]";
    }
    

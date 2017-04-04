@@ -58,9 +58,6 @@ public class Application extends RestObject {
    @JsonProperty(value = "name")
    protected String name;
    
-   @JsonProperty(value = "bandwidth")
-   protected Long bandwidth;
-   
    @JsonProperty(value = "readOnly")
    protected Boolean readOnly;
    
@@ -96,9 +93,6 @@ public class Application extends RestObject {
    
    @JsonProperty(value = "sourcePort")
    protected String sourcePort;
-   
-   @JsonProperty(value = "appId")
-   protected Long appId;
    
    @JsonProperty(value = "optimizePathSelection")
    protected OptimizePathSelection optimizePathSelection;
@@ -152,15 +146,6 @@ public class Application extends RestObject {
    @JsonIgnore
    public void setName(String value) { 
       this.name = value;
-   }
-   @JsonIgnore
-   public Long getBandwidth() {
-      return bandwidth;
-   }
-
-   @JsonIgnore
-   public void setBandwidth(Long value) { 
-      this.bandwidth = value;
    }
    @JsonIgnore
    public Boolean getReadOnly() {
@@ -271,15 +256,6 @@ public class Application extends RestObject {
       this.sourcePort = value;
    }
    @JsonIgnore
-   public Long getAppId() {
-      return appId;
-   }
-
-   @JsonIgnore
-   public void setAppId(Long value) { 
-      this.appId = value;
-   }
-   @JsonIgnore
    public OptimizePathSelection getOptimizePathSelection() {
       return optimizePathSelection;
    }
@@ -348,7 +324,7 @@ public class Application extends RestObject {
    
 
    public String toString() {
-      return "Application [" + "DSCP=" + DSCP + ", name=" + name + ", bandwidth=" + bandwidth + ", readOnly=" + readOnly + ", performanceMonitorType=" + performanceMonitorType + ", description=" + description + ", destinationIP=" + destinationIP + ", destinationPort=" + destinationPort + ", enablePPS=" + enablePPS + ", oneWayDelay=" + oneWayDelay + ", oneWayJitter=" + oneWayJitter + ", oneWayLoss=" + oneWayLoss + ", postClassificationPath=" + postClassificationPath + ", sourceIP=" + sourceIP + ", sourcePort=" + sourcePort + ", appId=" + appId + ", optimizePathSelection=" + optimizePathSelection + ", preClassificationPath=" + preClassificationPath + ", protocol=" + protocol + ", associatedL7ApplicationSignatureID=" + associatedL7ApplicationSignatureID + ", etherType=" + etherType + ", symmetry=" + symmetry + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Application [" + "DSCP=" + DSCP + ", name=" + name + ", readOnly=" + readOnly + ", performanceMonitorType=" + performanceMonitorType + ", description=" + description + ", destinationIP=" + destinationIP + ", destinationPort=" + destinationPort + ", enablePPS=" + enablePPS + ", oneWayDelay=" + oneWayDelay + ", oneWayJitter=" + oneWayJitter + ", oneWayLoss=" + oneWayLoss + ", postClassificationPath=" + postClassificationPath + ", sourceIP=" + sourceIP + ", sourcePort=" + sourcePort + ", optimizePathSelection=" + optimizePathSelection + ", preClassificationPath=" + preClassificationPath + ", protocol=" + protocol + ", associatedL7ApplicationSignatureID=" + associatedL7ApplicationSignatureID + ", etherType=" + etherType + ", symmetry=" + symmetry + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

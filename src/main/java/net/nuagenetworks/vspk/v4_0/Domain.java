@@ -39,7 +39,6 @@ import net.nuagenetworks.vspk.v4_0.fetchers.TCAsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.RedirectionTargetsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.NetworkPerformanceBindingsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EgressACLEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EgressACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.DomainFIPAclTemplatesFetcher;
@@ -244,9 +243,6 @@ public class Domain extends RestObject {
    private MetadatasFetcher metadatas;
    
    @JsonIgnore
-   private NetworkPerformanceBindingsFetcher networkPerformanceBindings;
-   
-   @JsonIgnore
    private EgressACLEntryTemplatesFetcher egressACLEntryTemplates;
    
    @JsonIgnore
@@ -372,8 +368,6 @@ public class Domain extends RestObject {
       permissions = new PermissionsFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
-      
-      networkPerformanceBindings = new NetworkPerformanceBindingsFetcher(this);
       
       egressACLEntryTemplates = new EgressACLEntryTemplatesFetcher(this);
       
@@ -859,11 +853,6 @@ public class Domain extends RestObject {
    @JsonIgnore
    public MetadatasFetcher getMetadatas() {
       return metadatas;
-   }
-   
-   @JsonIgnore
-   public NetworkPerformanceBindingsFetcher getNetworkPerformanceBindings() {
-      return networkPerformanceBindings;
    }
    
    @JsonIgnore

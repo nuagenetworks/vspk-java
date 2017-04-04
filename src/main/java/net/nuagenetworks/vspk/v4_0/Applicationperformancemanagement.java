@@ -44,6 +44,7 @@ public class Applicationperformancemanagement extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum ApplicationGroupType { MONITOR_PATH, DISCOVERY };
 
    
    @JsonProperty(value = "name")
@@ -54,6 +55,9 @@ public class Applicationperformancemanagement extends RestObject {
    
    @JsonProperty(value = "description")
    protected String description;
+   
+   @JsonProperty(value = "applicationGroupType")
+   protected ApplicationGroupType applicationGroupType;
    
    @JsonProperty(value = "associatedPerformanceMonitorID")
    protected String associatedPerformanceMonitorID;
@@ -98,6 +102,15 @@ public class Applicationperformancemanagement extends RestObject {
       this.description = value;
    }
    @JsonIgnore
+   public ApplicationGroupType getApplicationGroupType() {
+      return applicationGroupType;
+   }
+
+   @JsonIgnore
+   public void setApplicationGroupType(ApplicationGroupType value) { 
+      this.applicationGroupType = value;
+   }
+   @JsonIgnore
    public String getAssociatedPerformanceMonitorID() {
       return associatedPerformanceMonitorID;
    }
@@ -116,7 +129,7 @@ public class Applicationperformancemanagement extends RestObject {
    
 
    public String toString() {
-      return "Applicationperformancemanagement [" + "name=" + name + ", readOnly=" + readOnly + ", description=" + description + ", associatedPerformanceMonitorID=" + associatedPerformanceMonitorID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Applicationperformancemanagement [" + "name=" + name + ", readOnly=" + readOnly + ", description=" + description + ", applicationGroupType=" + applicationGroupType + ", associatedPerformanceMonitorID=" + associatedPerformanceMonitorID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

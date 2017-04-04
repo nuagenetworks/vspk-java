@@ -79,12 +79,6 @@ public class NSGateway extends RestObject {
    @JsonProperty(value = "NATTraversalEnabled")
    protected Boolean NATTraversalEnabled;
    
-   @JsonProperty(value = "TCPMSSEnabled")
-   protected Boolean TCPMSSEnabled;
-   
-   @JsonProperty(value = "TCPMaximumSegmentSize")
-   protected Long TCPMaximumSegmentSize;
-   
    @JsonProperty(value = "SKU")
    protected String SKU;
    
@@ -296,24 +290,6 @@ public class NSGateway extends RestObject {
    @JsonIgnore
    public void setNATTraversalEnabled(Boolean value) { 
       this.NATTraversalEnabled = value;
-   }
-   @JsonIgnore
-   public Boolean getTCPMSSEnabled() {
-      return TCPMSSEnabled;
-   }
-
-   @JsonIgnore
-   public void setTCPMSSEnabled(Boolean value) { 
-      this.TCPMSSEnabled = value;
-   }
-   @JsonIgnore
-   public Long getTCPMaximumSegmentSize() {
-      return TCPMaximumSegmentSize;
-   }
-
-   @JsonIgnore
-   public void setTCPMaximumSegmentSize(Long value) { 
-      this.TCPMaximumSegmentSize = value;
    }
    @JsonIgnore
    public String getSKU() {
@@ -711,7 +687,7 @@ public class NSGateway extends RestObject {
    
 
    public String toString() {
-      return "NSGateway [" + "MACAddress=" + MACAddress + ", NATTraversalEnabled=" + NATTraversalEnabled + ", TCPMSSEnabled=" + TCPMSSEnabled + ", TCPMaximumSegmentSize=" + TCPMaximumSegmentSize + ", SKU=" + SKU + ", TPMStatus=" + TPMStatus + ", CPUType=" + CPUType + ", NSGVersion=" + NSGVersion + ", SSHService=" + SSHService + ", UUID=" + UUID + ", name=" + name + ", family=" + family + ", lastConfigurationReloadTimestamp=" + lastConfigurationReloadTimestamp + ", lastUpdatedBy=" + lastUpdatedBy + ", datapathID=" + datapathID + ", redundancyGroupID=" + redundancyGroupID + ", templateID=" + templateID + ", pending=" + pending + ", serialNumber=" + serialNumber + ", derivedSSHServiceState=" + derivedSSHServiceState + ", permittedAction=" + permittedAction + ", personality=" + personality + ", description=" + description + ", libraries=" + libraries + ", inheritedSSHServiceState=" + inheritedSSHServiceState + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", locationID=" + locationID + ", configurationReloadState=" + configurationReloadState + ", configurationStatus=" + configurationStatus + ", bootstrapID=" + bootstrapID + ", bootstrapStatus=" + bootstrapStatus + ", associatedGatewaySecurityID=" + associatedGatewaySecurityID + ", associatedGatewaySecurityProfileID=" + associatedGatewaySecurityProfileID + ", associatedNSGInfoID=" + associatedNSGInfoID + ", autoDiscGatewayID=" + autoDiscGatewayID + ", externalID=" + externalID + ", systemID=" + systemID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NSGateway [" + "MACAddress=" + MACAddress + ", NATTraversalEnabled=" + NATTraversalEnabled + ", SKU=" + SKU + ", TPMStatus=" + TPMStatus + ", CPUType=" + CPUType + ", NSGVersion=" + NSGVersion + ", SSHService=" + SSHService + ", UUID=" + UUID + ", name=" + name + ", family=" + family + ", lastConfigurationReloadTimestamp=" + lastConfigurationReloadTimestamp + ", lastUpdatedBy=" + lastUpdatedBy + ", datapathID=" + datapathID + ", redundancyGroupID=" + redundancyGroupID + ", templateID=" + templateID + ", pending=" + pending + ", serialNumber=" + serialNumber + ", derivedSSHServiceState=" + derivedSSHServiceState + ", permittedAction=" + permittedAction + ", personality=" + personality + ", description=" + description + ", libraries=" + libraries + ", inheritedSSHServiceState=" + inheritedSSHServiceState + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", locationID=" + locationID + ", configurationReloadState=" + configurationReloadState + ", configurationStatus=" + configurationStatus + ", bootstrapID=" + bootstrapID + ", bootstrapStatus=" + bootstrapStatus + ", associatedGatewaySecurityID=" + associatedGatewaySecurityID + ", associatedGatewaySecurityProfileID=" + associatedGatewaySecurityProfileID + ", associatedNSGInfoID=" + associatedNSGInfoID + ", autoDiscGatewayID=" + autoDiscGatewayID + ", externalID=" + externalID + ", systemID=" + systemID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    
