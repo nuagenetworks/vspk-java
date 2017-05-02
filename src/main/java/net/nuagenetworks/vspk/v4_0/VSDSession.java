@@ -53,17 +53,29 @@ public class VSDSession extends RestSession<Me> {
       this(username, password, enterprise, apiUrl, null);
    }
 
+   // certificate remains for backward compatibility but is no longer defined in java-bambou
    public VSDSession(String username, String password, String enterprise, String apiUrl, String certificate) {
-      this();
+	      this();
 
-      setUsername(username);
-      setPassword(password);
-      setEnterprise(enterprise);
-      setApiUrl(apiUrl);
-      setApiPrefix("nuage/api");
-      setVersion(VERSION);
-      setCertificate(certificate);
-   }
+	      setUsername(username);
+	      setPassword(password);
+	      setEnterprise(enterprise);
+	      setApiUrl(apiUrl);
+	      setApiPrefix("nuage/api");
+	      setVersion(VERSION);
+	      getClientTemplate().prepareSSLAuthentication(new String[] {});
+	   }
+
+   public VSDSession(String username, String enterprise, String apiUrl, String[] certificateFilePairPaths) {
+	      this();
+
+	      setUsername(username);
+	      setEnterprise(enterprise);
+	      setApiUrl(apiUrl);
+	      setApiPrefix("nuage/api");
+	      setVersion(VERSION);
+	      getClientTemplate().prepareSSLAuthentication(certificateFilePairPaths);
+	   }
 
    public double getVersion() {
       return VERSION;
