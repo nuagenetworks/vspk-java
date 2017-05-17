@@ -27,10 +27,15 @@
 
 package net.nuagenetworks.vspk.v4_0;
 
+import java.security.KeyManagementException;
+import java.io.File;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import net.nuagenetworks.bambou.RestSession;
+import net.nuagenetworks.bambou.RestException;
+import net.nuagenetworks.bambou.ssl.DynamicKeystoreGenerator;
 import net.nuagenetworks.bambou.service.RestClientTemplate;
 import net.nuagenetworks.bambou.spring.SpringConfig;
 
@@ -50,19 +55,47 @@ public class VSDSession extends RestSession<Me> {
    }
 
    public VSDSession(String username, String password, String enterprise, String apiUrl) {
-      this(username, password, enterprise, apiUrl, null);
-   }
-
-   public VSDSession(String username, String password, String enterprise, String apiUrl, String certificate) {
       this();
-
+ 
       setUsername(username);
       setPassword(password);
       setEnterprise(enterprise);
       setApiUrl(apiUrl);
       setApiPrefix("nuage/api");
       setVersion(VERSION);
-      setCertificate(certificate);
+      setCertificate(null);
+      setPrivateKey(null);
+   }
+
+   public VSDSession(String username, String enterprise, String apiUrl, String certificateContent, String privateKeyContent) {
+      this();
+ 
+      setUsername(username);
+      setEnterprise(enterprise);
+      setApiUrl(apiUrl);
+      setApiPrefix("nuage/api");
+      setVersion(VERSION);
+      setCertificate(certificateContent);
+      setPrivateKey(privateKeyContent);
+   }
+
+   public VSDSession(String username, String enterprise, String apiUrl, File pathToCertificatePEMFile, File pathToPrivateKeyPEMFile) throws RestException {
+      this();
+        
+      try {
+         String certificateContent = DynamicKeystoreGenerator.getContentsOfPEMFile(pathToCertificatePEMFile);
+         String privateKeyContent = DynamicKeystoreGenerator.getContentsOfPEMFile(pathToPrivateKeyPEMFile);
+                       
+         setUsername(username);
+         setEnterprise(enterprise);
+         setApiUrl(apiUrl);
+         setApiPrefix("nuage/api");
+         setVersion(VERSION);
+         setCertificate(certificateContent);
+         setPrivateKey(privateKeyContent);        
+      } catch (KeyManagementException ex) {
+         throw new RestException(ex);
+      }
    }
 
    public double getVersion() {
