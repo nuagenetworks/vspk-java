@@ -4,7 +4,7 @@
    <modelVersion>4.0.0</modelVersion>
    <groupId>net.nuagenetworks</groupId>
    <artifactId>vspk</artifactId>
-   <version>4.0.8</version>
+   <version>5.0.1</version>
    <packaging>jar</packaging>
 
    <name>${project.groupId}:${project.artifactId}</name>
@@ -14,7 +14,7 @@
    <licenses>
       <license>
          <name>Alcatel-Lucent Inc. License</name>
-         <url>http://github.com/nuagenetworks/vspk-java/blob/4.0/LICENSE</url>
+         <url>http://github.com/nuagenetworks/vspk-java/blob/5.0/LICENSE</url>
          <distribution>repo</distribution>
       </license>
    </licenses>
