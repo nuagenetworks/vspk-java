@@ -35,13 +35,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.ContainersFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GroupsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.AvatarsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ContainersFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GroupsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "user", resourceName = "users")
@@ -50,25 +50,16 @@ public class User extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum ManagementMode { CMS, DEFAULT };
-   public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum AvatarType { BASE64, COMPUTEDURL, URL };
+   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum ManagementMode { CMS, DEFAULT };
 
    
-   @JsonProperty(value = "managementMode")
-   protected ManagementMode managementMode;
+   @JsonProperty(value = "avatarData")
+   protected String avatarData;
    
-   @JsonProperty(value = "password")
-   protected String password;
-   
-   @JsonProperty(value = "lastName")
-   protected String lastName;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "firstName")
-   protected String firstName;
+   @JsonProperty(value = "avatarType")
+   protected AvatarType avatarType;
    
    @JsonProperty(value = "disabled")
    protected Boolean disabled;
@@ -79,107 +70,89 @@ public class User extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "firstName")
+   protected String firstName;
+   
+   @JsonProperty(value = "lastName")
+   protected String lastName;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "managementMode")
+   protected ManagementMode managementMode;
+   
    @JsonProperty(value = "mobileNumber")
    protected String mobileNumber;
+   
+   @JsonProperty(value = "password")
+   protected String password;
    
    @JsonProperty(value = "userName")
    protected String userName;
    
-   @JsonProperty(value = "avatarData")
-   protected String avatarData;
-   
-   @JsonProperty(value = "avatarType")
-   protected AvatarType avatarType;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
 
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
-   
-   @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
-   
-   @JsonIgnore
-   private VMsFetcher vMs;
-   
-   @JsonIgnore
-   private ContainersFetcher containers;
-   
-   @JsonIgnore
-   private GroupsFetcher groups;
    
    @JsonIgnore
    private AvatarsFetcher avatars;
    
    @JsonIgnore
+   private ContainersFetcher containers;
+   
+   @JsonIgnore
    private EventLogsFetcher eventLogs;
+   
+   @JsonIgnore
+   private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private GroupsFetcher groups;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
+   @JsonIgnore
+   private VMsFetcher vMs;
    
 
    public User() {
       
-      metadatas = new MetadatasFetcher(this);
-      
-      globalMetadatas = new GlobalMetadatasFetcher(this);
-      
-      vMs = new VMsFetcher(this);
+      avatars = new AvatarsFetcher(this);
       
       containers = new ContainersFetcher(this);
       
-      groups = new GroupsFetcher(this);
-      
-      avatars = new AvatarsFetcher(this);
-      
       eventLogs = new EventLogsFetcher(this);
       
+      globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      groups = new GroupsFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
+      
+      vMs = new VMsFetcher(this);
+      
    }
 
    @JsonIgnore
-   public ManagementMode getManagementMode() {
-      return managementMode;
+   public String getAvatarData() {
+      return avatarData;
    }
 
    @JsonIgnore
-   public void setManagementMode(ManagementMode value) { 
-      this.managementMode = value;
+   public void setAvatarData(String value) { 
+      this.avatarData = value;
    }
    @JsonIgnore
-   public String getPassword() {
-      return password;
-   }
-
-   @JsonIgnore
-   public void setPassword(String value) { 
-      this.password = value;
-   }
-   @JsonIgnore
-   public String getLastName() {
-      return lastName;
+   public AvatarType getAvatarType() {
+      return avatarType;
    }
 
    @JsonIgnore
-   public void setLastName(String value) { 
-      this.lastName = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public String getFirstName() {
-      return firstName;
-   }
-
-   @JsonIgnore
-   public void setFirstName(String value) { 
-      this.firstName = value;
+   public void setAvatarType(AvatarType value) { 
+      this.avatarType = value;
    }
    @JsonIgnore
    public Boolean getDisabled() {
@@ -209,6 +182,51 @@ public class User extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public String getFirstName() {
+      return firstName;
+   }
+
+   @JsonIgnore
+   public void setFirstName(String value) { 
+      this.firstName = value;
+   }
+   @JsonIgnore
+   public String getLastName() {
+      return lastName;
+   }
+
+   @JsonIgnore
+   public void setLastName(String value) { 
+      this.lastName = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public ManagementMode getManagementMode() {
+      return managementMode;
+   }
+
+   @JsonIgnore
+   public void setManagementMode(ManagementMode value) { 
+      this.managementMode = value;
+   }
+   @JsonIgnore
    public String getMobileNumber() {
       return mobileNumber;
    }
@@ -216,6 +234,15 @@ public class User extends RestObject {
    @JsonIgnore
    public void setMobileNumber(String value) { 
       this.mobileNumber = value;
+   }
+   @JsonIgnore
+   public String getPassword() {
+      return password;
+   }
+
+   @JsonIgnore
+   public void setPassword(String value) { 
+      this.password = value;
    }
    @JsonIgnore
    public String getUserName() {
@@ -226,49 +253,12 @@ public class User extends RestObject {
    public void setUserName(String value) { 
       this.userName = value;
    }
-   @JsonIgnore
-   public String getAvatarData() {
-      return avatarData;
-   }
-
-   @JsonIgnore
-   public void setAvatarData(String value) { 
-      this.avatarData = value;
-   }
-   @JsonIgnore
-   public AvatarType getAvatarType() {
-      return avatarType;
-   }
-
-   @JsonIgnore
-   public void setAvatarType(AvatarType value) { 
-      this.avatarType = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
    
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
-   
-   @JsonIgnore
-   public GlobalMetadatasFetcher getGlobalMetadatas() {
-      return globalMetadatas;
-   }
-   
-   @JsonIgnore
-   public VMsFetcher getVMs() {
-      return vMs;
+   public AvatarsFetcher getAvatars() {
+      return avatars;
    }
    
    @JsonIgnore
@@ -277,23 +267,33 @@ public class User extends RestObject {
    }
    
    @JsonIgnore
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
+   }
+   
+   @JsonIgnore
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
+   
+   @JsonIgnore
    public GroupsFetcher getGroups() {
       return groups;
    }
    
    @JsonIgnore
-   public AvatarsFetcher getAvatars() {
-      return avatars;
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
    @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
+   public VMsFetcher getVMs() {
+      return vMs;
    }
    
 
    public String toString() {
-      return "User [" + "managementMode=" + managementMode + ", password=" + password + ", lastName=" + lastName + ", lastUpdatedBy=" + lastUpdatedBy + ", firstName=" + firstName + ", disabled=" + disabled + ", email=" + email + ", entityScope=" + entityScope + ", mobileNumber=" + mobileNumber + ", userName=" + userName + ", avatarData=" + avatarData + ", avatarType=" + avatarType + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "User [" + "avatarData=" + avatarData + ", avatarType=" + avatarType + ", disabled=" + disabled + ", email=" + email + ", entityScope=" + entityScope + ", externalID=" + externalID + ", firstName=" + firstName + ", lastName=" + lastName + ", lastUpdatedBy=" + lastUpdatedBy + ", managementMode=" + managementMode + ", mobileNumber=" + mobileNumber + ", password=" + password + ", userName=" + userName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -36,8 +36,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 import net.nuagenetworks.vspk.v4_0.fetchers.GatewaySecuredDatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "gatewaysecurity", resourceName = "gatewaysecurities")
@@ -49,20 +49,20 @@ public class GatewaySecurity extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "gatewayID")
-   protected String gatewayID;
-   
-   @JsonProperty(value = "revision")
-   protected Long revision;
-   
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
+   
+   @JsonProperty(value = "gatewayID")
+   protected String gatewayID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "revision")
+   protected Long revision;
    
 
    
@@ -70,49 +70,22 @@ public class GatewaySecurity extends RestObject {
    private GatewaySecuredDatasFetcher gatewaySecuredDatas;
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
+   private MetadatasFetcher metadatas;
    
 
    public GatewaySecurity() {
       
       gatewaySecuredDatas = new GatewaySecuredDatasFetcher(this);
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public String getGatewayID() {
-      return gatewayID;
-   }
-
-   @JsonIgnore
-   public void setGatewayID(String value) { 
-      this.gatewayID = value;
-   }
-   @JsonIgnore
-   public Long getRevision() {
-      return revision;
-   }
-
-   @JsonIgnore
-   public void setRevision(Long value) { 
-      this.revision = value;
-   }
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -131,6 +104,33 @@ public class GatewaySecurity extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getGatewayID() {
+      return gatewayID;
+   }
+
+   @JsonIgnore
+   public void setGatewayID(String value) { 
+      this.gatewayID = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public Long getRevision() {
+      return revision;
+   }
+
+   @JsonIgnore
+   public void setRevision(Long value) { 
+      this.revision = value;
+   }
    
 
    
@@ -140,18 +140,18 @@ public class GatewaySecurity extends RestObject {
    }
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
-   
-   @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "GatewaySecurity [" + "lastUpdatedBy=" + lastUpdatedBy + ", gatewayID=" + gatewayID + ", revision=" + revision + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "GatewaySecurity [" + "entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayID=" + gatewayID + ", lastUpdatedBy=" + lastUpdatedBy + ", revision=" + revision + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

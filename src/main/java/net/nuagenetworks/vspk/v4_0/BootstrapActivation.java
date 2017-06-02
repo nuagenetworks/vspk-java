@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "bootstrapactivation", resourceName = "bootstrapactivations")
@@ -49,8 +49,29 @@ public class BootstrapActivation extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
+   @JsonProperty(value = "action")
+   protected Action action;
+   
+   @JsonProperty(value = "autoBootstrap")
+   protected Boolean autoBootstrap;
+   
    @JsonProperty(value = "cacert")
    protected String cacert;
+   
+   @JsonProperty(value = "cert")
+   protected String cert;
+   
+   @JsonProperty(value = "configURL")
+   protected String configURL;
+   
+   @JsonProperty(value = "csr")
+   protected String csr;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
    
    @JsonProperty(value = "hash")
    protected String hash;
@@ -58,20 +79,14 @@ public class BootstrapActivation extends RestObject {
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
    
-   @JsonProperty(value = "action")
-   protected Action action;
-   
    @JsonProperty(value = "seed")
    protected String seed;
    
-   @JsonProperty(value = "cert")
-   protected String cert;
+   @JsonProperty(value = "srkPassword")
+   protected String srkPassword;
    
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
-   
-   @JsonProperty(value = "configURL")
-   protected String configURL;
+   @JsonProperty(value = "status")
+   protected String status;
    
    @JsonProperty(value = "tpmOwnerPassword")
    protected String tpmOwnerPassword;
@@ -79,41 +94,44 @@ public class BootstrapActivation extends RestObject {
    @JsonProperty(value = "tpmState")
    protected Long tpmState;
    
-   @JsonProperty(value = "srkPassword")
-   protected String srkPassword;
-   
    @JsonProperty(value = "vsdTime")
    protected Long vsdTime;
    
-   @JsonProperty(value = "csr")
-   protected String csr;
-   
-   @JsonProperty(value = "status")
-   protected String status;
-   
-   @JsonProperty(value = "autoBootstrap")
-   protected Boolean autoBootstrap;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
 
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public BootstrapActivation() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
    }
 
+   @JsonIgnore
+   public Action getAction() {
+      return action;
+   }
+
+   @JsonIgnore
+   public void setAction(Action value) { 
+      this.action = value;
+   }
+   @JsonIgnore
+   public Boolean getAutoBootstrap() {
+      return autoBootstrap;
+   }
+
+   @JsonIgnore
+   public void setAutoBootstrap(Boolean value) { 
+      this.autoBootstrap = value;
+   }
    @JsonIgnore
    public String getCacert() {
       return cacert;
@@ -122,6 +140,51 @@ public class BootstrapActivation extends RestObject {
    @JsonIgnore
    public void setCacert(String value) { 
       this.cacert = value;
+   }
+   @JsonIgnore
+   public String getCert() {
+      return cert;
+   }
+
+   @JsonIgnore
+   public void setCert(String value) { 
+      this.cert = value;
+   }
+   @JsonIgnore
+   public String getConfigURL() {
+      return configURL;
+   }
+
+   @JsonIgnore
+   public void setConfigURL(String value) { 
+      this.configURL = value;
+   }
+   @JsonIgnore
+   public String getCsr() {
+      return csr;
+   }
+
+   @JsonIgnore
+   public void setCsr(String value) { 
+      this.csr = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
    }
    @JsonIgnore
    public String getHash() {
@@ -142,15 +205,6 @@ public class BootstrapActivation extends RestObject {
       this.lastUpdatedBy = value;
    }
    @JsonIgnore
-   public Action getAction() {
-      return action;
-   }
-
-   @JsonIgnore
-   public void setAction(Action value) { 
-      this.action = value;
-   }
-   @JsonIgnore
    public String getSeed() {
       return seed;
    }
@@ -160,31 +214,22 @@ public class BootstrapActivation extends RestObject {
       this.seed = value;
    }
    @JsonIgnore
-   public String getCert() {
-      return cert;
+   public String getSrkPassword() {
+      return srkPassword;
    }
 
    @JsonIgnore
-   public void setCert(String value) { 
-      this.cert = value;
+   public void setSrkPassword(String value) { 
+      this.srkPassword = value;
    }
    @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
-   }
-   @JsonIgnore
-   public String getConfigURL() {
-      return configURL;
+   public String getStatus() {
+      return status;
    }
 
    @JsonIgnore
-   public void setConfigURL(String value) { 
-      this.configURL = value;
+   public void setStatus(String value) { 
+      this.status = value;
    }
    @JsonIgnore
    public String getTpmOwnerPassword() {
@@ -205,15 +250,6 @@ public class BootstrapActivation extends RestObject {
       this.tpmState = value;
    }
    @JsonIgnore
-   public String getSrkPassword() {
-      return srkPassword;
-   }
-
-   @JsonIgnore
-   public void setSrkPassword(String value) { 
-      this.srkPassword = value;
-   }
-   @JsonIgnore
    public Long getVsdTime() {
       return vsdTime;
    }
@@ -222,58 +258,22 @@ public class BootstrapActivation extends RestObject {
    public void setVsdTime(Long value) { 
       this.vsdTime = value;
    }
-   @JsonIgnore
-   public String getCsr() {
-      return csr;
-   }
-
-   @JsonIgnore
-   public void setCsr(String value) { 
-      this.csr = value;
-   }
-   @JsonIgnore
-   public String getStatus() {
-      return status;
-   }
-
-   @JsonIgnore
-   public void setStatus(String value) { 
-      this.status = value;
-   }
-   @JsonIgnore
-   public Boolean getAutoBootstrap() {
-      return autoBootstrap;
-   }
-
-   @JsonIgnore
-   public void setAutoBootstrap(Boolean value) { 
-      this.autoBootstrap = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "BootstrapActivation [" + "cacert=" + cacert + ", hash=" + hash + ", lastUpdatedBy=" + lastUpdatedBy + ", action=" + action + ", seed=" + seed + ", cert=" + cert + ", entityScope=" + entityScope + ", configURL=" + configURL + ", tpmOwnerPassword=" + tpmOwnerPassword + ", tpmState=" + tpmState + ", srkPassword=" + srkPassword + ", vsdTime=" + vsdTime + ", csr=" + csr + ", status=" + status + ", autoBootstrap=" + autoBootstrap + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "BootstrapActivation [" + "action=" + action + ", autoBootstrap=" + autoBootstrap + ", cacert=" + cacert + ", cert=" + cert + ", configURL=" + configURL + ", csr=" + csr + ", entityScope=" + entityScope + ", externalID=" + externalID + ", hash=" + hash + ", lastUpdatedBy=" + lastUpdatedBy + ", seed=" + seed + ", srkPassword=" + srkPassword + ", status=" + status + ", tpmOwnerPassword=" + tpmOwnerPassword + ", tpmState=" + tpmState + ", vsdTime=" + vsdTime + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

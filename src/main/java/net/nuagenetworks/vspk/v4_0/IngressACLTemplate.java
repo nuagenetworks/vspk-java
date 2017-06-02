@@ -35,13 +35,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.IngressACLEntryTemplatesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.ContainersFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.IngressACLEntryTemplatesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "ingressacltemplate", resourceName = "ingressacltemplates")
@@ -55,41 +55,14 @@ public class IngressACLTemplate extends RestObject {
    public enum PriorityType { BOTTOM, NONE, TOP };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
    @JsonProperty(value = "active")
    protected Boolean active;
-   
-   @JsonProperty(value = "defaultAllowIP")
-   protected Boolean defaultAllowIP;
-   
-   @JsonProperty(value = "defaultAllowNonIP")
-   protected Boolean defaultAllowNonIP;
-   
-   @JsonProperty(value = "description")
-   protected String description;
    
    @JsonProperty(value = "allowAddressSpoof")
    protected Boolean allowAddressSpoof;
    
    @JsonProperty(value = "allowL2AddressSpoof")
    protected Boolean allowL2AddressSpoof;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
-   
-   @JsonProperty(value = "policyState")
-   protected PolicyState policyState;
-   
-   @JsonProperty(value = "priority")
-   protected Long priority;
-   
-   @JsonProperty(value = "priorityType")
-   protected PriorityType priorityType;
    
    @JsonProperty(value = "assocAclTemplateId")
    protected String assocAclTemplateId;
@@ -100,19 +73,46 @@ public class IngressACLTemplate extends RestObject {
    @JsonProperty(value = "autoGeneratePriority")
    protected Boolean autoGeneratePriority;
    
+   @JsonProperty(value = "defaultAllowIP")
+   protected Boolean defaultAllowIP;
+   
+   @JsonProperty(value = "defaultAllowNonIP")
+   protected Boolean defaultAllowNonIP;
+   
+   @JsonProperty(value = "description")
+   protected String description;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
    @JsonProperty(value = "externalID")
    protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "policyState")
+   protected PolicyState policyState;
+   
+   @JsonProperty(value = "priority")
+   protected Long priority;
+   
+   @JsonProperty(value = "priorityType")
+   protected PriorityType priorityType;
    
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private ContainersFetcher containers;
+   
+   @JsonIgnore
+   private EventLogsFetcher eventLogs;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
-   
-   @JsonIgnore
-   private VMsFetcher vMs;
    
    @JsonIgnore
    private IngressACLEntryTemplatesFetcher ingressACLEntryTemplates;
@@ -121,48 +121,30 @@ public class IngressACLTemplate extends RestObject {
    private JobsFetcher jobs;
    
    @JsonIgnore
-   private ContainersFetcher containers;
+   private MetadatasFetcher metadatas;
    
    @JsonIgnore
-   private EventLogsFetcher eventLogs;
+   private VMsFetcher vMs;
    
 
    public IngressACLTemplate() {
-      
-      metadatas = new MetadatasFetcher(this);
-      
-      globalMetadatas = new GlobalMetadatasFetcher(this);
-      
-      vMs = new VMsFetcher(this);
-      
-      ingressACLEntryTemplates = new IngressACLEntryTemplatesFetcher(this);
-      
-      jobs = new JobsFetcher(this);
       
       containers = new ContainersFetcher(this);
       
       eventLogs = new EventLogsFetcher(this);
       
+      globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      ingressACLEntryTemplates = new IngressACLEntryTemplatesFetcher(this);
+      
+      jobs = new JobsFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
+      
+      vMs = new VMsFetcher(this);
+      
    }
 
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
    @JsonIgnore
    public Boolean getActive() {
       return active;
@@ -171,33 +153,6 @@ public class IngressACLTemplate extends RestObject {
    @JsonIgnore
    public void setActive(Boolean value) { 
       this.active = value;
-   }
-   @JsonIgnore
-   public Boolean getDefaultAllowIP() {
-      return defaultAllowIP;
-   }
-
-   @JsonIgnore
-   public void setDefaultAllowIP(Boolean value) { 
-      this.defaultAllowIP = value;
-   }
-   @JsonIgnore
-   public Boolean getDefaultAllowNonIP() {
-      return defaultAllowNonIP;
-   }
-
-   @JsonIgnore
-   public void setDefaultAllowNonIP(Boolean value) { 
-      this.defaultAllowNonIP = value;
-   }
-   @JsonIgnore
-   public String getDescription() {
-      return description;
-   }
-
-   @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
    }
    @JsonIgnore
    public Boolean getAllowAddressSpoof() {
@@ -216,42 +171,6 @@ public class IngressACLTemplate extends RestObject {
    @JsonIgnore
    public void setAllowL2AddressSpoof(Boolean value) { 
       this.allowL2AddressSpoof = value;
-   }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
-   }
-   @JsonIgnore
-   public PolicyState getPolicyState() {
-      return policyState;
-   }
-
-   @JsonIgnore
-   public void setPolicyState(PolicyState value) { 
-      this.policyState = value;
-   }
-   @JsonIgnore
-   public Long getPriority() {
-      return priority;
-   }
-
-   @JsonIgnore
-   public void setPriority(Long value) { 
-      this.priority = value;
-   }
-   @JsonIgnore
-   public PriorityType getPriorityType() {
-      return priorityType;
-   }
-
-   @JsonIgnore
-   public void setPriorityType(PriorityType value) { 
-      this.priorityType = value;
    }
    @JsonIgnore
    public String getAssocAclTemplateId() {
@@ -281,6 +200,42 @@ public class IngressACLTemplate extends RestObject {
       this.autoGeneratePriority = value;
    }
    @JsonIgnore
+   public Boolean getDefaultAllowIP() {
+      return defaultAllowIP;
+   }
+
+   @JsonIgnore
+   public void setDefaultAllowIP(Boolean value) { 
+      this.defaultAllowIP = value;
+   }
+   @JsonIgnore
+   public Boolean getDefaultAllowNonIP() {
+      return defaultAllowNonIP;
+   }
+
+   @JsonIgnore
+   public void setDefaultAllowNonIP(Boolean value) { 
+      this.defaultAllowNonIP = value;
+   }
+   @JsonIgnore
+   public String getDescription() {
+      return description;
+   }
+
+   @JsonIgnore
+   public void setDescription(String value) { 
+      this.description = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
@@ -289,22 +244,67 @@ public class IngressACLTemplate extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public PolicyState getPolicyState() {
+      return policyState;
+   }
+
+   @JsonIgnore
+   public void setPolicyState(PolicyState value) { 
+      this.policyState = value;
+   }
+   @JsonIgnore
+   public Long getPriority() {
+      return priority;
+   }
+
+   @JsonIgnore
+   public void setPriority(Long value) { 
+      this.priority = value;
+   }
+   @JsonIgnore
+   public PriorityType getPriorityType() {
+      return priorityType;
+   }
+
+   @JsonIgnore
+   public void setPriorityType(PriorityType value) { 
+      this.priorityType = value;
+   }
    
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public ContainersFetcher getContainers() {
+      return containers;
+   }
+   
+   @JsonIgnore
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
    }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
-   }
-   
-   @JsonIgnore
-   public VMsFetcher getVMs() {
-      return vMs;
    }
    
    @JsonIgnore
@@ -318,18 +318,18 @@ public class IngressACLTemplate extends RestObject {
    }
    
    @JsonIgnore
-   public ContainersFetcher getContainers() {
-      return containers;
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
    @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
+   public VMsFetcher getVMs() {
+      return vMs;
    }
    
 
    public String toString() {
-      return "IngressACLTemplate [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", active=" + active + ", defaultAllowIP=" + defaultAllowIP + ", defaultAllowNonIP=" + defaultAllowNonIP + ", description=" + description + ", allowAddressSpoof=" + allowAddressSpoof + ", allowL2AddressSpoof=" + allowL2AddressSpoof + ", entityScope=" + entityScope + ", policyState=" + policyState + ", priority=" + priority + ", priorityType=" + priorityType + ", assocAclTemplateId=" + assocAclTemplateId + ", associatedLiveEntityID=" + associatedLiveEntityID + ", autoGeneratePriority=" + autoGeneratePriority + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "IngressACLTemplate [" + "active=" + active + ", allowAddressSpoof=" + allowAddressSpoof + ", allowL2AddressSpoof=" + allowL2AddressSpoof + ", assocAclTemplateId=" + assocAclTemplateId + ", associatedLiveEntityID=" + associatedLiveEntityID + ", autoGeneratePriority=" + autoGeneratePriority + ", defaultAllowIP=" + defaultAllowIP + ", defaultAllowNonIP=" + defaultAllowNonIP + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", policyState=" + policyState + ", priority=" + priority + ", priorityType=" + priorityType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

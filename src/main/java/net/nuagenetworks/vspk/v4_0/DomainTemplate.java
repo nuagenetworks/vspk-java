@@ -35,24 +35,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.RedirectionTargetTemplatesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.PermissionsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.DomainsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EgressACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.DomainFIPAclTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.FloatingIPACLTemplatesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GroupsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IngressACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IngressAdvFwdTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IngressExternalServiceTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.PolicyGroupTemplatesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.DomainsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.ZoneTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.QOSsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GroupsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.RedirectionTargetTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.SubnetTemplatesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ZoneTemplatesFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "domaintemplate", resourceName = "domaintemplates")
@@ -64,30 +64,12 @@ public class DomainTemplate extends RestObject {
    public enum DPI { DISABLED, ENABLED };
    public enum Encryption { DISABLED, ENABLED };
    public enum EntityScope { ENTERPRISE, GLOBAL };
-   public enum PolicyChangeStatus { APPLIED, DISCARDED, STARTED };
    public enum Multicast { DISABLED, ENABLED, INHERITED };
+   public enum PolicyChangeStatus { APPLIED, DISCARDED, STARTED };
 
    
    @JsonProperty(value = "DPI")
    protected DPI DPI;
-   
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "description")
-   protected String description;
-   
-   @JsonProperty(value = "encryption")
-   protected Encryption encryption;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
-   
-   @JsonProperty(value = "policyChangeStatus")
-   protected PolicyChangeStatus policyChangeStatus;
    
    @JsonProperty(value = "associatedBGPProfileID")
    protected String associatedBGPProfileID;
@@ -98,22 +80,34 @@ public class DomainTemplate extends RestObject {
    @JsonProperty(value = "associatedPATMapperID")
    protected String associatedPATMapperID;
    
-   @JsonProperty(value = "multicast")
-   protected Multicast multicast;
+   @JsonProperty(value = "description")
+   protected String description;
+   
+   @JsonProperty(value = "encryption")
+   protected Encryption encryption;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
    
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "multicast")
+   protected Multicast multicast;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "policyChangeStatus")
+   protected PolicyChangeStatus policyChangeStatus;
+   
 
    
    @JsonIgnore
-   private RedirectionTargetTemplatesFetcher redirectionTargetTemplates;
-   
-   @JsonIgnore
-   private PermissionsFetcher permissions;
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private DomainsFetcher domains;
    
    @JsonIgnore
    private EgressACLTemplatesFetcher egressACLTemplates;
@@ -125,7 +119,13 @@ public class DomainTemplate extends RestObject {
    private FloatingIPACLTemplatesFetcher floatingIPACLTemplates;
    
    @JsonIgnore
+   private EventLogsFetcher eventLogs;
+   
+   @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private GroupsFetcher groups;
    
    @JsonIgnore
    private IngressACLTemplatesFetcher ingressACLTemplates;
@@ -140,34 +140,30 @@ public class DomainTemplate extends RestObject {
    private JobsFetcher jobs;
    
    @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
+   @JsonIgnore
+   private PermissionsFetcher permissions;
+   
+   @JsonIgnore
    private PolicyGroupTemplatesFetcher policyGroupTemplates;
-   
-   @JsonIgnore
-   private DomainsFetcher domains;
-   
-   @JsonIgnore
-   private ZoneTemplatesFetcher zoneTemplates;
    
    @JsonIgnore
    private QOSsFetcher qOSs;
    
    @JsonIgnore
-   private GroupsFetcher groups;
+   private RedirectionTargetTemplatesFetcher redirectionTargetTemplates;
    
    @JsonIgnore
    private SubnetTemplatesFetcher subnetTemplates;
    
    @JsonIgnore
-   private EventLogsFetcher eventLogs;
+   private ZoneTemplatesFetcher zoneTemplates;
    
 
    public DomainTemplate() {
       
-      redirectionTargetTemplates = new RedirectionTargetTemplatesFetcher(this);
-      
-      permissions = new PermissionsFetcher(this);
-      
-      metadatas = new MetadatasFetcher(this);
+      domains = new DomainsFetcher(this);
       
       egressACLTemplates = new EgressACLTemplatesFetcher(this);
       
@@ -175,7 +171,11 @@ public class DomainTemplate extends RestObject {
       
       floatingIPACLTemplates = new FloatingIPACLTemplatesFetcher(this);
       
+      eventLogs = new EventLogsFetcher(this);
+      
       globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      groups = new GroupsFetcher(this);
       
       ingressACLTemplates = new IngressACLTemplatesFetcher(this);
       
@@ -185,19 +185,19 @@ public class DomainTemplate extends RestObject {
       
       jobs = new JobsFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
+      
       policyGroupTemplates = new PolicyGroupTemplatesFetcher(this);
-      
-      domains = new DomainsFetcher(this);
-      
-      zoneTemplates = new ZoneTemplatesFetcher(this);
       
       qOSs = new QOSsFetcher(this);
       
-      groups = new GroupsFetcher(this);
+      redirectionTargetTemplates = new RedirectionTargetTemplatesFetcher(this);
       
       subnetTemplates = new SubnetTemplatesFetcher(this);
       
-      eventLogs = new EventLogsFetcher(this);
+      zoneTemplates = new ZoneTemplatesFetcher(this);
       
    }
 
@@ -209,60 +209,6 @@ public class DomainTemplate extends RestObject {
    @JsonIgnore
    public void setDPI(DPI value) { 
       this.DPI = value;
-   }
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public String getDescription() {
-      return description;
-   }
-
-   @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
-   }
-   @JsonIgnore
-   public Encryption getEncryption() {
-      return encryption;
-   }
-
-   @JsonIgnore
-   public void setEncryption(Encryption value) { 
-      this.encryption = value;
-   }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
-   }
-   @JsonIgnore
-   public PolicyChangeStatus getPolicyChangeStatus() {
-      return policyChangeStatus;
-   }
-
-   @JsonIgnore
-   public void setPolicyChangeStatus(PolicyChangeStatus value) { 
-      this.policyChangeStatus = value;
    }
    @JsonIgnore
    public String getAssociatedBGPProfileID() {
@@ -292,13 +238,31 @@ public class DomainTemplate extends RestObject {
       this.associatedPATMapperID = value;
    }
    @JsonIgnore
-   public Multicast getMulticast() {
-      return multicast;
+   public String getDescription() {
+      return description;
    }
 
    @JsonIgnore
-   public void setMulticast(Multicast value) { 
-      this.multicast = value;
+   public void setDescription(String value) { 
+      this.description = value;
+   }
+   @JsonIgnore
+   public Encryption getEncryption() {
+      return encryption;
+   }
+
+   @JsonIgnore
+   public void setEncryption(Encryption value) { 
+      this.encryption = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
    }
    @JsonIgnore
    public String getExternalID() {
@@ -309,22 +273,48 @@ public class DomainTemplate extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public Multicast getMulticast() {
+      return multicast;
+   }
+
+   @JsonIgnore
+   public void setMulticast(Multicast value) { 
+      this.multicast = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public PolicyChangeStatus getPolicyChangeStatus() {
+      return policyChangeStatus;
+   }
+
+   @JsonIgnore
+   public void setPolicyChangeStatus(PolicyChangeStatus value) { 
+      this.policyChangeStatus = value;
+   }
    
 
    
    @JsonIgnore
-   public RedirectionTargetTemplatesFetcher getRedirectionTargetTemplates() {
-      return redirectionTargetTemplates;
-   }
-   
-   @JsonIgnore
-   public PermissionsFetcher getPermissions() {
-      return permissions;
-   }
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public DomainsFetcher getDomains() {
+      return domains;
    }
    
    @JsonIgnore
@@ -343,8 +333,18 @@ public class DomainTemplate extends RestObject {
    }
    
    @JsonIgnore
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
+   }
+   
+   @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public GroupsFetcher getGroups() {
+      return groups;
    }
    
    @JsonIgnore
@@ -368,18 +368,18 @@ public class DomainTemplate extends RestObject {
    }
    
    @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
+   }
+   
+   @JsonIgnore
    public PolicyGroupTemplatesFetcher getPolicyGroupTemplates() {
       return policyGroupTemplates;
-   }
-   
-   @JsonIgnore
-   public DomainsFetcher getDomains() {
-      return domains;
-   }
-   
-   @JsonIgnore
-   public ZoneTemplatesFetcher getZoneTemplates() {
-      return zoneTemplates;
    }
    
    @JsonIgnore
@@ -388,8 +388,8 @@ public class DomainTemplate extends RestObject {
    }
    
    @JsonIgnore
-   public GroupsFetcher getGroups() {
-      return groups;
+   public RedirectionTargetTemplatesFetcher getRedirectionTargetTemplates() {
+      return redirectionTargetTemplates;
    }
    
    @JsonIgnore
@@ -398,13 +398,13 @@ public class DomainTemplate extends RestObject {
    }
    
    @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
+   public ZoneTemplatesFetcher getZoneTemplates() {
+      return zoneTemplates;
    }
    
 
    public String toString() {
-      return "DomainTemplate [" + "DPI=" + DPI + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", encryption=" + encryption + ", entityScope=" + entityScope + ", policyChangeStatus=" + policyChangeStatus + ", associatedBGPProfileID=" + associatedBGPProfileID + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedPATMapperID=" + associatedPATMapperID + ", multicast=" + multicast + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "DomainTemplate [" + "DPI=" + DPI + ", associatedBGPProfileID=" + associatedBGPProfileID + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedPATMapperID=" + associatedPATMapperID + ", description=" + description + ", encryption=" + encryption + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", multicast=" + multicast + ", name=" + name + ", policyChangeStatus=" + policyChangeStatus + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

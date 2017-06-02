@@ -35,10 +35,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.AlarmsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "tca", resourceName = "tcas")
@@ -48,40 +48,22 @@ public class TCA extends RestObject {
 
    
    public enum Action { ALERT, ALERT_POLICYGROUPCHANGE };
-   public enum Metric { ACL_DENY_EVENT_COUNT, ADDRESS_MAP_EGRESS_BYTE_CNT, ADDRESS_MAP_EGRESS_PKT_CNT, ADDRESS_MAP_INGRESS_BYTE_CNT, ADDRESS_MAP_INGRESS_PKT_CNT, ANTI_SPOOF_EVENT_COUNT, BYTES_IN, BYTES_OUT, EGRESS_BYTE_COUNT, EGRESS_PACKET_COUNT, INGRESS_BYTE_COUNT, INGRESS_PACKET_COUNT, PACKETS_DROPPED_BY_RATE_LIMIT, PACKETS_IN, PACKETS_IN_DROPPED, PACKETS_IN_ERROR, PACKETS_OUT, PACKETS_OUT_DROPPED, PACKETS_OUT_ERROR, TCP_SYN_EVENT_COUNT };
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum Metric { ACL_DENY_EVENT_COUNT, ADDRESS_MAP_EGRESS_BYTE_CNT, ADDRESS_MAP_EGRESS_PKT_CNT, ADDRESS_MAP_INGRESS_BYTE_CNT, ADDRESS_MAP_INGRESS_PKT_CNT, ANTI_SPOOF_EVENT_COUNT, BYTES_IN, BYTES_OUT, EGRESS_BYTE_COUNT, EGRESS_PACKET_COUNT, INGRESS_BYTE_COUNT, INGRESS_PACKET_COUNT, PACKETS_DROPPED_BY_RATE_LIMIT, PACKETS_IN, PACKETS_IN_DROPPED, PACKETS_IN_ERROR, PACKETS_OUT, PACKETS_OUT_DROPPED, PACKETS_OUT_ERROR, TCP_SYN_EVENT_COUNT };
    public enum Type { BREACH, ROLLING_AVERAGE };
 
    
    @JsonProperty(value = "URLEndPoint")
    protected String URLEndPoint;
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "targetPolicyGroupID")
-   protected String targetPolicyGroupID;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
    @JsonProperty(value = "action")
    protected Action action;
    
-   @JsonProperty(value = "period")
-   protected Long period;
+   @JsonProperty(value = "count")
+   protected Long count;
    
    @JsonProperty(value = "description")
    protected String description;
-   
-   @JsonProperty(value = "metric")
-   protected Metric metric;
-   
-   @JsonProperty(value = "threshold")
-   protected Long threshold;
-   
-   @JsonProperty(value = "throttleTime")
-   protected Long throttleTime;
    
    @JsonProperty(value = "disable")
    protected Boolean disable;
@@ -92,14 +74,32 @@ public class TCA extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
-   @JsonProperty(value = "count")
-   protected Long count;
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "metric")
+   protected Metric metric;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "period")
+   protected Long period;
    
    @JsonProperty(value = "status")
    protected Boolean status;
    
-   @JsonProperty(value = "externalID")
-   protected String externalID;
+   @JsonProperty(value = "targetPolicyGroupID")
+   protected String targetPolicyGroupID;
+   
+   @JsonProperty(value = "threshold")
+   protected Long threshold;
+   
+   @JsonProperty(value = "throttleTime")
+   protected Long throttleTime;
    
    @JsonProperty(value = "type")
    protected Type type;
@@ -107,29 +107,29 @@ public class TCA extends RestObject {
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private AlarmsFetcher alarms;
    
    @JsonIgnore
-   private AlarmsFetcher alarms;
+   private EventLogsFetcher eventLogs;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private EventLogsFetcher eventLogs;
+   private MetadatasFetcher metadatas;
    
 
    public TCA() {
       metric = Metric.BYTES_IN;
       type = Type.ROLLING_AVERAGE;
       
-      metadatas = new MetadatasFetcher(this);
-      
       alarms = new AlarmsFetcher(this);
+      
+      eventLogs = new EventLogsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
-      eventLogs = new EventLogsFetcher(this);
+      metadatas = new MetadatasFetcher(this);
       
    }
 
@@ -143,33 +143,6 @@ public class TCA extends RestObject {
       this.URLEndPoint = value;
    }
    @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getTargetPolicyGroupID() {
-      return targetPolicyGroupID;
-   }
-
-   @JsonIgnore
-   public void setTargetPolicyGroupID(String value) { 
-      this.targetPolicyGroupID = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
    public Action getAction() {
       return action;
    }
@@ -179,13 +152,13 @@ public class TCA extends RestObject {
       this.action = value;
    }
    @JsonIgnore
-   public Long getPeriod() {
-      return period;
+   public Long getCount() {
+      return count;
    }
 
    @JsonIgnore
-   public void setPeriod(Long value) { 
-      this.period = value;
+   public void setCount(Long value) { 
+      this.count = value;
    }
    @JsonIgnore
    public String getDescription() {
@@ -195,33 +168,6 @@ public class TCA extends RestObject {
    @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
-   }
-   @JsonIgnore
-   public Metric getMetric() {
-      return metric;
-   }
-
-   @JsonIgnore
-   public void setMetric(Metric value) { 
-      this.metric = value;
-   }
-   @JsonIgnore
-   public Long getThreshold() {
-      return threshold;
-   }
-
-   @JsonIgnore
-   public void setThreshold(Long value) { 
-      this.threshold = value;
-   }
-   @JsonIgnore
-   public Long getThrottleTime() {
-      return throttleTime;
-   }
-
-   @JsonIgnore
-   public void setThrottleTime(Long value) { 
-      this.throttleTime = value;
    }
    @JsonIgnore
    public Boolean getDisable() {
@@ -251,13 +197,49 @@ public class TCA extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
-   public Long getCount() {
-      return count;
+   public String getExternalID() {
+      return externalID;
    }
 
    @JsonIgnore
-   public void setCount(Long value) { 
-      this.count = value;
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public Metric getMetric() {
+      return metric;
+   }
+
+   @JsonIgnore
+   public void setMetric(Metric value) { 
+      this.metric = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public Long getPeriod() {
+      return period;
+   }
+
+   @JsonIgnore
+   public void setPeriod(Long value) { 
+      this.period = value;
    }
    @JsonIgnore
    public Boolean getStatus() {
@@ -269,13 +251,31 @@ public class TCA extends RestObject {
       this.status = value;
    }
    @JsonIgnore
-   public String getExternalID() {
-      return externalID;
+   public String getTargetPolicyGroupID() {
+      return targetPolicyGroupID;
    }
 
    @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
+   public void setTargetPolicyGroupID(String value) { 
+      this.targetPolicyGroupID = value;
+   }
+   @JsonIgnore
+   public Long getThreshold() {
+      return threshold;
+   }
+
+   @JsonIgnore
+   public void setThreshold(Long value) { 
+      this.threshold = value;
+   }
+   @JsonIgnore
+   public Long getThrottleTime() {
+      return throttleTime;
+   }
+
+   @JsonIgnore
+   public void setThrottleTime(Long value) { 
+      this.throttleTime = value;
    }
    @JsonIgnore
    public Type getType() {
@@ -290,13 +290,13 @@ public class TCA extends RestObject {
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public AlarmsFetcher getAlarms() {
+      return alarms;
    }
    
    @JsonIgnore
-   public AlarmsFetcher getAlarms() {
-      return alarms;
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
    }
    
    @JsonIgnore
@@ -305,13 +305,13 @@ public class TCA extends RestObject {
    }
    
    @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
 
    public String toString() {
-      return "TCA [" + "URLEndPoint=" + URLEndPoint + ", name=" + name + ", targetPolicyGroupID=" + targetPolicyGroupID + ", lastUpdatedBy=" + lastUpdatedBy + ", action=" + action + ", period=" + period + ", description=" + description + ", metric=" + metric + ", threshold=" + threshold + ", throttleTime=" + throttleTime + ", disable=" + disable + ", displayStatus=" + displayStatus + ", entityScope=" + entityScope + ", count=" + count + ", status=" + status + ", externalID=" + externalID + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "TCA [" + "URLEndPoint=" + URLEndPoint + ", action=" + action + ", count=" + count + ", description=" + description + ", disable=" + disable + ", displayStatus=" + displayStatus + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", metric=" + metric + ", name=" + name + ", period=" + period + ", status=" + status + ", targetPolicyGroupID=" + targetPolicyGroupID + ", threshold=" + threshold + ", throttleTime=" + throttleTime + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

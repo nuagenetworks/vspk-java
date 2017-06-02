@@ -45,13 +45,16 @@ public class FirewallRule extends RestObject {
    
    public enum Action { DROP , FORWARD , REDIRECT };
    public enum DestinationType { MACROGROUP, NETWORK, NETWORKPOLICYGROUP, POLICYGROUP };
-   public enum NetworkType { ANY, ENDPOINT_DOMAIN, ENDPOINT_SUBNET, ENDPOINT_ZONE, ENTERPRISE_NETWORK, INTERNET_POLICYGROUP, NETWORK, NETWORK_MACRO_GROUP, POLICYGROUP, PUBLIC_NETWORK, SUBNET, ZONE };
    public enum LocationType { ANY, POLICYGROUP, REDIRECTIONTARGET, SUBNET, VPORTTAG, ZONE };
+   public enum NetworkType { ANY, ENDPOINT_DOMAIN, ENDPOINT_SUBNET, ENDPOINT_ZONE, ENTERPRISE_NETWORK, INTERNET_POLICYGROUP, NETWORK, NETWORK_MACRO_GROUP, POLICYGROUP, PUBLIC_NETWORK, SUBNET, ZONE };
    public enum SourceType { MACROGROUP, NETWORK, NETWORKPOLICYGROUP, POLICYGROUP };
 
    
    @JsonProperty(value = "ACLTemplateName")
    protected String ACLTemplateName;
+   
+   @JsonProperty(value = "DSCP")
+   protected String DSCP;
    
    @JsonProperty(value = "ICMPCode")
    protected String ICMPCode;
@@ -62,14 +65,20 @@ public class FirewallRule extends RestObject {
    @JsonProperty(value = "IPv6AddressOverride")
    protected String IPv6AddressOverride;
    
-   @JsonProperty(value = "DSCP")
-   protected String DSCP;
-   
    @JsonProperty(value = "action")
    protected Action action;
    
    @JsonProperty(value = "addressOverride")
    protected String addressOverride;
+   
+   @JsonProperty(value = "associatedApplicationID")
+   protected String associatedApplicationID;
+   
+   @JsonProperty(value = "associatedApplicationObjectID")
+   protected String associatedApplicationObjectID;
+   
+   @JsonProperty(value = "associatedfirewallACLID")
+   protected String associatedfirewallACLID;
    
    @JsonProperty(value = "description")
    protected String description;
@@ -95,20 +104,17 @@ public class FirewallRule extends RestObject {
    @JsonProperty(value = "destinationValue")
    protected String destinationValue;
    
-   @JsonProperty(value = "networkID")
-   protected String networkID;
-   
-   @JsonProperty(value = "networkType")
-   protected NetworkType networkType;
-   
-   @JsonProperty(value = "mirrorDestinationID")
-   protected String mirrorDestinationID;
-   
-   @JsonProperty(value = "flowLoggingEnabled")
-   protected Boolean flowLoggingEnabled;
+   @JsonProperty(value = "domainName")
+   protected String domainName;
    
    @JsonProperty(value = "enterpriseName")
    protected String enterpriseName;
+   
+   @JsonProperty(value = "etherType")
+   protected String etherType;
+   
+   @JsonProperty(value = "flowLoggingEnabled")
+   protected Boolean flowLoggingEnabled;
    
    @JsonProperty(value = "locationID")
    protected String locationID;
@@ -116,8 +122,17 @@ public class FirewallRule extends RestObject {
    @JsonProperty(value = "locationType")
    protected LocationType locationType;
    
-   @JsonProperty(value = "domainName")
-   protected String domainName;
+   @JsonProperty(value = "mirrorDestinationID")
+   protected String mirrorDestinationID;
+   
+   @JsonProperty(value = "networkID")
+   protected String networkID;
+   
+   @JsonProperty(value = "networkType")
+   protected NetworkType networkType;
+   
+   @JsonProperty(value = "priority")
+   protected String priority;
    
    @JsonProperty(value = "sourceIpv6Value")
    protected String sourceIpv6Value;
@@ -140,18 +155,6 @@ public class FirewallRule extends RestObject {
    @JsonProperty(value = "sourceValue")
    protected String sourceValue;
    
-   @JsonProperty(value = "priority")
-   protected String priority;
-   
-   @JsonProperty(value = "associatedApplicationID")
-   protected String associatedApplicationID;
-   
-   @JsonProperty(value = "associatedApplicationObjectID")
-   protected String associatedApplicationObjectID;
-   
-   @JsonProperty(value = "associatedfirewallACLID")
-   protected String associatedfirewallACLID;
-   
    @JsonProperty(value = "stateful")
    protected Boolean stateful;
    
@@ -160,9 +163,6 @@ public class FirewallRule extends RestObject {
    
    @JsonProperty(value = "statsLoggingEnabled")
    protected Boolean statsLoggingEnabled;
-   
-   @JsonProperty(value = "etherType")
-   protected String etherType;
    
 
    
@@ -179,6 +179,15 @@ public class FirewallRule extends RestObject {
    @JsonIgnore
    public void setACLTemplateName(String value) { 
       this.ACLTemplateName = value;
+   }
+   @JsonIgnore
+   public String getDSCP() {
+      return DSCP;
+   }
+
+   @JsonIgnore
+   public void setDSCP(String value) { 
+      this.DSCP = value;
    }
    @JsonIgnore
    public String getICMPCode() {
@@ -208,15 +217,6 @@ public class FirewallRule extends RestObject {
       this.IPv6AddressOverride = value;
    }
    @JsonIgnore
-   public String getDSCP() {
-      return DSCP;
-   }
-
-   @JsonIgnore
-   public void setDSCP(String value) { 
-      this.DSCP = value;
-   }
-   @JsonIgnore
    public Action getAction() {
       return action;
    }
@@ -233,6 +233,33 @@ public class FirewallRule extends RestObject {
    @JsonIgnore
    public void setAddressOverride(String value) { 
       this.addressOverride = value;
+   }
+   @JsonIgnore
+   public String getAssociatedApplicationID() {
+      return associatedApplicationID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedApplicationID(String value) { 
+      this.associatedApplicationID = value;
+   }
+   @JsonIgnore
+   public String getAssociatedApplicationObjectID() {
+      return associatedApplicationObjectID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedApplicationObjectID(String value) { 
+      this.associatedApplicationObjectID = value;
+   }
+   @JsonIgnore
+   public String getAssociatedfirewallACLID() {
+      return associatedfirewallACLID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedfirewallACLID(String value) { 
+      this.associatedfirewallACLID = value;
    }
    @JsonIgnore
    public String getDescription() {
@@ -307,40 +334,13 @@ public class FirewallRule extends RestObject {
       this.destinationValue = value;
    }
    @JsonIgnore
-   public String getNetworkID() {
-      return networkID;
+   public String getDomainName() {
+      return domainName;
    }
 
    @JsonIgnore
-   public void setNetworkID(String value) { 
-      this.networkID = value;
-   }
-   @JsonIgnore
-   public NetworkType getNetworkType() {
-      return networkType;
-   }
-
-   @JsonIgnore
-   public void setNetworkType(NetworkType value) { 
-      this.networkType = value;
-   }
-   @JsonIgnore
-   public String getMirrorDestinationID() {
-      return mirrorDestinationID;
-   }
-
-   @JsonIgnore
-   public void setMirrorDestinationID(String value) { 
-      this.mirrorDestinationID = value;
-   }
-   @JsonIgnore
-   public Boolean getFlowLoggingEnabled() {
-      return flowLoggingEnabled;
-   }
-
-   @JsonIgnore
-   public void setFlowLoggingEnabled(Boolean value) { 
-      this.flowLoggingEnabled = value;
+   public void setDomainName(String value) { 
+      this.domainName = value;
    }
    @JsonIgnore
    public String getEnterpriseName() {
@@ -350,6 +350,24 @@ public class FirewallRule extends RestObject {
    @JsonIgnore
    public void setEnterpriseName(String value) { 
       this.enterpriseName = value;
+   }
+   @JsonIgnore
+   public String getEtherType() {
+      return etherType;
+   }
+
+   @JsonIgnore
+   public void setEtherType(String value) { 
+      this.etherType = value;
+   }
+   @JsonIgnore
+   public Boolean getFlowLoggingEnabled() {
+      return flowLoggingEnabled;
+   }
+
+   @JsonIgnore
+   public void setFlowLoggingEnabled(Boolean value) { 
+      this.flowLoggingEnabled = value;
    }
    @JsonIgnore
    public String getLocationID() {
@@ -370,13 +388,40 @@ public class FirewallRule extends RestObject {
       this.locationType = value;
    }
    @JsonIgnore
-   public String getDomainName() {
-      return domainName;
+   public String getMirrorDestinationID() {
+      return mirrorDestinationID;
    }
 
    @JsonIgnore
-   public void setDomainName(String value) { 
-      this.domainName = value;
+   public void setMirrorDestinationID(String value) { 
+      this.mirrorDestinationID = value;
+   }
+   @JsonIgnore
+   public String getNetworkID() {
+      return networkID;
+   }
+
+   @JsonIgnore
+   public void setNetworkID(String value) { 
+      this.networkID = value;
+   }
+   @JsonIgnore
+   public NetworkType getNetworkType() {
+      return networkType;
+   }
+
+   @JsonIgnore
+   public void setNetworkType(NetworkType value) { 
+      this.networkType = value;
+   }
+   @JsonIgnore
+   public String getPriority() {
+      return priority;
+   }
+
+   @JsonIgnore
+   public void setPriority(String value) { 
+      this.priority = value;
    }
    @JsonIgnore
    public String getSourceIpv6Value() {
@@ -442,42 +487,6 @@ public class FirewallRule extends RestObject {
       this.sourceValue = value;
    }
    @JsonIgnore
-   public String getPriority() {
-      return priority;
-   }
-
-   @JsonIgnore
-   public void setPriority(String value) { 
-      this.priority = value;
-   }
-   @JsonIgnore
-   public String getAssociatedApplicationID() {
-      return associatedApplicationID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedApplicationID(String value) { 
-      this.associatedApplicationID = value;
-   }
-   @JsonIgnore
-   public String getAssociatedApplicationObjectID() {
-      return associatedApplicationObjectID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedApplicationObjectID(String value) { 
-      this.associatedApplicationObjectID = value;
-   }
-   @JsonIgnore
-   public String getAssociatedfirewallACLID() {
-      return associatedfirewallACLID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedfirewallACLID(String value) { 
-      this.associatedfirewallACLID = value;
-   }
-   @JsonIgnore
    public Boolean getStateful() {
       return stateful;
    }
@@ -504,21 +513,12 @@ public class FirewallRule extends RestObject {
    public void setStatsLoggingEnabled(Boolean value) { 
       this.statsLoggingEnabled = value;
    }
-   @JsonIgnore
-   public String getEtherType() {
-      return etherType;
-   }
-
-   @JsonIgnore
-   public void setEtherType(String value) { 
-      this.etherType = value;
-   }
    
 
    
 
    public String toString() {
-      return "FirewallRule [" + "ACLTemplateName=" + ACLTemplateName + ", ICMPCode=" + ICMPCode + ", ICMPType=" + ICMPType + ", IPv6AddressOverride=" + IPv6AddressOverride + ", DSCP=" + DSCP + ", action=" + action + ", addressOverride=" + addressOverride + ", description=" + description + ", destNetwork=" + destNetwork + ", destPgId=" + destPgId + ", destPgType=" + destPgType + ", destinationIpv6Value=" + destinationIpv6Value + ", destinationPort=" + destinationPort + ", destinationType=" + destinationType + ", destinationValue=" + destinationValue + ", networkID=" + networkID + ", networkType=" + networkType + ", mirrorDestinationID=" + mirrorDestinationID + ", flowLoggingEnabled=" + flowLoggingEnabled + ", enterpriseName=" + enterpriseName + ", locationID=" + locationID + ", locationType=" + locationType + ", domainName=" + domainName + ", sourceIpv6Value=" + sourceIpv6Value + ", sourceNetwork=" + sourceNetwork + ", sourcePgId=" + sourcePgId + ", sourcePgType=" + sourcePgType + ", sourcePort=" + sourcePort + ", sourceType=" + sourceType + ", sourceValue=" + sourceValue + ", priority=" + priority + ", associatedApplicationID=" + associatedApplicationID + ", associatedApplicationObjectID=" + associatedApplicationObjectID + ", associatedfirewallACLID=" + associatedfirewallACLID + ", stateful=" + stateful + ", statsID=" + statsID + ", statsLoggingEnabled=" + statsLoggingEnabled + ", etherType=" + etherType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "FirewallRule [" + "ACLTemplateName=" + ACLTemplateName + ", DSCP=" + DSCP + ", ICMPCode=" + ICMPCode + ", ICMPType=" + ICMPType + ", IPv6AddressOverride=" + IPv6AddressOverride + ", action=" + action + ", addressOverride=" + addressOverride + ", associatedApplicationID=" + associatedApplicationID + ", associatedApplicationObjectID=" + associatedApplicationObjectID + ", associatedfirewallACLID=" + associatedfirewallACLID + ", description=" + description + ", destNetwork=" + destNetwork + ", destPgId=" + destPgId + ", destPgType=" + destPgType + ", destinationIpv6Value=" + destinationIpv6Value + ", destinationPort=" + destinationPort + ", destinationType=" + destinationType + ", destinationValue=" + destinationValue + ", domainName=" + domainName + ", enterpriseName=" + enterpriseName + ", etherType=" + etherType + ", flowLoggingEnabled=" + flowLoggingEnabled + ", locationID=" + locationID + ", locationType=" + locationType + ", mirrorDestinationID=" + mirrorDestinationID + ", networkID=" + networkID + ", networkType=" + networkType + ", priority=" + priority + ", sourceIpv6Value=" + sourceIpv6Value + ", sourceNetwork=" + sourceNetwork + ", sourcePgId=" + sourcePgId + ", sourcePgType=" + sourcePgType + ", sourcePort=" + sourcePort + ", sourceType=" + sourceType + ", sourceValue=" + sourceValue + ", stateful=" + stateful + ", statsID=" + statsID + ", statsLoggingEnabled=" + statsLoggingEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

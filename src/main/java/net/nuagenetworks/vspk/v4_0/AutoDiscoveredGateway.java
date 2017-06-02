@@ -35,12 +35,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.WANServicesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.PortsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.NSPortsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.NSPortsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.PortsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.WANServicesFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "autodiscoveredgateway", resourceName = "autodiscoveredgateways")
@@ -49,24 +49,12 @@ public class AutoDiscoveredGateway extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum Personality { DC7X50, HARDWARE_VTEP, NSG, OTHER, VRSB, VRSG, VSA, VSG };
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum Personality { DC7X50, HARDWARE_VTEP, NSG, OTHER, VRSB, VRSG, VSA, VSG };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "gatewayID")
-   protected String gatewayID;
-   
-   @JsonProperty(value = "peer")
-   protected String peer;
-   
-   @JsonProperty(value = "personality")
-   protected Personality personality;
+   @JsonProperty(value = "controllers")
+   protected java.util.List<String> controllers;
    
    @JsonProperty(value = "description")
    protected String description;
@@ -74,8 +62,26 @@ public class AutoDiscoveredGateway extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
-   @JsonProperty(value = "controllers")
-   protected java.util.List<String> controllers;
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "gatewayID")
+   protected String gatewayID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "peer")
+   protected String peer;
+   
+   @JsonProperty(value = "personality")
+   protected Personality personality;
+   
+   @JsonProperty(value = "systemID")
+   protected String systemID;
    
    @JsonProperty(value = "useGatewayVLANVNID")
    protected Boolean useGatewayVLANVNID;
@@ -83,93 +89,51 @@ public class AutoDiscoveredGateway extends RestObject {
    @JsonProperty(value = "vtep")
    protected String vtep;
    
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
-   @JsonProperty(value = "systemID")
-   protected String systemID;
-   
 
    
    @JsonIgnore
-   private WANServicesFetcher wANServices;
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private EventLogsFetcher eventLogs;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private PortsFetcher ports;
+   private MetadatasFetcher metadatas;
    
    @JsonIgnore
    private NSPortsFetcher nSPorts;
    
    @JsonIgnore
-   private EventLogsFetcher eventLogs;
+   private PortsFetcher ports;
+   
+   @JsonIgnore
+   private WANServicesFetcher wANServices;
    
 
    public AutoDiscoveredGateway() {
       
-      wANServices = new WANServicesFetcher(this);
-      
-      metadatas = new MetadatasFetcher(this);
+      eventLogs = new EventLogsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
-      ports = new PortsFetcher(this);
+      metadatas = new MetadatasFetcher(this);
       
       nSPorts = new NSPortsFetcher(this);
       
-      eventLogs = new EventLogsFetcher(this);
+      ports = new PortsFetcher(this);
+      
+      wANServices = new WANServicesFetcher(this);
       
    }
 
    @JsonIgnore
-   public String getName() {
-      return name;
+   public java.util.List<String> getControllers() {
+      return controllers;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public String getGatewayID() {
-      return gatewayID;
-   }
-
-   @JsonIgnore
-   public void setGatewayID(String value) { 
-      this.gatewayID = value;
-   }
-   @JsonIgnore
-   public String getPeer() {
-      return peer;
-   }
-
-   @JsonIgnore
-   public void setPeer(String value) { 
-      this.peer = value;
-   }
-   @JsonIgnore
-   public Personality getPersonality() {
-      return personality;
-   }
-
-   @JsonIgnore
-   public void setPersonality(Personality value) { 
-      this.personality = value;
+   public void setControllers(java.util.List<String> value) { 
+      this.controllers = value;
    }
    @JsonIgnore
    public String getDescription() {
@@ -190,13 +154,67 @@ public class AutoDiscoveredGateway extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
-   public java.util.List<String> getControllers() {
-      return controllers;
+   public String getExternalID() {
+      return externalID;
    }
 
    @JsonIgnore
-   public void setControllers(java.util.List<String> value) { 
-      this.controllers = value;
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public String getGatewayID() {
+      return gatewayID;
+   }
+
+   @JsonIgnore
+   public void setGatewayID(String value) { 
+      this.gatewayID = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public String getPeer() {
+      return peer;
+   }
+
+   @JsonIgnore
+   public void setPeer(String value) { 
+      this.peer = value;
+   }
+   @JsonIgnore
+   public Personality getPersonality() {
+      return personality;
+   }
+
+   @JsonIgnore
+   public void setPersonality(Personality value) { 
+      this.personality = value;
+   }
+   @JsonIgnore
+   public String getSystemID() {
+      return systemID;
+   }
+
+   @JsonIgnore
+   public void setSystemID(String value) { 
+      this.systemID = value;
    }
    @JsonIgnore
    public Boolean getUseGatewayVLANVNID() {
@@ -216,35 +234,12 @@ public class AutoDiscoveredGateway extends RestObject {
    public void setVtep(String value) { 
       this.vtep = value;
    }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
-   @JsonIgnore
-   public String getSystemID() {
-      return systemID;
-   }
-
-   @JsonIgnore
-   public void setSystemID(String value) { 
-      this.systemID = value;
-   }
    
 
    
    @JsonIgnore
-   public WANServicesFetcher getWANServices() {
-      return wANServices;
-   }
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
    }
    
    @JsonIgnore
@@ -253,8 +248,8 @@ public class AutoDiscoveredGateway extends RestObject {
    }
    
    @JsonIgnore
-   public PortsFetcher getPorts() {
-      return ports;
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
    @JsonIgnore
@@ -263,13 +258,18 @@ public class AutoDiscoveredGateway extends RestObject {
    }
    
    @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
+   public PortsFetcher getPorts() {
+      return ports;
+   }
+   
+   @JsonIgnore
+   public WANServicesFetcher getWANServices() {
+      return wANServices;
    }
    
 
    public String toString() {
-      return "AutoDiscoveredGateway [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", gatewayID=" + gatewayID + ", peer=" + peer + ", personality=" + personality + ", description=" + description + ", entityScope=" + entityScope + ", controllers=" + controllers + ", useGatewayVLANVNID=" + useGatewayVLANVNID + ", vtep=" + vtep + ", externalID=" + externalID + ", systemID=" + systemID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "AutoDiscoveredGateway [" + "controllers=" + controllers + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayID=" + gatewayID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", peer=" + peer + ", personality=" + personality + ", systemID=" + systemID + ", useGatewayVLANVNID=" + useGatewayVLANVNID + ", vtep=" + vtep + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

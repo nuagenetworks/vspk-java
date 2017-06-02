@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "vportmirror", resourceName = "vportmirrors")
@@ -45,18 +45,30 @@ public class VPortMirror extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum MirrorDirection { BOTH, EGRESS, INGRESS };
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum MirrorDirection { BOTH, EGRESS, INGRESS };
 
    
    @JsonProperty(value = "VPortName")
    protected String VPortName;
    
+   @JsonProperty(value = "attachedNetworkType")
+   protected String attachedNetworkType;
+   
+   @JsonProperty(value = "domainName")
+   protected String domainName;
+   
+   @JsonProperty(value = "enterpiseName")
+   protected String enterpiseName;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "networkName")
-   protected String networkName;
    
    @JsonProperty(value = "mirrorDestinationID")
    protected String mirrorDestinationID;
@@ -67,39 +79,27 @@ public class VPortMirror extends RestObject {
    @JsonProperty(value = "mirrorDirection")
    protected MirrorDirection mirrorDirection;
    
-   @JsonProperty(value = "enterpiseName")
-   protected String enterpiseName;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
-   
-   @JsonProperty(value = "domainName")
-   protected String domainName;
+   @JsonProperty(value = "networkName")
+   protected String networkName;
    
    @JsonProperty(value = "vportId")
    protected String vportId;
    
-   @JsonProperty(value = "attachedNetworkType")
-   protected String attachedNetworkType;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
+   private MetadatasFetcher metadatas;
    
 
    public VPortMirror() {
       mirrorDirection = MirrorDirection.BOTH;
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
    }
 
@@ -113,6 +113,51 @@ public class VPortMirror extends RestObject {
       this.VPortName = value;
    }
    @JsonIgnore
+   public String getAttachedNetworkType() {
+      return attachedNetworkType;
+   }
+
+   @JsonIgnore
+   public void setAttachedNetworkType(String value) { 
+      this.attachedNetworkType = value;
+   }
+   @JsonIgnore
+   public String getDomainName() {
+      return domainName;
+   }
+
+   @JsonIgnore
+   public void setDomainName(String value) { 
+      this.domainName = value;
+   }
+   @JsonIgnore
+   public String getEnterpiseName() {
+      return enterpiseName;
+   }
+
+   @JsonIgnore
+   public void setEnterpiseName(String value) { 
+      this.enterpiseName = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
@@ -120,15 +165,6 @@ public class VPortMirror extends RestObject {
    @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public String getNetworkName() {
-      return networkName;
-   }
-
-   @JsonIgnore
-   public void setNetworkName(String value) { 
-      this.networkName = value;
    }
    @JsonIgnore
    public String getMirrorDestinationID() {
@@ -158,31 +194,13 @@ public class VPortMirror extends RestObject {
       this.mirrorDirection = value;
    }
    @JsonIgnore
-   public String getEnterpiseName() {
-      return enterpiseName;
+   public String getNetworkName() {
+      return networkName;
    }
 
    @JsonIgnore
-   public void setEnterpiseName(String value) { 
-      this.enterpiseName = value;
-   }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
-   }
-   @JsonIgnore
-   public String getDomainName() {
-      return domainName;
-   }
-
-   @JsonIgnore
-   public void setDomainName(String value) { 
-      this.domainName = value;
+   public void setNetworkName(String value) { 
+      this.networkName = value;
    }
    @JsonIgnore
    public String getVportId() {
@@ -193,40 +211,22 @@ public class VPortMirror extends RestObject {
    public void setVportId(String value) { 
       this.vportId = value;
    }
-   @JsonIgnore
-   public String getAttachedNetworkType() {
-      return attachedNetworkType;
-   }
-
-   @JsonIgnore
-   public void setAttachedNetworkType(String value) { 
-      this.attachedNetworkType = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "VPortMirror [" + "VPortName=" + VPortName + ", lastUpdatedBy=" + lastUpdatedBy + ", networkName=" + networkName + ", mirrorDestinationID=" + mirrorDestinationID + ", mirrorDestinationName=" + mirrorDestinationName + ", mirrorDirection=" + mirrorDirection + ", enterpiseName=" + enterpiseName + ", entityScope=" + entityScope + ", domainName=" + domainName + ", vportId=" + vportId + ", attachedNetworkType=" + attachedNetworkType + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VPortMirror [" + "VPortName=" + VPortName + ", attachedNetworkType=" + attachedNetworkType + ", domainName=" + domainName + ", enterpiseName=" + enterpiseName + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", mirrorDestinationID=" + mirrorDestinationID + ", mirrorDestinationName=" + mirrorDestinationName + ", mirrorDirection=" + mirrorDirection + ", networkName=" + networkName + ", vportId=" + vportId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

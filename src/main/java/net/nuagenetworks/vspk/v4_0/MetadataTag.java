@@ -35,9 +35,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "metadatatag", resourceName = "metadatatags")
@@ -49,11 +49,11 @@ public class MetadataTag extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
+   @JsonProperty(value = "associatedExternalServiceID")
+   protected String associatedExternalServiceID;
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
+   @JsonProperty(value = "autoCreated")
+   protected Boolean autoCreated;
    
    @JsonProperty(value = "description")
    protected String description;
@@ -61,54 +61,54 @@ public class MetadataTag extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
-   @JsonProperty(value = "associatedExternalServiceID")
-   protected String associatedExternalServiceID;
-   
-   @JsonProperty(value = "autoCreated")
-   protected Boolean autoCreated;
-   
    @JsonProperty(value = "externalID")
    protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "name")
+   protected String name;
    
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private EventLogsFetcher eventLogs;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private EventLogsFetcher eventLogs;
+   private MetadatasFetcher metadatas;
    
 
    public MetadataTag() {
       
-      metadatas = new MetadatasFetcher(this);
+      eventLogs = new EventLogsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
-      eventLogs = new EventLogsFetcher(this);
+      metadatas = new MetadatasFetcher(this);
       
    }
 
    @JsonIgnore
-   public String getName() {
-      return name;
+   public String getAssociatedExternalServiceID() {
+      return associatedExternalServiceID;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
+   public void setAssociatedExternalServiceID(String value) { 
+      this.associatedExternalServiceID = value;
    }
    @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
+   public Boolean getAutoCreated() {
+      return autoCreated;
    }
 
    @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
+   public void setAutoCreated(Boolean value) { 
+      this.autoCreated = value;
    }
    @JsonIgnore
    public String getDescription() {
@@ -129,24 +129,6 @@ public class MetadataTag extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
-   public String getAssociatedExternalServiceID() {
-      return associatedExternalServiceID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedExternalServiceID(String value) { 
-      this.associatedExternalServiceID = value;
-   }
-   @JsonIgnore
-   public Boolean getAutoCreated() {
-      return autoCreated;
-   }
-
-   @JsonIgnore
-   public void setAutoCreated(Boolean value) { 
-      this.autoCreated = value;
-   }
-   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
@@ -155,12 +137,30 @@ public class MetadataTag extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
    
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
    }
    
    @JsonIgnore
@@ -169,13 +169,13 @@ public class MetadataTag extends RestObject {
    }
    
    @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
 
    public String toString() {
-      return "MetadataTag [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", entityScope=" + entityScope + ", associatedExternalServiceID=" + associatedExternalServiceID + ", autoCreated=" + autoCreated + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "MetadataTag [" + "associatedExternalServiceID=" + associatedExternalServiceID + ", autoCreated=" + autoCreated + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

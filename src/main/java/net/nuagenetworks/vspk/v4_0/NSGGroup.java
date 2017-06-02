@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.NSGatewaysFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.DUCGroupBindingsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.NSGatewaysFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "nsggroup", resourceName = "nsggroups")
@@ -47,41 +47,29 @@ public class NSGGroup extends RestObject {
    
 
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
    @JsonProperty(value = "description")
    protected String description;
    
-   @JsonProperty(value = "associatedNSGs")
-   protected java.util.List<String> associatedNSGs;
+   @JsonProperty(value = "name")
+   protected String name;
    
 
-   
-   @JsonIgnore
-   private NSGatewaysFetcher nSGateways;
    
    @JsonIgnore
    private DUCGroupBindingsFetcher dUCGroupBindings;
    
+   @JsonIgnore
+   private NSGatewaysFetcher nSGateways;
+   
 
    public NSGGroup() {
       
-      nSGateways = new NSGatewaysFetcher(this);
-      
       dUCGroupBindings = new DUCGroupBindingsFetcher(this);
       
+      nSGateways = new NSGatewaysFetcher(this);
+      
    }
 
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -92,30 +80,30 @@ public class NSGGroup extends RestObject {
       this.description = value;
    }
    @JsonIgnore
-   public java.util.List<String> getAssociatedNSGs() {
-      return associatedNSGs;
+   public String getName() {
+      return name;
    }
 
    @JsonIgnore
-   public void setAssociatedNSGs(java.util.List<String> value) { 
-      this.associatedNSGs = value;
+   public void setName(String value) { 
+      this.name = value;
    }
    
 
-   
-   @JsonIgnore
-   public NSGatewaysFetcher getNSGateways() {
-      return nSGateways;
-   }
    
    @JsonIgnore
    public DUCGroupBindingsFetcher getDUCGroupBindings() {
       return dUCGroupBindings;
    }
    
+   @JsonIgnore
+   public NSGatewaysFetcher getNSGateways() {
+      return nSGateways;
+   }
+   
 
    public String toString() {
-      return "NSGGroup [" + "name=" + name + ", description=" + description + ", associatedNSGs=" + associatedNSGs + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NSGGroup [" + "description=" + description + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -35,18 +35,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v4_0.fetchers.AlarmsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.BGPNeighborsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.BRConnectionsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.EnterprisePermissionsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.IKEGatewayConnectionsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.LtestatisticsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.PATNATPoolsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.PermissionsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.BGPNeighborsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.IKEGatewayConnectionsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.AlarmsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.EnterprisePermissionsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.UplinkConnectionsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.BRConnectionsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.LtestatisticsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "vlan", resourceName = "vlans")
@@ -55,46 +55,10 @@ public class VLAN extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    public enum Status { INITIALIZED, MISMATCH, ORPHAN, READY };
 
-   
-   @JsonProperty(value = "value")
-   protected Long value;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "gatewayID")
-   protected String gatewayID;
-   
-   @JsonProperty(value = "readonly")
-   protected Boolean readonly;
-   
-   @JsonProperty(value = "templateID")
-   protected String templateID;
-   
-   @JsonProperty(value = "permittedAction")
-   protected PermittedAction permittedAction;
-   
-   @JsonProperty(value = "description")
-   protected String description;
-   
-   @JsonProperty(value = "restricted")
-   protected Boolean restricted;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
-   
-   @JsonProperty(value = "vportID")
-   protected String vportID;
-   
-   @JsonProperty(value = "useUserMnemonic")
-   protected Boolean useUserMnemonic;
-   
-   @JsonProperty(value = "userMnemonic")
-   protected String userMnemonic;
    
    @JsonProperty(value = "associatedBGPProfileID")
    protected String associatedBGPProfileID;
@@ -108,16 +72,79 @@ public class VLAN extends RestObject {
    @JsonProperty(value = "associatedVSCProfileID")
    protected String associatedVSCProfileID;
    
-   @JsonProperty(value = "status")
-   protected Status status;
+   @JsonProperty(value = "description")
+   protected String description;
    
    @JsonProperty(value = "ducVlan")
    protected Boolean ducVlan;
    
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
    @JsonProperty(value = "externalID")
    protected String externalID;
    
+   @JsonProperty(value = "gatewayID")
+   protected String gatewayID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "permittedAction")
+   protected PermittedAction permittedAction;
+   
+   @JsonProperty(value = "readonly")
+   protected Boolean readonly;
+   
+   @JsonProperty(value = "restricted")
+   protected Boolean restricted;
+   
+   @JsonProperty(value = "status")
+   protected Status status;
+   
+   @JsonProperty(value = "templateID")
+   protected String templateID;
+   
+   @JsonProperty(value = "useUserMnemonic")
+   protected Boolean useUserMnemonic;
+   
+   @JsonProperty(value = "userMnemonic")
+   protected String userMnemonic;
+   
+   @JsonProperty(value = "value")
+   protected Long value;
+   
+   @JsonProperty(value = "vportID")
+   protected String vportID;
+   
 
+   
+   @JsonIgnore
+   private AlarmsFetcher alarms;
+   
+   @JsonIgnore
+   private BGPNeighborsFetcher bGPNeighbors;
+   
+   @JsonIgnore
+   private BRConnectionsFetcher bRConnections;
+   
+   @JsonIgnore
+   private EnterprisePermissionsFetcher enterprisePermissions;
+   
+   @JsonIgnore
+   private EventLogsFetcher eventLogs;
+   
+   @JsonIgnore
+   private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private IKEGatewayConnectionsFetcher iKEGatewayConnections;
+   
+   @JsonIgnore
+   private LtestatisticsFetcher ltestatistics;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
    
    @JsonIgnore
    private PATNATPoolsFetcher pATNATPools;
@@ -126,172 +153,37 @@ public class VLAN extends RestObject {
    private PermissionsFetcher permissions;
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
-   
-   @JsonIgnore
-   private BGPNeighborsFetcher bGPNeighbors;
-   
-   @JsonIgnore
-   private IKEGatewayConnectionsFetcher iKEGatewayConnections;
-   
-   @JsonIgnore
-   private AlarmsFetcher alarms;
-   
-   @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
-   
-   @JsonIgnore
-   private EnterprisePermissionsFetcher enterprisePermissions;
-   
-   @JsonIgnore
    private UplinkConnectionsFetcher uplinkConnections;
-   
-   @JsonIgnore
-   private BRConnectionsFetcher bRConnections;
-   
-   @JsonIgnore
-   private LtestatisticsFetcher ltestatistics;
-   
-   @JsonIgnore
-   private EventLogsFetcher eventLogs;
    
 
    public VLAN() {
+      
+      alarms = new AlarmsFetcher(this);
+      
+      bGPNeighbors = new BGPNeighborsFetcher(this);
+      
+      bRConnections = new BRConnectionsFetcher(this);
+      
+      enterprisePermissions = new EnterprisePermissionsFetcher(this);
+      
+      eventLogs = new EventLogsFetcher(this);
+      
+      globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      iKEGatewayConnections = new IKEGatewayConnectionsFetcher(this);
+      
+      ltestatistics = new LtestatisticsFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
       pATNATPools = new PATNATPoolsFetcher(this);
       
       permissions = new PermissionsFetcher(this);
       
-      metadatas = new MetadatasFetcher(this);
-      
-      bGPNeighbors = new BGPNeighborsFetcher(this);
-      
-      iKEGatewayConnections = new IKEGatewayConnectionsFetcher(this);
-      
-      alarms = new AlarmsFetcher(this);
-      
-      globalMetadatas = new GlobalMetadatasFetcher(this);
-      
-      enterprisePermissions = new EnterprisePermissionsFetcher(this);
-      
       uplinkConnections = new UplinkConnectionsFetcher(this);
       
-      bRConnections = new BRConnectionsFetcher(this);
-      
-      ltestatistics = new LtestatisticsFetcher(this);
-      
-      eventLogs = new EventLogsFetcher(this);
-      
    }
 
-   @JsonIgnore
-   public Long getValue() {
-      return value;
-   }
-
-   @JsonIgnore
-   public void setValue(Long value) { 
-      this.value = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public String getGatewayID() {
-      return gatewayID;
-   }
-
-   @JsonIgnore
-   public void setGatewayID(String value) { 
-      this.gatewayID = value;
-   }
-   @JsonIgnore
-   public Boolean getReadonly() {
-      return readonly;
-   }
-
-   @JsonIgnore
-   public void setReadonly(Boolean value) { 
-      this.readonly = value;
-   }
-   @JsonIgnore
-   public String getTemplateID() {
-      return templateID;
-   }
-
-   @JsonIgnore
-   public void setTemplateID(String value) { 
-      this.templateID = value;
-   }
-   @JsonIgnore
-   public PermittedAction getPermittedAction() {
-      return permittedAction;
-   }
-
-   @JsonIgnore
-   public void setPermittedAction(PermittedAction value) { 
-      this.permittedAction = value;
-   }
-   @JsonIgnore
-   public String getDescription() {
-      return description;
-   }
-
-   @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
-   }
-   @JsonIgnore
-   public Boolean getRestricted() {
-      return restricted;
-   }
-
-   @JsonIgnore
-   public void setRestricted(Boolean value) { 
-      this.restricted = value;
-   }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
-   }
-   @JsonIgnore
-   public String getVportID() {
-      return vportID;
-   }
-
-   @JsonIgnore
-   public void setVportID(String value) { 
-      this.vportID = value;
-   }
-   @JsonIgnore
-   public Boolean getUseUserMnemonic() {
-      return useUserMnemonic;
-   }
-
-   @JsonIgnore
-   public void setUseUserMnemonic(Boolean value) { 
-      this.useUserMnemonic = value;
-   }
-   @JsonIgnore
-   public String getUserMnemonic() {
-      return userMnemonic;
-   }
-
-   @JsonIgnore
-   public void setUserMnemonic(String value) { 
-      this.userMnemonic = value;
-   }
    @JsonIgnore
    public String getAssociatedBGPProfileID() {
       return associatedBGPProfileID;
@@ -329,13 +221,13 @@ public class VLAN extends RestObject {
       this.associatedVSCProfileID = value;
    }
    @JsonIgnore
-   public Status getStatus() {
-      return status;
+   public String getDescription() {
+      return description;
    }
 
    @JsonIgnore
-   public void setStatus(Status value) { 
-      this.status = value;
+   public void setDescription(String value) { 
+      this.description = value;
    }
    @JsonIgnore
    public Boolean getDucVlan() {
@@ -347,6 +239,15 @@ public class VLAN extends RestObject {
       this.ducVlan = value;
    }
    @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
@@ -355,8 +256,152 @@ public class VLAN extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getGatewayID() {
+      return gatewayID;
+   }
+
+   @JsonIgnore
+   public void setGatewayID(String value) { 
+      this.gatewayID = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public PermittedAction getPermittedAction() {
+      return permittedAction;
+   }
+
+   @JsonIgnore
+   public void setPermittedAction(PermittedAction value) { 
+      this.permittedAction = value;
+   }
+   @JsonIgnore
+   public Boolean getReadonly() {
+      return readonly;
+   }
+
+   @JsonIgnore
+   public void setReadonly(Boolean value) { 
+      this.readonly = value;
+   }
+   @JsonIgnore
+   public Boolean getRestricted() {
+      return restricted;
+   }
+
+   @JsonIgnore
+   public void setRestricted(Boolean value) { 
+      this.restricted = value;
+   }
+   @JsonIgnore
+   public Status getStatus() {
+      return status;
+   }
+
+   @JsonIgnore
+   public void setStatus(Status value) { 
+      this.status = value;
+   }
+   @JsonIgnore
+   public String getTemplateID() {
+      return templateID;
+   }
+
+   @JsonIgnore
+   public void setTemplateID(String value) { 
+      this.templateID = value;
+   }
+   @JsonIgnore
+   public Boolean getUseUserMnemonic() {
+      return useUserMnemonic;
+   }
+
+   @JsonIgnore
+   public void setUseUserMnemonic(Boolean value) { 
+      this.useUserMnemonic = value;
+   }
+   @JsonIgnore
+   public String getUserMnemonic() {
+      return userMnemonic;
+   }
+
+   @JsonIgnore
+   public void setUserMnemonic(String value) { 
+      this.userMnemonic = value;
+   }
+   @JsonIgnore
+   public Long getValue() {
+      return value;
+   }
+
+   @JsonIgnore
+   public void setValue(Long value) { 
+      this.value = value;
+   }
+   @JsonIgnore
+   public String getVportID() {
+      return vportID;
+   }
+
+   @JsonIgnore
+   public void setVportID(String value) { 
+      this.vportID = value;
+   }
    
 
+   
+   @JsonIgnore
+   public AlarmsFetcher getAlarms() {
+      return alarms;
+   }
+   
+   @JsonIgnore
+   public BGPNeighborsFetcher getBGPNeighbors() {
+      return bGPNeighbors;
+   }
+   
+   @JsonIgnore
+   public BRConnectionsFetcher getBRConnections() {
+      return bRConnections;
+   }
+   
+   @JsonIgnore
+   public EnterprisePermissionsFetcher getEnterprisePermissions() {
+      return enterprisePermissions;
+   }
+   
+   @JsonIgnore
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
+   }
+   
+   @JsonIgnore
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public IKEGatewayConnectionsFetcher getIKEGatewayConnections() {
+      return iKEGatewayConnections;
+   }
+   
+   @JsonIgnore
+   public LtestatisticsFetcher getLtestatistics() {
+      return ltestatistics;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
    
    @JsonIgnore
    public PATNATPoolsFetcher getPATNATPools() {
@@ -369,58 +414,13 @@ public class VLAN extends RestObject {
    }
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
-   
-   @JsonIgnore
-   public BGPNeighborsFetcher getBGPNeighbors() {
-      return bGPNeighbors;
-   }
-   
-   @JsonIgnore
-   public IKEGatewayConnectionsFetcher getIKEGatewayConnections() {
-      return iKEGatewayConnections;
-   }
-   
-   @JsonIgnore
-   public AlarmsFetcher getAlarms() {
-      return alarms;
-   }
-   
-   @JsonIgnore
-   public GlobalMetadatasFetcher getGlobalMetadatas() {
-      return globalMetadatas;
-   }
-   
-   @JsonIgnore
-   public EnterprisePermissionsFetcher getEnterprisePermissions() {
-      return enterprisePermissions;
-   }
-   
-   @JsonIgnore
    public UplinkConnectionsFetcher getUplinkConnections() {
       return uplinkConnections;
    }
    
-   @JsonIgnore
-   public BRConnectionsFetcher getBRConnections() {
-      return bRConnections;
-   }
-   
-   @JsonIgnore
-   public LtestatisticsFetcher getLtestatistics() {
-      return ltestatistics;
-   }
-   
-   @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
-   }
-   
 
    public String toString() {
-      return "VLAN [" + "value=" + value + ", lastUpdatedBy=" + lastUpdatedBy + ", gatewayID=" + gatewayID + ", readonly=" + readonly + ", templateID=" + templateID + ", permittedAction=" + permittedAction + ", description=" + description + ", restricted=" + restricted + ", entityScope=" + entityScope + ", vportID=" + vportID + ", useUserMnemonic=" + useUserMnemonic + ", userMnemonic=" + userMnemonic + ", associatedBGPProfileID=" + associatedBGPProfileID + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", associatedUplinkConnectionID=" + associatedUplinkConnectionID + ", associatedVSCProfileID=" + associatedVSCProfileID + ", status=" + status + ", ducVlan=" + ducVlan + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VLAN [" + "associatedBGPProfileID=" + associatedBGPProfileID + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", associatedUplinkConnectionID=" + associatedUplinkConnectionID + ", associatedVSCProfileID=" + associatedVSCProfileID + ", description=" + description + ", ducVlan=" + ducVlan + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayID=" + gatewayID + ", lastUpdatedBy=" + lastUpdatedBy + ", permittedAction=" + permittedAction + ", readonly=" + readonly + ", restricted=" + restricted + ", status=" + status + ", templateID=" + templateID + ", useUserMnemonic=" + useUserMnemonic + ", userMnemonic=" + userMnemonic + ", value=" + value + ", vportID=" + vportID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

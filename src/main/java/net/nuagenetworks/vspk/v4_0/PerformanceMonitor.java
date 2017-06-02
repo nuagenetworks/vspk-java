@@ -47,8 +47,17 @@ public class PerformanceMonitor extends RestObject {
    public enum ServiceClass { A, B, C, D, E, F, G, H };
 
    
+   @JsonProperty(value = "description")
+   protected String description;
+   
+   @JsonProperty(value = "interval")
+   protected Long interval;
+   
    @JsonProperty(value = "name")
    protected String name;
+   
+   @JsonProperty(value = "numberOfPackets")
+   protected Long numberOfPackets;
    
    @JsonProperty(value = "payloadSize")
    protected Long payloadSize;
@@ -58,15 +67,6 @@ public class PerformanceMonitor extends RestObject {
    
    @JsonProperty(value = "serviceClass")
    protected ServiceClass serviceClass;
-   
-   @JsonProperty(value = "description")
-   protected String description;
-   
-   @JsonProperty(value = "interval")
-   protected Long interval;
-   
-   @JsonProperty(value = "numberOfPackets")
-   protected Long numberOfPackets;
    
 
    
@@ -81,6 +81,24 @@ public class PerformanceMonitor extends RestObject {
    }
 
    @JsonIgnore
+   public String getDescription() {
+      return description;
+   }
+
+   @JsonIgnore
+   public void setDescription(String value) { 
+      this.description = value;
+   }
+   @JsonIgnore
+   public Long getInterval() {
+      return interval;
+   }
+
+   @JsonIgnore
+   public void setInterval(Long value) { 
+      this.interval = value;
+   }
+   @JsonIgnore
    public String getName() {
       return name;
    }
@@ -88,6 +106,15 @@ public class PerformanceMonitor extends RestObject {
    @JsonIgnore
    public void setName(String value) { 
       this.name = value;
+   }
+   @JsonIgnore
+   public Long getNumberOfPackets() {
+      return numberOfPackets;
+   }
+
+   @JsonIgnore
+   public void setNumberOfPackets(Long value) { 
+      this.numberOfPackets = value;
    }
    @JsonIgnore
    public Long getPayloadSize() {
@@ -116,33 +143,6 @@ public class PerformanceMonitor extends RestObject {
    public void setServiceClass(ServiceClass value) { 
       this.serviceClass = value;
    }
-   @JsonIgnore
-   public String getDescription() {
-      return description;
-   }
-
-   @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
-   }
-   @JsonIgnore
-   public Long getInterval() {
-      return interval;
-   }
-
-   @JsonIgnore
-   public void setInterval(Long value) { 
-      this.interval = value;
-   }
-   @JsonIgnore
-   public Long getNumberOfPackets() {
-      return numberOfPackets;
-   }
-
-   @JsonIgnore
-   public void setNumberOfPackets(Long value) { 
-      this.numberOfPackets = value;
-   }
    
 
    
@@ -153,7 +153,7 @@ public class PerformanceMonitor extends RestObject {
    
 
    public String toString() {
-      return "PerformanceMonitor [" + "name=" + name + ", payloadSize=" + payloadSize + ", readOnly=" + readOnly + ", serviceClass=" + serviceClass + ", description=" + description + ", interval=" + interval + ", numberOfPackets=" + numberOfPackets + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "PerformanceMonitor [" + "description=" + description + ", interval=" + interval + ", name=" + name + ", numberOfPackets=" + numberOfPackets + ", payloadSize=" + payloadSize + ", readOnly=" + readOnly + ", serviceClass=" + serviceClass + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -35,10 +35,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "redirectiontargettemplate", resourceName = "redirectiontargettemplates")
@@ -52,15 +52,6 @@ public class RedirectionTargetTemplate extends RestObject {
    public enum TriggerType { GARP, NONE };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "redundancyEnabled")
-   protected Boolean redundancyEnabled;
-   
    @JsonProperty(value = "description")
    protected String description;
    
@@ -70,16 +61,25 @@ public class RedirectionTargetTemplate extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
-   @JsonProperty(value = "triggerType")
-   protected TriggerType triggerType;
-   
    @JsonProperty(value = "externalID")
    protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "redundancyEnabled")
+   protected Boolean redundancyEnabled;
+   
+   @JsonProperty(value = "triggerType")
+   protected TriggerType triggerType;
    
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private EventLogsFetcher eventLogs;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
@@ -88,49 +88,22 @@ public class RedirectionTargetTemplate extends RestObject {
    private JobsFetcher jobs;
    
    @JsonIgnore
-   private EventLogsFetcher eventLogs;
+   private MetadatasFetcher metadatas;
    
 
    public RedirectionTargetTemplate() {
       endPointType = EndPointType.L3;
       
-      metadatas = new MetadatasFetcher(this);
+      eventLogs = new EventLogsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       jobs = new JobsFetcher(this);
       
-      eventLogs = new EventLogsFetcher(this);
+      metadatas = new MetadatasFetcher(this);
       
    }
 
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public Boolean getRedundancyEnabled() {
-      return redundancyEnabled;
-   }
-
-   @JsonIgnore
-   public void setRedundancyEnabled(Boolean value) { 
-      this.redundancyEnabled = value;
-   }
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -159,15 +132,6 @@ public class RedirectionTargetTemplate extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
-   public TriggerType getTriggerType() {
-      return triggerType;
-   }
-
-   @JsonIgnore
-   public void setTriggerType(TriggerType value) { 
-      this.triggerType = value;
-   }
-   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
@@ -176,12 +140,48 @@ public class RedirectionTargetTemplate extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public Boolean getRedundancyEnabled() {
+      return redundancyEnabled;
+   }
+
+   @JsonIgnore
+   public void setRedundancyEnabled(Boolean value) { 
+      this.redundancyEnabled = value;
+   }
+   @JsonIgnore
+   public TriggerType getTriggerType() {
+      return triggerType;
+   }
+
+   @JsonIgnore
+   public void setTriggerType(TriggerType value) { 
+      this.triggerType = value;
+   }
    
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
    }
    
    @JsonIgnore
@@ -195,13 +195,13 @@ public class RedirectionTargetTemplate extends RestObject {
    }
    
    @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
 
    public String toString() {
-      return "RedirectionTargetTemplate [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", redundancyEnabled=" + redundancyEnabled + ", description=" + description + ", endPointType=" + endPointType + ", entityScope=" + entityScope + ", triggerType=" + triggerType + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "RedirectionTargetTemplate [" + "description=" + description + ", endPointType=" + endPointType + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", redundancyEnabled=" + redundancyEnabled + ", triggerType=" + triggerType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

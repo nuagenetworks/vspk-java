@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "statisticspolicy", resourceName = "statisticspolicies")
@@ -47,12 +47,6 @@ public class StatisticsPolicy extends RestObject {
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
-   
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
    
    @JsonProperty(value = "dataCollectionFrequency")
    protected Long dataCollectionFrequency;
@@ -66,41 +60,29 @@ public class StatisticsPolicy extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
+   @JsonProperty(value = "name")
+   protected String name;
+   
+
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public StatisticsPolicy() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
    @JsonIgnore
    public Long getDataCollectionFrequency() {
       return dataCollectionFrequency;
@@ -137,22 +119,40 @@ public class StatisticsPolicy extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "StatisticsPolicy [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", dataCollectionFrequency=" + dataCollectionFrequency + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "StatisticsPolicy [" + "dataCollectionFrequency=" + dataCollectionFrequency + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

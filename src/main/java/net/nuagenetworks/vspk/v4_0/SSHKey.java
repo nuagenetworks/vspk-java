@@ -46,14 +46,14 @@ public class SSHKey extends RestObject {
    public enum KeyType { RSA };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
    @JsonProperty(value = "description")
    protected String description;
    
    @JsonProperty(value = "keyType")
    protected KeyType keyType;
+   
+   @JsonProperty(value = "name")
+   protected String name;
    
    @JsonProperty(value = "publicKey")
    protected String publicKey;
@@ -65,15 +65,6 @@ public class SSHKey extends RestObject {
       
    }
 
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -93,6 +84,15 @@ public class SSHKey extends RestObject {
       this.keyType = value;
    }
    @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
    public String getPublicKey() {
       return publicKey;
    }
@@ -106,7 +106,7 @@ public class SSHKey extends RestObject {
    
 
    public String toString() {
-      return "SSHKey [" + "name=" + name + ", description=" + description + ", keyType=" + keyType + ", publicKey=" + publicKey + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "SSHKey [" + "description=" + description + ", keyType=" + keyType + ", name=" + name + ", publicKey=" + publicKey + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

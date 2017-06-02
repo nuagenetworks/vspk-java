@@ -35,11 +35,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.KeyServerMonitorEncryptedSeedsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.KeyServerMonitorSeedsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.KeyServerMonitorSEKsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "keyservermonitor", resourceName = "keyservermonitors")
@@ -51,11 +51,14 @@ public class KeyServerMonitor extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "lastUpdateTime")
-   protected Long lastUpdateTime;
+   @JsonProperty(value = "enterpriseSecuredDataRecordCount")
+   protected Long enterpriseSecuredDataRecordCount;
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
    
    @JsonProperty(value = "gatewaySecuredDataRecordCount")
    protected Long gatewaySecuredDataRecordCount;
@@ -72,19 +75,16 @@ public class KeyServerMonitor extends RestObject {
    @JsonProperty(value = "keyserverMonitorSeedCount")
    protected Long keyserverMonitorSeedCount;
    
-   @JsonProperty(value = "enterpriseSecuredDataRecordCount")
-   protected Long enterpriseSecuredDataRecordCount;
+   @JsonProperty(value = "lastUpdateTime")
+   protected Long lastUpdateTime;
    
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
    private KeyServerMonitorEncryptedSeedsFetcher keyServerMonitorEncryptedSeeds;
@@ -96,12 +96,12 @@ public class KeyServerMonitor extends RestObject {
    private KeyServerMonitorSEKsFetcher keyServerMonitorSEKs;
    
    @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
+   private MetadatasFetcher metadatas;
    
 
    public KeyServerMonitor() {
       
-      metadatas = new MetadatasFetcher(this);
+      globalMetadatas = new GlobalMetadatasFetcher(this);
       
       keyServerMonitorEncryptedSeeds = new KeyServerMonitorEncryptedSeedsFetcher(this);
       
@@ -109,27 +109,36 @@ public class KeyServerMonitor extends RestObject {
       
       keyServerMonitorSEKs = new KeyServerMonitorSEKsFetcher(this);
       
-      globalMetadatas = new GlobalMetadatasFetcher(this);
+      metadatas = new MetadatasFetcher(this);
       
    }
 
    @JsonIgnore
-   public Long getLastUpdateTime() {
-      return lastUpdateTime;
+   public Long getEnterpriseSecuredDataRecordCount() {
+      return enterpriseSecuredDataRecordCount;
    }
 
    @JsonIgnore
-   public void setLastUpdateTime(Long value) { 
-      this.lastUpdateTime = value;
+   public void setEnterpriseSecuredDataRecordCount(Long value) { 
+      this.enterpriseSecuredDataRecordCount = value;
    }
    @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
+   public EntityScope getEntityScope() {
+      return entityScope;
    }
 
    @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
    }
    @JsonIgnore
    public Long getGatewaySecuredDataRecordCount() {
@@ -177,38 +186,29 @@ public class KeyServerMonitor extends RestObject {
       this.keyserverMonitorSeedCount = value;
    }
    @JsonIgnore
-   public Long getEnterpriseSecuredDataRecordCount() {
-      return enterpriseSecuredDataRecordCount;
+   public Long getLastUpdateTime() {
+      return lastUpdateTime;
    }
 
    @JsonIgnore
-   public void setEnterpriseSecuredDataRecordCount(Long value) { 
-      this.enterpriseSecuredDataRecordCount = value;
+   public void setLastUpdateTime(Long value) { 
+      this.lastUpdateTime = value;
    }
    @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
    }
 
    @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
    }
    
    @JsonIgnore
@@ -227,13 +227,13 @@ public class KeyServerMonitor extends RestObject {
    }
    
    @JsonIgnore
-   public GlobalMetadatasFetcher getGlobalMetadatas() {
-      return globalMetadatas;
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
 
    public String toString() {
-      return "KeyServerMonitor [" + "lastUpdateTime=" + lastUpdateTime + ", lastUpdatedBy=" + lastUpdatedBy + ", gatewaySecuredDataRecordCount=" + gatewaySecuredDataRecordCount + ", keyserverMonitorEncryptedSEKCount=" + keyserverMonitorEncryptedSEKCount + ", keyserverMonitorEncryptedSeedCount=" + keyserverMonitorEncryptedSeedCount + ", keyserverMonitorSEKCount=" + keyserverMonitorSEKCount + ", keyserverMonitorSeedCount=" + keyserverMonitorSeedCount + ", enterpriseSecuredDataRecordCount=" + enterpriseSecuredDataRecordCount + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "KeyServerMonitor [" + "enterpriseSecuredDataRecordCount=" + enterpriseSecuredDataRecordCount + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewaySecuredDataRecordCount=" + gatewaySecuredDataRecordCount + ", keyserverMonitorEncryptedSEKCount=" + keyserverMonitorEncryptedSEKCount + ", keyserverMonitorEncryptedSeedCount=" + keyserverMonitorEncryptedSeedCount + ", keyserverMonitorSEKCount=" + keyserverMonitorSEKCount + ", keyserverMonitorSeedCount=" + keyserverMonitorSeedCount + ", lastUpdateTime=" + lastUpdateTime + ", lastUpdatedBy=" + lastUpdatedBy + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

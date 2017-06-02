@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "bulkstatistics", resourceName = "bulkstatistics")
@@ -50,32 +50,32 @@ public class BulkStatistics extends RestObject {
    @JsonProperty(value = "data")
    protected java.util.List<com.fasterxml.jackson.databind.JsonNode> data;
    
-   @JsonProperty(value = "version")
-   protected Long version;
-   
    @JsonProperty(value = "endTime")
    protected Long endTime;
-   
-   @JsonProperty(value = "startTime")
-   protected Long startTime;
    
    @JsonProperty(value = "numberOfDataPoints")
    protected Long numberOfDataPoints;
    
-
+   @JsonProperty(value = "startTime")
+   protected Long startTime;
    
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
+   @JsonProperty(value = "version")
+   protected Long version;
+   
+
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public BulkStatistics() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
    }
 
@@ -89,15 +89,6 @@ public class BulkStatistics extends RestObject {
       this.data = value;
    }
    @JsonIgnore
-   public Long getVersion() {
-      return version;
-   }
-
-   @JsonIgnore
-   public void setVersion(Long value) { 
-      this.version = value;
-   }
-   @JsonIgnore
    public Long getEndTime() {
       return endTime;
    }
@@ -105,6 +96,15 @@ public class BulkStatistics extends RestObject {
    @JsonIgnore
    public void setEndTime(Long value) { 
       this.endTime = value;
+   }
+   @JsonIgnore
+   public Long getNumberOfDataPoints() {
+      return numberOfDataPoints;
+   }
+
+   @JsonIgnore
+   public void setNumberOfDataPoints(Long value) { 
+      this.numberOfDataPoints = value;
    }
    @JsonIgnore
    public Long getStartTime() {
@@ -116,30 +116,30 @@ public class BulkStatistics extends RestObject {
       this.startTime = value;
    }
    @JsonIgnore
-   public Long getNumberOfDataPoints() {
-      return numberOfDataPoints;
+   public Long getVersion() {
+      return version;
    }
 
    @JsonIgnore
-   public void setNumberOfDataPoints(Long value) { 
-      this.numberOfDataPoints = value;
+   public void setVersion(Long value) { 
+      this.version = value;
    }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "BulkStatistics [" + "data=" + data + ", version=" + version + ", endTime=" + endTime + ", startTime=" + startTime + ", numberOfDataPoints=" + numberOfDataPoints + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "BulkStatistics [" + "data=" + data + ", endTime=" + endTime + ", numberOfDataPoints=" + numberOfDataPoints + ", startTime=" + startTime + ", version=" + version + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

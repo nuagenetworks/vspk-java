@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "ikeencryptionprofile", resourceName = "ikeencryptionprofiles")
@@ -101,14 +101,8 @@ public class IKEEncryptionprofile extends RestObject {
    @JsonProperty(value = "ISAKMPHashAlgorithm")
    protected ISAKMPHashAlgorithm ISAKMPHashAlgorithm;
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "sequence")
-   protected Long sequence;
+   @JsonProperty(value = "associatedEnterpriseID")
+   protected String associatedEnterpriseID;
    
    @JsonProperty(value = "description")
    protected String description;
@@ -116,26 +110,32 @@ public class IKEEncryptionprofile extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
-   @JsonProperty(value = "associatedEnterpriseID")
-   protected String associatedEnterpriseID;
-   
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "sequence")
+   protected Long sequence;
+   
+
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public IKEEncryptionprofile() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
    }
 
@@ -275,31 +275,13 @@ public class IKEEncryptionprofile extends RestObject {
       this.ISAKMPHashAlgorithm = value;
    }
    @JsonIgnore
-   public String getName() {
-      return name;
+   public String getAssociatedEnterpriseID() {
+      return associatedEnterpriseID;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public Long getSequence() {
-      return sequence;
-   }
-
-   @JsonIgnore
-   public void setSequence(Long value) { 
-      this.sequence = value;
+   public void setAssociatedEnterpriseID(String value) { 
+      this.associatedEnterpriseID = value;
    }
    @JsonIgnore
    public String getDescription() {
@@ -320,15 +302,6 @@ public class IKEEncryptionprofile extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
-   public String getAssociatedEnterpriseID() {
-      return associatedEnterpriseID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedEnterpriseID(String value) { 
-      this.associatedEnterpriseID = value;
-   }
-   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
@@ -337,22 +310,49 @@ public class IKEEncryptionprofile extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public Long getSequence() {
+      return sequence;
+   }
+
+   @JsonIgnore
+   public void setSequence(Long value) { 
+      this.sequence = value;
+   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "IKEEncryptionprofile [" + "DPDInterval=" + DPDInterval + ", DPDMode=" + DPDMode + ", DPDTimeout=" + DPDTimeout + ", IPsecAuthenticationAlgorithm=" + IPsecAuthenticationAlgorithm + ", IPsecDontFragment=" + IPsecDontFragment + ", IPsecEnablePFS=" + IPsecEnablePFS + ", IPsecEncryptionAlgorithm=" + IPsecEncryptionAlgorithm + ", IPsecPreFragment=" + IPsecPreFragment + ", IPsecSALifetime=" + IPsecSALifetime + ", IPsecSAReplayWindowSize=" + IPsecSAReplayWindowSize + ", ISAKMPAuthenticationMode=" + ISAKMPAuthenticationMode + ", ISAKMPDiffieHelmanGroupIdentifier=" + ISAKMPDiffieHelmanGroupIdentifier + ", ISAKMPEncryptionAlgorithm=" + ISAKMPEncryptionAlgorithm + ", ISAKMPEncryptionKeyLifetime=" + ISAKMPEncryptionKeyLifetime + ", ISAKMPHashAlgorithm=" + ISAKMPHashAlgorithm + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", sequence=" + sequence + ", description=" + description + ", entityScope=" + entityScope + ", associatedEnterpriseID=" + associatedEnterpriseID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "IKEEncryptionprofile [" + "DPDInterval=" + DPDInterval + ", DPDMode=" + DPDMode + ", DPDTimeout=" + DPDTimeout + ", IPsecAuthenticationAlgorithm=" + IPsecAuthenticationAlgorithm + ", IPsecDontFragment=" + IPsecDontFragment + ", IPsecEnablePFS=" + IPsecEnablePFS + ", IPsecEncryptionAlgorithm=" + IPsecEncryptionAlgorithm + ", IPsecPreFragment=" + IPsecPreFragment + ", IPsecSALifetime=" + IPsecSALifetime + ", IPsecSAReplayWindowSize=" + IPsecSAReplayWindowSize + ", ISAKMPAuthenticationMode=" + ISAKMPAuthenticationMode + ", ISAKMPDiffieHelmanGroupIdentifier=" + ISAKMPDiffieHelmanGroupIdentifier + ", ISAKMPEncryptionAlgorithm=" + ISAKMPEncryptionAlgorithm + ", ISAKMPEncryptionKeyLifetime=" + ISAKMPEncryptionKeyLifetime + ", ISAKMPHashAlgorithm=" + ISAKMPHashAlgorithm + ", associatedEnterpriseID=" + associatedEnterpriseID + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", sequence=" + sequence + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

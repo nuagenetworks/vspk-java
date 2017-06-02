@@ -35,11 +35,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.QOSsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.SubnetTemplatesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "zonetemplate", resourceName = "zonetemplates")
@@ -61,20 +61,14 @@ public class ZoneTemplate extends RestObject {
    @JsonProperty(value = "IPType")
    protected IPType IPType;
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
    @JsonProperty(value = "address")
    protected String address;
    
+   @JsonProperty(value = "associatedMulticastChannelMapID")
+   protected String associatedMulticastChannelMapID;
+   
    @JsonProperty(value = "description")
    protected String description;
-   
-   @JsonProperty(value = "netmask")
-   protected String netmask;
    
    @JsonProperty(value = "encryption")
    protected Encryption encryption;
@@ -82,28 +76,37 @@ public class ZoneTemplate extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
-   @JsonProperty(value = "associatedMulticastChannelMapID")
-   protected String associatedMulticastChannelMapID;
+   @JsonProperty(value = "externalID")
+   protected String externalID;
    
-   @JsonProperty(value = "publicZone")
-   protected Boolean publicZone;
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
    @JsonProperty(value = "multicast")
    protected Multicast multicast;
    
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "netmask")
+   protected String netmask;
+   
    @JsonProperty(value = "numberOfHostsInSubnets")
    protected Long numberOfHostsInSubnets;
    
-   @JsonProperty(value = "externalID")
-   protected String externalID;
+   @JsonProperty(value = "publicZone")
+   protected Boolean publicZone;
    
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private EventLogsFetcher eventLogs;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
    
    @JsonIgnore
    private QOSsFetcher qOSs;
@@ -111,22 +114,19 @@ public class ZoneTemplate extends RestObject {
    @JsonIgnore
    private SubnetTemplatesFetcher subnetTemplates;
    
-   @JsonIgnore
-   private EventLogsFetcher eventLogs;
-   
 
    public ZoneTemplate() {
       multicast = Multicast.INHERITED;
       
-      metadatas = new MetadatasFetcher(this);
+      eventLogs = new EventLogsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
       qOSs = new QOSsFetcher(this);
       
       subnetTemplates = new SubnetTemplatesFetcher(this);
-      
-      eventLogs = new EventLogsFetcher(this);
       
    }
 
@@ -149,24 +149,6 @@ public class ZoneTemplate extends RestObject {
       this.IPType = value;
    }
    @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
    public String getAddress() {
       return address;
    }
@@ -176,6 +158,15 @@ public class ZoneTemplate extends RestObject {
       this.address = value;
    }
    @JsonIgnore
+   public String getAssociatedMulticastChannelMapID() {
+      return associatedMulticastChannelMapID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedMulticastChannelMapID(String value) { 
+      this.associatedMulticastChannelMapID = value;
+   }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
@@ -183,15 +174,6 @@ public class ZoneTemplate extends RestObject {
    @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
-   }
-   @JsonIgnore
-   public String getNetmask() {
-      return netmask;
-   }
-
-   @JsonIgnore
-   public void setNetmask(String value) { 
-      this.netmask = value;
    }
    @JsonIgnore
    public Encryption getEncryption() {
@@ -212,22 +194,22 @@ public class ZoneTemplate extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
-   public String getAssociatedMulticastChannelMapID() {
-      return associatedMulticastChannelMapID;
+   public String getExternalID() {
+      return externalID;
    }
 
    @JsonIgnore
-   public void setAssociatedMulticastChannelMapID(String value) { 
-      this.associatedMulticastChannelMapID = value;
+   public void setExternalID(String value) { 
+      this.externalID = value;
    }
    @JsonIgnore
-   public Boolean getPublicZone() {
-      return publicZone;
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
    }
 
    @JsonIgnore
-   public void setPublicZone(Boolean value) { 
-      this.publicZone = value;
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    @JsonIgnore
    public Multicast getMulticast() {
@@ -239,6 +221,24 @@ public class ZoneTemplate extends RestObject {
       this.multicast = value;
    }
    @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public String getNetmask() {
+      return netmask;
+   }
+
+   @JsonIgnore
+   public void setNetmask(String value) { 
+      this.netmask = value;
+   }
+   @JsonIgnore
    public Long getNumberOfHostsInSubnets() {
       return numberOfHostsInSubnets;
    }
@@ -248,25 +248,30 @@ public class ZoneTemplate extends RestObject {
       this.numberOfHostsInSubnets = value;
    }
    @JsonIgnore
-   public String getExternalID() {
-      return externalID;
+   public Boolean getPublicZone() {
+      return publicZone;
    }
 
    @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
+   public void setPublicZone(Boolean value) { 
+      this.publicZone = value;
    }
    
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
    }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
    @JsonIgnore
@@ -279,14 +284,9 @@ public class ZoneTemplate extends RestObject {
       return subnetTemplates;
    }
    
-   @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
-   }
-   
 
    public String toString() {
-      return "ZoneTemplate [" + "DPI=" + DPI + ", IPType=" + IPType + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", address=" + address + ", description=" + description + ", netmask=" + netmask + ", encryption=" + encryption + ", entityScope=" + entityScope + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", publicZone=" + publicZone + ", multicast=" + multicast + ", numberOfHostsInSubnets=" + numberOfHostsInSubnets + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "ZoneTemplate [" + "DPI=" + DPI + ", IPType=" + IPType + ", address=" + address + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", description=" + description + ", encryption=" + encryption + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", multicast=" + multicast + ", name=" + name + ", netmask=" + netmask + ", numberOfHostsInSubnets=" + numberOfHostsInSubnets + ", publicZone=" + publicZone + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

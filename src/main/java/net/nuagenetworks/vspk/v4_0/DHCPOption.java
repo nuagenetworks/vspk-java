@@ -35,9 +35,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "dhcpoption", resourceName = "dhcpoptions")
@@ -49,20 +49,11 @@ public class DHCPOption extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "value")
-   protected String value;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
    @JsonProperty(value = "actualType")
    protected Long actualType;
    
    @JsonProperty(value = "actualValues")
    protected java.util.List<String> actualValues;
-   
-   @JsonProperty(value = "length")
-   protected String length;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
@@ -70,49 +61,40 @@ public class DHCPOption extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "length")
+   protected String length;
+   
    @JsonProperty(value = "type")
    protected String type;
+   
+   @JsonProperty(value = "value")
+   protected String value;
    
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private EventLogsFetcher eventLogs;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private EventLogsFetcher eventLogs;
+   private MetadatasFetcher metadatas;
    
 
    public DHCPOption() {
       
-      metadatas = new MetadatasFetcher(this);
+      eventLogs = new EventLogsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
-      eventLogs = new EventLogsFetcher(this);
+      metadatas = new MetadatasFetcher(this);
       
    }
 
-   @JsonIgnore
-   public String getValue() {
-      return value;
-   }
-
-   @JsonIgnore
-   public void setValue(String value) { 
-      this.value = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
    @JsonIgnore
    public Long getActualType() {
       return actualType;
@@ -130,15 +112,6 @@ public class DHCPOption extends RestObject {
    @JsonIgnore
    public void setActualValues(java.util.List<String> value) { 
       this.actualValues = value;
-   }
-   @JsonIgnore
-   public String getLength() {
-      return length;
-   }
-
-   @JsonIgnore
-   public void setLength(String value) { 
-      this.length = value;
    }
    @JsonIgnore
    public EntityScope getEntityScope() {
@@ -159,6 +132,24 @@ public class DHCPOption extends RestObject {
       this.externalID = value;
    }
    @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getLength() {
+      return length;
+   }
+
+   @JsonIgnore
+   public void setLength(String value) { 
+      this.length = value;
+   }
+   @JsonIgnore
    public String getType() {
       return type;
    }
@@ -167,12 +158,21 @@ public class DHCPOption extends RestObject {
    public void setType(String value) { 
       this.type = value;
    }
+   @JsonIgnore
+   public String getValue() {
+      return value;
+   }
+
+   @JsonIgnore
+   public void setValue(String value) { 
+      this.value = value;
+   }
    
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
    }
    
    @JsonIgnore
@@ -181,13 +181,13 @@ public class DHCPOption extends RestObject {
    }
    
    @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
 
    public String toString() {
-      return "DHCPOption [" + "value=" + value + ", lastUpdatedBy=" + lastUpdatedBy + ", actualType=" + actualType + ", actualValues=" + actualValues + ", length=" + length + ", entityScope=" + entityScope + ", externalID=" + externalID + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "DHCPOption [" + "actualType=" + actualType + ", actualValues=" + actualValues + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", length=" + length + ", type=" + type + ", value=" + value + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -35,9 +35,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "applicationservice", resourceName = "applicationservices")
@@ -53,12 +53,6 @@ public class ApplicationService extends RestObject {
    @JsonProperty(value = "DSCP")
    protected String DSCP;
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
    @JsonProperty(value = "description")
    protected String description;
    
@@ -71,28 +65,34 @@ public class ApplicationService extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
-   @JsonProperty(value = "sourcePort")
-   protected String sourcePort;
-   
-   @JsonProperty(value = "protocol")
-   protected String protocol;
-   
    @JsonProperty(value = "etherType")
    protected String etherType;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
    
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "protocol")
+   protected String protocol;
+   
+   @JsonProperty(value = "sourcePort")
+   protected String sourcePort;
+   
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private EventLogsFetcher eventLogs;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private EventLogsFetcher eventLogs;
+   private MetadatasFetcher metadatas;
    
 
    public ApplicationService() {
@@ -101,11 +101,11 @@ public class ApplicationService extends RestObject {
       protocol = "6";
       DSCP = "*";
       
-      metadatas = new MetadatasFetcher(this);
+      eventLogs = new EventLogsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
-      eventLogs = new EventLogsFetcher(this);
+      metadatas = new MetadatasFetcher(this);
       
    }
 
@@ -117,24 +117,6 @@ public class ApplicationService extends RestObject {
    @JsonIgnore
    public void setDSCP(String value) { 
       this.DSCP = value;
-   }
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
    }
    @JsonIgnore
    public String getDescription() {
@@ -173,24 +155,6 @@ public class ApplicationService extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
-   public String getSourcePort() {
-      return sourcePort;
-   }
-
-   @JsonIgnore
-   public void setSourcePort(String value) { 
-      this.sourcePort = value;
-   }
-   @JsonIgnore
-   public String getProtocol() {
-      return protocol;
-   }
-
-   @JsonIgnore
-   public void setProtocol(String value) { 
-      this.protocol = value;
-   }
-   @JsonIgnore
    public String getEtherType() {
       return etherType;
    }
@@ -208,12 +172,48 @@ public class ApplicationService extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public String getProtocol() {
+      return protocol;
+   }
+
+   @JsonIgnore
+   public void setProtocol(String value) { 
+      this.protocol = value;
+   }
+   @JsonIgnore
+   public String getSourcePort() {
+      return sourcePort;
+   }
+
+   @JsonIgnore
+   public void setSourcePort(String value) { 
+      this.sourcePort = value;
+   }
    
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
    }
    
    @JsonIgnore
@@ -222,13 +222,13 @@ public class ApplicationService extends RestObject {
    }
    
    @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
 
    public String toString() {
-      return "ApplicationService [" + "DSCP=" + DSCP + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", destinationPort=" + destinationPort + ", direction=" + direction + ", entityScope=" + entityScope + ", sourcePort=" + sourcePort + ", protocol=" + protocol + ", etherType=" + etherType + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "ApplicationService [" + "DSCP=" + DSCP + ", description=" + description + ", destinationPort=" + destinationPort + ", direction=" + direction + ", entityScope=" + entityScope + ", etherType=" + etherType + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", protocol=" + protocol + ", sourcePort=" + sourcePort + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

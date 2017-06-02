@@ -45,11 +45,11 @@ public class Underlay extends RestObject {
    
 
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
    @JsonProperty(value = "description")
    protected String description;
+   
+   @JsonProperty(value = "name")
+   protected String name;
    
    @JsonProperty(value = "underlayID")
    protected Long underlayID;
@@ -62,15 +62,6 @@ public class Underlay extends RestObject {
    }
 
    @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
    public String getDescription() {
       return description;
    }
@@ -78,6 +69,15 @@ public class Underlay extends RestObject {
    @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
    }
    @JsonIgnore
    public Long getUnderlayID() {
@@ -93,7 +93,7 @@ public class Underlay extends RestObject {
    
 
    public String toString() {
-      return "Underlay [" + "name=" + name + ", description=" + description + ", underlayID=" + underlayID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Underlay [" + "description=" + description + ", name=" + name + ", underlayID=" + underlayID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

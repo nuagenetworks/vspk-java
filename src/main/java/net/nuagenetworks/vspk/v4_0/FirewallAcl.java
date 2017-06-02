@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.FirewallRulesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.DomainsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.FirewallRulesFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "firewallacl", resourceName = "firewallacls")
@@ -46,9 +46,6 @@ public class FirewallAcl extends RestObject {
 
    
 
-   
-   @JsonProperty(value = "name")
-   protected String name;
    
    @JsonProperty(value = "active")
    protected Boolean active;
@@ -62,35 +59,29 @@ public class FirewallAcl extends RestObject {
    @JsonProperty(value = "description")
    protected String description;
    
+   @JsonProperty(value = "name")
+   protected String name;
+   
    @JsonProperty(value = "ruleIds")
    protected java.util.List<String> ruleIds;
    
 
    
    @JsonIgnore
-   private FirewallRulesFetcher firewallRules;
+   private DomainsFetcher domains;
    
    @JsonIgnore
-   private DomainsFetcher domains;
+   private FirewallRulesFetcher firewallRules;
    
 
    public FirewallAcl() {
       
-      firewallRules = new FirewallRulesFetcher(this);
-      
       domains = new DomainsFetcher(this);
       
+      firewallRules = new FirewallRulesFetcher(this);
+      
    }
 
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
    @JsonIgnore
    public Boolean getActive() {
       return active;
@@ -128,6 +119,15 @@ public class FirewallAcl extends RestObject {
       this.description = value;
    }
    @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
    public java.util.List<String> getRuleIds() {
       return ruleIds;
    }
@@ -140,18 +140,18 @@ public class FirewallAcl extends RestObject {
 
    
    @JsonIgnore
-   public FirewallRulesFetcher getFirewallRules() {
-      return firewallRules;
-   }
-   
-   @JsonIgnore
    public DomainsFetcher getDomains() {
       return domains;
    }
    
+   @JsonIgnore
+   public FirewallRulesFetcher getFirewallRules() {
+      return firewallRules;
+   }
+   
 
    public String toString() {
-      return "FirewallAcl [" + "name=" + name + ", active=" + active + ", defaultAllowIP=" + defaultAllowIP + ", defaultAllowNonIP=" + defaultAllowNonIP + ", description=" + description + ", ruleIds=" + ruleIds + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "FirewallAcl [" + "active=" + active + ", defaultAllowIP=" + defaultAllowIP + ", defaultAllowNonIP=" + defaultAllowNonIP + ", description=" + description + ", name=" + name + ", ruleIds=" + ruleIds + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

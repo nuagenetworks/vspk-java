@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.StatisticsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.StatisticsPoliciesFetcher;
 
@@ -51,11 +51,17 @@ public class AddressMap extends RestObject {
    public enum Type { MANY_TO_ONE_PAT, ONE_TO_ONE_NAT };
 
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
+   @JsonProperty(value = "associatedPATNATPoolID")
+   protected String associatedPATNATPoolID;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
    @JsonProperty(value = "privateIP")
    protected String privateIP;
@@ -63,17 +69,11 @@ public class AddressMap extends RestObject {
    @JsonProperty(value = "privatePort")
    protected Long privatePort;
    
-   @JsonProperty(value = "associatedPATNATPoolID")
-   protected String associatedPATNATPoolID;
-   
    @JsonProperty(value = "publicIP")
    protected String publicIP;
    
    @JsonProperty(value = "publicPort")
    protected Long publicPort;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
    
    @JsonProperty(value = "type")
    protected Type type;
@@ -81,10 +81,10 @@ public class AddressMap extends RestObject {
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
+   private MetadatasFetcher metadatas;
    
    @JsonIgnore
    private StatisticsFetcher statistics;
@@ -95,9 +95,9 @@ public class AddressMap extends RestObject {
 
    public AddressMap() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
       statistics = new StatisticsFetcher(this);
       
@@ -106,13 +106,13 @@ public class AddressMap extends RestObject {
    }
 
    @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
+   public String getAssociatedPATNATPoolID() {
+      return associatedPATNATPoolID;
    }
 
    @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
+   public void setAssociatedPATNATPoolID(String value) { 
+      this.associatedPATNATPoolID = value;
    }
    @JsonIgnore
    public EntityScope getEntityScope() {
@@ -122,6 +122,24 @@ public class AddressMap extends RestObject {
    @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    @JsonIgnore
    public String getPrivateIP() {
@@ -142,15 +160,6 @@ public class AddressMap extends RestObject {
       this.privatePort = value;
    }
    @JsonIgnore
-   public String getAssociatedPATNATPoolID() {
-      return associatedPATNATPoolID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedPATNATPoolID(String value) { 
-      this.associatedPATNATPoolID = value;
-   }
-   @JsonIgnore
    public String getPublicIP() {
       return publicIP;
    }
@@ -169,15 +178,6 @@ public class AddressMap extends RestObject {
       this.publicPort = value;
    }
    @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
-   @JsonIgnore
    public Type getType() {
       return type;
    }
@@ -190,13 +190,13 @@ public class AddressMap extends RestObject {
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
    }
    
    @JsonIgnore
-   public GlobalMetadatasFetcher getGlobalMetadatas() {
-      return globalMetadatas;
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
    @JsonIgnore
@@ -211,7 +211,7 @@ public class AddressMap extends RestObject {
    
 
    public String toString() {
-      return "AddressMap [" + "lastUpdatedBy=" + lastUpdatedBy + ", entityScope=" + entityScope + ", privateIP=" + privateIP + ", privatePort=" + privatePort + ", associatedPATNATPoolID=" + associatedPATNATPoolID + ", publicIP=" + publicIP + ", publicPort=" + publicPort + ", externalID=" + externalID + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "AddressMap [" + "associatedPATNATPoolID=" + associatedPATNATPoolID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", privateIP=" + privateIP + ", privatePort=" + privatePort + ", publicIP=" + publicIP + ", publicPort=" + publicPort + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

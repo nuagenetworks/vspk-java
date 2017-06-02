@@ -58,32 +58,32 @@ public class VRSMetrics extends RestObject {
    @JsonProperty(value = "VRSVSCStatus")
    protected Boolean VRSVSCStatus;
    
+   @JsonProperty(value = "agentName")
+   protected String agentName;
+   
+   @JsonProperty(value = "associatedVCenterHypervisorID")
+   protected String associatedVCenterHypervisorID;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "jesxmonProcess")
+   protected Boolean jesxmonProcess;
+   
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "memoryUtilization")
+   protected Float memoryUtilization;
    
    @JsonProperty(value = "reDeploy")
    protected Boolean reDeploy;
    
    @JsonProperty(value = "receivingMetrics")
    protected Boolean receivingMetrics;
-   
-   @JsonProperty(value = "memoryUtilization")
-   protected Float memoryUtilization;
-   
-   @JsonProperty(value = "jesxmonProcess")
-   protected Boolean jesxmonProcess;
-   
-   @JsonProperty(value = "agentName")
-   protected String agentName;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
-   
-   @JsonProperty(value = "associatedVCenterHypervisorID")
-   protected String associatedVCenterHypervisorID;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
    
 
    
@@ -129,6 +129,51 @@ public class VRSMetrics extends RestObject {
       this.VRSVSCStatus = value;
    }
    @JsonIgnore
+   public String getAgentName() {
+      return agentName;
+   }
+
+   @JsonIgnore
+   public void setAgentName(String value) { 
+      this.agentName = value;
+   }
+   @JsonIgnore
+   public String getAssociatedVCenterHypervisorID() {
+      return associatedVCenterHypervisorID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedVCenterHypervisorID(String value) { 
+      this.associatedVCenterHypervisorID = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public Boolean getJesxmonProcess() {
+      return jesxmonProcess;
+   }
+
+   @JsonIgnore
+   public void setJesxmonProcess(Boolean value) { 
+      this.jesxmonProcess = value;
+   }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
@@ -136,6 +181,15 @@ public class VRSMetrics extends RestObject {
    @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public Float getMemoryUtilization() {
+      return memoryUtilization;
+   }
+
+   @JsonIgnore
+   public void setMemoryUtilization(Float value) { 
+      this.memoryUtilization = value;
    }
    @JsonIgnore
    public Boolean getReDeploy() {
@@ -155,66 +209,12 @@ public class VRSMetrics extends RestObject {
    public void setReceivingMetrics(Boolean value) { 
       this.receivingMetrics = value;
    }
-   @JsonIgnore
-   public Float getMemoryUtilization() {
-      return memoryUtilization;
-   }
-
-   @JsonIgnore
-   public void setMemoryUtilization(Float value) { 
-      this.memoryUtilization = value;
-   }
-   @JsonIgnore
-   public Boolean getJesxmonProcess() {
-      return jesxmonProcess;
-   }
-
-   @JsonIgnore
-   public void setJesxmonProcess(Boolean value) { 
-      this.jesxmonProcess = value;
-   }
-   @JsonIgnore
-   public String getAgentName() {
-      return agentName;
-   }
-
-   @JsonIgnore
-   public void setAgentName(String value) { 
-      this.agentName = value;
-   }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
-   }
-   @JsonIgnore
-   public String getAssociatedVCenterHypervisorID() {
-      return associatedVCenterHypervisorID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedVCenterHypervisorID(String value) { 
-      this.associatedVCenterHypervisorID = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
    
 
    
 
    public String toString() {
-      return "VRSMetrics [" + "ALUbr0Status=" + ALUbr0Status + ", CPUUtilization=" + CPUUtilization + ", VRSProcess=" + VRSProcess + ", VRSVSCStatus=" + VRSVSCStatus + ", lastUpdatedBy=" + lastUpdatedBy + ", reDeploy=" + reDeploy + ", receivingMetrics=" + receivingMetrics + ", memoryUtilization=" + memoryUtilization + ", jesxmonProcess=" + jesxmonProcess + ", agentName=" + agentName + ", entityScope=" + entityScope + ", associatedVCenterHypervisorID=" + associatedVCenterHypervisorID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VRSMetrics [" + "ALUbr0Status=" + ALUbr0Status + ", CPUUtilization=" + CPUUtilization + ", VRSProcess=" + VRSProcess + ", VRSVSCStatus=" + VRSVSCStatus + ", agentName=" + agentName + ", associatedVCenterHypervisorID=" + associatedVCenterHypervisorID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", jesxmonProcess=" + jesxmonProcess + ", lastUpdatedBy=" + lastUpdatedBy + ", memoryUtilization=" + memoryUtilization + ", reDeploy=" + reDeploy + ", receivingMetrics=" + receivingMetrics + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

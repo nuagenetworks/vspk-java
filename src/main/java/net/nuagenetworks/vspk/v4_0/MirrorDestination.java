@@ -35,11 +35,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EgressACLEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IngressACLEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IngressAdvFwdEntryTemplatesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VPortMirrorsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -52,15 +52,6 @@ public class MirrorDestination extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "serviceId")
-   protected Long serviceId;
-   
    @JsonProperty(value = "destinationIp")
    protected String destinationIp;
    
@@ -70,10 +61,16 @@ public class MirrorDestination extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "serviceId")
+   protected Long serviceId;
+   
+
    
    @JsonIgnore
    private EgressACLEntryTemplatesFetcher egressACLEntryTemplates;
@@ -88,12 +85,13 @@ public class MirrorDestination extends RestObject {
    private IngressAdvFwdEntryTemplatesFetcher ingressAdvFwdEntryTemplates;
    
    @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
+   @JsonIgnore
    private VPortMirrorsFetcher vPortMirrors;
    
 
    public MirrorDestination() {
-      
-      metadatas = new MetadatasFetcher(this);
       
       egressACLEntryTemplates = new EgressACLEntryTemplatesFetcher(this);
       
@@ -103,37 +101,12 @@ public class MirrorDestination extends RestObject {
       
       ingressAdvFwdEntryTemplates = new IngressAdvFwdEntryTemplatesFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
       vPortMirrors = new VPortMirrorsFetcher(this);
       
    }
 
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public Long getServiceId() {
-      return serviceId;
-   }
-
-   @JsonIgnore
-   public void setServiceId(Long value) { 
-      this.serviceId = value;
-   }
    @JsonIgnore
    public String getDestinationIp() {
       return destinationIp;
@@ -161,13 +134,35 @@ public class MirrorDestination extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public Long getServiceId() {
+      return serviceId;
+   }
+
+   @JsonIgnore
+   public void setServiceId(Long value) { 
+      this.serviceId = value;
+   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public EgressACLEntryTemplatesFetcher getEgressACLEntryTemplates() {
@@ -190,13 +185,18 @@ public class MirrorDestination extends RestObject {
    }
    
    @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
+   @JsonIgnore
    public VPortMirrorsFetcher getVPortMirrors() {
       return vPortMirrors;
    }
    
 
    public String toString() {
-      return "MirrorDestination [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", serviceId=" + serviceId + ", destinationIp=" + destinationIp + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "MirrorDestination [" + "destinationIp=" + destinationIp + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", serviceId=" + serviceId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

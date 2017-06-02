@@ -35,29 +35,30 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.TCAsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.RedirectionTargetsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.AggregateMetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.DHCPOptionsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.VirtualIPsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.AlarmsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.VMInterfacesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.PolicyGroupsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ApplicationperformancemanagementsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.BGPNeighborsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.BridgeInterfacesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.ContainersFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.ContainerInterfacesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.DHCPOptionsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.HostInterfacesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.PolicyGroupsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.PortMappingsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.QOSsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.HostInterfacesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.VPortMirrorsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.ApplicationperformancemanagementsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.BridgeInterfacesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.VRSsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.RedirectionTargetsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.StatisticsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.StatisticsPoliciesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.TCAsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.VirtualIPsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.VMInterfacesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.VPortMirrorsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.VRSsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "vport", resourceName = "vports")
@@ -69,47 +70,23 @@ public class VPort extends RestObject {
    public enum DPI { DISABLED, ENABLED, INHERITED };
    public enum AddressSpoofing { DISABLED, ENABLED, INHERITED };
    public enum EntityScope { ENTERPRISE, GLOBAL };
-   public enum OperationalState { DOWN, INIT, UP };
    public enum Multicast { DISABLED, ENABLED, INHERITED };
-   public enum Type { BRIDGE, CONTAINER, HOST, VM };
+   public enum OperationalState { DOWN, INIT, UP };
    public enum SystemType { HARDWARE, HARDWARE_VTEP, NUAGE_1, NUAGE_2, NUAGE_VRSG, SOFTWARE };
+   public enum Type { BRIDGE, CONTAINER, HOST, VM };
 
-   
-   @JsonProperty(value = "VLANID")
-   protected String VLANID;
    
    @JsonProperty(value = "DPI")
    protected DPI DPI;
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "hasAttachedInterfaces")
-   protected Boolean hasAttachedInterfaces;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
+   @JsonProperty(value = "VLANID")
+   protected String VLANID;
    
    @JsonProperty(value = "active")
    protected Boolean active;
    
    @JsonProperty(value = "addressSpoofing")
    protected AddressSpoofing addressSpoofing;
-   
-   @JsonProperty(value = "description")
-   protected String description;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
-   
-   @JsonProperty(value = "domainID")
-   protected String domainID;
-   
-   @JsonProperty(value = "zoneID")
-   protected String zoneID;
-   
-   @JsonProperty(value = "operationalState")
-   protected OperationalState operationalState;
    
    @JsonProperty(value = "associatedFloatingIPID")
    protected String associatedFloatingIPID;
@@ -120,55 +97,61 @@ public class VPort extends RestObject {
    @JsonProperty(value = "associatedSendMulticastChannelMapID")
    protected String associatedSendMulticastChannelMapID;
    
+   @JsonProperty(value = "description")
+   protected String description;
+   
+   @JsonProperty(value = "domainID")
+   protected String domainID;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "hasAttachedInterfaces")
+   protected Boolean hasAttachedInterfaces;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
    @JsonProperty(value = "multiNICVPortID")
    protected String multiNICVPortID;
    
    @JsonProperty(value = "multicast")
    protected Multicast multicast;
    
-   @JsonProperty(value = "externalID")
-   protected String externalID;
+   @JsonProperty(value = "name")
+   protected String name;
    
-   @JsonProperty(value = "type")
-   protected Type type;
+   @JsonProperty(value = "operationalState")
+   protected OperationalState operationalState;
    
    @JsonProperty(value = "systemType")
    protected SystemType systemType;
    
+   @JsonProperty(value = "type")
+   protected Type type;
+   
+   @JsonProperty(value = "zoneID")
+   protected String zoneID;
+   
 
-   
-   @JsonIgnore
-   private TCAsFetcher tCAs;
-   
-   @JsonIgnore
-   private RedirectionTargetsFetcher redirectionTargets;
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
    
    @JsonIgnore
    private AggregateMetadatasFetcher aggregateMetadatas;
    
    @JsonIgnore
-   private DHCPOptionsFetcher dHCPOptions;
-   
-   @JsonIgnore
-   private VirtualIPsFetcher virtualIPs;
-   
-   @JsonIgnore
    private AlarmsFetcher alarms;
    
    @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
+   private ApplicationperformancemanagementsFetcher applicationperformancemanagements;
    
    @JsonIgnore
-   private VMsFetcher vMs;
+   private BGPNeighborsFetcher bGPNeighbors;
    
    @JsonIgnore
-   private VMInterfacesFetcher vMInterfaces;
-   
-   @JsonIgnore
-   private PolicyGroupsFetcher policyGroups;
+   private BridgeInterfacesFetcher bridgeInterfaces;
    
    @JsonIgnore
    private ContainersFetcher containers;
@@ -177,25 +160,31 @@ public class VPort extends RestObject {
    private ContainerInterfacesFetcher containerInterfaces;
    
    @JsonIgnore
+   private DHCPOptionsFetcher dHCPOptions;
+   
+   @JsonIgnore
+   private EventLogsFetcher eventLogs;
+   
+   @JsonIgnore
+   private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private HostInterfacesFetcher hostInterfaces;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
+   @JsonIgnore
+   private PolicyGroupsFetcher policyGroups;
+   
+   @JsonIgnore
    private PortMappingsFetcher portMappings;
    
    @JsonIgnore
    private QOSsFetcher qOSs;
    
    @JsonIgnore
-   private HostInterfacesFetcher hostInterfaces;
-   
-   @JsonIgnore
-   private VPortMirrorsFetcher vPortMirrors;
-   
-   @JsonIgnore
-   private ApplicationperformancemanagementsFetcher applicationperformancemanagements;
-   
-   @JsonIgnore
-   private BridgeInterfacesFetcher bridgeInterfaces;
-   
-   @JsonIgnore
-   private VRSsFetcher vRSs;
+   private RedirectionTargetsFetcher redirectionTargets;
    
    @JsonIgnore
    private StatisticsFetcher statistics;
@@ -204,7 +193,22 @@ public class VPort extends RestObject {
    private StatisticsPoliciesFetcher statisticsPolicies;
    
    @JsonIgnore
-   private EventLogsFetcher eventLogs;
+   private TCAsFetcher tCAs;
+   
+   @JsonIgnore
+   private VirtualIPsFetcher virtualIPs;
+   
+   @JsonIgnore
+   private VMsFetcher vMs;
+   
+   @JsonIgnore
+   private VMInterfacesFetcher vMInterfaces;
+   
+   @JsonIgnore
+   private VPortMirrorsFetcher vPortMirrors;
+   
+   @JsonIgnore
+   private VRSsFetcher vRSs;
    
 
    public VPort() {
@@ -213,63 +217,56 @@ public class VPort extends RestObject {
       addressSpoofing = AddressSpoofing.INHERITED;
       operationalState = OperationalState.INIT;
       
-      tCAs = new TCAsFetcher(this);
-      
-      redirectionTargets = new RedirectionTargetsFetcher(this);
-      
-      metadatas = new MetadatasFetcher(this);
-      
       aggregateMetadatas = new AggregateMetadatasFetcher(this);
-      
-      dHCPOptions = new DHCPOptionsFetcher(this);
-      
-      virtualIPs = new VirtualIPsFetcher(this);
       
       alarms = new AlarmsFetcher(this);
       
-      globalMetadatas = new GlobalMetadatasFetcher(this);
+      applicationperformancemanagements = new ApplicationperformancemanagementsFetcher(this);
       
-      vMs = new VMsFetcher(this);
+      bGPNeighbors = new BGPNeighborsFetcher(this);
       
-      vMInterfaces = new VMInterfacesFetcher(this);
-      
-      policyGroups = new PolicyGroupsFetcher(this);
+      bridgeInterfaces = new BridgeInterfacesFetcher(this);
       
       containers = new ContainersFetcher(this);
       
       containerInterfaces = new ContainerInterfacesFetcher(this);
       
+      dHCPOptions = new DHCPOptionsFetcher(this);
+      
+      eventLogs = new EventLogsFetcher(this);
+      
+      globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      hostInterfaces = new HostInterfacesFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
+      
+      policyGroups = new PolicyGroupsFetcher(this);
+      
       portMappings = new PortMappingsFetcher(this);
       
       qOSs = new QOSsFetcher(this);
       
-      hostInterfaces = new HostInterfacesFetcher(this);
-      
-      vPortMirrors = new VPortMirrorsFetcher(this);
-      
-      applicationperformancemanagements = new ApplicationperformancemanagementsFetcher(this);
-      
-      bridgeInterfaces = new BridgeInterfacesFetcher(this);
-      
-      vRSs = new VRSsFetcher(this);
+      redirectionTargets = new RedirectionTargetsFetcher(this);
       
       statistics = new StatisticsFetcher(this);
       
       statisticsPolicies = new StatisticsPoliciesFetcher(this);
       
-      eventLogs = new EventLogsFetcher(this);
+      tCAs = new TCAsFetcher(this);
+      
+      virtualIPs = new VirtualIPsFetcher(this);
+      
+      vMs = new VMsFetcher(this);
+      
+      vMInterfaces = new VMInterfacesFetcher(this);
+      
+      vPortMirrors = new VPortMirrorsFetcher(this);
+      
+      vRSs = new VRSsFetcher(this);
       
    }
 
-   @JsonIgnore
-   public String getVLANID() {
-      return VLANID;
-   }
-
-   @JsonIgnore
-   public void setVLANID(String value) { 
-      this.VLANID = value;
-   }
    @JsonIgnore
    public DPI getDPI() {
       return DPI;
@@ -280,31 +277,13 @@ public class VPort extends RestObject {
       this.DPI = value;
    }
    @JsonIgnore
-   public String getName() {
-      return name;
+   public String getVLANID() {
+      return VLANID;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public Boolean getHasAttachedInterfaces() {
-      return hasAttachedInterfaces;
-   }
-
-   @JsonIgnore
-   public void setHasAttachedInterfaces(Boolean value) { 
-      this.hasAttachedInterfaces = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
+   public void setVLANID(String value) { 
+      this.VLANID = value;
    }
    @JsonIgnore
    public Boolean getActive() {
@@ -323,51 +302,6 @@ public class VPort extends RestObject {
    @JsonIgnore
    public void setAddressSpoofing(AddressSpoofing value) { 
       this.addressSpoofing = value;
-   }
-   @JsonIgnore
-   public String getDescription() {
-      return description;
-   }
-
-   @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
-   }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
-   }
-   @JsonIgnore
-   public String getDomainID() {
-      return domainID;
-   }
-
-   @JsonIgnore
-   public void setDomainID(String value) { 
-      this.domainID = value;
-   }
-   @JsonIgnore
-   public String getZoneID() {
-      return zoneID;
-   }
-
-   @JsonIgnore
-   public void setZoneID(String value) { 
-      this.zoneID = value;
-   }
-   @JsonIgnore
-   public OperationalState getOperationalState() {
-      return operationalState;
-   }
-
-   @JsonIgnore
-   public void setOperationalState(OperationalState value) { 
-      this.operationalState = value;
    }
    @JsonIgnore
    public String getAssociatedFloatingIPID() {
@@ -397,6 +331,60 @@ public class VPort extends RestObject {
       this.associatedSendMulticastChannelMapID = value;
    }
    @JsonIgnore
+   public String getDescription() {
+      return description;
+   }
+
+   @JsonIgnore
+   public void setDescription(String value) { 
+      this.description = value;
+   }
+   @JsonIgnore
+   public String getDomainID() {
+      return domainID;
+   }
+
+   @JsonIgnore
+   public void setDomainID(String value) { 
+      this.domainID = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public Boolean getHasAttachedInterfaces() {
+      return hasAttachedInterfaces;
+   }
+
+   @JsonIgnore
+   public void setHasAttachedInterfaces(Boolean value) { 
+      this.hasAttachedInterfaces = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
    public String getMultiNICVPortID() {
       return multiNICVPortID;
    }
@@ -415,13 +403,31 @@ public class VPort extends RestObject {
       this.multicast = value;
    }
    @JsonIgnore
-   public String getExternalID() {
-      return externalID;
+   public String getName() {
+      return name;
    }
 
    @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public OperationalState getOperationalState() {
+      return operationalState;
+   }
+
+   @JsonIgnore
+   public void setOperationalState(OperationalState value) { 
+      this.operationalState = value;
+   }
+   @JsonIgnore
+   public SystemType getSystemType() {
+      return systemType;
+   }
+
+   @JsonIgnore
+   public void setSystemType(SystemType value) { 
+      this.systemType = value;
    }
    @JsonIgnore
    public Type getType() {
@@ -433,45 +439,20 @@ public class VPort extends RestObject {
       this.type = value;
    }
    @JsonIgnore
-   public SystemType getSystemType() {
-      return systemType;
+   public String getZoneID() {
+      return zoneID;
    }
 
    @JsonIgnore
-   public void setSystemType(SystemType value) { 
-      this.systemType = value;
+   public void setZoneID(String value) { 
+      this.zoneID = value;
    }
    
 
-   
-   @JsonIgnore
-   public TCAsFetcher getTCAs() {
-      return tCAs;
-   }
-   
-   @JsonIgnore
-   public RedirectionTargetsFetcher getRedirectionTargets() {
-      return redirectionTargets;
-   }
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public AggregateMetadatasFetcher getAggregateMetadatas() {
       return aggregateMetadatas;
-   }
-   
-   @JsonIgnore
-   public DHCPOptionsFetcher getDHCPOptions() {
-      return dHCPOptions;
-   }
-   
-   @JsonIgnore
-   public VirtualIPsFetcher getVirtualIPs() {
-      return virtualIPs;
    }
    
    @JsonIgnore
@@ -480,23 +461,18 @@ public class VPort extends RestObject {
    }
    
    @JsonIgnore
-   public GlobalMetadatasFetcher getGlobalMetadatas() {
-      return globalMetadatas;
+   public ApplicationperformancemanagementsFetcher getApplicationperformancemanagements() {
+      return applicationperformancemanagements;
    }
    
    @JsonIgnore
-   public VMsFetcher getVMs() {
-      return vMs;
+   public BGPNeighborsFetcher getBGPNeighbors() {
+      return bGPNeighbors;
    }
    
    @JsonIgnore
-   public VMInterfacesFetcher getVMInterfaces() {
-      return vMInterfaces;
-   }
-   
-   @JsonIgnore
-   public PolicyGroupsFetcher getPolicyGroups() {
-      return policyGroups;
+   public BridgeInterfacesFetcher getBridgeInterfaces() {
+      return bridgeInterfaces;
    }
    
    @JsonIgnore
@@ -510,6 +486,36 @@ public class VPort extends RestObject {
    }
    
    @JsonIgnore
+   public DHCPOptionsFetcher getDHCPOptions() {
+      return dHCPOptions;
+   }
+   
+   @JsonIgnore
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
+   }
+   
+   @JsonIgnore
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public HostInterfacesFetcher getHostInterfaces() {
+      return hostInterfaces;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
+   @JsonIgnore
+   public PolicyGroupsFetcher getPolicyGroups() {
+      return policyGroups;
+   }
+   
+   @JsonIgnore
    public PortMappingsFetcher getPortMappings() {
       return portMappings;
    }
@@ -520,28 +526,8 @@ public class VPort extends RestObject {
    }
    
    @JsonIgnore
-   public HostInterfacesFetcher getHostInterfaces() {
-      return hostInterfaces;
-   }
-   
-   @JsonIgnore
-   public VPortMirrorsFetcher getVPortMirrors() {
-      return vPortMirrors;
-   }
-   
-   @JsonIgnore
-   public ApplicationperformancemanagementsFetcher getApplicationperformancemanagements() {
-      return applicationperformancemanagements;
-   }
-   
-   @JsonIgnore
-   public BridgeInterfacesFetcher getBridgeInterfaces() {
-      return bridgeInterfaces;
-   }
-   
-   @JsonIgnore
-   public VRSsFetcher getVRSs() {
-      return vRSs;
+   public RedirectionTargetsFetcher getRedirectionTargets() {
+      return redirectionTargets;
    }
    
    @JsonIgnore
@@ -555,13 +541,38 @@ public class VPort extends RestObject {
    }
    
    @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
+   public TCAsFetcher getTCAs() {
+      return tCAs;
+   }
+   
+   @JsonIgnore
+   public VirtualIPsFetcher getVirtualIPs() {
+      return virtualIPs;
+   }
+   
+   @JsonIgnore
+   public VMsFetcher getVMs() {
+      return vMs;
+   }
+   
+   @JsonIgnore
+   public VMInterfacesFetcher getVMInterfaces() {
+      return vMInterfaces;
+   }
+   
+   @JsonIgnore
+   public VPortMirrorsFetcher getVPortMirrors() {
+      return vPortMirrors;
+   }
+   
+   @JsonIgnore
+   public VRSsFetcher getVRSs() {
+      return vRSs;
    }
    
 
    public String toString() {
-      return "VPort [" + "VLANID=" + VLANID + ", DPI=" + DPI + ", name=" + name + ", hasAttachedInterfaces=" + hasAttachedInterfaces + ", lastUpdatedBy=" + lastUpdatedBy + ", active=" + active + ", addressSpoofing=" + addressSpoofing + ", description=" + description + ", entityScope=" + entityScope + ", domainID=" + domainID + ", zoneID=" + zoneID + ", operationalState=" + operationalState + ", associatedFloatingIPID=" + associatedFloatingIPID + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSendMulticastChannelMapID=" + associatedSendMulticastChannelMapID + ", multiNICVPortID=" + multiNICVPortID + ", multicast=" + multicast + ", externalID=" + externalID + ", type=" + type + ", systemType=" + systemType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VPort [" + "DPI=" + DPI + ", VLANID=" + VLANID + ", active=" + active + ", addressSpoofing=" + addressSpoofing + ", associatedFloatingIPID=" + associatedFloatingIPID + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSendMulticastChannelMapID=" + associatedSendMulticastChannelMapID + ", description=" + description + ", domainID=" + domainID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", hasAttachedInterfaces=" + hasAttachedInterfaces + ", lastUpdatedBy=" + lastUpdatedBy + ", multiNICVPortID=" + multiNICVPortID + ", multicast=" + multicast + ", name=" + name + ", operationalState=" + operationalState + ", systemType=" + systemType + ", type=" + type + ", zoneID=" + zoneID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

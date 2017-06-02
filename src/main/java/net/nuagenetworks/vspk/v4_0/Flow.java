@@ -35,11 +35,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.FlowForwardingPoliciesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.FlowSecurityPoliciesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "flow", resourceName = "flows")
@@ -51,37 +51,34 @@ public class Flow extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
    @JsonProperty(value = "description")
    protected String description;
    
    @JsonProperty(value = "destinationTierID")
    protected String destinationTierID;
    
-   @JsonProperty(value = "metadata")
-   protected String metadata;
-   
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
-   
-   @JsonProperty(value = "originTierID")
-   protected String originTierID;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
    
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "metadata")
+   protected String metadata;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "originTierID")
+   protected String originTierID;
+   
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
-   
-   @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
+   private EventLogsFetcher eventLogs;
    
    @JsonIgnore
    private FlowForwardingPoliciesFetcher flowForwardingPolicies;
@@ -90,41 +87,26 @@ public class Flow extends RestObject {
    private FlowSecurityPoliciesFetcher flowSecurityPolicies;
    
    @JsonIgnore
-   private EventLogsFetcher eventLogs;
+   private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
    
 
    public Flow() {
       
-      metadatas = new MetadatasFetcher(this);
-      
-      globalMetadatas = new GlobalMetadatasFetcher(this);
+      eventLogs = new EventLogsFetcher(this);
       
       flowForwardingPolicies = new FlowForwardingPoliciesFetcher(this);
       
       flowSecurityPolicies = new FlowSecurityPoliciesFetcher(this);
       
-      eventLogs = new EventLogsFetcher(this);
+      globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
    }
 
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -144,15 +126,6 @@ public class Flow extends RestObject {
       this.destinationTierID = value;
    }
    @JsonIgnore
-   public String getMetadata() {
-      return metadata;
-   }
-
-   @JsonIgnore
-   public void setMetadata(String value) { 
-      this.metadata = value;
-   }
-   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
@@ -160,15 +133,6 @@ public class Flow extends RestObject {
    @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
-   }
-   @JsonIgnore
-   public String getOriginTierID() {
-      return originTierID;
-   }
-
-   @JsonIgnore
-   public void setOriginTierID(String value) { 
-      this.originTierID = value;
    }
    @JsonIgnore
    public String getExternalID() {
@@ -179,17 +143,48 @@ public class Flow extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getMetadata() {
+      return metadata;
+   }
+
+   @JsonIgnore
+   public void setMetadata(String value) { 
+      this.metadata = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public String getOriginTierID() {
+      return originTierID;
+   }
+
+   @JsonIgnore
+   public void setOriginTierID(String value) { 
+      this.originTierID = value;
+   }
    
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
-   
-   @JsonIgnore
-   public GlobalMetadatasFetcher getGlobalMetadatas() {
-      return globalMetadatas;
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
    }
    
    @JsonIgnore
@@ -203,13 +198,18 @@ public class Flow extends RestObject {
    }
    
    @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
 
    public String toString() {
-      return "Flow [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", destinationTierID=" + destinationTierID + ", metadata=" + metadata + ", entityScope=" + entityScope + ", originTierID=" + originTierID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Flow [" + "description=" + description + ", destinationTierID=" + destinationTierID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", metadata=" + metadata + ", name=" + name + ", originTierID=" + originTierID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

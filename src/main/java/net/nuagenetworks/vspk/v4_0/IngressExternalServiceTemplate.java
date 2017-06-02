@@ -35,10 +35,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IngressExternalServiceTemplateEntriesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "ingressexternalservicetemplate", resourceName = "ingressexternalservicetemplates")
@@ -52,17 +52,23 @@ public class IngressExternalServiceTemplate extends RestObject {
    public enum PriorityType { BOTTOM, NONE, TOP };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
    @JsonProperty(value = "active")
    protected Boolean active;
+   
+   @JsonProperty(value = "associatedLiveEntityID")
+   protected String associatedLiveEntityID;
    
    @JsonProperty(value = "description")
    protected String description;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "name")
+   protected String name;
    
    @JsonProperty(value = "policyState")
    protected PolicyState policyState;
@@ -73,16 +79,7 @@ public class IngressExternalServiceTemplate extends RestObject {
    @JsonProperty(value = "priorityType")
    protected PriorityType priorityType;
    
-   @JsonProperty(value = "associatedLiveEntityID")
-   protected String associatedLiveEntityID;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
 
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
@@ -93,10 +90,11 @@ public class IngressExternalServiceTemplate extends RestObject {
    @JsonIgnore
    private JobsFetcher jobs;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public IngressExternalServiceTemplate() {
-      
-      metadatas = new MetadatasFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
@@ -104,17 +102,10 @@ public class IngressExternalServiceTemplate extends RestObject {
       
       jobs = new JobsFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
    @JsonIgnore
    public Boolean getActive() {
       return active;
@@ -123,6 +114,15 @@ public class IngressExternalServiceTemplate extends RestObject {
    @JsonIgnore
    public void setActive(Boolean value) { 
       this.active = value;
+   }
+   @JsonIgnore
+   public String getAssociatedLiveEntityID() {
+      return associatedLiveEntityID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedLiveEntityID(String value) { 
+      this.associatedLiveEntityID = value;
    }
    @JsonIgnore
    public String getDescription() {
@@ -141,6 +141,24 @@ public class IngressExternalServiceTemplate extends RestObject {
    @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
    }
    @JsonIgnore
    public PolicyState getPolicyState() {
@@ -169,31 +187,8 @@ public class IngressExternalServiceTemplate extends RestObject {
    public void setPriorityType(PriorityType value) { 
       this.priorityType = value;
    }
-   @JsonIgnore
-   public String getAssociatedLiveEntityID() {
-      return associatedLiveEntityID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedLiveEntityID(String value) { 
-      this.associatedLiveEntityID = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
@@ -210,9 +205,14 @@ public class IngressExternalServiceTemplate extends RestObject {
       return jobs;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "IngressExternalServiceTemplate [" + "name=" + name + ", active=" + active + ", description=" + description + ", entityScope=" + entityScope + ", policyState=" + policyState + ", priority=" + priority + ", priorityType=" + priorityType + ", associatedLiveEntityID=" + associatedLiveEntityID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "IngressExternalServiceTemplate [" + "active=" + active + ", associatedLiveEntityID=" + associatedLiveEntityID + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", name=" + name + ", policyState=" + policyState + ", priority=" + priority + ", priorityType=" + priorityType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

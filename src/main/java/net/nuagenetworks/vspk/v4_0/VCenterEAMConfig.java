@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "eamconfig", resourceName = "eamconfigs")
@@ -57,17 +57,8 @@ public class VCenterEAMConfig extends RestObject {
    @JsonProperty(value = "eamServerPortType")
    protected String eamServerPortType;
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "vibURL")
-   protected String vibURL;
-   
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
-   
-   @JsonProperty(value = "ovfURL")
-   protected String ovfURL;
    
    @JsonProperty(value = "extensionKey")
    protected String extensionKey;
@@ -75,20 +66,29 @@ public class VCenterEAMConfig extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
+   @JsonProperty(value = "ovfURL")
+   protected String ovfURL;
+   
+   @JsonProperty(value = "vibURL")
+   protected String vibURL;
+   
+
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public VCenterEAMConfig() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
    }
 
@@ -120,24 +120,6 @@ public class VCenterEAMConfig extends RestObject {
       this.eamServerPortType = value;
    }
    @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public String getVibURL() {
-      return vibURL;
-   }
-
-   @JsonIgnore
-   public void setVibURL(String value) { 
-      this.vibURL = value;
-   }
-   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
@@ -145,15 +127,6 @@ public class VCenterEAMConfig extends RestObject {
    @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
-   }
-   @JsonIgnore
-   public String getOvfURL() {
-      return ovfURL;
-   }
-
-   @JsonIgnore
-   public void setOvfURL(String value) { 
-      this.ovfURL = value;
    }
    @JsonIgnore
    public String getExtensionKey() {
@@ -173,22 +146,49 @@ public class VCenterEAMConfig extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getOvfURL() {
+      return ovfURL;
+   }
+
+   @JsonIgnore
+   public void setOvfURL(String value) { 
+      this.ovfURL = value;
+   }
+   @JsonIgnore
+   public String getVibURL() {
+      return vibURL;
+   }
+
+   @JsonIgnore
+   public void setVibURL(String value) { 
+      this.vibURL = value;
+   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "VCenterEAMConfig [" + "eamServerIP=" + eamServerIP + ", eamServerPortNumber=" + eamServerPortNumber + ", eamServerPortType=" + eamServerPortType + ", lastUpdatedBy=" + lastUpdatedBy + ", vibURL=" + vibURL + ", entityScope=" + entityScope + ", ovfURL=" + ovfURL + ", extensionKey=" + extensionKey + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VCenterEAMConfig [" + "eamServerIP=" + eamServerIP + ", eamServerPortNumber=" + eamServerPortNumber + ", eamServerPortType=" + eamServerPortType + ", entityScope=" + entityScope + ", extensionKey=" + extensionKey + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", ovfURL=" + ovfURL + ", vibURL=" + vibURL + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

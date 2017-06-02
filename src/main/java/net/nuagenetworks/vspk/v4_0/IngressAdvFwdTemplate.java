@@ -35,10 +35,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IngressAdvFwdEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "ingressadvfwdtemplate", resourceName = "ingressadvfwdtemplates")
@@ -52,20 +52,29 @@ public class IngressAdvFwdTemplate extends RestObject {
    public enum PriorityType { BOTTOM, NONE, TOP };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
    @JsonProperty(value = "active")
    protected Boolean active;
+   
+   @JsonProperty(value = "associatedLiveEntityID")
+   protected String associatedLiveEntityID;
+   
+   @JsonProperty(value = "autoGeneratePriority")
+   protected Boolean autoGeneratePriority;
    
    @JsonProperty(value = "description")
    protected String description;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "name")
+   protected String name;
    
    @JsonProperty(value = "policyState")
    protected PolicyState policyState;
@@ -76,19 +85,7 @@ public class IngressAdvFwdTemplate extends RestObject {
    @JsonProperty(value = "priorityType")
    protected PriorityType priorityType;
    
-   @JsonProperty(value = "associatedLiveEntityID")
-   protected String associatedLiveEntityID;
-   
-   @JsonProperty(value = "autoGeneratePriority")
-   protected Boolean autoGeneratePriority;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
 
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
@@ -99,10 +96,11 @@ public class IngressAdvFwdTemplate extends RestObject {
    @JsonIgnore
    private JobsFetcher jobs;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public IngressAdvFwdTemplate() {
-      
-      metadatas = new MetadatasFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
@@ -110,26 +108,10 @@ public class IngressAdvFwdTemplate extends RestObject {
       
       jobs = new JobsFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
    @JsonIgnore
    public Boolean getActive() {
       return active;
@@ -138,6 +120,24 @@ public class IngressAdvFwdTemplate extends RestObject {
    @JsonIgnore
    public void setActive(Boolean value) { 
       this.active = value;
+   }
+   @JsonIgnore
+   public String getAssociatedLiveEntityID() {
+      return associatedLiveEntityID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedLiveEntityID(String value) { 
+      this.associatedLiveEntityID = value;
+   }
+   @JsonIgnore
+   public Boolean getAutoGeneratePriority() {
+      return autoGeneratePriority;
+   }
+
+   @JsonIgnore
+   public void setAutoGeneratePriority(Boolean value) { 
+      this.autoGeneratePriority = value;
    }
    @JsonIgnore
    public String getDescription() {
@@ -156,6 +156,33 @@ public class IngressAdvFwdTemplate extends RestObject {
    @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
    }
    @JsonIgnore
    public PolicyState getPolicyState() {
@@ -184,40 +211,8 @@ public class IngressAdvFwdTemplate extends RestObject {
    public void setPriorityType(PriorityType value) { 
       this.priorityType = value;
    }
-   @JsonIgnore
-   public String getAssociatedLiveEntityID() {
-      return associatedLiveEntityID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedLiveEntityID(String value) { 
-      this.associatedLiveEntityID = value;
-   }
-   @JsonIgnore
-   public Boolean getAutoGeneratePriority() {
-      return autoGeneratePriority;
-   }
-
-   @JsonIgnore
-   public void setAutoGeneratePriority(Boolean value) { 
-      this.autoGeneratePriority = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
@@ -234,9 +229,14 @@ public class IngressAdvFwdTemplate extends RestObject {
       return jobs;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "IngressAdvFwdTemplate [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", active=" + active + ", description=" + description + ", entityScope=" + entityScope + ", policyState=" + policyState + ", priority=" + priority + ", priorityType=" + priorityType + ", associatedLiveEntityID=" + associatedLiveEntityID + ", autoGeneratePriority=" + autoGeneratePriority + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "IngressAdvFwdTemplate [" + "active=" + active + ", associatedLiveEntityID=" + associatedLiveEntityID + ", autoGeneratePriority=" + autoGeneratePriority + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", policyState=" + policyState + ", priority=" + priority + ", priorityType=" + priorityType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

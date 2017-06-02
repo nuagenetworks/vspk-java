@@ -53,14 +53,14 @@ public class Connectionendpoint extends RestObject {
    @JsonProperty(value = "IPType")
    protected IPType IPType;
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
    @JsonProperty(value = "description")
    protected String description;
    
    @JsonProperty(value = "endPointType")
    protected EndPointType endPointType;
+   
+   @JsonProperty(value = "name")
+   protected String name;
    
 
    
@@ -88,15 +88,6 @@ public class Connectionendpoint extends RestObject {
       this.IPType = value;
    }
    @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
    public String getDescription() {
       return description;
    }
@@ -114,12 +105,21 @@ public class Connectionendpoint extends RestObject {
    public void setEndPointType(EndPointType value) { 
       this.endPointType = value;
    }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
    
 
    
 
    public String toString() {
-      return "Connectionendpoint [" + "IPAddress=" + IPAddress + ", IPType=" + IPType + ", name=" + name + ", description=" + description + ", endPointType=" + endPointType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Connectionendpoint [" + "IPAddress=" + IPAddress + ", IPType=" + IPType + ", description=" + description + ", endPointType=" + endPointType + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

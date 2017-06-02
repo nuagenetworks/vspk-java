@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.NetworkPerformanceBindingsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MonitorscopesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.NetworkPerformanceBindingsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "networkperformancemeasurement", resourceName = "networkperformancemeasurements")
@@ -47,35 +47,53 @@ public class NetworkPerformanceMeasurement extends RestObject {
    
 
    
+   @JsonProperty(value = "associatedPerformanceMonitorID")
+   protected String associatedPerformanceMonitorID;
+   
+   @JsonProperty(value = "description")
+   protected String description;
+   
    @JsonProperty(value = "name")
    protected String name;
    
    @JsonProperty(value = "readOnly")
    protected Boolean readOnly;
    
-   @JsonProperty(value = "description")
-   protected String description;
-   
-   @JsonProperty(value = "associatedPerformanceMonitorID")
-   protected String associatedPerformanceMonitorID;
-   
 
-   
-   @JsonIgnore
-   private NetworkPerformanceBindingsFetcher networkPerformanceBindings;
    
    @JsonIgnore
    private MonitorscopesFetcher monitorscopes;
    
+   @JsonIgnore
+   private NetworkPerformanceBindingsFetcher networkPerformanceBindings;
+   
 
    public NetworkPerformanceMeasurement() {
       
-      networkPerformanceBindings = new NetworkPerformanceBindingsFetcher(this);
-      
       monitorscopes = new MonitorscopesFetcher(this);
+      
+      networkPerformanceBindings = new NetworkPerformanceBindingsFetcher(this);
       
    }
 
+   @JsonIgnore
+   public String getAssociatedPerformanceMonitorID() {
+      return associatedPerformanceMonitorID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedPerformanceMonitorID(String value) { 
+      this.associatedPerformanceMonitorID = value;
+   }
+   @JsonIgnore
+   public String getDescription() {
+      return description;
+   }
+
+   @JsonIgnore
+   public void setDescription(String value) { 
+      this.description = value;
+   }
    @JsonIgnore
    public String getName() {
       return name;
@@ -94,40 +112,22 @@ public class NetworkPerformanceMeasurement extends RestObject {
    public void setReadOnly(Boolean value) { 
       this.readOnly = value;
    }
-   @JsonIgnore
-   public String getDescription() {
-      return description;
-   }
-
-   @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
-   }
-   @JsonIgnore
-   public String getAssociatedPerformanceMonitorID() {
-      return associatedPerformanceMonitorID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedPerformanceMonitorID(String value) { 
-      this.associatedPerformanceMonitorID = value;
-   }
    
 
-   
-   @JsonIgnore
-   public NetworkPerformanceBindingsFetcher getNetworkPerformanceBindings() {
-      return networkPerformanceBindings;
-   }
    
    @JsonIgnore
    public MonitorscopesFetcher getMonitorscopes() {
       return monitorscopes;
    }
    
+   @JsonIgnore
+   public NetworkPerformanceBindingsFetcher getNetworkPerformanceBindings() {
+      return networkPerformanceBindings;
+   }
+   
 
    public String toString() {
-      return "NetworkPerformanceMeasurement [" + "name=" + name + ", readOnly=" + readOnly + ", description=" + description + ", associatedPerformanceMonitorID=" + associatedPerformanceMonitorID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NetworkPerformanceMeasurement [" + "associatedPerformanceMonitorID=" + associatedPerformanceMonitorID + ", description=" + description + ", name=" + name + ", readOnly=" + readOnly + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

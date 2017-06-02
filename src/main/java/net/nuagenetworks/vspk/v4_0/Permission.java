@@ -35,9 +35,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "permission", resourceName = "permissions")
@@ -46,15 +46,21 @@ public class Permission extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "name")
+   protected String name;
    
    @JsonProperty(value = "permittedAction")
    protected PermittedAction permittedAction;
@@ -71,42 +77,45 @@ public class Permission extends RestObject {
    @JsonProperty(value = "permittedEntityType")
    protected String permittedEntityType;
    
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private EventLogsFetcher eventLogs;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private EventLogsFetcher eventLogs;
+   private MetadatasFetcher metadatas;
    
 
    public Permission() {
       
-      metadatas = new MetadatasFetcher(this);
+      eventLogs = new EventLogsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
-      eventLogs = new EventLogsFetcher(this);
+      metadatas = new MetadatasFetcher(this);
       
    }
 
    @JsonIgnore
-   public String getName() {
-      return name;
+   public EntityScope getEntityScope() {
+      return entityScope;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
    }
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -116,6 +125,15 @@ public class Permission extends RestObject {
    @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
    }
    @JsonIgnore
    public PermittedAction getPermittedAction() {
@@ -162,30 +180,12 @@ public class Permission extends RestObject {
    public void setPermittedEntityType(String value) { 
       this.permittedEntityType = value;
    }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
    
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
    }
    
    @JsonIgnore
@@ -194,13 +194,13 @@ public class Permission extends RestObject {
    }
    
    @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
 
    public String toString() {
-      return "Permission [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", permittedAction=" + permittedAction + ", permittedEntityDescription=" + permittedEntityDescription + ", permittedEntityID=" + permittedEntityID + ", permittedEntityName=" + permittedEntityName + ", permittedEntityType=" + permittedEntityType + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Permission [" + "entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", permittedAction=" + permittedAction + ", permittedEntityDescription=" + permittedEntityDescription + ", permittedEntityID=" + permittedEntityID + ", permittedEntityName=" + permittedEntityName + ", permittedEntityType=" + permittedEntityType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

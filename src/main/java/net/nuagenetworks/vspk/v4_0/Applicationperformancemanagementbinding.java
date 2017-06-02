@@ -45,14 +45,14 @@ public class Applicationperformancemanagementbinding extends RestObject {
    
 
    
-   @JsonProperty(value = "readOnly")
-   protected Boolean readOnly;
+   @JsonProperty(value = "associatedApplicationPerformanceManagementID")
+   protected String associatedApplicationPerformanceManagementID;
    
    @JsonProperty(value = "priority")
    protected Long priority;
    
-   @JsonProperty(value = "associatedApplicationPerformanceManagementID")
-   protected String associatedApplicationPerformanceManagementID;
+   @JsonProperty(value = "readOnly")
+   protected Boolean readOnly;
    
 
    
@@ -62,13 +62,13 @@ public class Applicationperformancemanagementbinding extends RestObject {
    }
 
    @JsonIgnore
-   public Boolean getReadOnly() {
-      return readOnly;
+   public String getAssociatedApplicationPerformanceManagementID() {
+      return associatedApplicationPerformanceManagementID;
    }
 
    @JsonIgnore
-   public void setReadOnly(Boolean value) { 
-      this.readOnly = value;
+   public void setAssociatedApplicationPerformanceManagementID(String value) { 
+      this.associatedApplicationPerformanceManagementID = value;
    }
    @JsonIgnore
    public Long getPriority() {
@@ -80,20 +80,20 @@ public class Applicationperformancemanagementbinding extends RestObject {
       this.priority = value;
    }
    @JsonIgnore
-   public String getAssociatedApplicationPerformanceManagementID() {
-      return associatedApplicationPerformanceManagementID;
+   public Boolean getReadOnly() {
+      return readOnly;
    }
 
    @JsonIgnore
-   public void setAssociatedApplicationPerformanceManagementID(String value) { 
-      this.associatedApplicationPerformanceManagementID = value;
+   public void setReadOnly(Boolean value) { 
+      this.readOnly = value;
    }
    
 
    
 
    public String toString() {
-      return "Applicationperformancemanagementbinding [" + "readOnly=" + readOnly + ", priority=" + priority + ", associatedApplicationPerformanceManagementID=" + associatedApplicationPerformanceManagementID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Applicationperformancemanagementbinding [" + "associatedApplicationPerformanceManagementID=" + associatedApplicationPerformanceManagementID + ", priority=" + priority + ", readOnly=" + readOnly + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

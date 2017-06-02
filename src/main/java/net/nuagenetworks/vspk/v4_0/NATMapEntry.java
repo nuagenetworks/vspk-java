@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "natmapentry", resourceName = "natmapentries")
@@ -49,23 +49,23 @@ public class NATMapEntry extends RestObject {
    public enum Type { MANY_TO_ONE_PAT, ONE_TO_MANY_PAT, ONE_TO_ONE_NAT, UNKNOWN };
 
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
+   @JsonProperty(value = "associatedPATNATPoolID")
+   protected String associatedPATNATPoolID;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
    @JsonProperty(value = "privateIP")
    protected String privateIP;
    
-   @JsonProperty(value = "associatedPATNATPoolID")
-   protected String associatedPATNATPoolID;
-   
    @JsonProperty(value = "publicIP")
    protected String publicIP;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
    
    @JsonProperty(value = "type")
    protected Type type;
@@ -73,28 +73,28 @@ public class NATMapEntry extends RestObject {
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
+   private MetadatasFetcher metadatas;
    
 
    public NATMapEntry() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
    @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
+   public String getAssociatedPATNATPoolID() {
+      return associatedPATNATPoolID;
    }
 
    @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
+   public void setAssociatedPATNATPoolID(String value) { 
+      this.associatedPATNATPoolID = value;
    }
    @JsonIgnore
    public EntityScope getEntityScope() {
@@ -106,6 +106,24 @@ public class NATMapEntry extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
    public String getPrivateIP() {
       return privateIP;
    }
@@ -115,15 +133,6 @@ public class NATMapEntry extends RestObject {
       this.privateIP = value;
    }
    @JsonIgnore
-   public String getAssociatedPATNATPoolID() {
-      return associatedPATNATPoolID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedPATNATPoolID(String value) { 
-      this.associatedPATNATPoolID = value;
-   }
-   @JsonIgnore
    public String getPublicIP() {
       return publicIP;
    }
@@ -131,15 +140,6 @@ public class NATMapEntry extends RestObject {
    @JsonIgnore
    public void setPublicIP(String value) { 
       this.publicIP = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
    }
    @JsonIgnore
    public Type getType() {
@@ -154,18 +154,18 @@ public class NATMapEntry extends RestObject {
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
-   
-   @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "NATMapEntry [" + "lastUpdatedBy=" + lastUpdatedBy + ", entityScope=" + entityScope + ", privateIP=" + privateIP + ", associatedPATNATPoolID=" + associatedPATNATPoolID + ", publicIP=" + publicIP + ", externalID=" + externalID + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NATMapEntry [" + "associatedPATNATPoolID=" + associatedPATNATPoolID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", privateIP=" + privateIP + ", publicIP=" + publicIP + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

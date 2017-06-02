@@ -35,9 +35,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VLANTemplatesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "nsporttemplate", resourceName = "nsporttemplates")
@@ -54,23 +54,32 @@ public class NSPortTemplate extends RestObject {
    @JsonProperty(value = "VLANRange")
    protected String VLANRange;
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
+   @JsonProperty(value = "associatedEgressQOSPolicyID")
+   protected String associatedEgressQOSPolicyID;
    
    @JsonProperty(value = "description")
    protected String description;
    
-   @JsonProperty(value = "physicalName")
-   protected String physicalName;
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
    
    @JsonProperty(value = "infrastructureProfileID")
    protected String infrastructureProfileID;
    
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "mtu")
+   protected Long mtu;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "physicalName")
+   protected String physicalName;
    
    @JsonProperty(value = "portType")
    protected PortType portType;
@@ -78,16 +87,10 @@ public class NSPortTemplate extends RestObject {
    @JsonProperty(value = "speed")
    protected Speed speed;
    
-   @JsonProperty(value = "associatedEgressQOSPolicyID")
-   protected String associatedEgressQOSPolicyID;
-   
-   @JsonProperty(value = "mtu")
-   protected Long mtu;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
 
+   
+   @JsonIgnore
+   private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
    private MetadatasFetcher metadatas;
@@ -95,17 +98,14 @@ public class NSPortTemplate extends RestObject {
    @JsonIgnore
    private VLANTemplatesFetcher vLANTemplates;
    
-   @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
-   
 
    public NSPortTemplate() {
+      
+      globalMetadatas = new GlobalMetadatasFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
       
       vLANTemplates = new VLANTemplatesFetcher(this);
-      
-      globalMetadatas = new GlobalMetadatasFetcher(this);
       
    }
 
@@ -119,22 +119,13 @@ public class NSPortTemplate extends RestObject {
       this.VLANRange = value;
    }
    @JsonIgnore
-   public String getName() {
-      return name;
+   public String getAssociatedEgressQOSPolicyID() {
+      return associatedEgressQOSPolicyID;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
+   public void setAssociatedEgressQOSPolicyID(String value) { 
+      this.associatedEgressQOSPolicyID = value;
    }
    @JsonIgnore
    public String getDescription() {
@@ -146,13 +137,22 @@ public class NSPortTemplate extends RestObject {
       this.description = value;
    }
    @JsonIgnore
-   public String getPhysicalName() {
-      return physicalName;
+   public EntityScope getEntityScope() {
+      return entityScope;
    }
 
    @JsonIgnore
-   public void setPhysicalName(String value) { 
-      this.physicalName = value;
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
    }
    @JsonIgnore
    public String getInfrastructureProfileID() {
@@ -164,13 +164,40 @@ public class NSPortTemplate extends RestObject {
       this.infrastructureProfileID = value;
    }
    @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public Long getMtu() {
+      return mtu;
+   }
+
+   @JsonIgnore
+   public void setMtu(Long value) { 
+      this.mtu = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public String getPhysicalName() {
+      return physicalName;
+   }
+
+   @JsonIgnore
+   public void setPhysicalName(String value) { 
+      this.physicalName = value;
    }
    @JsonIgnore
    public PortType getPortType() {
@@ -190,35 +217,13 @@ public class NSPortTemplate extends RestObject {
    public void setSpeed(Speed value) { 
       this.speed = value;
    }
-   @JsonIgnore
-   public String getAssociatedEgressQOSPolicyID() {
-      return associatedEgressQOSPolicyID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedEgressQOSPolicyID(String value) { 
-      this.associatedEgressQOSPolicyID = value;
-   }
-   @JsonIgnore
-   public Long getMtu() {
-      return mtu;
-   }
-
-   @JsonIgnore
-   public void setMtu(Long value) { 
-      this.mtu = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
    
 
+   
+   @JsonIgnore
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
    
    @JsonIgnore
    public MetadatasFetcher getMetadatas() {
@@ -230,14 +235,9 @@ public class NSPortTemplate extends RestObject {
       return vLANTemplates;
    }
    
-   @JsonIgnore
-   public GlobalMetadatasFetcher getGlobalMetadatas() {
-      return globalMetadatas;
-   }
-   
 
    public String toString() {
-      return "NSPortTemplate [" + "VLANRange=" + VLANRange + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", physicalName=" + physicalName + ", infrastructureProfileID=" + infrastructureProfileID + ", entityScope=" + entityScope + ", portType=" + portType + ", speed=" + speed + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", mtu=" + mtu + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NSPortTemplate [" + "VLANRange=" + VLANRange + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", infrastructureProfileID=" + infrastructureProfileID + ", lastUpdatedBy=" + lastUpdatedBy + ", mtu=" + mtu + ", name=" + name + ", physicalName=" + physicalName + ", portType=" + portType + ", speed=" + speed + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MonitorscopesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.ApplicationBindingsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MonitorscopesFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "application", resourceName = "applications")
@@ -45,9 +45,9 @@ public class Application extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum OptimizePathSelection { JITTER, LATENCY, PACKETLOSS };
    public enum PerformanceMonitorType { CONTINUOUS, FIRST_PACKET, FIRST_PACKET_AND_CONTINUOUS };
    public enum PostClassificationPath { ANY, PRIMARY, SECONDARY };
-   public enum OptimizePathSelection { JITTER, LATENCY, PACKETLOSS };
    public enum PreClassificationPath { DEFAULT, PRIMARY, SECONDARY };
    public enum Protocol { NONE, TCP, UDP };
 
@@ -55,17 +55,14 @@ public class Application extends RestObject {
    @JsonProperty(value = "DSCP")
    protected String DSCP;
    
-   @JsonProperty(value = "name")
-   protected String name;
+   @JsonProperty(value = "appId")
+   protected Long appId;
+   
+   @JsonProperty(value = "associatedL7ApplicationSignatureID")
+   protected String associatedL7ApplicationSignatureID;
    
    @JsonProperty(value = "bandwidth")
    protected Long bandwidth;
-   
-   @JsonProperty(value = "readOnly")
-   protected Boolean readOnly;
-   
-   @JsonProperty(value = "performanceMonitorType")
-   protected PerformanceMonitorType performanceMonitorType;
    
    @JsonProperty(value = "description")
    protected String description;
@@ -79,6 +76,12 @@ public class Application extends RestObject {
    @JsonProperty(value = "enablePPS")
    protected Boolean enablePPS;
    
+   @JsonProperty(value = "etherType")
+   protected String etherType;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
    @JsonProperty(value = "oneWayDelay")
    protected Long oneWayDelay;
    
@@ -88,20 +91,14 @@ public class Application extends RestObject {
    @JsonProperty(value = "oneWayLoss")
    protected Float oneWayLoss;
    
-   @JsonProperty(value = "postClassificationPath")
-   protected PostClassificationPath postClassificationPath;
-   
-   @JsonProperty(value = "sourceIP")
-   protected String sourceIP;
-   
-   @JsonProperty(value = "sourcePort")
-   protected String sourcePort;
-   
-   @JsonProperty(value = "appId")
-   protected Long appId;
-   
    @JsonProperty(value = "optimizePathSelection")
    protected OptimizePathSelection optimizePathSelection;
+   
+   @JsonProperty(value = "performanceMonitorType")
+   protected PerformanceMonitorType performanceMonitorType;
+   
+   @JsonProperty(value = "postClassificationPath")
+   protected PostClassificationPath postClassificationPath;
    
    @JsonProperty(value = "preClassificationPath")
    protected PreClassificationPath preClassificationPath;
@@ -109,11 +106,14 @@ public class Application extends RestObject {
    @JsonProperty(value = "protocol")
    protected Protocol protocol;
    
-   @JsonProperty(value = "associatedL7ApplicationSignatureID")
-   protected String associatedL7ApplicationSignatureID;
+   @JsonProperty(value = "readOnly")
+   protected Boolean readOnly;
    
-   @JsonProperty(value = "etherType")
-   protected String etherType;
+   @JsonProperty(value = "sourceIP")
+   protected String sourceIP;
+   
+   @JsonProperty(value = "sourcePort")
+   protected String sourcePort;
    
    @JsonProperty(value = "symmetry")
    protected Boolean symmetry;
@@ -121,17 +121,17 @@ public class Application extends RestObject {
 
    
    @JsonIgnore
-   private MonitorscopesFetcher monitorscopes;
+   private ApplicationBindingsFetcher applicationBindings;
    
    @JsonIgnore
-   private ApplicationBindingsFetcher applicationBindings;
+   private MonitorscopesFetcher monitorscopes;
    
 
    public Application() {
       
-      monitorscopes = new MonitorscopesFetcher(this);
-      
       applicationBindings = new ApplicationBindingsFetcher(this);
+      
+      monitorscopes = new MonitorscopesFetcher(this);
       
    }
 
@@ -145,13 +145,22 @@ public class Application extends RestObject {
       this.DSCP = value;
    }
    @JsonIgnore
-   public String getName() {
-      return name;
+   public Long getAppId() {
+      return appId;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
+   public void setAppId(Long value) { 
+      this.appId = value;
+   }
+   @JsonIgnore
+   public String getAssociatedL7ApplicationSignatureID() {
+      return associatedL7ApplicationSignatureID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedL7ApplicationSignatureID(String value) { 
+      this.associatedL7ApplicationSignatureID = value;
    }
    @JsonIgnore
    public Long getBandwidth() {
@@ -161,24 +170,6 @@ public class Application extends RestObject {
    @JsonIgnore
    public void setBandwidth(Long value) { 
       this.bandwidth = value;
-   }
-   @JsonIgnore
-   public Boolean getReadOnly() {
-      return readOnly;
-   }
-
-   @JsonIgnore
-   public void setReadOnly(Boolean value) { 
-      this.readOnly = value;
-   }
-   @JsonIgnore
-   public PerformanceMonitorType getPerformanceMonitorType() {
-      return performanceMonitorType;
-   }
-
-   @JsonIgnore
-   public void setPerformanceMonitorType(PerformanceMonitorType value) { 
-      this.performanceMonitorType = value;
    }
    @JsonIgnore
    public String getDescription() {
@@ -217,6 +208,24 @@ public class Application extends RestObject {
       this.enablePPS = value;
    }
    @JsonIgnore
+   public String getEtherType() {
+      return etherType;
+   }
+
+   @JsonIgnore
+   public void setEtherType(String value) { 
+      this.etherType = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
    public Long getOneWayDelay() {
       return oneWayDelay;
    }
@@ -244,42 +253,6 @@ public class Application extends RestObject {
       this.oneWayLoss = value;
    }
    @JsonIgnore
-   public PostClassificationPath getPostClassificationPath() {
-      return postClassificationPath;
-   }
-
-   @JsonIgnore
-   public void setPostClassificationPath(PostClassificationPath value) { 
-      this.postClassificationPath = value;
-   }
-   @JsonIgnore
-   public String getSourceIP() {
-      return sourceIP;
-   }
-
-   @JsonIgnore
-   public void setSourceIP(String value) { 
-      this.sourceIP = value;
-   }
-   @JsonIgnore
-   public String getSourcePort() {
-      return sourcePort;
-   }
-
-   @JsonIgnore
-   public void setSourcePort(String value) { 
-      this.sourcePort = value;
-   }
-   @JsonIgnore
-   public Long getAppId() {
-      return appId;
-   }
-
-   @JsonIgnore
-   public void setAppId(Long value) { 
-      this.appId = value;
-   }
-   @JsonIgnore
    public OptimizePathSelection getOptimizePathSelection() {
       return optimizePathSelection;
    }
@@ -287,6 +260,24 @@ public class Application extends RestObject {
    @JsonIgnore
    public void setOptimizePathSelection(OptimizePathSelection value) { 
       this.optimizePathSelection = value;
+   }
+   @JsonIgnore
+   public PerformanceMonitorType getPerformanceMonitorType() {
+      return performanceMonitorType;
+   }
+
+   @JsonIgnore
+   public void setPerformanceMonitorType(PerformanceMonitorType value) { 
+      this.performanceMonitorType = value;
+   }
+   @JsonIgnore
+   public PostClassificationPath getPostClassificationPath() {
+      return postClassificationPath;
+   }
+
+   @JsonIgnore
+   public void setPostClassificationPath(PostClassificationPath value) { 
+      this.postClassificationPath = value;
    }
    @JsonIgnore
    public PreClassificationPath getPreClassificationPath() {
@@ -307,22 +298,31 @@ public class Application extends RestObject {
       this.protocol = value;
    }
    @JsonIgnore
-   public String getAssociatedL7ApplicationSignatureID() {
-      return associatedL7ApplicationSignatureID;
+   public Boolean getReadOnly() {
+      return readOnly;
    }
 
    @JsonIgnore
-   public void setAssociatedL7ApplicationSignatureID(String value) { 
-      this.associatedL7ApplicationSignatureID = value;
+   public void setReadOnly(Boolean value) { 
+      this.readOnly = value;
    }
    @JsonIgnore
-   public String getEtherType() {
-      return etherType;
+   public String getSourceIP() {
+      return sourceIP;
    }
 
    @JsonIgnore
-   public void setEtherType(String value) { 
-      this.etherType = value;
+   public void setSourceIP(String value) { 
+      this.sourceIP = value;
+   }
+   @JsonIgnore
+   public String getSourcePort() {
+      return sourcePort;
+   }
+
+   @JsonIgnore
+   public void setSourcePort(String value) { 
+      this.sourcePort = value;
    }
    @JsonIgnore
    public Boolean getSymmetry() {
@@ -337,18 +337,18 @@ public class Application extends RestObject {
 
    
    @JsonIgnore
-   public MonitorscopesFetcher getMonitorscopes() {
-      return monitorscopes;
-   }
-   
-   @JsonIgnore
    public ApplicationBindingsFetcher getApplicationBindings() {
       return applicationBindings;
    }
    
+   @JsonIgnore
+   public MonitorscopesFetcher getMonitorscopes() {
+      return monitorscopes;
+   }
+   
 
    public String toString() {
-      return "Application [" + "DSCP=" + DSCP + ", name=" + name + ", bandwidth=" + bandwidth + ", readOnly=" + readOnly + ", performanceMonitorType=" + performanceMonitorType + ", description=" + description + ", destinationIP=" + destinationIP + ", destinationPort=" + destinationPort + ", enablePPS=" + enablePPS + ", oneWayDelay=" + oneWayDelay + ", oneWayJitter=" + oneWayJitter + ", oneWayLoss=" + oneWayLoss + ", postClassificationPath=" + postClassificationPath + ", sourceIP=" + sourceIP + ", sourcePort=" + sourcePort + ", appId=" + appId + ", optimizePathSelection=" + optimizePathSelection + ", preClassificationPath=" + preClassificationPath + ", protocol=" + protocol + ", associatedL7ApplicationSignatureID=" + associatedL7ApplicationSignatureID + ", etherType=" + etherType + ", symmetry=" + symmetry + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Application [" + "DSCP=" + DSCP + ", appId=" + appId + ", associatedL7ApplicationSignatureID=" + associatedL7ApplicationSignatureID + ", bandwidth=" + bandwidth + ", description=" + description + ", destinationIP=" + destinationIP + ", destinationPort=" + destinationPort + ", enablePPS=" + enablePPS + ", etherType=" + etherType + ", name=" + name + ", oneWayDelay=" + oneWayDelay + ", oneWayJitter=" + oneWayJitter + ", oneWayLoss=" + oneWayLoss + ", optimizePathSelection=" + optimizePathSelection + ", performanceMonitorType=" + performanceMonitorType + ", postClassificationPath=" + postClassificationPath + ", preClassificationPath=" + preClassificationPath + ", protocol=" + protocol + ", readOnly=" + readOnly + ", sourceIP=" + sourceIP + ", sourcePort=" + sourcePort + ", symmetry=" + symmetry + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

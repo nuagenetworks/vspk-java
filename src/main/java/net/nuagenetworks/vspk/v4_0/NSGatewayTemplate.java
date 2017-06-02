@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NSPortTemplatesFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -47,34 +47,16 @@ public class NSGatewayTemplate extends RestObject {
 
    
    public enum SSHService { DISABLED, ENABLED };
-   public enum Personality { NSG, NSGBR };
-   public enum InstanceSSHOverride { ALLOWED, DISALLOWED };
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum InstanceSSHOverride { ALLOWED, DISALLOWED };
+   public enum Personality { NSG, NSGBR, NSGDUC };
 
    
    @JsonProperty(value = "SSHService")
    protected SSHService SSHService;
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "personality")
-   protected Personality personality;
-   
    @JsonProperty(value = "description")
    protected String description;
-   
-   @JsonProperty(value = "infrastructureAccessProfileID")
-   protected String infrastructureAccessProfileID;
-   
-   @JsonProperty(value = "infrastructureProfileID")
-   protected String infrastructureProfileID;
-   
-   @JsonProperty(value = "instanceSSHOverride")
-   protected InstanceSSHOverride instanceSSHOverride;
    
    @JsonProperty(value = "enterpriseID")
    protected String enterpriseID;
@@ -85,13 +67,31 @@ public class NSGatewayTemplate extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
+   @JsonProperty(value = "infrastructureAccessProfileID")
+   protected String infrastructureAccessProfileID;
+   
+   @JsonProperty(value = "infrastructureProfileID")
+   protected String infrastructureProfileID;
+   
+   @JsonProperty(value = "instanceSSHOverride")
+   protected InstanceSSHOverride instanceSSHOverride;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "personality")
+   protected Personality personality;
+   
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
+   private MetadatasFetcher metadatas;
    
    @JsonIgnore
    private NSPortTemplatesFetcher nSPortTemplates;
@@ -99,9 +99,9 @@ public class NSGatewayTemplate extends RestObject {
 
    public NSGatewayTemplate() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
       nSPortTemplates = new NSPortTemplatesFetcher(this);
       
@@ -117,33 +117,6 @@ public class NSGatewayTemplate extends RestObject {
       this.SSHService = value;
    }
    @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public Personality getPersonality() {
-      return personality;
-   }
-
-   @JsonIgnore
-   public void setPersonality(Personality value) { 
-      this.personality = value;
-   }
-   @JsonIgnore
    public String getDescription() {
       return description;
    }
@@ -151,6 +124,33 @@ public class NSGatewayTemplate extends RestObject {
    @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
+   }
+   @JsonIgnore
+   public String getEnterpriseID() {
+      return enterpriseID;
+   }
+
+   @JsonIgnore
+   public void setEnterpriseID(String value) { 
+      this.enterpriseID = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
    }
    @JsonIgnore
    public String getInfrastructureAccessProfileID() {
@@ -180,43 +180,43 @@ public class NSGatewayTemplate extends RestObject {
       this.instanceSSHOverride = value;
    }
    @JsonIgnore
-   public String getEnterpriseID() {
-      return enterpriseID;
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
    }
 
    @JsonIgnore
-   public void setEnterpriseID(String value) { 
-      this.enterpriseID = value;
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
+   public String getName() {
+      return name;
    }
 
    @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public Personality getPersonality() {
+      return personality;
+   }
+
+   @JsonIgnore
+   public void setPersonality(Personality value) { 
+      this.personality = value;
    }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
    @JsonIgnore
@@ -226,7 +226,7 @@ public class NSGatewayTemplate extends RestObject {
    
 
    public String toString() {
-      return "NSGatewayTemplate [" + "SSHService=" + SSHService + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", personality=" + personality + ", description=" + description + ", infrastructureAccessProfileID=" + infrastructureAccessProfileID + ", infrastructureProfileID=" + infrastructureProfileID + ", instanceSSHOverride=" + instanceSSHOverride + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NSGatewayTemplate [" + "SSHService=" + SSHService + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", infrastructureAccessProfileID=" + infrastructureAccessProfileID + ", infrastructureProfileID=" + infrastructureProfileID + ", instanceSSHOverride=" + instanceSSHOverride + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", personality=" + personality + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

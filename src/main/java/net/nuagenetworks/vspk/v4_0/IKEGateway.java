@@ -35,10 +35,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IKEGatewayConfigsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IKESubnetsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "ikegateway", resourceName = "ikegateways")
@@ -61,11 +61,8 @@ public class IKEGateway extends RestObject {
    @JsonProperty(value = "IPAddress")
    protected String IPAddress;
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
+   @JsonProperty(value = "associatedEnterpriseID")
+   protected String associatedEnterpriseID;
    
    @JsonProperty(value = "description")
    protected String description;
@@ -73,16 +70,19 @@ public class IKEGateway extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
-   @JsonProperty(value = "associatedEnterpriseID")
-   protected String associatedEnterpriseID;
-   
    @JsonProperty(value = "externalID")
    protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "name")
+   protected String name;
    
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
    private IKEGatewayConfigsFetcher iKEGatewayConfigs;
@@ -91,18 +91,18 @@ public class IKEGateway extends RestObject {
    private IKESubnetsFetcher iKESubnets;
    
    @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
+   private MetadatasFetcher metadatas;
    
 
    public IKEGateway() {
       
-      metadatas = new MetadatasFetcher(this);
+      globalMetadatas = new GlobalMetadatasFetcher(this);
       
       iKEGatewayConfigs = new IKEGatewayConfigsFetcher(this);
       
       iKESubnets = new IKESubnetsFetcher(this);
       
-      globalMetadatas = new GlobalMetadatasFetcher(this);
+      metadatas = new MetadatasFetcher(this);
       
    }
 
@@ -134,22 +134,13 @@ public class IKEGateway extends RestObject {
       this.IPAddress = value;
    }
    @JsonIgnore
-   public String getName() {
-      return name;
+   public String getAssociatedEnterpriseID() {
+      return associatedEnterpriseID;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
+   public void setAssociatedEnterpriseID(String value) { 
+      this.associatedEnterpriseID = value;
    }
    @JsonIgnore
    public String getDescription() {
@@ -170,15 +161,6 @@ public class IKEGateway extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
-   public String getAssociatedEnterpriseID() {
-      return associatedEnterpriseID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedEnterpriseID(String value) { 
-      this.associatedEnterpriseID = value;
-   }
-   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
@@ -187,12 +169,30 @@ public class IKEGateway extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
    
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
    }
    
    @JsonIgnore
@@ -206,13 +206,13 @@ public class IKEGateway extends RestObject {
    }
    
    @JsonIgnore
-   public GlobalMetadatasFetcher getGlobalMetadatas() {
-      return globalMetadatas;
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
 
    public String toString() {
-      return "IKEGateway [" + "IKEVersion=" + IKEVersion + ", IKEv1Mode=" + IKEv1Mode + ", IPAddress=" + IPAddress + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", entityScope=" + entityScope + ", associatedEnterpriseID=" + associatedEnterpriseID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "IKEGateway [" + "IKEVersion=" + IKEVersion + ", IKEv1Mode=" + IKEv1Mode + ", IPAddress=" + IPAddress + ", associatedEnterpriseID=" + associatedEnterpriseID + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

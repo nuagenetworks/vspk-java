@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.QOSsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -49,14 +49,17 @@ public class PolicyDecision extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
    @JsonProperty(value = "egressACLs")
    protected java.util.List<com.fasterxml.jackson.databind.JsonNode> egressACLs;
    
    @JsonProperty(value = "egressQos")
    protected Object egressQos;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
    
    @JsonProperty(value = "fipACLs")
    protected java.util.List<com.fasterxml.jackson.databind.JsonNode> fipACLs;
@@ -70,8 +73,8 @@ public class PolicyDecision extends RestObject {
    @JsonProperty(value = "ingressExternalServiceACLs")
    protected java.util.List<com.fasterxml.jackson.databind.JsonNode> ingressExternalServiceACLs;
    
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
    @JsonProperty(value = "qos")
    protected Object qos;
@@ -79,16 +82,13 @@ public class PolicyDecision extends RestObject {
    @JsonProperty(value = "stats")
    protected StatisticsPolicy stats;
    
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
+   private MetadatasFetcher metadatas;
    
    @JsonIgnore
    private QOSsFetcher qOSs;
@@ -96,23 +96,14 @@ public class PolicyDecision extends RestObject {
 
    public PolicyDecision() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
       qOSs = new QOSsFetcher(this);
       
    }
 
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
    @JsonIgnore
    public java.util.List<com.fasterxml.jackson.databind.JsonNode> getEgressACLs() {
       return egressACLs;
@@ -130,6 +121,24 @@ public class PolicyDecision extends RestObject {
    @JsonIgnore
    public void setEgressQos(Object value) { 
       this.egressQos = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
    }
    @JsonIgnore
    public java.util.List<com.fasterxml.jackson.databind.JsonNode> getFipACLs() {
@@ -168,13 +177,13 @@ public class PolicyDecision extends RestObject {
       this.ingressExternalServiceACLs = value;
    }
    @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    @JsonIgnore
    public Object getQos() {
@@ -194,26 +203,17 @@ public class PolicyDecision extends RestObject {
    public void setStats(StatisticsPolicy value) { 
       this.stats = value;
    }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
    @JsonIgnore
@@ -223,7 +223,7 @@ public class PolicyDecision extends RestObject {
    
 
    public String toString() {
-      return "PolicyDecision [" + "lastUpdatedBy=" + lastUpdatedBy + ", egressACLs=" + egressACLs + ", egressQos=" + egressQos + ", fipACLs=" + fipACLs + ", ingressACLs=" + ingressACLs + ", ingressAdvFwd=" + ingressAdvFwd + ", ingressExternalServiceACLs=" + ingressExternalServiceACLs + ", entityScope=" + entityScope + ", qos=" + qos + ", stats=" + stats + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "PolicyDecision [" + "egressACLs=" + egressACLs + ", egressQos=" + egressQos + ", entityScope=" + entityScope + ", externalID=" + externalID + ", fipACLs=" + fipACLs + ", ingressACLs=" + ingressACLs + ", ingressAdvFwd=" + ingressAdvFwd + ", ingressExternalServiceACLs=" + ingressExternalServiceACLs + ", lastUpdatedBy=" + lastUpdatedBy + ", qos=" + qos + ", stats=" + stats + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

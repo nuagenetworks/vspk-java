@@ -35,13 +35,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.EgressACLEntryTemplatesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.ContainersFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.EgressACLEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "egressacltemplate", resourceName = "egressacltemplates")
@@ -55,14 +55,14 @@ public class EgressACLTemplate extends RestObject {
    public enum PriorityType { BOTTOM, NONE, TOP };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
    @JsonProperty(value = "active")
    protected Boolean active;
+   
+   @JsonProperty(value = "associatedLiveEntityID")
+   protected String associatedLiveEntityID;
+   
+   @JsonProperty(value = "autoGeneratePriority")
+   protected Boolean autoGeneratePriority;
    
    @JsonProperty(value = "defaultAllowIP")
    protected Boolean defaultAllowIP;
@@ -79,6 +79,15 @@ public class EgressACLTemplate extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
    @JsonProperty(value = "policyState")
    protected PolicyState policyState;
    
@@ -88,75 +97,48 @@ public class EgressACLTemplate extends RestObject {
    @JsonProperty(value = "priorityType")
    protected PriorityType priorityType;
    
-   @JsonProperty(value = "associatedLiveEntityID")
-   protected String associatedLiveEntityID;
-   
-   @JsonProperty(value = "autoGeneratePriority")
-   protected Boolean autoGeneratePriority;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
 
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
-   
-   @JsonIgnore
-   private EgressACLEntryTemplatesFetcher egressACLEntryTemplates;
-   
-   @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
-   
-   @JsonIgnore
-   private VMsFetcher vMs;
-   
-   @JsonIgnore
-   private JobsFetcher jobs;
    
    @JsonIgnore
    private ContainersFetcher containers;
    
    @JsonIgnore
+   private EgressACLEntryTemplatesFetcher egressACLEntryTemplates;
+   
+   @JsonIgnore
    private EventLogsFetcher eventLogs;
+   
+   @JsonIgnore
+   private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private JobsFetcher jobs;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
+   @JsonIgnore
+   private VMsFetcher vMs;
    
 
    public EgressACLTemplate() {
       
-      metadatas = new MetadatasFetcher(this);
+      containers = new ContainersFetcher(this);
       
       egressACLEntryTemplates = new EgressACLEntryTemplatesFetcher(this);
       
-      globalMetadatas = new GlobalMetadatasFetcher(this);
+      eventLogs = new EventLogsFetcher(this);
       
-      vMs = new VMsFetcher(this);
+      globalMetadatas = new GlobalMetadatasFetcher(this);
       
       jobs = new JobsFetcher(this);
       
-      containers = new ContainersFetcher(this);
+      metadatas = new MetadatasFetcher(this);
       
-      eventLogs = new EventLogsFetcher(this);
+      vMs = new VMsFetcher(this);
       
    }
 
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
    @JsonIgnore
    public Boolean getActive() {
       return active;
@@ -165,6 +147,24 @@ public class EgressACLTemplate extends RestObject {
    @JsonIgnore
    public void setActive(Boolean value) { 
       this.active = value;
+   }
+   @JsonIgnore
+   public String getAssociatedLiveEntityID() {
+      return associatedLiveEntityID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedLiveEntityID(String value) { 
+      this.associatedLiveEntityID = value;
+   }
+   @JsonIgnore
+   public Boolean getAutoGeneratePriority() {
+      return autoGeneratePriority;
+   }
+
+   @JsonIgnore
+   public void setAutoGeneratePriority(Boolean value) { 
+      this.autoGeneratePriority = value;
    }
    @JsonIgnore
    public Boolean getDefaultAllowIP() {
@@ -212,6 +212,33 @@ public class EgressACLTemplate extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
    public PolicyState getPolicyState() {
       return policyState;
    }
@@ -238,39 +265,12 @@ public class EgressACLTemplate extends RestObject {
    public void setPriorityType(PriorityType value) { 
       this.priorityType = value;
    }
-   @JsonIgnore
-   public String getAssociatedLiveEntityID() {
-      return associatedLiveEntityID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedLiveEntityID(String value) { 
-      this.associatedLiveEntityID = value;
-   }
-   @JsonIgnore
-   public Boolean getAutoGeneratePriority() {
-      return autoGeneratePriority;
-   }
-
-   @JsonIgnore
-   public void setAutoGeneratePriority(Boolean value) { 
-      this.autoGeneratePriority = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
    
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public ContainersFetcher getContainers() {
+      return containers;
    }
    
    @JsonIgnore
@@ -279,13 +279,13 @@ public class EgressACLTemplate extends RestObject {
    }
    
    @JsonIgnore
-   public GlobalMetadatasFetcher getGlobalMetadatas() {
-      return globalMetadatas;
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
    }
    
    @JsonIgnore
-   public VMsFetcher getVMs() {
-      return vMs;
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
    }
    
    @JsonIgnore
@@ -294,18 +294,18 @@ public class EgressACLTemplate extends RestObject {
    }
    
    @JsonIgnore
-   public ContainersFetcher getContainers() {
-      return containers;
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
    @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
+   public VMsFetcher getVMs() {
+      return vMs;
    }
    
 
    public String toString() {
-      return "EgressACLTemplate [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", active=" + active + ", defaultAllowIP=" + defaultAllowIP + ", defaultAllowNonIP=" + defaultAllowNonIP + ", defaultInstallACLImplicitRules=" + defaultInstallACLImplicitRules + ", description=" + description + ", entityScope=" + entityScope + ", policyState=" + policyState + ", priority=" + priority + ", priorityType=" + priorityType + ", associatedLiveEntityID=" + associatedLiveEntityID + ", autoGeneratePriority=" + autoGeneratePriority + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "EgressACLTemplate [" + "active=" + active + ", associatedLiveEntityID=" + associatedLiveEntityID + ", autoGeneratePriority=" + autoGeneratePriority + ", defaultAllowIP=" + defaultAllowIP + ", defaultAllowNonIP=" + defaultAllowNonIP + ", defaultInstallACLImplicitRules=" + defaultInstallACLImplicitRules + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", policyState=" + policyState + ", priority=" + priority + ", priorityType=" + priorityType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "dscpforwardingclassmapping", resourceName = "dscpforwardingclassmappings")
@@ -52,32 +52,32 @@ public class DSCPForwardingClassMapping extends RestObject {
    @JsonProperty(value = "DSCP")
    protected String DSCP;
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
-   
-   @JsonProperty(value = "forwardingClass")
-   protected ForwardingClass forwardingClass;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-
+   @JsonProperty(value = "forwardingClass")
+   protected ForwardingClass forwardingClass;
    
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public DSCPForwardingClassMapping() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
    }
 
@@ -91,15 +91,6 @@ public class DSCPForwardingClassMapping extends RestObject {
       this.DSCP = value;
    }
    @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
@@ -107,6 +98,15 @@ public class DSCPForwardingClassMapping extends RestObject {
    @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
    }
    @JsonIgnore
    public ForwardingClass getForwardingClass() {
@@ -118,30 +118,30 @@ public class DSCPForwardingClassMapping extends RestObject {
       this.forwardingClass = value;
    }
    @JsonIgnore
-   public String getExternalID() {
-      return externalID;
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
    }
 
    @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "DSCPForwardingClassMapping [" + "DSCP=" + DSCP + ", lastUpdatedBy=" + lastUpdatedBy + ", entityScope=" + entityScope + ", forwardingClass=" + forwardingClass + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "DSCPForwardingClassMapping [" + "DSCP=" + DSCP + ", entityScope=" + entityScope + ", externalID=" + externalID + ", forwardingClass=" + forwardingClass + ", lastUpdatedBy=" + lastUpdatedBy + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

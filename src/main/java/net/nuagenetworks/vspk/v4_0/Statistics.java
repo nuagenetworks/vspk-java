@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "statistics", resourceName = "statistics")
@@ -47,11 +47,11 @@ public class Statistics extends RestObject {
    
 
    
-   @JsonProperty(value = "version")
-   protected Long version;
-   
    @JsonProperty(value = "endTime")
    protected Long endTime;
+   
+   @JsonProperty(value = "numberOfDataPoints")
+   protected Long numberOfDataPoints;
    
    @JsonProperty(value = "startTime")
    protected Long startTime;
@@ -59,35 +59,26 @@ public class Statistics extends RestObject {
    @JsonProperty(value = "statsData")
    protected java.util.Map<String, Long[]> statsData;
    
-   @JsonProperty(value = "numberOfDataPoints")
-   protected Long numberOfDataPoints;
+   @JsonProperty(value = "version")
+   protected Long version;
    
 
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public Statistics() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
-   @JsonIgnore
-   public Long getVersion() {
-      return version;
-   }
-
-   @JsonIgnore
-   public void setVersion(Long value) { 
-      this.version = value;
-   }
    @JsonIgnore
    public Long getEndTime() {
       return endTime;
@@ -96,6 +87,15 @@ public class Statistics extends RestObject {
    @JsonIgnore
    public void setEndTime(Long value) { 
       this.endTime = value;
+   }
+   @JsonIgnore
+   public Long getNumberOfDataPoints() {
+      return numberOfDataPoints;
+   }
+
+   @JsonIgnore
+   public void setNumberOfDataPoints(Long value) { 
+      this.numberOfDataPoints = value;
    }
    @JsonIgnore
    public Long getStartTime() {
@@ -116,30 +116,30 @@ public class Statistics extends RestObject {
       this.statsData = value;
    }
    @JsonIgnore
-   public Long getNumberOfDataPoints() {
-      return numberOfDataPoints;
+   public Long getVersion() {
+      return version;
    }
 
    @JsonIgnore
-   public void setNumberOfDataPoints(Long value) { 
-      this.numberOfDataPoints = value;
+   public void setVersion(Long value) { 
+      this.version = value;
    }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "Statistics [" + "version=" + version + ", endTime=" + endTime + ", startTime=" + startTime + ", statsData=" + statsData + ", numberOfDataPoints=" + numberOfDataPoints + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Statistics [" + "endTime=" + endTime + ", numberOfDataPoints=" + numberOfDataPoints + ", startTime=" + startTime + ", statsData=" + statsData + ", version=" + version + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

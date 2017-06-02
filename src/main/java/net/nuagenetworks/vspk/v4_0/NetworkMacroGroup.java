@@ -35,9 +35,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EnterpriseNetworksFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "networkmacrogroup", resourceName = "networkmacrogroups")
@@ -49,17 +49,8 @@ public class NetworkMacroGroup extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
    @JsonProperty(value = "description")
    protected String description;
-   
-   @JsonProperty(value = "networkMacros")
-   protected java.util.List<String> networkMacros;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
@@ -67,46 +58,37 @@ public class NetworkMacroGroup extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "networkMacros")
+   protected java.util.List<String> networkMacros;
+   
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private EnterpriseNetworksFetcher enterpriseNetworks;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private EnterpriseNetworksFetcher enterpriseNetworks;
+   private MetadatasFetcher metadatas;
    
 
    public NetworkMacroGroup() {
       
-      metadatas = new MetadatasFetcher(this);
+      enterpriseNetworks = new EnterpriseNetworksFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
-      enterpriseNetworks = new EnterpriseNetworksFetcher(this);
+      metadatas = new MetadatasFetcher(this);
       
    }
 
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -115,15 +97,6 @@ public class NetworkMacroGroup extends RestObject {
    @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
-   }
-   @JsonIgnore
-   public java.util.List<String> getNetworkMacros() {
-      return networkMacros;
-   }
-
-   @JsonIgnore
-   public void setNetworkMacros(java.util.List<String> value) { 
-      this.networkMacros = value;
    }
    @JsonIgnore
    public EntityScope getEntityScope() {
@@ -143,12 +116,39 @@ public class NetworkMacroGroup extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public java.util.List<String> getNetworkMacros() {
+      return networkMacros;
+   }
+
+   @JsonIgnore
+   public void setNetworkMacros(java.util.List<String> value) { 
+      this.networkMacros = value;
+   }
    
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public EnterpriseNetworksFetcher getEnterpriseNetworks() {
+      return enterpriseNetworks;
    }
    
    @JsonIgnore
@@ -157,13 +157,13 @@ public class NetworkMacroGroup extends RestObject {
    }
    
    @JsonIgnore
-   public EnterpriseNetworksFetcher getEnterpriseNetworks() {
-      return enterpriseNetworks;
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
 
    public String toString() {
-      return "NetworkMacroGroup [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", networkMacros=" + networkMacros + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NetworkMacroGroup [" + "description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", networkMacros=" + networkMacros + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

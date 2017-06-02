@@ -35,78 +35,78 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.L2DomainsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.VCenterEAMConfigsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.RateLimitersFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GatewaysFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GatewayTemplatesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.PATMappersFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.PATNATPoolsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.TCAsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.VCentersFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.VCenterHypervisorsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.RedirectionTargetsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.RedundancyGroupsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.PerformanceMonitorsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.CertificatesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadataTagsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.NetworkLayoutsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.KeyServerMembersFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.ZFBAutoAssignmentsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.ZFBRequestsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ApplicationServicesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.AutoDiscoveredGatewaysFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.BGPNeighborsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.BGPProfilesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.CertificatesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.CloudMgmtSystemsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ContainersFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ContainerInterfacesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.DomainsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.DUCGroupsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.VCenterEAMConfigsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EgressACLEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EgressACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.DomainFIPAclTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.FloatingIPACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EgressQOSPoliciesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.SharedNetworkResourcesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.LicensesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.LicenseStatusFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.MirrorDestinationsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.SiteInfosFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.EnterprisesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.EnterpriseProfilesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ExternalAppServicesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ExternalServicesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.FloatingIpsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GatewaysFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GatewayTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.VMInterfacesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.CloudMgmtSystemsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.UnderlaysFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.HostInterfacesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.InfrastructureAccessProfilesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.InfrastructureGatewayProfilesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.InfrastructureVscProfilesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IngressACLEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IngressACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IngressAdvFwdEntryTemplatesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.EnterprisesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.EnterpriseProfilesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.PolicyGroupsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.DomainsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.ZonesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.ContainersFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.ContainerInterfacesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.HostInterfacesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.RoutingPoliciesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.UplinkRDsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.ApplicationServicesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.VCenterVRSConfigsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.UsersFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.KeyServerMembersFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.L2DomainsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.LicensesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.LicenseStatusFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadataTagsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MirrorDestinationsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MultiCastChannelMapsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.NetworkLayoutsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NSGatewaysFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NSGatewayTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NSGGroupsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NSRedundantGatewayGroupsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.VSPsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.PATMappersFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.PATNATPoolsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.PerformanceMonitorsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.PolicyGroupsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.RateLimitersFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.RedirectionTargetsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.RedundancyGroupsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.RoutingPoliciesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.SharedNetworkResourcesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.SiteInfosFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.StaticRoutesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.StatsCollectorInfosFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.SubnetsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.DUCGroupsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.MultiCastChannelMapsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.AutoDiscoveredGatewaysFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.ExternalAppServicesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.ExternalServicesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.SystemConfigsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.TCAsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.UnderlaysFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.UplinkRDsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.UsersFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.VCentersFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.VCenterHypervisorsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.VMInterfacesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.VCenterVRSConfigsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.VSPsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ZFBAutoAssignmentsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ZFBRequestsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ZonesFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "me", resourceName = "me")
@@ -115,30 +115,21 @@ public class Me extends RestRootObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum AvatarType { BASE64, COMPUTEDURL, URL };
+   public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "password")
-   protected String password;
+   @JsonProperty(value = "avatarData")
+   protected String avatarData;
    
-   @JsonProperty(value = "lastName")
-   protected String lastName;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "firstName")
-   protected String firstName;
+   @JsonProperty(value = "avatarType")
+   protected AvatarType avatarType;
    
    @JsonProperty(value = "disabled")
    protected Boolean disabled;
    
    @JsonProperty(value = "elasticSearchAddress")
    protected String elasticSearchAddress;
-   
-   @JsonProperty(value = "flowCollectionEnabled")
-   protected Boolean flowCollectionEnabled;
    
    @JsonProperty(value = "email")
    protected String email;
@@ -152,94 +143,70 @@ public class Me extends RestRootObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "firstName")
+   protected String firstName;
+   
+   @JsonProperty(value = "flowCollectionEnabled")
+   protected Boolean flowCollectionEnabled;
+   
+   @JsonProperty(value = "lastName")
+   protected String lastName;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
    @JsonProperty(value = "mobileNumber")
    protected String mobileNumber;
+   
+   @JsonProperty(value = "password")
+   protected String password;
    
    @JsonProperty(value = "role")
    protected String role;
    
-   @JsonProperty(value = "userName")
-   protected String userName;
-   
    @JsonProperty(value = "statisticsEnabled")
    protected Boolean statisticsEnabled;
    
-   @JsonProperty(value = "avatarData")
-   protected String avatarData;
-   
-   @JsonProperty(value = "avatarType")
-   protected AvatarType avatarType;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
+   @JsonProperty(value = "userName")
+   protected String userName;
    
 
    
    @JsonIgnore
-   private L2DomainsFetcher l2Domains;
+   private ApplicationServicesFetcher applicationServices;
    
    @JsonIgnore
-   private VCenterEAMConfigsFetcher vCenterEAMConfigs;
-   
-   @JsonIgnore
-   private RateLimitersFetcher rateLimiters;
-   
-   @JsonIgnore
-   private GatewaysFetcher gateways;
-   
-   @JsonIgnore
-   private GatewayTemplatesFetcher gatewayTemplates;
-   
-   @JsonIgnore
-   private PATMappersFetcher pATMappers;
-   
-   @JsonIgnore
-   private PATNATPoolsFetcher pATNATPools;
-   
-   @JsonIgnore
-   private TCAsFetcher tCAs;
-   
-   @JsonIgnore
-   private VCentersFetcher vCenters;
-   
-   @JsonIgnore
-   private VCenterHypervisorsFetcher vCenterHypervisors;
-   
-   @JsonIgnore
-   private RedirectionTargetsFetcher redirectionTargets;
-   
-   @JsonIgnore
-   private RedundancyGroupsFetcher redundancyGroups;
-   
-   @JsonIgnore
-   private PerformanceMonitorsFetcher performanceMonitors;
-   
-   @JsonIgnore
-   private CertificatesFetcher certificates;
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
-   
-   @JsonIgnore
-   private MetadataTagsFetcher metadataTags;
-   
-   @JsonIgnore
-   private NetworkLayoutsFetcher networkLayouts;
-   
-   @JsonIgnore
-   private KeyServerMembersFetcher keyServerMembers;
-   
-   @JsonIgnore
-   private ZFBAutoAssignmentsFetcher zFBAutoAssignments;
-   
-   @JsonIgnore
-   private ZFBRequestsFetcher zFBRequests;
+   private AutoDiscoveredGatewaysFetcher autoDiscoveredGateways;
    
    @JsonIgnore
    private BGPNeighborsFetcher bGPNeighbors;
    
    @JsonIgnore
    private BGPProfilesFetcher bGPProfiles;
+   
+   @JsonIgnore
+   private CertificatesFetcher certificates;
+   
+   @JsonIgnore
+   private CloudMgmtSystemsFetcher cloudMgmtSystems;
+   
+   @JsonIgnore
+   private ContainersFetcher containers;
+   
+   @JsonIgnore
+   private ContainerInterfacesFetcher containerInterfaces;
+   
+   @JsonIgnore
+   private DomainsFetcher domains;
+   
+   @JsonIgnore
+   private DUCGroupsFetcher dUCGroups;
+   
+   @JsonIgnore
+   private VCenterEAMConfigsFetcher vCenterEAMConfigs;
    
    @JsonIgnore
    private EgressACLEntryTemplatesFetcher egressACLEntryTemplates;
@@ -257,37 +224,31 @@ public class Me extends RestRootObject {
    private EgressQOSPoliciesFetcher egressQOSPolicies;
    
    @JsonIgnore
-   private SharedNetworkResourcesFetcher sharedNetworkResources;
+   private EnterprisesFetcher enterprises;
    
    @JsonIgnore
-   private LicensesFetcher licenses;
+   private EnterpriseProfilesFetcher enterpriseProfiles;
    
    @JsonIgnore
-   private LicenseStatusFetcher licenseStatus;
+   private ExternalAppServicesFetcher externalAppServices;
    
    @JsonIgnore
-   private MirrorDestinationsFetcher mirrorDestinations;
-   
-   @JsonIgnore
-   private SiteInfosFetcher siteInfos;
+   private ExternalServicesFetcher externalServices;
    
    @JsonIgnore
    private FloatingIpsFetcher floatingIps;
    
    @JsonIgnore
+   private GatewaysFetcher gateways;
+   
+   @JsonIgnore
+   private GatewayTemplatesFetcher gatewayTemplates;
+   
+   @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private VMsFetcher vMs;
-   
-   @JsonIgnore
-   private VMInterfacesFetcher vMInterfaces;
-   
-   @JsonIgnore
-   private CloudMgmtSystemsFetcher cloudMgmtSystems;
-   
-   @JsonIgnore
-   private UnderlaysFetcher underlays;
+   private HostInterfacesFetcher hostInterfaces;
    
    @JsonIgnore
    private InfrastructureAccessProfilesFetcher infrastructureAccessProfiles;
@@ -308,46 +269,34 @@ public class Me extends RestRootObject {
    private IngressAdvFwdEntryTemplatesFetcher ingressAdvFwdEntryTemplates;
    
    @JsonIgnore
-   private EnterprisesFetcher enterprises;
-   
-   @JsonIgnore
-   private EnterpriseProfilesFetcher enterpriseProfiles;
-   
-   @JsonIgnore
    private JobsFetcher jobs;
    
    @JsonIgnore
-   private PolicyGroupsFetcher policyGroups;
+   private KeyServerMembersFetcher keyServerMembers;
    
    @JsonIgnore
-   private DomainsFetcher domains;
+   private L2DomainsFetcher l2Domains;
    
    @JsonIgnore
-   private ZonesFetcher zones;
+   private LicensesFetcher licenses;
    
    @JsonIgnore
-   private ContainersFetcher containers;
+   private LicenseStatusFetcher licenseStatus;
    
    @JsonIgnore
-   private ContainerInterfacesFetcher containerInterfaces;
+   private MetadatasFetcher metadatas;
    
    @JsonIgnore
-   private HostInterfacesFetcher hostInterfaces;
+   private MetadataTagsFetcher metadataTags;
    
    @JsonIgnore
-   private RoutingPoliciesFetcher routingPolicies;
+   private MirrorDestinationsFetcher mirrorDestinations;
    
    @JsonIgnore
-   private UplinkRDsFetcher uplinkRDs;
+   private MultiCastChannelMapsFetcher multiCastChannelMaps;
    
    @JsonIgnore
-   private ApplicationServicesFetcher applicationServices;
-   
-   @JsonIgnore
-   private VCenterVRSConfigsFetcher vCenterVRSConfigs;
-   
-   @JsonIgnore
-   private UsersFetcher users;
+   private NetworkLayoutsFetcher networkLayouts;
    
    @JsonIgnore
    private NSGatewaysFetcher nSGateways;
@@ -362,7 +311,34 @@ public class Me extends RestRootObject {
    private NSRedundantGatewayGroupsFetcher nSRedundantGatewayGroups;
    
    @JsonIgnore
-   private VSPsFetcher vSPs;
+   private PATMappersFetcher pATMappers;
+   
+   @JsonIgnore
+   private PATNATPoolsFetcher pATNATPools;
+   
+   @JsonIgnore
+   private PerformanceMonitorsFetcher performanceMonitors;
+   
+   @JsonIgnore
+   private PolicyGroupsFetcher policyGroups;
+   
+   @JsonIgnore
+   private RateLimitersFetcher rateLimiters;
+   
+   @JsonIgnore
+   private RedirectionTargetsFetcher redirectionTargets;
+   
+   @JsonIgnore
+   private RedundancyGroupsFetcher redundancyGroups;
+   
+   @JsonIgnore
+   private RoutingPoliciesFetcher routingPolicies;
+   
+   @JsonIgnore
+   private SharedNetworkResourcesFetcher sharedNetworkResources;
+   
+   @JsonIgnore
+   private SiteInfosFetcher siteInfos;
    
    @JsonIgnore
    private StaticRoutesFetcher staticRoutes;
@@ -374,69 +350,71 @@ public class Me extends RestRootObject {
    private SubnetsFetcher subnets;
    
    @JsonIgnore
-   private DUCGroupsFetcher dUCGroups;
-   
-   @JsonIgnore
-   private MultiCastChannelMapsFetcher multiCastChannelMaps;
-   
-   @JsonIgnore
-   private AutoDiscoveredGatewaysFetcher autoDiscoveredGateways;
-   
-   @JsonIgnore
-   private ExternalAppServicesFetcher externalAppServices;
-   
-   @JsonIgnore
-   private ExternalServicesFetcher externalServices;
-   
-   @JsonIgnore
    private SystemConfigsFetcher systemConfigs;
+   
+   @JsonIgnore
+   private TCAsFetcher tCAs;
+   
+   @JsonIgnore
+   private UnderlaysFetcher underlays;
+   
+   @JsonIgnore
+   private UplinkRDsFetcher uplinkRDs;
+   
+   @JsonIgnore
+   private UsersFetcher users;
+   
+   @JsonIgnore
+   private VCentersFetcher vCenters;
+   
+   @JsonIgnore
+   private VCenterHypervisorsFetcher vCenterHypervisors;
+   
+   @JsonIgnore
+   private VMsFetcher vMs;
+   
+   @JsonIgnore
+   private VMInterfacesFetcher vMInterfaces;
+   
+   @JsonIgnore
+   private VCenterVRSConfigsFetcher vCenterVRSConfigs;
+   
+   @JsonIgnore
+   private VSPsFetcher vSPs;
+   
+   @JsonIgnore
+   private ZFBAutoAssignmentsFetcher zFBAutoAssignments;
+   
+   @JsonIgnore
+   private ZFBRequestsFetcher zFBRequests;
+   
+   @JsonIgnore
+   private ZonesFetcher zones;
    
 
    public Me() {
       
-      l2Domains = new L2DomainsFetcher(this);
+      applicationServices = new ApplicationServicesFetcher(this);
       
-      vCenterEAMConfigs = new VCenterEAMConfigsFetcher(this);
-      
-      rateLimiters = new RateLimitersFetcher(this);
-      
-      gateways = new GatewaysFetcher(this);
-      
-      gatewayTemplates = new GatewayTemplatesFetcher(this);
-      
-      pATMappers = new PATMappersFetcher(this);
-      
-      pATNATPools = new PATNATPoolsFetcher(this);
-      
-      tCAs = new TCAsFetcher(this);
-      
-      vCenters = new VCentersFetcher(this);
-      
-      vCenterHypervisors = new VCenterHypervisorsFetcher(this);
-      
-      redirectionTargets = new RedirectionTargetsFetcher(this);
-      
-      redundancyGroups = new RedundancyGroupsFetcher(this);
-      
-      performanceMonitors = new PerformanceMonitorsFetcher(this);
-      
-      certificates = new CertificatesFetcher(this);
-      
-      metadatas = new MetadatasFetcher(this);
-      
-      metadataTags = new MetadataTagsFetcher(this);
-      
-      networkLayouts = new NetworkLayoutsFetcher(this);
-      
-      keyServerMembers = new KeyServerMembersFetcher(this);
-      
-      zFBAutoAssignments = new ZFBAutoAssignmentsFetcher(this);
-      
-      zFBRequests = new ZFBRequestsFetcher(this);
+      autoDiscoveredGateways = new AutoDiscoveredGatewaysFetcher(this);
       
       bGPNeighbors = new BGPNeighborsFetcher(this);
       
       bGPProfiles = new BGPProfilesFetcher(this);
+      
+      certificates = new CertificatesFetcher(this);
+      
+      cloudMgmtSystems = new CloudMgmtSystemsFetcher(this);
+      
+      containers = new ContainersFetcher(this);
+      
+      containerInterfaces = new ContainerInterfacesFetcher(this);
+      
+      domains = new DomainsFetcher(this);
+      
+      dUCGroups = new DUCGroupsFetcher(this);
+      
+      vCenterEAMConfigs = new VCenterEAMConfigsFetcher(this);
       
       egressACLEntryTemplates = new EgressACLEntryTemplatesFetcher(this);
       
@@ -448,27 +426,23 @@ public class Me extends RestRootObject {
       
       egressQOSPolicies = new EgressQOSPoliciesFetcher(this);
       
-      sharedNetworkResources = new SharedNetworkResourcesFetcher(this);
+      enterprises = new EnterprisesFetcher(this);
       
-      licenses = new LicensesFetcher(this);
+      enterpriseProfiles = new EnterpriseProfilesFetcher(this);
       
-      licenseStatus = new LicenseStatusFetcher(this);
+      externalAppServices = new ExternalAppServicesFetcher(this);
       
-      mirrorDestinations = new MirrorDestinationsFetcher(this);
-      
-      siteInfos = new SiteInfosFetcher(this);
+      externalServices = new ExternalServicesFetcher(this);
       
       floatingIps = new FloatingIpsFetcher(this);
       
+      gateways = new GatewaysFetcher(this);
+      
+      gatewayTemplates = new GatewayTemplatesFetcher(this);
+      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
-      vMs = new VMsFetcher(this);
-      
-      vMInterfaces = new VMInterfacesFetcher(this);
-      
-      cloudMgmtSystems = new CloudMgmtSystemsFetcher(this);
-      
-      underlays = new UnderlaysFetcher(this);
+      hostInterfaces = new HostInterfacesFetcher(this);
       
       infrastructureAccessProfiles = new InfrastructureAccessProfilesFetcher(this);
       
@@ -482,33 +456,25 @@ public class Me extends RestRootObject {
       
       ingressAdvFwdEntryTemplates = new IngressAdvFwdEntryTemplatesFetcher(this);
       
-      enterprises = new EnterprisesFetcher(this);
-      
-      enterpriseProfiles = new EnterpriseProfilesFetcher(this);
-      
       jobs = new JobsFetcher(this);
       
-      policyGroups = new PolicyGroupsFetcher(this);
+      keyServerMembers = new KeyServerMembersFetcher(this);
       
-      domains = new DomainsFetcher(this);
+      l2Domains = new L2DomainsFetcher(this);
       
-      zones = new ZonesFetcher(this);
+      licenses = new LicensesFetcher(this);
       
-      containers = new ContainersFetcher(this);
+      licenseStatus = new LicenseStatusFetcher(this);
       
-      containerInterfaces = new ContainerInterfacesFetcher(this);
+      metadatas = new MetadatasFetcher(this);
       
-      hostInterfaces = new HostInterfacesFetcher(this);
+      metadataTags = new MetadataTagsFetcher(this);
       
-      routingPolicies = new RoutingPoliciesFetcher(this);
+      mirrorDestinations = new MirrorDestinationsFetcher(this);
       
-      uplinkRDs = new UplinkRDsFetcher(this);
+      multiCastChannelMaps = new MultiCastChannelMapsFetcher(this);
       
-      applicationServices = new ApplicationServicesFetcher(this);
-      
-      vCenterVRSConfigs = new VCenterVRSConfigsFetcher(this);
-      
-      users = new UsersFetcher(this);
+      networkLayouts = new NetworkLayoutsFetcher(this);
       
       nSGateways = new NSGatewaysFetcher(this);
       
@@ -518,7 +484,25 @@ public class Me extends RestRootObject {
       
       nSRedundantGatewayGroups = new NSRedundantGatewayGroupsFetcher(this);
       
-      vSPs = new VSPsFetcher(this);
+      pATMappers = new PATMappersFetcher(this);
+      
+      pATNATPools = new PATNATPoolsFetcher(this);
+      
+      performanceMonitors = new PerformanceMonitorsFetcher(this);
+      
+      policyGroups = new PolicyGroupsFetcher(this);
+      
+      rateLimiters = new RateLimitersFetcher(this);
+      
+      redirectionTargets = new RedirectionTargetsFetcher(this);
+      
+      redundancyGroups = new RedundancyGroupsFetcher(this);
+      
+      routingPolicies = new RoutingPoliciesFetcher(this);
+      
+      sharedNetworkResources = new SharedNetworkResourcesFetcher(this);
+      
+      siteInfos = new SiteInfosFetcher(this);
       
       staticRoutes = new StaticRoutesFetcher(this);
       
@@ -526,55 +510,53 @@ public class Me extends RestRootObject {
       
       subnets = new SubnetsFetcher(this);
       
-      dUCGroups = new DUCGroupsFetcher(this);
-      
-      multiCastChannelMaps = new MultiCastChannelMapsFetcher(this);
-      
-      autoDiscoveredGateways = new AutoDiscoveredGatewaysFetcher(this);
-      
-      externalAppServices = new ExternalAppServicesFetcher(this);
-      
-      externalServices = new ExternalServicesFetcher(this);
-      
       systemConfigs = new SystemConfigsFetcher(this);
       
+      tCAs = new TCAsFetcher(this);
+      
+      underlays = new UnderlaysFetcher(this);
+      
+      uplinkRDs = new UplinkRDsFetcher(this);
+      
+      users = new UsersFetcher(this);
+      
+      vCenters = new VCentersFetcher(this);
+      
+      vCenterHypervisors = new VCenterHypervisorsFetcher(this);
+      
+      vMs = new VMsFetcher(this);
+      
+      vMInterfaces = new VMInterfacesFetcher(this);
+      
+      vCenterVRSConfigs = new VCenterVRSConfigsFetcher(this);
+      
+      vSPs = new VSPsFetcher(this);
+      
+      zFBAutoAssignments = new ZFBAutoAssignmentsFetcher(this);
+      
+      zFBRequests = new ZFBRequestsFetcher(this);
+      
+      zones = new ZonesFetcher(this);
+      
    }
 
    @JsonIgnore
-   public String getPassword() {
-      return password;
+   public String getAvatarData() {
+      return avatarData;
    }
 
    @JsonIgnore
-   public void setPassword(String value) { 
-      this.password = value;
+   public void setAvatarData(String value) { 
+      this.avatarData = value;
    }
    @JsonIgnore
-   public String getLastName() {
-      return lastName;
-   }
-
-   @JsonIgnore
-   public void setLastName(String value) { 
-      this.lastName = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
+   public AvatarType getAvatarType() {
+      return avatarType;
    }
 
    @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public String getFirstName() {
-      return firstName;
-   }
-
-   @JsonIgnore
-   public void setFirstName(String value) { 
-      this.firstName = value;
+   public void setAvatarType(AvatarType value) { 
+      this.avatarType = value;
    }
    @JsonIgnore
    public Boolean getDisabled() {
@@ -593,15 +575,6 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public void setElasticSearchAddress(String value) { 
       this.elasticSearchAddress = value;
-   }
-   @JsonIgnore
-   public Boolean getFlowCollectionEnabled() {
-      return flowCollectionEnabled;
-   }
-
-   @JsonIgnore
-   public void setFlowCollectionEnabled(Boolean value) { 
-      this.flowCollectionEnabled = value;
    }
    @JsonIgnore
    public String getEmail() {
@@ -640,6 +613,51 @@ public class Me extends RestRootObject {
       this.entityScope = value;
    }
    @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public String getFirstName() {
+      return firstName;
+   }
+
+   @JsonIgnore
+   public void setFirstName(String value) { 
+      this.firstName = value;
+   }
+   @JsonIgnore
+   public Boolean getFlowCollectionEnabled() {
+      return flowCollectionEnabled;
+   }
+
+   @JsonIgnore
+   public void setFlowCollectionEnabled(Boolean value) { 
+      this.flowCollectionEnabled = value;
+   }
+   @JsonIgnore
+   public String getLastName() {
+      return lastName;
+   }
+
+   @JsonIgnore
+   public void setLastName(String value) { 
+      this.lastName = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
    public String getMobileNumber() {
       return mobileNumber;
    }
@@ -647,6 +665,15 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public void setMobileNumber(String value) { 
       this.mobileNumber = value;
+   }
+   @JsonIgnore
+   public String getPassword() {
+      return password;
+   }
+
+   @JsonIgnore
+   public void setPassword(String value) { 
+      this.password = value;
    }
    @JsonIgnore
    public String getRole() {
@@ -658,15 +685,6 @@ public class Me extends RestRootObject {
       this.role = value;
    }
    @JsonIgnore
-   public String getUserName() {
-      return userName;
-   }
-
-   @JsonIgnore
-   public void setUserName(String value) { 
-      this.userName = value;
-   }
-   @JsonIgnore
    public Boolean getStatisticsEnabled() {
       return statisticsEnabled;
    }
@@ -676,133 +694,25 @@ public class Me extends RestRootObject {
       this.statisticsEnabled = value;
    }
    @JsonIgnore
-   public String getAvatarData() {
-      return avatarData;
+   public String getUserName() {
+      return userName;
    }
 
    @JsonIgnore
-   public void setAvatarData(String value) { 
-      this.avatarData = value;
-   }
-   @JsonIgnore
-   public AvatarType getAvatarType() {
-      return avatarType;
-   }
-
-   @JsonIgnore
-   public void setAvatarType(AvatarType value) { 
-      this.avatarType = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
+   public void setUserName(String value) { 
+      this.userName = value;
    }
    
 
    
    @JsonIgnore
-   public L2DomainsFetcher getL2Domains() {
-      return l2Domains;
+   public ApplicationServicesFetcher getApplicationServices() {
+      return applicationServices;
    }
    
    @JsonIgnore
-   public VCenterEAMConfigsFetcher getVCenterEAMConfigs() {
-      return vCenterEAMConfigs;
-   }
-   
-   @JsonIgnore
-   public RateLimitersFetcher getRateLimiters() {
-      return rateLimiters;
-   }
-   
-   @JsonIgnore
-   public GatewaysFetcher getGateways() {
-      return gateways;
-   }
-   
-   @JsonIgnore
-   public GatewayTemplatesFetcher getGatewayTemplates() {
-      return gatewayTemplates;
-   }
-   
-   @JsonIgnore
-   public PATMappersFetcher getPATMappers() {
-      return pATMappers;
-   }
-   
-   @JsonIgnore
-   public PATNATPoolsFetcher getPATNATPools() {
-      return pATNATPools;
-   }
-   
-   @JsonIgnore
-   public TCAsFetcher getTCAs() {
-      return tCAs;
-   }
-   
-   @JsonIgnore
-   public VCentersFetcher getVCenters() {
-      return vCenters;
-   }
-   
-   @JsonIgnore
-   public VCenterHypervisorsFetcher getVCenterHypervisors() {
-      return vCenterHypervisors;
-   }
-   
-   @JsonIgnore
-   public RedirectionTargetsFetcher getRedirectionTargets() {
-      return redirectionTargets;
-   }
-   
-   @JsonIgnore
-   public RedundancyGroupsFetcher getRedundancyGroups() {
-      return redundancyGroups;
-   }
-   
-   @JsonIgnore
-   public PerformanceMonitorsFetcher getPerformanceMonitors() {
-      return performanceMonitors;
-   }
-   
-   @JsonIgnore
-   public CertificatesFetcher getCertificates() {
-      return certificates;
-   }
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
-   
-   @JsonIgnore
-   public MetadataTagsFetcher getMetadataTags() {
-      return metadataTags;
-   }
-   
-   @JsonIgnore
-   public NetworkLayoutsFetcher getNetworkLayouts() {
-      return networkLayouts;
-   }
-   
-   @JsonIgnore
-   public KeyServerMembersFetcher getKeyServerMembers() {
-      return keyServerMembers;
-   }
-   
-   @JsonIgnore
-   public ZFBAutoAssignmentsFetcher getZFBAutoAssignments() {
-      return zFBAutoAssignments;
-   }
-   
-   @JsonIgnore
-   public ZFBRequestsFetcher getZFBRequests() {
-      return zFBRequests;
+   public AutoDiscoveredGatewaysFetcher getAutoDiscoveredGateways() {
+      return autoDiscoveredGateways;
    }
    
    @JsonIgnore
@@ -813,6 +723,41 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public BGPProfilesFetcher getBGPProfiles() {
       return bGPProfiles;
+   }
+   
+   @JsonIgnore
+   public CertificatesFetcher getCertificates() {
+      return certificates;
+   }
+   
+   @JsonIgnore
+   public CloudMgmtSystemsFetcher getCloudMgmtSystems() {
+      return cloudMgmtSystems;
+   }
+   
+   @JsonIgnore
+   public ContainersFetcher getContainers() {
+      return containers;
+   }
+   
+   @JsonIgnore
+   public ContainerInterfacesFetcher getContainerInterfaces() {
+      return containerInterfaces;
+   }
+   
+   @JsonIgnore
+   public DomainsFetcher getDomains() {
+      return domains;
+   }
+   
+   @JsonIgnore
+   public DUCGroupsFetcher getDUCGroups() {
+      return dUCGroups;
+   }
+   
+   @JsonIgnore
+   public VCenterEAMConfigsFetcher getVCenterEAMConfigs() {
+      return vCenterEAMConfigs;
    }
    
    @JsonIgnore
@@ -841,28 +786,23 @@ public class Me extends RestRootObject {
    }
    
    @JsonIgnore
-   public SharedNetworkResourcesFetcher getSharedNetworkResources() {
-      return sharedNetworkResources;
+   public EnterprisesFetcher getEnterprises() {
+      return enterprises;
    }
    
    @JsonIgnore
-   public LicensesFetcher getLicenses() {
-      return licenses;
+   public EnterpriseProfilesFetcher getEnterpriseProfiles() {
+      return enterpriseProfiles;
    }
    
    @JsonIgnore
-   public LicenseStatusFetcher getLicenseStatus() {
-      return licenseStatus;
+   public ExternalAppServicesFetcher getExternalAppServices() {
+      return externalAppServices;
    }
    
    @JsonIgnore
-   public MirrorDestinationsFetcher getMirrorDestinations() {
-      return mirrorDestinations;
-   }
-   
-   @JsonIgnore
-   public SiteInfosFetcher getSiteInfos() {
-      return siteInfos;
+   public ExternalServicesFetcher getExternalServices() {
+      return externalServices;
    }
    
    @JsonIgnore
@@ -871,28 +811,23 @@ public class Me extends RestRootObject {
    }
    
    @JsonIgnore
+   public GatewaysFetcher getGateways() {
+      return gateways;
+   }
+   
+   @JsonIgnore
+   public GatewayTemplatesFetcher getGatewayTemplates() {
+      return gatewayTemplates;
+   }
+   
+   @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
    @JsonIgnore
-   public VMsFetcher getVMs() {
-      return vMs;
-   }
-   
-   @JsonIgnore
-   public VMInterfacesFetcher getVMInterfaces() {
-      return vMInterfaces;
-   }
-   
-   @JsonIgnore
-   public CloudMgmtSystemsFetcher getCloudMgmtSystems() {
-      return cloudMgmtSystems;
-   }
-   
-   @JsonIgnore
-   public UnderlaysFetcher getUnderlays() {
-      return underlays;
+   public HostInterfacesFetcher getHostInterfaces() {
+      return hostInterfaces;
    }
    
    @JsonIgnore
@@ -926,73 +861,53 @@ public class Me extends RestRootObject {
    }
    
    @JsonIgnore
-   public EnterprisesFetcher getEnterprises() {
-      return enterprises;
-   }
-   
-   @JsonIgnore
-   public EnterpriseProfilesFetcher getEnterpriseProfiles() {
-      return enterpriseProfiles;
-   }
-   
-   @JsonIgnore
    public JobsFetcher getJobs() {
       return jobs;
    }
    
    @JsonIgnore
-   public PolicyGroupsFetcher getPolicyGroups() {
-      return policyGroups;
+   public KeyServerMembersFetcher getKeyServerMembers() {
+      return keyServerMembers;
    }
    
    @JsonIgnore
-   public DomainsFetcher getDomains() {
-      return domains;
+   public L2DomainsFetcher getL2Domains() {
+      return l2Domains;
    }
    
    @JsonIgnore
-   public ZonesFetcher getZones() {
-      return zones;
+   public LicensesFetcher getLicenses() {
+      return licenses;
    }
    
    @JsonIgnore
-   public ContainersFetcher getContainers() {
-      return containers;
+   public LicenseStatusFetcher getLicenseStatus() {
+      return licenseStatus;
    }
    
    @JsonIgnore
-   public ContainerInterfacesFetcher getContainerInterfaces() {
-      return containerInterfaces;
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
    @JsonIgnore
-   public HostInterfacesFetcher getHostInterfaces() {
-      return hostInterfaces;
+   public MetadataTagsFetcher getMetadataTags() {
+      return metadataTags;
    }
    
    @JsonIgnore
-   public RoutingPoliciesFetcher getRoutingPolicies() {
-      return routingPolicies;
+   public MirrorDestinationsFetcher getMirrorDestinations() {
+      return mirrorDestinations;
    }
    
    @JsonIgnore
-   public UplinkRDsFetcher getUplinkRDs() {
-      return uplinkRDs;
+   public MultiCastChannelMapsFetcher getMultiCastChannelMaps() {
+      return multiCastChannelMaps;
    }
    
    @JsonIgnore
-   public ApplicationServicesFetcher getApplicationServices() {
-      return applicationServices;
-   }
-   
-   @JsonIgnore
-   public VCenterVRSConfigsFetcher getVCenterVRSConfigs() {
-      return vCenterVRSConfigs;
-   }
-   
-   @JsonIgnore
-   public UsersFetcher getUsers() {
-      return users;
+   public NetworkLayoutsFetcher getNetworkLayouts() {
+      return networkLayouts;
    }
    
    @JsonIgnore
@@ -1016,8 +931,53 @@ public class Me extends RestRootObject {
    }
    
    @JsonIgnore
-   public VSPsFetcher getVSPs() {
-      return vSPs;
+   public PATMappersFetcher getPATMappers() {
+      return pATMappers;
+   }
+   
+   @JsonIgnore
+   public PATNATPoolsFetcher getPATNATPools() {
+      return pATNATPools;
+   }
+   
+   @JsonIgnore
+   public PerformanceMonitorsFetcher getPerformanceMonitors() {
+      return performanceMonitors;
+   }
+   
+   @JsonIgnore
+   public PolicyGroupsFetcher getPolicyGroups() {
+      return policyGroups;
+   }
+   
+   @JsonIgnore
+   public RateLimitersFetcher getRateLimiters() {
+      return rateLimiters;
+   }
+   
+   @JsonIgnore
+   public RedirectionTargetsFetcher getRedirectionTargets() {
+      return redirectionTargets;
+   }
+   
+   @JsonIgnore
+   public RedundancyGroupsFetcher getRedundancyGroups() {
+      return redundancyGroups;
+   }
+   
+   @JsonIgnore
+   public RoutingPoliciesFetcher getRoutingPolicies() {
+      return routingPolicies;
+   }
+   
+   @JsonIgnore
+   public SharedNetworkResourcesFetcher getSharedNetworkResources() {
+      return sharedNetworkResources;
+   }
+   
+   @JsonIgnore
+   public SiteInfosFetcher getSiteInfos() {
+      return siteInfos;
    }
    
    @JsonIgnore
@@ -1036,38 +996,78 @@ public class Me extends RestRootObject {
    }
    
    @JsonIgnore
-   public DUCGroupsFetcher getDUCGroups() {
-      return dUCGroups;
-   }
-   
-   @JsonIgnore
-   public MultiCastChannelMapsFetcher getMultiCastChannelMaps() {
-      return multiCastChannelMaps;
-   }
-   
-   @JsonIgnore
-   public AutoDiscoveredGatewaysFetcher getAutoDiscoveredGateways() {
-      return autoDiscoveredGateways;
-   }
-   
-   @JsonIgnore
-   public ExternalAppServicesFetcher getExternalAppServices() {
-      return externalAppServices;
-   }
-   
-   @JsonIgnore
-   public ExternalServicesFetcher getExternalServices() {
-      return externalServices;
-   }
-   
-   @JsonIgnore
    public SystemConfigsFetcher getSystemConfigs() {
       return systemConfigs;
    }
    
+   @JsonIgnore
+   public TCAsFetcher getTCAs() {
+      return tCAs;
+   }
+   
+   @JsonIgnore
+   public UnderlaysFetcher getUnderlays() {
+      return underlays;
+   }
+   
+   @JsonIgnore
+   public UplinkRDsFetcher getUplinkRDs() {
+      return uplinkRDs;
+   }
+   
+   @JsonIgnore
+   public UsersFetcher getUsers() {
+      return users;
+   }
+   
+   @JsonIgnore
+   public VCentersFetcher getVCenters() {
+      return vCenters;
+   }
+   
+   @JsonIgnore
+   public VCenterHypervisorsFetcher getVCenterHypervisors() {
+      return vCenterHypervisors;
+   }
+   
+   @JsonIgnore
+   public VMsFetcher getVMs() {
+      return vMs;
+   }
+   
+   @JsonIgnore
+   public VMInterfacesFetcher getVMInterfaces() {
+      return vMInterfaces;
+   }
+   
+   @JsonIgnore
+   public VCenterVRSConfigsFetcher getVCenterVRSConfigs() {
+      return vCenterVRSConfigs;
+   }
+   
+   @JsonIgnore
+   public VSPsFetcher getVSPs() {
+      return vSPs;
+   }
+   
+   @JsonIgnore
+   public ZFBAutoAssignmentsFetcher getZFBAutoAssignments() {
+      return zFBAutoAssignments;
+   }
+   
+   @JsonIgnore
+   public ZFBRequestsFetcher getZFBRequests() {
+      return zFBRequests;
+   }
+   
+   @JsonIgnore
+   public ZonesFetcher getZones() {
+      return zones;
+   }
+   
 
    public String toString() {
-      return "Me [" + "password=" + password + ", lastName=" + lastName + ", lastUpdatedBy=" + lastUpdatedBy + ", firstName=" + firstName + ", disabled=" + disabled + ", elasticSearchAddress=" + elasticSearchAddress + ", flowCollectionEnabled=" + flowCollectionEnabled + ", email=" + email + ", enterpriseID=" + enterpriseID + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", mobileNumber=" + mobileNumber + ", role=" + role + ", userName=" + userName + ", statisticsEnabled=" + statisticsEnabled + ", avatarData=" + avatarData + ", avatarType=" + avatarType + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Me [" + "avatarData=" + avatarData + ", avatarType=" + avatarType + ", disabled=" + disabled + ", elasticSearchAddress=" + elasticSearchAddress + ", email=" + email + ", enterpriseID=" + enterpriseID + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", externalID=" + externalID + ", firstName=" + firstName + ", flowCollectionEnabled=" + flowCollectionEnabled + ", lastName=" + lastName + ", lastUpdatedBy=" + lastUpdatedBy + ", mobileNumber=" + mobileNumber + ", password=" + password + ", role=" + role + ", statisticsEnabled=" + statisticsEnabled + ", userName=" + userName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + ", apiKey=" + apiKey  + "]";
    }
    

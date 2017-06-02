@@ -35,10 +35,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.VPortsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.VPortsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "floatingip", resourceName = "floatingips")
@@ -50,17 +50,11 @@ public class FloatingIp extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
    @JsonProperty(value = "accessControl")
    protected Boolean accessControl;
    
    @JsonProperty(value = "address")
    protected String address;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
    
    @JsonProperty(value = "assigned")
    protected Boolean assigned;
@@ -71,45 +65,42 @@ public class FloatingIp extends RestObject {
    @JsonProperty(value = "associatedSharedNetworkResourceID")
    protected String associatedSharedNetworkResourceID;
    
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
    @JsonProperty(value = "externalID")
    protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private EventLogsFetcher eventLogs;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private VPortsFetcher vPorts;
+   private MetadatasFetcher metadatas;
    
    @JsonIgnore
-   private EventLogsFetcher eventLogs;
+   private VPortsFetcher vPorts;
    
 
    public FloatingIp() {
       
-      metadatas = new MetadatasFetcher(this);
+      eventLogs = new EventLogsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
       vPorts = new VPortsFetcher(this);
       
-      eventLogs = new EventLogsFetcher(this);
-      
    }
 
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
    @JsonIgnore
    public Boolean getAccessControl() {
       return accessControl;
@@ -127,15 +118,6 @@ public class FloatingIp extends RestObject {
    @JsonIgnore
    public void setAddress(String value) { 
       this.address = value;
-   }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
    }
    @JsonIgnore
    public Boolean getAssigned() {
@@ -165,6 +147,15 @@ public class FloatingIp extends RestObject {
       this.associatedSharedNetworkResourceID = value;
    }
    @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
@@ -173,12 +164,21 @@ public class FloatingIp extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
    
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
    }
    
    @JsonIgnore
@@ -187,18 +187,18 @@ public class FloatingIp extends RestObject {
    }
    
    @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
+   @JsonIgnore
    public VPortsFetcher getVPorts() {
       return vPorts;
    }
    
-   @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
-   }
-   
 
    public String toString() {
-      return "FloatingIp [" + "lastUpdatedBy=" + lastUpdatedBy + ", accessControl=" + accessControl + ", address=" + address + ", entityScope=" + entityScope + ", assigned=" + assigned + ", assignedToObjectType=" + assignedToObjectType + ", associatedSharedNetworkResourceID=" + associatedSharedNetworkResourceID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "FloatingIp [" + "accessControl=" + accessControl + ", address=" + address + ", assigned=" + assigned + ", assignedToObjectType=" + assignedToObjectType + ", associatedSharedNetworkResourceID=" + associatedSharedNetworkResourceID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

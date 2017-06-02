@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "enterprisesecureddata", resourceName = "enterprisesecureddatas")
@@ -48,23 +48,8 @@ public class EnterpriseSecuredData extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "hash")
-   protected String hash;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
    @JsonProperty(value = "data")
    protected String data;
-   
-   @JsonProperty(value = "sekId")
-   protected Long sekId;
-   
-   @JsonProperty(value = "keyserverCertSerialNumber")
-   protected String keyserverCertSerialNumber;
-   
-   @JsonProperty(value = "signedHash")
-   protected String signedHash;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
@@ -72,41 +57,38 @@ public class EnterpriseSecuredData extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-
+   @JsonProperty(value = "hash")
+   protected String hash;
    
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
+   @JsonProperty(value = "keyserverCertSerialNumber")
+   protected String keyserverCertSerialNumber;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "sekId")
+   protected Long sekId;
+   
+   @JsonProperty(value = "signedHash")
+   protected String signedHash;
+   
+
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public EnterpriseSecuredData() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
-   @JsonIgnore
-   public String getHash() {
-      return hash;
-   }
-
-   @JsonIgnore
-   public void setHash(String value) { 
-      this.hash = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
    @JsonIgnore
    public String getData() {
       return data;
@@ -115,33 +97,6 @@ public class EnterpriseSecuredData extends RestObject {
    @JsonIgnore
    public void setData(String value) { 
       this.data = value;
-   }
-   @JsonIgnore
-   public Long getSekId() {
-      return sekId;
-   }
-
-   @JsonIgnore
-   public void setSekId(Long value) { 
-      this.sekId = value;
-   }
-   @JsonIgnore
-   public String getKeyserverCertSerialNumber() {
-      return keyserverCertSerialNumber;
-   }
-
-   @JsonIgnore
-   public void setKeyserverCertSerialNumber(String value) { 
-      this.keyserverCertSerialNumber = value;
-   }
-   @JsonIgnore
-   public String getSignedHash() {
-      return signedHash;
-   }
-
-   @JsonIgnore
-   public void setSignedHash(String value) { 
-      this.signedHash = value;
    }
    @JsonIgnore
    public EntityScope getEntityScope() {
@@ -161,22 +116,67 @@ public class EnterpriseSecuredData extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getHash() {
+      return hash;
+   }
+
+   @JsonIgnore
+   public void setHash(String value) { 
+      this.hash = value;
+   }
+   @JsonIgnore
+   public String getKeyserverCertSerialNumber() {
+      return keyserverCertSerialNumber;
+   }
+
+   @JsonIgnore
+   public void setKeyserverCertSerialNumber(String value) { 
+      this.keyserverCertSerialNumber = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public Long getSekId() {
+      return sekId;
+   }
+
+   @JsonIgnore
+   public void setSekId(Long value) { 
+      this.sekId = value;
+   }
+   @JsonIgnore
+   public String getSignedHash() {
+      return signedHash;
+   }
+
+   @JsonIgnore
+   public void setSignedHash(String value) { 
+      this.signedHash = value;
+   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "EnterpriseSecuredData [" + "hash=" + hash + ", lastUpdatedBy=" + lastUpdatedBy + ", data=" + data + ", sekId=" + sekId + ", keyserverCertSerialNumber=" + keyserverCertSerialNumber + ", signedHash=" + signedHash + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "EnterpriseSecuredData [" + "data=" + data + ", entityScope=" + entityScope + ", externalID=" + externalID + ", hash=" + hash + ", keyserverCertSerialNumber=" + keyserverCertSerialNumber + ", lastUpdatedBy=" + lastUpdatedBy + ", sekId=" + sekId + ", signedHash=" + signedHash + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

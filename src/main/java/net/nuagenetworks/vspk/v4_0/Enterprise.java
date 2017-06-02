@@ -35,60 +35,60 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.L2DomainsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.L2DomainTemplatesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.L7applicationsignaturesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.RateLimitersFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GatewaysFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GatewayTemplatesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.PATNATPoolsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.LDAPConfigurationsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.RedundancyGroupsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.PerformanceMonitorsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadataTagsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.NetworkMacroGroupsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.NetworkPerformanceMeasurementsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.KeyServerMonitorsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.ZFBRequestsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.AlarmsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.AllAlarmsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ApplicationsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ApplicationperformancemanagementsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ApplicationServicesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.AvatarsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.BGPProfilesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ContainersFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.DomainsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.DomainTemplatesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.DSCPForwardingClassTablesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EgressQOSPoliciesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.SharedNetworkResourcesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.EnterpriseNetworksFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.EnterpriseSecuritiesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ExternalAppServicesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ExternalServicesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.FirewallAclsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.FirewallRulesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GatewaysFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GatewayTemplatesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GroupsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GroupKeyEncryptionProfilesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IKECertificatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IKEEncryptionprofilesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IKEGatewaysFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IKEGatewayProfilesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IKEPSKsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.AlarmsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.AllAlarmsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.EnterpriseNetworksFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.EnterpriseSecuritiesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.DomainsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.DomainTemplatesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.ContainersFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.RoutingPoliciesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.ApplicationsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.ApplicationperformancemanagementsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.ApplicationServicesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GroupsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GroupKeyEncryptionProfilesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.DSCPForwardingClassTablesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.UsersFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.KeyServerMonitorsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.L2DomainsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.L2DomainTemplatesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.L7applicationsignaturesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.LDAPConfigurationsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadataTagsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MultiCastListsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.NetworkMacroGroupsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.NetworkPerformanceMeasurementsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NSGatewaysFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NSGatewayTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NSGGroupsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NSRedundantGatewayGroupsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.PATNATPoolsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.PerformanceMonitorsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.PublicNetworkMacrosFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.MultiCastListsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.AvatarsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.ExternalAppServicesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.ExternalServicesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.RateLimitersFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.RedundancyGroupsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.RoutingPoliciesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.SharedNetworkResourcesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.UsersFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ZFBRequestsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "enterprise", resourceName = "enterprises")
@@ -98,16 +98,10 @@ public class Enterprise extends RestObject {
 
    
    public enum AllowedForwardingClasses { A, B, C, D, E, F, G, H, NONE };
+   public enum AvatarType { BASE64, COMPUTEDURL, URL };
    public enum EncryptionManagementMode { DISABLED, MANAGED };
    public enum EntityScope { ENTERPRISE, GLOBAL };
-   public enum AvatarType { BASE64, COMPUTEDURL, URL };
 
-   
-   @JsonProperty(value = "LDAPAuthorizationEnabled")
-   protected Boolean LDAPAuthorizationEnabled;
-   
-   @JsonProperty(value = "LDAPEnabled")
-   protected Boolean LDAPEnabled;
    
    @JsonProperty(value = "BGPEnabled")
    protected Boolean BGPEnabled;
@@ -115,23 +109,11 @@ public class Enterprise extends RestObject {
    @JsonProperty(value = "DHCPLeaseInterval")
    protected Long DHCPLeaseInterval;
    
-   @JsonProperty(value = "name")
-   protected String name;
+   @JsonProperty(value = "LDAPAuthorizationEnabled")
+   protected Boolean LDAPAuthorizationEnabled;
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "receiveMultiCastListID")
-   protected String receiveMultiCastListID;
-   
-   @JsonProperty(value = "sendMultiCastListID")
-   protected String sendMultiCastListID;
-   
-   @JsonProperty(value = "description")
-   protected String description;
-   
-   @JsonProperty(value = "dictionaryVersion")
-   protected Long dictionaryVersion;
+   @JsonProperty(value = "LDAPEnabled")
+   protected Boolean LDAPEnabled;
    
    @JsonProperty(value = "allowAdvancedQOSConfiguration")
    protected Boolean allowAdvancedQOSConfiguration;
@@ -145,11 +127,29 @@ public class Enterprise extends RestObject {
    @JsonProperty(value = "allowedForwardingClasses")
    protected java.util.List<AllowedForwardingClasses> allowedForwardingClasses;
    
-   @JsonProperty(value = "floatingIPsQuota")
-   protected Long floatingIPsQuota;
+   @JsonProperty(value = "associatedEnterpriseSecurityID")
+   protected String associatedEnterpriseSecurityID;
    
-   @JsonProperty(value = "floatingIPsUsed")
-   protected Long floatingIPsUsed;
+   @JsonProperty(value = "associatedGroupKeyEncryptionProfileID")
+   protected String associatedGroupKeyEncryptionProfileID;
+   
+   @JsonProperty(value = "associatedKeyServerMonitorID")
+   protected String associatedKeyServerMonitorID;
+   
+   @JsonProperty(value = "avatarData")
+   protected String avatarData;
+   
+   @JsonProperty(value = "avatarType")
+   protected AvatarType avatarType;
+   
+   @JsonProperty(value = "customerID")
+   protected Long customerID;
+   
+   @JsonProperty(value = "description")
+   protected String description;
+   
+   @JsonProperty(value = "dictionaryVersion")
+   protected Long dictionaryVersion;
    
    @JsonProperty(value = "enableApplicationPerformanceManagement")
    protected Boolean enableApplicationPerformanceManagement;
@@ -163,43 +163,88 @@ public class Enterprise extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "floatingIPsQuota")
+   protected Long floatingIPsQuota;
+   
+   @JsonProperty(value = "floatingIPsUsed")
+   protected Long floatingIPsUsed;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
    @JsonProperty(value = "localAS")
    protected Long localAS;
    
-   @JsonProperty(value = "associatedEnterpriseSecurityID")
-   protected String associatedEnterpriseSecurityID;
+   @JsonProperty(value = "name")
+   protected String name;
    
-   @JsonProperty(value = "associatedGroupKeyEncryptionProfileID")
-   protected String associatedGroupKeyEncryptionProfileID;
+   @JsonProperty(value = "receiveMultiCastListID")
+   protected String receiveMultiCastListID;
    
-   @JsonProperty(value = "associatedKeyServerMonitorID")
-   protected String associatedKeyServerMonitorID;
-   
-   @JsonProperty(value = "customerID")
-   protected Long customerID;
-   
-   @JsonProperty(value = "avatarData")
-   protected String avatarData;
-   
-   @JsonProperty(value = "avatarType")
-   protected AvatarType avatarType;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
+   @JsonProperty(value = "sendMultiCastListID")
+   protected String sendMultiCastListID;
    
 
    
    @JsonIgnore
-   private L2DomainsFetcher l2Domains;
+   private AlarmsFetcher alarms;
    
    @JsonIgnore
-   private L2DomainTemplatesFetcher l2DomainTemplates;
+   private AllAlarmsFetcher allAlarms;
    
    @JsonIgnore
-   private L7applicationsignaturesFetcher l7applicationsignatures;
+   private ApplicationsFetcher applications;
    
    @JsonIgnore
-   private RateLimitersFetcher rateLimiters;
+   private ApplicationperformancemanagementsFetcher applicationperformancemanagements;
+   
+   @JsonIgnore
+   private ApplicationServicesFetcher applicationServices;
+   
+   @JsonIgnore
+   private AvatarsFetcher avatars;
+   
+   @JsonIgnore
+   private BGPProfilesFetcher bGPProfiles;
+   
+   @JsonIgnore
+   private ContainersFetcher containers;
+   
+   @JsonIgnore
+   private DomainsFetcher domains;
+   
+   @JsonIgnore
+   private DomainTemplatesFetcher domainTemplates;
+   
+   @JsonIgnore
+   private DSCPForwardingClassTablesFetcher dSCPForwardingClassTables;
+   
+   @JsonIgnore
+   private EgressQOSPoliciesFetcher egressQOSPolicies;
+   
+   @JsonIgnore
+   private EnterpriseNetworksFetcher enterpriseNetworks;
+   
+   @JsonIgnore
+   private EnterpriseSecuritiesFetcher enterpriseSecurities;
+   
+   @JsonIgnore
+   private EventLogsFetcher eventLogs;
+   
+   @JsonIgnore
+   private ExternalAppServicesFetcher externalAppServices;
+   
+   @JsonIgnore
+   private ExternalServicesFetcher externalServices;
+   
+   @JsonIgnore
+   private FirewallAclsFetcher firewallAcls;
+   
+   @JsonIgnore
+   private FirewallRulesFetcher firewallRules;
    
    @JsonIgnore
    private GatewaysFetcher gateways;
@@ -208,49 +253,13 @@ public class Enterprise extends RestObject {
    private GatewayTemplatesFetcher gatewayTemplates;
    
    @JsonIgnore
-   private PATNATPoolsFetcher pATNATPools;
+   private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private LDAPConfigurationsFetcher lDAPConfigurations;
+   private GroupsFetcher groups;
    
    @JsonIgnore
-   private RedundancyGroupsFetcher redundancyGroups;
-   
-   @JsonIgnore
-   private PerformanceMonitorsFetcher performanceMonitors;
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
-   
-   @JsonIgnore
-   private MetadataTagsFetcher metadataTags;
-   
-   @JsonIgnore
-   private NetworkMacroGroupsFetcher networkMacroGroups;
-   
-   @JsonIgnore
-   private NetworkPerformanceMeasurementsFetcher networkPerformanceMeasurements;
-   
-   @JsonIgnore
-   private KeyServerMonitorsFetcher keyServerMonitors;
-   
-   @JsonIgnore
-   private ZFBRequestsFetcher zFBRequests;
-   
-   @JsonIgnore
-   private BGPProfilesFetcher bGPProfiles;
-   
-   @JsonIgnore
-   private EgressQOSPoliciesFetcher egressQOSPolicies;
-   
-   @JsonIgnore
-   private SharedNetworkResourcesFetcher sharedNetworkResources;
-   
-   @JsonIgnore
-   private FirewallAclsFetcher firewallAcls;
-   
-   @JsonIgnore
-   private FirewallRulesFetcher firewallRules;
+   private GroupKeyEncryptionProfilesFetcher groupKeyEncryptionProfiles;
    
    @JsonIgnore
    private IKECertificatesFetcher iKECertificates;
@@ -268,58 +277,37 @@ public class Enterprise extends RestObject {
    private IKEPSKsFetcher iKEPSKs;
    
    @JsonIgnore
-   private AlarmsFetcher alarms;
-   
-   @JsonIgnore
-   private AllAlarmsFetcher allAlarms;
-   
-   @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
-   
-   @JsonIgnore
-   private VMsFetcher vMs;
-   
-   @JsonIgnore
-   private EnterpriseNetworksFetcher enterpriseNetworks;
-   
-   @JsonIgnore
-   private EnterpriseSecuritiesFetcher enterpriseSecurities;
-   
-   @JsonIgnore
    private JobsFetcher jobs;
    
    @JsonIgnore
-   private DomainsFetcher domains;
+   private KeyServerMonitorsFetcher keyServerMonitors;
    
    @JsonIgnore
-   private DomainTemplatesFetcher domainTemplates;
+   private L2DomainsFetcher l2Domains;
    
    @JsonIgnore
-   private ContainersFetcher containers;
+   private L2DomainTemplatesFetcher l2DomainTemplates;
    
    @JsonIgnore
-   private RoutingPoliciesFetcher routingPolicies;
+   private L7applicationsignaturesFetcher l7applicationsignatures;
    
    @JsonIgnore
-   private ApplicationsFetcher applications;
+   private LDAPConfigurationsFetcher lDAPConfigurations;
    
    @JsonIgnore
-   private ApplicationperformancemanagementsFetcher applicationperformancemanagements;
+   private MetadatasFetcher metadatas;
    
    @JsonIgnore
-   private ApplicationServicesFetcher applicationServices;
+   private MetadataTagsFetcher metadataTags;
    
    @JsonIgnore
-   private GroupsFetcher groups;
+   private MultiCastListsFetcher multiCastLists;
    
    @JsonIgnore
-   private GroupKeyEncryptionProfilesFetcher groupKeyEncryptionProfiles;
+   private NetworkMacroGroupsFetcher networkMacroGroups;
    
    @JsonIgnore
-   private DSCPForwardingClassTablesFetcher dSCPForwardingClassTables;
-   
-   @JsonIgnore
-   private UsersFetcher users;
+   private NetworkPerformanceMeasurementsFetcher networkPerformanceMeasurements;
    
    @JsonIgnore
    private NSGatewaysFetcher nSGateways;
@@ -334,67 +322,85 @@ public class Enterprise extends RestObject {
    private NSRedundantGatewayGroupsFetcher nSRedundantGatewayGroups;
    
    @JsonIgnore
+   private PATNATPoolsFetcher pATNATPools;
+   
+   @JsonIgnore
+   private PerformanceMonitorsFetcher performanceMonitors;
+   
+   @JsonIgnore
    private PublicNetworkMacrosFetcher publicNetworkMacros;
    
    @JsonIgnore
-   private MultiCastListsFetcher multiCastLists;
+   private RateLimitersFetcher rateLimiters;
    
    @JsonIgnore
-   private AvatarsFetcher avatars;
+   private RedundancyGroupsFetcher redundancyGroups;
    
    @JsonIgnore
-   private EventLogsFetcher eventLogs;
+   private RoutingPoliciesFetcher routingPolicies;
    
    @JsonIgnore
-   private ExternalAppServicesFetcher externalAppServices;
+   private SharedNetworkResourcesFetcher sharedNetworkResources;
    
    @JsonIgnore
-   private ExternalServicesFetcher externalServices;
+   private UsersFetcher users;
+   
+   @JsonIgnore
+   private VMsFetcher vMs;
+   
+   @JsonIgnore
+   private ZFBRequestsFetcher zFBRequests;
    
 
    public Enterprise() {
       
-      l2Domains = new L2DomainsFetcher(this);
+      alarms = new AlarmsFetcher(this);
       
-      l2DomainTemplates = new L2DomainTemplatesFetcher(this);
+      allAlarms = new AllAlarmsFetcher(this);
       
-      l7applicationsignatures = new L7applicationsignaturesFetcher(this);
+      applications = new ApplicationsFetcher(this);
       
-      rateLimiters = new RateLimitersFetcher(this);
+      applicationperformancemanagements = new ApplicationperformancemanagementsFetcher(this);
+      
+      applicationServices = new ApplicationServicesFetcher(this);
+      
+      avatars = new AvatarsFetcher(this);
+      
+      bGPProfiles = new BGPProfilesFetcher(this);
+      
+      containers = new ContainersFetcher(this);
+      
+      domains = new DomainsFetcher(this);
+      
+      domainTemplates = new DomainTemplatesFetcher(this);
+      
+      dSCPForwardingClassTables = new DSCPForwardingClassTablesFetcher(this);
+      
+      egressQOSPolicies = new EgressQOSPoliciesFetcher(this);
+      
+      enterpriseNetworks = new EnterpriseNetworksFetcher(this);
+      
+      enterpriseSecurities = new EnterpriseSecuritiesFetcher(this);
+      
+      eventLogs = new EventLogsFetcher(this);
+      
+      externalAppServices = new ExternalAppServicesFetcher(this);
+      
+      externalServices = new ExternalServicesFetcher(this);
+      
+      firewallAcls = new FirewallAclsFetcher(this);
+      
+      firewallRules = new FirewallRulesFetcher(this);
       
       gateways = new GatewaysFetcher(this);
       
       gatewayTemplates = new GatewayTemplatesFetcher(this);
       
-      pATNATPools = new PATNATPoolsFetcher(this);
+      globalMetadatas = new GlobalMetadatasFetcher(this);
       
-      lDAPConfigurations = new LDAPConfigurationsFetcher(this);
+      groups = new GroupsFetcher(this);
       
-      redundancyGroups = new RedundancyGroupsFetcher(this);
-      
-      performanceMonitors = new PerformanceMonitorsFetcher(this);
-      
-      metadatas = new MetadatasFetcher(this);
-      
-      metadataTags = new MetadataTagsFetcher(this);
-      
-      networkMacroGroups = new NetworkMacroGroupsFetcher(this);
-      
-      networkPerformanceMeasurements = new NetworkPerformanceMeasurementsFetcher(this);
-      
-      keyServerMonitors = new KeyServerMonitorsFetcher(this);
-      
-      zFBRequests = new ZFBRequestsFetcher(this);
-      
-      bGPProfiles = new BGPProfilesFetcher(this);
-      
-      egressQOSPolicies = new EgressQOSPoliciesFetcher(this);
-      
-      sharedNetworkResources = new SharedNetworkResourcesFetcher(this);
-      
-      firewallAcls = new FirewallAclsFetcher(this);
-      
-      firewallRules = new FirewallRulesFetcher(this);
+      groupKeyEncryptionProfiles = new GroupKeyEncryptionProfilesFetcher(this);
       
       iKECertificates = new IKECertificatesFetcher(this);
       
@@ -406,41 +412,27 @@ public class Enterprise extends RestObject {
       
       iKEPSKs = new IKEPSKsFetcher(this);
       
-      alarms = new AlarmsFetcher(this);
-      
-      allAlarms = new AllAlarmsFetcher(this);
-      
-      globalMetadatas = new GlobalMetadatasFetcher(this);
-      
-      vMs = new VMsFetcher(this);
-      
-      enterpriseNetworks = new EnterpriseNetworksFetcher(this);
-      
-      enterpriseSecurities = new EnterpriseSecuritiesFetcher(this);
-      
       jobs = new JobsFetcher(this);
       
-      domains = new DomainsFetcher(this);
+      keyServerMonitors = new KeyServerMonitorsFetcher(this);
       
-      domainTemplates = new DomainTemplatesFetcher(this);
+      l2Domains = new L2DomainsFetcher(this);
       
-      containers = new ContainersFetcher(this);
+      l2DomainTemplates = new L2DomainTemplatesFetcher(this);
       
-      routingPolicies = new RoutingPoliciesFetcher(this);
+      l7applicationsignatures = new L7applicationsignaturesFetcher(this);
       
-      applications = new ApplicationsFetcher(this);
+      lDAPConfigurations = new LDAPConfigurationsFetcher(this);
       
-      applicationperformancemanagements = new ApplicationperformancemanagementsFetcher(this);
+      metadatas = new MetadatasFetcher(this);
       
-      applicationServices = new ApplicationServicesFetcher(this);
+      metadataTags = new MetadataTagsFetcher(this);
       
-      groups = new GroupsFetcher(this);
+      multiCastLists = new MultiCastListsFetcher(this);
       
-      groupKeyEncryptionProfiles = new GroupKeyEncryptionProfilesFetcher(this);
+      networkMacroGroups = new NetworkMacroGroupsFetcher(this);
       
-      dSCPForwardingClassTables = new DSCPForwardingClassTablesFetcher(this);
-      
-      users = new UsersFetcher(this);
+      networkPerformanceMeasurements = new NetworkPerformanceMeasurementsFetcher(this);
       
       nSGateways = new NSGatewaysFetcher(this);
       
@@ -450,38 +442,28 @@ public class Enterprise extends RestObject {
       
       nSRedundantGatewayGroups = new NSRedundantGatewayGroupsFetcher(this);
       
+      pATNATPools = new PATNATPoolsFetcher(this);
+      
+      performanceMonitors = new PerformanceMonitorsFetcher(this);
+      
       publicNetworkMacros = new PublicNetworkMacrosFetcher(this);
       
-      multiCastLists = new MultiCastListsFetcher(this);
+      rateLimiters = new RateLimitersFetcher(this);
       
-      avatars = new AvatarsFetcher(this);
+      redundancyGroups = new RedundancyGroupsFetcher(this);
       
-      eventLogs = new EventLogsFetcher(this);
+      routingPolicies = new RoutingPoliciesFetcher(this);
       
-      externalAppServices = new ExternalAppServicesFetcher(this);
+      sharedNetworkResources = new SharedNetworkResourcesFetcher(this);
       
-      externalServices = new ExternalServicesFetcher(this);
+      users = new UsersFetcher(this);
+      
+      vMs = new VMsFetcher(this);
+      
+      zFBRequests = new ZFBRequestsFetcher(this);
       
    }
 
-   @JsonIgnore
-   public Boolean getLDAPAuthorizationEnabled() {
-      return LDAPAuthorizationEnabled;
-   }
-
-   @JsonIgnore
-   public void setLDAPAuthorizationEnabled(Boolean value) { 
-      this.LDAPAuthorizationEnabled = value;
-   }
-   @JsonIgnore
-   public Boolean getLDAPEnabled() {
-      return LDAPEnabled;
-   }
-
-   @JsonIgnore
-   public void setLDAPEnabled(Boolean value) { 
-      this.LDAPEnabled = value;
-   }
    @JsonIgnore
    public Boolean getBGPEnabled() {
       return BGPEnabled;
@@ -501,58 +483,22 @@ public class Enterprise extends RestObject {
       this.DHCPLeaseInterval = value;
    }
    @JsonIgnore
-   public String getName() {
-      return name;
+   public Boolean getLDAPAuthorizationEnabled() {
+      return LDAPAuthorizationEnabled;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
+   public void setLDAPAuthorizationEnabled(Boolean value) { 
+      this.LDAPAuthorizationEnabled = value;
    }
    @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public String getReceiveMultiCastListID() {
-      return receiveMultiCastListID;
+   public Boolean getLDAPEnabled() {
+      return LDAPEnabled;
    }
 
    @JsonIgnore
-   public void setReceiveMultiCastListID(String value) { 
-      this.receiveMultiCastListID = value;
-   }
-   @JsonIgnore
-   public String getSendMultiCastListID() {
-      return sendMultiCastListID;
-   }
-
-   @JsonIgnore
-   public void setSendMultiCastListID(String value) { 
-      this.sendMultiCastListID = value;
-   }
-   @JsonIgnore
-   public String getDescription() {
-      return description;
-   }
-
-   @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
-   }
-   @JsonIgnore
-   public Long getDictionaryVersion() {
-      return dictionaryVersion;
-   }
-
-   @JsonIgnore
-   public void setDictionaryVersion(Long value) { 
-      this.dictionaryVersion = value;
+   public void setLDAPEnabled(Boolean value) { 
+      this.LDAPEnabled = value;
    }
    @JsonIgnore
    public Boolean getAllowAdvancedQOSConfiguration() {
@@ -591,22 +537,76 @@ public class Enterprise extends RestObject {
       this.allowedForwardingClasses = value;
    }
    @JsonIgnore
-   public Long getFloatingIPsQuota() {
-      return floatingIPsQuota;
+   public String getAssociatedEnterpriseSecurityID() {
+      return associatedEnterpriseSecurityID;
    }
 
    @JsonIgnore
-   public void setFloatingIPsQuota(Long value) { 
-      this.floatingIPsQuota = value;
+   public void setAssociatedEnterpriseSecurityID(String value) { 
+      this.associatedEnterpriseSecurityID = value;
    }
    @JsonIgnore
-   public Long getFloatingIPsUsed() {
-      return floatingIPsUsed;
+   public String getAssociatedGroupKeyEncryptionProfileID() {
+      return associatedGroupKeyEncryptionProfileID;
    }
 
    @JsonIgnore
-   public void setFloatingIPsUsed(Long value) { 
-      this.floatingIPsUsed = value;
+   public void setAssociatedGroupKeyEncryptionProfileID(String value) { 
+      this.associatedGroupKeyEncryptionProfileID = value;
+   }
+   @JsonIgnore
+   public String getAssociatedKeyServerMonitorID() {
+      return associatedKeyServerMonitorID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedKeyServerMonitorID(String value) { 
+      this.associatedKeyServerMonitorID = value;
+   }
+   @JsonIgnore
+   public String getAvatarData() {
+      return avatarData;
+   }
+
+   @JsonIgnore
+   public void setAvatarData(String value) { 
+      this.avatarData = value;
+   }
+   @JsonIgnore
+   public AvatarType getAvatarType() {
+      return avatarType;
+   }
+
+   @JsonIgnore
+   public void setAvatarType(AvatarType value) { 
+      this.avatarType = value;
+   }
+   @JsonIgnore
+   public Long getCustomerID() {
+      return customerID;
+   }
+
+   @JsonIgnore
+   public void setCustomerID(Long value) { 
+      this.customerID = value;
+   }
+   @JsonIgnore
+   public String getDescription() {
+      return description;
+   }
+
+   @JsonIgnore
+   public void setDescription(String value) { 
+      this.description = value;
+   }
+   @JsonIgnore
+   public Long getDictionaryVersion() {
+      return dictionaryVersion;
+   }
+
+   @JsonIgnore
+   public void setDictionaryVersion(Long value) { 
+      this.dictionaryVersion = value;
    }
    @JsonIgnore
    public Boolean getEnableApplicationPerformanceManagement() {
@@ -645,6 +645,42 @@ public class Enterprise extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public Long getFloatingIPsQuota() {
+      return floatingIPsQuota;
+   }
+
+   @JsonIgnore
+   public void setFloatingIPsQuota(Long value) { 
+      this.floatingIPsQuota = value;
+   }
+   @JsonIgnore
+   public Long getFloatingIPsUsed() {
+      return floatingIPsUsed;
+   }
+
+   @JsonIgnore
+   public void setFloatingIPsUsed(Long value) { 
+      this.floatingIPsUsed = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
    public Long getLocalAS() {
       return localAS;
    }
@@ -654,89 +690,128 @@ public class Enterprise extends RestObject {
       this.localAS = value;
    }
    @JsonIgnore
-   public String getAssociatedEnterpriseSecurityID() {
-      return associatedEnterpriseSecurityID;
+   public String getName() {
+      return name;
    }
 
    @JsonIgnore
-   public void setAssociatedEnterpriseSecurityID(String value) { 
-      this.associatedEnterpriseSecurityID = value;
+   public void setName(String value) { 
+      this.name = value;
    }
    @JsonIgnore
-   public String getAssociatedGroupKeyEncryptionProfileID() {
-      return associatedGroupKeyEncryptionProfileID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedGroupKeyEncryptionProfileID(String value) { 
-      this.associatedGroupKeyEncryptionProfileID = value;
-   }
-   @JsonIgnore
-   public String getAssociatedKeyServerMonitorID() {
-      return associatedKeyServerMonitorID;
+   public String getReceiveMultiCastListID() {
+      return receiveMultiCastListID;
    }
 
    @JsonIgnore
-   public void setAssociatedKeyServerMonitorID(String value) { 
-      this.associatedKeyServerMonitorID = value;
+   public void setReceiveMultiCastListID(String value) { 
+      this.receiveMultiCastListID = value;
    }
    @JsonIgnore
-   public Long getCustomerID() {
-      return customerID;
-   }
-
-   @JsonIgnore
-   public void setCustomerID(Long value) { 
-      this.customerID = value;
-   }
-   @JsonIgnore
-   public String getAvatarData() {
-      return avatarData;
+   public String getSendMultiCastListID() {
+      return sendMultiCastListID;
    }
 
    @JsonIgnore
-   public void setAvatarData(String value) { 
-      this.avatarData = value;
-   }
-   @JsonIgnore
-   public AvatarType getAvatarType() {
-      return avatarType;
-   }
-
-   @JsonIgnore
-   public void setAvatarType(AvatarType value) { 
-      this.avatarType = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
+   public void setSendMultiCastListID(String value) { 
+      this.sendMultiCastListID = value;
    }
    
 
    
    @JsonIgnore
-   public L2DomainsFetcher getL2Domains() {
-      return l2Domains;
+   public AlarmsFetcher getAlarms() {
+      return alarms;
    }
    
    @JsonIgnore
-   public L2DomainTemplatesFetcher getL2DomainTemplates() {
-      return l2DomainTemplates;
+   public AllAlarmsFetcher getAllAlarms() {
+      return allAlarms;
    }
    
    @JsonIgnore
-   public L7applicationsignaturesFetcher getL7applicationsignatures() {
-      return l7applicationsignatures;
+   public ApplicationsFetcher getApplications() {
+      return applications;
    }
    
    @JsonIgnore
-   public RateLimitersFetcher getRateLimiters() {
-      return rateLimiters;
+   public ApplicationperformancemanagementsFetcher getApplicationperformancemanagements() {
+      return applicationperformancemanagements;
+   }
+   
+   @JsonIgnore
+   public ApplicationServicesFetcher getApplicationServices() {
+      return applicationServices;
+   }
+   
+   @JsonIgnore
+   public AvatarsFetcher getAvatars() {
+      return avatars;
+   }
+   
+   @JsonIgnore
+   public BGPProfilesFetcher getBGPProfiles() {
+      return bGPProfiles;
+   }
+   
+   @JsonIgnore
+   public ContainersFetcher getContainers() {
+      return containers;
+   }
+   
+   @JsonIgnore
+   public DomainsFetcher getDomains() {
+      return domains;
+   }
+   
+   @JsonIgnore
+   public DomainTemplatesFetcher getDomainTemplates() {
+      return domainTemplates;
+   }
+   
+   @JsonIgnore
+   public DSCPForwardingClassTablesFetcher getDSCPForwardingClassTables() {
+      return dSCPForwardingClassTables;
+   }
+   
+   @JsonIgnore
+   public EgressQOSPoliciesFetcher getEgressQOSPolicies() {
+      return egressQOSPolicies;
+   }
+   
+   @JsonIgnore
+   public EnterpriseNetworksFetcher getEnterpriseNetworks() {
+      return enterpriseNetworks;
+   }
+   
+   @JsonIgnore
+   public EnterpriseSecuritiesFetcher getEnterpriseSecurities() {
+      return enterpriseSecurities;
+   }
+   
+   @JsonIgnore
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
+   }
+   
+   @JsonIgnore
+   public ExternalAppServicesFetcher getExternalAppServices() {
+      return externalAppServices;
+   }
+   
+   @JsonIgnore
+   public ExternalServicesFetcher getExternalServices() {
+      return externalServices;
+   }
+   
+   @JsonIgnore
+   public FirewallAclsFetcher getFirewallAcls() {
+      return firewallAcls;
+   }
+   
+   @JsonIgnore
+   public FirewallRulesFetcher getFirewallRules() {
+      return firewallRules;
    }
    
    @JsonIgnore
@@ -750,78 +825,18 @@ public class Enterprise extends RestObject {
    }
    
    @JsonIgnore
-   public PATNATPoolsFetcher getPATNATPools() {
-      return pATNATPools;
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
    }
    
    @JsonIgnore
-   public LDAPConfigurationsFetcher getLDAPConfigurations() {
-      return lDAPConfigurations;
+   public GroupsFetcher getGroups() {
+      return groups;
    }
    
    @JsonIgnore
-   public RedundancyGroupsFetcher getRedundancyGroups() {
-      return redundancyGroups;
-   }
-   
-   @JsonIgnore
-   public PerformanceMonitorsFetcher getPerformanceMonitors() {
-      return performanceMonitors;
-   }
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
-   
-   @JsonIgnore
-   public MetadataTagsFetcher getMetadataTags() {
-      return metadataTags;
-   }
-   
-   @JsonIgnore
-   public NetworkMacroGroupsFetcher getNetworkMacroGroups() {
-      return networkMacroGroups;
-   }
-   
-   @JsonIgnore
-   public NetworkPerformanceMeasurementsFetcher getNetworkPerformanceMeasurements() {
-      return networkPerformanceMeasurements;
-   }
-   
-   @JsonIgnore
-   public KeyServerMonitorsFetcher getKeyServerMonitors() {
-      return keyServerMonitors;
-   }
-   
-   @JsonIgnore
-   public ZFBRequestsFetcher getZFBRequests() {
-      return zFBRequests;
-   }
-   
-   @JsonIgnore
-   public BGPProfilesFetcher getBGPProfiles() {
-      return bGPProfiles;
-   }
-   
-   @JsonIgnore
-   public EgressQOSPoliciesFetcher getEgressQOSPolicies() {
-      return egressQOSPolicies;
-   }
-   
-   @JsonIgnore
-   public SharedNetworkResourcesFetcher getSharedNetworkResources() {
-      return sharedNetworkResources;
-   }
-   
-   @JsonIgnore
-   public FirewallAclsFetcher getFirewallAcls() {
-      return firewallAcls;
-   }
-   
-   @JsonIgnore
-   public FirewallRulesFetcher getFirewallRules() {
-      return firewallRules;
+   public GroupKeyEncryptionProfilesFetcher getGroupKeyEncryptionProfiles() {
+      return groupKeyEncryptionProfiles;
    }
    
    @JsonIgnore
@@ -850,93 +865,58 @@ public class Enterprise extends RestObject {
    }
    
    @JsonIgnore
-   public AlarmsFetcher getAlarms() {
-      return alarms;
-   }
-   
-   @JsonIgnore
-   public AllAlarmsFetcher getAllAlarms() {
-      return allAlarms;
-   }
-   
-   @JsonIgnore
-   public GlobalMetadatasFetcher getGlobalMetadatas() {
-      return globalMetadatas;
-   }
-   
-   @JsonIgnore
-   public VMsFetcher getVMs() {
-      return vMs;
-   }
-   
-   @JsonIgnore
-   public EnterpriseNetworksFetcher getEnterpriseNetworks() {
-      return enterpriseNetworks;
-   }
-   
-   @JsonIgnore
-   public EnterpriseSecuritiesFetcher getEnterpriseSecurities() {
-      return enterpriseSecurities;
-   }
-   
-   @JsonIgnore
    public JobsFetcher getJobs() {
       return jobs;
    }
    
    @JsonIgnore
-   public DomainsFetcher getDomains() {
-      return domains;
+   public KeyServerMonitorsFetcher getKeyServerMonitors() {
+      return keyServerMonitors;
    }
    
    @JsonIgnore
-   public DomainTemplatesFetcher getDomainTemplates() {
-      return domainTemplates;
+   public L2DomainsFetcher getL2Domains() {
+      return l2Domains;
    }
    
    @JsonIgnore
-   public ContainersFetcher getContainers() {
-      return containers;
+   public L2DomainTemplatesFetcher getL2DomainTemplates() {
+      return l2DomainTemplates;
    }
    
    @JsonIgnore
-   public RoutingPoliciesFetcher getRoutingPolicies() {
-      return routingPolicies;
+   public L7applicationsignaturesFetcher getL7applicationsignatures() {
+      return l7applicationsignatures;
    }
    
    @JsonIgnore
-   public ApplicationsFetcher getApplications() {
-      return applications;
+   public LDAPConfigurationsFetcher getLDAPConfigurations() {
+      return lDAPConfigurations;
    }
    
    @JsonIgnore
-   public ApplicationperformancemanagementsFetcher getApplicationperformancemanagements() {
-      return applicationperformancemanagements;
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
    @JsonIgnore
-   public ApplicationServicesFetcher getApplicationServices() {
-      return applicationServices;
+   public MetadataTagsFetcher getMetadataTags() {
+      return metadataTags;
    }
    
    @JsonIgnore
-   public GroupsFetcher getGroups() {
-      return groups;
+   public MultiCastListsFetcher getMultiCastLists() {
+      return multiCastLists;
    }
    
    @JsonIgnore
-   public GroupKeyEncryptionProfilesFetcher getGroupKeyEncryptionProfiles() {
-      return groupKeyEncryptionProfiles;
+   public NetworkMacroGroupsFetcher getNetworkMacroGroups() {
+      return networkMacroGroups;
    }
    
    @JsonIgnore
-   public DSCPForwardingClassTablesFetcher getDSCPForwardingClassTables() {
-      return dSCPForwardingClassTables;
-   }
-   
-   @JsonIgnore
-   public UsersFetcher getUsers() {
-      return users;
+   public NetworkPerformanceMeasurementsFetcher getNetworkPerformanceMeasurements() {
+      return networkPerformanceMeasurements;
    }
    
    @JsonIgnore
@@ -960,38 +940,58 @@ public class Enterprise extends RestObject {
    }
    
    @JsonIgnore
+   public PATNATPoolsFetcher getPATNATPools() {
+      return pATNATPools;
+   }
+   
+   @JsonIgnore
+   public PerformanceMonitorsFetcher getPerformanceMonitors() {
+      return performanceMonitors;
+   }
+   
+   @JsonIgnore
    public PublicNetworkMacrosFetcher getPublicNetworkMacros() {
       return publicNetworkMacros;
    }
    
    @JsonIgnore
-   public MultiCastListsFetcher getMultiCastLists() {
-      return multiCastLists;
+   public RateLimitersFetcher getRateLimiters() {
+      return rateLimiters;
    }
    
    @JsonIgnore
-   public AvatarsFetcher getAvatars() {
-      return avatars;
+   public RedundancyGroupsFetcher getRedundancyGroups() {
+      return redundancyGroups;
    }
    
    @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
+   public RoutingPoliciesFetcher getRoutingPolicies() {
+      return routingPolicies;
    }
    
    @JsonIgnore
-   public ExternalAppServicesFetcher getExternalAppServices() {
-      return externalAppServices;
+   public SharedNetworkResourcesFetcher getSharedNetworkResources() {
+      return sharedNetworkResources;
    }
    
    @JsonIgnore
-   public ExternalServicesFetcher getExternalServices() {
-      return externalServices;
+   public UsersFetcher getUsers() {
+      return users;
+   }
+   
+   @JsonIgnore
+   public VMsFetcher getVMs() {
+      return vMs;
+   }
+   
+   @JsonIgnore
+   public ZFBRequestsFetcher getZFBRequests() {
+      return zFBRequests;
    }
    
 
    public String toString() {
-      return "Enterprise [" + "LDAPAuthorizationEnabled=" + LDAPAuthorizationEnabled + ", LDAPEnabled=" + LDAPEnabled + ", BGPEnabled=" + BGPEnabled + ", DHCPLeaseInterval=" + DHCPLeaseInterval + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", receiveMultiCastListID=" + receiveMultiCastListID + ", sendMultiCastListID=" + sendMultiCastListID + ", description=" + description + ", dictionaryVersion=" + dictionaryVersion + ", allowAdvancedQOSConfiguration=" + allowAdvancedQOSConfiguration + ", allowGatewayManagement=" + allowGatewayManagement + ", allowTrustedForwardingClass=" + allowTrustedForwardingClass + ", allowedForwardingClasses=" + allowedForwardingClasses + ", floatingIPsQuota=" + floatingIPsQuota + ", floatingIPsUsed=" + floatingIPsUsed + ", enableApplicationPerformanceManagement=" + enableApplicationPerformanceManagement + ", encryptionManagementMode=" + encryptionManagementMode + ", enterpriseProfileID=" + enterpriseProfileID + ", entityScope=" + entityScope + ", localAS=" + localAS + ", associatedEnterpriseSecurityID=" + associatedEnterpriseSecurityID + ", associatedGroupKeyEncryptionProfileID=" + associatedGroupKeyEncryptionProfileID + ", associatedKeyServerMonitorID=" + associatedKeyServerMonitorID + ", customerID=" + customerID + ", avatarData=" + avatarData + ", avatarType=" + avatarType + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Enterprise [" + "BGPEnabled=" + BGPEnabled + ", DHCPLeaseInterval=" + DHCPLeaseInterval + ", LDAPAuthorizationEnabled=" + LDAPAuthorizationEnabled + ", LDAPEnabled=" + LDAPEnabled + ", allowAdvancedQOSConfiguration=" + allowAdvancedQOSConfiguration + ", allowGatewayManagement=" + allowGatewayManagement + ", allowTrustedForwardingClass=" + allowTrustedForwardingClass + ", allowedForwardingClasses=" + allowedForwardingClasses + ", associatedEnterpriseSecurityID=" + associatedEnterpriseSecurityID + ", associatedGroupKeyEncryptionProfileID=" + associatedGroupKeyEncryptionProfileID + ", associatedKeyServerMonitorID=" + associatedKeyServerMonitorID + ", avatarData=" + avatarData + ", avatarType=" + avatarType + ", customerID=" + customerID + ", description=" + description + ", dictionaryVersion=" + dictionaryVersion + ", enableApplicationPerformanceManagement=" + enableApplicationPerformanceManagement + ", encryptionManagementMode=" + encryptionManagementMode + ", enterpriseProfileID=" + enterpriseProfileID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", floatingIPsQuota=" + floatingIPsQuota + ", floatingIPsUsed=" + floatingIPsUsed + ", lastUpdatedBy=" + lastUpdatedBy + ", localAS=" + localAS + ", name=" + name + ", receiveMultiCastListID=" + receiveMultiCastListID + ", sendMultiCastListID=" + sendMultiCastListID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

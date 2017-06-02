@@ -35,9 +35,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VLANTemplatesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "porttemplate", resourceName = "porttemplates")
@@ -53,31 +53,34 @@ public class PortTemplate extends RestObject {
    @JsonProperty(value = "VLANRange")
    protected String VLANRange;
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
+   @JsonProperty(value = "associatedEgressQOSPolicyID")
+   protected String associatedEgressQOSPolicyID;
    
    @JsonProperty(value = "description")
    protected String description;
    
-   @JsonProperty(value = "physicalName")
-   protected String physicalName;
-   
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
-   
-   @JsonProperty(value = "portType")
-   protected PortType portType;
-   
-   @JsonProperty(value = "associatedEgressQOSPolicyID")
-   protected String associatedEgressQOSPolicyID;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
    
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "physicalName")
+   protected String physicalName;
+   
+   @JsonProperty(value = "portType")
+   protected PortType portType;
+   
 
+   
+   @JsonIgnore
+   private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
    private MetadatasFetcher metadatas;
@@ -85,17 +88,14 @@ public class PortTemplate extends RestObject {
    @JsonIgnore
    private VLANTemplatesFetcher vLANTemplates;
    
-   @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
-   
 
    public PortTemplate() {
+      
+      globalMetadatas = new GlobalMetadatasFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
       
       vLANTemplates = new VLANTemplatesFetcher(this);
-      
-      globalMetadatas = new GlobalMetadatasFetcher(this);
       
    }
 
@@ -109,22 +109,13 @@ public class PortTemplate extends RestObject {
       this.VLANRange = value;
    }
    @JsonIgnore
-   public String getName() {
-      return name;
+   public String getAssociatedEgressQOSPolicyID() {
+      return associatedEgressQOSPolicyID;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
+   public void setAssociatedEgressQOSPolicyID(String value) { 
+      this.associatedEgressQOSPolicyID = value;
    }
    @JsonIgnore
    public String getDescription() {
@@ -136,15 +127,6 @@ public class PortTemplate extends RestObject {
       this.description = value;
    }
    @JsonIgnore
-   public String getPhysicalName() {
-      return physicalName;
-   }
-
-   @JsonIgnore
-   public void setPhysicalName(String value) { 
-      this.physicalName = value;
-   }
-   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
@@ -152,24 +134,6 @@ public class PortTemplate extends RestObject {
    @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
-   }
-   @JsonIgnore
-   public PortType getPortType() {
-      return portType;
-   }
-
-   @JsonIgnore
-   public void setPortType(PortType value) { 
-      this.portType = value;
-   }
-   @JsonIgnore
-   public String getAssociatedEgressQOSPolicyID() {
-      return associatedEgressQOSPolicyID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedEgressQOSPolicyID(String value) { 
-      this.associatedEgressQOSPolicyID = value;
    }
    @JsonIgnore
    public String getExternalID() {
@@ -180,8 +144,49 @@ public class PortTemplate extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public String getPhysicalName() {
+      return physicalName;
+   }
+
+   @JsonIgnore
+   public void setPhysicalName(String value) { 
+      this.physicalName = value;
+   }
+   @JsonIgnore
+   public PortType getPortType() {
+      return portType;
+   }
+
+   @JsonIgnore
+   public void setPortType(PortType value) { 
+      this.portType = value;
+   }
    
 
+   
+   @JsonIgnore
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
    
    @JsonIgnore
    public MetadatasFetcher getMetadatas() {
@@ -193,14 +198,9 @@ public class PortTemplate extends RestObject {
       return vLANTemplates;
    }
    
-   @JsonIgnore
-   public GlobalMetadatasFetcher getGlobalMetadatas() {
-      return globalMetadatas;
-   }
-   
 
    public String toString() {
-      return "PortTemplate [" + "VLANRange=" + VLANRange + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", physicalName=" + physicalName + ", entityScope=" + entityScope + ", portType=" + portType + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "PortTemplate [" + "VLANRange=" + VLANRange + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", physicalName=" + physicalName + ", portType=" + portType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

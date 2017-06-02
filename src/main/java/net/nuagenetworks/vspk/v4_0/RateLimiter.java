@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "ratelimiter", resourceName = "ratelimiters")
@@ -48,17 +48,8 @@ public class RateLimiter extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "peakBurstSize")
-   protected String peakBurstSize;
-   
-   @JsonProperty(value = "peakInformationRate")
-   protected String peakInformationRate;
+   @JsonProperty(value = "committedInformationRate")
+   protected String committedInformationRate;
    
    @JsonProperty(value = "description")
    protected String description;
@@ -66,64 +57,46 @@ public class RateLimiter extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
-   @JsonProperty(value = "committedInformationRate")
-   protected String committedInformationRate;
-   
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "peakBurstSize")
+   protected String peakBurstSize;
+   
+   @JsonProperty(value = "peakInformationRate")
+   protected String peakInformationRate;
+   
+
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public RateLimiter() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
    @JsonIgnore
-   public String getName() {
-      return name;
+   public String getCommittedInformationRate() {
+      return committedInformationRate;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public String getPeakBurstSize() {
-      return peakBurstSize;
-   }
-
-   @JsonIgnore
-   public void setPeakBurstSize(String value) { 
-      this.peakBurstSize = value;
-   }
-   @JsonIgnore
-   public String getPeakInformationRate() {
-      return peakInformationRate;
-   }
-
-   @JsonIgnore
-   public void setPeakInformationRate(String value) { 
-      this.peakInformationRate = value;
+   public void setCommittedInformationRate(String value) { 
+      this.committedInformationRate = value;
    }
    @JsonIgnore
    public String getDescription() {
@@ -144,15 +117,6 @@ public class RateLimiter extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
-   public String getCommittedInformationRate() {
-      return committedInformationRate;
-   }
-
-   @JsonIgnore
-   public void setCommittedInformationRate(String value) { 
-      this.committedInformationRate = value;
-   }
-   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
@@ -161,22 +125,58 @@ public class RateLimiter extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public String getPeakBurstSize() {
+      return peakBurstSize;
+   }
+
+   @JsonIgnore
+   public void setPeakBurstSize(String value) { 
+      this.peakBurstSize = value;
+   }
+   @JsonIgnore
+   public String getPeakInformationRate() {
+      return peakInformationRate;
+   }
+
+   @JsonIgnore
+   public void setPeakInformationRate(String value) { 
+      this.peakInformationRate = value;
+   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "RateLimiter [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", peakBurstSize=" + peakBurstSize + ", peakInformationRate=" + peakInformationRate + ", description=" + description + ", entityScope=" + entityScope + ", committedInformationRate=" + committedInformationRate + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "RateLimiter [" + "committedInformationRate=" + committedInformationRate + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", peakBurstSize=" + peakBurstSize + ", peakInformationRate=" + peakInformationRate + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

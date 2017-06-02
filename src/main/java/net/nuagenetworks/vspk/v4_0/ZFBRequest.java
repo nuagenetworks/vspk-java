@@ -35,9 +35,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "zfbrequest", resourceName = "zfbrequests")
@@ -50,8 +50,23 @@ public class ZFBRequest extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
+   @JsonProperty(value = "CPUType")
+   protected String CPUType;
+   
+   @JsonProperty(value = "IPAddress")
+   protected String IPAddress;
+   
    @JsonProperty(value = "MACAddress")
    protected String MACAddress;
+   
+   @JsonProperty(value = "NSGVersion")
+   protected String NSGVersion;
+   
+   @JsonProperty(value = "SKU")
+   protected String SKU;
+   
+   @JsonProperty(value = "UUID")
+   protected String UUID;
    
    @JsonProperty(value = "ZFBApprovalStatus")
    protected ZFBApprovalStatus ZFBApprovalStatus;
@@ -65,39 +80,6 @@ public class ZFBRequest extends RestObject {
    @JsonProperty(value = "ZFBRequestRetryTimer")
    protected Long ZFBRequestRetryTimer;
    
-   @JsonProperty(value = "SKU")
-   protected String SKU;
-   
-   @JsonProperty(value = "IPAddress")
-   protected String IPAddress;
-   
-   @JsonProperty(value = "CPUType")
-   protected String CPUType;
-   
-   @JsonProperty(value = "NSGVersion")
-   protected String NSGVersion;
-   
-   @JsonProperty(value = "UUID")
-   protected String UUID;
-   
-   @JsonProperty(value = "family")
-   protected String family;
-   
-   @JsonProperty(value = "lastConnectedTime")
-   protected Float lastConnectedTime;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "serialNumber")
-   protected String serialNumber;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
-   
-   @JsonProperty(value = "hostname")
-   protected String hostname;
-   
    @JsonProperty(value = "associatedEnterpriseID")
    protected String associatedEnterpriseID;
    
@@ -110,16 +92,31 @@ public class ZFBRequest extends RestObject {
    @JsonProperty(value = "associatedNSGatewayName")
    protected String associatedNSGatewayName;
    
-   @JsonProperty(value = "statusString")
-   protected String statusString;
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-
+   @JsonProperty(value = "family")
+   protected String family;
    
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
+   @JsonProperty(value = "hostname")
+   protected String hostname;
+   
+   @JsonProperty(value = "lastConnectedTime")
+   protected Float lastConnectedTime;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "serialNumber")
+   protected String serialNumber;
+   
+   @JsonProperty(value = "statusString")
+   protected String statusString;
+   
+
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
@@ -127,17 +124,38 @@ public class ZFBRequest extends RestObject {
    @JsonIgnore
    private JobsFetcher jobs;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public ZFBRequest() {
-      
-      metadatas = new MetadatasFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       jobs = new JobsFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
+   @JsonIgnore
+   public String getCPUType() {
+      return CPUType;
+   }
+
+   @JsonIgnore
+   public void setCPUType(String value) { 
+      this.CPUType = value;
+   }
+   @JsonIgnore
+   public String getIPAddress() {
+      return IPAddress;
+   }
+
+   @JsonIgnore
+   public void setIPAddress(String value) { 
+      this.IPAddress = value;
+   }
    @JsonIgnore
    public String getMACAddress() {
       return MACAddress;
@@ -146,6 +164,33 @@ public class ZFBRequest extends RestObject {
    @JsonIgnore
    public void setMACAddress(String value) { 
       this.MACAddress = value;
+   }
+   @JsonIgnore
+   public String getNSGVersion() {
+      return NSGVersion;
+   }
+
+   @JsonIgnore
+   public void setNSGVersion(String value) { 
+      this.NSGVersion = value;
+   }
+   @JsonIgnore
+   public String getSKU() {
+      return SKU;
+   }
+
+   @JsonIgnore
+   public void setSKU(String value) { 
+      this.SKU = value;
+   }
+   @JsonIgnore
+   public String getUUID() {
+      return UUID;
+   }
+
+   @JsonIgnore
+   public void setUUID(String value) { 
+      this.UUID = value;
    }
    @JsonIgnore
    public ZFBApprovalStatus getZFBApprovalStatus() {
@@ -184,105 +229,6 @@ public class ZFBRequest extends RestObject {
       this.ZFBRequestRetryTimer = value;
    }
    @JsonIgnore
-   public String getSKU() {
-      return SKU;
-   }
-
-   @JsonIgnore
-   public void setSKU(String value) { 
-      this.SKU = value;
-   }
-   @JsonIgnore
-   public String getIPAddress() {
-      return IPAddress;
-   }
-
-   @JsonIgnore
-   public void setIPAddress(String value) { 
-      this.IPAddress = value;
-   }
-   @JsonIgnore
-   public String getCPUType() {
-      return CPUType;
-   }
-
-   @JsonIgnore
-   public void setCPUType(String value) { 
-      this.CPUType = value;
-   }
-   @JsonIgnore
-   public String getNSGVersion() {
-      return NSGVersion;
-   }
-
-   @JsonIgnore
-   public void setNSGVersion(String value) { 
-      this.NSGVersion = value;
-   }
-   @JsonIgnore
-   public String getUUID() {
-      return UUID;
-   }
-
-   @JsonIgnore
-   public void setUUID(String value) { 
-      this.UUID = value;
-   }
-   @JsonIgnore
-   public String getFamily() {
-      return family;
-   }
-
-   @JsonIgnore
-   public void setFamily(String value) { 
-      this.family = value;
-   }
-   @JsonIgnore
-   public Float getLastConnectedTime() {
-      return lastConnectedTime;
-   }
-
-   @JsonIgnore
-   public void setLastConnectedTime(Float value) { 
-      this.lastConnectedTime = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public String getSerialNumber() {
-      return serialNumber;
-   }
-
-   @JsonIgnore
-   public void setSerialNumber(String value) { 
-      this.serialNumber = value;
-   }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
-   }
-   @JsonIgnore
-   public String getHostname() {
-      return hostname;
-   }
-
-   @JsonIgnore
-   public void setHostname(String value) { 
-      this.hostname = value;
-   }
-   @JsonIgnore
    public String getAssociatedEnterpriseID() {
       return associatedEnterpriseID;
    }
@@ -319,13 +265,13 @@ public class ZFBRequest extends RestObject {
       this.associatedNSGatewayName = value;
    }
    @JsonIgnore
-   public String getStatusString() {
-      return statusString;
+   public EntityScope getEntityScope() {
+      return entityScope;
    }
 
    @JsonIgnore
-   public void setStatusString(String value) { 
-      this.statusString = value;
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
    }
    @JsonIgnore
    public String getExternalID() {
@@ -336,13 +282,62 @@ public class ZFBRequest extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getFamily() {
+      return family;
+   }
+
+   @JsonIgnore
+   public void setFamily(String value) { 
+      this.family = value;
+   }
+   @JsonIgnore
+   public String getHostname() {
+      return hostname;
+   }
+
+   @JsonIgnore
+   public void setHostname(String value) { 
+      this.hostname = value;
+   }
+   @JsonIgnore
+   public Float getLastConnectedTime() {
+      return lastConnectedTime;
+   }
+
+   @JsonIgnore
+   public void setLastConnectedTime(Float value) { 
+      this.lastConnectedTime = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getSerialNumber() {
+      return serialNumber;
+   }
+
+   @JsonIgnore
+   public void setSerialNumber(String value) { 
+      this.serialNumber = value;
+   }
+   @JsonIgnore
+   public String getStatusString() {
+      return statusString;
+   }
+
+   @JsonIgnore
+   public void setStatusString(String value) { 
+      this.statusString = value;
+   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
@@ -354,9 +349,14 @@ public class ZFBRequest extends RestObject {
       return jobs;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "ZFBRequest [" + "MACAddress=" + MACAddress + ", ZFBApprovalStatus=" + ZFBApprovalStatus + ", ZFBBootstrapEnabled=" + ZFBBootstrapEnabled + ", ZFBInfo=" + ZFBInfo + ", ZFBRequestRetryTimer=" + ZFBRequestRetryTimer + ", SKU=" + SKU + ", IPAddress=" + IPAddress + ", CPUType=" + CPUType + ", NSGVersion=" + NSGVersion + ", UUID=" + UUID + ", family=" + family + ", lastConnectedTime=" + lastConnectedTime + ", lastUpdatedBy=" + lastUpdatedBy + ", serialNumber=" + serialNumber + ", entityScope=" + entityScope + ", hostname=" + hostname + ", associatedEnterpriseID=" + associatedEnterpriseID + ", associatedEnterpriseName=" + associatedEnterpriseName + ", associatedNSGatewayID=" + associatedNSGatewayID + ", associatedNSGatewayName=" + associatedNSGatewayName + ", statusString=" + statusString + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "ZFBRequest [" + "CPUType=" + CPUType + ", IPAddress=" + IPAddress + ", MACAddress=" + MACAddress + ", NSGVersion=" + NSGVersion + ", SKU=" + SKU + ", UUID=" + UUID + ", ZFBApprovalStatus=" + ZFBApprovalStatus + ", ZFBBootstrapEnabled=" + ZFBBootstrapEnabled + ", ZFBInfo=" + ZFBInfo + ", ZFBRequestRetryTimer=" + ZFBRequestRetryTimer + ", associatedEnterpriseID=" + associatedEnterpriseID + ", associatedEnterpriseName=" + associatedEnterpriseName + ", associatedNSGatewayID=" + associatedNSGatewayID + ", associatedNSGatewayName=" + associatedNSGatewayName + ", entityScope=" + entityScope + ", externalID=" + externalID + ", family=" + family + ", hostname=" + hostname + ", lastConnectedTime=" + lastConnectedTime + ", lastUpdatedBy=" + lastUpdatedBy + ", serialNumber=" + serialNumber + ", statusString=" + statusString + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -35,13 +35,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.VMResyncsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.AlarmsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.VMResyncsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VMInterfacesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VRSsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "vm", resourceName = "vms")
@@ -50,29 +50,17 @@ public class VM extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum ReasonType { BLOCKED_LAST, BLOCKED_UNKNOWN, CRASHED_LAST, CRASHED_UNKNOWN, NOSTATE_LAST, NOSTATE_UNKNOWN, PAUSED_DUMP, PAUSED_FROM_SNAPSHOT, PAUSED_IOERROR, PAUSED_LAST, PAUSED_MIGRATION, PAUSED_SAVE, PAUSED_SHUTTING_DOWN, PAUSED_UNKNOWN, PAUSED_USER, PAUSED_WATCHDOG, RUNNING_BOOTED, RUNNING_FROM_SNAPSHOT, RUNNING_LAST, RUNNING_MIGRATED, RUNNING_MIGRATION_CANCELED, RUNNING_RESTORED, RUNNING_SAVE_CANCELED, RUNNING_UNKNOWN, RUNNING_UNPAUSED, SHUTDOWN_LAST, SHUTDOWN_UNKNOWN, SHUTDOWN_USER, SHUTOFF_CRASHED, SHUTOFF_DESTROYED, SHUTOFF_FAILED, SHUTOFF_FROM_SNAPSHOT, SHUTOFF_LAST, SHUTOFF_MIGRATED, SHUTOFF_SAVED, SHUTOFF_SHUTDOWN, SHUTOFF_UNKNOWN, UNKNOWN };
    public enum DeleteMode { TIMER };
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum ReasonType { BLOCKED_LAST, BLOCKED_UNKNOWN, CRASHED_LAST, CRASHED_UNKNOWN, NOSTATE_LAST, NOSTATE_UNKNOWN, PAUSED_DUMP, PAUSED_FROM_SNAPSHOT, PAUSED_IOERROR, PAUSED_LAST, PAUSED_MIGRATION, PAUSED_SAVE, PAUSED_SHUTTING_DOWN, PAUSED_UNKNOWN, PAUSED_USER, PAUSED_WATCHDOG, RUNNING_BOOTED, RUNNING_FROM_SNAPSHOT, RUNNING_LAST, RUNNING_MIGRATED, RUNNING_MIGRATION_CANCELED, RUNNING_RESTORED, RUNNING_SAVE_CANCELED, RUNNING_UNKNOWN, RUNNING_UNPAUSED, SHUTDOWN_LAST, SHUTDOWN_UNKNOWN, SHUTDOWN_USER, SHUTOFF_CRASHED, SHUTOFF_DESTROYED, SHUTOFF_FAILED, SHUTOFF_FROM_SNAPSHOT, SHUTOFF_LAST, SHUTOFF_MIGRATED, SHUTOFF_SAVED, SHUTOFF_SHUTDOWN, SHUTOFF_UNKNOWN, UNKNOWN };
    public enum Status { BLOCKED, CRASHED, DELETE_PENDING, INIT, LAST, NOSTATE, PAUSED, RUNNING, SHUTDOWN, SHUTOFF, UNKNOWN, UNREACHABLE };
 
-   
-   @JsonProperty(value = "l2DomainIDs")
-   protected java.util.List<String> l2DomainIDs;
-   
-   @JsonProperty(value = "VRSID")
-   protected String VRSID;
    
    @JsonProperty(value = "UUID")
    protected String UUID;
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "reasonType")
-   protected ReasonType reasonType;
+   @JsonProperty(value = "VRSID")
+   protected String VRSID;
    
    @JsonProperty(value = "deleteExpiry")
    protected Long deleteExpiry;
@@ -80,14 +68,8 @@ public class VM extends RestObject {
    @JsonProperty(value = "deleteMode")
    protected DeleteMode deleteMode;
    
-   @JsonProperty(value = "resyncInfo")
-   protected VMResync resyncInfo;
-   
-   @JsonProperty(value = "siteIdentifier")
-   protected String siteIdentifier;
-   
-   @JsonProperty(value = "interfaces")
-   protected java.util.List<VMInterface> interfaces;
+   @JsonProperty(value = "domainIDs")
+   protected java.util.List<String> domainIDs;
    
    @JsonProperty(value = "enterpriseID")
    protected String enterpriseID;
@@ -98,20 +80,35 @@ public class VM extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
-   @JsonProperty(value = "domainIDs")
-   protected java.util.List<String> domainIDs;
+   @JsonProperty(value = "externalID")
+   protected String externalID;
    
-   @JsonProperty(value = "zoneIDs")
-   protected java.util.List<String> zoneIDs;
+   @JsonProperty(value = "hypervisorIP")
+   protected String hypervisorIP;
+   
+   @JsonProperty(value = "interfaces")
+   protected java.util.List<VMInterface> interfaces;
+   
+   @JsonProperty(value = "l2DomainIDs")
+   protected java.util.List<String> l2DomainIDs;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "name")
+   protected String name;
    
    @JsonProperty(value = "orchestrationID")
    protected String orchestrationID;
    
-   @JsonProperty(value = "userID")
-   protected String userID;
+   @JsonProperty(value = "reasonType")
+   protected ReasonType reasonType;
    
-   @JsonProperty(value = "userName")
-   protected String userName;
+   @JsonProperty(value = "resyncInfo")
+   protected VMResync resyncInfo;
+   
+   @JsonProperty(value = "siteIdentifier")
+   protected String siteIdentifier;
    
    @JsonProperty(value = "status")
    protected Status status;
@@ -119,25 +116,31 @@ public class VM extends RestObject {
    @JsonProperty(value = "subnetIDs")
    protected java.util.List<String> subnetIDs;
    
-   @JsonProperty(value = "externalID")
-   protected String externalID;
+   @JsonProperty(value = "userID")
+   protected String userID;
    
-   @JsonProperty(value = "hypervisorIP")
-   protected String hypervisorIP;
+   @JsonProperty(value = "userName")
+   protected String userName;
+   
+   @JsonProperty(value = "zoneIDs")
+   protected java.util.List<String> zoneIDs;
    
 
-   
-   @JsonIgnore
-   private VMResyncsFetcher vMResyncs;
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
    
    @JsonIgnore
    private AlarmsFetcher alarms;
    
    @JsonIgnore
+   private EventLogsFetcher eventLogs;
+   
+   @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
+   @JsonIgnore
+   private VMResyncsFetcher vMResyncs;
    
    @JsonIgnore
    private VMInterfacesFetcher vMInterfaces;
@@ -145,46 +148,25 @@ public class VM extends RestObject {
    @JsonIgnore
    private VRSsFetcher vRSs;
    
-   @JsonIgnore
-   private EventLogsFetcher eventLogs;
-   
 
    public VM() {
       
-      vMResyncs = new VMResyncsFetcher(this);
+      alarms = new AlarmsFetcher(this);
+      
+      eventLogs = new EventLogsFetcher(this);
+      
+      globalMetadatas = new GlobalMetadatasFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
       
-      alarms = new AlarmsFetcher(this);
-      
-      globalMetadatas = new GlobalMetadatasFetcher(this);
+      vMResyncs = new VMResyncsFetcher(this);
       
       vMInterfaces = new VMInterfacesFetcher(this);
       
       vRSs = new VRSsFetcher(this);
       
-      eventLogs = new EventLogsFetcher(this);
-      
    }
 
-   @JsonIgnore
-   public java.util.List<String> getL2DomainIDs() {
-      return l2DomainIDs;
-   }
-
-   @JsonIgnore
-   public void setL2DomainIDs(java.util.List<String> value) { 
-      this.l2DomainIDs = value;
-   }
-   @JsonIgnore
-   public String getVRSID() {
-      return VRSID;
-   }
-
-   @JsonIgnore
-   public void setVRSID(String value) { 
-      this.VRSID = value;
-   }
    @JsonIgnore
    public String getUUID() {
       return UUID;
@@ -195,31 +177,13 @@ public class VM extends RestObject {
       this.UUID = value;
    }
    @JsonIgnore
-   public String getName() {
-      return name;
+   public String getVRSID() {
+      return VRSID;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public ReasonType getReasonType() {
-      return reasonType;
-   }
-
-   @JsonIgnore
-   public void setReasonType(ReasonType value) { 
-      this.reasonType = value;
+   public void setVRSID(String value) { 
+      this.VRSID = value;
    }
    @JsonIgnore
    public Long getDeleteExpiry() {
@@ -240,31 +204,13 @@ public class VM extends RestObject {
       this.deleteMode = value;
    }
    @JsonIgnore
-   public VMResync getResyncInfo() {
-      return resyncInfo;
+   public java.util.List<String> getDomainIDs() {
+      return domainIDs;
    }
 
    @JsonIgnore
-   public void setResyncInfo(VMResync value) { 
-      this.resyncInfo = value;
-   }
-   @JsonIgnore
-   public String getSiteIdentifier() {
-      return siteIdentifier;
-   }
-
-   @JsonIgnore
-   public void setSiteIdentifier(String value) { 
-      this.siteIdentifier = value;
-   }
-   @JsonIgnore
-   public java.util.List<VMInterface> getInterfaces() {
-      return interfaces;
-   }
-
-   @JsonIgnore
-   public void setInterfaces(java.util.List<VMInterface> value) { 
-      this.interfaces = value;
+   public void setDomainIDs(java.util.List<String> value) { 
+      this.domainIDs = value;
    }
    @JsonIgnore
    public String getEnterpriseID() {
@@ -294,22 +240,58 @@ public class VM extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
-   public java.util.List<String> getDomainIDs() {
-      return domainIDs;
+   public String getExternalID() {
+      return externalID;
    }
 
    @JsonIgnore
-   public void setDomainIDs(java.util.List<String> value) { 
-      this.domainIDs = value;
+   public void setExternalID(String value) { 
+      this.externalID = value;
    }
    @JsonIgnore
-   public java.util.List<String> getZoneIDs() {
-      return zoneIDs;
+   public String getHypervisorIP() {
+      return hypervisorIP;
    }
 
    @JsonIgnore
-   public void setZoneIDs(java.util.List<String> value) { 
-      this.zoneIDs = value;
+   public void setHypervisorIP(String value) { 
+      this.hypervisorIP = value;
+   }
+   @JsonIgnore
+   public java.util.List<VMInterface> getInterfaces() {
+      return interfaces;
+   }
+
+   @JsonIgnore
+   public void setInterfaces(java.util.List<VMInterface> value) { 
+      this.interfaces = value;
+   }
+   @JsonIgnore
+   public java.util.List<String> getL2DomainIDs() {
+      return l2DomainIDs;
+   }
+
+   @JsonIgnore
+   public void setL2DomainIDs(java.util.List<String> value) { 
+      this.l2DomainIDs = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
    }
    @JsonIgnore
    public String getOrchestrationID() {
@@ -321,22 +303,31 @@ public class VM extends RestObject {
       this.orchestrationID = value;
    }
    @JsonIgnore
-   public String getUserID() {
-      return userID;
+   public ReasonType getReasonType() {
+      return reasonType;
    }
 
    @JsonIgnore
-   public void setUserID(String value) { 
-      this.userID = value;
+   public void setReasonType(ReasonType value) { 
+      this.reasonType = value;
    }
    @JsonIgnore
-   public String getUserName() {
-      return userName;
+   public VMResync getResyncInfo() {
+      return resyncInfo;
    }
 
    @JsonIgnore
-   public void setUserName(String value) { 
-      this.userName = value;
+   public void setResyncInfo(VMResync value) { 
+      this.resyncInfo = value;
+   }
+   @JsonIgnore
+   public String getSiteIdentifier() {
+      return siteIdentifier;
+   }
+
+   @JsonIgnore
+   public void setSiteIdentifier(String value) { 
+      this.siteIdentifier = value;
    }
    @JsonIgnore
    public Status getStatus() {
@@ -357,29 +348,48 @@ public class VM extends RestObject {
       this.subnetIDs = value;
    }
    @JsonIgnore
-   public String getExternalID() {
-      return externalID;
+   public String getUserID() {
+      return userID;
    }
 
    @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
+   public void setUserID(String value) { 
+      this.userID = value;
    }
    @JsonIgnore
-   public String getHypervisorIP() {
-      return hypervisorIP;
+   public String getUserName() {
+      return userName;
    }
 
    @JsonIgnore
-   public void setHypervisorIP(String value) { 
-      this.hypervisorIP = value;
+   public void setUserName(String value) { 
+      this.userName = value;
+   }
+   @JsonIgnore
+   public java.util.List<String> getZoneIDs() {
+      return zoneIDs;
+   }
+
+   @JsonIgnore
+   public void setZoneIDs(java.util.List<String> value) { 
+      this.zoneIDs = value;
    }
    
 
    
    @JsonIgnore
-   public VMResyncsFetcher getVMResyncs() {
-      return vMResyncs;
+   public AlarmsFetcher getAlarms() {
+      return alarms;
+   }
+   
+   @JsonIgnore
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
+   }
+   
+   @JsonIgnore
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
    }
    
    @JsonIgnore
@@ -388,13 +398,8 @@ public class VM extends RestObject {
    }
    
    @JsonIgnore
-   public AlarmsFetcher getAlarms() {
-      return alarms;
-   }
-   
-   @JsonIgnore
-   public GlobalMetadatasFetcher getGlobalMetadatas() {
-      return globalMetadatas;
+   public VMResyncsFetcher getVMResyncs() {
+      return vMResyncs;
    }
    
    @JsonIgnore
@@ -407,14 +412,9 @@ public class VM extends RestObject {
       return vRSs;
    }
    
-   @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
-   }
-   
 
    public String toString() {
-      return "VM [" + "l2DomainIDs=" + l2DomainIDs + ", VRSID=" + VRSID + ", UUID=" + UUID + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", reasonType=" + reasonType + ", deleteExpiry=" + deleteExpiry + ", deleteMode=" + deleteMode + ", resyncInfo=" + resyncInfo + ", siteIdentifier=" + siteIdentifier + ", interfaces=" + interfaces + ", enterpriseID=" + enterpriseID + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", domainIDs=" + domainIDs + ", zoneIDs=" + zoneIDs + ", orchestrationID=" + orchestrationID + ", userID=" + userID + ", userName=" + userName + ", status=" + status + ", subnetIDs=" + subnetIDs + ", externalID=" + externalID + ", hypervisorIP=" + hypervisorIP + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VM [" + "UUID=" + UUID + ", VRSID=" + VRSID + ", deleteExpiry=" + deleteExpiry + ", deleteMode=" + deleteMode + ", domainIDs=" + domainIDs + ", enterpriseID=" + enterpriseID + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", externalID=" + externalID + ", hypervisorIP=" + hypervisorIP + ", interfaces=" + interfaces + ", l2DomainIDs=" + l2DomainIDs + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", orchestrationID=" + orchestrationID + ", reasonType=" + reasonType + ", resyncInfo=" + resyncInfo + ", siteIdentifier=" + siteIdentifier + ", status=" + status + ", subnetIDs=" + subnetIDs + ", userID=" + userID + ", userName=" + userName + ", zoneIDs=" + zoneIDs + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

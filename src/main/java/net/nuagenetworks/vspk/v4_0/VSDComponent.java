@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "component", resourceName = "components")
@@ -50,12 +50,6 @@ public class VSDComponent extends RestObject {
    public enum Type { EJABBERD, JBOSS, MEDIATOR, PERCONA, STATSCOLLECTOR, STATSSERVER, TCA };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "managementIP")
-   protected String managementIP;
-   
    @JsonProperty(value = "address")
    protected String address;
    
@@ -65,8 +59,17 @@ public class VSDComponent extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
    @JsonProperty(value = "location")
    protected String location;
+   
+   @JsonProperty(value = "managementIP")
+   protected String managementIP;
+   
+   @JsonProperty(value = "name")
+   protected String name;
    
    @JsonProperty(value = "productVersion")
    protected String productVersion;
@@ -74,47 +77,26 @@ public class VSDComponent extends RestObject {
    @JsonProperty(value = "status")
    protected Status status;
    
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
    @JsonProperty(value = "type")
    protected Type type;
    
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
+   private MetadatasFetcher metadatas;
    
 
    public VSDComponent() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getManagementIP() {
-      return managementIP;
-   }
-
-   @JsonIgnore
-   public void setManagementIP(String value) { 
-      this.managementIP = value;
-   }
    @JsonIgnore
    public String getAddress() {
       return address;
@@ -143,6 +125,15 @@ public class VSDComponent extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
    public String getLocation() {
       return location;
    }
@@ -150,6 +141,24 @@ public class VSDComponent extends RestObject {
    @JsonIgnore
    public void setLocation(String value) { 
       this.location = value;
+   }
+   @JsonIgnore
+   public String getManagementIP() {
+      return managementIP;
+   }
+
+   @JsonIgnore
+   public void setManagementIP(String value) { 
+      this.managementIP = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
    }
    @JsonIgnore
    public String getProductVersion() {
@@ -170,15 +179,6 @@ public class VSDComponent extends RestObject {
       this.status = value;
    }
    @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
-   @JsonIgnore
    public Type getType() {
       return type;
    }
@@ -191,18 +191,18 @@ public class VSDComponent extends RestObject {
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
-   
-   @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "VSDComponent [" + "name=" + name + ", managementIP=" + managementIP + ", address=" + address + ", description=" + description + ", entityScope=" + entityScope + ", location=" + location + ", productVersion=" + productVersion + ", status=" + status + ", externalID=" + externalID + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VSDComponent [" + "address=" + address + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", location=" + location + ", managementIP=" + managementIP + ", name=" + name + ", productVersion=" + productVersion + ", status=" + status + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -53,11 +53,11 @@ public class ZFBAutoAssignment extends RestObject {
    @JsonProperty(value = "ZFBMatchAttributeValues")
    protected java.util.List<String> ZFBMatchAttributeValues;
    
-   @JsonProperty(value = "name")
-   protected String name;
+   @JsonProperty(value = "associatedEnterpriseID")
+   protected String associatedEnterpriseID;
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
+   @JsonProperty(value = "associatedEnterpriseName")
+   protected String associatedEnterpriseName;
    
    @JsonProperty(value = "description")
    protected String description;
@@ -65,17 +65,17 @@ public class ZFBAutoAssignment extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
-   @JsonProperty(value = "priority")
-   protected Long priority;
-   
-   @JsonProperty(value = "associatedEnterpriseID")
-   protected String associatedEnterpriseID;
-   
-   @JsonProperty(value = "associatedEnterpriseName")
-   protected String associatedEnterpriseName;
-   
    @JsonProperty(value = "externalID")
    protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "priority")
+   protected Long priority;
    
 
    
@@ -103,22 +103,22 @@ public class ZFBAutoAssignment extends RestObject {
       this.ZFBMatchAttributeValues = value;
    }
    @JsonIgnore
-   public String getName() {
-      return name;
+   public String getAssociatedEnterpriseID() {
+      return associatedEnterpriseID;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
+   public void setAssociatedEnterpriseID(String value) { 
+      this.associatedEnterpriseID = value;
    }
    @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
+   public String getAssociatedEnterpriseName() {
+      return associatedEnterpriseName;
    }
 
    @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
+   public void setAssociatedEnterpriseName(String value) { 
+      this.associatedEnterpriseName = value;
    }
    @JsonIgnore
    public String getDescription() {
@@ -139,33 +139,6 @@ public class ZFBAutoAssignment extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
-   public Long getPriority() {
-      return priority;
-   }
-
-   @JsonIgnore
-   public void setPriority(Long value) { 
-      this.priority = value;
-   }
-   @JsonIgnore
-   public String getAssociatedEnterpriseID() {
-      return associatedEnterpriseID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedEnterpriseID(String value) { 
-      this.associatedEnterpriseID = value;
-   }
-   @JsonIgnore
-   public String getAssociatedEnterpriseName() {
-      return associatedEnterpriseName;
-   }
-
-   @JsonIgnore
-   public void setAssociatedEnterpriseName(String value) { 
-      this.associatedEnterpriseName = value;
-   }
-   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
@@ -174,12 +147,39 @@ public class ZFBAutoAssignment extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public Long getPriority() {
+      return priority;
+   }
+
+   @JsonIgnore
+   public void setPriority(Long value) { 
+      this.priority = value;
+   }
    
 
    
 
    public String toString() {
-      return "ZFBAutoAssignment [" + "ZFBMatchAttribute=" + ZFBMatchAttribute + ", ZFBMatchAttributeValues=" + ZFBMatchAttributeValues + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", entityScope=" + entityScope + ", priority=" + priority + ", associatedEnterpriseID=" + associatedEnterpriseID + ", associatedEnterpriseName=" + associatedEnterpriseName + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "ZFBAutoAssignment [" + "ZFBMatchAttribute=" + ZFBMatchAttribute + ", ZFBMatchAttributeValues=" + ZFBMatchAttributeValues + ", associatedEnterpriseID=" + associatedEnterpriseID + ", associatedEnterpriseName=" + associatedEnterpriseName + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", priority=" + priority + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

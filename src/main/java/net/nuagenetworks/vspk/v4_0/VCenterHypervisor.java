@@ -35,9 +35,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VRSAddressRangesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VRSMetricsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VRSRedeploymentpoliciesFetcher;
@@ -54,15 +54,6 @@ public class VCenterHypervisor extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "vCenterIP")
-   protected String vCenterIP;
-   
-   @JsonProperty(value = "vCenterPassword")
-   protected String vCenterPassword;
-   
-   @JsonProperty(value = "vCenterUser")
-   protected String vCenterUser;
-   
    @JsonProperty(value = "VRSConfigurationTimeLimit")
    protected Long VRSConfigurationTimeLimit;
    
@@ -72,20 +63,17 @@ public class VCenterHypervisor extends RestObject {
    @JsonProperty(value = "VRSState")
    protected VRSState VRSState;
    
-   @JsonProperty(value = "vRequireNuageMetadata")
-   protected Boolean vRequireNuageMetadata;
+   @JsonProperty(value = "allowDataDHCP")
+   protected Boolean allowDataDHCP;
    
-   @JsonProperty(value = "name")
-   protected String name;
+   @JsonProperty(value = "allowMgmtDHCP")
+   protected Boolean allowMgmtDHCP;
    
-   @JsonProperty(value = "managedObjectID")
-   protected String managedObjectID;
+   @JsonProperty(value = "availableNetworks")
+   protected java.util.List<String> availableNetworks;
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "lastVRSDeployedDate")
-   protected Float lastVRSDeployedDate;
+   @JsonProperty(value = "customizedScriptURL")
+   protected String customizedScriptURL;
    
    @JsonProperty(value = "dataDNS1")
    protected String dataDNS1;
@@ -108,32 +96,47 @@ public class VCenterHypervisor extends RestObject {
    @JsonProperty(value = "datapathSyncTimeout")
    protected Long datapathSyncTimeout;
    
-   @JsonProperty(value = "scope")
-   protected Boolean scope;
-   
-   @JsonProperty(value = "secondaryNuageController")
-   protected String secondaryNuageController;
-   
-   @JsonProperty(value = "removedFromVCenterInventory")
-   protected Boolean removedFromVCenterInventory;
-   
-   @JsonProperty(value = "genericSplitActivation")
-   protected Boolean genericSplitActivation;
-   
-   @JsonProperty(value = "separateDataNetwork")
-   protected Boolean separateDataNetwork;
-   
    @JsonProperty(value = "deploymentCount")
    protected Long deploymentCount;
-   
-   @JsonProperty(value = "personality")
-   protected String personality;
    
    @JsonProperty(value = "description")
    protected String description;
    
    @JsonProperty(value = "destinationMirrorPort")
    protected DestinationMirrorPort destinationMirrorPort;
+   
+   @JsonProperty(value = "dhcpRelayServer")
+   protected String dhcpRelayServer;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "flowEvictionThreshold")
+   protected Long flowEvictionThreshold;
+   
+   @JsonProperty(value = "genericSplitActivation")
+   protected Boolean genericSplitActivation;
+   
+   @JsonProperty(value = "hypervisorIP")
+   protected String hypervisorIP;
+   
+   @JsonProperty(value = "hypervisorPassword")
+   protected String hypervisorPassword;
+   
+   @JsonProperty(value = "hypervisorUser")
+   protected String hypervisorUser;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "lastVRSDeployedDate")
+   protected Float lastVRSDeployedDate;
+   
+   @JsonProperty(value = "managedObjectID")
+   protected String managedObjectID;
    
    @JsonProperty(value = "metadataServerIP")
    protected String metadataServerIP;
@@ -146,24 +149,6 @@ public class VCenterHypervisor extends RestObject {
    
    @JsonProperty(value = "metadataServiceEnabled")
    protected Boolean metadataServiceEnabled;
-   
-   @JsonProperty(value = "networkUplinkInterface")
-   protected String networkUplinkInterface;
-   
-   @JsonProperty(value = "networkUplinkInterfaceGateway")
-   protected String networkUplinkInterfaceGateway;
-   
-   @JsonProperty(value = "networkUplinkInterfaceIp")
-   protected String networkUplinkInterfaceIp;
-   
-   @JsonProperty(value = "networkUplinkInterfaceNetmask")
-   protected String networkUplinkInterfaceNetmask;
-   
-   @JsonProperty(value = "nfsLogServer")
-   protected String nfsLogServer;
-   
-   @JsonProperty(value = "nfsMountPath")
-   protected String nfsMountPath;
    
    @JsonProperty(value = "mgmtDNS1")
    protected String mgmtDNS1;
@@ -183,116 +168,8 @@ public class VCenterHypervisor extends RestObject {
    @JsonProperty(value = "mgmtNetworkPortgroup")
    protected String mgmtNetworkPortgroup;
    
-   @JsonProperty(value = "dhcpRelayServer")
-   protected String dhcpRelayServer;
-   
    @JsonProperty(value = "mirrorNetworkPortgroup")
    protected String mirrorNetworkPortgroup;
-   
-   @JsonProperty(value = "siteId")
-   protected String siteId;
-   
-   @JsonProperty(value = "allowDataDHCP")
-   protected Boolean allowDataDHCP;
-   
-   @JsonProperty(value = "allowMgmtDHCP")
-   protected Boolean allowMgmtDHCP;
-   
-   @JsonProperty(value = "flowEvictionThreshold")
-   protected Long flowEvictionThreshold;
-   
-   @JsonProperty(value = "vmNetworkPortgroup")
-   protected String vmNetworkPortgroup;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
-   
-   @JsonProperty(value = "toolboxDeploymentMode")
-   protected Boolean toolboxDeploymentMode;
-   
-   @JsonProperty(value = "toolboxGroup")
-   protected String toolboxGroup;
-   
-   @JsonProperty(value = "toolboxIP")
-   protected String toolboxIP;
-   
-   @JsonProperty(value = "toolboxPassword")
-   protected String toolboxPassword;
-   
-   @JsonProperty(value = "toolboxUserName")
-   protected String toolboxUserName;
-   
-   @JsonProperty(value = "portgroupMetadata")
-   protected Boolean portgroupMetadata;
-   
-   @JsonProperty(value = "novaClientVersion")
-   protected Long novaClientVersion;
-   
-   @JsonProperty(value = "novaMetadataServiceAuthUrl")
-   protected String novaMetadataServiceAuthUrl;
-   
-   @JsonProperty(value = "novaMetadataServiceEndpoint")
-   protected String novaMetadataServiceEndpoint;
-   
-   @JsonProperty(value = "novaMetadataServicePassword")
-   protected String novaMetadataServicePassword;
-   
-   @JsonProperty(value = "novaMetadataServiceTenant")
-   protected String novaMetadataServiceTenant;
-   
-   @JsonProperty(value = "novaMetadataServiceUsername")
-   protected String novaMetadataServiceUsername;
-   
-   @JsonProperty(value = "novaMetadataSharedSecret")
-   protected String novaMetadataSharedSecret;
-   
-   @JsonProperty(value = "novaRegionName")
-   protected String novaRegionName;
-   
-   @JsonProperty(value = "upgradePackagePassword")
-   protected String upgradePackagePassword;
-   
-   @JsonProperty(value = "upgradePackageURL")
-   protected String upgradePackageURL;
-   
-   @JsonProperty(value = "upgradePackageUsername")
-   protected String upgradePackageUsername;
-   
-   @JsonProperty(value = "upgradeScriptTimeLimit")
-   protected Long upgradeScriptTimeLimit;
-   
-   @JsonProperty(value = "upgradeStatus")
-   protected String upgradeStatus;
-   
-   @JsonProperty(value = "upgradeTimedout")
-   protected Boolean upgradeTimedout;
-   
-   @JsonProperty(value = "primaryNuageController")
-   protected String primaryNuageController;
-   
-   @JsonProperty(value = "vrsId")
-   protected String vrsId;
-   
-   @JsonProperty(value = "vrsPassword")
-   protected String vrsPassword;
-   
-   @JsonProperty(value = "vrsUserName")
-   protected String vrsUserName;
-   
-   @JsonProperty(value = "staticRoute")
-   protected String staticRoute;
-   
-   @JsonProperty(value = "staticRouteGateway")
-   protected String staticRouteGateway;
-   
-   @JsonProperty(value = "staticRouteNetmask")
-   protected String staticRouteNetmask;
-   
-   @JsonProperty(value = "ntpServer1")
-   protected String ntpServer1;
-   
-   @JsonProperty(value = "ntpServer2")
-   protected String ntpServer2;
    
    @JsonProperty(value = "mtu")
    protected Long mtu;
@@ -324,37 +201,160 @@ public class VCenterHypervisor extends RestObject {
    @JsonProperty(value = "multicastSourcePortgroup")
    protected String multicastSourcePortgroup;
    
-   @JsonProperty(value = "customizedScriptURL")
-   protected String customizedScriptURL;
+   @JsonProperty(value = "name")
+   protected String name;
    
-   @JsonProperty(value = "availableNetworks")
-   protected java.util.List<String> availableNetworks;
+   @JsonProperty(value = "networkUplinkInterface")
+   protected String networkUplinkInterface;
+   
+   @JsonProperty(value = "networkUplinkInterfaceGateway")
+   protected String networkUplinkInterfaceGateway;
+   
+   @JsonProperty(value = "networkUplinkInterfaceIp")
+   protected String networkUplinkInterfaceIp;
+   
+   @JsonProperty(value = "networkUplinkInterfaceNetmask")
+   protected String networkUplinkInterfaceNetmask;
+   
+   @JsonProperty(value = "nfsLogServer")
+   protected String nfsLogServer;
+   
+   @JsonProperty(value = "nfsMountPath")
+   protected String nfsMountPath;
+   
+   @JsonProperty(value = "novaClientVersion")
+   protected Long novaClientVersion;
+   
+   @JsonProperty(value = "novaMetadataServiceAuthUrl")
+   protected String novaMetadataServiceAuthUrl;
+   
+   @JsonProperty(value = "novaMetadataServiceEndpoint")
+   protected String novaMetadataServiceEndpoint;
+   
+   @JsonProperty(value = "novaMetadataServicePassword")
+   protected String novaMetadataServicePassword;
+   
+   @JsonProperty(value = "novaMetadataServiceTenant")
+   protected String novaMetadataServiceTenant;
+   
+   @JsonProperty(value = "novaMetadataServiceUsername")
+   protected String novaMetadataServiceUsername;
+   
+   @JsonProperty(value = "novaMetadataSharedSecret")
+   protected String novaMetadataSharedSecret;
+   
+   @JsonProperty(value = "novaRegionName")
+   protected String novaRegionName;
+   
+   @JsonProperty(value = "ntpServer1")
+   protected String ntpServer1;
+   
+   @JsonProperty(value = "ntpServer2")
+   protected String ntpServer2;
    
    @JsonProperty(value = "ovfURL")
    protected String ovfURL;
    
-   @JsonProperty(value = "externalID")
-   protected String externalID;
+   @JsonProperty(value = "personality")
+   protected String personality;
    
-   @JsonProperty(value = "hypervisorIP")
-   protected String hypervisorIP;
+   @JsonProperty(value = "portgroupMetadata")
+   protected Boolean portgroupMetadata;
    
-   @JsonProperty(value = "hypervisorPassword")
-   protected String hypervisorPassword;
+   @JsonProperty(value = "primaryNuageController")
+   protected String primaryNuageController;
    
-   @JsonProperty(value = "hypervisorUser")
-   protected String hypervisorUser;
+   @JsonProperty(value = "removedFromVCenterInventory")
+   protected Boolean removedFromVCenterInventory;
+   
+   @JsonProperty(value = "scope")
+   protected Boolean scope;
+   
+   @JsonProperty(value = "secondaryNuageController")
+   protected String secondaryNuageController;
+   
+   @JsonProperty(value = "separateDataNetwork")
+   protected Boolean separateDataNetwork;
+   
+   @JsonProperty(value = "siteId")
+   protected String siteId;
+   
+   @JsonProperty(value = "staticRoute")
+   protected String staticRoute;
+   
+   @JsonProperty(value = "staticRouteGateway")
+   protected String staticRouteGateway;
+   
+   @JsonProperty(value = "staticRouteNetmask")
+   protected String staticRouteNetmask;
+   
+   @JsonProperty(value = "toolboxDeploymentMode")
+   protected Boolean toolboxDeploymentMode;
+   
+   @JsonProperty(value = "toolboxGroup")
+   protected String toolboxGroup;
+   
+   @JsonProperty(value = "toolboxIP")
+   protected String toolboxIP;
+   
+   @JsonProperty(value = "toolboxPassword")
+   protected String toolboxPassword;
+   
+   @JsonProperty(value = "toolboxUserName")
+   protected String toolboxUserName;
+   
+   @JsonProperty(value = "upgradePackagePassword")
+   protected String upgradePackagePassword;
+   
+   @JsonProperty(value = "upgradePackageURL")
+   protected String upgradePackageURL;
+   
+   @JsonProperty(value = "upgradePackageUsername")
+   protected String upgradePackageUsername;
+   
+   @JsonProperty(value = "upgradeScriptTimeLimit")
+   protected Long upgradeScriptTimeLimit;
+   
+   @JsonProperty(value = "upgradeStatus")
+   protected String upgradeStatus;
+   
+   @JsonProperty(value = "upgradeTimedout")
+   protected Boolean upgradeTimedout;
+   
+   @JsonProperty(value = "vCenterIP")
+   protected String vCenterIP;
+   
+   @JsonProperty(value = "vCenterPassword")
+   protected String vCenterPassword;
+   
+   @JsonProperty(value = "vCenterUser")
+   protected String vCenterUser;
+   
+   @JsonProperty(value = "vRequireNuageMetadata")
+   protected Boolean vRequireNuageMetadata;
+   
+   @JsonProperty(value = "vmNetworkPortgroup")
+   protected String vmNetworkPortgroup;
+   
+   @JsonProperty(value = "vrsId")
+   protected String vrsId;
+   
+   @JsonProperty(value = "vrsPassword")
+   protected String vrsPassword;
+   
+   @JsonProperty(value = "vrsUserName")
+   protected String vrsUserName;
    
 
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
    private JobsFetcher jobs;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
    
    @JsonIgnore
    private VRSAddressRangesFetcher vRSAddressRanges;
@@ -368,11 +368,11 @@ public class VCenterHypervisor extends RestObject {
 
    public VCenterHypervisor() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       jobs = new JobsFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
       vRSAddressRanges = new VRSAddressRangesFetcher(this);
       
@@ -382,33 +382,6 @@ public class VCenterHypervisor extends RestObject {
       
    }
 
-   @JsonIgnore
-   public String getVCenterIP() {
-      return vCenterIP;
-   }
-
-   @JsonIgnore
-   public void setVCenterIP(String value) { 
-      this.vCenterIP = value;
-   }
-   @JsonIgnore
-   public String getVCenterPassword() {
-      return vCenterPassword;
-   }
-
-   @JsonIgnore
-   public void setVCenterPassword(String value) { 
-      this.vCenterPassword = value;
-   }
-   @JsonIgnore
-   public String getVCenterUser() {
-      return vCenterUser;
-   }
-
-   @JsonIgnore
-   public void setVCenterUser(String value) { 
-      this.vCenterUser = value;
-   }
    @JsonIgnore
    public Long getVRSConfigurationTimeLimit() {
       return VRSConfigurationTimeLimit;
@@ -437,49 +410,40 @@ public class VCenterHypervisor extends RestObject {
       this.VRSState = value;
    }
    @JsonIgnore
-   public Boolean getVRequireNuageMetadata() {
-      return vRequireNuageMetadata;
+   public Boolean getAllowDataDHCP() {
+      return allowDataDHCP;
    }
 
    @JsonIgnore
-   public void setVRequireNuageMetadata(Boolean value) { 
-      this.vRequireNuageMetadata = value;
+   public void setAllowDataDHCP(Boolean value) { 
+      this.allowDataDHCP = value;
    }
    @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getManagedObjectID() {
-      return managedObjectID;
+   public Boolean getAllowMgmtDHCP() {
+      return allowMgmtDHCP;
    }
 
    @JsonIgnore
-   public void setManagedObjectID(String value) { 
-      this.managedObjectID = value;
+   public void setAllowMgmtDHCP(Boolean value) { 
+      this.allowMgmtDHCP = value;
    }
    @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public Float getLastVRSDeployedDate() {
-      return lastVRSDeployedDate;
+   public java.util.List<String> getAvailableNetworks() {
+      return availableNetworks;
    }
 
    @JsonIgnore
-   public void setLastVRSDeployedDate(Float value) { 
-      this.lastVRSDeployedDate = value;
+   public void setAvailableNetworks(java.util.List<String> value) { 
+      this.availableNetworks = value;
+   }
+   @JsonIgnore
+   public String getCustomizedScriptURL() {
+      return customizedScriptURL;
+   }
+
+   @JsonIgnore
+   public void setCustomizedScriptURL(String value) { 
+      this.customizedScriptURL = value;
    }
    @JsonIgnore
    public String getDataDNS1() {
@@ -545,51 +509,6 @@ public class VCenterHypervisor extends RestObject {
       this.datapathSyncTimeout = value;
    }
    @JsonIgnore
-   public Boolean getScope() {
-      return scope;
-   }
-
-   @JsonIgnore
-   public void setScope(Boolean value) { 
-      this.scope = value;
-   }
-   @JsonIgnore
-   public String getSecondaryNuageController() {
-      return secondaryNuageController;
-   }
-
-   @JsonIgnore
-   public void setSecondaryNuageController(String value) { 
-      this.secondaryNuageController = value;
-   }
-   @JsonIgnore
-   public Boolean getRemovedFromVCenterInventory() {
-      return removedFromVCenterInventory;
-   }
-
-   @JsonIgnore
-   public void setRemovedFromVCenterInventory(Boolean value) { 
-      this.removedFromVCenterInventory = value;
-   }
-   @JsonIgnore
-   public Boolean getGenericSplitActivation() {
-      return genericSplitActivation;
-   }
-
-   @JsonIgnore
-   public void setGenericSplitActivation(Boolean value) { 
-      this.genericSplitActivation = value;
-   }
-   @JsonIgnore
-   public Boolean getSeparateDataNetwork() {
-      return separateDataNetwork;
-   }
-
-   @JsonIgnore
-   public void setSeparateDataNetwork(Boolean value) { 
-      this.separateDataNetwork = value;
-   }
-   @JsonIgnore
    public Long getDeploymentCount() {
       return deploymentCount;
    }
@@ -597,15 +516,6 @@ public class VCenterHypervisor extends RestObject {
    @JsonIgnore
    public void setDeploymentCount(Long value) { 
       this.deploymentCount = value;
-   }
-   @JsonIgnore
-   public String getPersonality() {
-      return personality;
-   }
-
-   @JsonIgnore
-   public void setPersonality(String value) { 
-      this.personality = value;
    }
    @JsonIgnore
    public String getDescription() {
@@ -624,6 +534,105 @@ public class VCenterHypervisor extends RestObject {
    @JsonIgnore
    public void setDestinationMirrorPort(DestinationMirrorPort value) { 
       this.destinationMirrorPort = value;
+   }
+   @JsonIgnore
+   public String getDhcpRelayServer() {
+      return dhcpRelayServer;
+   }
+
+   @JsonIgnore
+   public void setDhcpRelayServer(String value) { 
+      this.dhcpRelayServer = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public Long getFlowEvictionThreshold() {
+      return flowEvictionThreshold;
+   }
+
+   @JsonIgnore
+   public void setFlowEvictionThreshold(Long value) { 
+      this.flowEvictionThreshold = value;
+   }
+   @JsonIgnore
+   public Boolean getGenericSplitActivation() {
+      return genericSplitActivation;
+   }
+
+   @JsonIgnore
+   public void setGenericSplitActivation(Boolean value) { 
+      this.genericSplitActivation = value;
+   }
+   @JsonIgnore
+   public String getHypervisorIP() {
+      return hypervisorIP;
+   }
+
+   @JsonIgnore
+   public void setHypervisorIP(String value) { 
+      this.hypervisorIP = value;
+   }
+   @JsonIgnore
+   public String getHypervisorPassword() {
+      return hypervisorPassword;
+   }
+
+   @JsonIgnore
+   public void setHypervisorPassword(String value) { 
+      this.hypervisorPassword = value;
+   }
+   @JsonIgnore
+   public String getHypervisorUser() {
+      return hypervisorUser;
+   }
+
+   @JsonIgnore
+   public void setHypervisorUser(String value) { 
+      this.hypervisorUser = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public Float getLastVRSDeployedDate() {
+      return lastVRSDeployedDate;
+   }
+
+   @JsonIgnore
+   public void setLastVRSDeployedDate(Float value) { 
+      this.lastVRSDeployedDate = value;
+   }
+   @JsonIgnore
+   public String getManagedObjectID() {
+      return managedObjectID;
+   }
+
+   @JsonIgnore
+   public void setManagedObjectID(String value) { 
+      this.managedObjectID = value;
    }
    @JsonIgnore
    public String getMetadataServerIP() {
@@ -660,60 +669,6 @@ public class VCenterHypervisor extends RestObject {
    @JsonIgnore
    public void setMetadataServiceEnabled(Boolean value) { 
       this.metadataServiceEnabled = value;
-   }
-   @JsonIgnore
-   public String getNetworkUplinkInterface() {
-      return networkUplinkInterface;
-   }
-
-   @JsonIgnore
-   public void setNetworkUplinkInterface(String value) { 
-      this.networkUplinkInterface = value;
-   }
-   @JsonIgnore
-   public String getNetworkUplinkInterfaceGateway() {
-      return networkUplinkInterfaceGateway;
-   }
-
-   @JsonIgnore
-   public void setNetworkUplinkInterfaceGateway(String value) { 
-      this.networkUplinkInterfaceGateway = value;
-   }
-   @JsonIgnore
-   public String getNetworkUplinkInterfaceIp() {
-      return networkUplinkInterfaceIp;
-   }
-
-   @JsonIgnore
-   public void setNetworkUplinkInterfaceIp(String value) { 
-      this.networkUplinkInterfaceIp = value;
-   }
-   @JsonIgnore
-   public String getNetworkUplinkInterfaceNetmask() {
-      return networkUplinkInterfaceNetmask;
-   }
-
-   @JsonIgnore
-   public void setNetworkUplinkInterfaceNetmask(String value) { 
-      this.networkUplinkInterfaceNetmask = value;
-   }
-   @JsonIgnore
-   public String getNfsLogServer() {
-      return nfsLogServer;
-   }
-
-   @JsonIgnore
-   public void setNfsLogServer(String value) { 
-      this.nfsLogServer = value;
-   }
-   @JsonIgnore
-   public String getNfsMountPath() {
-      return nfsMountPath;
-   }
-
-   @JsonIgnore
-   public void setNfsMountPath(String value) { 
-      this.nfsMountPath = value;
    }
    @JsonIgnore
    public String getMgmtDNS1() {
@@ -770,15 +725,6 @@ public class VCenterHypervisor extends RestObject {
       this.mgmtNetworkPortgroup = value;
    }
    @JsonIgnore
-   public String getDhcpRelayServer() {
-      return dhcpRelayServer;
-   }
-
-   @JsonIgnore
-   public void setDhcpRelayServer(String value) { 
-      this.dhcpRelayServer = value;
-   }
-   @JsonIgnore
    public String getMirrorNetworkPortgroup() {
       return mirrorNetworkPortgroup;
    }
@@ -786,321 +732,6 @@ public class VCenterHypervisor extends RestObject {
    @JsonIgnore
    public void setMirrorNetworkPortgroup(String value) { 
       this.mirrorNetworkPortgroup = value;
-   }
-   @JsonIgnore
-   public String getSiteId() {
-      return siteId;
-   }
-
-   @JsonIgnore
-   public void setSiteId(String value) { 
-      this.siteId = value;
-   }
-   @JsonIgnore
-   public Boolean getAllowDataDHCP() {
-      return allowDataDHCP;
-   }
-
-   @JsonIgnore
-   public void setAllowDataDHCP(Boolean value) { 
-      this.allowDataDHCP = value;
-   }
-   @JsonIgnore
-   public Boolean getAllowMgmtDHCP() {
-      return allowMgmtDHCP;
-   }
-
-   @JsonIgnore
-   public void setAllowMgmtDHCP(Boolean value) { 
-      this.allowMgmtDHCP = value;
-   }
-   @JsonIgnore
-   public Long getFlowEvictionThreshold() {
-      return flowEvictionThreshold;
-   }
-
-   @JsonIgnore
-   public void setFlowEvictionThreshold(Long value) { 
-      this.flowEvictionThreshold = value;
-   }
-   @JsonIgnore
-   public String getVmNetworkPortgroup() {
-      return vmNetworkPortgroup;
-   }
-
-   @JsonIgnore
-   public void setVmNetworkPortgroup(String value) { 
-      this.vmNetworkPortgroup = value;
-   }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
-   }
-   @JsonIgnore
-   public Boolean getToolboxDeploymentMode() {
-      return toolboxDeploymentMode;
-   }
-
-   @JsonIgnore
-   public void setToolboxDeploymentMode(Boolean value) { 
-      this.toolboxDeploymentMode = value;
-   }
-   @JsonIgnore
-   public String getToolboxGroup() {
-      return toolboxGroup;
-   }
-
-   @JsonIgnore
-   public void setToolboxGroup(String value) { 
-      this.toolboxGroup = value;
-   }
-   @JsonIgnore
-   public String getToolboxIP() {
-      return toolboxIP;
-   }
-
-   @JsonIgnore
-   public void setToolboxIP(String value) { 
-      this.toolboxIP = value;
-   }
-   @JsonIgnore
-   public String getToolboxPassword() {
-      return toolboxPassword;
-   }
-
-   @JsonIgnore
-   public void setToolboxPassword(String value) { 
-      this.toolboxPassword = value;
-   }
-   @JsonIgnore
-   public String getToolboxUserName() {
-      return toolboxUserName;
-   }
-
-   @JsonIgnore
-   public void setToolboxUserName(String value) { 
-      this.toolboxUserName = value;
-   }
-   @JsonIgnore
-   public Boolean getPortgroupMetadata() {
-      return portgroupMetadata;
-   }
-
-   @JsonIgnore
-   public void setPortgroupMetadata(Boolean value) { 
-      this.portgroupMetadata = value;
-   }
-   @JsonIgnore
-   public Long getNovaClientVersion() {
-      return novaClientVersion;
-   }
-
-   @JsonIgnore
-   public void setNovaClientVersion(Long value) { 
-      this.novaClientVersion = value;
-   }
-   @JsonIgnore
-   public String getNovaMetadataServiceAuthUrl() {
-      return novaMetadataServiceAuthUrl;
-   }
-
-   @JsonIgnore
-   public void setNovaMetadataServiceAuthUrl(String value) { 
-      this.novaMetadataServiceAuthUrl = value;
-   }
-   @JsonIgnore
-   public String getNovaMetadataServiceEndpoint() {
-      return novaMetadataServiceEndpoint;
-   }
-
-   @JsonIgnore
-   public void setNovaMetadataServiceEndpoint(String value) { 
-      this.novaMetadataServiceEndpoint = value;
-   }
-   @JsonIgnore
-   public String getNovaMetadataServicePassword() {
-      return novaMetadataServicePassword;
-   }
-
-   @JsonIgnore
-   public void setNovaMetadataServicePassword(String value) { 
-      this.novaMetadataServicePassword = value;
-   }
-   @JsonIgnore
-   public String getNovaMetadataServiceTenant() {
-      return novaMetadataServiceTenant;
-   }
-
-   @JsonIgnore
-   public void setNovaMetadataServiceTenant(String value) { 
-      this.novaMetadataServiceTenant = value;
-   }
-   @JsonIgnore
-   public String getNovaMetadataServiceUsername() {
-      return novaMetadataServiceUsername;
-   }
-
-   @JsonIgnore
-   public void setNovaMetadataServiceUsername(String value) { 
-      this.novaMetadataServiceUsername = value;
-   }
-   @JsonIgnore
-   public String getNovaMetadataSharedSecret() {
-      return novaMetadataSharedSecret;
-   }
-
-   @JsonIgnore
-   public void setNovaMetadataSharedSecret(String value) { 
-      this.novaMetadataSharedSecret = value;
-   }
-   @JsonIgnore
-   public String getNovaRegionName() {
-      return novaRegionName;
-   }
-
-   @JsonIgnore
-   public void setNovaRegionName(String value) { 
-      this.novaRegionName = value;
-   }
-   @JsonIgnore
-   public String getUpgradePackagePassword() {
-      return upgradePackagePassword;
-   }
-
-   @JsonIgnore
-   public void setUpgradePackagePassword(String value) { 
-      this.upgradePackagePassword = value;
-   }
-   @JsonIgnore
-   public String getUpgradePackageURL() {
-      return upgradePackageURL;
-   }
-
-   @JsonIgnore
-   public void setUpgradePackageURL(String value) { 
-      this.upgradePackageURL = value;
-   }
-   @JsonIgnore
-   public String getUpgradePackageUsername() {
-      return upgradePackageUsername;
-   }
-
-   @JsonIgnore
-   public void setUpgradePackageUsername(String value) { 
-      this.upgradePackageUsername = value;
-   }
-   @JsonIgnore
-   public Long getUpgradeScriptTimeLimit() {
-      return upgradeScriptTimeLimit;
-   }
-
-   @JsonIgnore
-   public void setUpgradeScriptTimeLimit(Long value) { 
-      this.upgradeScriptTimeLimit = value;
-   }
-   @JsonIgnore
-   public String getUpgradeStatus() {
-      return upgradeStatus;
-   }
-
-   @JsonIgnore
-   public void setUpgradeStatus(String value) { 
-      this.upgradeStatus = value;
-   }
-   @JsonIgnore
-   public Boolean getUpgradeTimedout() {
-      return upgradeTimedout;
-   }
-
-   @JsonIgnore
-   public void setUpgradeTimedout(Boolean value) { 
-      this.upgradeTimedout = value;
-   }
-   @JsonIgnore
-   public String getPrimaryNuageController() {
-      return primaryNuageController;
-   }
-
-   @JsonIgnore
-   public void setPrimaryNuageController(String value) { 
-      this.primaryNuageController = value;
-   }
-   @JsonIgnore
-   public String getVrsId() {
-      return vrsId;
-   }
-
-   @JsonIgnore
-   public void setVrsId(String value) { 
-      this.vrsId = value;
-   }
-   @JsonIgnore
-   public String getVrsPassword() {
-      return vrsPassword;
-   }
-
-   @JsonIgnore
-   public void setVrsPassword(String value) { 
-      this.vrsPassword = value;
-   }
-   @JsonIgnore
-   public String getVrsUserName() {
-      return vrsUserName;
-   }
-
-   @JsonIgnore
-   public void setVrsUserName(String value) { 
-      this.vrsUserName = value;
-   }
-   @JsonIgnore
-   public String getStaticRoute() {
-      return staticRoute;
-   }
-
-   @JsonIgnore
-   public void setStaticRoute(String value) { 
-      this.staticRoute = value;
-   }
-   @JsonIgnore
-   public String getStaticRouteGateway() {
-      return staticRouteGateway;
-   }
-
-   @JsonIgnore
-   public void setStaticRouteGateway(String value) { 
-      this.staticRouteGateway = value;
-   }
-   @JsonIgnore
-   public String getStaticRouteNetmask() {
-      return staticRouteNetmask;
-   }
-
-   @JsonIgnore
-   public void setStaticRouteNetmask(String value) { 
-      this.staticRouteNetmask = value;
-   }
-   @JsonIgnore
-   public String getNtpServer1() {
-      return ntpServer1;
-   }
-
-   @JsonIgnore
-   public void setNtpServer1(String value) { 
-      this.ntpServer1 = value;
-   }
-   @JsonIgnore
-   public String getNtpServer2() {
-      return ntpServer2;
-   }
-
-   @JsonIgnore
-   public void setNtpServer2(String value) { 
-      this.ntpServer2 = value;
    }
    @JsonIgnore
    public Long getMtu() {
@@ -1193,22 +824,157 @@ public class VCenterHypervisor extends RestObject {
       this.multicastSourcePortgroup = value;
    }
    @JsonIgnore
-   public String getCustomizedScriptURL() {
-      return customizedScriptURL;
+   public String getName() {
+      return name;
    }
 
    @JsonIgnore
-   public void setCustomizedScriptURL(String value) { 
-      this.customizedScriptURL = value;
+   public void setName(String value) { 
+      this.name = value;
    }
    @JsonIgnore
-   public java.util.List<String> getAvailableNetworks() {
-      return availableNetworks;
+   public String getNetworkUplinkInterface() {
+      return networkUplinkInterface;
    }
 
    @JsonIgnore
-   public void setAvailableNetworks(java.util.List<String> value) { 
-      this.availableNetworks = value;
+   public void setNetworkUplinkInterface(String value) { 
+      this.networkUplinkInterface = value;
+   }
+   @JsonIgnore
+   public String getNetworkUplinkInterfaceGateway() {
+      return networkUplinkInterfaceGateway;
+   }
+
+   @JsonIgnore
+   public void setNetworkUplinkInterfaceGateway(String value) { 
+      this.networkUplinkInterfaceGateway = value;
+   }
+   @JsonIgnore
+   public String getNetworkUplinkInterfaceIp() {
+      return networkUplinkInterfaceIp;
+   }
+
+   @JsonIgnore
+   public void setNetworkUplinkInterfaceIp(String value) { 
+      this.networkUplinkInterfaceIp = value;
+   }
+   @JsonIgnore
+   public String getNetworkUplinkInterfaceNetmask() {
+      return networkUplinkInterfaceNetmask;
+   }
+
+   @JsonIgnore
+   public void setNetworkUplinkInterfaceNetmask(String value) { 
+      this.networkUplinkInterfaceNetmask = value;
+   }
+   @JsonIgnore
+   public String getNfsLogServer() {
+      return nfsLogServer;
+   }
+
+   @JsonIgnore
+   public void setNfsLogServer(String value) { 
+      this.nfsLogServer = value;
+   }
+   @JsonIgnore
+   public String getNfsMountPath() {
+      return nfsMountPath;
+   }
+
+   @JsonIgnore
+   public void setNfsMountPath(String value) { 
+      this.nfsMountPath = value;
+   }
+   @JsonIgnore
+   public Long getNovaClientVersion() {
+      return novaClientVersion;
+   }
+
+   @JsonIgnore
+   public void setNovaClientVersion(Long value) { 
+      this.novaClientVersion = value;
+   }
+   @JsonIgnore
+   public String getNovaMetadataServiceAuthUrl() {
+      return novaMetadataServiceAuthUrl;
+   }
+
+   @JsonIgnore
+   public void setNovaMetadataServiceAuthUrl(String value) { 
+      this.novaMetadataServiceAuthUrl = value;
+   }
+   @JsonIgnore
+   public String getNovaMetadataServiceEndpoint() {
+      return novaMetadataServiceEndpoint;
+   }
+
+   @JsonIgnore
+   public void setNovaMetadataServiceEndpoint(String value) { 
+      this.novaMetadataServiceEndpoint = value;
+   }
+   @JsonIgnore
+   public String getNovaMetadataServicePassword() {
+      return novaMetadataServicePassword;
+   }
+
+   @JsonIgnore
+   public void setNovaMetadataServicePassword(String value) { 
+      this.novaMetadataServicePassword = value;
+   }
+   @JsonIgnore
+   public String getNovaMetadataServiceTenant() {
+      return novaMetadataServiceTenant;
+   }
+
+   @JsonIgnore
+   public void setNovaMetadataServiceTenant(String value) { 
+      this.novaMetadataServiceTenant = value;
+   }
+   @JsonIgnore
+   public String getNovaMetadataServiceUsername() {
+      return novaMetadataServiceUsername;
+   }
+
+   @JsonIgnore
+   public void setNovaMetadataServiceUsername(String value) { 
+      this.novaMetadataServiceUsername = value;
+   }
+   @JsonIgnore
+   public String getNovaMetadataSharedSecret() {
+      return novaMetadataSharedSecret;
+   }
+
+   @JsonIgnore
+   public void setNovaMetadataSharedSecret(String value) { 
+      this.novaMetadataSharedSecret = value;
+   }
+   @JsonIgnore
+   public String getNovaRegionName() {
+      return novaRegionName;
+   }
+
+   @JsonIgnore
+   public void setNovaRegionName(String value) { 
+      this.novaRegionName = value;
+   }
+   @JsonIgnore
+   public String getNtpServer1() {
+      return ntpServer1;
+   }
+
+   @JsonIgnore
+   public void setNtpServer1(String value) { 
+      this.ntpServer1 = value;
+   }
+   @JsonIgnore
+   public String getNtpServer2() {
+      return ntpServer2;
+   }
+
+   @JsonIgnore
+   public void setNtpServer2(String value) { 
+      this.ntpServer2 = value;
    }
    @JsonIgnore
    public String getOvfURL() {
@@ -1220,48 +986,277 @@ public class VCenterHypervisor extends RestObject {
       this.ovfURL = value;
    }
    @JsonIgnore
-   public String getExternalID() {
-      return externalID;
+   public String getPersonality() {
+      return personality;
    }
 
    @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
+   public void setPersonality(String value) { 
+      this.personality = value;
    }
    @JsonIgnore
-   public String getHypervisorIP() {
-      return hypervisorIP;
-   }
-
-   @JsonIgnore
-   public void setHypervisorIP(String value) { 
-      this.hypervisorIP = value;
-   }
-   @JsonIgnore
-   public String getHypervisorPassword() {
-      return hypervisorPassword;
+   public Boolean getPortgroupMetadata() {
+      return portgroupMetadata;
    }
 
    @JsonIgnore
-   public void setHypervisorPassword(String value) { 
-      this.hypervisorPassword = value;
+   public void setPortgroupMetadata(Boolean value) { 
+      this.portgroupMetadata = value;
    }
    @JsonIgnore
-   public String getHypervisorUser() {
-      return hypervisorUser;
+   public String getPrimaryNuageController() {
+      return primaryNuageController;
    }
 
    @JsonIgnore
-   public void setHypervisorUser(String value) { 
-      this.hypervisorUser = value;
+   public void setPrimaryNuageController(String value) { 
+      this.primaryNuageController = value;
+   }
+   @JsonIgnore
+   public Boolean getRemovedFromVCenterInventory() {
+      return removedFromVCenterInventory;
+   }
+
+   @JsonIgnore
+   public void setRemovedFromVCenterInventory(Boolean value) { 
+      this.removedFromVCenterInventory = value;
+   }
+   @JsonIgnore
+   public Boolean getScope() {
+      return scope;
+   }
+
+   @JsonIgnore
+   public void setScope(Boolean value) { 
+      this.scope = value;
+   }
+   @JsonIgnore
+   public String getSecondaryNuageController() {
+      return secondaryNuageController;
+   }
+
+   @JsonIgnore
+   public void setSecondaryNuageController(String value) { 
+      this.secondaryNuageController = value;
+   }
+   @JsonIgnore
+   public Boolean getSeparateDataNetwork() {
+      return separateDataNetwork;
+   }
+
+   @JsonIgnore
+   public void setSeparateDataNetwork(Boolean value) { 
+      this.separateDataNetwork = value;
+   }
+   @JsonIgnore
+   public String getSiteId() {
+      return siteId;
+   }
+
+   @JsonIgnore
+   public void setSiteId(String value) { 
+      this.siteId = value;
+   }
+   @JsonIgnore
+   public String getStaticRoute() {
+      return staticRoute;
+   }
+
+   @JsonIgnore
+   public void setStaticRoute(String value) { 
+      this.staticRoute = value;
+   }
+   @JsonIgnore
+   public String getStaticRouteGateway() {
+      return staticRouteGateway;
+   }
+
+   @JsonIgnore
+   public void setStaticRouteGateway(String value) { 
+      this.staticRouteGateway = value;
+   }
+   @JsonIgnore
+   public String getStaticRouteNetmask() {
+      return staticRouteNetmask;
+   }
+
+   @JsonIgnore
+   public void setStaticRouteNetmask(String value) { 
+      this.staticRouteNetmask = value;
+   }
+   @JsonIgnore
+   public Boolean getToolboxDeploymentMode() {
+      return toolboxDeploymentMode;
+   }
+
+   @JsonIgnore
+   public void setToolboxDeploymentMode(Boolean value) { 
+      this.toolboxDeploymentMode = value;
+   }
+   @JsonIgnore
+   public String getToolboxGroup() {
+      return toolboxGroup;
+   }
+
+   @JsonIgnore
+   public void setToolboxGroup(String value) { 
+      this.toolboxGroup = value;
+   }
+   @JsonIgnore
+   public String getToolboxIP() {
+      return toolboxIP;
+   }
+
+   @JsonIgnore
+   public void setToolboxIP(String value) { 
+      this.toolboxIP = value;
+   }
+   @JsonIgnore
+   public String getToolboxPassword() {
+      return toolboxPassword;
+   }
+
+   @JsonIgnore
+   public void setToolboxPassword(String value) { 
+      this.toolboxPassword = value;
+   }
+   @JsonIgnore
+   public String getToolboxUserName() {
+      return toolboxUserName;
+   }
+
+   @JsonIgnore
+   public void setToolboxUserName(String value) { 
+      this.toolboxUserName = value;
+   }
+   @JsonIgnore
+   public String getUpgradePackagePassword() {
+      return upgradePackagePassword;
+   }
+
+   @JsonIgnore
+   public void setUpgradePackagePassword(String value) { 
+      this.upgradePackagePassword = value;
+   }
+   @JsonIgnore
+   public String getUpgradePackageURL() {
+      return upgradePackageURL;
+   }
+
+   @JsonIgnore
+   public void setUpgradePackageURL(String value) { 
+      this.upgradePackageURL = value;
+   }
+   @JsonIgnore
+   public String getUpgradePackageUsername() {
+      return upgradePackageUsername;
+   }
+
+   @JsonIgnore
+   public void setUpgradePackageUsername(String value) { 
+      this.upgradePackageUsername = value;
+   }
+   @JsonIgnore
+   public Long getUpgradeScriptTimeLimit() {
+      return upgradeScriptTimeLimit;
+   }
+
+   @JsonIgnore
+   public void setUpgradeScriptTimeLimit(Long value) { 
+      this.upgradeScriptTimeLimit = value;
+   }
+   @JsonIgnore
+   public String getUpgradeStatus() {
+      return upgradeStatus;
+   }
+
+   @JsonIgnore
+   public void setUpgradeStatus(String value) { 
+      this.upgradeStatus = value;
+   }
+   @JsonIgnore
+   public Boolean getUpgradeTimedout() {
+      return upgradeTimedout;
+   }
+
+   @JsonIgnore
+   public void setUpgradeTimedout(Boolean value) { 
+      this.upgradeTimedout = value;
+   }
+   @JsonIgnore
+   public String getVCenterIP() {
+      return vCenterIP;
+   }
+
+   @JsonIgnore
+   public void setVCenterIP(String value) { 
+      this.vCenterIP = value;
+   }
+   @JsonIgnore
+   public String getVCenterPassword() {
+      return vCenterPassword;
+   }
+
+   @JsonIgnore
+   public void setVCenterPassword(String value) { 
+      this.vCenterPassword = value;
+   }
+   @JsonIgnore
+   public String getVCenterUser() {
+      return vCenterUser;
+   }
+
+   @JsonIgnore
+   public void setVCenterUser(String value) { 
+      this.vCenterUser = value;
+   }
+   @JsonIgnore
+   public Boolean getVRequireNuageMetadata() {
+      return vRequireNuageMetadata;
+   }
+
+   @JsonIgnore
+   public void setVRequireNuageMetadata(Boolean value) { 
+      this.vRequireNuageMetadata = value;
+   }
+   @JsonIgnore
+   public String getVmNetworkPortgroup() {
+      return vmNetworkPortgroup;
+   }
+
+   @JsonIgnore
+   public void setVmNetworkPortgroup(String value) { 
+      this.vmNetworkPortgroup = value;
+   }
+   @JsonIgnore
+   public String getVrsId() {
+      return vrsId;
+   }
+
+   @JsonIgnore
+   public void setVrsId(String value) { 
+      this.vrsId = value;
+   }
+   @JsonIgnore
+   public String getVrsPassword() {
+      return vrsPassword;
+   }
+
+   @JsonIgnore
+   public void setVrsPassword(String value) { 
+      this.vrsPassword = value;
+   }
+   @JsonIgnore
+   public String getVrsUserName() {
+      return vrsUserName;
+   }
+
+   @JsonIgnore
+   public void setVrsUserName(String value) { 
+      this.vrsUserName = value;
    }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
@@ -1271,6 +1266,11 @@ public class VCenterHypervisor extends RestObject {
    @JsonIgnore
    public JobsFetcher getJobs() {
       return jobs;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
    @JsonIgnore
@@ -1290,7 +1290,7 @@ public class VCenterHypervisor extends RestObject {
    
 
    public String toString() {
-      return "VCenterHypervisor [" + "vCenterIP=" + vCenterIP + ", vCenterPassword=" + vCenterPassword + ", vCenterUser=" + vCenterUser + ", VRSConfigurationTimeLimit=" + VRSConfigurationTimeLimit + ", VRSMetricsID=" + VRSMetricsID + ", VRSState=" + VRSState + ", vRequireNuageMetadata=" + vRequireNuageMetadata + ", name=" + name + ", managedObjectID=" + managedObjectID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastVRSDeployedDate=" + lastVRSDeployedDate + ", dataDNS1=" + dataDNS1 + ", dataDNS2=" + dataDNS2 + ", dataGateway=" + dataGateway + ", dataIPAddress=" + dataIPAddress + ", dataNetmask=" + dataNetmask + ", dataNetworkPortgroup=" + dataNetworkPortgroup + ", datapathSyncTimeout=" + datapathSyncTimeout + ", scope=" + scope + ", secondaryNuageController=" + secondaryNuageController + ", removedFromVCenterInventory=" + removedFromVCenterInventory + ", genericSplitActivation=" + genericSplitActivation + ", separateDataNetwork=" + separateDataNetwork + ", deploymentCount=" + deploymentCount + ", personality=" + personality + ", description=" + description + ", destinationMirrorPort=" + destinationMirrorPort + ", metadataServerIP=" + metadataServerIP + ", metadataServerListenPort=" + metadataServerListenPort + ", metadataServerPort=" + metadataServerPort + ", metadataServiceEnabled=" + metadataServiceEnabled + ", networkUplinkInterface=" + networkUplinkInterface + ", networkUplinkInterfaceGateway=" + networkUplinkInterfaceGateway + ", networkUplinkInterfaceIp=" + networkUplinkInterfaceIp + ", networkUplinkInterfaceNetmask=" + networkUplinkInterfaceNetmask + ", nfsLogServer=" + nfsLogServer + ", nfsMountPath=" + nfsMountPath + ", mgmtDNS1=" + mgmtDNS1 + ", mgmtDNS2=" + mgmtDNS2 + ", mgmtGateway=" + mgmtGateway + ", mgmtIPAddress=" + mgmtIPAddress + ", mgmtNetmask=" + mgmtNetmask + ", mgmtNetworkPortgroup=" + mgmtNetworkPortgroup + ", dhcpRelayServer=" + dhcpRelayServer + ", mirrorNetworkPortgroup=" + mirrorNetworkPortgroup + ", siteId=" + siteId + ", allowDataDHCP=" + allowDataDHCP + ", allowMgmtDHCP=" + allowMgmtDHCP + ", flowEvictionThreshold=" + flowEvictionThreshold + ", vmNetworkPortgroup=" + vmNetworkPortgroup + ", entityScope=" + entityScope + ", toolboxDeploymentMode=" + toolboxDeploymentMode + ", toolboxGroup=" + toolboxGroup + ", toolboxIP=" + toolboxIP + ", toolboxPassword=" + toolboxPassword + ", toolboxUserName=" + toolboxUserName + ", portgroupMetadata=" + portgroupMetadata + ", novaClientVersion=" + novaClientVersion + ", novaMetadataServiceAuthUrl=" + novaMetadataServiceAuthUrl + ", novaMetadataServiceEndpoint=" + novaMetadataServiceEndpoint + ", novaMetadataServicePassword=" + novaMetadataServicePassword + ", novaMetadataServiceTenant=" + novaMetadataServiceTenant + ", novaMetadataServiceUsername=" + novaMetadataServiceUsername + ", novaMetadataSharedSecret=" + novaMetadataSharedSecret + ", novaRegionName=" + novaRegionName + ", upgradePackagePassword=" + upgradePackagePassword + ", upgradePackageURL=" + upgradePackageURL + ", upgradePackageUsername=" + upgradePackageUsername + ", upgradeScriptTimeLimit=" + upgradeScriptTimeLimit + ", upgradeStatus=" + upgradeStatus + ", upgradeTimedout=" + upgradeTimedout + ", primaryNuageController=" + primaryNuageController + ", vrsId=" + vrsId + ", vrsPassword=" + vrsPassword + ", vrsUserName=" + vrsUserName + ", staticRoute=" + staticRoute + ", staticRouteGateway=" + staticRouteGateway + ", staticRouteNetmask=" + staticRouteNetmask + ", ntpServer1=" + ntpServer1 + ", ntpServer2=" + ntpServer2 + ", mtu=" + mtu + ", multiVMSsupport=" + multiVMSsupport + ", multicastReceiveInterface=" + multicastReceiveInterface + ", multicastReceiveInterfaceIP=" + multicastReceiveInterfaceIP + ", multicastReceiveInterfaceNetmask=" + multicastReceiveInterfaceNetmask + ", multicastReceiveRange=" + multicastReceiveRange + ", multicastSendInterface=" + multicastSendInterface + ", multicastSendInterfaceIP=" + multicastSendInterfaceIP + ", multicastSendInterfaceNetmask=" + multicastSendInterfaceNetmask + ", multicastSourcePortgroup=" + multicastSourcePortgroup + ", customizedScriptURL=" + customizedScriptURL + ", availableNetworks=" + availableNetworks + ", ovfURL=" + ovfURL + ", externalID=" + externalID + ", hypervisorIP=" + hypervisorIP + ", hypervisorPassword=" + hypervisorPassword + ", hypervisorUser=" + hypervisorUser + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VCenterHypervisor [" + "VRSConfigurationTimeLimit=" + VRSConfigurationTimeLimit + ", VRSMetricsID=" + VRSMetricsID + ", VRSState=" + VRSState + ", allowDataDHCP=" + allowDataDHCP + ", allowMgmtDHCP=" + allowMgmtDHCP + ", availableNetworks=" + availableNetworks + ", customizedScriptURL=" + customizedScriptURL + ", dataDNS1=" + dataDNS1 + ", dataDNS2=" + dataDNS2 + ", dataGateway=" + dataGateway + ", dataIPAddress=" + dataIPAddress + ", dataNetmask=" + dataNetmask + ", dataNetworkPortgroup=" + dataNetworkPortgroup + ", datapathSyncTimeout=" + datapathSyncTimeout + ", deploymentCount=" + deploymentCount + ", description=" + description + ", destinationMirrorPort=" + destinationMirrorPort + ", dhcpRelayServer=" + dhcpRelayServer + ", entityScope=" + entityScope + ", externalID=" + externalID + ", flowEvictionThreshold=" + flowEvictionThreshold + ", genericSplitActivation=" + genericSplitActivation + ", hypervisorIP=" + hypervisorIP + ", hypervisorPassword=" + hypervisorPassword + ", hypervisorUser=" + hypervisorUser + ", lastUpdatedBy=" + lastUpdatedBy + ", lastVRSDeployedDate=" + lastVRSDeployedDate + ", managedObjectID=" + managedObjectID + ", metadataServerIP=" + metadataServerIP + ", metadataServerListenPort=" + metadataServerListenPort + ", metadataServerPort=" + metadataServerPort + ", metadataServiceEnabled=" + metadataServiceEnabled + ", mgmtDNS1=" + mgmtDNS1 + ", mgmtDNS2=" + mgmtDNS2 + ", mgmtGateway=" + mgmtGateway + ", mgmtIPAddress=" + mgmtIPAddress + ", mgmtNetmask=" + mgmtNetmask + ", mgmtNetworkPortgroup=" + mgmtNetworkPortgroup + ", mirrorNetworkPortgroup=" + mirrorNetworkPortgroup + ", mtu=" + mtu + ", multiVMSsupport=" + multiVMSsupport + ", multicastReceiveInterface=" + multicastReceiveInterface + ", multicastReceiveInterfaceIP=" + multicastReceiveInterfaceIP + ", multicastReceiveInterfaceNetmask=" + multicastReceiveInterfaceNetmask + ", multicastReceiveRange=" + multicastReceiveRange + ", multicastSendInterface=" + multicastSendInterface + ", multicastSendInterfaceIP=" + multicastSendInterfaceIP + ", multicastSendInterfaceNetmask=" + multicastSendInterfaceNetmask + ", multicastSourcePortgroup=" + multicastSourcePortgroup + ", name=" + name + ", networkUplinkInterface=" + networkUplinkInterface + ", networkUplinkInterfaceGateway=" + networkUplinkInterfaceGateway + ", networkUplinkInterfaceIp=" + networkUplinkInterfaceIp + ", networkUplinkInterfaceNetmask=" + networkUplinkInterfaceNetmask + ", nfsLogServer=" + nfsLogServer + ", nfsMountPath=" + nfsMountPath + ", novaClientVersion=" + novaClientVersion + ", novaMetadataServiceAuthUrl=" + novaMetadataServiceAuthUrl + ", novaMetadataServiceEndpoint=" + novaMetadataServiceEndpoint + ", novaMetadataServicePassword=" + novaMetadataServicePassword + ", novaMetadataServiceTenant=" + novaMetadataServiceTenant + ", novaMetadataServiceUsername=" + novaMetadataServiceUsername + ", novaMetadataSharedSecret=" + novaMetadataSharedSecret + ", novaRegionName=" + novaRegionName + ", ntpServer1=" + ntpServer1 + ", ntpServer2=" + ntpServer2 + ", ovfURL=" + ovfURL + ", personality=" + personality + ", portgroupMetadata=" + portgroupMetadata + ", primaryNuageController=" + primaryNuageController + ", removedFromVCenterInventory=" + removedFromVCenterInventory + ", scope=" + scope + ", secondaryNuageController=" + secondaryNuageController + ", separateDataNetwork=" + separateDataNetwork + ", siteId=" + siteId + ", staticRoute=" + staticRoute + ", staticRouteGateway=" + staticRouteGateway + ", staticRouteNetmask=" + staticRouteNetmask + ", toolboxDeploymentMode=" + toolboxDeploymentMode + ", toolboxGroup=" + toolboxGroup + ", toolboxIP=" + toolboxIP + ", toolboxPassword=" + toolboxPassword + ", toolboxUserName=" + toolboxUserName + ", upgradePackagePassword=" + upgradePackagePassword + ", upgradePackageURL=" + upgradePackageURL + ", upgradePackageUsername=" + upgradePackageUsername + ", upgradeScriptTimeLimit=" + upgradeScriptTimeLimit + ", upgradeStatus=" + upgradeStatus + ", upgradeTimedout=" + upgradeTimedout + ", vCenterIP=" + vCenterIP + ", vCenterPassword=" + vCenterPassword + ", vCenterUser=" + vCenterUser + ", vRequireNuageMetadata=" + vRequireNuageMetadata + ", vmNetworkPortgroup=" + vmNetworkPortgroup + ", vrsId=" + vrsId + ", vrsPassword=" + vrsPassword + ", vrsUserName=" + vrsUserName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

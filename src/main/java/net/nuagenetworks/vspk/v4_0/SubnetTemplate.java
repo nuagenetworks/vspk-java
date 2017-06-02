@@ -36,11 +36,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 import net.nuagenetworks.vspk.v4_0.fetchers.AddressRangesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.QOSsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.SubnetsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "subnettemplate", resourceName = "subnettemplates")
@@ -53,8 +53,8 @@ public class SubnetTemplate extends RestObject {
    public enum IPType { DUALSTACK, IPV4, IPV6 };
    public enum Encryption { DISABLED, ENABLED, INHERITED };
    public enum EntityScope { ENTERPRISE, GLOBAL };
-   public enum UseGlobalMAC { DISABLED, ENABLED };
    public enum Multicast { DISABLED, ENABLED, INHERITED };
+   public enum UseGlobalMAC { DISABLED, ENABLED };
 
    
    @JsonProperty(value = "DPI")
@@ -69,23 +69,14 @@ public class SubnetTemplate extends RestObject {
    @JsonProperty(value = "IPv6address")
    protected String IPv6address;
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "gateway")
-   protected String gateway;
-   
    @JsonProperty(value = "address")
    protected String address;
    
+   @JsonProperty(value = "associatedMulticastChannelMapID")
+   protected String associatedMulticastChannelMapID;
+   
    @JsonProperty(value = "description")
    protected String description;
-   
-   @JsonProperty(value = "netmask")
-   protected String netmask;
    
    @JsonProperty(value = "encryption")
    protected Encryption encryption;
@@ -93,23 +84,32 @@ public class SubnetTemplate extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
-   @JsonProperty(value = "splitSubnet")
-   protected Boolean splitSubnet;
+   @JsonProperty(value = "externalID")
+   protected String externalID;
    
-   @JsonProperty(value = "proxyARP")
-   protected Boolean proxyARP;
+   @JsonProperty(value = "gateway")
+   protected String gateway;
    
-   @JsonProperty(value = "useGlobalMAC")
-   protected UseGlobalMAC useGlobalMAC;
-   
-   @JsonProperty(value = "associatedMulticastChannelMapID")
-   protected String associatedMulticastChannelMapID;
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
    @JsonProperty(value = "multicast")
    protected Multicast multicast;
    
-   @JsonProperty(value = "externalID")
-   protected String externalID;
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "netmask")
+   protected String netmask;
+   
+   @JsonProperty(value = "proxyARP")
+   protected Boolean proxyARP;
+   
+   @JsonProperty(value = "splitSubnet")
+   protected Boolean splitSubnet;
+   
+   @JsonProperty(value = "useGlobalMAC")
+   protected UseGlobalMAC useGlobalMAC;
    
 
    
@@ -117,19 +117,19 @@ public class SubnetTemplate extends RestObject {
    private AddressRangesFetcher addressRanges;
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private EventLogsFetcher eventLogs;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
    
    @JsonIgnore
    private QOSsFetcher qOSs;
    
    @JsonIgnore
    private SubnetsFetcher subnets;
-   
-   @JsonIgnore
-   private EventLogsFetcher eventLogs;
    
    @SuppressWarnings("static-access")
    public SubnetTemplate() {
@@ -138,15 +138,15 @@ public class SubnetTemplate extends RestObject {
       
       addressRanges = new AddressRangesFetcher(this);
       
-      metadatas = new MetadatasFetcher(this);
+      eventLogs = new EventLogsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
       qOSs = new QOSsFetcher(this);
       
       subnets = new SubnetsFetcher(this);
-      
-      eventLogs = new EventLogsFetcher(this);
       
    }
 
@@ -187,33 +187,6 @@ public class SubnetTemplate extends RestObject {
       this.IPv6address = value;
    }
    @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public String getGateway() {
-      return gateway;
-   }
-
-   @JsonIgnore
-   public void setGateway(String value) { 
-      this.gateway = value;
-   }
-   @JsonIgnore
    public String getAddress() {
       return address;
    }
@@ -223,6 +196,15 @@ public class SubnetTemplate extends RestObject {
       this.address = value;
    }
    @JsonIgnore
+   public String getAssociatedMulticastChannelMapID() {
+      return associatedMulticastChannelMapID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedMulticastChannelMapID(String value) { 
+      this.associatedMulticastChannelMapID = value;
+   }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
@@ -230,15 +212,6 @@ public class SubnetTemplate extends RestObject {
    @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
-   }
-   @JsonIgnore
-   public String getNetmask() {
-      return netmask;
-   }
-
-   @JsonIgnore
-   public void setNetmask(String value) { 
-      this.netmask = value;
    }
    @JsonIgnore
    public Encryption getEncryption() {
@@ -259,40 +232,31 @@ public class SubnetTemplate extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
-   public Boolean getSplitSubnet() {
-      return splitSubnet;
+   public String getExternalID() {
+      return externalID;
    }
 
    @JsonIgnore
-   public void setSplitSubnet(Boolean value) { 
-      this.splitSubnet = value;
+   public void setExternalID(String value) { 
+      this.externalID = value;
    }
    @JsonIgnore
-   public Boolean getProxyARP() {
-      return proxyARP;
-   }
-
-   @JsonIgnore
-   public void setProxyARP(Boolean value) { 
-      this.proxyARP = value;
-   }
-   @JsonIgnore
-   public UseGlobalMAC getUseGlobalMAC() {
-      return useGlobalMAC;
+   public String getGateway() {
+      return gateway;
    }
 
    @JsonIgnore
-   public void setUseGlobalMAC(UseGlobalMAC value) { 
-      this.useGlobalMAC = value;
+   public void setGateway(String value) { 
+      this.gateway = value;
    }
    @JsonIgnore
-   public String getAssociatedMulticastChannelMapID() {
-      return associatedMulticastChannelMapID;
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
    }
 
    @JsonIgnore
-   public void setAssociatedMulticastChannelMapID(String value) { 
-      this.associatedMulticastChannelMapID = value;
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    @JsonIgnore
    public Multicast getMulticast() {
@@ -304,13 +268,49 @@ public class SubnetTemplate extends RestObject {
       this.multicast = value;
    }
    @JsonIgnore
-   public String getExternalID() {
-      return externalID;
+   public String getName() {
+      return name;
    }
 
    @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public String getNetmask() {
+      return netmask;
+   }
+
+   @JsonIgnore
+   public void setNetmask(String value) { 
+      this.netmask = value;
+   }
+   @JsonIgnore
+   public Boolean getProxyARP() {
+      return proxyARP;
+   }
+
+   @JsonIgnore
+   public void setProxyARP(Boolean value) { 
+      this.proxyARP = value;
+   }
+   @JsonIgnore
+   public Boolean getSplitSubnet() {
+      return splitSubnet;
+   }
+
+   @JsonIgnore
+   public void setSplitSubnet(Boolean value) { 
+      this.splitSubnet = value;
+   }
+   @JsonIgnore
+   public UseGlobalMAC getUseGlobalMAC() {
+      return useGlobalMAC;
+   }
+
+   @JsonIgnore
+   public void setUseGlobalMAC(UseGlobalMAC value) { 
+      this.useGlobalMAC = value;
    }
    
 
@@ -321,13 +321,18 @@ public class SubnetTemplate extends RestObject {
    }
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
    }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
    @JsonIgnore
@@ -340,14 +345,9 @@ public class SubnetTemplate extends RestObject {
       return subnets;
    }
    
-   @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
-   }
-   
 
    public String toString() {
-      return "SubnetTemplate [" + "DPI=" + DPI + ", IPType=" + IPType + ", IPv6Gateway=" + IPv6Gateway + ", IPv6address=" + IPv6address + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", gateway=" + gateway + ", address=" + address + ", description=" + description + ", netmask=" + netmask + ", encryption=" + encryption + ", entityScope=" + entityScope + ", splitSubnet=" + splitSubnet + ", proxyARP=" + proxyARP + ", useGlobalMAC=" + useGlobalMAC + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", multicast=" + multicast + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "SubnetTemplate [" + "DPI=" + DPI + ", IPType=" + IPType + ", IPv6Gateway=" + IPv6Gateway + ", IPv6address=" + IPv6address + ", address=" + address + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", description=" + description + ", encryption=" + encryption + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gateway=" + gateway + ", lastUpdatedBy=" + lastUpdatedBy + ", multicast=" + multicast + ", name=" + name + ", netmask=" + netmask + ", proxyARP=" + proxyARP + ", splitSubnet=" + splitSubnet + ", useGlobalMAC=" + useGlobalMAC + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

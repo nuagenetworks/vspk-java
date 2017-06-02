@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "ldapconfiguration", resourceName = "ldapconfigurations")
@@ -51,35 +51,8 @@ public class LDAPConfiguration extends RestObject {
    @JsonProperty(value = "SSLEnabled")
    protected Boolean SSLEnabled;
    
-   @JsonProperty(value = "password")
-   protected String password;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
    @JsonProperty(value = "acceptAllCertificates")
    protected Boolean acceptAllCertificates;
-   
-   @JsonProperty(value = "certificate")
-   protected String certificate;
-   
-   @JsonProperty(value = "server")
-   protected String server;
-   
-   @JsonProperty(value = "enabled")
-   protected Boolean enabled;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
-   
-   @JsonProperty(value = "port")
-   protected String port;
-   
-   @JsonProperty(value = "groupDN")
-   protected String groupDN;
-   
-   @JsonProperty(value = "userDNTemplate")
-   protected String userDNTemplate;
    
    @JsonProperty(value = "authorizationEnabled")
    protected Boolean authorizationEnabled;
@@ -87,23 +60,50 @@ public class LDAPConfiguration extends RestObject {
    @JsonProperty(value = "authorizingUserDN")
    protected String authorizingUserDN;
    
+   @JsonProperty(value = "certificate")
+   protected String certificate;
+   
+   @JsonProperty(value = "enabled")
+   protected Boolean enabled;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-
+   @JsonProperty(value = "groupDN")
+   protected String groupDN;
    
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "password")
+   protected String password;
+   
+   @JsonProperty(value = "port")
+   protected String port;
+   
+   @JsonProperty(value = "server")
+   protected String server;
+   
+   @JsonProperty(value = "userDNTemplate")
+   protected String userDNTemplate;
+   
+
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public LDAPConfiguration() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
    }
 
@@ -117,24 +117,6 @@ public class LDAPConfiguration extends RestObject {
       this.SSLEnabled = value;
    }
    @JsonIgnore
-   public String getPassword() {
-      return password;
-   }
-
-   @JsonIgnore
-   public void setPassword(String value) { 
-      this.password = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
    public Boolean getAcceptAllCertificates() {
       return acceptAllCertificates;
    }
@@ -142,69 +124,6 @@ public class LDAPConfiguration extends RestObject {
    @JsonIgnore
    public void setAcceptAllCertificates(Boolean value) { 
       this.acceptAllCertificates = value;
-   }
-   @JsonIgnore
-   public String getCertificate() {
-      return certificate;
-   }
-
-   @JsonIgnore
-   public void setCertificate(String value) { 
-      this.certificate = value;
-   }
-   @JsonIgnore
-   public String getServer() {
-      return server;
-   }
-
-   @JsonIgnore
-   public void setServer(String value) { 
-      this.server = value;
-   }
-   @JsonIgnore
-   public Boolean getEnabled() {
-      return enabled;
-   }
-
-   @JsonIgnore
-   public void setEnabled(Boolean value) { 
-      this.enabled = value;
-   }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
-   }
-   @JsonIgnore
-   public String getPort() {
-      return port;
-   }
-
-   @JsonIgnore
-   public void setPort(String value) { 
-      this.port = value;
-   }
-   @JsonIgnore
-   public String getGroupDN() {
-      return groupDN;
-   }
-
-   @JsonIgnore
-   public void setGroupDN(String value) { 
-      this.groupDN = value;
-   }
-   @JsonIgnore
-   public String getUserDNTemplate() {
-      return userDNTemplate;
-   }
-
-   @JsonIgnore
-   public void setUserDNTemplate(String value) { 
-      this.userDNTemplate = value;
    }
    @JsonIgnore
    public Boolean getAuthorizationEnabled() {
@@ -225,6 +144,33 @@ public class LDAPConfiguration extends RestObject {
       this.authorizingUserDN = value;
    }
    @JsonIgnore
+   public String getCertificate() {
+      return certificate;
+   }
+
+   @JsonIgnore
+   public void setCertificate(String value) { 
+      this.certificate = value;
+   }
+   @JsonIgnore
+   public Boolean getEnabled() {
+      return enabled;
+   }
+
+   @JsonIgnore
+   public void setEnabled(Boolean value) { 
+      this.enabled = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
@@ -233,22 +179,76 @@ public class LDAPConfiguration extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getGroupDN() {
+      return groupDN;
+   }
+
+   @JsonIgnore
+   public void setGroupDN(String value) { 
+      this.groupDN = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getPassword() {
+      return password;
+   }
+
+   @JsonIgnore
+   public void setPassword(String value) { 
+      this.password = value;
+   }
+   @JsonIgnore
+   public String getPort() {
+      return port;
+   }
+
+   @JsonIgnore
+   public void setPort(String value) { 
+      this.port = value;
+   }
+   @JsonIgnore
+   public String getServer() {
+      return server;
+   }
+
+   @JsonIgnore
+   public void setServer(String value) { 
+      this.server = value;
+   }
+   @JsonIgnore
+   public String getUserDNTemplate() {
+      return userDNTemplate;
+   }
+
+   @JsonIgnore
+   public void setUserDNTemplate(String value) { 
+      this.userDNTemplate = value;
+   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "LDAPConfiguration [" + "SSLEnabled=" + SSLEnabled + ", password=" + password + ", lastUpdatedBy=" + lastUpdatedBy + ", acceptAllCertificates=" + acceptAllCertificates + ", certificate=" + certificate + ", server=" + server + ", enabled=" + enabled + ", entityScope=" + entityScope + ", port=" + port + ", groupDN=" + groupDN + ", userDNTemplate=" + userDNTemplate + ", authorizationEnabled=" + authorizationEnabled + ", authorizingUserDN=" + authorizingUserDN + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "LDAPConfiguration [" + "SSLEnabled=" + SSLEnabled + ", acceptAllCertificates=" + acceptAllCertificates + ", authorizationEnabled=" + authorizationEnabled + ", authorizingUserDN=" + authorizingUserDN + ", certificate=" + certificate + ", enabled=" + enabled + ", entityScope=" + entityScope + ", externalID=" + externalID + ", groupDN=" + groupDN + ", lastUpdatedBy=" + lastUpdatedBy + ", password=" + password + ", port=" + port + ", server=" + server + ", userDNTemplate=" + userDNTemplate + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

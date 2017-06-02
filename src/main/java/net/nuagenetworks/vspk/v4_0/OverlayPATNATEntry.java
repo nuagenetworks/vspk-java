@@ -48,14 +48,14 @@ public class OverlayPATNATEntry extends RestObject {
    @JsonProperty(value = "NATEnabled")
    protected String NATEnabled;
    
-   @JsonProperty(value = "privateIP")
-   protected String privateIP;
-   
    @JsonProperty(value = "associatedDomainID")
    protected String associatedDomainID;
    
    @JsonProperty(value = "associatedLinkID")
    protected String associatedLinkID;
+   
+   @JsonProperty(value = "privateIP")
+   protected String privateIP;
    
    @JsonProperty(value = "publicIP")
    protected String publicIP;
@@ -77,15 +77,6 @@ public class OverlayPATNATEntry extends RestObject {
       this.NATEnabled = value;
    }
    @JsonIgnore
-   public String getPrivateIP() {
-      return privateIP;
-   }
-
-   @JsonIgnore
-   public void setPrivateIP(String value) { 
-      this.privateIP = value;
-   }
-   @JsonIgnore
    public String getAssociatedDomainID() {
       return associatedDomainID;
    }
@@ -104,6 +95,15 @@ public class OverlayPATNATEntry extends RestObject {
       this.associatedLinkID = value;
    }
    @JsonIgnore
+   public String getPrivateIP() {
+      return privateIP;
+   }
+
+   @JsonIgnore
+   public void setPrivateIP(String value) { 
+      this.privateIP = value;
+   }
+   @JsonIgnore
    public String getPublicIP() {
       return publicIP;
    }
@@ -117,7 +117,7 @@ public class OverlayPATNATEntry extends RestObject {
    
 
    public String toString() {
-      return "OverlayPATNATEntry [" + "NATEnabled=" + NATEnabled + ", privateIP=" + privateIP + ", associatedDomainID=" + associatedDomainID + ", associatedLinkID=" + associatedLinkID + ", publicIP=" + publicIP + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "OverlayPATNATEntry [" + "NATEnabled=" + NATEnabled + ", associatedDomainID=" + associatedDomainID + ", associatedLinkID=" + associatedLinkID + ", privateIP=" + privateIP + ", publicIP=" + publicIP + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

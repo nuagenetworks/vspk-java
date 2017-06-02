@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "keyservernotification", resourceName = "keyservernotifications")
@@ -52,32 +52,32 @@ public class KeyServerNotification extends RestObject {
    @JsonProperty(value = "base64JSONString")
    protected String base64JSONString;
    
-   @JsonProperty(value = "message")
-   protected Object message;
-   
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
-   
-   @JsonProperty(value = "notificationType")
-   protected NotificationType notificationType;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-
+   @JsonProperty(value = "message")
+   protected Object message;
    
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
+   @JsonProperty(value = "notificationType")
+   protected NotificationType notificationType;
+   
+
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public KeyServerNotification() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
    }
 
@@ -91,15 +91,6 @@ public class KeyServerNotification extends RestObject {
       this.base64JSONString = value;
    }
    @JsonIgnore
-   public Object getMessage() {
-      return message;
-   }
-
-   @JsonIgnore
-   public void setMessage(Object value) { 
-      this.message = value;
-   }
-   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
@@ -107,15 +98,6 @@ public class KeyServerNotification extends RestObject {
    @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
-   }
-   @JsonIgnore
-   public NotificationType getNotificationType() {
-      return notificationType;
-   }
-
-   @JsonIgnore
-   public void setNotificationType(NotificationType value) { 
-      this.notificationType = value;
    }
    @JsonIgnore
    public String getExternalID() {
@@ -126,22 +108,40 @@ public class KeyServerNotification extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public Object getMessage() {
+      return message;
+   }
+
+   @JsonIgnore
+   public void setMessage(Object value) { 
+      this.message = value;
+   }
+   @JsonIgnore
+   public NotificationType getNotificationType() {
+      return notificationType;
+   }
+
+   @JsonIgnore
+   public void setNotificationType(NotificationType value) { 
+      this.notificationType = value;
+   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "KeyServerNotification [" + "base64JSONString=" + base64JSONString + ", message=" + message + ", entityScope=" + entityScope + ", notificationType=" + notificationType + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "KeyServerNotification [" + "base64JSONString=" + base64JSONString + ", entityScope=" + entityScope + ", externalID=" + externalID + ", message=" + message + ", notificationType=" + notificationType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

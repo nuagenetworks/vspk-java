@@ -35,11 +35,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadataTagsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EndPointsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadataTagsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "externalservice", resourceName = "externalservices")
@@ -48,20 +48,11 @@ public class ExternalService extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum ServiceType { L2, L3 };
    public enum Direction { INGRESS };
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum ServiceType { L2, L3 };
    public enum Stage { START };
 
-   
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "serviceType")
-   protected ServiceType serviceType;
    
    @JsonProperty(value = "description")
    protected String description;
@@ -72,22 +63,22 @@ public class ExternalService extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
-   @JsonProperty(value = "stage")
-   protected Stage stage;
-   
    @JsonProperty(value = "externalID")
    protected String externalID;
    
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "serviceType")
+   protected ServiceType serviceType;
+   
+   @JsonProperty(value = "stage")
+   protected Stage stage;
+   
 
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
-   
-   @JsonIgnore
-   private MetadataTagsFetcher metadataTags;
-   
-   @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
    private EndPointsFetcher endPoints;
@@ -95,48 +86,30 @@ public class ExternalService extends RestObject {
    @JsonIgnore
    private EventLogsFetcher eventLogs;
    
+   @JsonIgnore
+   private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
+   @JsonIgnore
+   private MetadataTagsFetcher metadataTags;
+   
 
    public ExternalService() {
-      
-      metadatas = new MetadatasFetcher(this);
-      
-      metadataTags = new MetadataTagsFetcher(this);
-      
-      globalMetadatas = new GlobalMetadatasFetcher(this);
       
       endPoints = new EndPointsFetcher(this);
       
       eventLogs = new EventLogsFetcher(this);
       
+      globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
+      
+      metadataTags = new MetadataTagsFetcher(this);
+      
    }
 
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public ServiceType getServiceType() {
-      return serviceType;
-   }
-
-   @JsonIgnore
-   public void setServiceType(ServiceType value) { 
-      this.serviceType = value;
-   }
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -165,15 +138,6 @@ public class ExternalService extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
-   public Stage getStage() {
-      return stage;
-   }
-
-   @JsonIgnore
-   public void setStage(Stage value) { 
-      this.stage = value;
-   }
-   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
@@ -182,23 +146,44 @@ public class ExternalService extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public ServiceType getServiceType() {
+      return serviceType;
+   }
+
+   @JsonIgnore
+   public void setServiceType(ServiceType value) { 
+      this.serviceType = value;
+   }
+   @JsonIgnore
+   public Stage getStage() {
+      return stage;
+   }
+
+   @JsonIgnore
+   public void setStage(Stage value) { 
+      this.stage = value;
+   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
-   
-   @JsonIgnore
-   public MetadataTagsFetcher getMetadataTags() {
-      return metadataTags;
-   }
-   
-   @JsonIgnore
-   public GlobalMetadatasFetcher getGlobalMetadatas() {
-      return globalMetadatas;
-   }
    
    @JsonIgnore
    public EndPointsFetcher getEndPoints() {
@@ -210,9 +195,24 @@ public class ExternalService extends RestObject {
       return eventLogs;
    }
    
+   @JsonIgnore
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
+   @JsonIgnore
+   public MetadataTagsFetcher getMetadataTags() {
+      return metadataTags;
+   }
+   
 
    public String toString() {
-      return "ExternalService [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", serviceType=" + serviceType + ", description=" + description + ", direction=" + direction + ", entityScope=" + entityScope + ", stage=" + stage + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "ExternalService [" + "description=" + description + ", direction=" + direction + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", serviceType=" + serviceType + ", stage=" + stage + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

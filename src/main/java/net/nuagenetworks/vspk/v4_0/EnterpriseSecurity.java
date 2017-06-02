@@ -35,9 +35,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EnterpriseSecuredDatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "enterprisesecurity", resourceName = "enterprisesecurities")
@@ -49,15 +49,6 @@ public class EnterpriseSecurity extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "gatewaySecurityRevision")
-   protected Long gatewaySecurityRevision;
-   
-   @JsonProperty(value = "revision")
-   protected Long revision;
-   
    @JsonProperty(value = "enterpriseID")
    protected String enterpriseID;
    
@@ -67,55 +58,37 @@ public class EnterpriseSecurity extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
+   @JsonProperty(value = "gatewaySecurityRevision")
+   protected Long gatewaySecurityRevision;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "revision")
+   protected Long revision;
+   
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private EnterpriseSecuredDatasFetcher enterpriseSecuredDatas;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private EnterpriseSecuredDatasFetcher enterpriseSecuredDatas;
+   private MetadatasFetcher metadatas;
    
 
    public EnterpriseSecurity() {
       
-      metadatas = new MetadatasFetcher(this);
+      enterpriseSecuredDatas = new EnterpriseSecuredDatasFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
-      enterpriseSecuredDatas = new EnterpriseSecuredDatasFetcher(this);
+      metadatas = new MetadatasFetcher(this);
       
    }
 
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public Long getGatewaySecurityRevision() {
-      return gatewaySecurityRevision;
-   }
-
-   @JsonIgnore
-   public void setGatewaySecurityRevision(Long value) { 
-      this.gatewaySecurityRevision = value;
-   }
-   @JsonIgnore
-   public Long getRevision() {
-      return revision;
-   }
-
-   @JsonIgnore
-   public void setRevision(Long value) { 
-      this.revision = value;
-   }
    @JsonIgnore
    public String getEnterpriseID() {
       return enterpriseID;
@@ -143,12 +116,39 @@ public class EnterpriseSecurity extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public Long getGatewaySecurityRevision() {
+      return gatewaySecurityRevision;
+   }
+
+   @JsonIgnore
+   public void setGatewaySecurityRevision(Long value) { 
+      this.gatewaySecurityRevision = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public Long getRevision() {
+      return revision;
+   }
+
+   @JsonIgnore
+   public void setRevision(Long value) { 
+      this.revision = value;
+   }
    
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public EnterpriseSecuredDatasFetcher getEnterpriseSecuredDatas() {
+      return enterpriseSecuredDatas;
    }
    
    @JsonIgnore
@@ -157,13 +157,13 @@ public class EnterpriseSecurity extends RestObject {
    }
    
    @JsonIgnore
-   public EnterpriseSecuredDatasFetcher getEnterpriseSecuredDatas() {
-      return enterpriseSecuredDatas;
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
 
    public String toString() {
-      return "EnterpriseSecurity [" + "lastUpdatedBy=" + lastUpdatedBy + ", gatewaySecurityRevision=" + gatewaySecurityRevision + ", revision=" + revision + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "EnterpriseSecurity [" + "enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewaySecurityRevision=" + gatewaySecurityRevision + ", lastUpdatedBy=" + lastUpdatedBy + ", revision=" + revision + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

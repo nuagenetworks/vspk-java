@@ -45,17 +45,14 @@ public class DUCGroupBinding extends RestObject {
    
 
    
-   @JsonProperty(value = "id")
-   protected String id;
+   @JsonProperty(value = "associatedDUCGroupID")
+   protected String associatedDUCGroupID;
    
    @JsonProperty(value = "oneWayDelay")
    protected Long oneWayDelay;
    
    @JsonProperty(value = "priority")
    protected Long priority;
-   
-   @JsonProperty(value = "associatedDUCGroupID")
-   protected String associatedDUCGroupID;
    
 
    
@@ -65,13 +62,13 @@ public class DUCGroupBinding extends RestObject {
    }
 
    @JsonIgnore
-   public String getId() {
-      return id;
+   public String getAssociatedDUCGroupID() {
+      return associatedDUCGroupID;
    }
 
    @JsonIgnore
-   public void setId(String value) { 
-      this.id = value;
+   public void setAssociatedDUCGroupID(String value) { 
+      this.associatedDUCGroupID = value;
    }
    @JsonIgnore
    public Long getOneWayDelay() {
@@ -91,21 +88,12 @@ public class DUCGroupBinding extends RestObject {
    public void setPriority(Long value) { 
       this.priority = value;
    }
-   @JsonIgnore
-   public String getAssociatedDUCGroupID() {
-      return associatedDUCGroupID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedDUCGroupID(String value) { 
-      this.associatedDUCGroupID = value;
-   }
    
 
    
 
    public String toString() {
-      return "DUCGroupBinding [" + "id=" + id + ", oneWayDelay=" + oneWayDelay + ", priority=" + priority + ", associatedDUCGroupID=" + associatedDUCGroupID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "DUCGroupBinding [" + "associatedDUCGroupID=" + associatedDUCGroupID + ", oneWayDelay=" + oneWayDelay + ", priority=" + priority + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "certificate", resourceName = "certificates")
@@ -48,62 +48,44 @@ public class Certificate extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "pemEncoded")
-   protected String pemEncoded;
-   
-   @JsonProperty(value = "serialNumber")
-   protected Long serialNumber;
-   
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
-   
-   @JsonProperty(value = "issuerDN")
-   protected String issuerDN;
-   
-   @JsonProperty(value = "subjectDN")
-   protected String subjectDN;
-   
-   @JsonProperty(value = "publicKey")
-   protected String publicKey;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-
+   @JsonProperty(value = "issuerDN")
+   protected String issuerDN;
    
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
+   @JsonProperty(value = "pemEncoded")
+   protected String pemEncoded;
+   
+   @JsonProperty(value = "publicKey")
+   protected String publicKey;
+   
+   @JsonProperty(value = "serialNumber")
+   protected Long serialNumber;
+   
+   @JsonProperty(value = "subjectDN")
+   protected String subjectDN;
+   
+
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public Certificate() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
-   @JsonIgnore
-   public String getPemEncoded() {
-      return pemEncoded;
-   }
-
-   @JsonIgnore
-   public void setPemEncoded(String value) { 
-      this.pemEncoded = value;
-   }
-   @JsonIgnore
-   public Long getSerialNumber() {
-      return serialNumber;
-   }
-
-   @JsonIgnore
-   public void setSerialNumber(Long value) { 
-      this.serialNumber = value;
-   }
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -112,6 +94,15 @@ public class Certificate extends RestObject {
    @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
    }
    @JsonIgnore
    public String getIssuerDN() {
@@ -123,13 +114,13 @@ public class Certificate extends RestObject {
       this.issuerDN = value;
    }
    @JsonIgnore
-   public String getSubjectDN() {
-      return subjectDN;
+   public String getPemEncoded() {
+      return pemEncoded;
    }
 
    @JsonIgnore
-   public void setSubjectDN(String value) { 
-      this.subjectDN = value;
+   public void setPemEncoded(String value) { 
+      this.pemEncoded = value;
    }
    @JsonIgnore
    public String getPublicKey() {
@@ -141,30 +132,39 @@ public class Certificate extends RestObject {
       this.publicKey = value;
    }
    @JsonIgnore
-   public String getExternalID() {
-      return externalID;
+   public Long getSerialNumber() {
+      return serialNumber;
    }
 
    @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
+   public void setSerialNumber(Long value) { 
+      this.serialNumber = value;
+   }
+   @JsonIgnore
+   public String getSubjectDN() {
+      return subjectDN;
+   }
+
+   @JsonIgnore
+   public void setSubjectDN(String value) { 
+      this.subjectDN = value;
    }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "Certificate [" + "pemEncoded=" + pemEncoded + ", serialNumber=" + serialNumber + ", entityScope=" + entityScope + ", issuerDN=" + issuerDN + ", subjectDN=" + subjectDN + ", publicKey=" + publicKey + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Certificate [" + "entityScope=" + entityScope + ", externalID=" + externalID + ", issuerDN=" + issuerDN + ", pemEncoded=" + pemEncoded + ", publicKey=" + publicKey + ", serialNumber=" + serialNumber + ", subjectDN=" + subjectDN + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

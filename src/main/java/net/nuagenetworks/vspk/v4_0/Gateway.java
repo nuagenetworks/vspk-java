@@ -35,16 +35,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v4_0.fetchers.AlarmsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.EnterprisePermissionsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.PATNATPoolsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.PermissionsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.WANServicesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.AlarmsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.EnterprisePermissionsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.PortsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.WANServicesFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "gateway", resourceName = "gateways")
@@ -53,34 +53,13 @@ public class Gateway extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    public enum Personality { DC7X50, HARDWARE_VTEP, NSG, OTHER, VRSB, VRSG, VSA, VSG };
-   public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "redundancyGroupID")
-   protected String redundancyGroupID;
-   
-   @JsonProperty(value = "peer")
-   protected String peer;
-   
-   @JsonProperty(value = "templateID")
-   protected String templateID;
-   
-   @JsonProperty(value = "pending")
-   protected Boolean pending;
-   
-   @JsonProperty(value = "permittedAction")
-   protected PermittedAction permittedAction;
-   
-   @JsonProperty(value = "personality")
-   protected Personality personality;
+   @JsonProperty(value = "autoDiscGatewayID")
+   protected String autoDiscGatewayID;
    
    @JsonProperty(value = "description")
    protected String description;
@@ -91,22 +70,61 @@ public class Gateway extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "peer")
+   protected String peer;
+   
+   @JsonProperty(value = "pending")
+   protected Boolean pending;
+   
+   @JsonProperty(value = "permittedAction")
+   protected PermittedAction permittedAction;
+   
+   @JsonProperty(value = "personality")
+   protected Personality personality;
+   
+   @JsonProperty(value = "redundancyGroupID")
+   protected String redundancyGroupID;
+   
+   @JsonProperty(value = "systemID")
+   protected String systemID;
+   
+   @JsonProperty(value = "templateID")
+   protected String templateID;
+   
    @JsonProperty(value = "useGatewayVLANVNID")
    protected Boolean useGatewayVLANVNID;
    
    @JsonProperty(value = "vtep")
    protected String vtep;
    
-   @JsonProperty(value = "autoDiscGatewayID")
-   protected String autoDiscGatewayID;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
-   @JsonProperty(value = "systemID")
-   protected String systemID;
-   
 
+   
+   @JsonIgnore
+   private AlarmsFetcher alarms;
+   
+   @JsonIgnore
+   private EnterprisePermissionsFetcher enterprisePermissions;
+   
+   @JsonIgnore
+   private EventLogsFetcher eventLogs;
+   
+   @JsonIgnore
+   private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private JobsFetcher jobs;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
    
    @JsonIgnore
    private PATNATPoolsFetcher pATNATPools;
@@ -115,126 +133,45 @@ public class Gateway extends RestObject {
    private PermissionsFetcher permissions;
    
    @JsonIgnore
-   private WANServicesFetcher wANServices;
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
-   
-   @JsonIgnore
-   private AlarmsFetcher alarms;
-   
-   @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
-   
-   @JsonIgnore
-   private EnterprisePermissionsFetcher enterprisePermissions;
-   
-   @JsonIgnore
-   private JobsFetcher jobs;
-   
-   @JsonIgnore
    private PortsFetcher ports;
    
    @JsonIgnore
-   private EventLogsFetcher eventLogs;
+   private WANServicesFetcher wANServices;
    
 
    public Gateway() {
       personality = Personality.VRSG;
       
+      alarms = new AlarmsFetcher(this);
+      
+      enterprisePermissions = new EnterprisePermissionsFetcher(this);
+      
+      eventLogs = new EventLogsFetcher(this);
+      
+      globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      jobs = new JobsFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
+      
       pATNATPools = new PATNATPoolsFetcher(this);
       
       permissions = new PermissionsFetcher(this);
       
-      wANServices = new WANServicesFetcher(this);
-      
-      metadatas = new MetadatasFetcher(this);
-      
-      alarms = new AlarmsFetcher(this);
-      
-      globalMetadatas = new GlobalMetadatasFetcher(this);
-      
-      enterprisePermissions = new EnterprisePermissionsFetcher(this);
-      
-      jobs = new JobsFetcher(this);
-      
       ports = new PortsFetcher(this);
       
-      eventLogs = new EventLogsFetcher(this);
+      wANServices = new WANServicesFetcher(this);
       
    }
 
    @JsonIgnore
-   public String getName() {
-      return name;
+   public String getAutoDiscGatewayID() {
+      return autoDiscGatewayID;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public String getRedundancyGroupID() {
-      return redundancyGroupID;
-   }
-
-   @JsonIgnore
-   public void setRedundancyGroupID(String value) { 
-      this.redundancyGroupID = value;
-   }
-   @JsonIgnore
-   public String getPeer() {
-      return peer;
-   }
-
-   @JsonIgnore
-   public void setPeer(String value) { 
-      this.peer = value;
-   }
-   @JsonIgnore
-   public String getTemplateID() {
-      return templateID;
-   }
-
-   @JsonIgnore
-   public void setTemplateID(String value) { 
-      this.templateID = value;
-   }
-   @JsonIgnore
-   public Boolean getPending() {
-      return pending;
-   }
-
-   @JsonIgnore
-   public void setPending(Boolean value) { 
-      this.pending = value;
-   }
-   @JsonIgnore
-   public PermittedAction getPermittedAction() {
-      return permittedAction;
-   }
-
-   @JsonIgnore
-   public void setPermittedAction(PermittedAction value) { 
-      this.permittedAction = value;
-   }
-   @JsonIgnore
-   public Personality getPersonality() {
-      return personality;
-   }
-
-   @JsonIgnore
-   public void setPersonality(Personality value) { 
-      this.personality = value;
+   public void setAutoDiscGatewayID(String value) { 
+      this.autoDiscGatewayID = value;
    }
    @JsonIgnore
    public String getDescription() {
@@ -264,6 +201,96 @@ public class Gateway extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public String getPeer() {
+      return peer;
+   }
+
+   @JsonIgnore
+   public void setPeer(String value) { 
+      this.peer = value;
+   }
+   @JsonIgnore
+   public Boolean getPending() {
+      return pending;
+   }
+
+   @JsonIgnore
+   public void setPending(Boolean value) { 
+      this.pending = value;
+   }
+   @JsonIgnore
+   public PermittedAction getPermittedAction() {
+      return permittedAction;
+   }
+
+   @JsonIgnore
+   public void setPermittedAction(PermittedAction value) { 
+      this.permittedAction = value;
+   }
+   @JsonIgnore
+   public Personality getPersonality() {
+      return personality;
+   }
+
+   @JsonIgnore
+   public void setPersonality(Personality value) { 
+      this.personality = value;
+   }
+   @JsonIgnore
+   public String getRedundancyGroupID() {
+      return redundancyGroupID;
+   }
+
+   @JsonIgnore
+   public void setRedundancyGroupID(String value) { 
+      this.redundancyGroupID = value;
+   }
+   @JsonIgnore
+   public String getSystemID() {
+      return systemID;
+   }
+
+   @JsonIgnore
+   public void setSystemID(String value) { 
+      this.systemID = value;
+   }
+   @JsonIgnore
+   public String getTemplateID() {
+      return templateID;
+   }
+
+   @JsonIgnore
+   public void setTemplateID(String value) { 
+      this.templateID = value;
+   }
+   @JsonIgnore
    public Boolean getUseGatewayVLANVNID() {
       return useGatewayVLANVNID;
    }
@@ -281,35 +308,38 @@ public class Gateway extends RestObject {
    public void setVtep(String value) { 
       this.vtep = value;
    }
-   @JsonIgnore
-   public String getAutoDiscGatewayID() {
-      return autoDiscGatewayID;
-   }
-
-   @JsonIgnore
-   public void setAutoDiscGatewayID(String value) { 
-      this.autoDiscGatewayID = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
-   @JsonIgnore
-   public String getSystemID() {
-      return systemID;
-   }
-
-   @JsonIgnore
-   public void setSystemID(String value) { 
-      this.systemID = value;
-   }
    
 
+   
+   @JsonIgnore
+   public AlarmsFetcher getAlarms() {
+      return alarms;
+   }
+   
+   @JsonIgnore
+   public EnterprisePermissionsFetcher getEnterprisePermissions() {
+      return enterprisePermissions;
+   }
+   
+   @JsonIgnore
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
+   }
+   
+   @JsonIgnore
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public JobsFetcher getJobs() {
+      return jobs;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
    
    @JsonIgnore
    public PATNATPoolsFetcher getPATNATPools() {
@@ -322,48 +352,18 @@ public class Gateway extends RestObject {
    }
    
    @JsonIgnore
-   public WANServicesFetcher getWANServices() {
-      return wANServices;
-   }
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
-   
-   @JsonIgnore
-   public AlarmsFetcher getAlarms() {
-      return alarms;
-   }
-   
-   @JsonIgnore
-   public GlobalMetadatasFetcher getGlobalMetadatas() {
-      return globalMetadatas;
-   }
-   
-   @JsonIgnore
-   public EnterprisePermissionsFetcher getEnterprisePermissions() {
-      return enterprisePermissions;
-   }
-   
-   @JsonIgnore
-   public JobsFetcher getJobs() {
-      return jobs;
-   }
-   
-   @JsonIgnore
    public PortsFetcher getPorts() {
       return ports;
    }
    
    @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
+   public WANServicesFetcher getWANServices() {
+      return wANServices;
    }
    
 
    public String toString() {
-      return "Gateway [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", redundancyGroupID=" + redundancyGroupID + ", peer=" + peer + ", templateID=" + templateID + ", pending=" + pending + ", permittedAction=" + permittedAction + ", personality=" + personality + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", useGatewayVLANVNID=" + useGatewayVLANVNID + ", vtep=" + vtep + ", autoDiscGatewayID=" + autoDiscGatewayID + ", externalID=" + externalID + ", systemID=" + systemID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Gateway [" + "autoDiscGatewayID=" + autoDiscGatewayID + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", peer=" + peer + ", pending=" + pending + ", permittedAction=" + permittedAction + ", personality=" + personality + ", redundancyGroupID=" + redundancyGroupID + ", systemID=" + systemID + ", templateID=" + templateID + ", useGatewayVLANVNID=" + useGatewayVLANVNID + ", vtep=" + vtep + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

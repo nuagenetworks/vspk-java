@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "bgpneighbor", resourceName = "bgpneighbors")
@@ -48,11 +48,26 @@ public class BGPNeighbor extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
+   @JsonProperty(value = "associatedExportRoutingPolicyID")
+   protected String associatedExportRoutingPolicyID;
+   
+   @JsonProperty(value = "associatedImportRoutingPolicyID")
+   protected String associatedImportRoutingPolicyID;
    
    @JsonProperty(value = "dampeningEnabled")
    protected Boolean dampeningEnabled;
+   
+   @JsonProperty(value = "description")
+   protected String description;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "name")
+   protected String name;
    
    @JsonProperty(value = "peerAS")
    protected Long peerAS;
@@ -60,49 +75,43 @@ public class BGPNeighbor extends RestObject {
    @JsonProperty(value = "peerIP")
    protected String peerIP;
    
-   @JsonProperty(value = "description")
-   protected String description;
-   
    @JsonProperty(value = "session")
    protected String session;
    
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
-   
-   @JsonProperty(value = "associatedExportRoutingPolicyID")
-   protected String associatedExportRoutingPolicyID;
-   
-   @JsonProperty(value = "associatedImportRoutingPolicyID")
-   protected String associatedImportRoutingPolicyID;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
 
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public BGPNeighbor() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
    @JsonIgnore
-   public String getName() {
-      return name;
+   public String getAssociatedExportRoutingPolicyID() {
+      return associatedExportRoutingPolicyID;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
+   public void setAssociatedExportRoutingPolicyID(String value) { 
+      this.associatedExportRoutingPolicyID = value;
+   }
+   @JsonIgnore
+   public String getAssociatedImportRoutingPolicyID() {
+      return associatedImportRoutingPolicyID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedImportRoutingPolicyID(String value) { 
+      this.associatedImportRoutingPolicyID = value;
    }
    @JsonIgnore
    public Boolean getDampeningEnabled() {
@@ -112,6 +121,42 @@ public class BGPNeighbor extends RestObject {
    @JsonIgnore
    public void setDampeningEnabled(Boolean value) { 
       this.dampeningEnabled = value;
+   }
+   @JsonIgnore
+   public String getDescription() {
+      return description;
+   }
+
+   @JsonIgnore
+   public void setDescription(String value) { 
+      this.description = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
    }
    @JsonIgnore
    public Long getPeerAS() {
@@ -132,15 +177,6 @@ public class BGPNeighbor extends RestObject {
       this.peerIP = value;
    }
    @JsonIgnore
-   public String getDescription() {
-      return description;
-   }
-
-   @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
-   }
-   @JsonIgnore
    public String getSession() {
       return session;
    }
@@ -149,58 +185,22 @@ public class BGPNeighbor extends RestObject {
    public void setSession(String value) { 
       this.session = value;
    }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
-   }
-   @JsonIgnore
-   public String getAssociatedExportRoutingPolicyID() {
-      return associatedExportRoutingPolicyID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedExportRoutingPolicyID(String value) { 
-      this.associatedExportRoutingPolicyID = value;
-   }
-   @JsonIgnore
-   public String getAssociatedImportRoutingPolicyID() {
-      return associatedImportRoutingPolicyID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedImportRoutingPolicyID(String value) { 
-      this.associatedImportRoutingPolicyID = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "BGPNeighbor [" + "name=" + name + ", dampeningEnabled=" + dampeningEnabled + ", peerAS=" + peerAS + ", peerIP=" + peerIP + ", description=" + description + ", session=" + session + ", entityScope=" + entityScope + ", associatedExportRoutingPolicyID=" + associatedExportRoutingPolicyID + ", associatedImportRoutingPolicyID=" + associatedImportRoutingPolicyID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "BGPNeighbor [" + "associatedExportRoutingPolicyID=" + associatedExportRoutingPolicyID + ", associatedImportRoutingPolicyID=" + associatedImportRoutingPolicyID + ", dampeningEnabled=" + dampeningEnabled + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", name=" + name + ", peerAS=" + peerAS + ", peerIP=" + peerIP + ", session=" + session + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

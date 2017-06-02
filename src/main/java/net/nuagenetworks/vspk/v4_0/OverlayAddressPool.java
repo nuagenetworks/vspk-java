@@ -46,8 +46,8 @@ public class OverlayAddressPool extends RestObject {
    
 
    
-   @JsonProperty(value = "name")
-   protected String name;
+   @JsonProperty(value = "associatedDomainID")
+   protected String associatedDomainID;
    
    @JsonProperty(value = "description")
    protected String description;
@@ -55,8 +55,8 @@ public class OverlayAddressPool extends RestObject {
    @JsonProperty(value = "endAddressRange")
    protected String endAddressRange;
    
-   @JsonProperty(value = "associatedDomainID")
-   protected String associatedDomainID;
+   @JsonProperty(value = "name")
+   protected String name;
    
    @JsonProperty(value = "startAddressRange")
    protected String startAddressRange;
@@ -74,13 +74,13 @@ public class OverlayAddressPool extends RestObject {
    }
 
    @JsonIgnore
-   public String getName() {
-      return name;
+   public String getAssociatedDomainID() {
+      return associatedDomainID;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
+   public void setAssociatedDomainID(String value) { 
+      this.associatedDomainID = value;
    }
    @JsonIgnore
    public String getDescription() {
@@ -101,13 +101,13 @@ public class OverlayAddressPool extends RestObject {
       this.endAddressRange = value;
    }
    @JsonIgnore
-   public String getAssociatedDomainID() {
-      return associatedDomainID;
+   public String getName() {
+      return name;
    }
 
    @JsonIgnore
-   public void setAssociatedDomainID(String value) { 
-      this.associatedDomainID = value;
+   public void setName(String value) { 
+      this.name = value;
    }
    @JsonIgnore
    public String getStartAddressRange() {
@@ -128,7 +128,7 @@ public class OverlayAddressPool extends RestObject {
    
 
    public String toString() {
-      return "OverlayAddressPool [" + "name=" + name + ", description=" + description + ", endAddressRange=" + endAddressRange + ", associatedDomainID=" + associatedDomainID + ", startAddressRange=" + startAddressRange + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "OverlayAddressPool [" + "associatedDomainID=" + associatedDomainID + ", description=" + description + ", endAddressRange=" + endAddressRange + ", name=" + name + ", startAddressRange=" + startAddressRange + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

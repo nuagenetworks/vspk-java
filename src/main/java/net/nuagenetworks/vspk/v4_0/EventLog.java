@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "eventlog", resourceName = "eventlogs")
@@ -72,9 +72,6 @@ public class EventLog extends RestObject {
    @JsonProperty(value = "entityType")
    protected String entityType;
    
-   @JsonProperty(value = "user")
-   protected String user;
-   
    @JsonProperty(value = "eventReceivedTime")
    protected Float eventReceivedTime;
    
@@ -84,20 +81,23 @@ public class EventLog extends RestObject {
    @JsonProperty(value = "type")
    protected String type;
    
-
+   @JsonProperty(value = "user")
+   protected String user;
    
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
+
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public EventLog() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
    }
 
@@ -174,15 +174,6 @@ public class EventLog extends RestObject {
       this.entityType = value;
    }
    @JsonIgnore
-   public String getUser() {
-      return user;
-   }
-
-   @JsonIgnore
-   public void setUser(String value) { 
-      this.user = value;
-   }
-   @JsonIgnore
    public Float getEventReceivedTime() {
       return eventReceivedTime;
    }
@@ -209,22 +200,31 @@ public class EventLog extends RestObject {
    public void setType(String value) { 
       this.type = value;
    }
+   @JsonIgnore
+   public String getUser() {
+      return user;
+   }
+
+   @JsonIgnore
+   public void setUser(String value) { 
+      this.user = value;
+   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "EventLog [" + "diff=" + diff + ", enterprise=" + enterprise + ", entities=" + entities + ", entityID=" + entityID + ", entityParentID=" + entityParentID + ", entityParentType=" + entityParentType + ", entityScope=" + entityScope + ", entityType=" + entityType + ", user=" + user + ", eventReceivedTime=" + eventReceivedTime + ", externalID=" + externalID + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "EventLog [" + "diff=" + diff + ", enterprise=" + enterprise + ", entities=" + entities + ", entityID=" + entityID + ", entityParentID=" + entityParentID + ", entityParentType=" + entityParentType + ", entityScope=" + entityScope + ", entityType=" + entityType + ", eventReceivedTime=" + eventReceivedTime + ", externalID=" + externalID + ", type=" + type + ", user=" + user + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

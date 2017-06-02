@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "allalarm", resourceName = "allalarms")
@@ -45,33 +45,15 @@ public class AllAlarm extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum Severity { CRITICAL, INFO, MAJOR, MINOR, WARNING };
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum Severity { CRITICAL, INFO, MAJOR, MINOR, WARNING };
 
-   
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "targetObject")
-   protected String targetObject;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
    
    @JsonProperty(value = "acknowledged")
    protected Boolean acknowledged;
    
-   @JsonProperty(value = "reason")
-   protected String reason;
-   
    @JsonProperty(value = "description")
    protected String description;
-   
-   @JsonProperty(value = "severity")
-   protected Severity severity;
-   
-   @JsonProperty(value = "timestamp")
-   protected Long timestamp;
    
    @JsonProperty(value = "enterpriseID")
    protected String enterpriseID;
@@ -82,56 +64,47 @@ public class AllAlarm extends RestObject {
    @JsonProperty(value = "errorCondition")
    protected Long errorCondition;
    
-   @JsonProperty(value = "numberOfOccurances")
-   protected Long numberOfOccurances;
-   
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "numberOfOccurances")
+   protected Long numberOfOccurances;
+   
+   @JsonProperty(value = "reason")
+   protected String reason;
+   
+   @JsonProperty(value = "severity")
+   protected Severity severity;
+   
+   @JsonProperty(value = "targetObject")
+   protected String targetObject;
+   
+   @JsonProperty(value = "timestamp")
+   protected Long timestamp;
+   
+
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public AllAlarm() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getTargetObject() {
-      return targetObject;
-   }
-
-   @JsonIgnore
-   public void setTargetObject(String value) { 
-      this.targetObject = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
    @JsonIgnore
    public Boolean getAcknowledged() {
       return acknowledged;
@@ -142,15 +115,6 @@ public class AllAlarm extends RestObject {
       this.acknowledged = value;
    }
    @JsonIgnore
-   public String getReason() {
-      return reason;
-   }
-
-   @JsonIgnore
-   public void setReason(String value) { 
-      this.reason = value;
-   }
-   @JsonIgnore
    public String getDescription() {
       return description;
    }
@@ -158,24 +122,6 @@ public class AllAlarm extends RestObject {
    @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
-   }
-   @JsonIgnore
-   public Severity getSeverity() {
-      return severity;
-   }
-
-   @JsonIgnore
-   public void setSeverity(Severity value) { 
-      this.severity = value;
-   }
-   @JsonIgnore
-   public Long getTimestamp() {
-      return timestamp;
-   }
-
-   @JsonIgnore
-   public void setTimestamp(Long value) { 
-      this.timestamp = value;
    }
    @JsonIgnore
    public String getEnterpriseID() {
@@ -205,6 +151,33 @@ public class AllAlarm extends RestObject {
       this.errorCondition = value;
    }
    @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
    public Long getNumberOfOccurances() {
       return numberOfOccurances;
    }
@@ -214,30 +187,57 @@ public class AllAlarm extends RestObject {
       this.numberOfOccurances = value;
    }
    @JsonIgnore
-   public String getExternalID() {
-      return externalID;
+   public String getReason() {
+      return reason;
    }
 
    @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
+   public void setReason(String value) { 
+      this.reason = value;
+   }
+   @JsonIgnore
+   public Severity getSeverity() {
+      return severity;
+   }
+
+   @JsonIgnore
+   public void setSeverity(Severity value) { 
+      this.severity = value;
+   }
+   @JsonIgnore
+   public String getTargetObject() {
+      return targetObject;
+   }
+
+   @JsonIgnore
+   public void setTargetObject(String value) { 
+      this.targetObject = value;
+   }
+   @JsonIgnore
+   public Long getTimestamp() {
+      return timestamp;
+   }
+
+   @JsonIgnore
+   public void setTimestamp(Long value) { 
+      this.timestamp = value;
    }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "AllAlarm [" + "name=" + name + ", targetObject=" + targetObject + ", lastUpdatedBy=" + lastUpdatedBy + ", acknowledged=" + acknowledged + ", reason=" + reason + ", description=" + description + ", severity=" + severity + ", timestamp=" + timestamp + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", errorCondition=" + errorCondition + ", numberOfOccurances=" + numberOfOccurances + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "AllAlarm [" + "acknowledged=" + acknowledged + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", errorCondition=" + errorCondition + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", numberOfOccurances=" + numberOfOccurances + ", reason=" + reason + ", severity=" + severity + ", targetObject=" + targetObject + ", timestamp=" + timestamp + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

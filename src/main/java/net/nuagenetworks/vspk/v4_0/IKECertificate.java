@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "ikecertificate", resourceName = "ikecertificates")
@@ -51,14 +51,8 @@ public class IKECertificate extends RestObject {
    @JsonProperty(value = "PEMEncoded")
    protected String PEMEncoded;
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "serialNumber")
-   protected Long serialNumber;
+   @JsonProperty(value = "associatedEnterpriseID")
+   protected String associatedEnterpriseID;
    
    @JsonProperty(value = "description")
    protected String description;
@@ -66,38 +60,44 @@ public class IKECertificate extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "issuerDN")
+   protected String issuerDN;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
    @JsonProperty(value = "notAfter")
    protected Float notAfter;
    
    @JsonProperty(value = "notBefore")
    protected Float notBefore;
    
-   @JsonProperty(value = "associatedEnterpriseID")
-   protected String associatedEnterpriseID;
-   
-   @JsonProperty(value = "issuerDN")
-   protected String issuerDN;
+   @JsonProperty(value = "serialNumber")
+   protected Long serialNumber;
    
    @JsonProperty(value = "subjectDN")
    protected String subjectDN;
    
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
 
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public IKECertificate() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
    }
 
@@ -111,31 +111,13 @@ public class IKECertificate extends RestObject {
       this.PEMEncoded = value;
    }
    @JsonIgnore
-   public String getName() {
-      return name;
+   public String getAssociatedEnterpriseID() {
+      return associatedEnterpriseID;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public Long getSerialNumber() {
-      return serialNumber;
-   }
-
-   @JsonIgnore
-   public void setSerialNumber(Long value) { 
-      this.serialNumber = value;
+   public void setAssociatedEnterpriseID(String value) { 
+      this.associatedEnterpriseID = value;
    }
    @JsonIgnore
    public String getDescription() {
@@ -156,6 +138,42 @@ public class IKECertificate extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public String getIssuerDN() {
+      return issuerDN;
+   }
+
+   @JsonIgnore
+   public void setIssuerDN(String value) { 
+      this.issuerDN = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
    public Float getNotAfter() {
       return notAfter;
    }
@@ -174,22 +192,13 @@ public class IKECertificate extends RestObject {
       this.notBefore = value;
    }
    @JsonIgnore
-   public String getAssociatedEnterpriseID() {
-      return associatedEnterpriseID;
+   public Long getSerialNumber() {
+      return serialNumber;
    }
 
    @JsonIgnore
-   public void setAssociatedEnterpriseID(String value) { 
-      this.associatedEnterpriseID = value;
-   }
-   @JsonIgnore
-   public String getIssuerDN() {
-      return issuerDN;
-   }
-
-   @JsonIgnore
-   public void setIssuerDN(String value) { 
-      this.issuerDN = value;
+   public void setSerialNumber(Long value) { 
+      this.serialNumber = value;
    }
    @JsonIgnore
    public String getSubjectDN() {
@@ -200,31 +209,22 @@ public class IKECertificate extends RestObject {
    public void setSubjectDN(String value) { 
       this.subjectDN = value;
    }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "IKECertificate [" + "PEMEncoded=" + PEMEncoded + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", serialNumber=" + serialNumber + ", description=" + description + ", entityScope=" + entityScope + ", notAfter=" + notAfter + ", notBefore=" + notBefore + ", associatedEnterpriseID=" + associatedEnterpriseID + ", issuerDN=" + issuerDN + ", subjectDN=" + subjectDN + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "IKECertificate [" + "PEMEncoded=" + PEMEncoded + ", associatedEnterpriseID=" + associatedEnterpriseID + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", issuerDN=" + issuerDN + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", notAfter=" + notAfter + ", notBefore=" + notBefore + ", serialNumber=" + serialNumber + ", subjectDN=" + subjectDN + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

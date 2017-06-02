@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "ltestatistics", resourceName = "ltestatistics")
@@ -47,9 +47,6 @@ public class Ltestatistics extends RestObject {
    
 
    
-   @JsonProperty(value = "version")
-   protected Long version;
-   
    @JsonProperty(value = "endTime")
    protected Long endTime;
    
@@ -59,32 +56,26 @@ public class Ltestatistics extends RestObject {
    @JsonProperty(value = "statsData")
    protected java.util.List<com.fasterxml.jackson.databind.JsonNode> statsData;
    
-
+   @JsonProperty(value = "version")
+   protected Long version;
    
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
+
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public Ltestatistics() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
-   @JsonIgnore
-   public Long getVersion() {
-      return version;
-   }
-
-   @JsonIgnore
-   public void setVersion(Long value) { 
-      this.version = value;
-   }
    @JsonIgnore
    public Long getEndTime() {
       return endTime;
@@ -112,22 +103,31 @@ public class Ltestatistics extends RestObject {
    public void setStatsData(java.util.List<com.fasterxml.jackson.databind.JsonNode> value) { 
       this.statsData = value;
    }
+   @JsonIgnore
+   public Long getVersion() {
+      return version;
+   }
+
+   @JsonIgnore
+   public void setVersion(Long value) { 
+      this.version = value;
+   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "Ltestatistics [" + "version=" + version + ", endTime=" + endTime + ", startTime=" + startTime + ", statsData=" + statsData + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Ltestatistics [" + "endTime=" + endTime + ", startTime=" + startTime + ", statsData=" + statsData + ", version=" + version + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

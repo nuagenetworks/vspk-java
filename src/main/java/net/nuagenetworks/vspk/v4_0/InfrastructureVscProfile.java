@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "infrastructurevscprofile", resourceName = "infrastructurevscprofiles")
@@ -48,20 +48,8 @@ public class InfrastructureVscProfile extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "secondController")
-   protected String secondController;
-   
    @JsonProperty(value = "description")
    protected String description;
-   
-   @JsonProperty(value = "firstController")
-   protected String firstController;
    
    @JsonProperty(value = "enterpriseID")
    protected String enterpriseID;
@@ -69,56 +57,41 @@ public class InfrastructureVscProfile extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
-   @JsonProperty(value = "probeInterval")
-   protected Long probeInterval;
-   
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-
+   @JsonProperty(value = "firstController")
+   protected String firstController;
    
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "probeInterval")
+   protected Long probeInterval;
+   
+   @JsonProperty(value = "secondController")
+   protected String secondController;
+   
+
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public InfrastructureVscProfile() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public String getSecondController() {
-      return secondController;
-   }
-
-   @JsonIgnore
-   public void setSecondController(String value) { 
-      this.secondController = value;
-   }
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -127,15 +100,6 @@ public class InfrastructureVscProfile extends RestObject {
    @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
-   }
-   @JsonIgnore
-   public String getFirstController() {
-      return firstController;
-   }
-
-   @JsonIgnore
-   public void setFirstController(String value) { 
-      this.firstController = value;
    }
    @JsonIgnore
    public String getEnterpriseID() {
@@ -156,6 +120,42 @@ public class InfrastructureVscProfile extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public String getFirstController() {
+      return firstController;
+   }
+
+   @JsonIgnore
+   public void setFirstController(String value) { 
+      this.firstController = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
    public Long getProbeInterval() {
       return probeInterval;
    }
@@ -165,30 +165,30 @@ public class InfrastructureVscProfile extends RestObject {
       this.probeInterval = value;
    }
    @JsonIgnore
-   public String getExternalID() {
-      return externalID;
+   public String getSecondController() {
+      return secondController;
    }
 
    @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
+   public void setSecondController(String value) { 
+      this.secondController = value;
    }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "InfrastructureVscProfile [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", secondController=" + secondController + ", description=" + description + ", firstController=" + firstController + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", probeInterval=" + probeInterval + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "InfrastructureVscProfile [" + "description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", firstController=" + firstController + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", probeInterval=" + probeInterval + ", secondController=" + secondController + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

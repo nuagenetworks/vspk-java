@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.UnderlaysFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.CustomPropertiesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.UnderlaysFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "uplinkconnection", resourceName = "uplinkconnections")
@@ -55,35 +55,11 @@ public class UplinkConnection extends RestObject {
    @JsonProperty(value = "DNSAddress")
    protected String DNSAddress;
    
-   @JsonProperty(value = "password")
-   protected String password;
-   
-   @JsonProperty(value = "gateway")
-   protected String gateway;
-   
    @JsonProperty(value = "address")
    protected Address address;
    
    @JsonProperty(value = "advertisementCriteria")
    protected AdvertisementCriteria advertisementCriteria;
-   
-   @JsonProperty(value = "netmask")
-   protected String netmask;
-   
-   @JsonProperty(value = "interfaceConnectionType")
-   protected InterfaceConnectionType interfaceConnectionType;
-   
-   @JsonProperty(value = "mode")
-   protected Mode mode;
-   
-   @JsonProperty(value = "role")
-   protected Role role;
-   
-   @JsonProperty(value = "uplinkID")
-   protected String uplinkID;
-   
-   @JsonProperty(value = "username")
-   protected String username;
    
    @JsonProperty(value = "assocUnderlayID")
    protected String assocUnderlayID;
@@ -97,20 +73,44 @@ public class UplinkConnection extends RestObject {
    @JsonProperty(value = "auxiliaryLink")
    protected Boolean auxiliaryLink;
    
-
+   @JsonProperty(value = "gateway")
+   protected String gateway;
    
-   @JsonIgnore
-   private UnderlaysFetcher underlays;
+   @JsonProperty(value = "interfaceConnectionType")
+   protected InterfaceConnectionType interfaceConnectionType;
+   
+   @JsonProperty(value = "mode")
+   protected Mode mode;
+   
+   @JsonProperty(value = "netmask")
+   protected String netmask;
+   
+   @JsonProperty(value = "password")
+   protected String password;
+   
+   @JsonProperty(value = "role")
+   protected Role role;
+   
+   @JsonProperty(value = "uplinkID")
+   protected String uplinkID;
+   
+   @JsonProperty(value = "username")
+   protected String username;
+   
+
    
    @JsonIgnore
    private CustomPropertiesFetcher customProperties;
    
+   @JsonIgnore
+   private UnderlaysFetcher underlays;
+   
 
    public UplinkConnection() {
       
-      underlays = new UnderlaysFetcher(this);
-      
       customProperties = new CustomPropertiesFetcher(this);
+      
+      underlays = new UnderlaysFetcher(this);
       
    }
 
@@ -122,24 +122,6 @@ public class UplinkConnection extends RestObject {
    @JsonIgnore
    public void setDNSAddress(String value) { 
       this.DNSAddress = value;
-   }
-   @JsonIgnore
-   public String getPassword() {
-      return password;
-   }
-
-   @JsonIgnore
-   public void setPassword(String value) { 
-      this.password = value;
-   }
-   @JsonIgnore
-   public String getGateway() {
-      return gateway;
-   }
-
-   @JsonIgnore
-   public void setGateway(String value) { 
-      this.gateway = value;
    }
    @JsonIgnore
    public Address getAddress() {
@@ -158,60 +140,6 @@ public class UplinkConnection extends RestObject {
    @JsonIgnore
    public void setAdvertisementCriteria(AdvertisementCriteria value) { 
       this.advertisementCriteria = value;
-   }
-   @JsonIgnore
-   public String getNetmask() {
-      return netmask;
-   }
-
-   @JsonIgnore
-   public void setNetmask(String value) { 
-      this.netmask = value;
-   }
-   @JsonIgnore
-   public InterfaceConnectionType getInterfaceConnectionType() {
-      return interfaceConnectionType;
-   }
-
-   @JsonIgnore
-   public void setInterfaceConnectionType(InterfaceConnectionType value) { 
-      this.interfaceConnectionType = value;
-   }
-   @JsonIgnore
-   public Mode getMode() {
-      return mode;
-   }
-
-   @JsonIgnore
-   public void setMode(Mode value) { 
-      this.mode = value;
-   }
-   @JsonIgnore
-   public Role getRole() {
-      return role;
-   }
-
-   @JsonIgnore
-   public void setRole(Role value) { 
-      this.role = value;
-   }
-   @JsonIgnore
-   public String getUplinkID() {
-      return uplinkID;
-   }
-
-   @JsonIgnore
-   public void setUplinkID(String value) { 
-      this.uplinkID = value;
-   }
-   @JsonIgnore
-   public String getUsername() {
-      return username;
-   }
-
-   @JsonIgnore
-   public void setUsername(String value) { 
-      this.username = value;
    }
    @JsonIgnore
    public String getAssocUnderlayID() {
@@ -249,22 +177,94 @@ public class UplinkConnection extends RestObject {
    public void setAuxiliaryLink(Boolean value) { 
       this.auxiliaryLink = value;
    }
+   @JsonIgnore
+   public String getGateway() {
+      return gateway;
+   }
+
+   @JsonIgnore
+   public void setGateway(String value) { 
+      this.gateway = value;
+   }
+   @JsonIgnore
+   public InterfaceConnectionType getInterfaceConnectionType() {
+      return interfaceConnectionType;
+   }
+
+   @JsonIgnore
+   public void setInterfaceConnectionType(InterfaceConnectionType value) { 
+      this.interfaceConnectionType = value;
+   }
+   @JsonIgnore
+   public Mode getMode() {
+      return mode;
+   }
+
+   @JsonIgnore
+   public void setMode(Mode value) { 
+      this.mode = value;
+   }
+   @JsonIgnore
+   public String getNetmask() {
+      return netmask;
+   }
+
+   @JsonIgnore
+   public void setNetmask(String value) { 
+      this.netmask = value;
+   }
+   @JsonIgnore
+   public String getPassword() {
+      return password;
+   }
+
+   @JsonIgnore
+   public void setPassword(String value) { 
+      this.password = value;
+   }
+   @JsonIgnore
+   public Role getRole() {
+      return role;
+   }
+
+   @JsonIgnore
+   public void setRole(Role value) { 
+      this.role = value;
+   }
+   @JsonIgnore
+   public String getUplinkID() {
+      return uplinkID;
+   }
+
+   @JsonIgnore
+   public void setUplinkID(String value) { 
+      this.uplinkID = value;
+   }
+   @JsonIgnore
+   public String getUsername() {
+      return username;
+   }
+
+   @JsonIgnore
+   public void setUsername(String value) { 
+      this.username = value;
+   }
    
 
-   
-   @JsonIgnore
-   public UnderlaysFetcher getUnderlays() {
-      return underlays;
-   }
    
    @JsonIgnore
    public CustomPropertiesFetcher getCustomProperties() {
       return customProperties;
    }
    
+   @JsonIgnore
+   public UnderlaysFetcher getUnderlays() {
+      return underlays;
+   }
+   
 
    public String toString() {
-      return "UplinkConnection [" + "DNSAddress=" + DNSAddress + ", password=" + password + ", gateway=" + gateway + ", address=" + address + ", advertisementCriteria=" + advertisementCriteria + ", netmask=" + netmask + ", interfaceConnectionType=" + interfaceConnectionType + ", mode=" + mode + ", role=" + role + ", uplinkID=" + uplinkID + ", username=" + username + ", assocUnderlayID=" + assocUnderlayID + ", associatedUnderlayName=" + associatedUnderlayName + ", associatedVSCProfileID=" + associatedVSCProfileID + ", auxiliaryLink=" + auxiliaryLink + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "UplinkConnection [" + "DNSAddress=" + DNSAddress + ", address=" + address + ", advertisementCriteria=" + advertisementCriteria + ", assocUnderlayID=" + assocUnderlayID + ", associatedUnderlayName=" + associatedUnderlayName + ", associatedVSCProfileID=" + associatedVSCProfileID + ", auxiliaryLink=" + auxiliaryLink + ", gateway=" + gateway + ", interfaceConnectionType=" + interfaceConnectionType + ", mode=" + mode + ", netmask=" + netmask + ", password=" + password + ", role=" + role + ", uplinkID=" + uplinkID + ", username=" + username + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

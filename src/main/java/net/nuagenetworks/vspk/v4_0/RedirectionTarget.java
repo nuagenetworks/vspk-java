@@ -35,12 +35,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.VirtualIPsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.VirtualIPsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VPortsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "redirectiontarget", resourceName = "redirectiontargets")
@@ -57,23 +57,8 @@ public class RedirectionTarget extends RestObject {
    @JsonProperty(value = "ESI")
    protected String ESI;
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "redundancyEnabled")
-   protected Boolean redundancyEnabled;
-   
-   @JsonProperty(value = "templateID")
-   protected String templateID;
-   
    @JsonProperty(value = "description")
    protected String description;
-   
-   @JsonProperty(value = "virtualNetworkID")
-   protected String virtualNetworkID;
    
    @JsonProperty(value = "endPointType")
    protected EndPointType endPointType;
@@ -81,19 +66,31 @@ public class RedirectionTarget extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "redundancyEnabled")
+   protected Boolean redundancyEnabled;
+   
+   @JsonProperty(value = "templateID")
+   protected String templateID;
+   
    @JsonProperty(value = "triggerType")
    protected TriggerType triggerType;
    
-   @JsonProperty(value = "externalID")
-   protected String externalID;
+   @JsonProperty(value = "virtualNetworkID")
+   protected String virtualNetworkID;
    
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
-   
-   @JsonIgnore
-   private VirtualIPsFetcher virtualIPs;
+   private EventLogsFetcher eventLogs;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
@@ -102,26 +99,29 @@ public class RedirectionTarget extends RestObject {
    private JobsFetcher jobs;
    
    @JsonIgnore
-   private VPortsFetcher vPorts;
+   private MetadatasFetcher metadatas;
    
    @JsonIgnore
-   private EventLogsFetcher eventLogs;
+   private VirtualIPsFetcher virtualIPs;
+   
+   @JsonIgnore
+   private VPortsFetcher vPorts;
    
 
    public RedirectionTarget() {
       endPointType = EndPointType.L3;
       
-      metadatas = new MetadatasFetcher(this);
-      
-      virtualIPs = new VirtualIPsFetcher(this);
+      eventLogs = new EventLogsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       jobs = new JobsFetcher(this);
       
-      vPorts = new VPortsFetcher(this);
+      metadatas = new MetadatasFetcher(this);
       
-      eventLogs = new EventLogsFetcher(this);
+      virtualIPs = new VirtualIPsFetcher(this);
+      
+      vPorts = new VPortsFetcher(this);
       
    }
 
@@ -135,42 +135,6 @@ public class RedirectionTarget extends RestObject {
       this.ESI = value;
    }
    @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public Boolean getRedundancyEnabled() {
-      return redundancyEnabled;
-   }
-
-   @JsonIgnore
-   public void setRedundancyEnabled(Boolean value) { 
-      this.redundancyEnabled = value;
-   }
-   @JsonIgnore
-   public String getTemplateID() {
-      return templateID;
-   }
-
-   @JsonIgnore
-   public void setTemplateID(String value) { 
-      this.templateID = value;
-   }
-   @JsonIgnore
    public String getDescription() {
       return description;
    }
@@ -178,15 +142,6 @@ public class RedirectionTarget extends RestObject {
    @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
-   }
-   @JsonIgnore
-   public String getVirtualNetworkID() {
-      return virtualNetworkID;
-   }
-
-   @JsonIgnore
-   public void setVirtualNetworkID(String value) { 
-      this.virtualNetworkID = value;
    }
    @JsonIgnore
    public EndPointType getEndPointType() {
@@ -207,6 +162,51 @@ public class RedirectionTarget extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public Boolean getRedundancyEnabled() {
+      return redundancyEnabled;
+   }
+
+   @JsonIgnore
+   public void setRedundancyEnabled(Boolean value) { 
+      this.redundancyEnabled = value;
+   }
+   @JsonIgnore
+   public String getTemplateID() {
+      return templateID;
+   }
+
+   @JsonIgnore
+   public void setTemplateID(String value) { 
+      this.templateID = value;
+   }
+   @JsonIgnore
    public TriggerType getTriggerType() {
       return triggerType;
    }
@@ -216,25 +216,20 @@ public class RedirectionTarget extends RestObject {
       this.triggerType = value;
    }
    @JsonIgnore
-   public String getExternalID() {
-      return externalID;
+   public String getVirtualNetworkID() {
+      return virtualNetworkID;
    }
 
    @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
+   public void setVirtualNetworkID(String value) { 
+      this.virtualNetworkID = value;
    }
    
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
-   
-   @JsonIgnore
-   public VirtualIPsFetcher getVirtualIPs() {
-      return virtualIPs;
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
    }
    
    @JsonIgnore
@@ -248,18 +243,23 @@ public class RedirectionTarget extends RestObject {
    }
    
    @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
+   @JsonIgnore
+   public VirtualIPsFetcher getVirtualIPs() {
+      return virtualIPs;
+   }
+   
+   @JsonIgnore
    public VPortsFetcher getVPorts() {
       return vPorts;
    }
    
-   @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
-   }
-   
 
    public String toString() {
-      return "RedirectionTarget [" + "ESI=" + ESI + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", redundancyEnabled=" + redundancyEnabled + ", templateID=" + templateID + ", description=" + description + ", virtualNetworkID=" + virtualNetworkID + ", endPointType=" + endPointType + ", entityScope=" + entityScope + ", triggerType=" + triggerType + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "RedirectionTarget [" + "ESI=" + ESI + ", description=" + description + ", endPointType=" + endPointType + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", redundancyEnabled=" + redundancyEnabled + ", templateID=" + templateID + ", triggerType=" + triggerType + ", virtualNetworkID=" + virtualNetworkID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

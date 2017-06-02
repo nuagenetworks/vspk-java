@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "externalappservice", resourceName = "externalappservices")
@@ -46,51 +46,9 @@ public class ExternalAppService extends RestObject {
 
    
    public enum EgressType { REDIRECT, ROUTE };
-   public enum IngressType { REDIRECT, ROUTE };
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum IngressType { REDIRECT, ROUTE };
 
-   
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "description")
-   protected String description;
-   
-   @JsonProperty(value = "destinationNATAddress")
-   protected String destinationNATAddress;
-   
-   @JsonProperty(value = "destinationNATEnabled")
-   protected Boolean destinationNATEnabled;
-   
-   @JsonProperty(value = "destinationNATMask")
-   protected String destinationNATMask;
-   
-   @JsonProperty(value = "metadata")
-   protected String metadata;
-   
-   @JsonProperty(value = "egressType")
-   protected EgressType egressType;
-   
-   @JsonProperty(value = "virtualIP")
-   protected String virtualIP;
-   
-   @JsonProperty(value = "virtualIPRequired")
-   protected Boolean virtualIPRequired;
-   
-   @JsonProperty(value = "ingressType")
-   protected IngressType ingressType;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
-   
-   @JsonProperty(value = "sourceNATAddress")
-   protected String sourceNATAddress;
-   
-   @JsonProperty(value = "sourceNATEnabled")
-   protected Boolean sourceNATEnabled;
    
    @JsonProperty(value = "associatedServiceEgressGroupID")
    protected String associatedServiceEgressGroupID;
@@ -104,43 +62,103 @@ public class ExternalAppService extends RestObject {
    @JsonProperty(value = "associatedServiceIngressRedirectID")
    protected String associatedServiceIngressRedirectID;
    
+   @JsonProperty(value = "description")
+   protected String description;
+   
+   @JsonProperty(value = "destinationNATAddress")
+   protected String destinationNATAddress;
+   
+   @JsonProperty(value = "destinationNATEnabled")
+   protected Boolean destinationNATEnabled;
+   
+   @JsonProperty(value = "destinationNATMask")
+   protected String destinationNATMask;
+   
+   @JsonProperty(value = "egressType")
+   protected EgressType egressType;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-
+   @JsonProperty(value = "ingressType")
+   protected IngressType ingressType;
    
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "metadata")
+   protected String metadata;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "sourceNATAddress")
+   protected String sourceNATAddress;
+   
+   @JsonProperty(value = "sourceNATEnabled")
+   protected Boolean sourceNATEnabled;
+   
+   @JsonProperty(value = "virtualIP")
+   protected String virtualIP;
+   
+   @JsonProperty(value = "virtualIPRequired")
+   protected Boolean virtualIPRequired;
+   
+
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public ExternalAppService() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
    @JsonIgnore
-   public String getName() {
-      return name;
+   public String getAssociatedServiceEgressGroupID() {
+      return associatedServiceEgressGroupID;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
+   public void setAssociatedServiceEgressGroupID(String value) { 
+      this.associatedServiceEgressGroupID = value;
    }
    @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
+   public String getAssociatedServiceEgressRedirectID() {
+      return associatedServiceEgressRedirectID;
    }
 
    @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
+   public void setAssociatedServiceEgressRedirectID(String value) { 
+      this.associatedServiceEgressRedirectID = value;
+   }
+   @JsonIgnore
+   public String getAssociatedServiceIngressGroupID() {
+      return associatedServiceIngressGroupID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedServiceIngressGroupID(String value) { 
+      this.associatedServiceIngressGroupID = value;
+   }
+   @JsonIgnore
+   public String getAssociatedServiceIngressRedirectID() {
+      return associatedServiceIngressRedirectID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedServiceIngressRedirectID(String value) { 
+      this.associatedServiceIngressRedirectID = value;
    }
    @JsonIgnore
    public String getDescription() {
@@ -179,15 +197,6 @@ public class ExternalAppService extends RestObject {
       this.destinationNATMask = value;
    }
    @JsonIgnore
-   public String getMetadata() {
-      return metadata;
-   }
-
-   @JsonIgnore
-   public void setMetadata(String value) { 
-      this.metadata = value;
-   }
-   @JsonIgnore
    public EgressType getEgressType() {
       return egressType;
    }
@@ -197,22 +206,22 @@ public class ExternalAppService extends RestObject {
       this.egressType = value;
    }
    @JsonIgnore
-   public String getVirtualIP() {
-      return virtualIP;
+   public EntityScope getEntityScope() {
+      return entityScope;
    }
 
    @JsonIgnore
-   public void setVirtualIP(String value) { 
-      this.virtualIP = value;
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
    }
    @JsonIgnore
-   public Boolean getVirtualIPRequired() {
-      return virtualIPRequired;
+   public String getExternalID() {
+      return externalID;
    }
 
    @JsonIgnore
-   public void setVirtualIPRequired(Boolean value) { 
-      this.virtualIPRequired = value;
+   public void setExternalID(String value) { 
+      this.externalID = value;
    }
    @JsonIgnore
    public IngressType getIngressType() {
@@ -224,13 +233,31 @@ public class ExternalAppService extends RestObject {
       this.ingressType = value;
    }
    @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getMetadata() {
+      return metadata;
+   }
+
+   @JsonIgnore
+   public void setMetadata(String value) { 
+      this.metadata = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
    }
    @JsonIgnore
    public String getSourceNATAddress() {
@@ -251,66 +278,39 @@ public class ExternalAppService extends RestObject {
       this.sourceNATEnabled = value;
    }
    @JsonIgnore
-   public String getAssociatedServiceEgressGroupID() {
-      return associatedServiceEgressGroupID;
+   public String getVirtualIP() {
+      return virtualIP;
    }
 
    @JsonIgnore
-   public void setAssociatedServiceEgressGroupID(String value) { 
-      this.associatedServiceEgressGroupID = value;
+   public void setVirtualIP(String value) { 
+      this.virtualIP = value;
    }
    @JsonIgnore
-   public String getAssociatedServiceEgressRedirectID() {
-      return associatedServiceEgressRedirectID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedServiceEgressRedirectID(String value) { 
-      this.associatedServiceEgressRedirectID = value;
-   }
-   @JsonIgnore
-   public String getAssociatedServiceIngressGroupID() {
-      return associatedServiceIngressGroupID;
+   public Boolean getVirtualIPRequired() {
+      return virtualIPRequired;
    }
 
    @JsonIgnore
-   public void setAssociatedServiceIngressGroupID(String value) { 
-      this.associatedServiceIngressGroupID = value;
-   }
-   @JsonIgnore
-   public String getAssociatedServiceIngressRedirectID() {
-      return associatedServiceIngressRedirectID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedServiceIngressRedirectID(String value) { 
-      this.associatedServiceIngressRedirectID = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
+   public void setVirtualIPRequired(Boolean value) { 
+      this.virtualIPRequired = value;
    }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "ExternalAppService [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", destinationNATAddress=" + destinationNATAddress + ", destinationNATEnabled=" + destinationNATEnabled + ", destinationNATMask=" + destinationNATMask + ", metadata=" + metadata + ", egressType=" + egressType + ", virtualIP=" + virtualIP + ", virtualIPRequired=" + virtualIPRequired + ", ingressType=" + ingressType + ", entityScope=" + entityScope + ", sourceNATAddress=" + sourceNATAddress + ", sourceNATEnabled=" + sourceNATEnabled + ", associatedServiceEgressGroupID=" + associatedServiceEgressGroupID + ", associatedServiceEgressRedirectID=" + associatedServiceEgressRedirectID + ", associatedServiceIngressGroupID=" + associatedServiceIngressGroupID + ", associatedServiceIngressRedirectID=" + associatedServiceIngressRedirectID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "ExternalAppService [" + "associatedServiceEgressGroupID=" + associatedServiceEgressGroupID + ", associatedServiceEgressRedirectID=" + associatedServiceEgressRedirectID + ", associatedServiceIngressGroupID=" + associatedServiceIngressGroupID + ", associatedServiceIngressRedirectID=" + associatedServiceIngressRedirectID + ", description=" + description + ", destinationNATAddress=" + destinationNATAddress + ", destinationNATEnabled=" + destinationNATEnabled + ", destinationNATMask=" + destinationNATMask + ", egressType=" + egressType + ", entityScope=" + entityScope + ", externalID=" + externalID + ", ingressType=" + ingressType + ", lastUpdatedBy=" + lastUpdatedBy + ", metadata=" + metadata + ", name=" + name + ", sourceNATAddress=" + sourceNATAddress + ", sourceNATEnabled=" + sourceNATEnabled + ", virtualIP=" + virtualIP + ", virtualIPRequired=" + virtualIPRequired + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "networklayout", resourceName = "networklayout")
@@ -45,62 +45,53 @@ public class NetworkLayout extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum ServiceType { ROUTER_ONLY, ROUTER_SWITCH, SUBNET_ONLY };
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum ServiceType { ROUTER_ONLY, ROUTER_SWITCH, SUBNET_ONLY };
 
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "serviceType")
-   protected ServiceType serviceType;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
-   
-   @JsonProperty(value = "routeReflectorIP")
-   protected String routeReflectorIP;
    
    @JsonProperty(value = "autonomousSystemNum")
    protected Long autonomousSystemNum;
    
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
+   @JsonProperty(value = "routeReflectorIP")
+   protected String routeReflectorIP;
+   
+   @JsonProperty(value = "serviceType")
+   protected ServiceType serviceType;
+   
+
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public NetworkLayout() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
    @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
+   public Long getAutonomousSystemNum() {
+      return autonomousSystemNum;
    }
 
    @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public ServiceType getServiceType() {
-      return serviceType;
-   }
-
-   @JsonIgnore
-   public void setServiceType(ServiceType value) { 
-      this.serviceType = value;
+   public void setAutonomousSystemNum(Long value) { 
+      this.autonomousSystemNum = value;
    }
    @JsonIgnore
    public EntityScope getEntityScope() {
@@ -112,6 +103,24 @@ public class NetworkLayout extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
    public String getRouteReflectorIP() {
       return routeReflectorIP;
    }
@@ -121,39 +130,30 @@ public class NetworkLayout extends RestObject {
       this.routeReflectorIP = value;
    }
    @JsonIgnore
-   public Long getAutonomousSystemNum() {
-      return autonomousSystemNum;
+   public ServiceType getServiceType() {
+      return serviceType;
    }
 
    @JsonIgnore
-   public void setAutonomousSystemNum(Long value) { 
-      this.autonomousSystemNum = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
+   public void setServiceType(ServiceType value) { 
+      this.serviceType = value;
    }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "NetworkLayout [" + "lastUpdatedBy=" + lastUpdatedBy + ", serviceType=" + serviceType + ", entityScope=" + entityScope + ", routeReflectorIP=" + routeReflectorIP + ", autonomousSystemNum=" + autonomousSystemNum + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NetworkLayout [" + "autonomousSystemNum=" + autonomousSystemNum + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", routeReflectorIP=" + routeReflectorIP + ", serviceType=" + serviceType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

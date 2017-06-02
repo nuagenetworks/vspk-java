@@ -46,14 +46,8 @@ public class L7applicationsignature extends RestObject {
    
 
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
    @JsonProperty(value = "category")
    protected String category;
-   
-   @JsonProperty(value = "readonly")
-   protected Boolean readonly;
    
    @JsonProperty(value = "description")
    protected String description;
@@ -63,6 +57,12 @@ public class L7applicationsignature extends RestObject {
    
    @JsonProperty(value = "guidstring")
    protected String guidstring;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "readonly")
+   protected Boolean readonly;
    
 
    
@@ -77,15 +77,6 @@ public class L7applicationsignature extends RestObject {
    }
 
    @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
    public String getCategory() {
       return category;
    }
@@ -93,15 +84,6 @@ public class L7applicationsignature extends RestObject {
    @JsonIgnore
    public void setCategory(String value) { 
       this.category = value;
-   }
-   @JsonIgnore
-   public Boolean getReadonly() {
-      return readonly;
-   }
-
-   @JsonIgnore
-   public void setReadonly(Boolean value) { 
-      this.readonly = value;
    }
    @JsonIgnore
    public String getDescription() {
@@ -130,6 +112,24 @@ public class L7applicationsignature extends RestObject {
    public void setGuidstring(String value) { 
       this.guidstring = value;
    }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public Boolean getReadonly() {
+      return readonly;
+   }
+
+   @JsonIgnore
+   public void setReadonly(Boolean value) { 
+      this.readonly = value;
+   }
    
 
    
@@ -140,7 +140,7 @@ public class L7applicationsignature extends RestObject {
    
 
    public String toString() {
-      return "L7applicationsignature [" + "name=" + name + ", category=" + category + ", readonly=" + readonly + ", description=" + description + ", dictionaryVersion=" + dictionaryVersion + ", guidstring=" + guidstring + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "L7applicationsignature [" + "category=" + category + ", description=" + description + ", dictionaryVersion=" + dictionaryVersion + ", guidstring=" + guidstring + ", name=" + name + ", readonly=" + readonly + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

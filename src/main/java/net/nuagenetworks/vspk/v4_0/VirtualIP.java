@@ -35,9 +35,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "virtualip", resourceName = "virtualips")
@@ -52,43 +52,43 @@ public class VirtualIP extends RestObject {
    @JsonProperty(value = "MAC")
    protected String MAC;
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "virtualIP")
-   protected String virtualIP;
+   @JsonProperty(value = "associatedFloatingIPID")
+   protected String associatedFloatingIPID;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
-   @JsonProperty(value = "associatedFloatingIPID")
-   protected String associatedFloatingIPID;
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
    @JsonProperty(value = "subnetID")
    protected String subnetID;
    
-   @JsonProperty(value = "externalID")
-   protected String externalID;
+   @JsonProperty(value = "virtualIP")
+   protected String virtualIP;
    
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private EventLogsFetcher eventLogs;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private EventLogsFetcher eventLogs;
+   private MetadatasFetcher metadatas;
    
 
    public VirtualIP() {
       
-      metadatas = new MetadatasFetcher(this);
+      eventLogs = new EventLogsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
-      eventLogs = new EventLogsFetcher(this);
+      metadatas = new MetadatasFetcher(this);
       
    }
 
@@ -102,22 +102,13 @@ public class VirtualIP extends RestObject {
       this.MAC = value;
    }
    @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
+   public String getAssociatedFloatingIPID() {
+      return associatedFloatingIPID;
    }
 
    @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public String getVirtualIP() {
-      return virtualIP;
-   }
-
-   @JsonIgnore
-   public void setVirtualIP(String value) { 
-      this.virtualIP = value;
+   public void setAssociatedFloatingIPID(String value) { 
+      this.associatedFloatingIPID = value;
    }
    @JsonIgnore
    public EntityScope getEntityScope() {
@@ -129,13 +120,22 @@ public class VirtualIP extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
-   public String getAssociatedFloatingIPID() {
-      return associatedFloatingIPID;
+   public String getExternalID() {
+      return externalID;
    }
 
    @JsonIgnore
-   public void setAssociatedFloatingIPID(String value) { 
-      this.associatedFloatingIPID = value;
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    @JsonIgnore
    public String getSubnetID() {
@@ -147,20 +147,20 @@ public class VirtualIP extends RestObject {
       this.subnetID = value;
    }
    @JsonIgnore
-   public String getExternalID() {
-      return externalID;
+   public String getVirtualIP() {
+      return virtualIP;
    }
 
    @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
+   public void setVirtualIP(String value) { 
+      this.virtualIP = value;
    }
    
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
    }
    
    @JsonIgnore
@@ -169,13 +169,13 @@ public class VirtualIP extends RestObject {
    }
    
    @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
 
    public String toString() {
-      return "VirtualIP [" + "MAC=" + MAC + ", lastUpdatedBy=" + lastUpdatedBy + ", virtualIP=" + virtualIP + ", entityScope=" + entityScope + ", associatedFloatingIPID=" + associatedFloatingIPID + ", subnetID=" + subnetID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VirtualIP [" + "MAC=" + MAC + ", associatedFloatingIPID=" + associatedFloatingIPID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", subnetID=" + subnetID + ", virtualIP=" + virtualIP + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

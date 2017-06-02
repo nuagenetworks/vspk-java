@@ -35,14 +35,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.NATMapEntriesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.AddressMapsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.BulkStatisticsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EnterprisePermissionsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.NATMapEntriesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.StatisticsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.StatisticsPoliciesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.BulkStatisticsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "patnatpool", resourceName = "patnatpools")
@@ -51,37 +51,13 @@ public class PATNATPool extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
-   public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum AssociatedGatewayType { AUTO_DISC_GATEWAY, GATEWAY, IKE_GATEWAY, NSGATEWAY };
+   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
 
-   
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
    
    @JsonProperty(value = "addressRange")
    protected String addressRange;
-   
-   @JsonProperty(value = "defaultPATIP")
-   protected String defaultPATIP;
-   
-   @JsonProperty(value = "permittedAction")
-   protected PermittedAction permittedAction;
-   
-   @JsonProperty(value = "description")
-   protected String description;
-   
-   @JsonProperty(value = "endAddressRange")
-   protected String endAddressRange;
-   
-   @JsonProperty(value = "endSourceAddress")
-   protected String endSourceAddress;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
    
    @JsonProperty(value = "associatedGatewayId")
    protected String associatedGatewayId;
@@ -95,34 +71,61 @@ public class PATNATPool extends RestObject {
    @JsonProperty(value = "associatedVlanId")
    protected String associatedVlanId;
    
+   @JsonProperty(value = "defaultPATIP")
+   protected String defaultPATIP;
+   
+   @JsonProperty(value = "description")
+   protected String description;
+   
+   @JsonProperty(value = "dynamicSourceEnabled")
+   protected Boolean dynamicSourceEnabled;
+   
+   @JsonProperty(value = "endAddressRange")
+   protected String endAddressRange;
+   
+   @JsonProperty(value = "endSourceAddress")
+   protected String endSourceAddress;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "permittedAction")
+   protected PermittedAction permittedAction;
+   
    @JsonProperty(value = "startAddressRange")
    protected String startAddressRange;
    
    @JsonProperty(value = "startSourceAddress")
    protected String startSourceAddress;
    
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
-   @JsonProperty(value = "dynamicSourceEnabled")
-   protected Boolean dynamicSourceEnabled;
-   
 
-   
-   @JsonIgnore
-   private NATMapEntriesFetcher nATMapEntries;
    
    @JsonIgnore
    private AddressMapsFetcher addressMaps;
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private BulkStatisticsFetcher bulkStatistics;
+   
+   @JsonIgnore
+   private EnterprisePermissionsFetcher enterprisePermissions;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private EnterprisePermissionsFetcher enterprisePermissions;
+   private MetadatasFetcher metadatas;
+   
+   @JsonIgnore
+   private NATMapEntriesFetcher nATMapEntries;
    
    @JsonIgnore
    private StatisticsFetcher statistics;
@@ -130,48 +133,27 @@ public class PATNATPool extends RestObject {
    @JsonIgnore
    private StatisticsPoliciesFetcher statisticsPolicies;
    
-   @JsonIgnore
-   private BulkStatisticsFetcher bulkStatistics;
-   
 
    public PATNATPool() {
       
-      nATMapEntries = new NATMapEntriesFetcher(this);
-      
       addressMaps = new AddressMapsFetcher(this);
       
-      metadatas = new MetadatasFetcher(this);
+      bulkStatistics = new BulkStatisticsFetcher(this);
+      
+      enterprisePermissions = new EnterprisePermissionsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
-      enterprisePermissions = new EnterprisePermissionsFetcher(this);
+      metadatas = new MetadatasFetcher(this);
+      
+      nATMapEntries = new NATMapEntriesFetcher(this);
       
       statistics = new StatisticsFetcher(this);
       
       statisticsPolicies = new StatisticsPoliciesFetcher(this);
       
-      bulkStatistics = new BulkStatisticsFetcher(this);
-      
    }
 
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
    @JsonIgnore
    public String getAddressRange() {
       return addressRange;
@@ -180,60 +162,6 @@ public class PATNATPool extends RestObject {
    @JsonIgnore
    public void setAddressRange(String value) { 
       this.addressRange = value;
-   }
-   @JsonIgnore
-   public String getDefaultPATIP() {
-      return defaultPATIP;
-   }
-
-   @JsonIgnore
-   public void setDefaultPATIP(String value) { 
-      this.defaultPATIP = value;
-   }
-   @JsonIgnore
-   public PermittedAction getPermittedAction() {
-      return permittedAction;
-   }
-
-   @JsonIgnore
-   public void setPermittedAction(PermittedAction value) { 
-      this.permittedAction = value;
-   }
-   @JsonIgnore
-   public String getDescription() {
-      return description;
-   }
-
-   @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
-   }
-   @JsonIgnore
-   public String getEndAddressRange() {
-      return endAddressRange;
-   }
-
-   @JsonIgnore
-   public void setEndAddressRange(String value) { 
-      this.endAddressRange = value;
-   }
-   @JsonIgnore
-   public String getEndSourceAddress() {
-      return endSourceAddress;
-   }
-
-   @JsonIgnore
-   public void setEndSourceAddress(String value) { 
-      this.endSourceAddress = value;
-   }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
    }
    @JsonIgnore
    public String getAssociatedGatewayId() {
@@ -272,6 +200,96 @@ public class PATNATPool extends RestObject {
       this.associatedVlanId = value;
    }
    @JsonIgnore
+   public String getDefaultPATIP() {
+      return defaultPATIP;
+   }
+
+   @JsonIgnore
+   public void setDefaultPATIP(String value) { 
+      this.defaultPATIP = value;
+   }
+   @JsonIgnore
+   public String getDescription() {
+      return description;
+   }
+
+   @JsonIgnore
+   public void setDescription(String value) { 
+      this.description = value;
+   }
+   @JsonIgnore
+   public Boolean getDynamicSourceEnabled() {
+      return dynamicSourceEnabled;
+   }
+
+   @JsonIgnore
+   public void setDynamicSourceEnabled(Boolean value) { 
+      this.dynamicSourceEnabled = value;
+   }
+   @JsonIgnore
+   public String getEndAddressRange() {
+      return endAddressRange;
+   }
+
+   @JsonIgnore
+   public void setEndAddressRange(String value) { 
+      this.endAddressRange = value;
+   }
+   @JsonIgnore
+   public String getEndSourceAddress() {
+      return endSourceAddress;
+   }
+
+   @JsonIgnore
+   public void setEndSourceAddress(String value) { 
+      this.endSourceAddress = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public PermittedAction getPermittedAction() {
+      return permittedAction;
+   }
+
+   @JsonIgnore
+   public void setPermittedAction(PermittedAction value) { 
+      this.permittedAction = value;
+   }
+   @JsonIgnore
    public String getStartAddressRange() {
       return startAddressRange;
    }
@@ -289,31 +307,8 @@ public class PATNATPool extends RestObject {
    public void setStartSourceAddress(String value) { 
       this.startSourceAddress = value;
    }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
-   @JsonIgnore
-   public Boolean getDynamicSourceEnabled() {
-      return dynamicSourceEnabled;
-   }
-
-   @JsonIgnore
-   public void setDynamicSourceEnabled(Boolean value) { 
-      this.dynamicSourceEnabled = value;
-   }
    
 
-   
-   @JsonIgnore
-   public NATMapEntriesFetcher getNATMapEntries() {
-      return nATMapEntries;
-   }
    
    @JsonIgnore
    public AddressMapsFetcher getAddressMaps() {
@@ -321,8 +316,13 @@ public class PATNATPool extends RestObject {
    }
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public BulkStatisticsFetcher getBulkStatistics() {
+      return bulkStatistics;
+   }
+   
+   @JsonIgnore
+   public EnterprisePermissionsFetcher getEnterprisePermissions() {
+      return enterprisePermissions;
    }
    
    @JsonIgnore
@@ -331,8 +331,13 @@ public class PATNATPool extends RestObject {
    }
    
    @JsonIgnore
-   public EnterprisePermissionsFetcher getEnterprisePermissions() {
-      return enterprisePermissions;
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
+   @JsonIgnore
+   public NATMapEntriesFetcher getNATMapEntries() {
+      return nATMapEntries;
    }
    
    @JsonIgnore
@@ -345,14 +350,9 @@ public class PATNATPool extends RestObject {
       return statisticsPolicies;
    }
    
-   @JsonIgnore
-   public BulkStatisticsFetcher getBulkStatistics() {
-      return bulkStatistics;
-   }
-   
 
    public String toString() {
-      return "PATNATPool [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", addressRange=" + addressRange + ", defaultPATIP=" + defaultPATIP + ", permittedAction=" + permittedAction + ", description=" + description + ", endAddressRange=" + endAddressRange + ", endSourceAddress=" + endSourceAddress + ", entityScope=" + entityScope + ", associatedGatewayId=" + associatedGatewayId + ", associatedGatewayType=" + associatedGatewayType + ", associatedSubnetId=" + associatedSubnetId + ", associatedVlanId=" + associatedVlanId + ", startAddressRange=" + startAddressRange + ", startSourceAddress=" + startSourceAddress + ", externalID=" + externalID + ", dynamicSourceEnabled=" + dynamicSourceEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "PATNATPool [" + "addressRange=" + addressRange + ", associatedGatewayId=" + associatedGatewayId + ", associatedGatewayType=" + associatedGatewayType + ", associatedSubnetId=" + associatedSubnetId + ", associatedVlanId=" + associatedVlanId + ", defaultPATIP=" + defaultPATIP + ", description=" + description + ", dynamicSourceEnabled=" + dynamicSourceEnabled + ", endAddressRange=" + endAddressRange + ", endSourceAddress=" + endSourceAddress + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", permittedAction=" + permittedAction + ", startAddressRange=" + startAddressRange + ", startSourceAddress=" + startSourceAddress + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

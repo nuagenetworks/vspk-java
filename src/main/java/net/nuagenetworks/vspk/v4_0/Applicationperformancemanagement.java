@@ -46,17 +46,17 @@ public class Applicationperformancemanagement extends RestObject {
    
 
    
+   @JsonProperty(value = "associatedPerformanceMonitorID")
+   protected String associatedPerformanceMonitorID;
+   
+   @JsonProperty(value = "description")
+   protected String description;
+   
    @JsonProperty(value = "name")
    protected String name;
    
    @JsonProperty(value = "readOnly")
    protected Boolean readOnly;
-   
-   @JsonProperty(value = "description")
-   protected String description;
-   
-   @JsonProperty(value = "associatedPerformanceMonitorID")
-   protected String associatedPerformanceMonitorID;
    
 
    
@@ -70,6 +70,24 @@ public class Applicationperformancemanagement extends RestObject {
       
    }
 
+   @JsonIgnore
+   public String getAssociatedPerformanceMonitorID() {
+      return associatedPerformanceMonitorID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedPerformanceMonitorID(String value) { 
+      this.associatedPerformanceMonitorID = value;
+   }
+   @JsonIgnore
+   public String getDescription() {
+      return description;
+   }
+
+   @JsonIgnore
+   public void setDescription(String value) { 
+      this.description = value;
+   }
    @JsonIgnore
    public String getName() {
       return name;
@@ -88,24 +106,6 @@ public class Applicationperformancemanagement extends RestObject {
    public void setReadOnly(Boolean value) { 
       this.readOnly = value;
    }
-   @JsonIgnore
-   public String getDescription() {
-      return description;
-   }
-
-   @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
-   }
-   @JsonIgnore
-   public String getAssociatedPerformanceMonitorID() {
-      return associatedPerformanceMonitorID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedPerformanceMonitorID(String value) { 
-      this.associatedPerformanceMonitorID = value;
-   }
    
 
    
@@ -116,7 +116,7 @@ public class Applicationperformancemanagement extends RestObject {
    
 
    public String toString() {
-      return "Applicationperformancemanagement [" + "name=" + name + ", readOnly=" + readOnly + ", description=" + description + ", associatedPerformanceMonitorID=" + associatedPerformanceMonitorID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Applicationperformancemanagement [" + "associatedPerformanceMonitorID=" + associatedPerformanceMonitorID + ", description=" + description + ", name=" + name + ", readOnly=" + readOnly + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

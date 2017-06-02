@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "egressqospolicy", resourceName = "egressqospolicies")
@@ -52,14 +52,8 @@ public class EgressQOSPolicy extends RestObject {
    public enum Queue4ForwardingClasses { A, B, C, D, E, F, G, H, NONE };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "parentQueueAssociatedRateLimiterID")
-   protected String parentQueueAssociatedRateLimiterID;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
+   @JsonProperty(value = "assocEgressQosId")
+   protected String assocEgressQosId;
    
    @JsonProperty(value = "description")
    protected String description;
@@ -67,8 +61,17 @@ public class EgressQOSPolicy extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
-   @JsonProperty(value = "assocEgressQosId")
-   protected String assocEgressQosId;
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "parentQueueAssociatedRateLimiterID")
+   protected String parentQueueAssociatedRateLimiterID;
    
    @JsonProperty(value = "queue1AssociatedRateLimiterID")
    protected String queue1AssociatedRateLimiterID;
@@ -94,52 +97,31 @@ public class EgressQOSPolicy extends RestObject {
    @JsonProperty(value = "queue4ForwardingClasses")
    protected java.util.List<Queue4ForwardingClasses> queue4ForwardingClasses;
    
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
 
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public EgressQOSPolicy() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
    @JsonIgnore
-   public String getName() {
-      return name;
+   public String getAssocEgressQosId() {
+      return assocEgressQosId;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getParentQueueAssociatedRateLimiterID() {
-      return parentQueueAssociatedRateLimiterID;
-   }
-
-   @JsonIgnore
-   public void setParentQueueAssociatedRateLimiterID(String value) { 
-      this.parentQueueAssociatedRateLimiterID = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
+   public void setAssocEgressQosId(String value) { 
+      this.assocEgressQosId = value;
    }
    @JsonIgnore
    public String getDescription() {
@@ -160,13 +142,40 @@ public class EgressQOSPolicy extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
-   public String getAssocEgressQosId() {
-      return assocEgressQosId;
+   public String getExternalID() {
+      return externalID;
    }
 
    @JsonIgnore
-   public void setAssocEgressQosId(String value) { 
-      this.assocEgressQosId = value;
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public String getParentQueueAssociatedRateLimiterID() {
+      return parentQueueAssociatedRateLimiterID;
+   }
+
+   @JsonIgnore
+   public void setParentQueueAssociatedRateLimiterID(String value) { 
+      this.parentQueueAssociatedRateLimiterID = value;
    }
    @JsonIgnore
    public String getQueue1AssociatedRateLimiterID() {
@@ -240,31 +249,22 @@ public class EgressQOSPolicy extends RestObject {
    public void setQueue4ForwardingClasses(java.util.List<Queue4ForwardingClasses> value) { 
       this.queue4ForwardingClasses = value;
    }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "EgressQOSPolicy [" + "name=" + name + ", parentQueueAssociatedRateLimiterID=" + parentQueueAssociatedRateLimiterID + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", entityScope=" + entityScope + ", assocEgressQosId=" + assocEgressQosId + ", queue1AssociatedRateLimiterID=" + queue1AssociatedRateLimiterID + ", queue1ForwardingClasses=" + queue1ForwardingClasses + ", queue2AssociatedRateLimiterID=" + queue2AssociatedRateLimiterID + ", queue2ForwardingClasses=" + queue2ForwardingClasses + ", queue3AssociatedRateLimiterID=" + queue3AssociatedRateLimiterID + ", queue3ForwardingClasses=" + queue3ForwardingClasses + ", queue4AssociatedRateLimiterID=" + queue4AssociatedRateLimiterID + ", queue4ForwardingClasses=" + queue4ForwardingClasses + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "EgressQOSPolicy [" + "assocEgressQosId=" + assocEgressQosId + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", parentQueueAssociatedRateLimiterID=" + parentQueueAssociatedRateLimiterID + ", queue1AssociatedRateLimiterID=" + queue1AssociatedRateLimiterID + ", queue1ForwardingClasses=" + queue1ForwardingClasses + ", queue2AssociatedRateLimiterID=" + queue2AssociatedRateLimiterID + ", queue2ForwardingClasses=" + queue2ForwardingClasses + ", queue3AssociatedRateLimiterID=" + queue3AssociatedRateLimiterID + ", queue3ForwardingClasses=" + queue3ForwardingClasses + ", queue4AssociatedRateLimiterID=" + queue4AssociatedRateLimiterID + ", queue4ForwardingClasses=" + queue4ForwardingClasses + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -35,9 +35,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "staticroute", resourceName = "staticroutes")
@@ -57,11 +57,17 @@ public class StaticRoute extends RestObject {
    @JsonProperty(value = "IPv6Address")
    protected String IPv6Address;
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
    @JsonProperty(value = "address")
    protected String address;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
    @JsonProperty(value = "netmask")
    protected String netmask;
@@ -69,14 +75,8 @@ public class StaticRoute extends RestObject {
    @JsonProperty(value = "nextHopIp")
    protected String nextHopIp;
    
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
-   
    @JsonProperty(value = "routeDistinguisher")
    protected String routeDistinguisher;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
    
    @JsonProperty(value = "type")
    protected Type type;
@@ -84,22 +84,22 @@ public class StaticRoute extends RestObject {
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private EventLogsFetcher eventLogs;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private EventLogsFetcher eventLogs;
+   private MetadatasFetcher metadatas;
    
 
    public StaticRoute() {
       
-      metadatas = new MetadatasFetcher(this);
+      eventLogs = new EventLogsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
-      eventLogs = new EventLogsFetcher(this);
+      metadatas = new MetadatasFetcher(this);
       
    }
 
@@ -122,15 +122,6 @@ public class StaticRoute extends RestObject {
       this.IPv6Address = value;
    }
    @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
    public String getAddress() {
       return address;
    }
@@ -138,6 +129,33 @@ public class StaticRoute extends RestObject {
    @JsonIgnore
    public void setAddress(String value) { 
       this.address = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    @JsonIgnore
    public String getNetmask() {
@@ -158,15 +176,6 @@ public class StaticRoute extends RestObject {
       this.nextHopIp = value;
    }
    @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
-   }
-   @JsonIgnore
    public String getRouteDistinguisher() {
       return routeDistinguisher;
    }
@@ -174,15 +183,6 @@ public class StaticRoute extends RestObject {
    @JsonIgnore
    public void setRouteDistinguisher(String value) { 
       this.routeDistinguisher = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
    }
    @JsonIgnore
    public Type getType() {
@@ -197,8 +197,8 @@ public class StaticRoute extends RestObject {
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
    }
    
    @JsonIgnore
@@ -207,13 +207,13 @@ public class StaticRoute extends RestObject {
    }
    
    @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
 
    public String toString() {
-      return "StaticRoute [" + "IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", lastUpdatedBy=" + lastUpdatedBy + ", address=" + address + ", netmask=" + netmask + ", nextHopIp=" + nextHopIp + ", entityScope=" + entityScope + ", routeDistinguisher=" + routeDistinguisher + ", externalID=" + externalID + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "StaticRoute [" + "IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", address=" + address + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", netmask=" + netmask + ", nextHopIp=" + nextHopIp + ", routeDistinguisher=" + routeDistinguisher + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

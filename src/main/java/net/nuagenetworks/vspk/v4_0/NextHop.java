@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "nexthop", resourceName = "nexthops")
@@ -48,47 +48,38 @@ public class NextHop extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
-   
-   @JsonProperty(value = "routeDistinguisher")
-   protected String routeDistinguisher;
-   
-   @JsonProperty(value = "ip")
-   protected String ip;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-
+   @JsonProperty(value = "ip")
+   protected String ip;
    
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "routeDistinguisher")
+   protected String routeDistinguisher;
+   
+
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public NextHop() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -99,13 +90,13 @@ public class NextHop extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
-   public String getRouteDistinguisher() {
-      return routeDistinguisher;
+   public String getExternalID() {
+      return externalID;
    }
 
    @JsonIgnore
-   public void setRouteDistinguisher(String value) { 
-      this.routeDistinguisher = value;
+   public void setExternalID(String value) { 
+      this.externalID = value;
    }
    @JsonIgnore
    public String getIp() {
@@ -117,30 +108,39 @@ public class NextHop extends RestObject {
       this.ip = value;
    }
    @JsonIgnore
-   public String getExternalID() {
-      return externalID;
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
    }
 
    @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getRouteDistinguisher() {
+      return routeDistinguisher;
+   }
+
+   @JsonIgnore
+   public void setRouteDistinguisher(String value) { 
+      this.routeDistinguisher = value;
    }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "NextHop [" + "lastUpdatedBy=" + lastUpdatedBy + ", entityScope=" + entityScope + ", routeDistinguisher=" + routeDistinguisher + ", ip=" + ip + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NextHop [" + "entityScope=" + entityScope + ", externalID=" + externalID + ", ip=" + ip + ", lastUpdatedBy=" + lastUpdatedBy + ", routeDistinguisher=" + routeDistinguisher + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

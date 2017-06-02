@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "statisticscollector", resourceName = "statisticscollector")
@@ -49,53 +49,44 @@ public class StatsCollectorInfo extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
    @JsonProperty(value = "addressType")
    protected AddressType addressType;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
-   @JsonProperty(value = "port")
-   protected String port;
+   @JsonProperty(value = "externalID")
+   protected String externalID;
    
    @JsonProperty(value = "ipAddress")
    protected String ipAddress;
    
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "port")
+   protected String port;
+   
    @JsonProperty(value = "protoBufPort")
    protected String protoBufPort;
    
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
 
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public StatsCollectorInfo() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
    @JsonIgnore
    public AddressType getAddressType() {
       return addressType;
@@ -115,13 +106,13 @@ public class StatsCollectorInfo extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
-   public String getPort() {
-      return port;
+   public String getExternalID() {
+      return externalID;
    }
 
    @JsonIgnore
-   public void setPort(String value) { 
-      this.port = value;
+   public void setExternalID(String value) { 
+      this.externalID = value;
    }
    @JsonIgnore
    public String getIpAddress() {
@@ -133,6 +124,24 @@ public class StatsCollectorInfo extends RestObject {
       this.ipAddress = value;
    }
    @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getPort() {
+      return port;
+   }
+
+   @JsonIgnore
+   public void setPort(String value) { 
+      this.port = value;
+   }
+   @JsonIgnore
    public String getProtoBufPort() {
       return protoBufPort;
    }
@@ -141,31 +150,22 @@ public class StatsCollectorInfo extends RestObject {
    public void setProtoBufPort(String value) { 
       this.protoBufPort = value;
    }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "StatsCollectorInfo [" + "lastUpdatedBy=" + lastUpdatedBy + ", addressType=" + addressType + ", entityScope=" + entityScope + ", port=" + port + ", ipAddress=" + ipAddress + ", protoBufPort=" + protoBufPort + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "StatsCollectorInfo [" + "addressType=" + addressType + ", entityScope=" + entityScope + ", externalID=" + externalID + ", ipAddress=" + ipAddress + ", lastUpdatedBy=" + lastUpdatedBy + ", port=" + port + ", protoBufPort=" + protoBufPort + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

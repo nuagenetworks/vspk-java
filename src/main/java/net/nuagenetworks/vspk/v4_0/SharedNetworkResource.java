@@ -35,14 +35,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.PATIPEntriesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.AddressRangesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.DHCPOptionsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EnterprisePermissionsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.VPNConnectionsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.PATIPEntriesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.StaticRoutesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.VPNConnectionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "sharednetworkresource", resourceName = "sharednetworkresources")
@@ -51,17 +51,26 @@ public class SharedNetworkResource extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum PermittedActionType { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    public enum EntityScope { ENTERPRISE, GLOBAL };
-   public enum UseGlobalMAC { DISABLED, ENABLED };
+   public enum PermittedActionType { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    public enum Type { FLOATING, L2DOMAIN, PUBLIC, UPLINK_SUBNET };
+   public enum UseGlobalMAC { DISABLED, ENABLED };
 
+   
+   @JsonProperty(value = "DHCPManaged")
+   protected Boolean DHCPManaged;
    
    @JsonProperty(value = "ECMPCount")
    protected Long ECMPCount;
    
-   @JsonProperty(value = "DHCPManaged")
-   protected Boolean DHCPManaged;
+   @JsonProperty(value = "accessRestrictionEnabled")
+   protected Boolean accessRestrictionEnabled;
+   
+   @JsonProperty(value = "address")
+   protected String address;
+   
+   @JsonProperty(value = "associatedPATMapperID")
+   protected String associatedPATMapperID;
    
    @JsonProperty(value = "backHaulRouteDistinguisher")
    protected String backHaulRouteDistinguisher;
@@ -72,11 +81,23 @@ public class SharedNetworkResource extends RestObject {
    @JsonProperty(value = "backHaulVNID")
    protected Long backHaulVNID;
    
-   @JsonProperty(value = "name")
-   protected String name;
+   @JsonProperty(value = "description")
+   protected String description;
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
+   @JsonProperty(value = "domainRouteDistinguisher")
+   protected String domainRouteDistinguisher;
+   
+   @JsonProperty(value = "domainRouteTarget")
+   protected String domainRouteTarget;
+   
+   @JsonProperty(value = "dynamicPATAllocationEnabled")
+   protected Boolean dynamicPATAllocationEnabled;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
    
    @JsonProperty(value = "gateway")
    protected String gateway;
@@ -84,38 +105,26 @@ public class SharedNetworkResource extends RestObject {
    @JsonProperty(value = "gatewayMACAddress")
    protected String gatewayMACAddress;
    
-   @JsonProperty(value = "accessRestrictionEnabled")
-   protected Boolean accessRestrictionEnabled;
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
-   @JsonProperty(value = "address")
-   protected String address;
-   
-   @JsonProperty(value = "permittedActionType")
-   protected PermittedActionType permittedActionType;
-   
-   @JsonProperty(value = "description")
-   protected String description;
+   @JsonProperty(value = "name")
+   protected String name;
    
    @JsonProperty(value = "netmask")
    protected String netmask;
    
+   @JsonProperty(value = "permittedActionType")
+   protected PermittedActionType permittedActionType;
+   
    @JsonProperty(value = "sharedResourceParentID")
    protected String sharedResourceParentID;
    
-   @JsonProperty(value = "vnID")
-   protected Long vnID;
+   @JsonProperty(value = "type")
+   protected Type type;
    
    @JsonProperty(value = "underlay")
    protected Boolean underlay;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
-   
-   @JsonProperty(value = "domainRouteDistinguisher")
-   protected String domainRouteDistinguisher;
-   
-   @JsonProperty(value = "domainRouteTarget")
-   protected String domainRouteTarget;
    
    @JsonProperty(value = "uplinkGWVlanAttachmentID")
    protected String uplinkGWVlanAttachmentID;
@@ -132,67 +141,67 @@ public class SharedNetworkResource extends RestObject {
    @JsonProperty(value = "useGlobalMAC")
    protected UseGlobalMAC useGlobalMAC;
    
-   @JsonProperty(value = "associatedPATMapperID")
-   protected String associatedPATMapperID;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
-   @JsonProperty(value = "dynamicPATAllocationEnabled")
-   protected Boolean dynamicPATAllocationEnabled;
-   
-   @JsonProperty(value = "type")
-   protected Type type;
+   @JsonProperty(value = "vnID")
+   protected Long vnID;
    
 
-   
-   @JsonIgnore
-   private PATIPEntriesFetcher pATIPEntries;
    
    @JsonIgnore
    private AddressRangesFetcher addressRanges;
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
-   
-   @JsonIgnore
    private DHCPOptionsFetcher dHCPOptions;
-   
-   @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
    private EnterprisePermissionsFetcher enterprisePermissions;
    
    @JsonIgnore
-   private VPNConnectionsFetcher vPNConnections;
+   private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
+   @JsonIgnore
+   private PATIPEntriesFetcher pATIPEntries;
    
    @JsonIgnore
    private StaticRoutesFetcher staticRoutes;
+   
+   @JsonIgnore
+   private VPNConnectionsFetcher vPNConnections;
    
 
    public SharedNetworkResource() {
       type = Type.PUBLIC;
       DHCPManaged = true;
       
-      pATIPEntries = new PATIPEntriesFetcher(this);
-      
       addressRanges = new AddressRangesFetcher(this);
-      
-      metadatas = new MetadatasFetcher(this);
       
       dHCPOptions = new DHCPOptionsFetcher(this);
       
-      globalMetadatas = new GlobalMetadatasFetcher(this);
-      
       enterprisePermissions = new EnterprisePermissionsFetcher(this);
       
-      vPNConnections = new VPNConnectionsFetcher(this);
+      globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
+      
+      pATIPEntries = new PATIPEntriesFetcher(this);
       
       staticRoutes = new StaticRoutesFetcher(this);
       
+      vPNConnections = new VPNConnectionsFetcher(this);
+      
    }
 
+   @JsonIgnore
+   public Boolean getDHCPManaged() {
+      return DHCPManaged;
+   }
+
+   @JsonIgnore
+   public void setDHCPManaged(Boolean value) { 
+      this.DHCPManaged = value;
+   }
    @JsonIgnore
    public Long getECMPCount() {
       return ECMPCount;
@@ -203,13 +212,31 @@ public class SharedNetworkResource extends RestObject {
       this.ECMPCount = value;
    }
    @JsonIgnore
-   public Boolean getDHCPManaged() {
-      return DHCPManaged;
+   public Boolean getAccessRestrictionEnabled() {
+      return accessRestrictionEnabled;
    }
 
    @JsonIgnore
-   public void setDHCPManaged(Boolean value) { 
-      this.DHCPManaged = value;
+   public void setAccessRestrictionEnabled(Boolean value) { 
+      this.accessRestrictionEnabled = value;
+   }
+   @JsonIgnore
+   public String getAddress() {
+      return address;
+   }
+
+   @JsonIgnore
+   public void setAddress(String value) { 
+      this.address = value;
+   }
+   @JsonIgnore
+   public String getAssociatedPATMapperID() {
+      return associatedPATMapperID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedPATMapperID(String value) { 
+      this.associatedPATMapperID = value;
    }
    @JsonIgnore
    public String getBackHaulRouteDistinguisher() {
@@ -239,22 +266,58 @@ public class SharedNetworkResource extends RestObject {
       this.backHaulVNID = value;
    }
    @JsonIgnore
-   public String getName() {
-      return name;
+   public String getDescription() {
+      return description;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
+   public void setDescription(String value) { 
+      this.description = value;
    }
    @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
+   public String getDomainRouteDistinguisher() {
+      return domainRouteDistinguisher;
    }
 
    @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
+   public void setDomainRouteDistinguisher(String value) { 
+      this.domainRouteDistinguisher = value;
+   }
+   @JsonIgnore
+   public String getDomainRouteTarget() {
+      return domainRouteTarget;
+   }
+
+   @JsonIgnore
+   public void setDomainRouteTarget(String value) { 
+      this.domainRouteTarget = value;
+   }
+   @JsonIgnore
+   public Boolean getDynamicPATAllocationEnabled() {
+      return dynamicPATAllocationEnabled;
+   }
+
+   @JsonIgnore
+   public void setDynamicPATAllocationEnabled(Boolean value) { 
+      this.dynamicPATAllocationEnabled = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
    }
    @JsonIgnore
    public String getGateway() {
@@ -275,40 +338,22 @@ public class SharedNetworkResource extends RestObject {
       this.gatewayMACAddress = value;
    }
    @JsonIgnore
-   public Boolean getAccessRestrictionEnabled() {
-      return accessRestrictionEnabled;
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
    }
 
    @JsonIgnore
-   public void setAccessRestrictionEnabled(Boolean value) { 
-      this.accessRestrictionEnabled = value;
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    @JsonIgnore
-   public String getAddress() {
-      return address;
-   }
-
-   @JsonIgnore
-   public void setAddress(String value) { 
-      this.address = value;
-   }
-   @JsonIgnore
-   public PermittedActionType getPermittedActionType() {
-      return permittedActionType;
+   public String getName() {
+      return name;
    }
 
    @JsonIgnore
-   public void setPermittedActionType(PermittedActionType value) { 
-      this.permittedActionType = value;
-   }
-   @JsonIgnore
-   public String getDescription() {
-      return description;
-   }
-
-   @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
+   public void setName(String value) { 
+      this.name = value;
    }
    @JsonIgnore
    public String getNetmask() {
@@ -320,6 +365,15 @@ public class SharedNetworkResource extends RestObject {
       this.netmask = value;
    }
    @JsonIgnore
+   public PermittedActionType getPermittedActionType() {
+      return permittedActionType;
+   }
+
+   @JsonIgnore
+   public void setPermittedActionType(PermittedActionType value) { 
+      this.permittedActionType = value;
+   }
+   @JsonIgnore
    public String getSharedResourceParentID() {
       return sharedResourceParentID;
    }
@@ -329,13 +383,13 @@ public class SharedNetworkResource extends RestObject {
       this.sharedResourceParentID = value;
    }
    @JsonIgnore
-   public Long getVnID() {
-      return vnID;
+   public Type getType() {
+      return type;
    }
 
    @JsonIgnore
-   public void setVnID(Long value) { 
-      this.vnID = value;
+   public void setType(Type value) { 
+      this.type = value;
    }
    @JsonIgnore
    public Boolean getUnderlay() {
@@ -345,33 +399,6 @@ public class SharedNetworkResource extends RestObject {
    @JsonIgnore
    public void setUnderlay(Boolean value) { 
       this.underlay = value;
-   }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
-   }
-   @JsonIgnore
-   public String getDomainRouteDistinguisher() {
-      return domainRouteDistinguisher;
-   }
-
-   @JsonIgnore
-   public void setDomainRouteDistinguisher(String value) { 
-      this.domainRouteDistinguisher = value;
-   }
-   @JsonIgnore
-   public String getDomainRouteTarget() {
-      return domainRouteTarget;
-   }
-
-   @JsonIgnore
-   public void setDomainRouteTarget(String value) { 
-      this.domainRouteTarget = value;
    }
    @JsonIgnore
    public String getUplinkGWVlanAttachmentID() {
@@ -419,57 +446,20 @@ public class SharedNetworkResource extends RestObject {
       this.useGlobalMAC = value;
    }
    @JsonIgnore
-   public String getAssociatedPATMapperID() {
-      return associatedPATMapperID;
+   public Long getVnID() {
+      return vnID;
    }
 
    @JsonIgnore
-   public void setAssociatedPATMapperID(String value) { 
-      this.associatedPATMapperID = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
-   @JsonIgnore
-   public Boolean getDynamicPATAllocationEnabled() {
-      return dynamicPATAllocationEnabled;
-   }
-
-   @JsonIgnore
-   public void setDynamicPATAllocationEnabled(Boolean value) { 
-      this.dynamicPATAllocationEnabled = value;
-   }
-   @JsonIgnore
-   public Type getType() {
-      return type;
-   }
-
-   @JsonIgnore
-   public void setType(Type value) { 
-      this.type = value;
+   public void setVnID(Long value) { 
+      this.vnID = value;
    }
    
 
-   
-   @JsonIgnore
-   public PATIPEntriesFetcher getPATIPEntries() {
-      return pATIPEntries;
-   }
    
    @JsonIgnore
    public AddressRangesFetcher getAddressRanges() {
       return addressRanges;
-   }
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
    }
    
    @JsonIgnore
@@ -478,18 +468,23 @@ public class SharedNetworkResource extends RestObject {
    }
    
    @JsonIgnore
-   public GlobalMetadatasFetcher getGlobalMetadatas() {
-      return globalMetadatas;
-   }
-   
-   @JsonIgnore
    public EnterprisePermissionsFetcher getEnterprisePermissions() {
       return enterprisePermissions;
    }
    
    @JsonIgnore
-   public VPNConnectionsFetcher getVPNConnections() {
-      return vPNConnections;
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
+   @JsonIgnore
+   public PATIPEntriesFetcher getPATIPEntries() {
+      return pATIPEntries;
    }
    
    @JsonIgnore
@@ -497,9 +492,14 @@ public class SharedNetworkResource extends RestObject {
       return staticRoutes;
    }
    
+   @JsonIgnore
+   public VPNConnectionsFetcher getVPNConnections() {
+      return vPNConnections;
+   }
+   
 
    public String toString() {
-      return "SharedNetworkResource [" + "ECMPCount=" + ECMPCount + ", DHCPManaged=" + DHCPManaged + ", backHaulRouteDistinguisher=" + backHaulRouteDistinguisher + ", backHaulRouteTarget=" + backHaulRouteTarget + ", backHaulVNID=" + backHaulVNID + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", accessRestrictionEnabled=" + accessRestrictionEnabled + ", address=" + address + ", permittedActionType=" + permittedActionType + ", description=" + description + ", netmask=" + netmask + ", sharedResourceParentID=" + sharedResourceParentID + ", vnID=" + vnID + ", underlay=" + underlay + ", entityScope=" + entityScope + ", domainRouteDistinguisher=" + domainRouteDistinguisher + ", domainRouteTarget=" + domainRouteTarget + ", uplinkGWVlanAttachmentID=" + uplinkGWVlanAttachmentID + ", uplinkInterfaceIP=" + uplinkInterfaceIP + ", uplinkInterfaceMAC=" + uplinkInterfaceMAC + ", uplinkVPortName=" + uplinkVPortName + ", useGlobalMAC=" + useGlobalMAC + ", associatedPATMapperID=" + associatedPATMapperID + ", externalID=" + externalID + ", dynamicPATAllocationEnabled=" + dynamicPATAllocationEnabled + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "SharedNetworkResource [" + "DHCPManaged=" + DHCPManaged + ", ECMPCount=" + ECMPCount + ", accessRestrictionEnabled=" + accessRestrictionEnabled + ", address=" + address + ", associatedPATMapperID=" + associatedPATMapperID + ", backHaulRouteDistinguisher=" + backHaulRouteDistinguisher + ", backHaulRouteTarget=" + backHaulRouteTarget + ", backHaulVNID=" + backHaulVNID + ", description=" + description + ", domainRouteDistinguisher=" + domainRouteDistinguisher + ", domainRouteTarget=" + domainRouteTarget + ", dynamicPATAllocationEnabled=" + dynamicPATAllocationEnabled + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", netmask=" + netmask + ", permittedActionType=" + permittedActionType + ", sharedResourceParentID=" + sharedResourceParentID + ", type=" + type + ", underlay=" + underlay + ", uplinkGWVlanAttachmentID=" + uplinkGWVlanAttachmentID + ", uplinkInterfaceIP=" + uplinkInterfaceIP + ", uplinkInterfaceMAC=" + uplinkInterfaceMAC + ", uplinkVPortName=" + uplinkVPortName + ", useGlobalMAC=" + useGlobalMAC + ", vnID=" + vnID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

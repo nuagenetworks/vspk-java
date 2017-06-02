@@ -43,9 +43,18 @@ public class DiskStat extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum Unit { Bytes, EB, GB, KB, MB, PB, TB, YB, ZB };
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum Unit { Bytes, EB, GB, KB, MB, PB, TB, YB, ZB };
 
+   
+   @JsonProperty(value = "available")
+   protected Float available;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
    
    @JsonProperty(value = "name")
    protected String name;
@@ -56,17 +65,8 @@ public class DiskStat extends RestObject {
    @JsonProperty(value = "unit")
    protected Unit unit;
    
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
-   
    @JsonProperty(value = "used")
    protected Float used;
-   
-   @JsonProperty(value = "available")
-   protected Float available;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
    
 
    
@@ -75,6 +75,33 @@ public class DiskStat extends RestObject {
       
    }
 
+   @JsonIgnore
+   public Float getAvailable() {
+      return available;
+   }
+
+   @JsonIgnore
+   public void setAvailable(Float value) { 
+      this.available = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
    @JsonIgnore
    public String getName() {
       return name;
@@ -103,15 +130,6 @@ public class DiskStat extends RestObject {
       this.unit = value;
    }
    @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
-   }
-   @JsonIgnore
    public Float getUsed() {
       return used;
    }
@@ -120,30 +138,12 @@ public class DiskStat extends RestObject {
    public void setUsed(Float value) { 
       this.used = value;
    }
-   @JsonIgnore
-   public Float getAvailable() {
-      return available;
-   }
-
-   @JsonIgnore
-   public void setAvailable(Float value) { 
-      this.available = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
    
 
    
 
    public String toString() {
-      return "DiskStat [" + "name=" + name + ", size=" + size + ", unit=" + unit + ", entityScope=" + entityScope + ", used=" + used + ", available=" + available + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "DiskStat [" + "available=" + available + ", entityScope=" + entityScope + ", externalID=" + externalID + ", name=" + name + ", size=" + size + ", unit=" + unit + ", used=" + used + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadataTagsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadataTagsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "metadata", resourceName = "metadatas")
@@ -48,23 +48,11 @@ public class Metadata extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "description")
-   protected String description;
-   
-   @JsonProperty(value = "metadataTagIDs")
-   protected java.util.List<String> metadataTagIDs;
-   
-   @JsonProperty(value = "networkNotificationDisabled")
-   protected Boolean networkNotificationDisabled;
-   
    @JsonProperty(value = "blob")
    protected String blob;
    
-   @JsonProperty(value = "global")
-   protected Boolean globalMetadata;
+   @JsonProperty(value = "description")
+   protected String description;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
@@ -72,59 +60,35 @@ public class Metadata extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-
+   @JsonProperty(value = "global")
+   protected Boolean globalMetadata;
    
-   @JsonIgnore
-   private MetadataTagsFetcher metadataTags;
+   @JsonProperty(value = "metadataTagIDs")
+   protected java.util.List<String> metadataTagIDs;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "networkNotificationDisabled")
+   protected Boolean networkNotificationDisabled;
+   
+
    
    @JsonIgnore
    private EventLogsFetcher eventLogs;
    
+   @JsonIgnore
+   private MetadataTagsFetcher metadataTags;
+   
 
    public Metadata() {
       
-      metadataTags = new MetadataTagsFetcher(this);
-      
       eventLogs = new EventLogsFetcher(this);
       
+      metadataTags = new MetadataTagsFetcher(this);
+      
    }
 
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getDescription() {
-      return description;
-   }
-
-   @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
-   }
-   @JsonIgnore
-   public java.util.List<String> getMetadataTagIDs() {
-      return metadataTagIDs;
-   }
-
-   @JsonIgnore
-   public void setMetadataTagIDs(java.util.List<String> value) { 
-      this.metadataTagIDs = value;
-   }
-   @JsonIgnore
-   public Boolean getNetworkNotificationDisabled() {
-      return networkNotificationDisabled;
-   }
-
-   @JsonIgnore
-   public void setNetworkNotificationDisabled(Boolean value) { 
-      this.networkNotificationDisabled = value;
-   }
    @JsonIgnore
    public String getBlob() {
       return blob;
@@ -135,13 +99,13 @@ public class Metadata extends RestObject {
       this.blob = value;
    }
    @JsonIgnore
-   public Boolean getGlobalMetadata() {
-      return globalMetadata;
+   public String getDescription() {
+      return description;
    }
 
    @JsonIgnore
-   public void setGlobalMetadata(Boolean value) { 
-      this.globalMetadata = value;
+   public void setDescription(String value) { 
+      this.description = value;
    }
    @JsonIgnore
    public EntityScope getEntityScope() {
@@ -161,22 +125,58 @@ public class Metadata extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public Boolean getGlobalMetadata() {
+      return globalMetadata;
+   }
+
+   @JsonIgnore
+   public void setGlobalMetadata(Boolean value) { 
+      this.globalMetadata = value;
+   }
+   @JsonIgnore
+   public java.util.List<String> getMetadataTagIDs() {
+      return metadataTagIDs;
+   }
+
+   @JsonIgnore
+   public void setMetadataTagIDs(java.util.List<String> value) { 
+      this.metadataTagIDs = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public Boolean getNetworkNotificationDisabled() {
+      return networkNotificationDisabled;
+   }
+
+   @JsonIgnore
+   public void setNetworkNotificationDisabled(Boolean value) { 
+      this.networkNotificationDisabled = value;
+   }
    
 
-   
-   @JsonIgnore
-   public MetadataTagsFetcher getMetadataTags() {
-      return metadataTags;
-   }
    
    @JsonIgnore
    public EventLogsFetcher getEventLogs() {
       return eventLogs;
    }
    
+   @JsonIgnore
+   public MetadataTagsFetcher getMetadataTags() {
+      return metadataTags;
+   }
+   
 
    public String toString() {
-      return "Metadata [" + "name=" + name + ", description=" + description + ", metadataTagIDs=" + metadataTagIDs + ", networkNotificationDisabled=" + networkNotificationDisabled + ", blob=" + blob + ", globalMetadata=" + globalMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Metadata [" + "blob=" + blob + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", globalMetadata=" + globalMetadata + ", metadataTagIDs=" + metadataTagIDs + ", name=" + name + ", networkNotificationDisabled=" + networkNotificationDisabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

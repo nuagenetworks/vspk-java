@@ -64,11 +64,20 @@ public class VRSRedeploymentpolicy extends RestObject {
    @JsonProperty(value = "VRSVSCStatusRedeploymentEnabled")
    protected Boolean VRSVSCStatusRedeploymentEnabled;
    
+   @JsonProperty(value = "deploymentCountThreshold")
+   protected Long deploymentCountThreshold;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "jesxmonProcessRedeploymentEnabled")
+   protected Boolean jesxmonProcessRedeploymentEnabled;
+   
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "redeploymentDelay")
-   protected Long redeploymentDelay;
    
    @JsonProperty(value = "memoryUtilizationRedeploymentEnabled")
    protected Boolean memoryUtilizationRedeploymentEnabled;
@@ -76,17 +85,8 @@ public class VRSRedeploymentpolicy extends RestObject {
    @JsonProperty(value = "memoryUtilizationThreshold")
    protected Float memoryUtilizationThreshold;
    
-   @JsonProperty(value = "deploymentCountThreshold")
-   protected Long deploymentCountThreshold;
-   
-   @JsonProperty(value = "jesxmonProcessRedeploymentEnabled")
-   protected Boolean jesxmonProcessRedeploymentEnabled;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
+   @JsonProperty(value = "redeploymentDelay")
+   protected Long redeploymentDelay;
    
 
    
@@ -150,6 +150,42 @@ public class VRSRedeploymentpolicy extends RestObject {
       this.VRSVSCStatusRedeploymentEnabled = value;
    }
    @JsonIgnore
+   public Long getDeploymentCountThreshold() {
+      return deploymentCountThreshold;
+   }
+
+   @JsonIgnore
+   public void setDeploymentCountThreshold(Long value) { 
+      this.deploymentCountThreshold = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public Boolean getJesxmonProcessRedeploymentEnabled() {
+      return jesxmonProcessRedeploymentEnabled;
+   }
+
+   @JsonIgnore
+   public void setJesxmonProcessRedeploymentEnabled(Boolean value) { 
+      this.jesxmonProcessRedeploymentEnabled = value;
+   }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
@@ -157,15 +193,6 @@ public class VRSRedeploymentpolicy extends RestObject {
    @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public Long getRedeploymentDelay() {
-      return redeploymentDelay;
-   }
-
-   @JsonIgnore
-   public void setRedeploymentDelay(Long value) { 
-      this.redeploymentDelay = value;
    }
    @JsonIgnore
    public Boolean getMemoryUtilizationRedeploymentEnabled() {
@@ -186,47 +213,20 @@ public class VRSRedeploymentpolicy extends RestObject {
       this.memoryUtilizationThreshold = value;
    }
    @JsonIgnore
-   public Long getDeploymentCountThreshold() {
-      return deploymentCountThreshold;
+   public Long getRedeploymentDelay() {
+      return redeploymentDelay;
    }
 
    @JsonIgnore
-   public void setDeploymentCountThreshold(Long value) { 
-      this.deploymentCountThreshold = value;
-   }
-   @JsonIgnore
-   public Boolean getJesxmonProcessRedeploymentEnabled() {
-      return jesxmonProcessRedeploymentEnabled;
-   }
-
-   @JsonIgnore
-   public void setJesxmonProcessRedeploymentEnabled(Boolean value) { 
-      this.jesxmonProcessRedeploymentEnabled = value;
-   }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
+   public void setRedeploymentDelay(Long value) { 
+      this.redeploymentDelay = value;
    }
    
 
    
 
    public String toString() {
-      return "VRSRedeploymentpolicy [" + "ALUbr0StatusRedeploymentEnabled=" + ALUbr0StatusRedeploymentEnabled + ", CPUUtilizationRedeploymentEnabled=" + CPUUtilizationRedeploymentEnabled + ", CPUUtilizationThreshold=" + CPUUtilizationThreshold + ", VRSCorrectiveActionDelay=" + VRSCorrectiveActionDelay + ", VRSProcessRedeploymentEnabled=" + VRSProcessRedeploymentEnabled + ", VRSVSCStatusRedeploymentEnabled=" + VRSVSCStatusRedeploymentEnabled + ", lastUpdatedBy=" + lastUpdatedBy + ", redeploymentDelay=" + redeploymentDelay + ", memoryUtilizationRedeploymentEnabled=" + memoryUtilizationRedeploymentEnabled + ", memoryUtilizationThreshold=" + memoryUtilizationThreshold + ", deploymentCountThreshold=" + deploymentCountThreshold + ", jesxmonProcessRedeploymentEnabled=" + jesxmonProcessRedeploymentEnabled + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VRSRedeploymentpolicy [" + "ALUbr0StatusRedeploymentEnabled=" + ALUbr0StatusRedeploymentEnabled + ", CPUUtilizationRedeploymentEnabled=" + CPUUtilizationRedeploymentEnabled + ", CPUUtilizationThreshold=" + CPUUtilizationThreshold + ", VRSCorrectiveActionDelay=" + VRSCorrectiveActionDelay + ", VRSProcessRedeploymentEnabled=" + VRSProcessRedeploymentEnabled + ", VRSVSCStatusRedeploymentEnabled=" + VRSVSCStatusRedeploymentEnabled + ", deploymentCountThreshold=" + deploymentCountThreshold + ", entityScope=" + entityScope + ", externalID=" + externalID + ", jesxmonProcessRedeploymentEnabled=" + jesxmonProcessRedeploymentEnabled + ", lastUpdatedBy=" + lastUpdatedBy + ", memoryUtilizationRedeploymentEnabled=" + memoryUtilizationRedeploymentEnabled + ", memoryUtilizationThreshold=" + memoryUtilizationThreshold + ", redeploymentDelay=" + redeploymentDelay + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

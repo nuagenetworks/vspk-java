@@ -35,21 +35,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.L2DomainsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.AddressRangesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.RedirectionTargetTemplatesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.PermissionsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EgressACLTemplatesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GroupsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IngressACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IngressAdvFwdTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IngressExternalServiceTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.L2DomainsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.PolicyGroupTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.QOSsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GroupsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.RedirectionTargetTemplatesFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "l2domaintemplate", resourceName = "l2domaintemplates")
@@ -62,9 +62,9 @@ public class L2DomainTemplate extends RestObject {
    public enum IPType { IPV4, IPV6 };
    public enum Encryption { DISABLED, ENABLED };
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum Multicast { DISABLED, ENABLED, INHERITED };
    public enum PolicyChangeStatus { APPLIED, DISCARDED, STARTED };
    public enum UseGlobalMAC { DISABLED, ENABLED };
-   public enum Multicast { DISABLED, ENABLED, INHERITED };
 
    
    @JsonProperty(value = "DHCPManaged")
@@ -76,26 +76,14 @@ public class L2DomainTemplate extends RestObject {
    @JsonProperty(value = "IPType")
    protected IPType IPType;
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "gateway")
-   protected String gateway;
-   
-   @JsonProperty(value = "gatewayMACAddress")
-   protected String gatewayMACAddress;
-   
    @JsonProperty(value = "address")
    protected String address;
    
+   @JsonProperty(value = "associatedMulticastChannelMapID")
+   protected String associatedMulticastChannelMapID;
+   
    @JsonProperty(value = "description")
    protected String description;
-   
-   @JsonProperty(value = "netmask")
-   protected String netmask;
    
    @JsonProperty(value = "encryption")
    protected Encryption encryption;
@@ -103,43 +91,49 @@ public class L2DomainTemplate extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "gateway")
+   protected String gateway;
+   
+   @JsonProperty(value = "gatewayMACAddress")
+   protected String gatewayMACAddress;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "multicast")
+   protected Multicast multicast;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "netmask")
+   protected String netmask;
+   
    @JsonProperty(value = "policyChangeStatus")
    protected PolicyChangeStatus policyChangeStatus;
    
    @JsonProperty(value = "useGlobalMAC")
    protected UseGlobalMAC useGlobalMAC;
    
-   @JsonProperty(value = "associatedMulticastChannelMapID")
-   protected String associatedMulticastChannelMapID;
-   
-   @JsonProperty(value = "multicast")
-   protected Multicast multicast;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
 
-   
-   @JsonIgnore
-   private L2DomainsFetcher l2Domains;
    
    @JsonIgnore
    private AddressRangesFetcher addressRanges;
    
    @JsonIgnore
-   private RedirectionTargetTemplatesFetcher redirectionTargetTemplates;
-   
-   @JsonIgnore
-   private PermissionsFetcher permissions;
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
-   
-   @JsonIgnore
    private EgressACLTemplatesFetcher egressACLTemplates;
    
    @JsonIgnore
+   private EventLogsFetcher eventLogs;
+   
+   @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private GroupsFetcher groups;
    
    @JsonIgnore
    private IngressACLTemplatesFetcher ingressACLTemplates;
@@ -154,33 +148,35 @@ public class L2DomainTemplate extends RestObject {
    private JobsFetcher jobs;
    
    @JsonIgnore
+   private L2DomainsFetcher l2Domains;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
+   @JsonIgnore
+   private PermissionsFetcher permissions;
+   
+   @JsonIgnore
    private PolicyGroupTemplatesFetcher policyGroupTemplates;
    
    @JsonIgnore
    private QOSsFetcher qOSs;
    
    @JsonIgnore
-   private GroupsFetcher groups;
-   
-   @JsonIgnore
-   private EventLogsFetcher eventLogs;
+   private RedirectionTargetTemplatesFetcher redirectionTargetTemplates;
    
 
    public L2DomainTemplate() {
       
-      l2Domains = new L2DomainsFetcher(this);
-      
       addressRanges = new AddressRangesFetcher(this);
-      
-      redirectionTargetTemplates = new RedirectionTargetTemplatesFetcher(this);
-      
-      permissions = new PermissionsFetcher(this);
-      
-      metadatas = new MetadatasFetcher(this);
       
       egressACLTemplates = new EgressACLTemplatesFetcher(this);
       
+      eventLogs = new EventLogsFetcher(this);
+      
       globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      groups = new GroupsFetcher(this);
       
       ingressACLTemplates = new IngressACLTemplatesFetcher(this);
       
@@ -190,13 +186,17 @@ public class L2DomainTemplate extends RestObject {
       
       jobs = new JobsFetcher(this);
       
+      l2Domains = new L2DomainsFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
+      
       policyGroupTemplates = new PolicyGroupTemplatesFetcher(this);
       
       qOSs = new QOSsFetcher(this);
       
-      groups = new GroupsFetcher(this);
-      
-      eventLogs = new EventLogsFetcher(this);
+      redirectionTargetTemplates = new RedirectionTargetTemplatesFetcher(this);
       
    }
 
@@ -228,42 +228,6 @@ public class L2DomainTemplate extends RestObject {
       this.IPType = value;
    }
    @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public String getGateway() {
-      return gateway;
-   }
-
-   @JsonIgnore
-   public void setGateway(String value) { 
-      this.gateway = value;
-   }
-   @JsonIgnore
-   public String getGatewayMACAddress() {
-      return gatewayMACAddress;
-   }
-
-   @JsonIgnore
-   public void setGatewayMACAddress(String value) { 
-      this.gatewayMACAddress = value;
-   }
-   @JsonIgnore
    public String getAddress() {
       return address;
    }
@@ -273,6 +237,15 @@ public class L2DomainTemplate extends RestObject {
       this.address = value;
    }
    @JsonIgnore
+   public String getAssociatedMulticastChannelMapID() {
+      return associatedMulticastChannelMapID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedMulticastChannelMapID(String value) { 
+      this.associatedMulticastChannelMapID = value;
+   }
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
@@ -280,15 +253,6 @@ public class L2DomainTemplate extends RestObject {
    @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
-   }
-   @JsonIgnore
-   public String getNetmask() {
-      return netmask;
-   }
-
-   @JsonIgnore
-   public void setNetmask(String value) { 
-      this.netmask = value;
    }
    @JsonIgnore
    public Encryption getEncryption() {
@@ -309,6 +273,69 @@ public class L2DomainTemplate extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public String getGateway() {
+      return gateway;
+   }
+
+   @JsonIgnore
+   public void setGateway(String value) { 
+      this.gateway = value;
+   }
+   @JsonIgnore
+   public String getGatewayMACAddress() {
+      return gatewayMACAddress;
+   }
+
+   @JsonIgnore
+   public void setGatewayMACAddress(String value) { 
+      this.gatewayMACAddress = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public Multicast getMulticast() {
+      return multicast;
+   }
+
+   @JsonIgnore
+   public void setMulticast(Multicast value) { 
+      this.multicast = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public String getNetmask() {
+      return netmask;
+   }
+
+   @JsonIgnore
+   public void setNetmask(String value) { 
+      this.netmask = value;
+   }
+   @JsonIgnore
    public PolicyChangeStatus getPolicyChangeStatus() {
       return policyChangeStatus;
    }
@@ -326,59 +353,12 @@ public class L2DomainTemplate extends RestObject {
    public void setUseGlobalMAC(UseGlobalMAC value) { 
       this.useGlobalMAC = value;
    }
-   @JsonIgnore
-   public String getAssociatedMulticastChannelMapID() {
-      return associatedMulticastChannelMapID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedMulticastChannelMapID(String value) { 
-      this.associatedMulticastChannelMapID = value;
-   }
-   @JsonIgnore
-   public Multicast getMulticast() {
-      return multicast;
-   }
-
-   @JsonIgnore
-   public void setMulticast(Multicast value) { 
-      this.multicast = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
    
 
-   
-   @JsonIgnore
-   public L2DomainsFetcher getL2Domains() {
-      return l2Domains;
-   }
    
    @JsonIgnore
    public AddressRangesFetcher getAddressRanges() {
       return addressRanges;
-   }
-   
-   @JsonIgnore
-   public RedirectionTargetTemplatesFetcher getRedirectionTargetTemplates() {
-      return redirectionTargetTemplates;
-   }
-   
-   @JsonIgnore
-   public PermissionsFetcher getPermissions() {
-      return permissions;
-   }
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
    }
    
    @JsonIgnore
@@ -387,8 +367,18 @@ public class L2DomainTemplate extends RestObject {
    }
    
    @JsonIgnore
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
+   }
+   
+   @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public GroupsFetcher getGroups() {
+      return groups;
    }
    
    @JsonIgnore
@@ -412,6 +402,21 @@ public class L2DomainTemplate extends RestObject {
    }
    
    @JsonIgnore
+   public L2DomainsFetcher getL2Domains() {
+      return l2Domains;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
+   }
+   
+   @JsonIgnore
    public PolicyGroupTemplatesFetcher getPolicyGroupTemplates() {
       return policyGroupTemplates;
    }
@@ -422,18 +427,13 @@ public class L2DomainTemplate extends RestObject {
    }
    
    @JsonIgnore
-   public GroupsFetcher getGroups() {
-      return groups;
-   }
-   
-   @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
+   public RedirectionTargetTemplatesFetcher getRedirectionTargetTemplates() {
+      return redirectionTargetTemplates;
    }
    
 
    public String toString() {
-      return "L2DomainTemplate [" + "DHCPManaged=" + DHCPManaged + ", DPI=" + DPI + ", IPType=" + IPType + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", address=" + address + ", description=" + description + ", netmask=" + netmask + ", encryption=" + encryption + ", entityScope=" + entityScope + ", policyChangeStatus=" + policyChangeStatus + ", useGlobalMAC=" + useGlobalMAC + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", multicast=" + multicast + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "L2DomainTemplate [" + "DHCPManaged=" + DHCPManaged + ", DPI=" + DPI + ", IPType=" + IPType + ", address=" + address + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", description=" + description + ", encryption=" + encryption + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", lastUpdatedBy=" + lastUpdatedBy + ", multicast=" + multicast + ", name=" + name + ", netmask=" + netmask + ", policyChangeStatus=" + policyChangeStatus + ", useGlobalMAC=" + useGlobalMAC + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

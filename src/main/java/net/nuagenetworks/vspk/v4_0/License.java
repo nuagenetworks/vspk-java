@@ -35,9 +35,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "license", resourceName = "licenses")
@@ -46,46 +46,13 @@ public class License extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum LicenseEncryption { ENCRYPTION_DISABLED, ENCRYPTION_ENABLED };
    public enum LicenseType { CLUSTERED, STANDARD };
-   public enum EntityScope { ENTERPRISE, GLOBAL };
 
-   
-   @JsonProperty(value = "majorRelease")
-   protected Long majorRelease;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
    
    @JsonProperty(value = "additionalSupportedVersions")
    protected String additionalSupportedVersions;
-   
-   @JsonProperty(value = "phone")
-   protected String phone;
-   
-   @JsonProperty(value = "license")
-   protected String license;
-   
-   @JsonProperty(value = "licenseEncryption")
-   protected LicenseEncryption licenseEncryption;
-   
-   @JsonProperty(value = "licenseEntities")
-   protected String licenseEntities;
-   
-   @JsonProperty(value = "licenseID")
-   protected Long licenseID;
-   
-   @JsonProperty(value = "licenseType")
-   protected LicenseType licenseType;
-   
-   @JsonProperty(value = "minorRelease")
-   protected Long minorRelease;
-   
-   @JsonProperty(value = "zip")
-   protected String zip;
-   
-   @JsonProperty(value = "city")
-   protected String city;
    
    @JsonProperty(value = "allowedAVRSGsCount")
    protected Long allowedAVRSGsCount;
@@ -108,17 +75,8 @@ public class License extends RestObject {
    @JsonProperty(value = "allowedVRSsCount")
    protected Long allowedVRSsCount;
    
-   @JsonProperty(value = "email")
-   protected String email;
-   
-   @JsonProperty(value = "encryptionMode")
-   protected Boolean encryptionMode;
-   
-   @JsonProperty(value = "uniqueLicenseIdentifier")
-   protected String uniqueLicenseIdentifier;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   @JsonProperty(value = "city")
+   protected String city;
    
    @JsonProperty(value = "company")
    protected String company;
@@ -126,26 +84,17 @@ public class License extends RestObject {
    @JsonProperty(value = "country")
    protected String country;
    
-   @JsonProperty(value = "productVersion")
-   protected String productVersion;
-   
-   @JsonProperty(value = "provider")
-   protected String provider;
-   
-   @JsonProperty(value = "isClusterLicense")
-   protected Boolean isClusterLicense;
-   
-   @JsonProperty(value = "userName")
-   protected String userName;
-   
-   @JsonProperty(value = "state")
-   protected String state;
-   
-   @JsonProperty(value = "street")
-   protected String street;
-   
    @JsonProperty(value = "customerKey")
    protected String customerKey;
+   
+   @JsonProperty(value = "email")
+   protected String email;
+   
+   @JsonProperty(value = "encryptionMode")
+   protected Boolean encryptionMode;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
    
    @JsonProperty(value = "expirationDate")
    protected Float expirationDate;
@@ -156,46 +105,79 @@ public class License extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
+   @JsonProperty(value = "isClusterLicense")
+   protected Boolean isClusterLicense;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "license")
+   protected String license;
+   
+   @JsonProperty(value = "licenseEncryption")
+   protected LicenseEncryption licenseEncryption;
+   
+   @JsonProperty(value = "licenseEntities")
+   protected String licenseEntities;
+   
+   @JsonProperty(value = "licenseID")
+   protected Long licenseID;
+   
+   @JsonProperty(value = "licenseType")
+   protected LicenseType licenseType;
+   
+   @JsonProperty(value = "majorRelease")
+   protected Long majorRelease;
+   
+   @JsonProperty(value = "minorRelease")
+   protected Long minorRelease;
+   
+   @JsonProperty(value = "phone")
+   protected String phone;
+   
+   @JsonProperty(value = "productVersion")
+   protected String productVersion;
+   
+   @JsonProperty(value = "provider")
+   protected String provider;
+   
+   @JsonProperty(value = "state")
+   protected String state;
+   
+   @JsonProperty(value = "street")
+   protected String street;
+   
+   @JsonProperty(value = "uniqueLicenseIdentifier")
+   protected String uniqueLicenseIdentifier;
+   
+   @JsonProperty(value = "userName")
+   protected String userName;
+   
+   @JsonProperty(value = "zip")
+   protected String zip;
+   
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private EventLogsFetcher eventLogs;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private EventLogsFetcher eventLogs;
+   private MetadatasFetcher metadatas;
    
 
    public License() {
       
-      metadatas = new MetadatasFetcher(this);
+      eventLogs = new EventLogsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
-      eventLogs = new EventLogsFetcher(this);
+      metadatas = new MetadatasFetcher(this);
       
    }
 
-   @JsonIgnore
-   public Long getMajorRelease() {
-      return majorRelease;
-   }
-
-   @JsonIgnore
-   public void setMajorRelease(Long value) { 
-      this.majorRelease = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
    @JsonIgnore
    public String getAdditionalSupportedVersions() {
       return additionalSupportedVersions;
@@ -204,87 +186,6 @@ public class License extends RestObject {
    @JsonIgnore
    public void setAdditionalSupportedVersions(String value) { 
       this.additionalSupportedVersions = value;
-   }
-   @JsonIgnore
-   public String getPhone() {
-      return phone;
-   }
-
-   @JsonIgnore
-   public void setPhone(String value) { 
-      this.phone = value;
-   }
-   @JsonIgnore
-   public String getLicense() {
-      return license;
-   }
-
-   @JsonIgnore
-   public void setLicense(String value) { 
-      this.license = value;
-   }
-   @JsonIgnore
-   public LicenseEncryption getLicenseEncryption() {
-      return licenseEncryption;
-   }
-
-   @JsonIgnore
-   public void setLicenseEncryption(LicenseEncryption value) { 
-      this.licenseEncryption = value;
-   }
-   @JsonIgnore
-   public String getLicenseEntities() {
-      return licenseEntities;
-   }
-
-   @JsonIgnore
-   public void setLicenseEntities(String value) { 
-      this.licenseEntities = value;
-   }
-   @JsonIgnore
-   public Long getLicenseID() {
-      return licenseID;
-   }
-
-   @JsonIgnore
-   public void setLicenseID(Long value) { 
-      this.licenseID = value;
-   }
-   @JsonIgnore
-   public LicenseType getLicenseType() {
-      return licenseType;
-   }
-
-   @JsonIgnore
-   public void setLicenseType(LicenseType value) { 
-      this.licenseType = value;
-   }
-   @JsonIgnore
-   public Long getMinorRelease() {
-      return minorRelease;
-   }
-
-   @JsonIgnore
-   public void setMinorRelease(Long value) { 
-      this.minorRelease = value;
-   }
-   @JsonIgnore
-   public String getZip() {
-      return zip;
-   }
-
-   @JsonIgnore
-   public void setZip(String value) { 
-      this.zip = value;
-   }
-   @JsonIgnore
-   public String getCity() {
-      return city;
-   }
-
-   @JsonIgnore
-   public void setCity(String value) { 
-      this.city = value;
    }
    @JsonIgnore
    public Long getAllowedAVRSGsCount() {
@@ -350,40 +251,13 @@ public class License extends RestObject {
       this.allowedVRSsCount = value;
    }
    @JsonIgnore
-   public String getEmail() {
-      return email;
+   public String getCity() {
+      return city;
    }
 
    @JsonIgnore
-   public void setEmail(String value) { 
-      this.email = value;
-   }
-   @JsonIgnore
-   public Boolean getEncryptionMode() {
-      return encryptionMode;
-   }
-
-   @JsonIgnore
-   public void setEncryptionMode(Boolean value) { 
-      this.encryptionMode = value;
-   }
-   @JsonIgnore
-   public String getUniqueLicenseIdentifier() {
-      return uniqueLicenseIdentifier;
-   }
-
-   @JsonIgnore
-   public void setUniqueLicenseIdentifier(String value) { 
-      this.uniqueLicenseIdentifier = value;
-   }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
+   public void setCity(String value) { 
+      this.city = value;
    }
    @JsonIgnore
    public String getCompany() {
@@ -404,60 +278,6 @@ public class License extends RestObject {
       this.country = value;
    }
    @JsonIgnore
-   public String getProductVersion() {
-      return productVersion;
-   }
-
-   @JsonIgnore
-   public void setProductVersion(String value) { 
-      this.productVersion = value;
-   }
-   @JsonIgnore
-   public String getProvider() {
-      return provider;
-   }
-
-   @JsonIgnore
-   public void setProvider(String value) { 
-      this.provider = value;
-   }
-   @JsonIgnore
-   public Boolean getIsClusterLicense() {
-      return isClusterLicense;
-   }
-
-   @JsonIgnore
-   public void setIsClusterLicense(Boolean value) { 
-      this.isClusterLicense = value;
-   }
-   @JsonIgnore
-   public String getUserName() {
-      return userName;
-   }
-
-   @JsonIgnore
-   public void setUserName(String value) { 
-      this.userName = value;
-   }
-   @JsonIgnore
-   public String getState() {
-      return state;
-   }
-
-   @JsonIgnore
-   public void setState(String value) { 
-      this.state = value;
-   }
-   @JsonIgnore
-   public String getStreet() {
-      return street;
-   }
-
-   @JsonIgnore
-   public void setStreet(String value) { 
-      this.street = value;
-   }
-   @JsonIgnore
    public String getCustomerKey() {
       return customerKey;
    }
@@ -465,6 +285,33 @@ public class License extends RestObject {
    @JsonIgnore
    public void setCustomerKey(String value) { 
       this.customerKey = value;
+   }
+   @JsonIgnore
+   public String getEmail() {
+      return email;
+   }
+
+   @JsonIgnore
+   public void setEmail(String value) { 
+      this.email = value;
+   }
+   @JsonIgnore
+   public Boolean getEncryptionMode() {
+      return encryptionMode;
+   }
+
+   @JsonIgnore
+   public void setEncryptionMode(Boolean value) { 
+      this.encryptionMode = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
    }
    @JsonIgnore
    public Float getExpirationDate() {
@@ -493,12 +340,165 @@ public class License extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public Boolean getIsClusterLicense() {
+      return isClusterLicense;
+   }
+
+   @JsonIgnore
+   public void setIsClusterLicense(Boolean value) { 
+      this.isClusterLicense = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getLicense() {
+      return license;
+   }
+
+   @JsonIgnore
+   public void setLicense(String value) { 
+      this.license = value;
+   }
+   @JsonIgnore
+   public LicenseEncryption getLicenseEncryption() {
+      return licenseEncryption;
+   }
+
+   @JsonIgnore
+   public void setLicenseEncryption(LicenseEncryption value) { 
+      this.licenseEncryption = value;
+   }
+   @JsonIgnore
+   public String getLicenseEntities() {
+      return licenseEntities;
+   }
+
+   @JsonIgnore
+   public void setLicenseEntities(String value) { 
+      this.licenseEntities = value;
+   }
+   @JsonIgnore
+   public Long getLicenseID() {
+      return licenseID;
+   }
+
+   @JsonIgnore
+   public void setLicenseID(Long value) { 
+      this.licenseID = value;
+   }
+   @JsonIgnore
+   public LicenseType getLicenseType() {
+      return licenseType;
+   }
+
+   @JsonIgnore
+   public void setLicenseType(LicenseType value) { 
+      this.licenseType = value;
+   }
+   @JsonIgnore
+   public Long getMajorRelease() {
+      return majorRelease;
+   }
+
+   @JsonIgnore
+   public void setMajorRelease(Long value) { 
+      this.majorRelease = value;
+   }
+   @JsonIgnore
+   public Long getMinorRelease() {
+      return minorRelease;
+   }
+
+   @JsonIgnore
+   public void setMinorRelease(Long value) { 
+      this.minorRelease = value;
+   }
+   @JsonIgnore
+   public String getPhone() {
+      return phone;
+   }
+
+   @JsonIgnore
+   public void setPhone(String value) { 
+      this.phone = value;
+   }
+   @JsonIgnore
+   public String getProductVersion() {
+      return productVersion;
+   }
+
+   @JsonIgnore
+   public void setProductVersion(String value) { 
+      this.productVersion = value;
+   }
+   @JsonIgnore
+   public String getProvider() {
+      return provider;
+   }
+
+   @JsonIgnore
+   public void setProvider(String value) { 
+      this.provider = value;
+   }
+   @JsonIgnore
+   public String getState() {
+      return state;
+   }
+
+   @JsonIgnore
+   public void setState(String value) { 
+      this.state = value;
+   }
+   @JsonIgnore
+   public String getStreet() {
+      return street;
+   }
+
+   @JsonIgnore
+   public void setStreet(String value) { 
+      this.street = value;
+   }
+   @JsonIgnore
+   public String getUniqueLicenseIdentifier() {
+      return uniqueLicenseIdentifier;
+   }
+
+   @JsonIgnore
+   public void setUniqueLicenseIdentifier(String value) { 
+      this.uniqueLicenseIdentifier = value;
+   }
+   @JsonIgnore
+   public String getUserName() {
+      return userName;
+   }
+
+   @JsonIgnore
+   public void setUserName(String value) { 
+      this.userName = value;
+   }
+   @JsonIgnore
+   public String getZip() {
+      return zip;
+   }
+
+   @JsonIgnore
+   public void setZip(String value) { 
+      this.zip = value;
+   }
    
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
    }
    
    @JsonIgnore
@@ -507,13 +507,13 @@ public class License extends RestObject {
    }
    
    @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
 
    public String toString() {
-      return "License [" + "majorRelease=" + majorRelease + ", lastUpdatedBy=" + lastUpdatedBy + ", additionalSupportedVersions=" + additionalSupportedVersions + ", phone=" + phone + ", license=" + license + ", licenseEncryption=" + licenseEncryption + ", licenseEntities=" + licenseEntities + ", licenseID=" + licenseID + ", licenseType=" + licenseType + ", minorRelease=" + minorRelease + ", zip=" + zip + ", city=" + city + ", allowedAVRSGsCount=" + allowedAVRSGsCount + ", allowedAVRSsCount=" + allowedAVRSsCount + ", allowedCPEsCount=" + allowedCPEsCount + ", allowedNICsCount=" + allowedNICsCount + ", allowedVMsCount=" + allowedVMsCount + ", allowedVRSGsCount=" + allowedVRSGsCount + ", allowedVRSsCount=" + allowedVRSsCount + ", email=" + email + ", encryptionMode=" + encryptionMode + ", uniqueLicenseIdentifier=" + uniqueLicenseIdentifier + ", entityScope=" + entityScope + ", company=" + company + ", country=" + country + ", productVersion=" + productVersion + ", provider=" + provider + ", isClusterLicense=" + isClusterLicense + ", userName=" + userName + ", state=" + state + ", street=" + street + ", customerKey=" + customerKey + ", expirationDate=" + expirationDate + ", expiryTimestamp=" + expiryTimestamp + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "License [" + "additionalSupportedVersions=" + additionalSupportedVersions + ", allowedAVRSGsCount=" + allowedAVRSGsCount + ", allowedAVRSsCount=" + allowedAVRSsCount + ", allowedCPEsCount=" + allowedCPEsCount + ", allowedNICsCount=" + allowedNICsCount + ", allowedVMsCount=" + allowedVMsCount + ", allowedVRSGsCount=" + allowedVRSGsCount + ", allowedVRSsCount=" + allowedVRSsCount + ", city=" + city + ", company=" + company + ", country=" + country + ", customerKey=" + customerKey + ", email=" + email + ", encryptionMode=" + encryptionMode + ", entityScope=" + entityScope + ", expirationDate=" + expirationDate + ", expiryTimestamp=" + expiryTimestamp + ", externalID=" + externalID + ", isClusterLicense=" + isClusterLicense + ", lastUpdatedBy=" + lastUpdatedBy + ", license=" + license + ", licenseEncryption=" + licenseEncryption + ", licenseEntities=" + licenseEntities + ", licenseID=" + licenseID + ", licenseType=" + licenseType + ", majorRelease=" + majorRelease + ", minorRelease=" + minorRelease + ", phone=" + phone + ", productVersion=" + productVersion + ", provider=" + provider + ", state=" + state + ", street=" + street + ", uniqueLicenseIdentifier=" + uniqueLicenseIdentifier + ", userName=" + userName + ", zip=" + zip + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

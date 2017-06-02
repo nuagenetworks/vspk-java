@@ -35,10 +35,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NetworkMacroGroupsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "enterprisenetwork", resourceName = "enterprisenetworks")
@@ -57,17 +57,8 @@ public class EnterpriseNetwork extends RestObject {
    @JsonProperty(value = "IPv6Address")
    protected String IPv6Address;
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
    @JsonProperty(value = "address")
    protected String address;
-   
-   @JsonProperty(value = "netmask")
-   protected String netmask;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
@@ -75,7 +66,22 @@ public class EnterpriseNetwork extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "netmask")
+   protected String netmask;
+   
 
+   
+   @JsonIgnore
+   private EventLogsFetcher eventLogs;
+   
+   @JsonIgnore
+   private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
    private MetadatasFetcher metadatas;
@@ -83,23 +89,17 @@ public class EnterpriseNetwork extends RestObject {
    @JsonIgnore
    private NetworkMacroGroupsFetcher networkMacroGroups;
    
-   @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
-   
-   @JsonIgnore
-   private EventLogsFetcher eventLogs;
-   
    @SuppressWarnings("static-access")
    public EnterpriseNetwork() {
       IPType = IPType.IPV4;
       
-      metadatas = new MetadatasFetcher(this);
-      
-      networkMacroGroups = new NetworkMacroGroupsFetcher(this);
+      eventLogs = new EventLogsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
-      eventLogs = new EventLogsFetcher(this);
+      metadatas = new MetadatasFetcher(this);
+      
+      networkMacroGroups = new NetworkMacroGroupsFetcher(this);
       
    }
 
@@ -122,24 +122,6 @@ public class EnterpriseNetwork extends RestObject {
       this.IPv6Address = value;
    }
    @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
    public String getAddress() {
       return address;
    }
@@ -147,15 +129,6 @@ public class EnterpriseNetwork extends RestObject {
    @JsonIgnore
    public void setAddress(String value) { 
       this.address = value;
-   }
-   @JsonIgnore
-   public String getNetmask() {
-      return netmask;
-   }
-
-   @JsonIgnore
-   public void setNetmask(String value) { 
-      this.netmask = value;
    }
    @JsonIgnore
    public EntityScope getEntityScope() {
@@ -175,8 +148,45 @@ public class EnterpriseNetwork extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public String getNetmask() {
+      return netmask;
+   }
+
+   @JsonIgnore
+   public void setNetmask(String value) { 
+      this.netmask = value;
+   }
    
 
+   
+   @JsonIgnore
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
+   }
+   
+   @JsonIgnore
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
    
    @JsonIgnore
    public MetadatasFetcher getMetadatas() {
@@ -188,19 +198,9 @@ public class EnterpriseNetwork extends RestObject {
       return networkMacroGroups;
    }
    
-   @JsonIgnore
-   public GlobalMetadatasFetcher getGlobalMetadatas() {
-      return globalMetadatas;
-   }
-   
-   @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
-   }
-   
 
    public String toString() {
-      return "EnterpriseNetwork [" + "IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", address=" + address + ", netmask=" + netmask + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "EnterpriseNetwork [" + "IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", address=" + address + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", netmask=" + netmask + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

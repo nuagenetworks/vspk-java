@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "routingpolicy", resourceName = "routingpolicies")
@@ -49,9 +49,6 @@ public class RoutingPolicy extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
    @JsonProperty(value = "defaultAction")
    protected DefaultAction defaultAction;
    
@@ -61,38 +58,32 @@ public class RoutingPolicy extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
-   @JsonProperty(value = "policyDefinition")
-   protected String policyDefinition;
-   
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-
+   @JsonProperty(value = "name")
+   protected String name;
    
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
+   @JsonProperty(value = "policyDefinition")
+   protected String policyDefinition;
+   
+
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public RoutingPolicy() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
    @JsonIgnore
    public DefaultAction getDefaultAction() {
       return defaultAction;
@@ -121,15 +112,6 @@ public class RoutingPolicy extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
-   public String getPolicyDefinition() {
-      return policyDefinition;
-   }
-
-   @JsonIgnore
-   public void setPolicyDefinition(String value) { 
-      this.policyDefinition = value;
-   }
-   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
@@ -138,22 +120,40 @@ public class RoutingPolicy extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public String getPolicyDefinition() {
+      return policyDefinition;
+   }
+
+   @JsonIgnore
+   public void setPolicyDefinition(String value) { 
+      this.policyDefinition = value;
+   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "RoutingPolicy [" + "name=" + name + ", defaultAction=" + defaultAction + ", description=" + description + ", entityScope=" + entityScope + ", policyDefinition=" + policyDefinition + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "RoutingPolicy [" + "defaultAction=" + defaultAction + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", name=" + name + ", policyDefinition=" + policyDefinition + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

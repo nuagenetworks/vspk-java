@@ -35,12 +35,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.HSCsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VSCsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VSDsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "vsp", resourceName = "vsps")
@@ -52,31 +52,31 @@ public class VSP extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
    @JsonProperty(value = "description")
    protected String description;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
    @JsonProperty(value = "location")
    protected String location;
+   
+   @JsonProperty(value = "name")
+   protected String name;
    
    @JsonProperty(value = "productVersion")
    protected String productVersion;
    
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private EventLogsFetcher eventLogs;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
@@ -85,49 +85,31 @@ public class VSP extends RestObject {
    private HSCsFetcher hSCs;
    
    @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
+   @JsonIgnore
    private VSCsFetcher vSCs;
    
    @JsonIgnore
    private VSDsFetcher vSDs;
    
-   @JsonIgnore
-   private EventLogsFetcher eventLogs;
-   
 
    public VSP() {
       
-      metadatas = new MetadatasFetcher(this);
+      eventLogs = new EventLogsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       hSCs = new HSCsFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
       vSCs = new VSCsFetcher(this);
       
       vSDs = new VSDsFetcher(this);
       
-      eventLogs = new EventLogsFetcher(this);
-      
    }
 
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -147,6 +129,24 @@ public class VSP extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
    public String getLocation() {
       return location;
    }
@@ -154,6 +154,15 @@ public class VSP extends RestObject {
    @JsonIgnore
    public void setLocation(String value) { 
       this.location = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
    }
    @JsonIgnore
    public String getProductVersion() {
@@ -164,21 +173,12 @@ public class VSP extends RestObject {
    public void setProductVersion(String value) { 
       this.productVersion = value;
    }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
    
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
    }
    
    @JsonIgnore
@@ -192,6 +192,11 @@ public class VSP extends RestObject {
    }
    
    @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
+   @JsonIgnore
    public VSCsFetcher getVSCs() {
       return vSCs;
    }
@@ -201,14 +206,9 @@ public class VSP extends RestObject {
       return vSDs;
    }
    
-   @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
-   }
-   
 
    public String toString() {
-      return "VSP [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", entityScope=" + entityScope + ", location=" + location + ", productVersion=" + productVersion + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VSP [" + "description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", location=" + location + ", name=" + name + ", productVersion=" + productVersion + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

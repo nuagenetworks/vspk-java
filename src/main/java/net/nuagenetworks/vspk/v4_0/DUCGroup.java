@@ -46,17 +46,14 @@ public class DUCGroup extends RestObject {
    
 
    
-   @JsonProperty(value = "name")
-   protected String name;
+   @JsonProperty(value = "associatedPerformanceMonitorID")
+   protected String associatedPerformanceMonitorID;
    
    @JsonProperty(value = "description")
    protected String description;
    
-   @JsonProperty(value = "associatedDUCs")
-   protected java.util.List<String> associatedDUCs;
-   
-   @JsonProperty(value = "associatedPerformanceMonitorID")
-   protected String associatedPerformanceMonitorID;
+   @JsonProperty(value = "name")
+   protected String name;
    
 
    
@@ -71,13 +68,13 @@ public class DUCGroup extends RestObject {
    }
 
    @JsonIgnore
-   public String getName() {
-      return name;
+   public String getAssociatedPerformanceMonitorID() {
+      return associatedPerformanceMonitorID;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
+   public void setAssociatedPerformanceMonitorID(String value) { 
+      this.associatedPerformanceMonitorID = value;
    }
    @JsonIgnore
    public String getDescription() {
@@ -89,22 +86,13 @@ public class DUCGroup extends RestObject {
       this.description = value;
    }
    @JsonIgnore
-   public java.util.List<String> getAssociatedDUCs() {
-      return associatedDUCs;
+   public String getName() {
+      return name;
    }
 
    @JsonIgnore
-   public void setAssociatedDUCs(java.util.List<String> value) { 
-      this.associatedDUCs = value;
-   }
-   @JsonIgnore
-   public String getAssociatedPerformanceMonitorID() {
-      return associatedPerformanceMonitorID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedPerformanceMonitorID(String value) { 
-      this.associatedPerformanceMonitorID = value;
+   public void setName(String value) { 
+      this.name = value;
    }
    
 
@@ -116,7 +104,7 @@ public class DUCGroup extends RestObject {
    
 
    public String toString() {
-      return "DUCGroup [" + "name=" + name + ", description=" + description + ", associatedDUCs=" + associatedDUCs + ", associatedPerformanceMonitorID=" + associatedPerformanceMonitorID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "DUCGroup [" + "associatedPerformanceMonitorID=" + associatedPerformanceMonitorID + ", description=" + description + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

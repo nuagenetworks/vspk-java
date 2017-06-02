@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "ikesubnet", resourceName = "ikesubnets")
@@ -48,46 +48,46 @@ public class IKESubnet extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
+   @JsonProperty(value = "associatedIKEGatewayID")
+   protected String associatedIKEGatewayID;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
-   @JsonProperty(value = "prefix")
-   protected String prefix;
-   
-   @JsonProperty(value = "associatedIKEGatewayID")
-   protected String associatedIKEGatewayID;
-   
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
+   @JsonProperty(value = "prefix")
+   protected String prefix;
+   
+
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public IKESubnet() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
    @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
+   public String getAssociatedIKEGatewayID() {
+      return associatedIKEGatewayID;
    }
 
    @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
+   public void setAssociatedIKEGatewayID(String value) { 
+      this.associatedIKEGatewayID = value;
    }
    @JsonIgnore
    public EntityScope getEntityScope() {
@@ -99,24 +99,6 @@ public class IKESubnet extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
-   public String getPrefix() {
-      return prefix;
-   }
-
-   @JsonIgnore
-   public void setPrefix(String value) { 
-      this.prefix = value;
-   }
-   @JsonIgnore
-   public String getAssociatedIKEGatewayID() {
-      return associatedIKEGatewayID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedIKEGatewayID(String value) { 
-      this.associatedIKEGatewayID = value;
-   }
-   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
@@ -125,22 +107,40 @@ public class IKESubnet extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getPrefix() {
+      return prefix;
+   }
+
+   @JsonIgnore
+   public void setPrefix(String value) { 
+      this.prefix = value;
+   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "IKESubnet [" + "lastUpdatedBy=" + lastUpdatedBy + ", entityScope=" + entityScope + ", prefix=" + prefix + ", associatedIKEGatewayID=" + associatedIKEGatewayID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "IKESubnet [" + "associatedIKEGatewayID=" + associatedIKEGatewayID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", prefix=" + prefix + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

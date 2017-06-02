@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "resync", resourceName = "resync")
@@ -49,6 +49,12 @@ public class VMResync extends RestObject {
    public enum Status { IN_PROGRESS, SUCCESS };
 
    
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
    @JsonProperty(value = "lastRequestTimestamp")
    protected Long lastRequestTimestamp;
    
@@ -58,32 +64,44 @@ public class VMResync extends RestObject {
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
    
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
-   
    @JsonProperty(value = "status")
    protected Status status;
    
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
 
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public VMResync() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
    }
 
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
    @JsonIgnore
    public Long getLastRequestTimestamp() {
       return lastRequestTimestamp;
@@ -112,15 +130,6 @@ public class VMResync extends RestObject {
       this.lastUpdatedBy = value;
    }
    @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
-   }
-   @JsonIgnore
    public Status getStatus() {
       return status;
    }
@@ -129,31 +138,22 @@ public class VMResync extends RestObject {
    public void setStatus(Status value) { 
       this.status = value;
    }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "VMResync [" + "lastRequestTimestamp=" + lastRequestTimestamp + ", lastTimeResyncInitiated=" + lastTimeResyncInitiated + ", lastUpdatedBy=" + lastUpdatedBy + ", entityScope=" + entityScope + ", status=" + status + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VMResync [" + "entityScope=" + entityScope + ", externalID=" + externalID + ", lastRequestTimestamp=" + lastRequestTimestamp + ", lastTimeResyncInitiated=" + lastTimeResyncInitiated + ", lastUpdatedBy=" + lastUpdatedBy + ", status=" + status + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

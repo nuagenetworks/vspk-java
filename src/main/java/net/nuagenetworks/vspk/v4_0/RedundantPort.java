@@ -35,10 +35,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.VLANsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.NSPortsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.VLANsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "nsredundantport", resourceName = "nsredundantports")
@@ -47,35 +47,45 @@ public class RedundantPort extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    public enum PortType { ACCESS, NETWORK };
+   public enum Speed { AUTONEGOTIATE, BASE10, BASET1000, BASETX100, BASEX10G };
    public enum Status { INITIALIZED, MISMATCH, ORPHAN, READY };
 
+   
+   @JsonProperty(value = "MTU")
+   protected Long MTU;
    
    @JsonProperty(value = "VLANRange")
    protected String VLANRange;
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "permittedAction")
-   protected PermittedAction permittedAction;
+   @JsonProperty(value = "associatedEgressQOSPolicyID")
+   protected String associatedEgressQOSPolicyID;
    
    @JsonProperty(value = "description")
    protected String description;
    
-   @JsonProperty(value = "physicalName")
-   protected String physicalName;
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
    
    @JsonProperty(value = "infrastructureProfileID")
    protected String infrastructureProfileID;
    
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "permittedAction")
+   protected PermittedAction permittedAction;
+   
+   @JsonProperty(value = "physicalName")
+   protected String physicalName;
    
    @JsonProperty(value = "portPeer1ID")
    protected String portPeer1ID;
@@ -86,6 +96,12 @@ public class RedundantPort extends RestObject {
    @JsonProperty(value = "portType")
    protected PortType portType;
    
+   @JsonProperty(value = "speed")
+   protected Speed speed;
+   
+   @JsonProperty(value = "status")
+   protected Status status;
+   
    @JsonProperty(value = "useUntaggedHeartbeatVlan")
    protected Boolean useUntaggedHeartbeatVlan;
    
@@ -95,42 +111,42 @@ public class RedundantPort extends RestObject {
    @JsonProperty(value = "userMnemonic")
    protected String userMnemonic;
    
-   @JsonProperty(value = "associatedEgressQOSPolicyID")
-   protected String associatedEgressQOSPolicyID;
-   
-   @JsonProperty(value = "status")
-   protected Status status;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
 
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
-   
-   @JsonIgnore
-   private VLANsFetcher vLANs;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
+   @JsonIgnore
    private NSPortsFetcher nSPorts;
+   
+   @JsonIgnore
+   private VLANsFetcher vLANs;
    
 
    public RedundantPort() {
       
-      metadatas = new MetadatasFetcher(this);
-      
-      vLANs = new VLANsFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
       nSPorts = new NSPortsFetcher(this);
       
+      vLANs = new VLANsFetcher(this);
+      
    }
 
+   @JsonIgnore
+   public Long getMTU() {
+      return MTU;
+   }
+
+   @JsonIgnore
+   public void setMTU(Long value) { 
+      this.MTU = value;
+   }
    @JsonIgnore
    public String getVLANRange() {
       return VLANRange;
@@ -141,31 +157,13 @@ public class RedundantPort extends RestObject {
       this.VLANRange = value;
    }
    @JsonIgnore
-   public String getName() {
-      return name;
+   public String getAssociatedEgressQOSPolicyID() {
+      return associatedEgressQOSPolicyID;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public PermittedAction getPermittedAction() {
-      return permittedAction;
-   }
-
-   @JsonIgnore
-   public void setPermittedAction(PermittedAction value) { 
-      this.permittedAction = value;
+   public void setAssociatedEgressQOSPolicyID(String value) { 
+      this.associatedEgressQOSPolicyID = value;
    }
    @JsonIgnore
    public String getDescription() {
@@ -177,13 +175,22 @@ public class RedundantPort extends RestObject {
       this.description = value;
    }
    @JsonIgnore
-   public String getPhysicalName() {
-      return physicalName;
+   public EntityScope getEntityScope() {
+      return entityScope;
    }
 
    @JsonIgnore
-   public void setPhysicalName(String value) { 
-      this.physicalName = value;
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
    }
    @JsonIgnore
    public String getInfrastructureProfileID() {
@@ -195,13 +202,40 @@ public class RedundantPort extends RestObject {
       this.infrastructureProfileID = value;
    }
    @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public PermittedAction getPermittedAction() {
+      return permittedAction;
+   }
+
+   @JsonIgnore
+   public void setPermittedAction(PermittedAction value) { 
+      this.permittedAction = value;
+   }
+   @JsonIgnore
+   public String getPhysicalName() {
+      return physicalName;
+   }
+
+   @JsonIgnore
+   public void setPhysicalName(String value) { 
+      this.physicalName = value;
    }
    @JsonIgnore
    public String getPortPeer1ID() {
@@ -231,6 +265,24 @@ public class RedundantPort extends RestObject {
       this.portType = value;
    }
    @JsonIgnore
+   public Speed getSpeed() {
+      return speed;
+   }
+
+   @JsonIgnore
+   public void setSpeed(Speed value) { 
+      this.speed = value;
+   }
+   @JsonIgnore
+   public Status getStatus() {
+      return status;
+   }
+
+   @JsonIgnore
+   public void setStatus(Status value) { 
+      this.status = value;
+   }
+   @JsonIgnore
    public Boolean getUseUntaggedHeartbeatVlan() {
       return useUntaggedHeartbeatVlan;
    }
@@ -257,45 +309,8 @@ public class RedundantPort extends RestObject {
    public void setUserMnemonic(String value) { 
       this.userMnemonic = value;
    }
-   @JsonIgnore
-   public String getAssociatedEgressQOSPolicyID() {
-      return associatedEgressQOSPolicyID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedEgressQOSPolicyID(String value) { 
-      this.associatedEgressQOSPolicyID = value;
-   }
-   @JsonIgnore
-   public Status getStatus() {
-      return status;
-   }
-
-   @JsonIgnore
-   public void setStatus(Status value) { 
-      this.status = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
-   
-   @JsonIgnore
-   public VLANsFetcher getVLANs() {
-      return vLANs;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
@@ -303,13 +318,23 @@ public class RedundantPort extends RestObject {
    }
    
    @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
+   @JsonIgnore
    public NSPortsFetcher getNSPorts() {
       return nSPorts;
    }
    
+   @JsonIgnore
+   public VLANsFetcher getVLANs() {
+      return vLANs;
+   }
+   
 
    public String toString() {
-      return "RedundantPort [" + "VLANRange=" + VLANRange + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", permittedAction=" + permittedAction + ", description=" + description + ", physicalName=" + physicalName + ", infrastructureProfileID=" + infrastructureProfileID + ", entityScope=" + entityScope + ", portPeer1ID=" + portPeer1ID + ", portPeer2ID=" + portPeer2ID + ", portType=" + portType + ", useUntaggedHeartbeatVlan=" + useUntaggedHeartbeatVlan + ", useUserMnemonic=" + useUserMnemonic + ", userMnemonic=" + userMnemonic + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", status=" + status + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "RedundantPort [" + "MTU=" + MTU + ", VLANRange=" + VLANRange + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", infrastructureProfileID=" + infrastructureProfileID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", permittedAction=" + permittedAction + ", physicalName=" + physicalName + ", portPeer1ID=" + portPeer1ID + ", portPeer2ID=" + portPeer2ID + ", portType=" + portType + ", speed=" + speed + ", status=" + status + ", useUntaggedHeartbeatVlan=" + useUntaggedHeartbeatVlan + ", useUserMnemonic=" + useUserMnemonic + ", userMnemonic=" + userMnemonic + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

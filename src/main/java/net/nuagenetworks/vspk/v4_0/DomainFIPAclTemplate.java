@@ -35,9 +35,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.DomainFIPAclTemplateEntriesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "egressdomainfloatingipacltemplate", resourceName = "egressdomainfloatingipacltemplates")
@@ -51,14 +51,11 @@ public class DomainFIPAclTemplate extends RestObject {
    public enum PriorityType { BOTTOM, NONE, TOP };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
    @JsonProperty(value = "active")
    protected Boolean active;
+   
+   @JsonProperty(value = "associatedLiveEntityID")
+   protected String associatedLiveEntityID;
    
    @JsonProperty(value = "defaultAllowIP")
    protected Boolean defaultAllowIP;
@@ -75,6 +72,15 @@ public class DomainFIPAclTemplate extends RestObject {
    @JsonProperty(value = "entries")
    protected java.util.List<com.fasterxml.jackson.databind.JsonNode> entries;
    
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
    @JsonProperty(value = "policyState")
    protected PolicyState policyState;
    
@@ -84,16 +90,7 @@ public class DomainFIPAclTemplate extends RestObject {
    @JsonProperty(value = "priorityType")
    protected PriorityType priorityType;
    
-   @JsonProperty(value = "associatedLiveEntityID")
-   protected String associatedLiveEntityID;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
 
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
    
    @JsonIgnore
    private DomainFIPAclTemplateEntriesFetcher domainFIPAclTemplateEntries;
@@ -101,35 +98,20 @@ public class DomainFIPAclTemplate extends RestObject {
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public DomainFIPAclTemplate() {
-      
-      metadatas = new MetadatasFetcher(this);
       
       domainFIPAclTemplateEntries = new DomainFIPAclTemplateEntriesFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
    @JsonIgnore
    public Boolean getActive() {
       return active;
@@ -138,6 +120,15 @@ public class DomainFIPAclTemplate extends RestObject {
    @JsonIgnore
    public void setActive(Boolean value) { 
       this.active = value;
+   }
+   @JsonIgnore
+   public String getAssociatedLiveEntityID() {
+      return associatedLiveEntityID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedLiveEntityID(String value) { 
+      this.associatedLiveEntityID = value;
    }
    @JsonIgnore
    public Boolean getDefaultAllowIP() {
@@ -185,6 +176,33 @@ public class DomainFIPAclTemplate extends RestObject {
       this.entries = value;
    }
    @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
    public PolicyState getPolicyState() {
       return policyState;
    }
@@ -211,31 +229,8 @@ public class DomainFIPAclTemplate extends RestObject {
    public void setPriorityType(PriorityType value) { 
       this.priorityType = value;
    }
-   @JsonIgnore
-   public String getAssociatedLiveEntityID() {
-      return associatedLiveEntityID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedLiveEntityID(String value) { 
-      this.associatedLiveEntityID = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public DomainFIPAclTemplateEntriesFetcher getDomainFIPAclTemplateEntries() {
@@ -247,9 +242,14 @@ public class DomainFIPAclTemplate extends RestObject {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "DomainFIPAclTemplate [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", active=" + active + ", defaultAllowIP=" + defaultAllowIP + ", defaultAllowNonIP=" + defaultAllowNonIP + ", description=" + description + ", entityScope=" + entityScope + ", entries=" + entries + ", policyState=" + policyState + ", priority=" + priority + ", priorityType=" + priorityType + ", associatedLiveEntityID=" + associatedLiveEntityID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "DomainFIPAclTemplate [" + "active=" + active + ", associatedLiveEntityID=" + associatedLiveEntityID + ", defaultAllowIP=" + defaultAllowIP + ", defaultAllowNonIP=" + defaultAllowNonIP + ", description=" + description + ", entityScope=" + entityScope + ", entries=" + entries + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", policyState=" + policyState + ", priority=" + priority + ", priorityType=" + priorityType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

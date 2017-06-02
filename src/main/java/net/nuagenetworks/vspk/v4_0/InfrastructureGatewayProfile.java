@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "infrastructuregatewayprofile", resourceName = "infrastructuregatewayprofiles")
@@ -45,9 +45,9 @@ public class InfrastructureGatewayProfile extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum RemoteLogMode { DISABLED, RSYSLOG, SCP, SFTP };
-   public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum ControllerLessForwardingMode { DISABLED, LOCAL_AND_REMOTE, LOCAL_ONLY };
+   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum RemoteLogMode { DISABLED, RSYSLOG, SCP, SFTP };
    public enum UpgradeAction { DOWNLOAD_AND_UPGRADE_AT_WINDOW, DOWNLOAD_AND_UPGRADE_NOW, DOWNLOAD_ONLY, NONE, UPGRADE_AT_BOOTSTRAPPING, UPGRADE_NOW };
 
    
@@ -56,45 +56,6 @@ public class InfrastructureGatewayProfile extends RestObject {
    
    @JsonProperty(value = "NTPServerKeyID")
    protected Long NTPServerKeyID;
-   
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "datapathSyncTimeout")
-   protected Long datapathSyncTimeout;
-   
-   @JsonProperty(value = "deadTimer")
-   protected String deadTimer;
-   
-   @JsonProperty(value = "deadTimerEnabled")
-   protected Boolean deadTimerEnabled;
-   
-   @JsonProperty(value = "remoteLogMode")
-   protected RemoteLogMode remoteLogMode;
-   
-   @JsonProperty(value = "remoteLogServerAddress")
-   protected String remoteLogServerAddress;
-   
-   @JsonProperty(value = "remoteLogServerPort")
-   protected Long remoteLogServerPort;
-   
-   @JsonProperty(value = "description")
-   protected String description;
-   
-   @JsonProperty(value = "metadataUpgradePath")
-   protected String metadataUpgradePath;
-   
-   @JsonProperty(value = "flowEvictionThreshold")
-   protected Long flowEvictionThreshold;
-   
-   @JsonProperty(value = "enterpriseID")
-   protected String enterpriseID;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
    
    @JsonProperty(value = "controllerLessDuration")
    protected String controllerLessDuration;
@@ -108,37 +69,76 @@ public class InfrastructureGatewayProfile extends RestObject {
    @JsonProperty(value = "controllerLessRemoteDuration")
    protected String controllerLessRemoteDuration;
    
-   @JsonProperty(value = "forceImmediateSystemSync")
-   protected Boolean forceImmediateSystemSync;
+   @JsonProperty(value = "datapathSyncTimeout")
+   protected Long datapathSyncTimeout;
    
-   @JsonProperty(value = "openFlowAuditTimer")
-   protected Long openFlowAuditTimer;
+   @JsonProperty(value = "deadTimer")
+   protected String deadTimer;
    
-   @JsonProperty(value = "upgradeAction")
-   protected UpgradeAction upgradeAction;
+   @JsonProperty(value = "deadTimerEnabled")
+   protected Boolean deadTimerEnabled;
    
-   @JsonProperty(value = "proxyDNSName")
-   protected String proxyDNSName;
+   @JsonProperty(value = "description")
+   protected String description;
    
-   @JsonProperty(value = "useTwoFactor")
-   protected Boolean useTwoFactor;
+   @JsonProperty(value = "enterpriseID")
+   protected String enterpriseID;
    
-   @JsonProperty(value = "statsCollectorPort")
-   protected Long statsCollectorPort;
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
    
+   @JsonProperty(value = "flowEvictionThreshold")
+   protected Long flowEvictionThreshold;
+   
+   @JsonProperty(value = "forceImmediateSystemSync")
+   protected Boolean forceImmediateSystemSync;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "metadataUpgradePath")
+   protected String metadataUpgradePath;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "openFlowAuditTimer")
+   protected Long openFlowAuditTimer;
+   
+   @JsonProperty(value = "proxyDNSName")
+   protected String proxyDNSName;
+   
+   @JsonProperty(value = "remoteLogMode")
+   protected RemoteLogMode remoteLogMode;
+   
+   @JsonProperty(value = "remoteLogServerAddress")
+   protected String remoteLogServerAddress;
+   
+   @JsonProperty(value = "remoteLogServerPort")
+   protected Long remoteLogServerPort;
+   
+   @JsonProperty(value = "statsCollectorPort")
+   protected Long statsCollectorPort;
+   
    @JsonProperty(value = "systemSyncScheduler")
    protected String systemSyncScheduler;
+   
+   @JsonProperty(value = "upgradeAction")
+   protected UpgradeAction upgradeAction;
+   
+   @JsonProperty(value = "useTwoFactor")
+   protected Boolean useTwoFactor;
    
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
+   private MetadatasFetcher metadatas;
    
 
    public InfrastructureGatewayProfile() {
@@ -149,9 +149,9 @@ public class InfrastructureGatewayProfile extends RestObject {
       remoteLogMode = RemoteLogMode.DISABLED;
       datapathSyncTimeout = 1000L;
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
    }
 
@@ -172,123 +172,6 @@ public class InfrastructureGatewayProfile extends RestObject {
    @JsonIgnore
    public void setNTPServerKeyID(Long value) { 
       this.NTPServerKeyID = value;
-   }
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public Long getDatapathSyncTimeout() {
-      return datapathSyncTimeout;
-   }
-
-   @JsonIgnore
-   public void setDatapathSyncTimeout(Long value) { 
-      this.datapathSyncTimeout = value;
-   }
-   @JsonIgnore
-   public String getDeadTimer() {
-      return deadTimer;
-   }
-
-   @JsonIgnore
-   public void setDeadTimer(String value) { 
-      this.deadTimer = value;
-   }
-   @JsonIgnore
-   public Boolean getDeadTimerEnabled() {
-      return deadTimerEnabled;
-   }
-
-   @JsonIgnore
-   public void setDeadTimerEnabled(Boolean value) { 
-      this.deadTimerEnabled = value;
-   }
-   @JsonIgnore
-   public RemoteLogMode getRemoteLogMode() {
-      return remoteLogMode;
-   }
-
-   @JsonIgnore
-   public void setRemoteLogMode(RemoteLogMode value) { 
-      this.remoteLogMode = value;
-   }
-   @JsonIgnore
-   public String getRemoteLogServerAddress() {
-      return remoteLogServerAddress;
-   }
-
-   @JsonIgnore
-   public void setRemoteLogServerAddress(String value) { 
-      this.remoteLogServerAddress = value;
-   }
-   @JsonIgnore
-   public Long getRemoteLogServerPort() {
-      return remoteLogServerPort;
-   }
-
-   @JsonIgnore
-   public void setRemoteLogServerPort(Long value) { 
-      this.remoteLogServerPort = value;
-   }
-   @JsonIgnore
-   public String getDescription() {
-      return description;
-   }
-
-   @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
-   }
-   @JsonIgnore
-   public String getMetadataUpgradePath() {
-      return metadataUpgradePath;
-   }
-
-   @JsonIgnore
-   public void setMetadataUpgradePath(String value) { 
-      this.metadataUpgradePath = value;
-   }
-   @JsonIgnore
-   public Long getFlowEvictionThreshold() {
-      return flowEvictionThreshold;
-   }
-
-   @JsonIgnore
-   public void setFlowEvictionThreshold(Long value) { 
-      this.flowEvictionThreshold = value;
-   }
-   @JsonIgnore
-   public String getEnterpriseID() {
-      return enterpriseID;
-   }
-
-   @JsonIgnore
-   public void setEnterpriseID(String value) { 
-      this.enterpriseID = value;
-   }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
    }
    @JsonIgnore
    public String getControllerLessDuration() {
@@ -327,58 +210,58 @@ public class InfrastructureGatewayProfile extends RestObject {
       this.controllerLessRemoteDuration = value;
    }
    @JsonIgnore
-   public Boolean getForceImmediateSystemSync() {
-      return forceImmediateSystemSync;
+   public Long getDatapathSyncTimeout() {
+      return datapathSyncTimeout;
    }
 
    @JsonIgnore
-   public void setForceImmediateSystemSync(Boolean value) { 
-      this.forceImmediateSystemSync = value;
+   public void setDatapathSyncTimeout(Long value) { 
+      this.datapathSyncTimeout = value;
    }
    @JsonIgnore
-   public Long getOpenFlowAuditTimer() {
-      return openFlowAuditTimer;
-   }
-
-   @JsonIgnore
-   public void setOpenFlowAuditTimer(Long value) { 
-      this.openFlowAuditTimer = value;
-   }
-   @JsonIgnore
-   public UpgradeAction getUpgradeAction() {
-      return upgradeAction;
+   public String getDeadTimer() {
+      return deadTimer;
    }
 
    @JsonIgnore
-   public void setUpgradeAction(UpgradeAction value) { 
-      this.upgradeAction = value;
+   public void setDeadTimer(String value) { 
+      this.deadTimer = value;
    }
    @JsonIgnore
-   public String getProxyDNSName() {
-      return proxyDNSName;
-   }
-
-   @JsonIgnore
-   public void setProxyDNSName(String value) { 
-      this.proxyDNSName = value;
-   }
-   @JsonIgnore
-   public Boolean getUseTwoFactor() {
-      return useTwoFactor;
+   public Boolean getDeadTimerEnabled() {
+      return deadTimerEnabled;
    }
 
    @JsonIgnore
-   public void setUseTwoFactor(Boolean value) { 
-      this.useTwoFactor = value;
+   public void setDeadTimerEnabled(Boolean value) { 
+      this.deadTimerEnabled = value;
    }
    @JsonIgnore
-   public Long getStatsCollectorPort() {
-      return statsCollectorPort;
+   public String getDescription() {
+      return description;
    }
 
    @JsonIgnore
-   public void setStatsCollectorPort(Long value) { 
-      this.statsCollectorPort = value;
+   public void setDescription(String value) { 
+      this.description = value;
+   }
+   @JsonIgnore
+   public String getEnterpriseID() {
+      return enterpriseID;
+   }
+
+   @JsonIgnore
+   public void setEnterpriseID(String value) { 
+      this.enterpriseID = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
    }
    @JsonIgnore
    public String getExternalID() {
@@ -390,6 +273,105 @@ public class InfrastructureGatewayProfile extends RestObject {
       this.externalID = value;
    }
    @JsonIgnore
+   public Long getFlowEvictionThreshold() {
+      return flowEvictionThreshold;
+   }
+
+   @JsonIgnore
+   public void setFlowEvictionThreshold(Long value) { 
+      this.flowEvictionThreshold = value;
+   }
+   @JsonIgnore
+   public Boolean getForceImmediateSystemSync() {
+      return forceImmediateSystemSync;
+   }
+
+   @JsonIgnore
+   public void setForceImmediateSystemSync(Boolean value) { 
+      this.forceImmediateSystemSync = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getMetadataUpgradePath() {
+      return metadataUpgradePath;
+   }
+
+   @JsonIgnore
+   public void setMetadataUpgradePath(String value) { 
+      this.metadataUpgradePath = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public Long getOpenFlowAuditTimer() {
+      return openFlowAuditTimer;
+   }
+
+   @JsonIgnore
+   public void setOpenFlowAuditTimer(Long value) { 
+      this.openFlowAuditTimer = value;
+   }
+   @JsonIgnore
+   public String getProxyDNSName() {
+      return proxyDNSName;
+   }
+
+   @JsonIgnore
+   public void setProxyDNSName(String value) { 
+      this.proxyDNSName = value;
+   }
+   @JsonIgnore
+   public RemoteLogMode getRemoteLogMode() {
+      return remoteLogMode;
+   }
+
+   @JsonIgnore
+   public void setRemoteLogMode(RemoteLogMode value) { 
+      this.remoteLogMode = value;
+   }
+   @JsonIgnore
+   public String getRemoteLogServerAddress() {
+      return remoteLogServerAddress;
+   }
+
+   @JsonIgnore
+   public void setRemoteLogServerAddress(String value) { 
+      this.remoteLogServerAddress = value;
+   }
+   @JsonIgnore
+   public Long getRemoteLogServerPort() {
+      return remoteLogServerPort;
+   }
+
+   @JsonIgnore
+   public void setRemoteLogServerPort(Long value) { 
+      this.remoteLogServerPort = value;
+   }
+   @JsonIgnore
+   public Long getStatsCollectorPort() {
+      return statsCollectorPort;
+   }
+
+   @JsonIgnore
+   public void setStatsCollectorPort(Long value) { 
+      this.statsCollectorPort = value;
+   }
+   @JsonIgnore
    public String getSystemSyncScheduler() {
       return systemSyncScheduler;
    }
@@ -398,22 +380,40 @@ public class InfrastructureGatewayProfile extends RestObject {
    public void setSystemSyncScheduler(String value) { 
       this.systemSyncScheduler = value;
    }
+   @JsonIgnore
+   public UpgradeAction getUpgradeAction() {
+      return upgradeAction;
+   }
+
+   @JsonIgnore
+   public void setUpgradeAction(UpgradeAction value) { 
+      this.upgradeAction = value;
+   }
+   @JsonIgnore
+   public Boolean getUseTwoFactor() {
+      return useTwoFactor;
+   }
+
+   @JsonIgnore
+   public void setUseTwoFactor(Boolean value) { 
+      this.useTwoFactor = value;
+   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "InfrastructureGatewayProfile [" + "NTPServerKey=" + NTPServerKey + ", NTPServerKeyID=" + NTPServerKeyID + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", datapathSyncTimeout=" + datapathSyncTimeout + ", deadTimer=" + deadTimer + ", deadTimerEnabled=" + deadTimerEnabled + ", remoteLogMode=" + remoteLogMode + ", remoteLogServerAddress=" + remoteLogServerAddress + ", remoteLogServerPort=" + remoteLogServerPort + ", description=" + description + ", metadataUpgradePath=" + metadataUpgradePath + ", flowEvictionThreshold=" + flowEvictionThreshold + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", controllerLessDuration=" + controllerLessDuration + ", controllerLessEnabled=" + controllerLessEnabled + ", controllerLessForwardingMode=" + controllerLessForwardingMode + ", controllerLessRemoteDuration=" + controllerLessRemoteDuration + ", forceImmediateSystemSync=" + forceImmediateSystemSync + ", openFlowAuditTimer=" + openFlowAuditTimer + ", upgradeAction=" + upgradeAction + ", proxyDNSName=" + proxyDNSName + ", useTwoFactor=" + useTwoFactor + ", statsCollectorPort=" + statsCollectorPort + ", externalID=" + externalID + ", systemSyncScheduler=" + systemSyncScheduler + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "InfrastructureGatewayProfile [" + "NTPServerKey=" + NTPServerKey + ", NTPServerKeyID=" + NTPServerKeyID + ", controllerLessDuration=" + controllerLessDuration + ", controllerLessEnabled=" + controllerLessEnabled + ", controllerLessForwardingMode=" + controllerLessForwardingMode + ", controllerLessRemoteDuration=" + controllerLessRemoteDuration + ", datapathSyncTimeout=" + datapathSyncTimeout + ", deadTimer=" + deadTimer + ", deadTimerEnabled=" + deadTimerEnabled + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", flowEvictionThreshold=" + flowEvictionThreshold + ", forceImmediateSystemSync=" + forceImmediateSystemSync + ", lastUpdatedBy=" + lastUpdatedBy + ", metadataUpgradePath=" + metadataUpgradePath + ", name=" + name + ", openFlowAuditTimer=" + openFlowAuditTimer + ", proxyDNSName=" + proxyDNSName + ", remoteLogMode=" + remoteLogMode + ", remoteLogServerAddress=" + remoteLogServerAddress + ", remoteLogServerPort=" + remoteLogServerPort + ", statsCollectorPort=" + statsCollectorPort + ", systemSyncScheduler=" + systemSyncScheduler + ", upgradeAction=" + upgradeAction + ", useTwoFactor=" + useTwoFactor + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

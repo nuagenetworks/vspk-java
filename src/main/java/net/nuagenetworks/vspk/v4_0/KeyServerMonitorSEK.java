@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "keyservermonitorsek", resourceName = "keyservermonitorseks")
@@ -45,13 +45,25 @@ public class KeyServerMonitorSEK extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum SeedPayloadAuthenticationAlgorithm { HMAC_SHA1, HMAC_SHA256, HMAC_SHA512 };
    public enum SeedPayloadEncryptionAlgorithm { AES_128_CBC, AES_256_CBC, TRIPLE_DES_CBC };
-   public enum EntityScope { ENTERPRISE, GLOBAL };
 
+   
+   @JsonProperty(value = "creationTime")
+   protected Long creationTime;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "lifetime")
+   protected Long lifetime;
    
    @JsonProperty(value = "seedPayloadAuthenticationAlgorithm")
    protected SeedPayloadAuthenticationAlgorithm seedPayloadAuthenticationAlgorithm;
@@ -59,38 +71,53 @@ public class KeyServerMonitorSEK extends RestObject {
    @JsonProperty(value = "seedPayloadEncryptionAlgorithm")
    protected SeedPayloadEncryptionAlgorithm seedPayloadEncryptionAlgorithm;
    
-   @JsonProperty(value = "lifetime")
-   protected Long lifetime;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
-   
-   @JsonProperty(value = "creationTime")
-   protected Long creationTime;
-   
    @JsonProperty(value = "startTime")
    protected Long startTime;
    
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
 
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public KeyServerMonitorSEK() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
    }
 
+   @JsonIgnore
+   public Long getCreationTime() {
+      return creationTime;
+   }
+
+   @JsonIgnore
+   public void setCreationTime(Long value) { 
+      this.creationTime = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -99,6 +126,15 @@ public class KeyServerMonitorSEK extends RestObject {
    @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public Long getLifetime() {
+      return lifetime;
+   }
+
+   @JsonIgnore
+   public void setLifetime(Long value) { 
+      this.lifetime = value;
    }
    @JsonIgnore
    public SeedPayloadAuthenticationAlgorithm getSeedPayloadAuthenticationAlgorithm() {
@@ -119,33 +155,6 @@ public class KeyServerMonitorSEK extends RestObject {
       this.seedPayloadEncryptionAlgorithm = value;
    }
    @JsonIgnore
-   public Long getLifetime() {
-      return lifetime;
-   }
-
-   @JsonIgnore
-   public void setLifetime(Long value) { 
-      this.lifetime = value;
-   }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
-   }
-   @JsonIgnore
-   public Long getCreationTime() {
-      return creationTime;
-   }
-
-   @JsonIgnore
-   public void setCreationTime(Long value) { 
-      this.creationTime = value;
-   }
-   @JsonIgnore
    public Long getStartTime() {
       return startTime;
    }
@@ -154,31 +163,22 @@ public class KeyServerMonitorSEK extends RestObject {
    public void setStartTime(Long value) { 
       this.startTime = value;
    }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "KeyServerMonitorSEK [" + "lastUpdatedBy=" + lastUpdatedBy + ", seedPayloadAuthenticationAlgorithm=" + seedPayloadAuthenticationAlgorithm + ", seedPayloadEncryptionAlgorithm=" + seedPayloadEncryptionAlgorithm + ", lifetime=" + lifetime + ", entityScope=" + entityScope + ", creationTime=" + creationTime + ", startTime=" + startTime + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "KeyServerMonitorSEK [" + "creationTime=" + creationTime + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lifetime=" + lifetime + ", seedPayloadAuthenticationAlgorithm=" + seedPayloadAuthenticationAlgorithm + ", seedPayloadEncryptionAlgorithm=" + seedPayloadEncryptionAlgorithm + ", startTime=" + startTime + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

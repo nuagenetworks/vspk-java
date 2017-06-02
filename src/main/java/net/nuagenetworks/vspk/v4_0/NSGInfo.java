@@ -44,12 +44,18 @@ public class NSGInfo extends RestObject {
 
    
    public enum TPMStatus { DISABLED, ENABLED_NOT_OPERATIONAL, ENABLED_OPERATIONAL, UNKNOWN };
-   public enum Family { ANY, NSG_E, NSG_V };
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum Family { ANY, NSG_E, NSG_V };
 
+   
+   @JsonProperty(value = "CPUType")
+   protected String CPUType;
    
    @JsonProperty(value = "MACAddress")
    protected String MACAddress;
+   
+   @JsonProperty(value = "NSGVersion")
+   protected String NSGVersion;
    
    @JsonProperty(value = "SKU")
    protected String SKU;
@@ -57,32 +63,26 @@ public class NSGInfo extends RestObject {
    @JsonProperty(value = "TPMStatus")
    protected TPMStatus TPMStatus;
    
-   @JsonProperty(value = "CPUType")
-   protected String CPUType;
-   
-   @JsonProperty(value = "NSGVersion")
-   protected String NSGVersion;
-   
    @JsonProperty(value = "UUID")
    protected String UUID;
-   
-   @JsonProperty(value = "family")
-   protected Family family;
-   
-   @JsonProperty(value = "serialNumber")
-   protected String serialNumber;
-   
-   @JsonProperty(value = "libraries")
-   protected String libraries;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
    
    @JsonProperty(value = "associatedNSGatewayID")
    protected String associatedNSGatewayID;
    
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
    @JsonProperty(value = "externalID")
    protected String externalID;
+   
+   @JsonProperty(value = "family")
+   protected Family family;
+   
+   @JsonProperty(value = "libraries")
+   protected String libraries;
+   
+   @JsonProperty(value = "serialNumber")
+   protected String serialNumber;
    
 
    
@@ -92,6 +92,15 @@ public class NSGInfo extends RestObject {
    }
 
    @JsonIgnore
+   public String getCPUType() {
+      return CPUType;
+   }
+
+   @JsonIgnore
+   public void setCPUType(String value) { 
+      this.CPUType = value;
+   }
+   @JsonIgnore
    public String getMACAddress() {
       return MACAddress;
    }
@@ -99,6 +108,15 @@ public class NSGInfo extends RestObject {
    @JsonIgnore
    public void setMACAddress(String value) { 
       this.MACAddress = value;
+   }
+   @JsonIgnore
+   public String getNSGVersion() {
+      return NSGVersion;
+   }
+
+   @JsonIgnore
+   public void setNSGVersion(String value) { 
+      this.NSGVersion = value;
    }
    @JsonIgnore
    public String getSKU() {
@@ -119,24 +137,6 @@ public class NSGInfo extends RestObject {
       this.TPMStatus = value;
    }
    @JsonIgnore
-   public String getCPUType() {
-      return CPUType;
-   }
-
-   @JsonIgnore
-   public void setCPUType(String value) { 
-      this.CPUType = value;
-   }
-   @JsonIgnore
-   public String getNSGVersion() {
-      return NSGVersion;
-   }
-
-   @JsonIgnore
-   public void setNSGVersion(String value) { 
-      this.NSGVersion = value;
-   }
-   @JsonIgnore
    public String getUUID() {
       return UUID;
    }
@@ -144,42 +144,6 @@ public class NSGInfo extends RestObject {
    @JsonIgnore
    public void setUUID(String value) { 
       this.UUID = value;
-   }
-   @JsonIgnore
-   public Family getFamily() {
-      return family;
-   }
-
-   @JsonIgnore
-   public void setFamily(Family value) { 
-      this.family = value;
-   }
-   @JsonIgnore
-   public String getSerialNumber() {
-      return serialNumber;
-   }
-
-   @JsonIgnore
-   public void setSerialNumber(String value) { 
-      this.serialNumber = value;
-   }
-   @JsonIgnore
-   public String getLibraries() {
-      return libraries;
-   }
-
-   @JsonIgnore
-   public void setLibraries(String value) { 
-      this.libraries = value;
-   }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
    }
    @JsonIgnore
    public String getAssociatedNSGatewayID() {
@@ -191,6 +155,15 @@ public class NSGInfo extends RestObject {
       this.associatedNSGatewayID = value;
    }
    @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
@@ -199,12 +172,39 @@ public class NSGInfo extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public Family getFamily() {
+      return family;
+   }
+
+   @JsonIgnore
+   public void setFamily(Family value) { 
+      this.family = value;
+   }
+   @JsonIgnore
+   public String getLibraries() {
+      return libraries;
+   }
+
+   @JsonIgnore
+   public void setLibraries(String value) { 
+      this.libraries = value;
+   }
+   @JsonIgnore
+   public String getSerialNumber() {
+      return serialNumber;
+   }
+
+   @JsonIgnore
+   public void setSerialNumber(String value) { 
+      this.serialNumber = value;
+   }
    
 
    
 
    public String toString() {
-      return "NSGInfo [" + "MACAddress=" + MACAddress + ", SKU=" + SKU + ", TPMStatus=" + TPMStatus + ", CPUType=" + CPUType + ", NSGVersion=" + NSGVersion + ", UUID=" + UUID + ", family=" + family + ", serialNumber=" + serialNumber + ", libraries=" + libraries + ", entityScope=" + entityScope + ", associatedNSGatewayID=" + associatedNSGatewayID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NSGInfo [" + "CPUType=" + CPUType + ", MACAddress=" + MACAddress + ", NSGVersion=" + NSGVersion + ", SKU=" + SKU + ", TPMStatus=" + TPMStatus + ", UUID=" + UUID + ", associatedNSGatewayID=" + associatedNSGatewayID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", family=" + family + ", libraries=" + libraries + ", serialNumber=" + serialNumber + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

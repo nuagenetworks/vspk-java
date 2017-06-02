@@ -35,16 +35,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.GatewaysFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.PermissionsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.WANServicesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.AlarmsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EnterprisePermissionsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.PortsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.VsgRedundantPortsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GatewaysFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.PermissionsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.PortsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.WANServicesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.VsgRedundantPortsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "redundancygroup", resourceName = "redundancygroups")
@@ -53,17 +53,23 @@ public class RedundancyGroup extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum RedundantGatewayStatus { FAILED, SUCCESS };
+   public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    public enum Personality { DC7X50, HARDWARE_VTEP, NSG, OTHER, VRSG, VSA, VSG };
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum RedundantGatewayStatus { FAILED, SUCCESS };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
+   @JsonProperty(value = "description")
+   protected String description;
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
+   @JsonProperty(value = "enterpriseID")
+   protected String enterpriseID;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
    
    @JsonProperty(value = "gatewayPeer1AutodiscoveredGatewayID")
    protected String gatewayPeer1AutodiscoveredGatewayID;
@@ -83,8 +89,11 @@ public class RedundancyGroup extends RestObject {
    @JsonProperty(value = "gatewayPeer2Name")
    protected String gatewayPeer2Name;
    
-   @JsonProperty(value = "redundantGatewayStatus")
-   protected RedundantGatewayStatus redundantGatewayStatus;
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "name")
+   protected String name;
    
    @JsonProperty(value = "permittedAction")
    protected PermittedAction permittedAction;
@@ -92,95 +101,104 @@ public class RedundancyGroup extends RestObject {
    @JsonProperty(value = "personality")
    protected Personality personality;
    
-   @JsonProperty(value = "description")
-   protected String description;
-   
-   @JsonProperty(value = "enterpriseID")
-   protected String enterpriseID;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   @JsonProperty(value = "redundantGatewayStatus")
+   protected RedundantGatewayStatus redundantGatewayStatus;
    
    @JsonProperty(value = "vtep")
    protected String vtep;
    
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
 
-   
-   @JsonIgnore
-   private GatewaysFetcher gateways;
-   
-   @JsonIgnore
-   private PermissionsFetcher permissions;
-   
-   @JsonIgnore
-   private WANServicesFetcher wANServices;
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
    
    @JsonIgnore
    private AlarmsFetcher alarms;
    
    @JsonIgnore
+   private EnterprisePermissionsFetcher enterprisePermissions;
+   
+   @JsonIgnore
+   private EventLogsFetcher eventLogs;
+   
+   @JsonIgnore
+   private GatewaysFetcher gateways;
+   
+   @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private EnterprisePermissionsFetcher enterprisePermissions;
+   private MetadatasFetcher metadatas;
+   
+   @JsonIgnore
+   private PermissionsFetcher permissions;
    
    @JsonIgnore
    private PortsFetcher ports;
    
    @JsonIgnore
-   private VsgRedundantPortsFetcher vsgRedundantPorts;
+   private WANServicesFetcher wANServices;
    
    @JsonIgnore
-   private EventLogsFetcher eventLogs;
+   private VsgRedundantPortsFetcher vsgRedundantPorts;
    
 
    public RedundancyGroup() {
       
-      gateways = new GatewaysFetcher(this);
-      
-      permissions = new PermissionsFetcher(this);
-      
-      wANServices = new WANServicesFetcher(this);
-      
-      metadatas = new MetadatasFetcher(this);
-      
       alarms = new AlarmsFetcher(this);
-      
-      globalMetadatas = new GlobalMetadatasFetcher(this);
       
       enterprisePermissions = new EnterprisePermissionsFetcher(this);
       
+      eventLogs = new EventLogsFetcher(this);
+      
+      gateways = new GatewaysFetcher(this);
+      
+      globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
+      
       ports = new PortsFetcher(this);
+      
+      wANServices = new WANServicesFetcher(this);
       
       vsgRedundantPorts = new VsgRedundantPortsFetcher(this);
       
-      eventLogs = new EventLogsFetcher(this);
-      
    }
 
    @JsonIgnore
-   public String getName() {
-      return name;
+   public String getDescription() {
+      return description;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
+   public void setDescription(String value) { 
+      this.description = value;
    }
    @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
+   public String getEnterpriseID() {
+      return enterpriseID;
    }
 
    @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
+   public void setEnterpriseID(String value) { 
+      this.enterpriseID = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
    }
    @JsonIgnore
    public String getGatewayPeer1AutodiscoveredGatewayID() {
@@ -237,13 +255,22 @@ public class RedundancyGroup extends RestObject {
       this.gatewayPeer2Name = value;
    }
    @JsonIgnore
-   public RedundantGatewayStatus getRedundantGatewayStatus() {
-      return redundantGatewayStatus;
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
    }
 
    @JsonIgnore
-   public void setRedundantGatewayStatus(RedundantGatewayStatus value) { 
-      this.redundantGatewayStatus = value;
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
    }
    @JsonIgnore
    public PermittedAction getPermittedAction() {
@@ -264,31 +291,13 @@ public class RedundancyGroup extends RestObject {
       this.personality = value;
    }
    @JsonIgnore
-   public String getDescription() {
-      return description;
+   public RedundantGatewayStatus getRedundantGatewayStatus() {
+      return redundantGatewayStatus;
    }
 
    @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
-   }
-   @JsonIgnore
-   public String getEnterpriseID() {
-      return enterpriseID;
-   }
-
-   @JsonIgnore
-   public void setEnterpriseID(String value) { 
-      this.enterpriseID = value;
-   }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
+   public void setRedundantGatewayStatus(RedundantGatewayStatus value) { 
+      this.redundantGatewayStatus = value;
    }
    @JsonIgnore
    public String getVtep() {
@@ -299,46 +308,12 @@ public class RedundancyGroup extends RestObject {
    public void setVtep(String value) { 
       this.vtep = value;
    }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
    
 
-   
-   @JsonIgnore
-   public GatewaysFetcher getGateways() {
-      return gateways;
-   }
-   
-   @JsonIgnore
-   public PermissionsFetcher getPermissions() {
-      return permissions;
-   }
-   
-   @JsonIgnore
-   public WANServicesFetcher getWANServices() {
-      return wANServices;
-   }
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public AlarmsFetcher getAlarms() {
       return alarms;
-   }
-   
-   @JsonIgnore
-   public GlobalMetadatasFetcher getGlobalMetadatas() {
-      return globalMetadatas;
    }
    
    @JsonIgnore
@@ -347,8 +322,38 @@ public class RedundancyGroup extends RestObject {
    }
    
    @JsonIgnore
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
+   }
+   
+   @JsonIgnore
+   public GatewaysFetcher getGateways() {
+      return gateways;
+   }
+   
+   @JsonIgnore
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
+   }
+   
+   @JsonIgnore
    public PortsFetcher getPorts() {
       return ports;
+   }
+   
+   @JsonIgnore
+   public WANServicesFetcher getWANServices() {
+      return wANServices;
    }
    
    @JsonIgnore
@@ -356,14 +361,9 @@ public class RedundancyGroup extends RestObject {
       return vsgRedundantPorts;
    }
    
-   @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
-   }
-   
 
    public String toString() {
-      return "RedundancyGroup [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", gatewayPeer1AutodiscoveredGatewayID=" + gatewayPeer1AutodiscoveredGatewayID + ", gatewayPeer1ID=" + gatewayPeer1ID + ", gatewayPeer1Name=" + gatewayPeer1Name + ", gatewayPeer2AutodiscoveredGatewayID=" + gatewayPeer2AutodiscoveredGatewayID + ", gatewayPeer2ID=" + gatewayPeer2ID + ", gatewayPeer2Name=" + gatewayPeer2Name + ", redundantGatewayStatus=" + redundantGatewayStatus + ", permittedAction=" + permittedAction + ", personality=" + personality + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", vtep=" + vtep + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "RedundancyGroup [" + "description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayPeer1AutodiscoveredGatewayID=" + gatewayPeer1AutodiscoveredGatewayID + ", gatewayPeer1ID=" + gatewayPeer1ID + ", gatewayPeer1Name=" + gatewayPeer1Name + ", gatewayPeer2AutodiscoveredGatewayID=" + gatewayPeer2AutodiscoveredGatewayID + ", gatewayPeer2ID=" + gatewayPeer2ID + ", gatewayPeer2Name=" + gatewayPeer2Name + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", permittedAction=" + permittedAction + ", personality=" + personality + ", redundantGatewayStatus=" + redundantGatewayStatus + ", vtep=" + vtep + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "location", resourceName = "locations")
@@ -48,23 +48,26 @@ public class Location extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
+   @JsonProperty(value = "address")
+   protected String address;
+   
+   @JsonProperty(value = "country")
+   protected String country;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "ignoreGeocode")
+   protected Boolean ignoreGeocode;
+   
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "latitude")
    protected Float latitude;
-   
-   @JsonProperty(value = "address")
-   protected String address;
-   
-   @JsonProperty(value = "ignoreGeocode")
-   protected Boolean ignoreGeocode;
-   
-   @JsonProperty(value = "timeZoneID")
-   protected String timeZoneID;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
    
    @JsonProperty(value = "locality")
    protected String locality;
@@ -72,33 +75,75 @@ public class Location extends RestObject {
    @JsonProperty(value = "longitude")
    protected Float longitude;
    
-   @JsonProperty(value = "country")
-   protected String country;
-   
    @JsonProperty(value = "state")
    protected String state;
    
-   @JsonProperty(value = "externalID")
-   protected String externalID;
+   @JsonProperty(value = "timeZoneID")
+   protected String timeZoneID;
    
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
+   private MetadatasFetcher metadatas;
    
 
    public Location() {
       timeZoneID = "UTC";
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
    }
 
+   @JsonIgnore
+   public String getAddress() {
+      return address;
+   }
+
+   @JsonIgnore
+   public void setAddress(String value) { 
+      this.address = value;
+   }
+   @JsonIgnore
+   public String getCountry() {
+      return country;
+   }
+
+   @JsonIgnore
+   public void setCountry(String value) { 
+      this.country = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public Boolean getIgnoreGeocode() {
+      return ignoreGeocode;
+   }
+
+   @JsonIgnore
+   public void setIgnoreGeocode(Boolean value) { 
+      this.ignoreGeocode = value;
+   }
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -116,42 +161,6 @@ public class Location extends RestObject {
    @JsonIgnore
    public void setLatitude(Float value) { 
       this.latitude = value;
-   }
-   @JsonIgnore
-   public String getAddress() {
-      return address;
-   }
-
-   @JsonIgnore
-   public void setAddress(String value) { 
-      this.address = value;
-   }
-   @JsonIgnore
-   public Boolean getIgnoreGeocode() {
-      return ignoreGeocode;
-   }
-
-   @JsonIgnore
-   public void setIgnoreGeocode(Boolean value) { 
-      this.ignoreGeocode = value;
-   }
-   @JsonIgnore
-   public String getTimeZoneID() {
-      return timeZoneID;
-   }
-
-   @JsonIgnore
-   public void setTimeZoneID(String value) { 
-      this.timeZoneID = value;
-   }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
    }
    @JsonIgnore
    public String getLocality() {
@@ -172,15 +181,6 @@ public class Location extends RestObject {
       this.longitude = value;
    }
    @JsonIgnore
-   public String getCountry() {
-      return country;
-   }
-
-   @JsonIgnore
-   public void setCountry(String value) { 
-      this.country = value;
-   }
-   @JsonIgnore
    public String getState() {
       return state;
    }
@@ -190,30 +190,30 @@ public class Location extends RestObject {
       this.state = value;
    }
    @JsonIgnore
-   public String getExternalID() {
-      return externalID;
+   public String getTimeZoneID() {
+      return timeZoneID;
    }
 
    @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
+   public void setTimeZoneID(String value) { 
+      this.timeZoneID = value;
    }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "Location [" + "lastUpdatedBy=" + lastUpdatedBy + ", latitude=" + latitude + ", address=" + address + ", ignoreGeocode=" + ignoreGeocode + ", timeZoneID=" + timeZoneID + ", entityScope=" + entityScope + ", locality=" + locality + ", longitude=" + longitude + ", country=" + country + ", state=" + state + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Location [" + "address=" + address + ", country=" + country + ", entityScope=" + entityScope + ", externalID=" + externalID + ", ignoreGeocode=" + ignoreGeocode + ", lastUpdatedBy=" + lastUpdatedBy + ", latitude=" + latitude + ", locality=" + locality + ", longitude=" + longitude + ", state=" + state + ", timeZoneID=" + timeZoneID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

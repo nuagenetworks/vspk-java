@@ -45,14 +45,14 @@ public class NetworkPerformanceBinding extends RestObject {
    
 
    
-   @JsonProperty(value = "readOnly")
-   protected Boolean readOnly;
+   @JsonProperty(value = "associatedNetworkMeasurementID")
+   protected String associatedNetworkMeasurementID;
    
    @JsonProperty(value = "priority")
    protected Long priority;
    
-   @JsonProperty(value = "associatedNetworkMeasurementID")
-   protected String associatedNetworkMeasurementID;
+   @JsonProperty(value = "readOnly")
+   protected Boolean readOnly;
    
 
    
@@ -62,13 +62,13 @@ public class NetworkPerformanceBinding extends RestObject {
    }
 
    @JsonIgnore
-   public Boolean getReadOnly() {
-      return readOnly;
+   public String getAssociatedNetworkMeasurementID() {
+      return associatedNetworkMeasurementID;
    }
 
    @JsonIgnore
-   public void setReadOnly(Boolean value) { 
-      this.readOnly = value;
+   public void setAssociatedNetworkMeasurementID(String value) { 
+      this.associatedNetworkMeasurementID = value;
    }
    @JsonIgnore
    public Long getPriority() {
@@ -80,20 +80,20 @@ public class NetworkPerformanceBinding extends RestObject {
       this.priority = value;
    }
    @JsonIgnore
-   public String getAssociatedNetworkMeasurementID() {
-      return associatedNetworkMeasurementID;
+   public Boolean getReadOnly() {
+      return readOnly;
    }
 
    @JsonIgnore
-   public void setAssociatedNetworkMeasurementID(String value) { 
-      this.associatedNetworkMeasurementID = value;
+   public void setReadOnly(Boolean value) { 
+      this.readOnly = value;
    }
    
 
    
 
    public String toString() {
-      return "NetworkPerformanceBinding [" + "readOnly=" + readOnly + ", priority=" + priority + ", associatedNetworkMeasurementID=" + associatedNetworkMeasurementID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NetworkPerformanceBinding [" + "associatedNetworkMeasurementID=" + associatedNetworkMeasurementID + ", priority=" + priority + ", readOnly=" + readOnly + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

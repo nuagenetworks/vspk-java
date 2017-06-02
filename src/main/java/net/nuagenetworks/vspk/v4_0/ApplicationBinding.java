@@ -45,14 +45,14 @@ public class ApplicationBinding extends RestObject {
    
 
    
-   @JsonProperty(value = "readOnly")
-   protected Boolean readOnly;
+   @JsonProperty(value = "associatedApplicationID")
+   protected String associatedApplicationID;
    
    @JsonProperty(value = "priority")
    protected Long priority;
    
-   @JsonProperty(value = "associatedApplicationID")
-   protected String associatedApplicationID;
+   @JsonProperty(value = "readOnly")
+   protected Boolean readOnly;
    
 
    
@@ -62,13 +62,13 @@ public class ApplicationBinding extends RestObject {
    }
 
    @JsonIgnore
-   public Boolean getReadOnly() {
-      return readOnly;
+   public String getAssociatedApplicationID() {
+      return associatedApplicationID;
    }
 
    @JsonIgnore
-   public void setReadOnly(Boolean value) { 
-      this.readOnly = value;
+   public void setAssociatedApplicationID(String value) { 
+      this.associatedApplicationID = value;
    }
    @JsonIgnore
    public Long getPriority() {
@@ -80,20 +80,20 @@ public class ApplicationBinding extends RestObject {
       this.priority = value;
    }
    @JsonIgnore
-   public String getAssociatedApplicationID() {
-      return associatedApplicationID;
+   public Boolean getReadOnly() {
+      return readOnly;
    }
 
    @JsonIgnore
-   public void setAssociatedApplicationID(String value) { 
-      this.associatedApplicationID = value;
+   public void setReadOnly(Boolean value) { 
+      this.readOnly = value;
    }
    
 
    
 
    public String toString() {
-      return "ApplicationBinding [" + "readOnly=" + readOnly + ", priority=" + priority + ", associatedApplicationID=" + associatedApplicationID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "ApplicationBinding [" + "associatedApplicationID=" + associatedApplicationID + ", priority=" + priority + ", readOnly=" + readOnly + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

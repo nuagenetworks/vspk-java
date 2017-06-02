@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "keyservermember", resourceName = "keyservermembers")
@@ -48,17 +48,14 @@ public class KeyServerMember extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "pemEncoded")
-   protected String pemEncoded;
-   
    @JsonProperty(value = "certificateSerialNumber")
    protected Long certificateSerialNumber;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
    
    @JsonProperty(value = "fqdn")
    protected String fqdn;
@@ -66,50 +63,35 @@ public class KeyServerMember extends RestObject {
    @JsonProperty(value = "issuerDN")
    protected String issuerDN;
    
-   @JsonProperty(value = "subjectDN")
-   protected String subjectDN;
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "pemEncoded")
+   protected String pemEncoded;
    
    @JsonProperty(value = "publicKey")
    protected String publicKey;
    
-   @JsonProperty(value = "externalID")
-   protected String externalID;
+   @JsonProperty(value = "subjectDN")
+   protected String subjectDN;
    
 
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public KeyServerMember() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public String getPemEncoded() {
-      return pemEncoded;
-   }
-
-   @JsonIgnore
-   public void setPemEncoded(String value) { 
-      this.pemEncoded = value;
-   }
    @JsonIgnore
    public Long getCertificateSerialNumber() {
       return certificateSerialNumber;
@@ -127,6 +109,15 @@ public class KeyServerMember extends RestObject {
    @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
    }
    @JsonIgnore
    public String getFqdn() {
@@ -147,13 +138,22 @@ public class KeyServerMember extends RestObject {
       this.issuerDN = value;
    }
    @JsonIgnore
-   public String getSubjectDN() {
-      return subjectDN;
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
    }
 
    @JsonIgnore
-   public void setSubjectDN(String value) { 
-      this.subjectDN = value;
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getPemEncoded() {
+      return pemEncoded;
+   }
+
+   @JsonIgnore
+   public void setPemEncoded(String value) { 
+      this.pemEncoded = value;
    }
    @JsonIgnore
    public String getPublicKey() {
@@ -165,30 +165,30 @@ public class KeyServerMember extends RestObject {
       this.publicKey = value;
    }
    @JsonIgnore
-   public String getExternalID() {
-      return externalID;
+   public String getSubjectDN() {
+      return subjectDN;
    }
 
    @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
+   public void setSubjectDN(String value) { 
+      this.subjectDN = value;
    }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "KeyServerMember [" + "lastUpdatedBy=" + lastUpdatedBy + ", pemEncoded=" + pemEncoded + ", certificateSerialNumber=" + certificateSerialNumber + ", entityScope=" + entityScope + ", fqdn=" + fqdn + ", issuerDN=" + issuerDN + ", subjectDN=" + subjectDN + ", publicKey=" + publicKey + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "KeyServerMember [" + "certificateSerialNumber=" + certificateSerialNumber + ", entityScope=" + entityScope + ", externalID=" + externalID + ", fqdn=" + fqdn + ", issuerDN=" + issuerDN + ", lastUpdatedBy=" + lastUpdatedBy + ", pemEncoded=" + pemEncoded + ", publicKey=" + publicKey + ", subjectDN=" + subjectDN + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

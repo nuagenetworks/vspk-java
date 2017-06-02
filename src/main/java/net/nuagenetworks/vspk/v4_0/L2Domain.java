@@ -35,37 +35,37 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.TCAsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.AddressRangesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.RedirectionTargetsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.PermissionsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ApplicationperformancemanagementbindingsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.BridgeInterfacesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ContainersFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.ContainerInterfacesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.DHCPOptionsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EgressACLEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EgressACLTemplatesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.DHCPOptionsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.VMInterfacesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GroupsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.HostInterfacesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IngressACLEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IngressACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IngressAdvFwdTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IngressExternalServiceTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.PolicyGroupsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.ContainersFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.ContainerInterfacesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.QOSsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.HostInterfacesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.UplinkRDsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.VPNConnectionsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.VPortsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.ApplicationperformancemanagementbindingsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.BridgeInterfacesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GroupsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.RedirectionTargetsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.StaticRoutesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.StatisticsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.StatisticsPoliciesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.TCAsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.UplinkRDsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.VMsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.VMInterfacesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.VPNConnectionsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.VPortsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "l2domain", resourceName = "l2domains")
@@ -76,12 +76,12 @@ public class L2Domain extends RestObject {
    
    public enum DPI { DISABLED, ENABLED };
    public enum IPType { IPV4, IPV6 };
-   public enum MaintenanceMode { DISABLED, ENABLED, ENABLED_INHERITED };
    public enum Encryption { DISABLED, ENABLED };
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum MaintenanceMode { DISABLED, ENABLED, ENABLED_INHERITED };
+   public enum Multicast { DISABLED, ENABLED, INHERITED };
    public enum PolicyChangeStatus { APPLIED, DISCARDED, STARTED };
    public enum UplinkPreference { PRIMARY, PRIMARY_SECONDARY, SECONDARY, SECONDARY_PRIMARY, SYMMETRIC };
-   public enum Multicast { DISABLED, ENABLED, INHERITED };
 
    
    @JsonProperty(value = "DHCPManaged")
@@ -93,14 +93,26 @@ public class L2Domain extends RestObject {
    @JsonProperty(value = "IPType")
    protected IPType IPType;
    
-   @JsonProperty(value = "maintenanceMode")
-   protected MaintenanceMode maintenanceMode;
+   @JsonProperty(value = "address")
+   protected String address;
    
-   @JsonProperty(value = "name")
-   protected String name;
+   @JsonProperty(value = "associatedMulticastChannelMapID")
+   protected String associatedMulticastChannelMapID;
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
+   @JsonProperty(value = "associatedSharedNetworkResourceID")
+   protected String associatedSharedNetworkResourceID;
+   
+   @JsonProperty(value = "description")
+   protected String description;
+   
+   @JsonProperty(value = "encryption")
+   protected Encryption encryption;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
    
    @JsonProperty(value = "gateway")
    protected String gateway;
@@ -108,29 +120,20 @@ public class L2Domain extends RestObject {
    @JsonProperty(value = "gatewayMACAddress")
    protected String gatewayMACAddress;
    
-   @JsonProperty(value = "address")
-   protected String address;
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
-   @JsonProperty(value = "templateID")
-   protected String templateID;
+   @JsonProperty(value = "maintenanceMode")
+   protected MaintenanceMode maintenanceMode;
    
-   @JsonProperty(value = "serviceID")
-   protected Long serviceID;
+   @JsonProperty(value = "multicast")
+   protected Multicast multicast;
    
-   @JsonProperty(value = "description")
-   protected String description;
+   @JsonProperty(value = "name")
+   protected String name;
    
    @JsonProperty(value = "netmask")
    protected String netmask;
-   
-   @JsonProperty(value = "vnId")
-   protected Long vnId;
-   
-   @JsonProperty(value = "encryption")
-   protected Encryption encryption;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
    
    @JsonProperty(value = "policyChangeStatus")
    protected PolicyChangeStatus policyChangeStatus;
@@ -141,40 +144,40 @@ public class L2Domain extends RestObject {
    @JsonProperty(value = "routeTarget")
    protected String routeTarget;
    
-   @JsonProperty(value = "uplinkPreference")
-   protected UplinkPreference uplinkPreference;
-   
-   @JsonProperty(value = "associatedMulticastChannelMapID")
-   protected String associatedMulticastChannelMapID;
-   
-   @JsonProperty(value = "associatedSharedNetworkResourceID")
-   protected String associatedSharedNetworkResourceID;
+   @JsonProperty(value = "serviceID")
+   protected Long serviceID;
    
    @JsonProperty(value = "stretched")
    protected Boolean stretched;
    
-   @JsonProperty(value = "multicast")
-   protected Multicast multicast;
+   @JsonProperty(value = "templateID")
+   protected String templateID;
    
-   @JsonProperty(value = "externalID")
-   protected String externalID;
+   @JsonProperty(value = "uplinkPreference")
+   protected UplinkPreference uplinkPreference;
+   
+   @JsonProperty(value = "vnId")
+   protected Long vnId;
    
 
-   
-   @JsonIgnore
-   private TCAsFetcher tCAs;
    
    @JsonIgnore
    private AddressRangesFetcher addressRanges;
    
    @JsonIgnore
-   private RedirectionTargetsFetcher redirectionTargets;
+   private ApplicationperformancemanagementbindingsFetcher applicationperformancemanagementbindings;
    
    @JsonIgnore
-   private PermissionsFetcher permissions;
+   private BridgeInterfacesFetcher bridgeInterfaces;
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private ContainersFetcher containers;
+   
+   @JsonIgnore
+   private ContainerInterfacesFetcher containerInterfaces;
+   
+   @JsonIgnore
+   private DHCPOptionsFetcher dHCPOptions;
    
    @JsonIgnore
    private EgressACLEntryTemplatesFetcher egressACLEntryTemplates;
@@ -183,16 +186,16 @@ public class L2Domain extends RestObject {
    private EgressACLTemplatesFetcher egressACLTemplates;
    
    @JsonIgnore
-   private DHCPOptionsFetcher dHCPOptions;
+   private EventLogsFetcher eventLogs;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private VMsFetcher vMs;
+   private GroupsFetcher groups;
    
    @JsonIgnore
-   private VMInterfacesFetcher vMInterfaces;
+   private HostInterfacesFetcher hostInterfaces;
    
    @JsonIgnore
    private IngressACLEntryTemplatesFetcher ingressACLEntryTemplates;
@@ -210,37 +213,19 @@ public class L2Domain extends RestObject {
    private JobsFetcher jobs;
    
    @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
+   @JsonIgnore
+   private PermissionsFetcher permissions;
+   
+   @JsonIgnore
    private PolicyGroupsFetcher policyGroups;
-   
-   @JsonIgnore
-   private ContainersFetcher containers;
-   
-   @JsonIgnore
-   private ContainerInterfacesFetcher containerInterfaces;
    
    @JsonIgnore
    private QOSsFetcher qOSs;
    
    @JsonIgnore
-   private HostInterfacesFetcher hostInterfaces;
-   
-   @JsonIgnore
-   private UplinkRDsFetcher uplinkRDs;
-   
-   @JsonIgnore
-   private VPNConnectionsFetcher vPNConnections;
-   
-   @JsonIgnore
-   private VPortsFetcher vPorts;
-   
-   @JsonIgnore
-   private ApplicationperformancemanagementbindingsFetcher applicationperformancemanagementbindings;
-   
-   @JsonIgnore
-   private BridgeInterfacesFetcher bridgeInterfaces;
-   
-   @JsonIgnore
-   private GroupsFetcher groups;
+   private RedirectionTargetsFetcher redirectionTargets;
    
    @JsonIgnore
    private StaticRoutesFetcher staticRoutes;
@@ -252,33 +237,50 @@ public class L2Domain extends RestObject {
    private StatisticsPoliciesFetcher statisticsPolicies;
    
    @JsonIgnore
-   private EventLogsFetcher eventLogs;
+   private TCAsFetcher tCAs;
+   
+   @JsonIgnore
+   private UplinkRDsFetcher uplinkRDs;
+   
+   @JsonIgnore
+   private VMsFetcher vMs;
+   
+   @JsonIgnore
+   private VMInterfacesFetcher vMInterfaces;
+   
+   @JsonIgnore
+   private VPNConnectionsFetcher vPNConnections;
+   
+   @JsonIgnore
+   private VPortsFetcher vPorts;
    
 
    public L2Domain() {
       maintenanceMode = MaintenanceMode.DISABLED;
       
-      tCAs = new TCAsFetcher(this);
-      
       addressRanges = new AddressRangesFetcher(this);
       
-      redirectionTargets = new RedirectionTargetsFetcher(this);
+      applicationperformancemanagementbindings = new ApplicationperformancemanagementbindingsFetcher(this);
       
-      permissions = new PermissionsFetcher(this);
+      bridgeInterfaces = new BridgeInterfacesFetcher(this);
       
-      metadatas = new MetadatasFetcher(this);
+      containers = new ContainersFetcher(this);
+      
+      containerInterfaces = new ContainerInterfacesFetcher(this);
+      
+      dHCPOptions = new DHCPOptionsFetcher(this);
       
       egressACLEntryTemplates = new EgressACLEntryTemplatesFetcher(this);
       
       egressACLTemplates = new EgressACLTemplatesFetcher(this);
       
-      dHCPOptions = new DHCPOptionsFetcher(this);
+      eventLogs = new EventLogsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
-      vMs = new VMsFetcher(this);
+      groups = new GroupsFetcher(this);
       
-      vMInterfaces = new VMInterfacesFetcher(this);
+      hostInterfaces = new HostInterfacesFetcher(this);
       
       ingressACLEntryTemplates = new IngressACLEntryTemplatesFetcher(this);
       
@@ -290,27 +292,15 @@ public class L2Domain extends RestObject {
       
       jobs = new JobsFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
+      
       policyGroups = new PolicyGroupsFetcher(this);
-      
-      containers = new ContainersFetcher(this);
-      
-      containerInterfaces = new ContainerInterfacesFetcher(this);
       
       qOSs = new QOSsFetcher(this);
       
-      hostInterfaces = new HostInterfacesFetcher(this);
-      
-      uplinkRDs = new UplinkRDsFetcher(this);
-      
-      vPNConnections = new VPNConnectionsFetcher(this);
-      
-      vPorts = new VPortsFetcher(this);
-      
-      applicationperformancemanagementbindings = new ApplicationperformancemanagementbindingsFetcher(this);
-      
-      bridgeInterfaces = new BridgeInterfacesFetcher(this);
-      
-      groups = new GroupsFetcher(this);
+      redirectionTargets = new RedirectionTargetsFetcher(this);
       
       staticRoutes = new StaticRoutesFetcher(this);
       
@@ -318,7 +308,17 @@ public class L2Domain extends RestObject {
       
       statisticsPolicies = new StatisticsPoliciesFetcher(this);
       
-      eventLogs = new EventLogsFetcher(this);
+      tCAs = new TCAsFetcher(this);
+      
+      uplinkRDs = new UplinkRDsFetcher(this);
+      
+      vMs = new VMsFetcher(this);
+      
+      vMInterfaces = new VMInterfacesFetcher(this);
+      
+      vPNConnections = new VPNConnectionsFetcher(this);
+      
+      vPorts = new VPortsFetcher(this);
       
    }
 
@@ -350,31 +350,67 @@ public class L2Domain extends RestObject {
       this.IPType = value;
    }
    @JsonIgnore
-   public MaintenanceMode getMaintenanceMode() {
-      return maintenanceMode;
+   public String getAddress() {
+      return address;
    }
 
    @JsonIgnore
-   public void setMaintenanceMode(MaintenanceMode value) { 
-      this.maintenanceMode = value;
+   public void setAddress(String value) { 
+      this.address = value;
    }
    @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
+   public String getAssociatedMulticastChannelMapID() {
+      return associatedMulticastChannelMapID;
    }
 
    @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
+   public void setAssociatedMulticastChannelMapID(String value) { 
+      this.associatedMulticastChannelMapID = value;
+   }
+   @JsonIgnore
+   public String getAssociatedSharedNetworkResourceID() {
+      return associatedSharedNetworkResourceID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedSharedNetworkResourceID(String value) { 
+      this.associatedSharedNetworkResourceID = value;
+   }
+   @JsonIgnore
+   public String getDescription() {
+      return description;
+   }
+
+   @JsonIgnore
+   public void setDescription(String value) { 
+      this.description = value;
+   }
+   @JsonIgnore
+   public Encryption getEncryption() {
+      return encryption;
+   }
+
+   @JsonIgnore
+   public void setEncryption(Encryption value) { 
+      this.encryption = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
    }
    @JsonIgnore
    public String getGateway() {
@@ -395,40 +431,40 @@ public class L2Domain extends RestObject {
       this.gatewayMACAddress = value;
    }
    @JsonIgnore
-   public String getAddress() {
-      return address;
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
    }
 
    @JsonIgnore
-   public void setAddress(String value) { 
-      this.address = value;
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    @JsonIgnore
-   public String getTemplateID() {
-      return templateID;
-   }
-
-   @JsonIgnore
-   public void setTemplateID(String value) { 
-      this.templateID = value;
-   }
-   @JsonIgnore
-   public Long getServiceID() {
-      return serviceID;
+   public MaintenanceMode getMaintenanceMode() {
+      return maintenanceMode;
    }
 
    @JsonIgnore
-   public void setServiceID(Long value) { 
-      this.serviceID = value;
+   public void setMaintenanceMode(MaintenanceMode value) { 
+      this.maintenanceMode = value;
    }
    @JsonIgnore
-   public String getDescription() {
-      return description;
+   public Multicast getMulticast() {
+      return multicast;
    }
 
    @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
+   public void setMulticast(Multicast value) { 
+      this.multicast = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
    }
    @JsonIgnore
    public String getNetmask() {
@@ -438,33 +474,6 @@ public class L2Domain extends RestObject {
    @JsonIgnore
    public void setNetmask(String value) { 
       this.netmask = value;
-   }
-   @JsonIgnore
-   public Long getVnId() {
-      return vnId;
-   }
-
-   @JsonIgnore
-   public void setVnId(Long value) { 
-      this.vnId = value;
-   }
-   @JsonIgnore
-   public Encryption getEncryption() {
-      return encryption;
-   }
-
-   @JsonIgnore
-   public void setEncryption(Encryption value) { 
-      this.encryption = value;
-   }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
    }
    @JsonIgnore
    public PolicyChangeStatus getPolicyChangeStatus() {
@@ -494,31 +503,13 @@ public class L2Domain extends RestObject {
       this.routeTarget = value;
    }
    @JsonIgnore
-   public UplinkPreference getUplinkPreference() {
-      return uplinkPreference;
+   public Long getServiceID() {
+      return serviceID;
    }
 
    @JsonIgnore
-   public void setUplinkPreference(UplinkPreference value) { 
-      this.uplinkPreference = value;
-   }
-   @JsonIgnore
-   public String getAssociatedMulticastChannelMapID() {
-      return associatedMulticastChannelMapID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedMulticastChannelMapID(String value) { 
-      this.associatedMulticastChannelMapID = value;
-   }
-   @JsonIgnore
-   public String getAssociatedSharedNetworkResourceID() {
-      return associatedSharedNetworkResourceID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedSharedNetworkResourceID(String value) { 
-      this.associatedSharedNetworkResourceID = value;
+   public void setServiceID(Long value) { 
+      this.serviceID = value;
    }
    @JsonIgnore
    public Boolean getStretched() {
@@ -530,30 +521,34 @@ public class L2Domain extends RestObject {
       this.stretched = value;
    }
    @JsonIgnore
-   public Multicast getMulticast() {
-      return multicast;
+   public String getTemplateID() {
+      return templateID;
    }
 
    @JsonIgnore
-   public void setMulticast(Multicast value) { 
-      this.multicast = value;
+   public void setTemplateID(String value) { 
+      this.templateID = value;
    }
    @JsonIgnore
-   public String getExternalID() {
-      return externalID;
+   public UplinkPreference getUplinkPreference() {
+      return uplinkPreference;
    }
 
    @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
+   public void setUplinkPreference(UplinkPreference value) { 
+      this.uplinkPreference = value;
+   }
+   @JsonIgnore
+   public Long getVnId() {
+      return vnId;
+   }
+
+   @JsonIgnore
+   public void setVnId(Long value) { 
+      this.vnId = value;
    }
    
 
-   
-   @JsonIgnore
-   public TCAsFetcher getTCAs() {
-      return tCAs;
-   }
    
    @JsonIgnore
    public AddressRangesFetcher getAddressRanges() {
@@ -561,18 +556,28 @@ public class L2Domain extends RestObject {
    }
    
    @JsonIgnore
-   public RedirectionTargetsFetcher getRedirectionTargets() {
-      return redirectionTargets;
+   public ApplicationperformancemanagementbindingsFetcher getApplicationperformancemanagementbindings() {
+      return applicationperformancemanagementbindings;
    }
    
    @JsonIgnore
-   public PermissionsFetcher getPermissions() {
-      return permissions;
+   public BridgeInterfacesFetcher getBridgeInterfaces() {
+      return bridgeInterfaces;
    }
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public ContainersFetcher getContainers() {
+      return containers;
+   }
+   
+   @JsonIgnore
+   public ContainerInterfacesFetcher getContainerInterfaces() {
+      return containerInterfaces;
+   }
+   
+   @JsonIgnore
+   public DHCPOptionsFetcher getDHCPOptions() {
+      return dHCPOptions;
    }
    
    @JsonIgnore
@@ -586,8 +591,8 @@ public class L2Domain extends RestObject {
    }
    
    @JsonIgnore
-   public DHCPOptionsFetcher getDHCPOptions() {
-      return dHCPOptions;
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
    }
    
    @JsonIgnore
@@ -596,13 +601,13 @@ public class L2Domain extends RestObject {
    }
    
    @JsonIgnore
-   public VMsFetcher getVMs() {
-      return vMs;
+   public GroupsFetcher getGroups() {
+      return groups;
    }
    
    @JsonIgnore
-   public VMInterfacesFetcher getVMInterfaces() {
-      return vMInterfaces;
+   public HostInterfacesFetcher getHostInterfaces() {
+      return hostInterfaces;
    }
    
    @JsonIgnore
@@ -631,18 +636,18 @@ public class L2Domain extends RestObject {
    }
    
    @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
+   }
+   
+   @JsonIgnore
    public PolicyGroupsFetcher getPolicyGroups() {
       return policyGroups;
-   }
-   
-   @JsonIgnore
-   public ContainersFetcher getContainers() {
-      return containers;
-   }
-   
-   @JsonIgnore
-   public ContainerInterfacesFetcher getContainerInterfaces() {
-      return containerInterfaces;
    }
    
    @JsonIgnore
@@ -651,38 +656,8 @@ public class L2Domain extends RestObject {
    }
    
    @JsonIgnore
-   public HostInterfacesFetcher getHostInterfaces() {
-      return hostInterfaces;
-   }
-   
-   @JsonIgnore
-   public UplinkRDsFetcher getUplinkRDs() {
-      return uplinkRDs;
-   }
-   
-   @JsonIgnore
-   public VPNConnectionsFetcher getVPNConnections() {
-      return vPNConnections;
-   }
-   
-   @JsonIgnore
-   public VPortsFetcher getVPorts() {
-      return vPorts;
-   }
-   
-   @JsonIgnore
-   public ApplicationperformancemanagementbindingsFetcher getApplicationperformancemanagementbindings() {
-      return applicationperformancemanagementbindings;
-   }
-   
-   @JsonIgnore
-   public BridgeInterfacesFetcher getBridgeInterfaces() {
-      return bridgeInterfaces;
-   }
-   
-   @JsonIgnore
-   public GroupsFetcher getGroups() {
-      return groups;
+   public RedirectionTargetsFetcher getRedirectionTargets() {
+      return redirectionTargets;
    }
    
    @JsonIgnore
@@ -701,13 +676,38 @@ public class L2Domain extends RestObject {
    }
    
    @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
+   public TCAsFetcher getTCAs() {
+      return tCAs;
+   }
+   
+   @JsonIgnore
+   public UplinkRDsFetcher getUplinkRDs() {
+      return uplinkRDs;
+   }
+   
+   @JsonIgnore
+   public VMsFetcher getVMs() {
+      return vMs;
+   }
+   
+   @JsonIgnore
+   public VMInterfacesFetcher getVMInterfaces() {
+      return vMInterfaces;
+   }
+   
+   @JsonIgnore
+   public VPNConnectionsFetcher getVPNConnections() {
+      return vPNConnections;
+   }
+   
+   @JsonIgnore
+   public VPortsFetcher getVPorts() {
+      return vPorts;
    }
    
 
    public String toString() {
-      return "L2Domain [" + "DHCPManaged=" + DHCPManaged + ", DPI=" + DPI + ", IPType=" + IPType + ", maintenanceMode=" + maintenanceMode + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", address=" + address + ", templateID=" + templateID + ", serviceID=" + serviceID + ", description=" + description + ", netmask=" + netmask + ", vnId=" + vnId + ", encryption=" + encryption + ", entityScope=" + entityScope + ", policyChangeStatus=" + policyChangeStatus + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", uplinkPreference=" + uplinkPreference + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSharedNetworkResourceID=" + associatedSharedNetworkResourceID + ", stretched=" + stretched + ", multicast=" + multicast + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "L2Domain [" + "DHCPManaged=" + DHCPManaged + ", DPI=" + DPI + ", IPType=" + IPType + ", address=" + address + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSharedNetworkResourceID=" + associatedSharedNetworkResourceID + ", description=" + description + ", encryption=" + encryption + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", lastUpdatedBy=" + lastUpdatedBy + ", maintenanceMode=" + maintenanceMode + ", multicast=" + multicast + ", name=" + name + ", netmask=" + netmask + ", policyChangeStatus=" + policyChangeStatus + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", serviceID=" + serviceID + ", stretched=" + stretched + ", templateID=" + templateID + ", uplinkPreference=" + uplinkPreference + ", vnId=" + vnId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -35,12 +35,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EnterprisesFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.MultiCastListsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.ExternalServicesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MultiCastListsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "enterpriseprofile", resourceName = "enterpriseprofiles")
@@ -60,24 +60,6 @@ public class EnterpriseProfile extends RestObject {
    @JsonProperty(value = "DHCPLeaseInterval")
    protected Long DHCPLeaseInterval;
    
-   @JsonProperty(value = "DPIEnabled")
-   protected Boolean DPIEnabled;
-   
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "receiveMultiCastListID")
-   protected String receiveMultiCastListID;
-   
-   @JsonProperty(value = "sendMultiCastListID")
-   protected String sendMultiCastListID;
-   
-   @JsonProperty(value = "description")
-   protected String description;
-   
    @JsonProperty(value = "allowAdvancedQOSConfiguration")
    protected Boolean allowAdvancedQOSConfiguration;
    
@@ -90,8 +72,8 @@ public class EnterpriseProfile extends RestObject {
    @JsonProperty(value = "allowedForwardingClasses")
    protected java.util.List<AllowedForwardingClasses> allowedForwardingClasses;
    
-   @JsonProperty(value = "floatingIPsQuota")
-   protected Long floatingIPsQuota;
+   @JsonProperty(value = "description")
+   protected String description;
    
    @JsonProperty(value = "enableApplicationPerformanceManagement")
    protected Boolean enableApplicationPerformanceManagement;
@@ -105,19 +87,25 @@ public class EnterpriseProfile extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
+   @JsonProperty(value = "floatingIPsQuota")
+   protected Long floatingIPsQuota;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "receiveMultiCastListID")
+   protected String receiveMultiCastListID;
+   
+   @JsonProperty(value = "sendMultiCastListID")
+   protected String sendMultiCastListID;
+   
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
-   
-   @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
-   
-   @JsonIgnore
    private EnterprisesFetcher enterprises;
-   
-   @JsonIgnore
-   private MultiCastListsFetcher multiCastLists;
    
    @JsonIgnore
    private EventLogsFetcher eventLogs;
@@ -125,22 +113,31 @@ public class EnterpriseProfile extends RestObject {
    @JsonIgnore
    private ExternalServicesFetcher externalServices;
    
+   @JsonIgnore
+   private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
+   @JsonIgnore
+   private MultiCastListsFetcher multiCastLists;
+   
 
    public EnterpriseProfile() {
       floatingIPsQuota = 100L;
       DHCPLeaseInterval = 24L;
       
-      metadatas = new MetadatasFetcher(this);
-      
-      globalMetadatas = new GlobalMetadatasFetcher(this);
-      
       enterprises = new EnterprisesFetcher(this);
-      
-      multiCastLists = new MultiCastListsFetcher(this);
       
       eventLogs = new EventLogsFetcher(this);
       
       externalServices = new ExternalServicesFetcher(this);
+      
+      globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
+      
+      multiCastLists = new MultiCastListsFetcher(this);
       
    }
 
@@ -161,60 +158,6 @@ public class EnterpriseProfile extends RestObject {
    @JsonIgnore
    public void setDHCPLeaseInterval(Long value) { 
       this.DHCPLeaseInterval = value;
-   }
-   @JsonIgnore
-   public Boolean getDPIEnabled() {
-      return DPIEnabled;
-   }
-
-   @JsonIgnore
-   public void setDPIEnabled(Boolean value) { 
-      this.DPIEnabled = value;
-   }
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public String getReceiveMultiCastListID() {
-      return receiveMultiCastListID;
-   }
-
-   @JsonIgnore
-   public void setReceiveMultiCastListID(String value) { 
-      this.receiveMultiCastListID = value;
-   }
-   @JsonIgnore
-   public String getSendMultiCastListID() {
-      return sendMultiCastListID;
-   }
-
-   @JsonIgnore
-   public void setSendMultiCastListID(String value) { 
-      this.sendMultiCastListID = value;
-   }
-   @JsonIgnore
-   public String getDescription() {
-      return description;
-   }
-
-   @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
    }
    @JsonIgnore
    public Boolean getAllowAdvancedQOSConfiguration() {
@@ -253,13 +196,13 @@ public class EnterpriseProfile extends RestObject {
       this.allowedForwardingClasses = value;
    }
    @JsonIgnore
-   public Long getFloatingIPsQuota() {
-      return floatingIPsQuota;
+   public String getDescription() {
+      return description;
    }
 
    @JsonIgnore
-   public void setFloatingIPsQuota(Long value) { 
-      this.floatingIPsQuota = value;
+   public void setDescription(String value) { 
+      this.description = value;
    }
    @JsonIgnore
    public Boolean getEnableApplicationPerformanceManagement() {
@@ -297,27 +240,57 @@ public class EnterpriseProfile extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public Long getFloatingIPsQuota() {
+      return floatingIPsQuota;
+   }
+
+   @JsonIgnore
+   public void setFloatingIPsQuota(Long value) { 
+      this.floatingIPsQuota = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public String getReceiveMultiCastListID() {
+      return receiveMultiCastListID;
+   }
+
+   @JsonIgnore
+   public void setReceiveMultiCastListID(String value) { 
+      this.receiveMultiCastListID = value;
+   }
+   @JsonIgnore
+   public String getSendMultiCastListID() {
+      return sendMultiCastListID;
+   }
+
+   @JsonIgnore
+   public void setSendMultiCastListID(String value) { 
+      this.sendMultiCastListID = value;
+   }
    
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
-   
-   @JsonIgnore
-   public GlobalMetadatasFetcher getGlobalMetadatas() {
-      return globalMetadatas;
-   }
-   
-   @JsonIgnore
    public EnterprisesFetcher getEnterprises() {
       return enterprises;
-   }
-   
-   @JsonIgnore
-   public MultiCastListsFetcher getMultiCastLists() {
-      return multiCastLists;
    }
    
    @JsonIgnore
@@ -330,9 +303,24 @@ public class EnterpriseProfile extends RestObject {
       return externalServices;
    }
    
+   @JsonIgnore
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
+   @JsonIgnore
+   public MultiCastListsFetcher getMultiCastLists() {
+      return multiCastLists;
+   }
+   
 
    public String toString() {
-      return "EnterpriseProfile [" + "BGPEnabled=" + BGPEnabled + ", DHCPLeaseInterval=" + DHCPLeaseInterval + ", DPIEnabled=" + DPIEnabled + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", receiveMultiCastListID=" + receiveMultiCastListID + ", sendMultiCastListID=" + sendMultiCastListID + ", description=" + description + ", allowAdvancedQOSConfiguration=" + allowAdvancedQOSConfiguration + ", allowGatewayManagement=" + allowGatewayManagement + ", allowTrustedForwardingClass=" + allowTrustedForwardingClass + ", allowedForwardingClasses=" + allowedForwardingClasses + ", floatingIPsQuota=" + floatingIPsQuota + ", enableApplicationPerformanceManagement=" + enableApplicationPerformanceManagement + ", encryptionManagementMode=" + encryptionManagementMode + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "EnterpriseProfile [" + "BGPEnabled=" + BGPEnabled + ", DHCPLeaseInterval=" + DHCPLeaseInterval + ", allowAdvancedQOSConfiguration=" + allowAdvancedQOSConfiguration + ", allowGatewayManagement=" + allowGatewayManagement + ", allowTrustedForwardingClass=" + allowTrustedForwardingClass + ", allowedForwardingClasses=" + allowedForwardingClasses + ", description=" + description + ", enableApplicationPerformanceManagement=" + enableApplicationPerformanceManagement + ", encryptionManagementMode=" + encryptionManagementMode + ", entityScope=" + entityScope + ", externalID=" + externalID + ", floatingIPsQuota=" + floatingIPsQuota + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", receiveMultiCastListID=" + receiveMultiCastListID + ", sendMultiCastListID=" + sendMultiCastListID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

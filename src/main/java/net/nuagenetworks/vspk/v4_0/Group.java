@@ -35,10 +35,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.UsersFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.UsersFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "group", resourceName = "groups")
@@ -47,19 +47,10 @@ public class Group extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum ManagementMode { CMS, DEFAULT };
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum ManagementMode { CMS, DEFAULT };
    public enum Role { CMS, CSPOPERATOR, CSPROOT, JMS, ORGADMIN, ORGAPPDESIGNER, ORGNETWORKDESIGNER, ORGUSER, SYSTEM, UNKNOWN, USER };
 
-   
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "managementMode")
-   protected ManagementMode managementMode;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
    
    @JsonProperty(value = "accountRestrictions")
    protected Boolean accountRestrictions;
@@ -67,75 +58,57 @@ public class Group extends RestObject {
    @JsonProperty(value = "description")
    protected String description;
    
-   @JsonProperty(value = "restrictionDate")
-   protected Float restrictionDate;
-   
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
-   
-   @JsonProperty(value = "role")
-   protected Role role;
-   
-   @JsonProperty(value = "private")
-   protected Boolean private_;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
    
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "managementMode")
+   protected ManagementMode managementMode;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "private")
+   protected Boolean private_;
+   
+   @JsonProperty(value = "restrictionDate")
+   protected Float restrictionDate;
+   
+   @JsonProperty(value = "role")
+   protected Role role;
+   
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private EventLogsFetcher eventLogs;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private UsersFetcher users;
+   private MetadatasFetcher metadatas;
    
    @JsonIgnore
-   private EventLogsFetcher eventLogs;
+   private UsersFetcher users;
    
 
    public Group() {
       
-      metadatas = new MetadatasFetcher(this);
+      eventLogs = new EventLogsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
       users = new UsersFetcher(this);
       
-      eventLogs = new EventLogsFetcher(this);
-      
    }
 
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public ManagementMode getManagementMode() {
-      return managementMode;
-   }
-
-   @JsonIgnore
-   public void setManagementMode(ManagementMode value) { 
-      this.managementMode = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
    @JsonIgnore
    public Boolean getAccountRestrictions() {
       return accountRestrictions;
@@ -155,15 +128,6 @@ public class Group extends RestObject {
       this.description = value;
    }
    @JsonIgnore
-   public Float getRestrictionDate() {
-      return restrictionDate;
-   }
-
-   @JsonIgnore
-   public void setRestrictionDate(Float value) { 
-      this.restrictionDate = value;
-   }
-   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
@@ -173,13 +137,40 @@ public class Group extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
-   public Role getRole() {
-      return role;
+   public String getExternalID() {
+      return externalID;
    }
 
    @JsonIgnore
-   public void setRole(Role value) { 
-      this.role = value;
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public ManagementMode getManagementMode() {
+      return managementMode;
+   }
+
+   @JsonIgnore
+   public void setManagementMode(ManagementMode value) { 
+      this.managementMode = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
    }
    @JsonIgnore
    public Boolean getPrivate_() {
@@ -191,20 +182,29 @@ public class Group extends RestObject {
       this.private_ = value;
    }
    @JsonIgnore
-   public String getExternalID() {
-      return externalID;
+   public Float getRestrictionDate() {
+      return restrictionDate;
    }
 
    @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
+   public void setRestrictionDate(Float value) { 
+      this.restrictionDate = value;
+   }
+   @JsonIgnore
+   public Role getRole() {
+      return role;
+   }
+
+   @JsonIgnore
+   public void setRole(Role value) { 
+      this.role = value;
    }
    
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
    }
    
    @JsonIgnore
@@ -213,18 +213,18 @@ public class Group extends RestObject {
    }
    
    @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
+   @JsonIgnore
    public UsersFetcher getUsers() {
       return users;
    }
    
-   @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
-   }
-   
 
    public String toString() {
-      return "Group [" + "name=" + name + ", managementMode=" + managementMode + ", lastUpdatedBy=" + lastUpdatedBy + ", accountRestrictions=" + accountRestrictions + ", description=" + description + ", restrictionDate=" + restrictionDate + ", entityScope=" + entityScope + ", role=" + role + ", private_=" + private_ + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Group [" + "accountRestrictions=" + accountRestrictions + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", managementMode=" + managementMode + ", name=" + name + ", private_=" + private_ + ", restrictionDate=" + restrictionDate + ", role=" + role + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

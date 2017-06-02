@@ -35,14 +35,14 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.BGPPeersFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.AlarmsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.BGPPeersFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MonitoringPortsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.VRSsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "hsc", resourceName = "hscs")
@@ -56,65 +56,11 @@ public class HSC extends RestObject {
    public enum Type { DC7X50, NONE, VSA, VSG };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "managementIP")
-   protected String managementIP;
-   
-   @JsonProperty(value = "lastStateChange")
-   protected Long lastStateChange;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
    @JsonProperty(value = "address")
    protected String address;
    
-   @JsonProperty(value = "peakCPUUsage")
-   protected Float peakCPUUsage;
-   
-   @JsonProperty(value = "peakMemoryUsage")
-   protected Float peakMemoryUsage;
-   
-   @JsonProperty(value = "description")
-   protected String description;
-   
-   @JsonProperty(value = "messages")
-   protected java.util.List<String> messages;
-   
-   @JsonProperty(value = "disks")
-   protected java.util.List<DiskStat> disks;
-   
    @JsonProperty(value = "alreadyMarkedForUnavailable")
    protected Boolean alreadyMarkedForUnavailable;
-   
-   @JsonProperty(value = "unavailableTimestamp")
-   protected Long unavailableTimestamp;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
-   
-   @JsonProperty(value = "location")
-   protected String location;
-   
-   @JsonProperty(value = "model")
-   protected String model;
-   
-   @JsonProperty(value = "productVersion")
-   protected String productVersion;
-   
-   @JsonProperty(value = "vsds")
-   protected java.util.List<String> vsds;
-   
-   @JsonProperty(value = "status")
-   protected Status status;
-   
-   @JsonProperty(value = "currentCPUUsage")
-   protected Float currentCPUUsage;
-   
-   @JsonProperty(value = "currentMemoryUsage")
-   protected Float currentMemoryUsage;
    
    @JsonProperty(value = "averageCPUUsage")
    protected Float averageCPUUsage;
@@ -122,22 +68,76 @@ public class HSC extends RestObject {
    @JsonProperty(value = "averageMemoryUsage")
    protected Float averageMemoryUsage;
    
+   @JsonProperty(value = "currentCPUUsage")
+   protected Float currentCPUUsage;
+   
+   @JsonProperty(value = "currentMemoryUsage")
+   protected Float currentMemoryUsage;
+   
+   @JsonProperty(value = "description")
+   protected String description;
+   
+   @JsonProperty(value = "disks")
+   protected java.util.List<DiskStat> disks;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
    @JsonProperty(value = "externalID")
    protected String externalID;
+   
+   @JsonProperty(value = "lastStateChange")
+   protected Long lastStateChange;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "location")
+   protected String location;
+   
+   @JsonProperty(value = "managementIP")
+   protected String managementIP;
+   
+   @JsonProperty(value = "messages")
+   protected java.util.List<String> messages;
+   
+   @JsonProperty(value = "model")
+   protected String model;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "peakCPUUsage")
+   protected Float peakCPUUsage;
+   
+   @JsonProperty(value = "peakMemoryUsage")
+   protected Float peakMemoryUsage;
+   
+   @JsonProperty(value = "productVersion")
+   protected String productVersion;
+   
+   @JsonProperty(value = "status")
+   protected Status status;
    
    @JsonProperty(value = "type")
    protected Type type;
    
+   @JsonProperty(value = "unavailableTimestamp")
+   protected Long unavailableTimestamp;
+   
+   @JsonProperty(value = "vsds")
+   protected java.util.List<String> vsds;
+   
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private AlarmsFetcher alarms;
    
    @JsonIgnore
    private BGPPeersFetcher bGPPeers;
    
    @JsonIgnore
-   private AlarmsFetcher alarms;
+   private EventLogsFetcher eventLogs;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
@@ -146,71 +146,35 @@ public class HSC extends RestObject {
    private JobsFetcher jobs;
    
    @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
+   @JsonIgnore
    private MonitoringPortsFetcher monitoringPorts;
    
    @JsonIgnore
    private VRSsFetcher vRSs;
    
-   @JsonIgnore
-   private EventLogsFetcher eventLogs;
-   
 
    public HSC() {
       
-      metadatas = new MetadatasFetcher(this);
+      alarms = new AlarmsFetcher(this);
       
       bGPPeers = new BGPPeersFetcher(this);
       
-      alarms = new AlarmsFetcher(this);
+      eventLogs = new EventLogsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       jobs = new JobsFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
       monitoringPorts = new MonitoringPortsFetcher(this);
       
       vRSs = new VRSsFetcher(this);
       
-      eventLogs = new EventLogsFetcher(this);
-      
    }
 
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getManagementIP() {
-      return managementIP;
-   }
-
-   @JsonIgnore
-   public void setManagementIP(String value) { 
-      this.managementIP = value;
-   }
-   @JsonIgnore
-   public Long getLastStateChange() {
-      return lastStateChange;
-   }
-
-   @JsonIgnore
-   public void setLastStateChange(Long value) { 
-      this.lastStateChange = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
    @JsonIgnore
    public String getAddress() {
       return address;
@@ -221,51 +185,6 @@ public class HSC extends RestObject {
       this.address = value;
    }
    @JsonIgnore
-   public Float getPeakCPUUsage() {
-      return peakCPUUsage;
-   }
-
-   @JsonIgnore
-   public void setPeakCPUUsage(Float value) { 
-      this.peakCPUUsage = value;
-   }
-   @JsonIgnore
-   public Float getPeakMemoryUsage() {
-      return peakMemoryUsage;
-   }
-
-   @JsonIgnore
-   public void setPeakMemoryUsage(Float value) { 
-      this.peakMemoryUsage = value;
-   }
-   @JsonIgnore
-   public String getDescription() {
-      return description;
-   }
-
-   @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
-   }
-   @JsonIgnore
-   public java.util.List<String> getMessages() {
-      return messages;
-   }
-
-   @JsonIgnore
-   public void setMessages(java.util.List<String> value) { 
-      this.messages = value;
-   }
-   @JsonIgnore
-   public java.util.List<DiskStat> getDisks() {
-      return disks;
-   }
-
-   @JsonIgnore
-   public void setDisks(java.util.List<DiskStat> value) { 
-      this.disks = value;
-   }
-   @JsonIgnore
    public Boolean getAlreadyMarkedForUnavailable() {
       return alreadyMarkedForUnavailable;
    }
@@ -273,87 +192,6 @@ public class HSC extends RestObject {
    @JsonIgnore
    public void setAlreadyMarkedForUnavailable(Boolean value) { 
       this.alreadyMarkedForUnavailable = value;
-   }
-   @JsonIgnore
-   public Long getUnavailableTimestamp() {
-      return unavailableTimestamp;
-   }
-
-   @JsonIgnore
-   public void setUnavailableTimestamp(Long value) { 
-      this.unavailableTimestamp = value;
-   }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
-   }
-   @JsonIgnore
-   public String getLocation() {
-      return location;
-   }
-
-   @JsonIgnore
-   public void setLocation(String value) { 
-      this.location = value;
-   }
-   @JsonIgnore
-   public String getModel() {
-      return model;
-   }
-
-   @JsonIgnore
-   public void setModel(String value) { 
-      this.model = value;
-   }
-   @JsonIgnore
-   public String getProductVersion() {
-      return productVersion;
-   }
-
-   @JsonIgnore
-   public void setProductVersion(String value) { 
-      this.productVersion = value;
-   }
-   @JsonIgnore
-   public java.util.List<String> getVsds() {
-      return vsds;
-   }
-
-   @JsonIgnore
-   public void setVsds(java.util.List<String> value) { 
-      this.vsds = value;
-   }
-   @JsonIgnore
-   public Status getStatus() {
-      return status;
-   }
-
-   @JsonIgnore
-   public void setStatus(Status value) { 
-      this.status = value;
-   }
-   @JsonIgnore
-   public Float getCurrentCPUUsage() {
-      return currentCPUUsage;
-   }
-
-   @JsonIgnore
-   public void setCurrentCPUUsage(Float value) { 
-      this.currentCPUUsage = value;
-   }
-   @JsonIgnore
-   public Float getCurrentMemoryUsage() {
-      return currentMemoryUsage;
-   }
-
-   @JsonIgnore
-   public void setCurrentMemoryUsage(Float value) { 
-      this.currentMemoryUsage = value;
    }
    @JsonIgnore
    public Float getAverageCPUUsage() {
@@ -374,6 +212,51 @@ public class HSC extends RestObject {
       this.averageMemoryUsage = value;
    }
    @JsonIgnore
+   public Float getCurrentCPUUsage() {
+      return currentCPUUsage;
+   }
+
+   @JsonIgnore
+   public void setCurrentCPUUsage(Float value) { 
+      this.currentCPUUsage = value;
+   }
+   @JsonIgnore
+   public Float getCurrentMemoryUsage() {
+      return currentMemoryUsage;
+   }
+
+   @JsonIgnore
+   public void setCurrentMemoryUsage(Float value) { 
+      this.currentMemoryUsage = value;
+   }
+   @JsonIgnore
+   public String getDescription() {
+      return description;
+   }
+
+   @JsonIgnore
+   public void setDescription(String value) { 
+      this.description = value;
+   }
+   @JsonIgnore
+   public java.util.List<DiskStat> getDisks() {
+      return disks;
+   }
+
+   @JsonIgnore
+   public void setDisks(java.util.List<DiskStat> value) { 
+      this.disks = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
@@ -381,6 +264,105 @@ public class HSC extends RestObject {
    @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
+   }
+   @JsonIgnore
+   public Long getLastStateChange() {
+      return lastStateChange;
+   }
+
+   @JsonIgnore
+   public void setLastStateChange(Long value) { 
+      this.lastStateChange = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getLocation() {
+      return location;
+   }
+
+   @JsonIgnore
+   public void setLocation(String value) { 
+      this.location = value;
+   }
+   @JsonIgnore
+   public String getManagementIP() {
+      return managementIP;
+   }
+
+   @JsonIgnore
+   public void setManagementIP(String value) { 
+      this.managementIP = value;
+   }
+   @JsonIgnore
+   public java.util.List<String> getMessages() {
+      return messages;
+   }
+
+   @JsonIgnore
+   public void setMessages(java.util.List<String> value) { 
+      this.messages = value;
+   }
+   @JsonIgnore
+   public String getModel() {
+      return model;
+   }
+
+   @JsonIgnore
+   public void setModel(String value) { 
+      this.model = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public Float getPeakCPUUsage() {
+      return peakCPUUsage;
+   }
+
+   @JsonIgnore
+   public void setPeakCPUUsage(Float value) { 
+      this.peakCPUUsage = value;
+   }
+   @JsonIgnore
+   public Float getPeakMemoryUsage() {
+      return peakMemoryUsage;
+   }
+
+   @JsonIgnore
+   public void setPeakMemoryUsage(Float value) { 
+      this.peakMemoryUsage = value;
+   }
+   @JsonIgnore
+   public String getProductVersion() {
+      return productVersion;
+   }
+
+   @JsonIgnore
+   public void setProductVersion(String value) { 
+      this.productVersion = value;
+   }
+   @JsonIgnore
+   public Status getStatus() {
+      return status;
+   }
+
+   @JsonIgnore
+   public void setStatus(Status value) { 
+      this.status = value;
    }
    @JsonIgnore
    public Type getType() {
@@ -391,12 +373,30 @@ public class HSC extends RestObject {
    public void setType(Type value) { 
       this.type = value;
    }
+   @JsonIgnore
+   public Long getUnavailableTimestamp() {
+      return unavailableTimestamp;
+   }
+
+   @JsonIgnore
+   public void setUnavailableTimestamp(Long value) { 
+      this.unavailableTimestamp = value;
+   }
+   @JsonIgnore
+   public java.util.List<String> getVsds() {
+      return vsds;
+   }
+
+   @JsonIgnore
+   public void setVsds(java.util.List<String> value) { 
+      this.vsds = value;
+   }
    
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public AlarmsFetcher getAlarms() {
+      return alarms;
    }
    
    @JsonIgnore
@@ -405,8 +405,8 @@ public class HSC extends RestObject {
    }
    
    @JsonIgnore
-   public AlarmsFetcher getAlarms() {
-      return alarms;
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
    }
    
    @JsonIgnore
@@ -420,6 +420,11 @@ public class HSC extends RestObject {
    }
    
    @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
+   @JsonIgnore
    public MonitoringPortsFetcher getMonitoringPorts() {
       return monitoringPorts;
    }
@@ -429,14 +434,9 @@ public class HSC extends RestObject {
       return vRSs;
    }
    
-   @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
-   }
-   
 
    public String toString() {
-      return "HSC [" + "name=" + name + ", managementIP=" + managementIP + ", lastStateChange=" + lastStateChange + ", lastUpdatedBy=" + lastUpdatedBy + ", address=" + address + ", peakCPUUsage=" + peakCPUUsage + ", peakMemoryUsage=" + peakMemoryUsage + ", description=" + description + ", messages=" + messages + ", disks=" + disks + ", alreadyMarkedForUnavailable=" + alreadyMarkedForUnavailable + ", unavailableTimestamp=" + unavailableTimestamp + ", entityScope=" + entityScope + ", location=" + location + ", model=" + model + ", productVersion=" + productVersion + ", vsds=" + vsds + ", status=" + status + ", currentCPUUsage=" + currentCPUUsage + ", currentMemoryUsage=" + currentMemoryUsage + ", averageCPUUsage=" + averageCPUUsage + ", averageMemoryUsage=" + averageMemoryUsage + ", externalID=" + externalID + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "HSC [" + "address=" + address + ", alreadyMarkedForUnavailable=" + alreadyMarkedForUnavailable + ", averageCPUUsage=" + averageCPUUsage + ", averageMemoryUsage=" + averageMemoryUsage + ", currentCPUUsage=" + currentCPUUsage + ", currentMemoryUsage=" + currentMemoryUsage + ", description=" + description + ", disks=" + disks + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastStateChange=" + lastStateChange + ", lastUpdatedBy=" + lastUpdatedBy + ", location=" + location + ", managementIP=" + managementIP + ", messages=" + messages + ", model=" + model + ", name=" + name + ", peakCPUUsage=" + peakCPUUsage + ", peakMemoryUsage=" + peakMemoryUsage + ", productVersion=" + productVersion + ", status=" + status + ", type=" + type + ", unavailableTimestamp=" + unavailableTimestamp + ", vsds=" + vsds + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

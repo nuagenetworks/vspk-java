@@ -35,12 +35,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.PermissionsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.AlarmsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EnterprisePermissionsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.PermissionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "service", resourceName = "services")
@@ -49,24 +49,54 @@ public class WANService extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum ConfigType { DYNAMIC, STATIC };
+   public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    public enum ServiceType { L2, L3 };
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   public enum ConfigType { DYNAMIC, STATIC };
    public enum TunnelType { DC_DEFAULT, GRE, VXLAN };
 
-   
-   @JsonProperty(value = "WANServiceIdentifier")
-   protected String WANServiceIdentifier;
    
    @JsonProperty(value = "IRBEnabled")
    protected Boolean IRBEnabled;
    
-   @JsonProperty(value = "name")
-   protected String name;
+   @JsonProperty(value = "WANServiceIdentifier")
+   protected String WANServiceIdentifier;
+   
+   @JsonProperty(value = "associatedDomainID")
+   protected String associatedDomainID;
+   
+   @JsonProperty(value = "associatedVPNConnectID")
+   protected String associatedVPNConnectID;
+   
+   @JsonProperty(value = "configType")
+   protected ConfigType configType;
+   
+   @JsonProperty(value = "description")
+   protected String description;
+   
+   @JsonProperty(value = "domainName")
+   protected String domainName;
+   
+   @JsonProperty(value = "enterpriseName")
+   protected String enterpriseName;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "externalRouteTarget")
+   protected String externalRouteTarget;
    
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "orphan")
+   protected Boolean orphan;
    
    @JsonProperty(value = "permittedAction")
    protected PermittedAction permittedAction;
@@ -77,26 +107,8 @@ public class WANService extends RestObject {
    @JsonProperty(value = "serviceType")
    protected ServiceType serviceType;
    
-   @JsonProperty(value = "description")
-   protected String description;
-   
-   @JsonProperty(value = "vnId")
-   protected Long vnId;
-   
-   @JsonProperty(value = "enterpriseName")
-   protected String enterpriseName;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
-   
-   @JsonProperty(value = "domainName")
-   protected String domainName;
-   
-   @JsonProperty(value = "configType")
-   protected ConfigType configType;
-   
-   @JsonProperty(value = "orphan")
-   protected Boolean orphan;
+   @JsonProperty(value = "tunnelType")
+   protected TunnelType tunnelType;
    
    @JsonProperty(value = "useUserMnemonic")
    protected Boolean useUserMnemonic;
@@ -104,34 +116,13 @@ public class WANService extends RestObject {
    @JsonProperty(value = "userMnemonic")
    protected String userMnemonic;
    
-   @JsonProperty(value = "associatedDomainID")
-   protected String associatedDomainID;
-   
-   @JsonProperty(value = "associatedVPNConnectID")
-   protected String associatedVPNConnectID;
-   
-   @JsonProperty(value = "tunnelType")
-   protected TunnelType tunnelType;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
-   @JsonProperty(value = "externalRouteTarget")
-   protected String externalRouteTarget;
+   @JsonProperty(value = "vnId")
+   protected Long vnId;
    
 
    
    @JsonIgnore
-   private PermissionsFetcher permissions;
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
-   
-   @JsonIgnore
    private AlarmsFetcher alarms;
-   
-   @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
    private EnterprisePermissionsFetcher enterprisePermissions;
@@ -139,25 +130,43 @@ public class WANService extends RestObject {
    @JsonIgnore
    private EventLogsFetcher eventLogs;
    
+   @JsonIgnore
+   private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
+   @JsonIgnore
+   private PermissionsFetcher permissions;
+   
 
    public WANService() {
       configType = ConfigType.STATIC;
       serviceType = ServiceType.L3;
       
-      permissions = new PermissionsFetcher(this);
-      
-      metadatas = new MetadatasFetcher(this);
-      
       alarms = new AlarmsFetcher(this);
-      
-      globalMetadatas = new GlobalMetadatasFetcher(this);
       
       enterprisePermissions = new EnterprisePermissionsFetcher(this);
       
       eventLogs = new EventLogsFetcher(this);
       
+      globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
+      
    }
 
+   @JsonIgnore
+   public Boolean getIRBEnabled() {
+      return IRBEnabled;
+   }
+
+   @JsonIgnore
+   public void setIRBEnabled(Boolean value) { 
+      this.IRBEnabled = value;
+   }
    @JsonIgnore
    public String getWANServiceIdentifier() {
       return WANServiceIdentifier;
@@ -168,13 +177,94 @@ public class WANService extends RestObject {
       this.WANServiceIdentifier = value;
    }
    @JsonIgnore
-   public Boolean getIRBEnabled() {
-      return IRBEnabled;
+   public String getAssociatedDomainID() {
+      return associatedDomainID;
    }
 
    @JsonIgnore
-   public void setIRBEnabled(Boolean value) { 
-      this.IRBEnabled = value;
+   public void setAssociatedDomainID(String value) { 
+      this.associatedDomainID = value;
+   }
+   @JsonIgnore
+   public String getAssociatedVPNConnectID() {
+      return associatedVPNConnectID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedVPNConnectID(String value) { 
+      this.associatedVPNConnectID = value;
+   }
+   @JsonIgnore
+   public ConfigType getConfigType() {
+      return configType;
+   }
+
+   @JsonIgnore
+   public void setConfigType(ConfigType value) { 
+      this.configType = value;
+   }
+   @JsonIgnore
+   public String getDescription() {
+      return description;
+   }
+
+   @JsonIgnore
+   public void setDescription(String value) { 
+      this.description = value;
+   }
+   @JsonIgnore
+   public String getDomainName() {
+      return domainName;
+   }
+
+   @JsonIgnore
+   public void setDomainName(String value) { 
+      this.domainName = value;
+   }
+   @JsonIgnore
+   public String getEnterpriseName() {
+      return enterpriseName;
+   }
+
+   @JsonIgnore
+   public void setEnterpriseName(String value) { 
+      this.enterpriseName = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public String getExternalRouteTarget() {
+      return externalRouteTarget;
+   }
+
+   @JsonIgnore
+   public void setExternalRouteTarget(String value) { 
+      this.externalRouteTarget = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    @JsonIgnore
    public String getName() {
@@ -186,13 +276,13 @@ public class WANService extends RestObject {
       this.name = value;
    }
    @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
+   public Boolean getOrphan() {
+      return orphan;
    }
 
    @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
+   public void setOrphan(Boolean value) { 
+      this.orphan = value;
    }
    @JsonIgnore
    public PermittedAction getPermittedAction() {
@@ -222,67 +312,13 @@ public class WANService extends RestObject {
       this.serviceType = value;
    }
    @JsonIgnore
-   public String getDescription() {
-      return description;
+   public TunnelType getTunnelType() {
+      return tunnelType;
    }
 
    @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
-   }
-   @JsonIgnore
-   public Long getVnId() {
-      return vnId;
-   }
-
-   @JsonIgnore
-   public void setVnId(Long value) { 
-      this.vnId = value;
-   }
-   @JsonIgnore
-   public String getEnterpriseName() {
-      return enterpriseName;
-   }
-
-   @JsonIgnore
-   public void setEnterpriseName(String value) { 
-      this.enterpriseName = value;
-   }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
-   }
-   @JsonIgnore
-   public String getDomainName() {
-      return domainName;
-   }
-
-   @JsonIgnore
-   public void setDomainName(String value) { 
-      this.domainName = value;
-   }
-   @JsonIgnore
-   public ConfigType getConfigType() {
-      return configType;
-   }
-
-   @JsonIgnore
-   public void setConfigType(ConfigType value) { 
-      this.configType = value;
-   }
-   @JsonIgnore
-   public Boolean getOrphan() {
-      return orphan;
-   }
-
-   @JsonIgnore
-   public void setOrphan(Boolean value) { 
-      this.orphan = value;
+   public void setTunnelType(TunnelType value) { 
+      this.tunnelType = value;
    }
    @JsonIgnore
    public Boolean getUseUserMnemonic() {
@@ -303,71 +339,20 @@ public class WANService extends RestObject {
       this.userMnemonic = value;
    }
    @JsonIgnore
-   public String getAssociatedDomainID() {
-      return associatedDomainID;
+   public Long getVnId() {
+      return vnId;
    }
 
    @JsonIgnore
-   public void setAssociatedDomainID(String value) { 
-      this.associatedDomainID = value;
-   }
-   @JsonIgnore
-   public String getAssociatedVPNConnectID() {
-      return associatedVPNConnectID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedVPNConnectID(String value) { 
-      this.associatedVPNConnectID = value;
-   }
-   @JsonIgnore
-   public TunnelType getTunnelType() {
-      return tunnelType;
-   }
-
-   @JsonIgnore
-   public void setTunnelType(TunnelType value) { 
-      this.tunnelType = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
-   @JsonIgnore
-   public String getExternalRouteTarget() {
-      return externalRouteTarget;
-   }
-
-   @JsonIgnore
-   public void setExternalRouteTarget(String value) { 
-      this.externalRouteTarget = value;
+   public void setVnId(Long value) { 
+      this.vnId = value;
    }
    
 
-   
-   @JsonIgnore
-   public PermissionsFetcher getPermissions() {
-      return permissions;
-   }
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public AlarmsFetcher getAlarms() {
       return alarms;
-   }
-   
-   @JsonIgnore
-   public GlobalMetadatasFetcher getGlobalMetadatas() {
-      return globalMetadatas;
    }
    
    @JsonIgnore
@@ -380,9 +365,24 @@ public class WANService extends RestObject {
       return eventLogs;
    }
    
+   @JsonIgnore
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
+   }
+   
 
    public String toString() {
-      return "WANService [" + "WANServiceIdentifier=" + WANServiceIdentifier + ", IRBEnabled=" + IRBEnabled + ", name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", permittedAction=" + permittedAction + ", servicePolicy=" + servicePolicy + ", serviceType=" + serviceType + ", description=" + description + ", vnId=" + vnId + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", domainName=" + domainName + ", configType=" + configType + ", orphan=" + orphan + ", useUserMnemonic=" + useUserMnemonic + ", userMnemonic=" + userMnemonic + ", associatedDomainID=" + associatedDomainID + ", associatedVPNConnectID=" + associatedVPNConnectID + ", tunnelType=" + tunnelType + ", externalID=" + externalID + ", externalRouteTarget=" + externalRouteTarget + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "WANService [" + "IRBEnabled=" + IRBEnabled + ", WANServiceIdentifier=" + WANServiceIdentifier + ", associatedDomainID=" + associatedDomainID + ", associatedVPNConnectID=" + associatedVPNConnectID + ", configType=" + configType + ", description=" + description + ", domainName=" + domainName + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", externalID=" + externalID + ", externalRouteTarget=" + externalRouteTarget + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", orphan=" + orphan + ", permittedAction=" + permittedAction + ", servicePolicy=" + servicePolicy + ", serviceType=" + serviceType + ", tunnelType=" + tunnelType + ", useUserMnemonic=" + useUserMnemonic + ", userMnemonic=" + userMnemonic + ", vnId=" + vnId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

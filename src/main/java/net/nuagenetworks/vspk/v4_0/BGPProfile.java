@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "bgpprofile", resourceName = "bgpprofiles")
@@ -48,8 +48,11 @@ public class BGPProfile extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
+   @JsonProperty(value = "associatedExportRoutingPolicyID")
+   protected String associatedExportRoutingPolicyID;
+   
+   @JsonProperty(value = "associatedImportRoutingPolicyID")
+   protected String associatedImportRoutingPolicyID;
    
    @JsonProperty(value = "dampeningHalfLife")
    protected Long dampeningHalfLife;
@@ -72,40 +75,46 @@ public class BGPProfile extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
-   @JsonProperty(value = "associatedExportRoutingPolicyID")
-   protected String associatedExportRoutingPolicyID;
-   
-   @JsonProperty(value = "associatedImportRoutingPolicyID")
-   protected String associatedImportRoutingPolicyID;
-   
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-
+   @JsonProperty(value = "name")
+   protected String name;
    
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
+
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public BGPProfile() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
    @JsonIgnore
-   public String getName() {
-      return name;
+   public String getAssociatedExportRoutingPolicyID() {
+      return associatedExportRoutingPolicyID;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
+   public void setAssociatedExportRoutingPolicyID(String value) { 
+      this.associatedExportRoutingPolicyID = value;
+   }
+   @JsonIgnore
+   public String getAssociatedImportRoutingPolicyID() {
+      return associatedImportRoutingPolicyID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedImportRoutingPolicyID(String value) { 
+      this.associatedImportRoutingPolicyID = value;
    }
    @JsonIgnore
    public Long getDampeningHalfLife() {
@@ -171,24 +180,6 @@ public class BGPProfile extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
-   public String getAssociatedExportRoutingPolicyID() {
-      return associatedExportRoutingPolicyID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedExportRoutingPolicyID(String value) { 
-      this.associatedExportRoutingPolicyID = value;
-   }
-   @JsonIgnore
-   public String getAssociatedImportRoutingPolicyID() {
-      return associatedImportRoutingPolicyID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedImportRoutingPolicyID(String value) { 
-      this.associatedImportRoutingPolicyID = value;
-   }
-   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
@@ -197,22 +188,31 @@ public class BGPProfile extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "BGPProfile [" + "name=" + name + ", dampeningHalfLife=" + dampeningHalfLife + ", dampeningMaxSuppress=" + dampeningMaxSuppress + ", dampeningName=" + dampeningName + ", dampeningReuse=" + dampeningReuse + ", dampeningSuppress=" + dampeningSuppress + ", description=" + description + ", entityScope=" + entityScope + ", associatedExportRoutingPolicyID=" + associatedExportRoutingPolicyID + ", associatedImportRoutingPolicyID=" + associatedImportRoutingPolicyID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "BGPProfile [" + "associatedExportRoutingPolicyID=" + associatedExportRoutingPolicyID + ", associatedImportRoutingPolicyID=" + associatedImportRoutingPolicyID + ", dampeningHalfLife=" + dampeningHalfLife + ", dampeningMaxSuppress=" + dampeningMaxSuppress + ", dampeningName=" + dampeningName + ", dampeningReuse=" + dampeningReuse + ", dampeningSuppress=" + dampeningSuppress + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

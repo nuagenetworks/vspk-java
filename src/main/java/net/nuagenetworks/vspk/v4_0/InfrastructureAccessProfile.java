@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "infrastructureaccessprofile", resourceName = "infrastructureaccessprofiles")
@@ -53,15 +53,6 @@ public class InfrastructureAccessProfile extends RestObject {
    @JsonProperty(value = "SSHAuthMode")
    protected SSHAuthMode SSHAuthMode;
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "password")
-   protected String password;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
    @JsonProperty(value = "description")
    protected String description;
    
@@ -71,29 +62,38 @@ public class InfrastructureAccessProfile extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "password")
+   protected String password;
+   
    @JsonProperty(value = "sourceIPFilter")
    protected SourceIPFilter sourceIPFilter;
    
    @JsonProperty(value = "userName")
    protected String userName;
    
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
 
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public InfrastructureAccessProfile() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
    }
 
@@ -105,33 +105,6 @@ public class InfrastructureAccessProfile extends RestObject {
    @JsonIgnore
    public void setSSHAuthMode(SSHAuthMode value) { 
       this.SSHAuthMode = value;
-   }
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getPassword() {
-      return password;
-   }
-
-   @JsonIgnore
-   public void setPassword(String value) { 
-      this.password = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
    }
    @JsonIgnore
    public String getDescription() {
@@ -161,6 +134,42 @@ public class InfrastructureAccessProfile extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public String getPassword() {
+      return password;
+   }
+
+   @JsonIgnore
+   public void setPassword(String value) { 
+      this.password = value;
+   }
+   @JsonIgnore
    public SourceIPFilter getSourceIPFilter() {
       return sourceIPFilter;
    }
@@ -178,31 +187,22 @@ public class InfrastructureAccessProfile extends RestObject {
    public void setUserName(String value) { 
       this.userName = value;
    }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "InfrastructureAccessProfile [" + "SSHAuthMode=" + SSHAuthMode + ", name=" + name + ", password=" + password + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", sourceIPFilter=" + sourceIPFilter + ", userName=" + userName + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "InfrastructureAccessProfile [" + "SSHAuthMode=" + SSHAuthMode + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", password=" + password + ", sourceIPFilter=" + sourceIPFilter + ", userName=" + userName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

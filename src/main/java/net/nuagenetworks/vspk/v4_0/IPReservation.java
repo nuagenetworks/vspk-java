@@ -35,9 +35,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "ipreservation", resourceName = "ipreservations")
@@ -49,14 +49,14 @@ public class IPReservation extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "MAC")
-   protected String MAC;
-   
    @JsonProperty(value = "IPAddress")
    protected String IPAddress;
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
+   @JsonProperty(value = "MAC")
+   protected String MAC;
+   
+   @JsonProperty(value = "dynamicAllocationEnabled")
+   protected Boolean dynamicAllocationEnabled;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
@@ -64,40 +64,31 @@ public class IPReservation extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-   @JsonProperty(value = "dynamicAllocationEnabled")
-   protected Boolean dynamicAllocationEnabled;
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private EventLogsFetcher eventLogs;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private EventLogsFetcher eventLogs;
+   private MetadatasFetcher metadatas;
    
 
    public IPReservation() {
       
-      metadatas = new MetadatasFetcher(this);
+      eventLogs = new EventLogsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
-      eventLogs = new EventLogsFetcher(this);
+      metadatas = new MetadatasFetcher(this);
       
    }
 
-   @JsonIgnore
-   public String getMAC() {
-      return MAC;
-   }
-
-   @JsonIgnore
-   public void setMAC(String value) { 
-      this.MAC = value;
-   }
    @JsonIgnore
    public String getIPAddress() {
       return IPAddress;
@@ -108,13 +99,22 @@ public class IPReservation extends RestObject {
       this.IPAddress = value;
    }
    @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
+   public String getMAC() {
+      return MAC;
    }
 
    @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
+   public void setMAC(String value) { 
+      this.MAC = value;
+   }
+   @JsonIgnore
+   public Boolean getDynamicAllocationEnabled() {
+      return dynamicAllocationEnabled;
+   }
+
+   @JsonIgnore
+   public void setDynamicAllocationEnabled(Boolean value) { 
+      this.dynamicAllocationEnabled = value;
    }
    @JsonIgnore
    public EntityScope getEntityScope() {
@@ -135,20 +135,20 @@ public class IPReservation extends RestObject {
       this.externalID = value;
    }
    @JsonIgnore
-   public Boolean getDynamicAllocationEnabled() {
-      return dynamicAllocationEnabled;
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
    }
 
    @JsonIgnore
-   public void setDynamicAllocationEnabled(Boolean value) { 
-      this.dynamicAllocationEnabled = value;
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public EventLogsFetcher getEventLogs() {
+      return eventLogs;
    }
    
    @JsonIgnore
@@ -157,13 +157,13 @@ public class IPReservation extends RestObject {
    }
    
    @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
 
    public String toString() {
-      return "IPReservation [" + "MAC=" + MAC + ", IPAddress=" + IPAddress + ", lastUpdatedBy=" + lastUpdatedBy + ", entityScope=" + entityScope + ", externalID=" + externalID + ", dynamicAllocationEnabled=" + dynamicAllocationEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "IPReservation [" + "IPAddress=" + IPAddress + ", MAC=" + MAC + ", dynamicAllocationEnabled=" + dynamicAllocationEnabled + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

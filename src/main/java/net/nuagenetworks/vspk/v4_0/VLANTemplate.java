@@ -35,10 +35,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.UplinkConnectionsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.BRConnectionsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.UplinkConnectionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "vlantemplate", resourceName = "vlantemplates")
@@ -50,93 +50,57 @@ public class VLANTemplate extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "value")
-   protected Long value;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "description")
-   protected String description;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
-   
    @JsonProperty(value = "associatedEgressQOSPolicyID")
    protected String associatedEgressQOSPolicyID;
    
    @JsonProperty(value = "associatedVSCProfileID")
    protected String associatedVSCProfileID;
    
+   @JsonProperty(value = "description")
+   protected String description;
+   
    @JsonProperty(value = "ducVlan")
    protected Boolean ducVlan;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
    
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "value")
+   protected Long value;
+   
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private BRConnectionsFetcher bRConnections;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private UplinkConnectionsFetcher uplinkConnections;
+   private MetadatasFetcher metadatas;
    
    @JsonIgnore
-   private BRConnectionsFetcher bRConnections;
+   private UplinkConnectionsFetcher uplinkConnections;
    
 
    public VLANTemplate() {
       
-      metadatas = new MetadatasFetcher(this);
+      bRConnections = new BRConnectionsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
       uplinkConnections = new UplinkConnectionsFetcher(this);
       
-      bRConnections = new BRConnectionsFetcher(this);
-      
    }
 
-   @JsonIgnore
-   public Long getValue() {
-      return value;
-   }
-
-   @JsonIgnore
-   public void setValue(Long value) { 
-      this.value = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public String getDescription() {
-      return description;
-   }
-
-   @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
-   }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
-   }
    @JsonIgnore
    public String getAssociatedEgressQOSPolicyID() {
       return associatedEgressQOSPolicyID;
@@ -156,6 +120,15 @@ public class VLANTemplate extends RestObject {
       this.associatedVSCProfileID = value;
    }
    @JsonIgnore
+   public String getDescription() {
+      return description;
+   }
+
+   @JsonIgnore
+   public void setDescription(String value) { 
+      this.description = value;
+   }
+   @JsonIgnore
    public Boolean getDucVlan() {
       return ducVlan;
    }
@@ -163,6 +136,15 @@ public class VLANTemplate extends RestObject {
    @JsonIgnore
    public void setDucVlan(Boolean value) { 
       this.ducVlan = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
    }
    @JsonIgnore
    public String getExternalID() {
@@ -173,12 +155,30 @@ public class VLANTemplate extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public Long getValue() {
+      return value;
+   }
+
+   @JsonIgnore
+   public void setValue(Long value) { 
+      this.value = value;
+   }
    
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public BRConnectionsFetcher getBRConnections() {
+      return bRConnections;
    }
    
    @JsonIgnore
@@ -187,18 +187,18 @@ public class VLANTemplate extends RestObject {
    }
    
    @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
+   @JsonIgnore
    public UplinkConnectionsFetcher getUplinkConnections() {
       return uplinkConnections;
    }
    
-   @JsonIgnore
-   public BRConnectionsFetcher getBRConnections() {
-      return bRConnections;
-   }
-   
 
    public String toString() {
-      return "VLANTemplate [" + "value=" + value + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", entityScope=" + entityScope + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", associatedVSCProfileID=" + associatedVSCProfileID + ", ducVlan=" + ducVlan + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VLANTemplate [" + "associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", associatedVSCProfileID=" + associatedVSCProfileID + ", description=" + description + ", ducVlan=" + ducVlan + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", value=" + value + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

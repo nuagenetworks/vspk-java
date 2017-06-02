@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "site", resourceName = "sites")
@@ -48,23 +48,11 @@ public class SiteInfo extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
    @JsonProperty(value = "address")
    protected String address;
    
    @JsonProperty(value = "description")
    protected String description;
-   
-   @JsonProperty(value = "siteIdentifier")
-   protected String siteIdentifier;
-   
-   @JsonProperty(value = "xmppDomain")
-   protected String xmppDomain;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
@@ -72,41 +60,35 @@ public class SiteInfo extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "siteIdentifier")
+   protected String siteIdentifier;
+   
+   @JsonProperty(value = "xmppDomain")
+   protected String xmppDomain;
+   
+
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public SiteInfo() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
    @JsonIgnore
    public String getAddress() {
       return address;
@@ -126,24 +108,6 @@ public class SiteInfo extends RestObject {
       this.description = value;
    }
    @JsonIgnore
-   public String getSiteIdentifier() {
-      return siteIdentifier;
-   }
-
-   @JsonIgnore
-   public void setSiteIdentifier(String value) { 
-      this.siteIdentifier = value;
-   }
-   @JsonIgnore
-   public String getXmppDomain() {
-      return xmppDomain;
-   }
-
-   @JsonIgnore
-   public void setXmppDomain(String value) { 
-      this.xmppDomain = value;
-   }
-   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
@@ -161,22 +125,58 @@ public class SiteInfo extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public String getSiteIdentifier() {
+      return siteIdentifier;
+   }
+
+   @JsonIgnore
+   public void setSiteIdentifier(String value) { 
+      this.siteIdentifier = value;
+   }
+   @JsonIgnore
+   public String getXmppDomain() {
+      return xmppDomain;
+   }
+
+   @JsonIgnore
+   public void setXmppDomain(String value) { 
+      this.xmppDomain = value;
+   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "SiteInfo [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", address=" + address + ", description=" + description + ", siteIdentifier=" + siteIdentifier + ", xmppDomain=" + xmppDomain + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "SiteInfo [" + "address=" + address + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", siteIdentifier=" + siteIdentifier + ", xmppDomain=" + xmppDomain + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

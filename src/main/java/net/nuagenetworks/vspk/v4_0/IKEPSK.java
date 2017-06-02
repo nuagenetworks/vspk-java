@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "ikepsk", resourceName = "ikepsks")
@@ -48,20 +48,14 @@ public class IKEPSK extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
+   @JsonProperty(value = "associatedEnterpriseID")
+   protected String associatedEnterpriseID;
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
+   @JsonProperty(value = "autoCreated")
+   protected Boolean autoCreated;
    
    @JsonProperty(value = "description")
    protected String description;
-   
-   @JsonProperty(value = "signature")
-   protected String signature;
-   
-   @JsonProperty(value = "signingCertificateSerialNumber")
-   protected Long signingCertificateSerialNumber;
    
    @JsonProperty(value = "encryptedPSK")
    protected String encryptedPSK;
@@ -69,55 +63,61 @@ public class IKEPSK extends RestObject {
    @JsonProperty(value = "encryptingCertificateSerialNumber")
    protected Long encryptingCertificateSerialNumber;
    
-   @JsonProperty(value = "unencryptedPSK")
-   protected String unencryptedPSK;
-   
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
-   
-   @JsonProperty(value = "associatedEnterpriseID")
-   protected String associatedEnterpriseID;
-   
-   @JsonProperty(value = "autoCreated")
-   protected Boolean autoCreated;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "signature")
+   protected String signature;
+   
+   @JsonProperty(value = "signingCertificateSerialNumber")
+   protected Long signingCertificateSerialNumber;
+   
+   @JsonProperty(value = "unencryptedPSK")
+   protected String unencryptedPSK;
+   
+
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public IKEPSK() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
    @JsonIgnore
-   public String getName() {
-      return name;
+   public String getAssociatedEnterpriseID() {
+      return associatedEnterpriseID;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
+   public void setAssociatedEnterpriseID(String value) { 
+      this.associatedEnterpriseID = value;
    }
    @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
+   public Boolean getAutoCreated() {
+      return autoCreated;
    }
 
    @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
+   public void setAutoCreated(Boolean value) { 
+      this.autoCreated = value;
    }
    @JsonIgnore
    public String getDescription() {
@@ -127,24 +127,6 @@ public class IKEPSK extends RestObject {
    @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
-   }
-   @JsonIgnore
-   public String getSignature() {
-      return signature;
-   }
-
-   @JsonIgnore
-   public void setSignature(String value) { 
-      this.signature = value;
-   }
-   @JsonIgnore
-   public Long getSigningCertificateSerialNumber() {
-      return signingCertificateSerialNumber;
-   }
-
-   @JsonIgnore
-   public void setSigningCertificateSerialNumber(Long value) { 
-      this.signingCertificateSerialNumber = value;
    }
    @JsonIgnore
    public String getEncryptedPSK() {
@@ -165,15 +147,6 @@ public class IKEPSK extends RestObject {
       this.encryptingCertificateSerialNumber = value;
    }
    @JsonIgnore
-   public String getUnencryptedPSK() {
-      return unencryptedPSK;
-   }
-
-   @JsonIgnore
-   public void setUnencryptedPSK(String value) { 
-      this.unencryptedPSK = value;
-   }
-   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
@@ -181,24 +154,6 @@ public class IKEPSK extends RestObject {
    @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
-   }
-   @JsonIgnore
-   public String getAssociatedEnterpriseID() {
-      return associatedEnterpriseID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedEnterpriseID(String value) { 
-      this.associatedEnterpriseID = value;
-   }
-   @JsonIgnore
-   public Boolean getAutoCreated() {
-      return autoCreated;
-   }
-
-   @JsonIgnore
-   public void setAutoCreated(Boolean value) { 
-      this.autoCreated = value;
    }
    @JsonIgnore
    public String getExternalID() {
@@ -209,22 +164,67 @@ public class IKEPSK extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public String getSignature() {
+      return signature;
+   }
+
+   @JsonIgnore
+   public void setSignature(String value) { 
+      this.signature = value;
+   }
+   @JsonIgnore
+   public Long getSigningCertificateSerialNumber() {
+      return signingCertificateSerialNumber;
+   }
+
+   @JsonIgnore
+   public void setSigningCertificateSerialNumber(Long value) { 
+      this.signingCertificateSerialNumber = value;
+   }
+   @JsonIgnore
+   public String getUnencryptedPSK() {
+      return unencryptedPSK;
+   }
+
+   @JsonIgnore
+   public void setUnencryptedPSK(String value) { 
+      this.unencryptedPSK = value;
+   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "IKEPSK [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", signature=" + signature + ", signingCertificateSerialNumber=" + signingCertificateSerialNumber + ", encryptedPSK=" + encryptedPSK + ", encryptingCertificateSerialNumber=" + encryptingCertificateSerialNumber + ", unencryptedPSK=" + unencryptedPSK + ", entityScope=" + entityScope + ", associatedEnterpriseID=" + associatedEnterpriseID + ", autoCreated=" + autoCreated + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "IKEPSK [" + "associatedEnterpriseID=" + associatedEnterpriseID + ", autoCreated=" + autoCreated + ", description=" + description + ", encryptedPSK=" + encryptedPSK + ", encryptingCertificateSerialNumber=" + encryptingCertificateSerialNumber + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", signature=" + signature + ", signingCertificateSerialNumber=" + signingCertificateSerialNumber + ", unencryptedPSK=" + unencryptedPSK + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

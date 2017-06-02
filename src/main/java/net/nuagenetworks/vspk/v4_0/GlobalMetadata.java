@@ -35,9 +35,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadataTagsFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "globalmetadata", resourceName = "globalmetadatas")
@@ -49,26 +49,11 @@ public class GlobalMetadata extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "description")
-   protected String description;
-   
-   @JsonProperty(value = "metadataTagIDs")
-   protected java.util.List<String> metadataTagIDs;
-   
-   @JsonProperty(value = "networkNotificationDisabled")
-   protected Boolean networkNotificationDisabled;
-   
    @JsonProperty(value = "blob")
    protected String blob;
    
-   @JsonProperty(value = "global")
-   protected Boolean globalMetadata;
+   @JsonProperty(value = "description")
+   protected String description;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
@@ -76,7 +61,25 @@ public class GlobalMetadata extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
+   @JsonProperty(value = "global")
+   protected Boolean globalMetadata;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "metadataTagIDs")
+   protected java.util.List<String> metadataTagIDs;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "networkNotificationDisabled")
+   protected Boolean networkNotificationDisabled;
+   
 
+   
+   @JsonIgnore
+   private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
    private MetadatasFetcher metadatas;
@@ -84,65 +87,17 @@ public class GlobalMetadata extends RestObject {
    @JsonIgnore
    private MetadataTagsFetcher metadataTags;
    
-   @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
-   
 
    public GlobalMetadata() {
+      
+      globalMetadatas = new GlobalMetadatasFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
       
       metadataTags = new MetadataTagsFetcher(this);
       
-      globalMetadatas = new GlobalMetadatasFetcher(this);
-      
    }
 
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public String getDescription() {
-      return description;
-   }
-
-   @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
-   }
-   @JsonIgnore
-   public java.util.List<String> getMetadataTagIDs() {
-      return metadataTagIDs;
-   }
-
-   @JsonIgnore
-   public void setMetadataTagIDs(java.util.List<String> value) { 
-      this.metadataTagIDs = value;
-   }
-   @JsonIgnore
-   public Boolean getNetworkNotificationDisabled() {
-      return networkNotificationDisabled;
-   }
-
-   @JsonIgnore
-   public void setNetworkNotificationDisabled(Boolean value) { 
-      this.networkNotificationDisabled = value;
-   }
    @JsonIgnore
    public String getBlob() {
       return blob;
@@ -153,13 +108,13 @@ public class GlobalMetadata extends RestObject {
       this.blob = value;
    }
    @JsonIgnore
-   public Boolean getGlobalMetadata() {
-      return globalMetadata;
+   public String getDescription() {
+      return description;
    }
 
    @JsonIgnore
-   public void setGlobalMetadata(Boolean value) { 
-      this.globalMetadata = value;
+   public void setDescription(String value) { 
+      this.description = value;
    }
    @JsonIgnore
    public EntityScope getEntityScope() {
@@ -179,8 +134,58 @@ public class GlobalMetadata extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public Boolean getGlobalMetadata() {
+      return globalMetadata;
+   }
+
+   @JsonIgnore
+   public void setGlobalMetadata(Boolean value) { 
+      this.globalMetadata = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public java.util.List<String> getMetadataTagIDs() {
+      return metadataTagIDs;
+   }
+
+   @JsonIgnore
+   public void setMetadataTagIDs(java.util.List<String> value) { 
+      this.metadataTagIDs = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public Boolean getNetworkNotificationDisabled() {
+      return networkNotificationDisabled;
+   }
+
+   @JsonIgnore
+   public void setNetworkNotificationDisabled(Boolean value) { 
+      this.networkNotificationDisabled = value;
+   }
    
 
+   
+   @JsonIgnore
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
    
    @JsonIgnore
    public MetadatasFetcher getMetadatas() {
@@ -192,14 +197,9 @@ public class GlobalMetadata extends RestObject {
       return metadataTags;
    }
    
-   @JsonIgnore
-   public GlobalMetadatasFetcher getGlobalMetadatas() {
-      return globalMetadatas;
-   }
-   
 
    public String toString() {
-      return "GlobalMetadata [" + "name=" + name + ", lastUpdatedBy=" + lastUpdatedBy + ", description=" + description + ", metadataTagIDs=" + metadataTagIDs + ", networkNotificationDisabled=" + networkNotificationDisabled + ", blob=" + blob + ", globalMetadata=" + globalMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "GlobalMetadata [" + "blob=" + blob + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", globalMetadata=" + globalMetadata + ", lastUpdatedBy=" + lastUpdatedBy + ", metadataTagIDs=" + metadataTagIDs + ", name=" + name + ", networkNotificationDisabled=" + networkNotificationDisabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

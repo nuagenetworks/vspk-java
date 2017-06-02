@@ -46,23 +46,23 @@ public class Autodiscovereddatacenter extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "managedObjectID")
-   protected String managedObjectID;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
+   @JsonProperty(value = "associatedVCenterID")
+   protected String associatedVCenterID;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
-   @JsonProperty(value = "associatedVCenterID")
-   protected String associatedVCenterID;
-   
    @JsonProperty(value = "externalID")
    protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "managedObjectID")
+   protected String managedObjectID;
+   
+   @JsonProperty(value = "name")
+   protected String name;
    
 
    
@@ -72,31 +72,13 @@ public class Autodiscovereddatacenter extends RestObject {
    }
 
    @JsonIgnore
-   public String getName() {
-      return name;
+   public String getAssociatedVCenterID() {
+      return associatedVCenterID;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public String getManagedObjectID() {
-      return managedObjectID;
-   }
-
-   @JsonIgnore
-   public void setManagedObjectID(String value) { 
-      this.managedObjectID = value;
-   }
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
+   public void setAssociatedVCenterID(String value) { 
+      this.associatedVCenterID = value;
    }
    @JsonIgnore
    public EntityScope getEntityScope() {
@@ -108,15 +90,6 @@ public class Autodiscovereddatacenter extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
-   public String getAssociatedVCenterID() {
-      return associatedVCenterID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedVCenterID(String value) { 
-      this.associatedVCenterID = value;
-   }
-   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
@@ -125,12 +98,39 @@ public class Autodiscovereddatacenter extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public String getManagedObjectID() {
+      return managedObjectID;
+   }
+
+   @JsonIgnore
+   public void setManagedObjectID(String value) { 
+      this.managedObjectID = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
    
 
    
 
    public String toString() {
-      return "Autodiscovereddatacenter [" + "name=" + name + ", managedObjectID=" + managedObjectID + ", lastUpdatedBy=" + lastUpdatedBy + ", entityScope=" + entityScope + ", associatedVCenterID=" + associatedVCenterID + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Autodiscovereddatacenter [" + "associatedVCenterID=" + associatedVCenterID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", managedObjectID=" + managedObjectID + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

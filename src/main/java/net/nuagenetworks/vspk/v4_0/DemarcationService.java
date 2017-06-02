@@ -46,17 +46,17 @@ public class DemarcationService extends RestObject {
    public enum Type { BR_PORT, GATEWAY };
 
    
-   @JsonProperty(value = "routeDistinguisher")
-   protected String routeDistinguisher;
-   
-   @JsonProperty(value = "priority")
-   protected String priority;
-   
    @JsonProperty(value = "associatedGatewayID")
    protected String associatedGatewayID;
    
    @JsonProperty(value = "associatedVLANID")
    protected String associatedVLANID;
+   
+   @JsonProperty(value = "priority")
+   protected String priority;
+   
+   @JsonProperty(value = "routeDistinguisher")
+   protected String routeDistinguisher;
    
    @JsonProperty(value = "type")
    protected Type type;
@@ -68,24 +68,6 @@ public class DemarcationService extends RestObject {
       
    }
 
-   @JsonIgnore
-   public String getRouteDistinguisher() {
-      return routeDistinguisher;
-   }
-
-   @JsonIgnore
-   public void setRouteDistinguisher(String value) { 
-      this.routeDistinguisher = value;
-   }
-   @JsonIgnore
-   public String getPriority() {
-      return priority;
-   }
-
-   @JsonIgnore
-   public void setPriority(String value) { 
-      this.priority = value;
-   }
    @JsonIgnore
    public String getAssociatedGatewayID() {
       return associatedGatewayID;
@@ -105,6 +87,24 @@ public class DemarcationService extends RestObject {
       this.associatedVLANID = value;
    }
    @JsonIgnore
+   public String getPriority() {
+      return priority;
+   }
+
+   @JsonIgnore
+   public void setPriority(String value) { 
+      this.priority = value;
+   }
+   @JsonIgnore
+   public String getRouteDistinguisher() {
+      return routeDistinguisher;
+   }
+
+   @JsonIgnore
+   public void setRouteDistinguisher(String value) { 
+      this.routeDistinguisher = value;
+   }
+   @JsonIgnore
    public Type getType() {
       return type;
    }
@@ -118,7 +118,7 @@ public class DemarcationService extends RestObject {
    
 
    public String toString() {
-      return "DemarcationService [" + "routeDistinguisher=" + routeDistinguisher + ", priority=" + priority + ", associatedGatewayID=" + associatedGatewayID + ", associatedVLANID=" + associatedVLANID + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "DemarcationService [" + "associatedGatewayID=" + associatedGatewayID + ", associatedVLANID=" + associatedVLANID + ", priority=" + priority + ", routeDistinguisher=" + routeDistinguisher + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

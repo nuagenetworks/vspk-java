@@ -50,20 +50,20 @@ public class BRConnection extends RestObject {
    @JsonProperty(value = "DNSAddress")
    protected String DNSAddress;
    
-   @JsonProperty(value = "gateway")
-   protected String gateway;
-   
    @JsonProperty(value = "address")
    protected String address;
    
    @JsonProperty(value = "advertisementCriteria")
    protected AdvertisementCriteria advertisementCriteria;
    
-   @JsonProperty(value = "netmask")
-   protected String netmask;
+   @JsonProperty(value = "gateway")
+   protected String gateway;
    
    @JsonProperty(value = "mode")
    protected Mode mode;
+   
+   @JsonProperty(value = "netmask")
+   protected String netmask;
    
    @JsonProperty(value = "uplinkID")
    protected Long uplinkID;
@@ -85,15 +85,6 @@ public class BRConnection extends RestObject {
       this.DNSAddress = value;
    }
    @JsonIgnore
-   public String getGateway() {
-      return gateway;
-   }
-
-   @JsonIgnore
-   public void setGateway(String value) { 
-      this.gateway = value;
-   }
-   @JsonIgnore
    public String getAddress() {
       return address;
    }
@@ -112,13 +103,13 @@ public class BRConnection extends RestObject {
       this.advertisementCriteria = value;
    }
    @JsonIgnore
-   public String getNetmask() {
-      return netmask;
+   public String getGateway() {
+      return gateway;
    }
 
    @JsonIgnore
-   public void setNetmask(String value) { 
-      this.netmask = value;
+   public void setGateway(String value) { 
+      this.gateway = value;
    }
    @JsonIgnore
    public Mode getMode() {
@@ -128,6 +119,15 @@ public class BRConnection extends RestObject {
    @JsonIgnore
    public void setMode(Mode value) { 
       this.mode = value;
+   }
+   @JsonIgnore
+   public String getNetmask() {
+      return netmask;
+   }
+
+   @JsonIgnore
+   public void setNetmask(String value) { 
+      this.netmask = value;
    }
    @JsonIgnore
    public Long getUplinkID() {
@@ -143,7 +143,7 @@ public class BRConnection extends RestObject {
    
 
    public String toString() {
-      return "BRConnection [" + "DNSAddress=" + DNSAddress + ", gateway=" + gateway + ", address=" + address + ", advertisementCriteria=" + advertisementCriteria + ", netmask=" + netmask + ", mode=" + mode + ", uplinkID=" + uplinkID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "BRConnection [" + "DNSAddress=" + DNSAddress + ", address=" + address + ", advertisementCriteria=" + advertisementCriteria + ", gateway=" + gateway + ", mode=" + mode + ", netmask=" + netmask + ", uplinkID=" + uplinkID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

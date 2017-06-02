@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MultiCastChannelMapsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -46,15 +46,9 @@ public class MultiCastList extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum McastType { RECEIVE, SEND };
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum McastType { RECEIVE, SEND };
 
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "mcastType")
-   protected McastType mcastType;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
@@ -62,13 +56,19 @@ public class MultiCastList extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "mcastType")
+   protected McastType mcastType;
+   
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
+   private MetadatasFetcher metadatas;
    
    @JsonIgnore
    private MultiCastChannelMapsFetcher multiCastChannelMaps;
@@ -76,32 +76,14 @@ public class MultiCastList extends RestObject {
 
    public MultiCastList() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
       multiCastChannelMaps = new MultiCastChannelMapsFetcher(this);
       
    }
 
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   @JsonIgnore
-   public McastType getMcastType() {
-      return mcastType;
-   }
-
-   @JsonIgnore
-   public void setMcastType(McastType value) { 
-      this.mcastType = value;
-   }
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -120,17 +102,35 @@ public class MultiCastList extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public McastType getMcastType() {
+      return mcastType;
+   }
+
+   @JsonIgnore
+   public void setMcastType(McastType value) { 
+      this.mcastType = value;
+   }
    
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
    }
    
    @JsonIgnore
-   public GlobalMetadatasFetcher getGlobalMetadatas() {
-      return globalMetadatas;
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
    @JsonIgnore
@@ -140,7 +140,7 @@ public class MultiCastList extends RestObject {
    
 
    public String toString() {
-      return "MultiCastList [" + "lastUpdatedBy=" + lastUpdatedBy + ", mcastType=" + mcastType + ", entityScope=" + entityScope + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "MultiCastList [" + "entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", mcastType=" + mcastType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -45,20 +45,20 @@ public class Monitorscope extends RestObject {
    
 
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "readOnly")
-   protected Boolean readOnly;
-   
-   @JsonProperty(value = "destinationNSGs")
-   protected java.util.List<String> destinationNSGs;
-   
    @JsonProperty(value = "allowAllDestinationNSGs")
    protected Boolean allowAllDestinationNSGs;
    
    @JsonProperty(value = "allowAllSourceNSGs")
    protected Boolean allowAllSourceNSGs;
+   
+   @JsonProperty(value = "destinationNSGs")
+   protected java.util.List<String> destinationNSGs;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+   @JsonProperty(value = "readOnly")
+   protected Boolean readOnly;
    
    @JsonProperty(value = "sourceNSGs")
    protected java.util.List<String> sourceNSGs;
@@ -70,33 +70,6 @@ public class Monitorscope extends RestObject {
       
    }
 
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public Boolean getReadOnly() {
-      return readOnly;
-   }
-
-   @JsonIgnore
-   public void setReadOnly(Boolean value) { 
-      this.readOnly = value;
-   }
-   @JsonIgnore
-   public java.util.List<String> getDestinationNSGs() {
-      return destinationNSGs;
-   }
-
-   @JsonIgnore
-   public void setDestinationNSGs(java.util.List<String> value) { 
-      this.destinationNSGs = value;
-   }
    @JsonIgnore
    public Boolean getAllowAllDestinationNSGs() {
       return allowAllDestinationNSGs;
@@ -116,6 +89,33 @@ public class Monitorscope extends RestObject {
       this.allowAllSourceNSGs = value;
    }
    @JsonIgnore
+   public java.util.List<String> getDestinationNSGs() {
+      return destinationNSGs;
+   }
+
+   @JsonIgnore
+   public void setDestinationNSGs(java.util.List<String> value) { 
+      this.destinationNSGs = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   @JsonIgnore
+   public Boolean getReadOnly() {
+      return readOnly;
+   }
+
+   @JsonIgnore
+   public void setReadOnly(Boolean value) { 
+      this.readOnly = value;
+   }
+   @JsonIgnore
    public java.util.List<String> getSourceNSGs() {
       return sourceNSGs;
    }
@@ -129,7 +129,7 @@ public class Monitorscope extends RestObject {
    
 
    public String toString() {
-      return "Monitorscope [" + "name=" + name + ", readOnly=" + readOnly + ", destinationNSGs=" + destinationNSGs + ", allowAllDestinationNSGs=" + allowAllDestinationNSGs + ", allowAllSourceNSGs=" + allowAllSourceNSGs + ", sourceNSGs=" + sourceNSGs + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Monitorscope [" + "allowAllDestinationNSGs=" + allowAllDestinationNSGs + ", allowAllSourceNSGs=" + allowAllSourceNSGs + ", destinationNSGs=" + destinationNSGs + ", name=" + name + ", readOnly=" + readOnly + ", sourceNSGs=" + sourceNSGs + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

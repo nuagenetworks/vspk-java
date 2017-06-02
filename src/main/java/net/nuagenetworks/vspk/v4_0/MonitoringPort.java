@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "monitoringport", resourceName = "monitoringports")
@@ -45,16 +45,10 @@ public class MonitoringPort extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum ResiliencyState { backup, master, none };
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum ResiliencyState { backup, master, none };
    public enum State { ADMIN_DOWN, DOWN, UP };
 
-   
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "lastStateChange")
-   protected Long lastStateChange;
    
    @JsonProperty(value = "access")
    protected Boolean access;
@@ -62,59 +56,47 @@ public class MonitoringPort extends RestObject {
    @JsonProperty(value = "description")
    protected String description;
    
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "lastStateChange")
+   protected Long lastStateChange;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
    @JsonProperty(value = "resiliencyState")
    protected ResiliencyState resiliencyState;
    
    @JsonProperty(value = "resilient")
    protected Boolean resilient;
    
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   @JsonProperty(value = "state")
+   protected State state;
    
    @JsonProperty(value = "uplink")
    protected Boolean uplink;
    
-   @JsonProperty(value = "state")
-   protected State state;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
 
-   
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public MonitoringPort() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public Long getLastStateChange() {
-      return lastStateChange;
-   }
-
-   @JsonIgnore
-   public void setLastStateChange(Long value) { 
-      this.lastStateChange = value;
-   }
    @JsonIgnore
    public Boolean getAccess() {
       return access;
@@ -132,6 +114,42 @@ public class MonitoringPort extends RestObject {
    @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
+   public Long getLastStateChange() {
+      return lastStateChange;
+   }
+
+   @JsonIgnore
+   public void setLastStateChange(Long value) { 
+      this.lastStateChange = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
    }
    @JsonIgnore
    public ResiliencyState getResiliencyState() {
@@ -152,13 +170,13 @@ public class MonitoringPort extends RestObject {
       this.resilient = value;
    }
    @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
+   public State getState() {
+      return state;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
+   public void setState(State value) { 
+      this.state = value;
    }
    @JsonIgnore
    public Boolean getUplink() {
@@ -169,40 +187,22 @@ public class MonitoringPort extends RestObject {
    public void setUplink(Boolean value) { 
       this.uplink = value;
    }
-   @JsonIgnore
-   public State getState() {
-      return state;
-   }
-
-   @JsonIgnore
-   public void setState(State value) { 
-      this.state = value;
-   }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "MonitoringPort [" + "name=" + name + ", lastStateChange=" + lastStateChange + ", access=" + access + ", description=" + description + ", resiliencyState=" + resiliencyState + ", resilient=" + resilient + ", entityScope=" + entityScope + ", uplink=" + uplink + ", state=" + state + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "MonitoringPort [" + "access=" + access + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastStateChange=" + lastStateChange + ", name=" + name + ", resiliencyState=" + resiliencyState + ", resilient=" + resilient + ", state=" + state + ", uplink=" + uplink + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -35,8 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "bgppeer", resourceName = "bgppeers")
@@ -49,47 +49,38 @@ public class BGPPeer extends RestObject {
    public enum Status { ADMIN_DOWN, DOWN, UP };
 
    
-   @JsonProperty(value = "lastStateChange")
-   protected Long lastStateChange;
-   
    @JsonProperty(value = "address")
    protected String address;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
-   @JsonProperty(value = "status")
-   protected Status status;
-   
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-
+   @JsonProperty(value = "lastStateChange")
+   protected Long lastStateChange;
    
-   @JsonIgnore
-   private MetadatasFetcher metadatas;
+   @JsonProperty(value = "status")
+   protected Status status;
+   
+
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public BGPPeer() {
       
-      metadatas = new MetadatasFetcher(this);
-      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
-   @JsonIgnore
-   public Long getLastStateChange() {
-      return lastStateChange;
-   }
-
-   @JsonIgnore
-   public void setLastStateChange(Long value) { 
-      this.lastStateChange = value;
-   }
    @JsonIgnore
    public String getAddress() {
       return address;
@@ -109,15 +100,6 @@ public class BGPPeer extends RestObject {
       this.entityScope = value;
    }
    @JsonIgnore
-   public Status getStatus() {
-      return status;
-   }
-
-   @JsonIgnore
-   public void setStatus(Status value) { 
-      this.status = value;
-   }
-   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
@@ -126,22 +108,40 @@ public class BGPPeer extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   @JsonIgnore
+   public Long getLastStateChange() {
+      return lastStateChange;
+   }
+
+   @JsonIgnore
+   public void setLastStateChange(Long value) { 
+      this.lastStateChange = value;
+   }
+   @JsonIgnore
+   public Status getStatus() {
+      return status;
+   }
+
+   @JsonIgnore
+   public void setStatus(Status value) { 
+      this.status = value;
+   }
    
 
-   
-   @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
    
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "BGPPeer [" + "lastStateChange=" + lastStateChange + ", address=" + address + ", entityScope=" + entityScope + ", status=" + status + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "BGPPeer [" + "address=" + address + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastStateChange=" + lastStateChange + ", status=" + status + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

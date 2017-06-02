@@ -35,9 +35,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.KeyServerMonitorEncryptedSeedsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.KeyServerMonitorEncryptedSeedsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "keyservermonitorseed", resourceName = "keyservermonitorseeds")
@@ -46,13 +46,25 @@ public class KeyServerMonitorSeed extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum SeedTrafficAuthenticationAlgorithm { HMAC_MD5, HMAC_SHA1, HMAC_SHA256, HMAC_SHA384, HMAC_SHA512 };
    public enum SeedTrafficEncryptionAlgorithm { AES_128_CBC, AES_192_CBC, AES_256_CBC, TRIPLE_DES_CBC };
-   public enum EntityScope { ENTERPRISE, GLOBAL };
 
+   
+   @JsonProperty(value = "creationTime")
+   protected Long creationTime;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "lifetime")
+   protected Long lifetime;
    
    @JsonProperty(value = "seedTrafficAuthenticationAlgorithm")
    protected SeedTrafficAuthenticationAlgorithm seedTrafficAuthenticationAlgorithm;
@@ -63,43 +75,58 @@ public class KeyServerMonitorSeed extends RestObject {
    @JsonProperty(value = "seedTrafficEncryptionKeyLifetime")
    protected Long seedTrafficEncryptionKeyLifetime;
    
-   @JsonProperty(value = "lifetime")
-   protected Long lifetime;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
-   
-   @JsonProperty(value = "creationTime")
-   protected Long creationTime;
-   
    @JsonProperty(value = "startTime")
    protected Long startTime;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
    
 
    
    @JsonIgnore
-   private MetadatasFetcher metadatas;
+   private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
    private KeyServerMonitorEncryptedSeedsFetcher keyServerMonitorEncryptedSeeds;
    
    @JsonIgnore
-   private GlobalMetadatasFetcher globalMetadatas;
+   private MetadatasFetcher metadatas;
    
 
    public KeyServerMonitorSeed() {
       
-      metadatas = new MetadatasFetcher(this);
+      globalMetadatas = new GlobalMetadatasFetcher(this);
       
       keyServerMonitorEncryptedSeeds = new KeyServerMonitorEncryptedSeedsFetcher(this);
       
-      globalMetadatas = new GlobalMetadatasFetcher(this);
+      metadatas = new MetadatasFetcher(this);
       
    }
 
+   @JsonIgnore
+   public Long getCreationTime() {
+      return creationTime;
+   }
+
+   @JsonIgnore
+   public void setCreationTime(Long value) { 
+      this.creationTime = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -108,6 +135,15 @@ public class KeyServerMonitorSeed extends RestObject {
    @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
+   }
+   @JsonIgnore
+   public Long getLifetime() {
+      return lifetime;
+   }
+
+   @JsonIgnore
+   public void setLifetime(Long value) { 
+      this.lifetime = value;
    }
    @JsonIgnore
    public SeedTrafficAuthenticationAlgorithm getSeedTrafficAuthenticationAlgorithm() {
@@ -137,33 +173,6 @@ public class KeyServerMonitorSeed extends RestObject {
       this.seedTrafficEncryptionKeyLifetime = value;
    }
    @JsonIgnore
-   public Long getLifetime() {
-      return lifetime;
-   }
-
-   @JsonIgnore
-   public void setLifetime(Long value) { 
-      this.lifetime = value;
-   }
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
-   }
-   @JsonIgnore
-   public Long getCreationTime() {
-      return creationTime;
-   }
-
-   @JsonIgnore
-   public void setCreationTime(Long value) { 
-      this.creationTime = value;
-   }
-   @JsonIgnore
    public Long getStartTime() {
       return startTime;
    }
@@ -172,21 +181,12 @@ public class KeyServerMonitorSeed extends RestObject {
    public void setStartTime(Long value) { 
       this.startTime = value;
    }
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
    
 
    
    @JsonIgnore
-   public MetadatasFetcher getMetadatas() {
-      return metadatas;
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
    }
    
    @JsonIgnore
@@ -195,13 +195,13 @@ public class KeyServerMonitorSeed extends RestObject {
    }
    
    @JsonIgnore
-   public GlobalMetadatasFetcher getGlobalMetadatas() {
-      return globalMetadatas;
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
 
    public String toString() {
-      return "KeyServerMonitorSeed [" + "lastUpdatedBy=" + lastUpdatedBy + ", seedTrafficAuthenticationAlgorithm=" + seedTrafficAuthenticationAlgorithm + ", seedTrafficEncryptionAlgorithm=" + seedTrafficEncryptionAlgorithm + ", seedTrafficEncryptionKeyLifetime=" + seedTrafficEncryptionKeyLifetime + ", lifetime=" + lifetime + ", entityScope=" + entityScope + ", creationTime=" + creationTime + ", startTime=" + startTime + ", externalID=" + externalID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "KeyServerMonitorSeed [" + "creationTime=" + creationTime + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lifetime=" + lifetime + ", seedTrafficAuthenticationAlgorithm=" + seedTrafficAuthenticationAlgorithm + ", seedTrafficEncryptionAlgorithm=" + seedTrafficEncryptionAlgorithm + ", seedTrafficEncryptionKeyLifetime=" + seedTrafficEncryptionKeyLifetime + ", startTime=" + startTime + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    
