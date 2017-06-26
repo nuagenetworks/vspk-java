@@ -64,6 +64,9 @@ public class VRSMetrics extends RestObject {
    @JsonProperty(value = "associatedVCenterHypervisorID")
    protected String associatedVCenterHypervisorID;
    
+   @JsonProperty(value = "currentVersion")
+   protected String currentVersion;
+   
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
@@ -147,6 +150,15 @@ public class VRSMetrics extends RestObject {
       this.associatedVCenterHypervisorID = value;
    }
    @JsonIgnore
+   public String getCurrentVersion() {
+      return currentVersion;
+   }
+
+   @JsonIgnore
+   public void setCurrentVersion(String value) { 
+      this.currentVersion = value;
+   }
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
@@ -214,7 +226,7 @@ public class VRSMetrics extends RestObject {
    
 
    public String toString() {
-      return "VRSMetrics [" + "ALUbr0Status=" + ALUbr0Status + ", CPUUtilization=" + CPUUtilization + ", VRSProcess=" + VRSProcess + ", VRSVSCStatus=" + VRSVSCStatus + ", agentName=" + agentName + ", associatedVCenterHypervisorID=" + associatedVCenterHypervisorID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", jesxmonProcess=" + jesxmonProcess + ", lastUpdatedBy=" + lastUpdatedBy + ", memoryUtilization=" + memoryUtilization + ", reDeploy=" + reDeploy + ", receivingMetrics=" + receivingMetrics + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VRSMetrics [" + "ALUbr0Status=" + ALUbr0Status + ", CPUUtilization=" + CPUUtilization + ", VRSProcess=" + VRSProcess + ", VRSVSCStatus=" + VRSVSCStatus + ", agentName=" + agentName + ", associatedVCenterHypervisorID=" + associatedVCenterHypervisorID + ", currentVersion=" + currentVersion + ", entityScope=" + entityScope + ", externalID=" + externalID + ", jesxmonProcess=" + jesxmonProcess + ", lastUpdatedBy=" + lastUpdatedBy + ", memoryUtilization=" + memoryUtilization + ", reDeploy=" + reDeploy + ", receivingMetrics=" + receivingMetrics + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

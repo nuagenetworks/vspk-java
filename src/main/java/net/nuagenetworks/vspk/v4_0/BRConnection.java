@@ -35,6 +35,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v4_0.fetchers.BFDSessionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "brconnections", resourceName = "brconnections")
@@ -43,7 +44,7 @@ public class BRConnection extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum AdvertisementCriteria { FATE_SHARING, GATEWAY_PING, LINK_BASED, OPENFLOW };
+   public enum AdvertisementCriteria { BFD, LINK_BASED, OPENFLOW };
    public enum Mode { Static };
 
    
@@ -70,8 +71,13 @@ public class BRConnection extends RestObject {
    
 
    
+   @JsonIgnore
+   private BFDSessionsFetcher bFDSessions;
+   
 
    public BRConnection() {
+      
+      bFDSessions = new BFDSessionsFetcher(this);
       
    }
 
@@ -140,6 +146,11 @@ public class BRConnection extends RestObject {
    }
    
 
+   
+   @JsonIgnore
+   public BFDSessionsFetcher getBFDSessions() {
+      return bFDSessions;
+   }
    
 
    public String toString() {

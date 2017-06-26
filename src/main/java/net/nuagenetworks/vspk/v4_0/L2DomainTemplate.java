@@ -59,7 +59,7 @@ public class L2DomainTemplate extends RestObject {
 
    
    public enum DPI { DISABLED, ENABLED, INHERITED };
-   public enum IPType { IPV4, IPV6 };
+   public enum IPType { IPV4, DUALSTACK };
    public enum Encryption { DISABLED, ENABLED };
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum Multicast { DISABLED, ENABLED, INHERITED };

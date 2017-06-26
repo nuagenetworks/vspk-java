@@ -35,31 +35,27 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v4_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v4_0.fetchers.UsersFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "group", resourceName = "groups")
-public class Group extends RestObject {
+@RestEntity(restName = "bfdsession", resourceName = "bfdsessions")
+public class BFDSession extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
-   public enum ManagementMode { CMS, DEFAULT };
-   public enum Role { CMS, CSPOPERATOR, CSPROOT, JMS, ORGADMIN, ORGAPPDESIGNER, ORGNETWORKDESIGNER, ORGUSER, SYSTEM, UNKNOWN, USER };
 
    
-   @JsonProperty(value = "LDAPGroupDN")
-   protected String LDAPGroupDN;
+   @JsonProperty(value = "BFDDestinationIP")
+   protected String BFDDestinationIP;
    
-   @JsonProperty(value = "accountRestrictions")
-   protected Boolean accountRestrictions;
+   @JsonProperty(value = "BFDMultiplier")
+   protected Long BFDMultiplier;
    
-   @JsonProperty(value = "description")
-   protected String description;
+   @JsonProperty(value = "BFDTimer")
+   protected Long BFDTimer;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
@@ -70,25 +66,10 @@ public class Group extends RestObject {
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
    
-   @JsonProperty(value = "managementMode")
-   protected ManagementMode managementMode;
-   
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "private")
-   protected Boolean private_;
-   
-   @JsonProperty(value = "restrictionDate")
-   protected Float restrictionDate;
-   
-   @JsonProperty(value = "role")
-   protected Role role;
+   @JsonProperty(value = "multiHopEnabled")
+   protected Boolean multiHopEnabled;
    
 
-   
-   @JsonIgnore
-   private EventLogsFetcher eventLogs;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
@@ -96,48 +77,41 @@ public class Group extends RestObject {
    @JsonIgnore
    private MetadatasFetcher metadatas;
    
-   @JsonIgnore
-   private UsersFetcher users;
-   
 
-   public Group() {
-      
-      eventLogs = new EventLogsFetcher(this);
+   public BFDSession() {
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
       
-      users = new UsersFetcher(this);
-      
    }
 
    @JsonIgnore
-   public String getLDAPGroupDN() {
-      return LDAPGroupDN;
+   public String getBFDDestinationIP() {
+      return BFDDestinationIP;
    }
 
    @JsonIgnore
-   public void setLDAPGroupDN(String value) { 
-      this.LDAPGroupDN = value;
+   public void setBFDDestinationIP(String value) { 
+      this.BFDDestinationIP = value;
    }
    @JsonIgnore
-   public Boolean getAccountRestrictions() {
-      return accountRestrictions;
-   }
-
-   @JsonIgnore
-   public void setAccountRestrictions(Boolean value) { 
-      this.accountRestrictions = value;
-   }
-   @JsonIgnore
-   public String getDescription() {
-      return description;
+   public Long getBFDMultiplier() {
+      return BFDMultiplier;
    }
 
    @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
+   public void setBFDMultiplier(Long value) { 
+      this.BFDMultiplier = value;
+   }
+   @JsonIgnore
+   public Long getBFDTimer() {
+      return BFDTimer;
+   }
+
+   @JsonIgnore
+   public void setBFDTimer(Long value) { 
+      this.BFDTimer = value;
    }
    @JsonIgnore
    public EntityScope getEntityScope() {
@@ -167,57 +141,16 @@ public class Group extends RestObject {
       this.lastUpdatedBy = value;
    }
    @JsonIgnore
-   public ManagementMode getManagementMode() {
-      return managementMode;
+   public Boolean getMultiHopEnabled() {
+      return multiHopEnabled;
    }
 
    @JsonIgnore
-   public void setManagementMode(ManagementMode value) { 
-      this.managementMode = value;
-   }
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   @JsonIgnore
-   public Boolean getPrivate_() {
-      return private_;
-   }
-
-   @JsonIgnore
-   public void setPrivate_(Boolean value) { 
-      this.private_ = value;
-   }
-   @JsonIgnore
-   public Float getRestrictionDate() {
-      return restrictionDate;
-   }
-
-   @JsonIgnore
-   public void setRestrictionDate(Float value) { 
-      this.restrictionDate = value;
-   }
-   @JsonIgnore
-   public Role getRole() {
-      return role;
-   }
-
-   @JsonIgnore
-   public void setRole(Role value) { 
-      this.role = value;
+   public void setMultiHopEnabled(Boolean value) { 
+      this.multiHopEnabled = value;
    }
    
 
-   
-   @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
@@ -229,14 +162,9 @@ public class Group extends RestObject {
       return metadatas;
    }
    
-   @JsonIgnore
-   public UsersFetcher getUsers() {
-      return users;
-   }
-   
 
    public String toString() {
-      return "Group [" + "LDAPGroupDN=" + LDAPGroupDN + ", accountRestrictions=" + accountRestrictions + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", managementMode=" + managementMode + ", name=" + name + ", private_=" + private_ + ", restrictionDate=" + restrictionDate + ", role=" + role + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "BFDSession [" + "BFDDestinationIP=" + BFDDestinationIP + ", BFDMultiplier=" + BFDMultiplier + ", BFDTimer=" + BFDTimer + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", multiHopEnabled=" + multiHopEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

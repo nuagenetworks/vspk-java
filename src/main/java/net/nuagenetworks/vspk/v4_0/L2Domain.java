@@ -75,7 +75,7 @@ public class L2Domain extends RestObject {
 
    
    public enum DPI { DISABLED, ENABLED };
-   public enum IPType { IPV4, IPV6 };
+   public enum IPType { IPV4, DUALSTACK };
    public enum Encryption { DISABLED, ENABLED };
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum MaintenanceMode { DISABLED, ENABLED, ENABLED_INHERITED };

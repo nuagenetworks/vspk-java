@@ -75,6 +75,12 @@ public class LDAPConfiguration extends RestObject {
    @JsonProperty(value = "groupDN")
    protected String groupDN;
    
+   @JsonProperty(value = "groupNamePrefix")
+   protected String groupNamePrefix;
+   
+   @JsonProperty(value = "groupNameSuffix")
+   protected String groupNameSuffix;
+   
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
    
@@ -189,6 +195,24 @@ public class LDAPConfiguration extends RestObject {
       this.groupDN = value;
    }
    @JsonIgnore
+   public String getGroupNamePrefix() {
+      return groupNamePrefix;
+   }
+
+   @JsonIgnore
+   public void setGroupNamePrefix(String value) { 
+      this.groupNamePrefix = value;
+   }
+   @JsonIgnore
+   public String getGroupNameSuffix() {
+      return groupNameSuffix;
+   }
+
+   @JsonIgnore
+   public void setGroupNameSuffix(String value) { 
+      this.groupNameSuffix = value;
+   }
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
@@ -248,7 +272,7 @@ public class LDAPConfiguration extends RestObject {
    
 
    public String toString() {
-      return "LDAPConfiguration [" + "SSLEnabled=" + SSLEnabled + ", acceptAllCertificates=" + acceptAllCertificates + ", authorizationEnabled=" + authorizationEnabled + ", authorizingUserDN=" + authorizingUserDN + ", certificate=" + certificate + ", enabled=" + enabled + ", entityScope=" + entityScope + ", externalID=" + externalID + ", groupDN=" + groupDN + ", lastUpdatedBy=" + lastUpdatedBy + ", password=" + password + ", port=" + port + ", server=" + server + ", userDNTemplate=" + userDNTemplate + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "LDAPConfiguration [" + "SSLEnabled=" + SSLEnabled + ", acceptAllCertificates=" + acceptAllCertificates + ", authorizationEnabled=" + authorizationEnabled + ", authorizingUserDN=" + authorizingUserDN + ", certificate=" + certificate + ", enabled=" + enabled + ", entityScope=" + entityScope + ", externalID=" + externalID + ", groupDN=" + groupDN + ", groupNamePrefix=" + groupNamePrefix + ", groupNameSuffix=" + groupNameSuffix + ", lastUpdatedBy=" + lastUpdatedBy + ", password=" + password + ", port=" + port + ", server=" + server + ", userDNTemplate=" + userDNTemplate + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

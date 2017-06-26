@@ -46,6 +46,9 @@ public class Applicationperformancemanagement extends RestObject {
    
 
    
+   @JsonProperty(value = "appGroupUniqueId")
+   protected String appGroupUniqueId;
+   
    @JsonProperty(value = "associatedPerformanceMonitorID")
    protected String associatedPerformanceMonitorID;
    
@@ -70,6 +73,15 @@ public class Applicationperformancemanagement extends RestObject {
       
    }
 
+   @JsonIgnore
+   public String getAppGroupUniqueId() {
+      return appGroupUniqueId;
+   }
+
+   @JsonIgnore
+   public void setAppGroupUniqueId(String value) { 
+      this.appGroupUniqueId = value;
+   }
    @JsonIgnore
    public String getAssociatedPerformanceMonitorID() {
       return associatedPerformanceMonitorID;
@@ -116,7 +128,7 @@ public class Applicationperformancemanagement extends RestObject {
    
 
    public String toString() {
-      return "Applicationperformancemanagement [" + "associatedPerformanceMonitorID=" + associatedPerformanceMonitorID + ", description=" + description + ", name=" + name + ", readOnly=" + readOnly + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Applicationperformancemanagement [" + "appGroupUniqueId=" + appGroupUniqueId + ", associatedPerformanceMonitorID=" + associatedPerformanceMonitorID + ", description=" + description + ", name=" + name + ", readOnly=" + readOnly + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    
