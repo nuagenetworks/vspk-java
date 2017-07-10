@@ -35,38 +35,37 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v5_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.EgressAdvFwdEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "applicationservice", resourceName = "applicationservices")
-public class ApplicationService extends RestObject {
+@RestEntity(restName = "egressadvfwdtemplate", resourceName = "egressadvfwdtemplates")
+public class EgressAdvFwdTemplate extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
-   public enum Direction { REFLEXIVE, UNIDIRECTIONAL };
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum PolicyState { DRAFT, LIVE };
+   public enum PriorityType { BOTTOM, NONE, TOP };
 
    
-   @JsonProperty(value = "DSCP")
-   protected String DSCP;
+   @JsonProperty(value = "active")
+   protected Boolean active;
+   
+   @JsonProperty(value = "associatedLiveEntityID")
+   protected String associatedLiveEntityID;
+   
+   @JsonProperty(value = "autoGeneratePriority")
+   protected Boolean autoGeneratePriority;
    
    @JsonProperty(value = "description")
    protected String description;
    
-   @JsonProperty(value = "destinationPort")
-   protected String destinationPort;
-   
-   @JsonProperty(value = "direction")
-   protected Direction direction;
-   
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
-   
-   @JsonProperty(value = "etherType")
-   protected String etherType;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
@@ -77,46 +76,68 @@ public class ApplicationService extends RestObject {
    @JsonProperty(value = "name")
    protected String name;
    
-   @JsonProperty(value = "protocol")
-   protected String protocol;
+   @JsonProperty(value = "policyState")
+   protected PolicyState policyState;
    
-   @JsonProperty(value = "sourcePort")
-   protected String sourcePort;
+   @JsonProperty(value = "priority")
+   protected Long priority;
+   
+   @JsonProperty(value = "priorityType")
+   protected PriorityType priorityType;
    
 
    
    @JsonIgnore
-   private EventLogsFetcher eventLogs;
+   private EgressAdvFwdEntryTemplatesFetcher egressAdvFwdEntryTemplates;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
+   private JobsFetcher jobs;
+   
+   @JsonIgnore
    private MetadatasFetcher metadatas;
    
 
-   public ApplicationService() {
-      etherType = "0x0800";
-      direction = Direction.REFLEXIVE;
-      protocol = "6";
-      DSCP = "*";
+   public EgressAdvFwdTemplate() {
       
-      eventLogs = new EventLogsFetcher(this);
+      egressAdvFwdEntryTemplates = new EgressAdvFwdEntryTemplatesFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      jobs = new JobsFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
       
    }
 
    @JsonIgnore
-   public String getDSCP() {
-      return DSCP;
+   public Boolean getActive() {
+      return active;
    }
 
    @JsonIgnore
-   public void setDSCP(String value) { 
-      this.DSCP = value;
+   public void setActive(Boolean value) { 
+      this.active = value;
+   }
+   @JsonIgnore
+   public String getAssociatedLiveEntityID() {
+      return associatedLiveEntityID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedLiveEntityID(String value) { 
+      this.associatedLiveEntityID = value;
+   }
+   @JsonIgnore
+   public Boolean getAutoGeneratePriority() {
+      return autoGeneratePriority;
+   }
+
+   @JsonIgnore
+   public void setAutoGeneratePriority(Boolean value) { 
+      this.autoGeneratePriority = value;
    }
    @JsonIgnore
    public String getDescription() {
@@ -128,24 +149,6 @@ public class ApplicationService extends RestObject {
       this.description = value;
    }
    @JsonIgnore
-   public String getDestinationPort() {
-      return destinationPort;
-   }
-
-   @JsonIgnore
-   public void setDestinationPort(String value) { 
-      this.destinationPort = value;
-   }
-   @JsonIgnore
-   public Direction getDirection() {
-      return direction;
-   }
-
-   @JsonIgnore
-   public void setDirection(Direction value) { 
-      this.direction = value;
-   }
-   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
@@ -153,15 +156,6 @@ public class ApplicationService extends RestObject {
    @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
-   }
-   @JsonIgnore
-   public String getEtherType() {
-      return etherType;
-   }
-
-   @JsonIgnore
-   public void setEtherType(String value) { 
-      this.etherType = value;
    }
    @JsonIgnore
    public String getExternalID() {
@@ -191,34 +185,48 @@ public class ApplicationService extends RestObject {
       this.name = value;
    }
    @JsonIgnore
-   public String getProtocol() {
-      return protocol;
+   public PolicyState getPolicyState() {
+      return policyState;
    }
 
    @JsonIgnore
-   public void setProtocol(String value) { 
-      this.protocol = value;
+   public void setPolicyState(PolicyState value) { 
+      this.policyState = value;
    }
    @JsonIgnore
-   public String getSourcePort() {
-      return sourcePort;
+   public Long getPriority() {
+      return priority;
    }
 
    @JsonIgnore
-   public void setSourcePort(String value) { 
-      this.sourcePort = value;
+   public void setPriority(Long value) { 
+      this.priority = value;
+   }
+   @JsonIgnore
+   public PriorityType getPriorityType() {
+      return priorityType;
+   }
+
+   @JsonIgnore
+   public void setPriorityType(PriorityType value) { 
+      this.priorityType = value;
    }
    
 
    
    @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
+   public EgressAdvFwdEntryTemplatesFetcher getEgressAdvFwdEntryTemplates() {
+      return egressAdvFwdEntryTemplates;
    }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public JobsFetcher getJobs() {
+      return jobs;
    }
    
    @JsonIgnore
@@ -228,7 +236,7 @@ public class ApplicationService extends RestObject {
    
 
    public String toString() {
-      return "ApplicationService [" + "DSCP=" + DSCP + ", description=" + description + ", destinationPort=" + destinationPort + ", direction=" + direction + ", entityScope=" + entityScope + ", etherType=" + etherType + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", protocol=" + protocol + ", sourcePort=" + sourcePort + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "EgressAdvFwdTemplate [" + "active=" + active + ", associatedLiveEntityID=" + associatedLiveEntityID + ", autoGeneratePriority=" + autoGeneratePriority + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", policyState=" + policyState + ", priority=" + priority + ", priorityType=" + priorityType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

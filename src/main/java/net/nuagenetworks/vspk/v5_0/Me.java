@@ -35,7 +35,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v5_0.fetchers.ApplicationServicesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.AutoDiscoveredGatewaysFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.BGPNeighborsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.BGPProfilesFetcher;
@@ -99,6 +98,8 @@ import net.nuagenetworks.vspk.v5_0.fetchers.VCentersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VCenterHypervisorsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VMsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VMInterfacesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.VNFCatalogsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.VNFMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VCenterVRSConfigsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VSPsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ZFBAutoAssignmentsFetcher;
@@ -171,9 +172,6 @@ public class Me extends RestRootObject {
    protected String userName;
    
 
-   
-   @JsonIgnore
-   private ApplicationServicesFetcher applicationServices;
    
    @JsonIgnore
    private AutoDiscoveredGatewaysFetcher autoDiscoveredGateways;
@@ -365,6 +363,12 @@ public class Me extends RestRootObject {
    private VMInterfacesFetcher vMInterfaces;
    
    @JsonIgnore
+   private VNFCatalogsFetcher vNFCatalogs;
+   
+   @JsonIgnore
+   private VNFMetadatasFetcher vNFMetadatas;
+   
+   @JsonIgnore
    private VCenterVRSConfigsFetcher vCenterVRSConfigs;
    
    @JsonIgnore
@@ -381,8 +385,6 @@ public class Me extends RestRootObject {
    
 
    public Me() {
-      
-      applicationServices = new ApplicationServicesFetcher(this);
       
       autoDiscoveredGateways = new AutoDiscoveredGatewaysFetcher(this);
       
@@ -509,6 +511,10 @@ public class Me extends RestRootObject {
       vMs = new VMsFetcher(this);
       
       vMInterfaces = new VMInterfacesFetcher(this);
+      
+      vNFCatalogs = new VNFCatalogsFetcher(this);
+      
+      vNFMetadatas = new VNFMetadatasFetcher(this);
       
       vCenterVRSConfigs = new VCenterVRSConfigsFetcher(this);
       
@@ -686,11 +692,6 @@ public class Me extends RestRootObject {
    }
    
 
-   
-   @JsonIgnore
-   public ApplicationServicesFetcher getApplicationServices() {
-      return applicationServices;
-   }
    
    @JsonIgnore
    public AutoDiscoveredGatewaysFetcher getAutoDiscoveredGateways() {
@@ -1005,6 +1006,16 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public VMInterfacesFetcher getVMInterfaces() {
       return vMInterfaces;
+   }
+   
+   @JsonIgnore
+   public VNFCatalogsFetcher getVNFCatalogs() {
+      return vNFCatalogs;
+   }
+   
+   @JsonIgnore
+   public VNFMetadatasFetcher getVNFMetadatas() {
+      return vNFMetadatas;
    }
    
    @JsonIgnore

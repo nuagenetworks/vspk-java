@@ -29,14 +29,14 @@ package net.nuagenetworks.vspk.v5_0.fetchers;
 
 import net.nuagenetworks.bambou.RestObject;
 import net.nuagenetworks.bambou.RestFetcher;
-import net.nuagenetworks.vspk.v5_0.Flow;
+import net.nuagenetworks.vspk.v5_0.OverlayMirrorDestination;
 
-public class FlowsFetcher extends RestFetcher<Flow> {
+public class OverlayMirrorDestinationsFetcher extends RestFetcher<OverlayMirrorDestination> {
 
    private static final long serialVersionUID = 1L;
    
-   public FlowsFetcher(RestObject parentRestObj) {
-      super(parentRestObj, Flow.class);
+   public OverlayMirrorDestinationsFetcher(RestObject parentRestObj) {
+      super(parentRestObj, OverlayMirrorDestination.class);
    }
    
    

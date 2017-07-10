@@ -49,7 +49,7 @@ public class RedundantPort extends RestObject {
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
-   public enum PortType { ACCESS, NETWORK };
+   public enum PortType { ACCESS };
    public enum Speed { AUTONEGOTIATE, BASE10, BASET1000, BASETX100, BASEX10G };
    public enum Status { INITIALIZED, MISMATCH, ORPHAN, READY };
 

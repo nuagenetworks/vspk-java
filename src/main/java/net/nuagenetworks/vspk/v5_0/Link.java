@@ -39,8 +39,9 @@ import net.nuagenetworks.vspk.v5_0.fetchers.CSNATPoolsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.DemarcationServicesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.NextHopAddressFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.NextHopsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.OverlayAddressPoolsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.PolicyStatementsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PSNATPoolsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -107,10 +108,13 @@ public class Link extends RestObject {
    private MetadatasFetcher metadatas;
    
    @JsonIgnore
-   private NextHopAddressFetcher nextHopAddress;
+   private NextHopsFetcher nextHops;
    
    @JsonIgnore
    private OverlayAddressPoolsFetcher overlayAddressPools;
+   
+   @JsonIgnore
+   private PolicyStatementsFetcher policyStatements;
    
    @JsonIgnore
    private PSNATPoolsFetcher pSNATPools;
@@ -126,9 +130,11 @@ public class Link extends RestObject {
       
       metadatas = new MetadatasFetcher(this);
       
-      nextHopAddress = new NextHopAddressFetcher(this);
+      nextHops = new NextHopsFetcher(this);
       
       overlayAddressPools = new OverlayAddressPoolsFetcher(this);
+      
+      policyStatements = new PolicyStatementsFetcher(this);
       
       pSNATPools = new PSNATPoolsFetcher(this);
       
@@ -266,13 +272,18 @@ public class Link extends RestObject {
    }
    
    @JsonIgnore
-   public NextHopAddressFetcher getNextHopAddress() {
-      return nextHopAddress;
+   public NextHopsFetcher getNextHops() {
+      return nextHops;
    }
    
    @JsonIgnore
    public OverlayAddressPoolsFetcher getOverlayAddressPools() {
       return overlayAddressPools;
+   }
+   
+   @JsonIgnore
+   public PolicyStatementsFetcher getPolicyStatements() {
+      return policyStatements;
    }
    
    @JsonIgnore

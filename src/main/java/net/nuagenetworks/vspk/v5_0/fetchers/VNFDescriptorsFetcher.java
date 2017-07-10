@@ -29,14 +29,14 @@ package net.nuagenetworks.vspk.v5_0.fetchers;
 
 import net.nuagenetworks.bambou.RestObject;
 import net.nuagenetworks.bambou.RestFetcher;
-import net.nuagenetworks.vspk.v5_0.ApplicationService;
+import net.nuagenetworks.vspk.v5_0.VNFDescriptor;
 
-public class ApplicationServicesFetcher extends RestFetcher<ApplicationService> {
+public class VNFDescriptorsFetcher extends RestFetcher<VNFDescriptor> {
 
    private static final long serialVersionUID = 1L;
    
-   public ApplicationServicesFetcher(RestObject parentRestObj) {
-      super(parentRestObj, ApplicationService.class);
+   public VNFDescriptorsFetcher(RestObject parentRestObj) {
+      super(parentRestObj, VNFDescriptor.class);
    }
    
    

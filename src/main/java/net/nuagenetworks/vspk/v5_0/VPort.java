@@ -61,6 +61,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.TrunksFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VirtualIPsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VMsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VMInterfacesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.VNFInterfacesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VPortMirrorsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VRSsFetcher;
 
@@ -77,6 +78,7 @@ public class VPort extends RestObject {
    public enum Multicast { DISABLED, ENABLED, INHERITED };
    public enum OperationalState { DOWN, INIT, UP };
    public enum SegmentationType { VLAN };
+   public enum SubType { NONE, VNF };
    public enum SystemType { HARDWARE, HARDWARE_VTEP, NUAGE_1, NUAGE_2, NUAGE_VRSG, SOFTWARE };
    public enum TrunkRole { PARENT_PORT, SUB_PORT };
    public enum Type { BRIDGE, CONTAINER, HOST, VM };
@@ -99,6 +101,9 @@ public class VPort extends RestObject {
    
    @JsonProperty(value = "associatedMulticastChannelMapID")
    protected String associatedMulticastChannelMapID;
+   
+   @JsonProperty(value = "associatedSSID")
+   protected String associatedSSID;
    
    @JsonProperty(value = "associatedSendMulticastChannelMapID")
    protected String associatedSendMulticastChannelMapID;
@@ -141,6 +146,9 @@ public class VPort extends RestObject {
    
    @JsonProperty(value = "segmentationType")
    protected SegmentationType segmentationType;
+   
+   @JsonProperty(value = "subType")
+   protected SubType subType;
    
    @JsonProperty(value = "systemType")
    protected SystemType systemType;
@@ -235,6 +243,9 @@ public class VPort extends RestObject {
    private VMInterfacesFetcher vMInterfaces;
    
    @JsonIgnore
+   private VNFInterfacesFetcher vNFInterfaces;
+   
+   @JsonIgnore
    private VPortMirrorsFetcher vPortMirrors;
    
    @JsonIgnore
@@ -299,6 +310,8 @@ public class VPort extends RestObject {
       
       vMInterfaces = new VMInterfacesFetcher(this);
       
+      vNFInterfaces = new VNFInterfacesFetcher(this);
+      
       vPortMirrors = new VPortMirrorsFetcher(this);
       
       vRSs = new VRSsFetcher(this);
@@ -358,6 +371,15 @@ public class VPort extends RestObject {
    @JsonIgnore
    public void setAssociatedMulticastChannelMapID(String value) { 
       this.associatedMulticastChannelMapID = value;
+   }
+   @JsonIgnore
+   public String getAssociatedSSID() {
+      return associatedSSID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedSSID(String value) { 
+      this.associatedSSID = value;
    }
    @JsonIgnore
    public String getAssociatedSendMulticastChannelMapID() {
@@ -484,6 +506,15 @@ public class VPort extends RestObject {
    @JsonIgnore
    public void setSegmentationType(SegmentationType value) { 
       this.segmentationType = value;
+   }
+   @JsonIgnore
+   public SubType getSubType() {
+      return subType;
+   }
+
+   @JsonIgnore
+   public void setSubType(SubType value) { 
+      this.subType = value;
    }
    @JsonIgnore
    public SystemType getSystemType() {
@@ -655,6 +686,11 @@ public class VPort extends RestObject {
    }
    
    @JsonIgnore
+   public VNFInterfacesFetcher getVNFInterfaces() {
+      return vNFInterfaces;
+   }
+   
+   @JsonIgnore
    public VPortMirrorsFetcher getVPortMirrors() {
       return vPortMirrors;
    }
@@ -666,7 +702,7 @@ public class VPort extends RestObject {
    
 
    public String toString() {
-      return "VPort [" + "DPI=" + DPI + ", VLANID=" + VLANID + ", active=" + active + ", addressSpoofing=" + addressSpoofing + ", associatedFloatingIPID=" + associatedFloatingIPID + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSendMulticastChannelMapID=" + associatedSendMulticastChannelMapID + ", associatedTrunkID=" + associatedTrunkID + ", description=" + description + ", domainID=" + domainID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", hasAttachedInterfaces=" + hasAttachedInterfaces + ", lastUpdatedBy=" + lastUpdatedBy + ", multiNICVPortID=" + multiNICVPortID + ", multicast=" + multicast + ", name=" + name + ", operationalState=" + operationalState + ", segmentationID=" + segmentationID + ", segmentationType=" + segmentationType + ", systemType=" + systemType + ", trunkRole=" + trunkRole + ", type=" + type + ", zoneID=" + zoneID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VPort [" + "DPI=" + DPI + ", VLANID=" + VLANID + ", active=" + active + ", addressSpoofing=" + addressSpoofing + ", associatedFloatingIPID=" + associatedFloatingIPID + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSSID=" + associatedSSID + ", associatedSendMulticastChannelMapID=" + associatedSendMulticastChannelMapID + ", associatedTrunkID=" + associatedTrunkID + ", description=" + description + ", domainID=" + domainID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", hasAttachedInterfaces=" + hasAttachedInterfaces + ", lastUpdatedBy=" + lastUpdatedBy + ", multiNICVPortID=" + multiNICVPortID + ", multicast=" + multicast + ", name=" + name + ", operationalState=" + operationalState + ", segmentationID=" + segmentationID + ", segmentationType=" + segmentationType + ", subType=" + subType + ", systemType=" + systemType + ", trunkRole=" + trunkRole + ", type=" + type + ", zoneID=" + zoneID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

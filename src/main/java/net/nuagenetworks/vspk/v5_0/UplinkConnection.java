@@ -70,11 +70,11 @@ public class UplinkConnection extends RestObject {
    @JsonProperty(value = "associatedUnderlayName")
    protected String associatedUnderlayName;
    
-   @JsonProperty(value = "associatedVSCProfileID")
-   protected String associatedVSCProfileID;
-   
    @JsonProperty(value = "auxiliaryLink")
    protected Boolean auxiliaryLink;
+   
+   @JsonProperty(value = "downloadRateLimit")
+   protected Float downloadRateLimit;
    
    @JsonProperty(value = "gateway")
    protected String gateway;
@@ -184,15 +184,6 @@ public class UplinkConnection extends RestObject {
       this.associatedUnderlayName = value;
    }
    @JsonIgnore
-   public String getAssociatedVSCProfileID() {
-      return associatedVSCProfileID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedVSCProfileID(String value) { 
-      this.associatedVSCProfileID = value;
-   }
-   @JsonIgnore
    public Boolean getAuxiliaryLink() {
       return auxiliaryLink;
    }
@@ -200,6 +191,15 @@ public class UplinkConnection extends RestObject {
    @JsonIgnore
    public void setAuxiliaryLink(Boolean value) { 
       this.auxiliaryLink = value;
+   }
+   @JsonIgnore
+   public Float getDownloadRateLimit() {
+      return downloadRateLimit;
+   }
+
+   @JsonIgnore
+   public void setDownloadRateLimit(Float value) { 
+      this.downloadRateLimit = value;
    }
    @JsonIgnore
    public String getGateway() {
@@ -324,7 +324,7 @@ public class UplinkConnection extends RestObject {
    
 
    public String toString() {
-      return "UplinkConnection [" + "DNSAddress=" + DNSAddress + ", address=" + address + ", advertisementCriteria=" + advertisementCriteria + ", assocUnderlayID=" + assocUnderlayID + ", associatedBGPNeighborID=" + associatedBGPNeighborID + ", associatedUnderlayName=" + associatedUnderlayName + ", associatedVSCProfileID=" + associatedVSCProfileID + ", auxiliaryLink=" + auxiliaryLink + ", gateway=" + gateway + ", interfaceConnectionType=" + interfaceConnectionType + ", mode=" + mode + ", netmask=" + netmask + ", password=" + password + ", portName=" + portName + ", role=" + role + ", roleOrder=" + roleOrder + ", secondaryAddress=" + secondaryAddress + ", uplinkID=" + uplinkID + ", username=" + username + ", vlanId=" + vlanId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "UplinkConnection [" + "DNSAddress=" + DNSAddress + ", address=" + address + ", advertisementCriteria=" + advertisementCriteria + ", assocUnderlayID=" + assocUnderlayID + ", associatedBGPNeighborID=" + associatedBGPNeighborID + ", associatedUnderlayName=" + associatedUnderlayName + ", auxiliaryLink=" + auxiliaryLink + ", downloadRateLimit=" + downloadRateLimit + ", gateway=" + gateway + ", interfaceConnectionType=" + interfaceConnectionType + ", mode=" + mode + ", netmask=" + netmask + ", password=" + password + ", portName=" + portName + ", role=" + role + ", roleOrder=" + roleOrder + ", secondaryAddress=" + secondaryAddress + ", uplinkID=" + uplinkID + ", username=" + username + ", vlanId=" + vlanId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

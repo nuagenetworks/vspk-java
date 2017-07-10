@@ -37,6 +37,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import net.nuagenetworks.vspk.v5_0.fetchers.AddressRangesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EgressACLTemplatesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.EgressAdvFwdTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GroupsFetcher;
@@ -46,6 +47,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.IngressExternalServiceTemplatesFetch
 import net.nuagenetworks.vspk.v5_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.L2DomainsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.OverlayMirrorDestinationTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PolicyGroupTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.QOSsFetcher;
@@ -59,7 +61,7 @@ public class L2DomainTemplate extends RestObject {
 
    
    public enum DPI { DISABLED, ENABLED, INHERITED };
-   public enum IPType { IPV4, IPV6 };
+   public enum IPType { IPV4, DUALSTACK };
    public enum Encryption { DISABLED, ENABLED };
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum EntityState { MARKED_FOR_DELETION, UNDER_CONSTRUCTION };
@@ -134,6 +136,9 @@ public class L2DomainTemplate extends RestObject {
    private EgressACLTemplatesFetcher egressACLTemplates;
    
    @JsonIgnore
+   private EgressAdvFwdTemplatesFetcher egressAdvFwdTemplates;
+   
+   @JsonIgnore
    private EventLogsFetcher eventLogs;
    
    @JsonIgnore
@@ -161,6 +166,9 @@ public class L2DomainTemplate extends RestObject {
    private MetadatasFetcher metadatas;
    
    @JsonIgnore
+   private OverlayMirrorDestinationTemplatesFetcher overlayMirrorDestinationTemplates;
+   
+   @JsonIgnore
    private PermissionsFetcher permissions;
    
    @JsonIgnore
@@ -179,6 +187,8 @@ public class L2DomainTemplate extends RestObject {
       
       egressACLTemplates = new EgressACLTemplatesFetcher(this);
       
+      egressAdvFwdTemplates = new EgressAdvFwdTemplatesFetcher(this);
+      
       eventLogs = new EventLogsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
@@ -196,6 +206,8 @@ public class L2DomainTemplate extends RestObject {
       l2Domains = new L2DomainsFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
+      
+      overlayMirrorDestinationTemplates = new OverlayMirrorDestinationTemplatesFetcher(this);
       
       permissions = new PermissionsFetcher(this);
       
@@ -392,6 +404,11 @@ public class L2DomainTemplate extends RestObject {
    }
    
    @JsonIgnore
+   public EgressAdvFwdTemplatesFetcher getEgressAdvFwdTemplates() {
+      return egressAdvFwdTemplates;
+   }
+   
+   @JsonIgnore
    public EventLogsFetcher getEventLogs() {
       return eventLogs;
    }
@@ -434,6 +451,11 @@ public class L2DomainTemplate extends RestObject {
    @JsonIgnore
    public MetadatasFetcher getMetadatas() {
       return metadatas;
+   }
+   
+   @JsonIgnore
+   public OverlayMirrorDestinationTemplatesFetcher getOverlayMirrorDestinationTemplates() {
+      return overlayMirrorDestinationTemplates;
    }
    
    @JsonIgnore

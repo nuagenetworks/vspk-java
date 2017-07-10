@@ -41,8 +41,8 @@ import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.StatisticsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "ingressadvfwdentrytemplate", resourceName = "ingressadvfwdentrytemplates")
-public class IngressAdvFwdEntryTemplate extends RestObject {
+@RestEntity(restName = "egressadvfwdentrytemplate", resourceName = "egressadvfwdentrytemplates")
+public class EgressAdvFwdEntryTemplate extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
@@ -53,7 +53,6 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public enum LocationType { ANY, POLICYGROUP, REDIRECTIONTARGET, SUBNET, VPORTTAG, ZONE };
    public enum NetworkType { ANY, ENDPOINT_DOMAIN, ENDPOINT_SUBNET, ENDPOINT_ZONE, ENTERPRISE_NETWORK, INTERNET_POLICYGROUP, NETWORK_MACRO_GROUP, POLICYGROUP, PUBLIC_NETWORK, SUBNET, UNDERLAY_INTERNET_POLICYGROUP, ZONE };
    public enum PolicyState { DRAFT, LIVE };
-   public enum RedirectRewriteType { VLAN };
    public enum UplinkPreference { DEFAULT, PRIMARY, PRIMARY_SECONDARY, SECONDARY, SECONDARY_PRIMARY, SYMMETRIC };
 
    
@@ -138,12 +137,6 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    @JsonProperty(value = "protocol")
    protected String protocol;
    
-   @JsonProperty(value = "redirectRewriteType")
-   protected RedirectRewriteType redirectRewriteType;
-   
-   @JsonProperty(value = "redirectRewriteValue")
-   protected String redirectRewriteValue;
-   
    @JsonProperty(value = "redirectVPortTagID")
    protected String redirectVPortTagID;
    
@@ -158,9 +151,6 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    
    @JsonProperty(value = "uplinkPreference")
    protected UplinkPreference uplinkPreference;
-   
-   @JsonProperty(value = "vlanRange")
-   protected String vlanRange;
    
 
    
@@ -177,13 +167,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    private StatisticsFetcher statistics;
    
 
-   public IngressAdvFwdEntryTemplate() {
-      protocol = "6";
-      etherType = "0x0800";
-      DSCP = "*";
-      locationType = LocationType.ANY;
-      action = Action.FORWARD;
-      networkType = NetworkType.ANY;
+   public EgressAdvFwdEntryTemplate() {
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
@@ -439,24 +423,6 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
       this.protocol = value;
    }
    @JsonIgnore
-   public RedirectRewriteType getRedirectRewriteType() {
-      return redirectRewriteType;
-   }
-
-   @JsonIgnore
-   public void setRedirectRewriteType(RedirectRewriteType value) { 
-      this.redirectRewriteType = value;
-   }
-   @JsonIgnore
-   public String getRedirectRewriteValue() {
-      return redirectRewriteValue;
-   }
-
-   @JsonIgnore
-   public void setRedirectRewriteValue(String value) { 
-      this.redirectRewriteValue = value;
-   }
-   @JsonIgnore
    public String getRedirectVPortTagID() {
       return redirectVPortTagID;
    }
@@ -501,15 +467,6 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setUplinkPreference(UplinkPreference value) { 
       this.uplinkPreference = value;
    }
-   @JsonIgnore
-   public String getVlanRange() {
-      return vlanRange;
-   }
-
-   @JsonIgnore
-   public void setVlanRange(String value) { 
-      this.vlanRange = value;
-   }
    
 
    
@@ -535,7 +492,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    
 
    public String toString() {
-      return "IngressAdvFwdEntryTemplate [" + "ACLTemplateName=" + ACLTemplateName + ", DSCP=" + DSCP + ", FCOverride=" + FCOverride + ", ICMPCode=" + ICMPCode + ", ICMPType=" + ICMPType + ", IPv6AddressOverride=" + IPv6AddressOverride + ", action=" + action + ", addressOverride=" + addressOverride + ", associatedLiveEntityID=" + associatedLiveEntityID + ", description=" + description + ", destinationPort=" + destinationPort + ", domainName=" + domainName + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", etherType=" + etherType + ", externalID=" + externalID + ", flowLoggingEnabled=" + flowLoggingEnabled + ", lastUpdatedBy=" + lastUpdatedBy + ", locationID=" + locationID + ", locationType=" + locationType + ", mirrorDestinationID=" + mirrorDestinationID + ", name=" + name + ", networkID=" + networkID + ", networkType=" + networkType + ", policyState=" + policyState + ", priority=" + priority + ", protocol=" + protocol + ", redirectRewriteType=" + redirectRewriteType + ", redirectRewriteValue=" + redirectRewriteValue + ", redirectVPortTagID=" + redirectVPortTagID + ", sourcePort=" + sourcePort + ", statsID=" + statsID + ", statsLoggingEnabled=" + statsLoggingEnabled + ", uplinkPreference=" + uplinkPreference + ", vlanRange=" + vlanRange + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "EgressAdvFwdEntryTemplate [" + "ACLTemplateName=" + ACLTemplateName + ", DSCP=" + DSCP + ", FCOverride=" + FCOverride + ", ICMPCode=" + ICMPCode + ", ICMPType=" + ICMPType + ", IPv6AddressOverride=" + IPv6AddressOverride + ", action=" + action + ", addressOverride=" + addressOverride + ", associatedLiveEntityID=" + associatedLiveEntityID + ", description=" + description + ", destinationPort=" + destinationPort + ", domainName=" + domainName + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", etherType=" + etherType + ", externalID=" + externalID + ", flowLoggingEnabled=" + flowLoggingEnabled + ", lastUpdatedBy=" + lastUpdatedBy + ", locationID=" + locationID + ", locationType=" + locationType + ", mirrorDestinationID=" + mirrorDestinationID + ", name=" + name + ", networkID=" + networkID + ", networkType=" + networkType + ", policyState=" + policyState + ", priority=" + priority + ", protocol=" + protocol + ", redirectVPortTagID=" + redirectVPortTagID + ", sourcePort=" + sourcePort + ", statsID=" + statsID + ", statsLoggingEnabled=" + statsLoggingEnabled + ", uplinkPreference=" + uplinkPreference + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

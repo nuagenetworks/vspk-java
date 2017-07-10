@@ -91,9 +91,6 @@ public class NSPort extends RestObject {
    @JsonProperty(value = "name")
    protected String name;
    
-   @JsonProperty(value = "networkAccelerationEnabled")
-   protected Boolean networkAccelerationEnabled;
-   
    @JsonProperty(value = "permittedAction")
    protected PermittedAction permittedAction;
    
@@ -266,15 +263,6 @@ public class NSPort extends RestObject {
       this.name = value;
    }
    @JsonIgnore
-   public Boolean getNetworkAccelerationEnabled() {
-      return networkAccelerationEnabled;
-   }
-
-   @JsonIgnore
-   public void setNetworkAccelerationEnabled(Boolean value) { 
-      this.networkAccelerationEnabled = value;
-   }
-   @JsonIgnore
    public PermittedAction getPermittedAction() {
       return permittedAction;
    }
@@ -401,7 +389,7 @@ public class NSPort extends RestObject {
    
 
    public String toString() {
-      return "NSPort [" + "NATTraversal=" + NATTraversal + ", VLANRange=" + VLANRange + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", associatedRedundantPortID=" + associatedRedundantPortID + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", mtu=" + mtu + ", name=" + name + ", networkAccelerationEnabled=" + networkAccelerationEnabled + ", permittedAction=" + permittedAction + ", physicalName=" + physicalName + ", portType=" + portType + ", speed=" + speed + ", status=" + status + ", templateID=" + templateID + ", useUserMnemonic=" + useUserMnemonic + ", userMnemonic=" + userMnemonic + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NSPort [" + "NATTraversal=" + NATTraversal + ", VLANRange=" + VLANRange + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", associatedRedundantPortID=" + associatedRedundantPortID + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", mtu=" + mtu + ", name=" + name + ", permittedAction=" + permittedAction + ", physicalName=" + physicalName + ", portType=" + portType + ", speed=" + speed + ", status=" + status + ", templateID=" + templateID + ", useUserMnemonic=" + useUserMnemonic + ", userMnemonic=" + userMnemonic + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

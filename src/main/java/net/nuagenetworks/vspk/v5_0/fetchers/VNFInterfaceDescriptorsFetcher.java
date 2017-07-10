@@ -25,76 +25,18 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-package net.nuagenetworks.vspk.v5_0;
+package net.nuagenetworks.vspk.v5_0.fetchers;
 
 import net.nuagenetworks.bambou.RestObject;
-import net.nuagenetworks.bambou.annotation.RestEntity;
+import net.nuagenetworks.bambou.RestFetcher;
+import net.nuagenetworks.vspk.v5_0.VNFInterfaceDescriptor;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-
-
-@JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "nexthopaddress", resourceName = "nexthopaddress")
-public class NextHopAddress extends RestObject {
+public class VNFInterfaceDescriptorsFetcher extends RestFetcher<VNFInterfaceDescriptor> {
 
    private static final long serialVersionUID = 1L;
-
    
-
-   
-   @JsonProperty(value = "address")
-   protected String address;
-   
-   @JsonProperty(value = "routeDistinguisher")
-   protected String routeDistinguisher;
-   
-   @JsonProperty(value = "type")
-   protected String type;
-   
-
-   
-
-   public NextHopAddress() {
-      
-   }
-
-   @JsonIgnore
-   public String getAddress() {
-      return address;
-   }
-
-   @JsonIgnore
-   public void setAddress(String value) { 
-      this.address = value;
-   }
-   @JsonIgnore
-   public String getRouteDistinguisher() {
-      return routeDistinguisher;
-   }
-
-   @JsonIgnore
-   public void setRouteDistinguisher(String value) { 
-      this.routeDistinguisher = value;
-   }
-   @JsonIgnore
-   public String getType() {
-      return type;
-   }
-
-   @JsonIgnore
-   public void setType(String value) { 
-      this.type = value;
-   }
-   
-
-   
-
-   public String toString() {
-      return "NextHopAddress [" + "address=" + address + ", routeDistinguisher=" + routeDistinguisher + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+   public VNFInterfaceDescriptorsFetcher(RestObject parentRestObj) {
+      super(parentRestObj, VNFInterfaceDescriptor.class);
    }
    
    

@@ -39,7 +39,6 @@ import net.nuagenetworks.vspk.v5_0.fetchers.AlarmsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.AllAlarmsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ApplicationsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ApplicationperformancemanagementsFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.ApplicationServicesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.AvatarsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.BGPProfilesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ContainersFetcher;
@@ -78,6 +77,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.NSGGroupsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSRedundantGatewayGroupsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PATNATPoolsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PerformanceMonitorsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.PolicyObjectGroupsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PublicNetworkMacrosFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.RateLimitersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.RedundancyGroupsFetcher;
@@ -86,6 +86,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.SharedNetworkResourcesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.TrunksFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.UsersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VMsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.VNFsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ZFBRequestsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -198,9 +199,6 @@ public class Enterprise extends RestObject {
    
    @JsonIgnore
    private ApplicationperformancemanagementsFetcher applicationperformancemanagements;
-   
-   @JsonIgnore
-   private ApplicationServicesFetcher applicationServices;
    
    @JsonIgnore
    private AvatarsFetcher avatars;
@@ -317,6 +315,9 @@ public class Enterprise extends RestObject {
    private PerformanceMonitorsFetcher performanceMonitors;
    
    @JsonIgnore
+   private PolicyObjectGroupsFetcher policyObjectGroups;
+   
+   @JsonIgnore
    private PublicNetworkMacrosFetcher publicNetworkMacros;
    
    @JsonIgnore
@@ -341,6 +342,9 @@ public class Enterprise extends RestObject {
    private VMsFetcher vMs;
    
    @JsonIgnore
+   private VNFsFetcher vNFs;
+   
+   @JsonIgnore
    private ZFBRequestsFetcher zFBRequests;
    
 
@@ -353,8 +357,6 @@ public class Enterprise extends RestObject {
       applications = new ApplicationsFetcher(this);
       
       applicationperformancemanagements = new ApplicationperformancemanagementsFetcher(this);
-      
-      applicationServices = new ApplicationServicesFetcher(this);
       
       avatars = new AvatarsFetcher(this);
       
@@ -432,6 +434,8 @@ public class Enterprise extends RestObject {
       
       performanceMonitors = new PerformanceMonitorsFetcher(this);
       
+      policyObjectGroups = new PolicyObjectGroupsFetcher(this);
+      
       publicNetworkMacros = new PublicNetworkMacrosFetcher(this);
       
       rateLimiters = new RateLimitersFetcher(this);
@@ -447,6 +451,8 @@ public class Enterprise extends RestObject {
       users = new UsersFetcher(this);
       
       vMs = new VMsFetcher(this);
+      
+      vNFs = new VNFsFetcher(this);
       
       zFBRequests = new ZFBRequestsFetcher(this);
       
@@ -728,11 +734,6 @@ public class Enterprise extends RestObject {
    }
    
    @JsonIgnore
-   public ApplicationServicesFetcher getApplicationServices() {
-      return applicationServices;
-   }
-   
-   @JsonIgnore
    public AvatarsFetcher getAvatars() {
       return avatars;
    }
@@ -923,6 +924,11 @@ public class Enterprise extends RestObject {
    }
    
    @JsonIgnore
+   public PolicyObjectGroupsFetcher getPolicyObjectGroups() {
+      return policyObjectGroups;
+   }
+   
+   @JsonIgnore
    public PublicNetworkMacrosFetcher getPublicNetworkMacros() {
       return publicNetworkMacros;
    }
@@ -960,6 +966,11 @@ public class Enterprise extends RestObject {
    @JsonIgnore
    public VMsFetcher getVMs() {
       return vMs;
+   }
+   
+   @JsonIgnore
+   public VNFsFetcher getVNFs() {
+      return vNFs;
    }
    
    @JsonIgnore

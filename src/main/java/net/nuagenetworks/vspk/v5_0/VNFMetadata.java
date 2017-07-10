@@ -37,88 +37,63 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "demarcationservice", resourceName = "demarcationservices")
-public class DemarcationService extends RestObject {
+@RestEntity(restName = "vnfmetadata", resourceName = "vnfmetadatas")
+public class VNFMetadata extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
-   public enum Type { BR_PORT, GATEWAY };
 
    
-   @JsonProperty(value = "associatedGatewayID")
-   protected String associatedGatewayID;
+   @JsonProperty(value = "blob")
+   protected String blob;
    
-   @JsonProperty(value = "associatedVLANID")
-   protected String associatedVLANID;
+   @JsonProperty(value = "description")
+   protected String description;
    
-   @JsonProperty(value = "priority")
-   protected Long priority;
-   
-   @JsonProperty(value = "routeDistinguisher")
-   protected String routeDistinguisher;
-   
-   @JsonProperty(value = "type")
-   protected Type type;
+   @JsonProperty(value = "name")
+   protected String name;
    
 
    
 
-   public DemarcationService() {
+   public VNFMetadata() {
       
    }
 
    @JsonIgnore
-   public String getAssociatedGatewayID() {
-      return associatedGatewayID;
+   public String getBlob() {
+      return blob;
    }
 
    @JsonIgnore
-   public void setAssociatedGatewayID(String value) { 
-      this.associatedGatewayID = value;
+   public void setBlob(String value) { 
+      this.blob = value;
    }
    @JsonIgnore
-   public String getAssociatedVLANID() {
-      return associatedVLANID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedVLANID(String value) { 
-      this.associatedVLANID = value;
-   }
-   @JsonIgnore
-   public Long getPriority() {
-      return priority;
+   public String getDescription() {
+      return description;
    }
 
    @JsonIgnore
-   public void setPriority(Long value) { 
-      this.priority = value;
+   public void setDescription(String value) { 
+      this.description = value;
    }
    @JsonIgnore
-   public String getRouteDistinguisher() {
-      return routeDistinguisher;
-   }
-
-   @JsonIgnore
-   public void setRouteDistinguisher(String value) { 
-      this.routeDistinguisher = value;
-   }
-   @JsonIgnore
-   public Type getType() {
-      return type;
+   public String getName() {
+      return name;
    }
 
    @JsonIgnore
-   public void setType(Type value) { 
-      this.type = value;
+   public void setName(String value) { 
+      this.name = value;
    }
    
 
    
 
    public String toString() {
-      return "DemarcationService [" + "associatedGatewayID=" + associatedGatewayID + ", associatedVLANID=" + associatedVLANID + ", priority=" + priority + ", routeDistinguisher=" + routeDistinguisher + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VNFMetadata [" + "blob=" + blob + ", description=" + description + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

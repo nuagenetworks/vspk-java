@@ -29,14 +29,14 @@ package net.nuagenetworks.vspk.v5_0.fetchers;
 
 import net.nuagenetworks.bambou.RestObject;
 import net.nuagenetworks.bambou.RestFetcher;
-import net.nuagenetworks.vspk.v5_0.FlowSecurityPolicy;
+import net.nuagenetworks.vspk.v5_0.VNFCatalog;
 
-public class FlowSecurityPoliciesFetcher extends RestFetcher<FlowSecurityPolicy> {
+public class VNFCatalogsFetcher extends RestFetcher<VNFCatalog> {
 
    private static final long serialVersionUID = 1L;
    
-   public FlowSecurityPoliciesFetcher(RestObject parentRestObj) {
-      super(parentRestObj, FlowSecurityPolicy.class);
+   public VNFCatalogsFetcher(RestObject parentRestObj) {
+      super(parentRestObj, VNFCatalog.class);
    }
    
    

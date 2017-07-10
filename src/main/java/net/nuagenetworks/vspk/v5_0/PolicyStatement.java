@@ -25,18 +25,75 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-package net.nuagenetworks.vspk.v5_0.fetchers;
+package net.nuagenetworks.vspk.v5_0;
 
 import net.nuagenetworks.bambou.RestObject;
-import net.nuagenetworks.bambou.RestFetcher;
-import net.nuagenetworks.vspk.v5_0.FlowForwardingPolicy;
+import net.nuagenetworks.bambou.annotation.RestEntity;
 
-public class FlowForwardingPoliciesFetcher extends RestFetcher<FlowForwardingPolicy> {
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
+import net.nuagenetworks.vspk.v5_0.fetchers.PolicyEntriesFetcher;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+@RestEntity(restName = "policystatement", resourceName = "policystatements")
+public class PolicyStatement extends RestObject {
 
    private static final long serialVersionUID = 1L;
+
    
-   public FlowForwardingPoliciesFetcher(RestObject parentRestObj) {
-      super(parentRestObj, FlowForwardingPolicy.class);
+
+   
+   @JsonProperty(value = "description")
+   protected String description;
+   
+   @JsonProperty(value = "name")
+   protected String name;
+   
+
+   
+   @JsonIgnore
+   private PolicyEntriesFetcher policyEntries;
+   
+
+   public PolicyStatement() {
+      
+      policyEntries = new PolicyEntriesFetcher(this);
+      
+   }
+
+   @JsonIgnore
+   public String getDescription() {
+      return description;
+   }
+
+   @JsonIgnore
+   public void setDescription(String value) { 
+      this.description = value;
+   }
+   @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   
+
+   
+   @JsonIgnore
+   public PolicyEntriesFetcher getPolicyEntries() {
+      return policyEntries;
+   }
+   
+
+   public String toString() {
+      return "PolicyStatement [" + "description=" + description + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+              + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    
    

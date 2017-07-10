@@ -29,14 +29,14 @@ package net.nuagenetworks.vspk.v5_0.fetchers;
 
 import net.nuagenetworks.bambou.RestObject;
 import net.nuagenetworks.bambou.RestFetcher;
-import net.nuagenetworks.vspk.v5_0.NextHopAddress;
+import net.nuagenetworks.vspk.v5_0.PolicyStatement;
 
-public class NextHopAddressFetcher extends RestFetcher<NextHopAddress> {
+public class PolicyStatementsFetcher extends RestFetcher<PolicyStatement> {
 
    private static final long serialVersionUID = 1L;
    
-   public NextHopAddressFetcher(RestObject parentRestObj) {
-      super(parentRestObj, NextHopAddress.class);
+   public PolicyStatementsFetcher(RestObject parentRestObj) {
+      super(parentRestObj, PolicyStatement.class);
    }
    
    
