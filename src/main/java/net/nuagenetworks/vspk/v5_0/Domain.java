@@ -369,7 +369,6 @@ public class Domain extends RestObject {
       PATEnabled = PATEnabled.INHERITED;
       DHCPBehavior = DHCPBehavior.CONSUME;
       tunnelType = TunnelType.DC_DEFAULT;
-      applicationDeploymentPolicy = ApplicationDeploymentPolicy.ZONE;
       maintenanceMode = MaintenanceMode.DISABLED;
       
       applicationperformancemanagementbindings = new ApplicationperformancemanagementbindingsFetcher(this);

@@ -50,7 +50,7 @@ public class SubnetTemplate extends RestObject {
 
    
    public enum DPI { DISABLED, ENABLED, INHERITED };
-   public enum IPType { DUALSTACK, IPV4, DUALSTACK };
+   public enum IPType { DUALSTACK, IPV4 };
    public enum Encryption { DISABLED, ENABLED, INHERITED };
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum Multicast { DISABLED, ENABLED, INHERITED };
