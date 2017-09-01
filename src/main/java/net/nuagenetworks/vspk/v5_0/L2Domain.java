@@ -56,6 +56,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.OverlayMirrorDestinationsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PermissionsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.PGExpressionsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PolicyGroupsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.QOSsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.RedirectionTargetsFetcher;
@@ -76,7 +77,7 @@ public class L2Domain extends RestObject {
 
    
    public enum DPI { DISABLED, ENABLED };
-   public enum IPType { IPV4, DUALSTACK };
+   public enum IPType { DUALSTACK, IPV4 };
    public enum Encryption { DISABLED, ENABLED };
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum EntityState { MARKED_FOR_DELETION, UNDER_CONSTRUCTION };
@@ -240,6 +241,9 @@ public class L2Domain extends RestObject {
    private PermissionsFetcher permissions;
    
    @JsonIgnore
+   private PGExpressionsFetcher pGExpressions;
+   
+   @JsonIgnore
    private PolicyGroupsFetcher policyGroups;
    
    @JsonIgnore
@@ -317,6 +321,8 @@ public class L2Domain extends RestObject {
       overlayMirrorDestinations = new OverlayMirrorDestinationsFetcher(this);
       
       permissions = new PermissionsFetcher(this);
+      
+      pGExpressions = new PGExpressionsFetcher(this);
       
       policyGroups = new PolicyGroupsFetcher(this);
       
@@ -709,6 +715,11 @@ public class L2Domain extends RestObject {
    @JsonIgnore
    public PermissionsFetcher getPermissions() {
       return permissions;
+   }
+   
+   @JsonIgnore
+   public PGExpressionsFetcher getPGExpressions() {
+      return pGExpressions;
    }
    
    @JsonIgnore

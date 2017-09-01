@@ -45,6 +45,7 @@ public class EgressQOSPolicy extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum DefaultServiceClass { A, B, C, D, E, F, G, H };
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum Queue1ForwardingClasses { A, B, C, D, E, F, G, H, NONE };
    public enum Queue2ForwardingClasses { A, B, C, D, E, F, G, H, NONE };
@@ -54,6 +55,15 @@ public class EgressQOSPolicy extends RestObject {
    
    @JsonProperty(value = "assocEgressQosId")
    protected String assocEgressQosId;
+   
+   @JsonProperty(value = "associatedCOSRemarkingPolicyTableID")
+   protected String associatedCOSRemarkingPolicyTableID;
+   
+   @JsonProperty(value = "associatedDSCPRemarkingPolicyTableID")
+   protected String associatedDSCPRemarkingPolicyTableID;
+   
+   @JsonProperty(value = "defaultServiceClass")
+   protected DefaultServiceClass defaultServiceClass;
    
    @JsonProperty(value = "description")
    protected String description;
@@ -122,6 +132,33 @@ public class EgressQOSPolicy extends RestObject {
    @JsonIgnore
    public void setAssocEgressQosId(String value) { 
       this.assocEgressQosId = value;
+   }
+   @JsonIgnore
+   public String getAssociatedCOSRemarkingPolicyTableID() {
+      return associatedCOSRemarkingPolicyTableID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedCOSRemarkingPolicyTableID(String value) { 
+      this.associatedCOSRemarkingPolicyTableID = value;
+   }
+   @JsonIgnore
+   public String getAssociatedDSCPRemarkingPolicyTableID() {
+      return associatedDSCPRemarkingPolicyTableID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedDSCPRemarkingPolicyTableID(String value) { 
+      this.associatedDSCPRemarkingPolicyTableID = value;
+   }
+   @JsonIgnore
+   public DefaultServiceClass getDefaultServiceClass() {
+      return defaultServiceClass;
+   }
+
+   @JsonIgnore
+   public void setDefaultServiceClass(DefaultServiceClass value) { 
+      this.defaultServiceClass = value;
    }
    @JsonIgnore
    public String getDescription() {
@@ -264,7 +301,7 @@ public class EgressQOSPolicy extends RestObject {
    
 
    public String toString() {
-      return "EgressQOSPolicy [" + "assocEgressQosId=" + assocEgressQosId + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", parentQueueAssociatedRateLimiterID=" + parentQueueAssociatedRateLimiterID + ", queue1AssociatedRateLimiterID=" + queue1AssociatedRateLimiterID + ", queue1ForwardingClasses=" + queue1ForwardingClasses + ", queue2AssociatedRateLimiterID=" + queue2AssociatedRateLimiterID + ", queue2ForwardingClasses=" + queue2ForwardingClasses + ", queue3AssociatedRateLimiterID=" + queue3AssociatedRateLimiterID + ", queue3ForwardingClasses=" + queue3ForwardingClasses + ", queue4AssociatedRateLimiterID=" + queue4AssociatedRateLimiterID + ", queue4ForwardingClasses=" + queue4ForwardingClasses + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "EgressQOSPolicy [" + "assocEgressQosId=" + assocEgressQosId + ", associatedCOSRemarkingPolicyTableID=" + associatedCOSRemarkingPolicyTableID + ", associatedDSCPRemarkingPolicyTableID=" + associatedDSCPRemarkingPolicyTableID + ", defaultServiceClass=" + defaultServiceClass + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", parentQueueAssociatedRateLimiterID=" + parentQueueAssociatedRateLimiterID + ", queue1AssociatedRateLimiterID=" + queue1AssociatedRateLimiterID + ", queue1ForwardingClasses=" + queue1ForwardingClasses + ", queue2AssociatedRateLimiterID=" + queue2AssociatedRateLimiterID + ", queue2ForwardingClasses=" + queue2ForwardingClasses + ", queue3AssociatedRateLimiterID=" + queue3AssociatedRateLimiterID + ", queue3ForwardingClasses=" + queue3ForwardingClasses + ", queue4AssociatedRateLimiterID=" + queue4AssociatedRateLimiterID + ", queue4ForwardingClasses=" + queue4ForwardingClasses + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

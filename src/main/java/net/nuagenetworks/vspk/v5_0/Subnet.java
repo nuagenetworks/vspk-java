@@ -41,11 +41,14 @@ import net.nuagenetworks.vspk.v5_0.fetchers.ContainersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ContainerInterfacesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ContainerResyncsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.DHCPOptionsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.EnterprisePermissionsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.IKEGatewayConnectionsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.IPReservationsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.PATIPEntriesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.ProxyARPFiltersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.QOSsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VMResyncsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.StatisticsFetcher;
@@ -73,6 +76,7 @@ public class Subnet extends RestObject {
    public enum EntityState { MARKED_FOR_DELETION, UNDER_CONSTRUCTION };
    public enum MaintenanceMode { DISABLED, ENABLED, ENABLED_INHERITED };
    public enum Multicast { DISABLED, ENABLED, INHERITED };
+   public enum ResourceType { FLOATING, NSG_VNF, PUBLIC, STANDARD };
    public enum UnderlayEnabled { DISABLED, ENABLED, INHERITED };
    public enum UseGlobalMAC { DISABLED, ENABLED };
 
@@ -95,8 +99,14 @@ public class Subnet extends RestObject {
    @JsonProperty(value = "PATEnabled")
    protected PATEnabled PATEnabled;
    
+   @JsonProperty(value = "accessRestrictionEnabled")
+   protected Boolean accessRestrictionEnabled;
+   
    @JsonProperty(value = "address")
    protected String address;
+   
+   @JsonProperty(value = "advertise")
+   protected Boolean advertise;
    
    @JsonProperty(value = "associatedMulticastChannelMapID")
    protected String associatedMulticastChannelMapID;
@@ -155,6 +165,9 @@ public class Subnet extends RestObject {
    @JsonProperty(value = "public")
    protected Boolean public_;
    
+   @JsonProperty(value = "resourceType")
+   protected ResourceType resourceType;
+   
    @JsonProperty(value = "routeDistinguisher")
    protected String routeDistinguisher;
    
@@ -203,6 +216,9 @@ public class Subnet extends RestObject {
    private DHCPOptionsFetcher dHCPOptions;
    
    @JsonIgnore
+   private EnterprisePermissionsFetcher enterprisePermissions;
+   
+   @JsonIgnore
    private EventLogsFetcher eventLogs;
    
    @JsonIgnore
@@ -216,6 +232,12 @@ public class Subnet extends RestObject {
    
    @JsonIgnore
    private MetadatasFetcher metadatas;
+   
+   @JsonIgnore
+   private PATIPEntriesFetcher pATIPEntries;
+   
+   @JsonIgnore
+   private ProxyARPFiltersFetcher proxyARPFilters;
    
    @JsonIgnore
    private QOSsFetcher qOSs;
@@ -263,6 +285,8 @@ public class Subnet extends RestObject {
       
       dHCPOptions = new DHCPOptionsFetcher(this);
       
+      enterprisePermissions = new EnterprisePermissionsFetcher(this);
+      
       eventLogs = new EventLogsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
@@ -272,6 +296,10 @@ public class Subnet extends RestObject {
       iPReservations = new IPReservationsFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
+      
+      pATIPEntries = new PATIPEntriesFetcher(this);
+      
+      proxyARPFilters = new ProxyARPFiltersFetcher(this);
       
       qOSs = new QOSsFetcher(this);
       
@@ -348,6 +376,15 @@ public class Subnet extends RestObject {
       this.PATEnabled = value;
    }
    @JsonIgnore
+   public Boolean getAccessRestrictionEnabled() {
+      return accessRestrictionEnabled;
+   }
+
+   @JsonIgnore
+   public void setAccessRestrictionEnabled(Boolean value) { 
+      this.accessRestrictionEnabled = value;
+   }
+   @JsonIgnore
    public String getAddress() {
       return address;
    }
@@ -355,6 +392,15 @@ public class Subnet extends RestObject {
    @JsonIgnore
    public void setAddress(String value) { 
       this.address = value;
+   }
+   @JsonIgnore
+   public Boolean getAdvertise() {
+      return advertise;
+   }
+
+   @JsonIgnore
+   public void setAdvertise(Boolean value) { 
+      this.advertise = value;
    }
    @JsonIgnore
    public String getAssociatedMulticastChannelMapID() {
@@ -528,6 +574,15 @@ public class Subnet extends RestObject {
       this.public_ = value;
    }
    @JsonIgnore
+   public ResourceType getResourceType() {
+      return resourceType;
+   }
+
+   @JsonIgnore
+   public void setResourceType(ResourceType value) { 
+      this.resourceType = value;
+   }
+   @JsonIgnore
    public String getRouteDistinguisher() {
       return routeDistinguisher;
    }
@@ -642,6 +697,11 @@ public class Subnet extends RestObject {
    }
    
    @JsonIgnore
+   public EnterprisePermissionsFetcher getEnterprisePermissions() {
+      return enterprisePermissions;
+   }
+   
+   @JsonIgnore
    public EventLogsFetcher getEventLogs() {
       return eventLogs;
    }
@@ -664,6 +724,16 @@ public class Subnet extends RestObject {
    @JsonIgnore
    public MetadatasFetcher getMetadatas() {
       return metadatas;
+   }
+   
+   @JsonIgnore
+   public PATIPEntriesFetcher getPATIPEntries() {
+      return pATIPEntries;
+   }
+   
+   @JsonIgnore
+   public ProxyARPFiltersFetcher getProxyARPFilters() {
+      return proxyARPFilters;
    }
    
    @JsonIgnore
@@ -713,7 +783,7 @@ public class Subnet extends RestObject {
    
 
    public String toString() {
-      return "Subnet [" + "DHCPRelayStatus=" + DHCPRelayStatus + ", DPI=" + DPI + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", IPv6Gateway=" + IPv6Gateway + ", PATEnabled=" + PATEnabled + ", address=" + address + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSharedNetworkResourceID=" + associatedSharedNetworkResourceID + ", defaultAction=" + defaultAction + ", description=" + description + ", dynamicIpv6Address=" + dynamicIpv6Address + ", encryption=" + encryption + ", entityScope=" + entityScope + ", entityState=" + entityState + ", externalID=" + externalID + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", lastUpdatedBy=" + lastUpdatedBy + ", maintenanceMode=" + maintenanceMode + ", multicast=" + multicast + ", name=" + name + ", netmask=" + netmask + ", policyGroupID=" + policyGroupID + ", proxyARP=" + proxyARP + ", public_=" + public_ + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", serviceID=" + serviceID + ", splitSubnet=" + splitSubnet + ", templateID=" + templateID + ", underlay=" + underlay + ", underlayEnabled=" + underlayEnabled + ", useGlobalMAC=" + useGlobalMAC + ", vnId=" + vnId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Subnet [" + "DHCPRelayStatus=" + DHCPRelayStatus + ", DPI=" + DPI + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", IPv6Gateway=" + IPv6Gateway + ", PATEnabled=" + PATEnabled + ", accessRestrictionEnabled=" + accessRestrictionEnabled + ", address=" + address + ", advertise=" + advertise + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSharedNetworkResourceID=" + associatedSharedNetworkResourceID + ", defaultAction=" + defaultAction + ", description=" + description + ", dynamicIpv6Address=" + dynamicIpv6Address + ", encryption=" + encryption + ", entityScope=" + entityScope + ", entityState=" + entityState + ", externalID=" + externalID + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", lastUpdatedBy=" + lastUpdatedBy + ", maintenanceMode=" + maintenanceMode + ", multicast=" + multicast + ", name=" + name + ", netmask=" + netmask + ", policyGroupID=" + policyGroupID + ", proxyARP=" + proxyARP + ", public_=" + public_ + ", resourceType=" + resourceType + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", serviceID=" + serviceID + ", splitSubnet=" + splitSubnet + ", templateID=" + templateID + ", underlay=" + underlay + ", underlayEnabled=" + underlayEnabled + ", useGlobalMAC=" + useGlobalMAC + ", vnId=" + vnId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

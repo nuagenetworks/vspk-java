@@ -55,6 +55,9 @@ public class User extends RestObject {
    public enum ManagementMode { CMS, DEFAULT };
 
    
+   @JsonProperty(value = "LDAPUserDN")
+   protected String LDAPUserDN;
+   
    @JsonProperty(value = "avatarData")
    protected String avatarData;
    
@@ -136,6 +139,15 @@ public class User extends RestObject {
       
    }
 
+   @JsonIgnore
+   public String getLDAPUserDN() {
+      return LDAPUserDN;
+   }
+
+   @JsonIgnore
+   public void setLDAPUserDN(String value) { 
+      this.LDAPUserDN = value;
+   }
    @JsonIgnore
    public String getAvatarData() {
       return avatarData;
@@ -293,7 +305,7 @@ public class User extends RestObject {
    
 
    public String toString() {
-      return "User [" + "avatarData=" + avatarData + ", avatarType=" + avatarType + ", disabled=" + disabled + ", email=" + email + ", entityScope=" + entityScope + ", externalID=" + externalID + ", firstName=" + firstName + ", lastName=" + lastName + ", lastUpdatedBy=" + lastUpdatedBy + ", managementMode=" + managementMode + ", mobileNumber=" + mobileNumber + ", password=" + password + ", userName=" + userName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "User [" + "LDAPUserDN=" + LDAPUserDN + ", avatarData=" + avatarData + ", avatarType=" + avatarType + ", disabled=" + disabled + ", email=" + email + ", entityScope=" + entityScope + ", externalID=" + externalID + ", firstName=" + firstName + ", lastName=" + lastName + ", lastUpdatedBy=" + lastUpdatedBy + ", managementMode=" + managementMode + ", mobileNumber=" + mobileNumber + ", password=" + password + ", userName=" + userName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

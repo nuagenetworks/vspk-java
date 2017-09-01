@@ -42,7 +42,9 @@ import net.nuagenetworks.vspk.v5_0.fetchers.CertificatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.CloudMgmtSystemsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ContainersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ContainerInterfacesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.COSRemarkingPolicyTablesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.DomainsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.DSCPRemarkingPolicyTablesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.DUCGroupsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VCenterEAMConfigsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EgressACLEntryTemplatesFetcher;
@@ -63,6 +65,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.InfrastructureVscProfilesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.IngressACLEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.IngressACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.IngressAdvFwdEntryTemplatesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.IngressQOSPoliciesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.KeyServerMembersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.L2DomainsFetcher;
@@ -76,6 +79,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.NSGatewaysFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSGatewayTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSGGroupsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSRedundantGatewayGroupsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.NSGUpgradeProfilesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PATMappersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PATNATPoolsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PerformanceMonitorsFetcher;
@@ -116,6 +120,15 @@ public class Me extends RestRootObject {
    public enum AvatarType { BASE64, COMPUTEDURL, URL };
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
+   
+   @JsonProperty(value = "AARFlowStatsInterval")
+   protected Long AARFlowStatsInterval;
+   
+   @JsonProperty(value = "AARProbeStatsInterval")
+   protected Long AARProbeStatsInterval;
+   
+   @JsonProperty(value = "VSSStatsInterval")
+   protected Long VSSStatsInterval;
    
    @JsonProperty(value = "avatarData")
    protected String avatarData;
@@ -195,7 +208,13 @@ public class Me extends RestRootObject {
    private ContainerInterfacesFetcher containerInterfaces;
    
    @JsonIgnore
+   private COSRemarkingPolicyTablesFetcher cOSRemarkingPolicyTables;
+   
+   @JsonIgnore
    private DomainsFetcher domains;
+   
+   @JsonIgnore
+   private DSCPRemarkingPolicyTablesFetcher dSCPRemarkingPolicyTables;
    
    @JsonIgnore
    private DUCGroupsFetcher dUCGroups;
@@ -258,6 +277,9 @@ public class Me extends RestRootObject {
    private IngressAdvFwdEntryTemplatesFetcher ingressAdvFwdEntryTemplates;
    
    @JsonIgnore
+   private IngressQOSPoliciesFetcher ingressQOSPolicies;
+   
+   @JsonIgnore
    private JobsFetcher jobs;
    
    @JsonIgnore
@@ -295,6 +317,9 @@ public class Me extends RestRootObject {
    
    @JsonIgnore
    private NSRedundantGatewayGroupsFetcher nSRedundantGatewayGroups;
+   
+   @JsonIgnore
+   private NSGUpgradeProfilesFetcher nSGUpgradeProfiles;
    
    @JsonIgnore
    private PATMappersFetcher pATMappers;
@@ -400,7 +425,11 @@ public class Me extends RestRootObject {
       
       containerInterfaces = new ContainerInterfacesFetcher(this);
       
+      cOSRemarkingPolicyTables = new COSRemarkingPolicyTablesFetcher(this);
+      
       domains = new DomainsFetcher(this);
+      
+      dSCPRemarkingPolicyTables = new DSCPRemarkingPolicyTablesFetcher(this);
       
       dUCGroups = new DUCGroupsFetcher(this);
       
@@ -442,6 +471,8 @@ public class Me extends RestRootObject {
       
       ingressAdvFwdEntryTemplates = new IngressAdvFwdEntryTemplatesFetcher(this);
       
+      ingressQOSPolicies = new IngressQOSPoliciesFetcher(this);
+      
       jobs = new JobsFetcher(this);
       
       keyServerMembers = new KeyServerMembersFetcher(this);
@@ -467,6 +498,8 @@ public class Me extends RestRootObject {
       nSGGroups = new NSGGroupsFetcher(this);
       
       nSRedundantGatewayGroups = new NSRedundantGatewayGroupsFetcher(this);
+      
+      nSGUpgradeProfiles = new NSGUpgradeProfilesFetcher(this);
       
       pATMappers = new PATMappersFetcher(this);
       
@@ -528,6 +561,33 @@ public class Me extends RestRootObject {
       
    }
 
+   @JsonIgnore
+   public Long getAARFlowStatsInterval() {
+      return AARFlowStatsInterval;
+   }
+
+   @JsonIgnore
+   public void setAARFlowStatsInterval(Long value) { 
+      this.AARFlowStatsInterval = value;
+   }
+   @JsonIgnore
+   public Long getAARProbeStatsInterval() {
+      return AARProbeStatsInterval;
+   }
+
+   @JsonIgnore
+   public void setAARProbeStatsInterval(Long value) { 
+      this.AARProbeStatsInterval = value;
+   }
+   @JsonIgnore
+   public Long getVSSStatsInterval() {
+      return VSSStatsInterval;
+   }
+
+   @JsonIgnore
+   public void setVSSStatsInterval(Long value) { 
+      this.VSSStatsInterval = value;
+   }
    @JsonIgnore
    public String getAvatarData() {
       return avatarData;
@@ -729,8 +789,18 @@ public class Me extends RestRootObject {
    }
    
    @JsonIgnore
+   public COSRemarkingPolicyTablesFetcher getCOSRemarkingPolicyTables() {
+      return cOSRemarkingPolicyTables;
+   }
+   
+   @JsonIgnore
    public DomainsFetcher getDomains() {
       return domains;
+   }
+   
+   @JsonIgnore
+   public DSCPRemarkingPolicyTablesFetcher getDSCPRemarkingPolicyTables() {
+      return dSCPRemarkingPolicyTables;
    }
    
    @JsonIgnore
@@ -834,6 +904,11 @@ public class Me extends RestRootObject {
    }
    
    @JsonIgnore
+   public IngressQOSPoliciesFetcher getIngressQOSPolicies() {
+      return ingressQOSPolicies;
+   }
+   
+   @JsonIgnore
    public JobsFetcher getJobs() {
       return jobs;
    }
@@ -896,6 +971,11 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public NSRedundantGatewayGroupsFetcher getNSRedundantGatewayGroups() {
       return nSRedundantGatewayGroups;
+   }
+   
+   @JsonIgnore
+   public NSGUpgradeProfilesFetcher getNSGUpgradeProfiles() {
+      return nSGUpgradeProfiles;
    }
    
    @JsonIgnore
@@ -1045,7 +1125,7 @@ public class Me extends RestRootObject {
    
 
    public String toString() {
-      return "Me [" + "avatarData=" + avatarData + ", avatarType=" + avatarType + ", disabled=" + disabled + ", elasticSearchAddress=" + elasticSearchAddress + ", email=" + email + ", enterpriseID=" + enterpriseID + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", externalID=" + externalID + ", firstName=" + firstName + ", flowCollectionEnabled=" + flowCollectionEnabled + ", lastName=" + lastName + ", lastUpdatedBy=" + lastUpdatedBy + ", mobileNumber=" + mobileNumber + ", password=" + password + ", role=" + role + ", statisticsEnabled=" + statisticsEnabled + ", userName=" + userName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Me [" + "AARFlowStatsInterval=" + AARFlowStatsInterval + ", AARProbeStatsInterval=" + AARProbeStatsInterval + ", VSSStatsInterval=" + VSSStatsInterval + ", avatarData=" + avatarData + ", avatarType=" + avatarType + ", disabled=" + disabled + ", elasticSearchAddress=" + elasticSearchAddress + ", email=" + email + ", enterpriseID=" + enterpriseID + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", externalID=" + externalID + ", firstName=" + firstName + ", flowCollectionEnabled=" + flowCollectionEnabled + ", lastName=" + lastName + ", lastUpdatedBy=" + lastUpdatedBy + ", mobileNumber=" + mobileNumber + ", password=" + password + ", role=" + role + ", statisticsEnabled=" + statisticsEnabled + ", userName=" + userName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + ", apiKey=" + apiKey  + "]";
    }
    

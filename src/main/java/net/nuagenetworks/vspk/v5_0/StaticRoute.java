@@ -60,6 +60,9 @@ public class StaticRoute extends RestObject {
    @JsonProperty(value = "address")
    protected String address;
    
+   @JsonProperty(value = "associatedSubnetID")
+   protected String associatedSubnetID;
+   
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
@@ -129,6 +132,15 @@ public class StaticRoute extends RestObject {
    @JsonIgnore
    public void setAddress(String value) { 
       this.address = value;
+   }
+   @JsonIgnore
+   public String getAssociatedSubnetID() {
+      return associatedSubnetID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedSubnetID(String value) { 
+      this.associatedSubnetID = value;
    }
    @JsonIgnore
    public EntityScope getEntityScope() {
@@ -213,7 +225,7 @@ public class StaticRoute extends RestObject {
    
 
    public String toString() {
-      return "StaticRoute [" + "IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", address=" + address + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", netmask=" + netmask + ", nextHopIp=" + nextHopIp + ", routeDistinguisher=" + routeDistinguisher + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "StaticRoute [" + "IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", address=" + address + ", associatedSubnetID=" + associatedSubnetID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", netmask=" + netmask + ", nextHopIp=" + nextHopIp + ", routeDistinguisher=" + routeDistinguisher + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

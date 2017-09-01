@@ -36,6 +36,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 import net.nuagenetworks.vspk.v5_0.fetchers.SharedNetworkResourcesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.SubnetsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "patmapper", resourceName = "patmappers")
@@ -67,10 +68,15 @@ public class PATMapper extends RestObject {
    @JsonIgnore
    private SharedNetworkResourcesFetcher sharedNetworkResources;
    
+   @JsonIgnore
+   private SubnetsFetcher subnets;
+   
 
    public PATMapper() {
       
       sharedNetworkResources = new SharedNetworkResourcesFetcher(this);
+      
+      subnets = new SubnetsFetcher(this);
       
    }
 
@@ -125,6 +131,11 @@ public class PATMapper extends RestObject {
    @JsonIgnore
    public SharedNetworkResourcesFetcher getSharedNetworkResources() {
       return sharedNetworkResources;
+   }
+   
+   @JsonIgnore
+   public SubnetsFetcher getSubnets() {
+      return subnets;
    }
    
 

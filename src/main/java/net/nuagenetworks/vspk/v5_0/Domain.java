@@ -62,6 +62,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.LinksFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NetworkPerformanceBindingsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PermissionsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.PGExpressionsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PolicyGroupsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.QOSsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.RedirectionTargetsFetcher;
@@ -75,6 +76,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.TCAsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.UplinkRDsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VMsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VMInterfacesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.VNFDomainMappingsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VPNConnectionsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VPortsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ZonesFetcher;
@@ -116,6 +118,9 @@ public class Domain extends RestObject {
    @JsonProperty(value = "ECMPCount")
    protected Long ECMPCount;
    
+   @JsonProperty(value = "FIPUnderlay")
+   protected Boolean FIPUnderlay;
+   
    @JsonProperty(value = "PATEnabled")
    protected PATEnabled PATEnabled;
    
@@ -130,6 +135,9 @@ public class Domain extends RestObject {
    
    @JsonProperty(value = "associatedPATMapperID")
    protected String associatedPATMapperID;
+   
+   @JsonProperty(value = "associatedSharedPATMapperID")
+   protected String associatedSharedPATMapperID;
    
    @JsonProperty(value = "backHaulRouteDistinguisher")
    protected String backHaulRouteDistinguisher;
@@ -317,6 +325,9 @@ public class Domain extends RestObject {
    private PermissionsFetcher permissions;
    
    @JsonIgnore
+   private PGExpressionsFetcher pGExpressions;
+   
+   @JsonIgnore
    private PolicyGroupsFetcher policyGroups;
    
    @JsonIgnore
@@ -354,6 +365,9 @@ public class Domain extends RestObject {
    
    @JsonIgnore
    private VMInterfacesFetcher vMInterfaces;
+   
+   @JsonIgnore
+   private VNFDomainMappingsFetcher vNFDomainMappings;
    
    @JsonIgnore
    private VPNConnectionsFetcher vPNConnections;
@@ -425,6 +439,8 @@ public class Domain extends RestObject {
       
       permissions = new PermissionsFetcher(this);
       
+      pGExpressions = new PGExpressionsFetcher(this);
+      
       policyGroups = new PolicyGroupsFetcher(this);
       
       qOSs = new QOSsFetcher(this);
@@ -450,6 +466,8 @@ public class Domain extends RestObject {
       vMs = new VMsFetcher(this);
       
       vMInterfaces = new VMInterfacesFetcher(this);
+      
+      vNFDomainMappings = new VNFDomainMappingsFetcher(this);
       
       vPNConnections = new VPNConnectionsFetcher(this);
       
@@ -505,6 +523,15 @@ public class Domain extends RestObject {
       this.ECMPCount = value;
    }
    @JsonIgnore
+   public Boolean getFIPUnderlay() {
+      return FIPUnderlay;
+   }
+
+   @JsonIgnore
+   public void setFIPUnderlay(Boolean value) { 
+      this.FIPUnderlay = value;
+   }
+   @JsonIgnore
    public PATEnabled getPATEnabled() {
       return PATEnabled;
    }
@@ -548,6 +575,15 @@ public class Domain extends RestObject {
    @JsonIgnore
    public void setAssociatedPATMapperID(String value) { 
       this.associatedPATMapperID = value;
+   }
+   @JsonIgnore
+   public String getAssociatedSharedPATMapperID() {
+      return associatedSharedPATMapperID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedSharedPATMapperID(String value) { 
+      this.associatedSharedPATMapperID = value;
    }
    @JsonIgnore
    public String getBackHaulRouteDistinguisher() {
@@ -994,6 +1030,11 @@ public class Domain extends RestObject {
    }
    
    @JsonIgnore
+   public PGExpressionsFetcher getPGExpressions() {
+      return pGExpressions;
+   }
+   
+   @JsonIgnore
    public PolicyGroupsFetcher getPolicyGroups() {
       return policyGroups;
    }
@@ -1059,6 +1100,11 @@ public class Domain extends RestObject {
    }
    
    @JsonIgnore
+   public VNFDomainMappingsFetcher getVNFDomainMappings() {
+      return vNFDomainMappings;
+   }
+   
+   @JsonIgnore
    public VPNConnectionsFetcher getVPNConnections() {
       return vPNConnections;
    }
@@ -1075,7 +1121,7 @@ public class Domain extends RestObject {
    
 
    public String toString() {
-      return "Domain [" + "BGPEnabled=" + BGPEnabled + ", DHCPBehavior=" + DHCPBehavior + ", DHCPServerAddress=" + DHCPServerAddress + ", DPI=" + DPI + ", ECMPCount=" + ECMPCount + ", PATEnabled=" + PATEnabled + ", advertiseCriteria=" + advertiseCriteria + ", associatedBGPProfileID=" + associatedBGPProfileID + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedPATMapperID=" + associatedPATMapperID + ", backHaulRouteDistinguisher=" + backHaulRouteDistinguisher + ", backHaulRouteTarget=" + backHaulRouteTarget + ", backHaulSubnetIPAddress=" + backHaulSubnetIPAddress + ", backHaulSubnetMask=" + backHaulSubnetMask + ", backHaulVNID=" + backHaulVNID + ", customerID=" + customerID + ", description=" + description + ", dhcpServerAddresses=" + dhcpServerAddresses + ", domainID=" + domainID + ", domainVLANID=" + domainVLANID + ", encryption=" + encryption + ", entityScope=" + entityScope + ", exportRouteTarget=" + exportRouteTarget + ", externalID=" + externalID + ", globalRoutingEnabled=" + globalRoutingEnabled + ", importRouteTarget=" + importRouteTarget + ", labelID=" + labelID + ", lastUpdatedBy=" + lastUpdatedBy + ", leakingEnabled=" + leakingEnabled + ", localAS=" + localAS + ", maintenanceMode=" + maintenanceMode + ", multicast=" + multicast + ", name=" + name + ", permittedAction=" + permittedAction + ", policyChangeStatus=" + policyChangeStatus + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", secondaryDHCPServerAddress=" + secondaryDHCPServerAddress + ", serviceID=" + serviceID + ", stretched=" + stretched + ", templateID=" + templateID + ", tunnelType=" + tunnelType + ", underlayEnabled=" + underlayEnabled + ", uplinkPreference=" + uplinkPreference + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Domain [" + "BGPEnabled=" + BGPEnabled + ", DHCPBehavior=" + DHCPBehavior + ", DHCPServerAddress=" + DHCPServerAddress + ", DPI=" + DPI + ", ECMPCount=" + ECMPCount + ", FIPUnderlay=" + FIPUnderlay + ", PATEnabled=" + PATEnabled + ", advertiseCriteria=" + advertiseCriteria + ", associatedBGPProfileID=" + associatedBGPProfileID + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedPATMapperID=" + associatedPATMapperID + ", associatedSharedPATMapperID=" + associatedSharedPATMapperID + ", backHaulRouteDistinguisher=" + backHaulRouteDistinguisher + ", backHaulRouteTarget=" + backHaulRouteTarget + ", backHaulSubnetIPAddress=" + backHaulSubnetIPAddress + ", backHaulSubnetMask=" + backHaulSubnetMask + ", backHaulVNID=" + backHaulVNID + ", customerID=" + customerID + ", description=" + description + ", dhcpServerAddresses=" + dhcpServerAddresses + ", domainID=" + domainID + ", domainVLANID=" + domainVLANID + ", encryption=" + encryption + ", entityScope=" + entityScope + ", exportRouteTarget=" + exportRouteTarget + ", externalID=" + externalID + ", globalRoutingEnabled=" + globalRoutingEnabled + ", importRouteTarget=" + importRouteTarget + ", labelID=" + labelID + ", lastUpdatedBy=" + lastUpdatedBy + ", leakingEnabled=" + leakingEnabled + ", localAS=" + localAS + ", maintenanceMode=" + maintenanceMode + ", multicast=" + multicast + ", name=" + name + ", permittedAction=" + permittedAction + ", policyChangeStatus=" + policyChangeStatus + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", secondaryDHCPServerAddress=" + secondaryDHCPServerAddress + ", serviceID=" + serviceID + ", stretched=" + stretched + ", templateID=" + templateID + ", tunnelType=" + tunnelType + ", underlayEnabled=" + underlayEnabled + ", uplinkPreference=" + uplinkPreference + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

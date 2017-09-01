@@ -41,10 +41,13 @@ import net.nuagenetworks.vspk.v5_0.fetchers.ApplicationsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ApplicationperformancemanagementsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.AvatarsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.BGPProfilesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.CaptivePortalProfilesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ContainersFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.COSRemarkingPolicyTablesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.DomainsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.DomainTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.DSCPForwardingClassTablesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.DSCPRemarkingPolicyTablesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EgressQOSPoliciesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EnterpriseNetworksFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EnterpriseSecuritiesFetcher;
@@ -61,10 +64,13 @@ import net.nuagenetworks.vspk.v5_0.fetchers.IKEEncryptionprofilesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.IKEGatewaysFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.IKEGatewayProfilesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.IKEPSKsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.IngressQOSPoliciesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.KeyServerMonitorsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.L2DomainsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.L2DomainTemplatesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.L4ServicesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.L4ServiceGroupsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.L7applicationsignaturesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.LDAPConfigurationsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
@@ -87,6 +93,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.TrunksFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.UsersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VMsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VNFsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.VNFMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ZFBRequestsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -113,6 +120,9 @@ public class Enterprise extends RestObject {
    
    @JsonProperty(value = "LDAPEnabled")
    protected Boolean LDAPEnabled;
+   
+   @JsonProperty(value = "VNFManagementEnabled")
+   protected Boolean VNFManagementEnabled;
    
    @JsonProperty(value = "allowAdvancedQOSConfiguration")
    protected Boolean allowAdvancedQOSConfiguration;
@@ -186,6 +196,9 @@ public class Enterprise extends RestObject {
    @JsonProperty(value = "sendMultiCastListID")
    protected String sendMultiCastListID;
    
+   @JsonProperty(value = "sharedEnterprise")
+   protected Boolean sharedEnterprise;
+   
 
    
    @JsonIgnore
@@ -207,7 +220,13 @@ public class Enterprise extends RestObject {
    private BGPProfilesFetcher bGPProfiles;
    
    @JsonIgnore
+   private CaptivePortalProfilesFetcher captivePortalProfiles;
+   
+   @JsonIgnore
    private ContainersFetcher containers;
+   
+   @JsonIgnore
+   private COSRemarkingPolicyTablesFetcher cOSRemarkingPolicyTables;
    
    @JsonIgnore
    private DomainsFetcher domains;
@@ -217,6 +236,9 @@ public class Enterprise extends RestObject {
    
    @JsonIgnore
    private DSCPForwardingClassTablesFetcher dSCPForwardingClassTables;
+   
+   @JsonIgnore
+   private DSCPRemarkingPolicyTablesFetcher dSCPRemarkingPolicyTables;
    
    @JsonIgnore
    private EgressQOSPoliciesFetcher egressQOSPolicies;
@@ -267,6 +289,9 @@ public class Enterprise extends RestObject {
    private IKEPSKsFetcher iKEPSKs;
    
    @JsonIgnore
+   private IngressQOSPoliciesFetcher ingressQOSPolicies;
+   
+   @JsonIgnore
    private JobsFetcher jobs;
    
    @JsonIgnore
@@ -277,6 +302,12 @@ public class Enterprise extends RestObject {
    
    @JsonIgnore
    private L2DomainTemplatesFetcher l2DomainTemplates;
+   
+   @JsonIgnore
+   private L4ServicesFetcher l4Services;
+   
+   @JsonIgnore
+   private L4ServiceGroupsFetcher l4ServiceGroups;
    
    @JsonIgnore
    private L7applicationsignaturesFetcher l7applicationsignatures;
@@ -345,6 +376,9 @@ public class Enterprise extends RestObject {
    private VNFsFetcher vNFs;
    
    @JsonIgnore
+   private VNFMetadatasFetcher vNFMetadatas;
+   
+   @JsonIgnore
    private ZFBRequestsFetcher zFBRequests;
    
 
@@ -362,13 +396,19 @@ public class Enterprise extends RestObject {
       
       bGPProfiles = new BGPProfilesFetcher(this);
       
+      captivePortalProfiles = new CaptivePortalProfilesFetcher(this);
+      
       containers = new ContainersFetcher(this);
+      
+      cOSRemarkingPolicyTables = new COSRemarkingPolicyTablesFetcher(this);
       
       domains = new DomainsFetcher(this);
       
       domainTemplates = new DomainTemplatesFetcher(this);
       
       dSCPForwardingClassTables = new DSCPForwardingClassTablesFetcher(this);
+      
+      dSCPRemarkingPolicyTables = new DSCPRemarkingPolicyTablesFetcher(this);
       
       egressQOSPolicies = new EgressQOSPoliciesFetcher(this);
       
@@ -402,6 +442,8 @@ public class Enterprise extends RestObject {
       
       iKEPSKs = new IKEPSKsFetcher(this);
       
+      ingressQOSPolicies = new IngressQOSPoliciesFetcher(this);
+      
       jobs = new JobsFetcher(this);
       
       keyServerMonitors = new KeyServerMonitorsFetcher(this);
@@ -409,6 +451,10 @@ public class Enterprise extends RestObject {
       l2Domains = new L2DomainsFetcher(this);
       
       l2DomainTemplates = new L2DomainTemplatesFetcher(this);
+      
+      l4Services = new L4ServicesFetcher(this);
+      
+      l4ServiceGroups = new L4ServiceGroupsFetcher(this);
       
       l7applicationsignatures = new L7applicationsignaturesFetcher(this);
       
@@ -454,6 +500,8 @@ public class Enterprise extends RestObject {
       
       vNFs = new VNFsFetcher(this);
       
+      vNFMetadatas = new VNFMetadatasFetcher(this);
+      
       zFBRequests = new ZFBRequestsFetcher(this);
       
    }
@@ -493,6 +541,15 @@ public class Enterprise extends RestObject {
    @JsonIgnore
    public void setLDAPEnabled(Boolean value) { 
       this.LDAPEnabled = value;
+   }
+   @JsonIgnore
+   public Boolean getVNFManagementEnabled() {
+      return VNFManagementEnabled;
+   }
+
+   @JsonIgnore
+   public void setVNFManagementEnabled(Boolean value) { 
+      this.VNFManagementEnabled = value;
    }
    @JsonIgnore
    public Boolean getAllowAdvancedQOSConfiguration() {
@@ -710,6 +767,15 @@ public class Enterprise extends RestObject {
    public void setSendMultiCastListID(String value) { 
       this.sendMultiCastListID = value;
    }
+   @JsonIgnore
+   public Boolean getSharedEnterprise() {
+      return sharedEnterprise;
+   }
+
+   @JsonIgnore
+   public void setSharedEnterprise(Boolean value) { 
+      this.sharedEnterprise = value;
+   }
    
 
    
@@ -744,8 +810,18 @@ public class Enterprise extends RestObject {
    }
    
    @JsonIgnore
+   public CaptivePortalProfilesFetcher getCaptivePortalProfiles() {
+      return captivePortalProfiles;
+   }
+   
+   @JsonIgnore
    public ContainersFetcher getContainers() {
       return containers;
+   }
+   
+   @JsonIgnore
+   public COSRemarkingPolicyTablesFetcher getCOSRemarkingPolicyTables() {
+      return cOSRemarkingPolicyTables;
    }
    
    @JsonIgnore
@@ -761,6 +837,11 @@ public class Enterprise extends RestObject {
    @JsonIgnore
    public DSCPForwardingClassTablesFetcher getDSCPForwardingClassTables() {
       return dSCPForwardingClassTables;
+   }
+   
+   @JsonIgnore
+   public DSCPRemarkingPolicyTablesFetcher getDSCPRemarkingPolicyTables() {
+      return dSCPRemarkingPolicyTables;
    }
    
    @JsonIgnore
@@ -844,6 +925,11 @@ public class Enterprise extends RestObject {
    }
    
    @JsonIgnore
+   public IngressQOSPoliciesFetcher getIngressQOSPolicies() {
+      return ingressQOSPolicies;
+   }
+   
+   @JsonIgnore
    public JobsFetcher getJobs() {
       return jobs;
    }
@@ -861,6 +947,16 @@ public class Enterprise extends RestObject {
    @JsonIgnore
    public L2DomainTemplatesFetcher getL2DomainTemplates() {
       return l2DomainTemplates;
+   }
+   
+   @JsonIgnore
+   public L4ServicesFetcher getL4Services() {
+      return l4Services;
+   }
+   
+   @JsonIgnore
+   public L4ServiceGroupsFetcher getL4ServiceGroups() {
+      return l4ServiceGroups;
    }
    
    @JsonIgnore
@@ -974,13 +1070,18 @@ public class Enterprise extends RestObject {
    }
    
    @JsonIgnore
+   public VNFMetadatasFetcher getVNFMetadatas() {
+      return vNFMetadatas;
+   }
+   
+   @JsonIgnore
    public ZFBRequestsFetcher getZFBRequests() {
       return zFBRequests;
    }
    
 
    public String toString() {
-      return "Enterprise [" + "BGPEnabled=" + BGPEnabled + ", DHCPLeaseInterval=" + DHCPLeaseInterval + ", LDAPAuthorizationEnabled=" + LDAPAuthorizationEnabled + ", LDAPEnabled=" + LDAPEnabled + ", allowAdvancedQOSConfiguration=" + allowAdvancedQOSConfiguration + ", allowGatewayManagement=" + allowGatewayManagement + ", allowTrustedForwardingClass=" + allowTrustedForwardingClass + ", allowedForwardingClasses=" + allowedForwardingClasses + ", associatedEnterpriseSecurityID=" + associatedEnterpriseSecurityID + ", associatedGroupKeyEncryptionProfileID=" + associatedGroupKeyEncryptionProfileID + ", associatedKeyServerMonitorID=" + associatedKeyServerMonitorID + ", avatarData=" + avatarData + ", avatarType=" + avatarType + ", customerID=" + customerID + ", description=" + description + ", dictionaryVersion=" + dictionaryVersion + ", enableApplicationPerformanceManagement=" + enableApplicationPerformanceManagement + ", encryptionManagementMode=" + encryptionManagementMode + ", enterpriseProfileID=" + enterpriseProfileID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", floatingIPsQuota=" + floatingIPsQuota + ", floatingIPsUsed=" + floatingIPsUsed + ", lastUpdatedBy=" + lastUpdatedBy + ", localAS=" + localAS + ", name=" + name + ", receiveMultiCastListID=" + receiveMultiCastListID + ", sendMultiCastListID=" + sendMultiCastListID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Enterprise [" + "BGPEnabled=" + BGPEnabled + ", DHCPLeaseInterval=" + DHCPLeaseInterval + ", LDAPAuthorizationEnabled=" + LDAPAuthorizationEnabled + ", LDAPEnabled=" + LDAPEnabled + ", VNFManagementEnabled=" + VNFManagementEnabled + ", allowAdvancedQOSConfiguration=" + allowAdvancedQOSConfiguration + ", allowGatewayManagement=" + allowGatewayManagement + ", allowTrustedForwardingClass=" + allowTrustedForwardingClass + ", allowedForwardingClasses=" + allowedForwardingClasses + ", associatedEnterpriseSecurityID=" + associatedEnterpriseSecurityID + ", associatedGroupKeyEncryptionProfileID=" + associatedGroupKeyEncryptionProfileID + ", associatedKeyServerMonitorID=" + associatedKeyServerMonitorID + ", avatarData=" + avatarData + ", avatarType=" + avatarType + ", customerID=" + customerID + ", description=" + description + ", dictionaryVersion=" + dictionaryVersion + ", enableApplicationPerformanceManagement=" + enableApplicationPerformanceManagement + ", encryptionManagementMode=" + encryptionManagementMode + ", enterpriseProfileID=" + enterpriseProfileID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", floatingIPsQuota=" + floatingIPsQuota + ", floatingIPsUsed=" + floatingIPsUsed + ", lastUpdatedBy=" + lastUpdatedBy + ", localAS=" + localAS + ", name=" + name + ", receiveMultiCastListID=" + receiveMultiCastListID + ", sendMultiCastListID=" + sendMultiCastListID + ", sharedEnterprise=" + sharedEnterprise + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

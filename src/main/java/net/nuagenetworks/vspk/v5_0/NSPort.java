@@ -64,6 +64,9 @@ public class NSPort extends RestObject {
    @JsonProperty(value = "NATTraversal")
    protected NATTraversal NATTraversal;
    
+   @JsonProperty(value = "TrafficThroughUBROnly")
+   protected Boolean TrafficThroughUBROnly;
+   
    @JsonProperty(value = "VLANRange")
    protected String VLANRange;
    
@@ -75,6 +78,9 @@ public class NSPort extends RestObject {
    
    @JsonProperty(value = "description")
    protected String description;
+   
+   @JsonProperty(value = "enableNATProbes")
+   protected Boolean enableNATProbes;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
@@ -182,6 +188,15 @@ public class NSPort extends RestObject {
       this.NATTraversal = value;
    }
    @JsonIgnore
+   public Boolean getTrafficThroughUBROnly() {
+      return TrafficThroughUBROnly;
+   }
+
+   @JsonIgnore
+   public void setTrafficThroughUBROnly(Boolean value) { 
+      this.TrafficThroughUBROnly = value;
+   }
+   @JsonIgnore
    public String getVLANRange() {
       return VLANRange;
    }
@@ -216,6 +231,15 @@ public class NSPort extends RestObject {
    @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
+   }
+   @JsonIgnore
+   public Boolean getEnableNATProbes() {
+      return enableNATProbes;
+   }
+
+   @JsonIgnore
+   public void setEnableNATProbes(Boolean value) { 
+      this.enableNATProbes = value;
    }
    @JsonIgnore
    public EntityScope getEntityScope() {
@@ -389,7 +413,7 @@ public class NSPort extends RestObject {
    
 
    public String toString() {
-      return "NSPort [" + "NATTraversal=" + NATTraversal + ", VLANRange=" + VLANRange + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", associatedRedundantPortID=" + associatedRedundantPortID + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", mtu=" + mtu + ", name=" + name + ", permittedAction=" + permittedAction + ", physicalName=" + physicalName + ", portType=" + portType + ", speed=" + speed + ", status=" + status + ", templateID=" + templateID + ", useUserMnemonic=" + useUserMnemonic + ", userMnemonic=" + userMnemonic + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NSPort [" + "NATTraversal=" + NATTraversal + ", TrafficThroughUBROnly=" + TrafficThroughUBROnly + ", VLANRange=" + VLANRange + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", associatedRedundantPortID=" + associatedRedundantPortID + ", description=" + description + ", enableNATProbes=" + enableNATProbes + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", mtu=" + mtu + ", name=" + name + ", permittedAction=" + permittedAction + ", physicalName=" + physicalName + ", portType=" + portType + ", speed=" + speed + ", status=" + status + ", templateID=" + templateID + ", useUserMnemonic=" + useUserMnemonic + ", userMnemonic=" + userMnemonic + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -36,6 +36,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 import net.nuagenetworks.vspk.v5_0.fetchers.AlarmsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.CaptivePortalProfilesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EventLogsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -45,8 +46,12 @@ public class SSIDConnection extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum AuthenticationMode { OPEN, WEP, WPA, WPA2, WPA_OTP, WPA_WPA2 };
+   public enum AuthenticationMode { CAPTIVE_PORTAL, OPEN, WEP, WPA, WPA2, WPA_OTP, WPA_WPA2 };
+   public enum RedirectOption { CONFIGURED_URL, ORIGINAL_REQUEST };
 
+   
+   @JsonProperty(value = "associatedCaptivePortalProfileID")
+   protected String associatedCaptivePortalProfileID;
    
    @JsonProperty(value = "associatedEgressQOSPolicyID")
    protected String associatedEgressQOSPolicyID;
@@ -75,6 +80,12 @@ public class SSIDConnection extends RestObject {
    @JsonProperty(value = "passphrase")
    protected String passphrase;
    
+   @JsonProperty(value = "redirectOption")
+   protected RedirectOption redirectOption;
+   
+   @JsonProperty(value = "redirectURL")
+   protected String redirectURL;
+   
    @JsonProperty(value = "whiteList")
    protected java.util.List<String> whiteList;
    
@@ -84,6 +95,9 @@ public class SSIDConnection extends RestObject {
    private AlarmsFetcher alarms;
    
    @JsonIgnore
+   private CaptivePortalProfilesFetcher captivePortalProfiles;
+   
+   @JsonIgnore
    private EventLogsFetcher eventLogs;
    
 
@@ -91,10 +105,21 @@ public class SSIDConnection extends RestObject {
       
       alarms = new AlarmsFetcher(this);
       
+      captivePortalProfiles = new CaptivePortalProfilesFetcher(this);
+      
       eventLogs = new EventLogsFetcher(this);
       
    }
 
+   @JsonIgnore
+   public String getAssociatedCaptivePortalProfileID() {
+      return associatedCaptivePortalProfileID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedCaptivePortalProfileID(String value) { 
+      this.associatedCaptivePortalProfileID = value;
+   }
    @JsonIgnore
    public String getAssociatedEgressQOSPolicyID() {
       return associatedEgressQOSPolicyID;
@@ -177,6 +202,24 @@ public class SSIDConnection extends RestObject {
       this.passphrase = value;
    }
    @JsonIgnore
+   public RedirectOption getRedirectOption() {
+      return redirectOption;
+   }
+
+   @JsonIgnore
+   public void setRedirectOption(RedirectOption value) { 
+      this.redirectOption = value;
+   }
+   @JsonIgnore
+   public String getRedirectURL() {
+      return redirectURL;
+   }
+
+   @JsonIgnore
+   public void setRedirectURL(String value) { 
+      this.redirectURL = value;
+   }
+   @JsonIgnore
    public java.util.List<String> getWhiteList() {
       return whiteList;
    }
@@ -194,13 +237,18 @@ public class SSIDConnection extends RestObject {
    }
    
    @JsonIgnore
+   public CaptivePortalProfilesFetcher getCaptivePortalProfiles() {
+      return captivePortalProfiles;
+   }
+   
+   @JsonIgnore
    public EventLogsFetcher getEventLogs() {
       return eventLogs;
    }
    
 
    public String toString() {
-      return "SSIDConnection [" + "associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", authenticationMode=" + authenticationMode + ", blackList=" + blackList + ", broadcastSSID=" + broadcastSSID + ", description=" + description + ", genericConfig=" + genericConfig + ", interfaceName=" + interfaceName + ", name=" + name + ", passphrase=" + passphrase + ", whiteList=" + whiteList + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "SSIDConnection [" + "associatedCaptivePortalProfileID=" + associatedCaptivePortalProfileID + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", authenticationMode=" + authenticationMode + ", blackList=" + blackList + ", broadcastSSID=" + broadcastSSID + ", description=" + description + ", genericConfig=" + genericConfig + ", interfaceName=" + interfaceName + ", name=" + name + ", passphrase=" + passphrase + ", redirectOption=" + redirectOption + ", redirectURL=" + redirectURL + ", whiteList=" + whiteList + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

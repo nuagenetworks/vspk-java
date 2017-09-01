@@ -49,7 +49,7 @@ public class RedirectionTarget extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum EndPointType { L3, NONE, VIRTUAL_WIRE };
+   public enum EndPointType { L3, NONE, NSG_VNF, VIRTUAL_WIRE };
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum TriggerType { GARP, NONE };
 

@@ -38,6 +38,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import net.nuagenetworks.vspk.v5_0.fetchers.AlarmsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.BootstrapsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.BootstrapActivationsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.CommandsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EnterprisePermissionsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GatewaySecuritiesFetcher;
@@ -69,7 +70,7 @@ public class NSGateway extends RestObject {
    public enum ConfigurationStatus { FAILURE, SUCCESS, UNKNOWN };
    public enum DerivedSSHServiceState { INHERITED_DISABLED, INHERITED_ENABLED, INSTANCE_DISABLED, INSTANCE_ENABLED, UNKNOWN };
    public enum EntityScope { ENTERPRISE, GLOBAL };
-   public enum Family { ANY, NSG_E, NSG_V };
+   public enum Family { ANY, NSG_E, NSG_V, NSG_AMI, NSG_X, NSG_C, NSG_E200, NSG_E300, NSG_X200 };
    public enum InheritedSSHServiceState { DISABLED, ENABLED };
    public enum NetworkAcceleration { NONE, NORMAL, OPTIMAL, PERFORMANCE };
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
@@ -118,6 +119,9 @@ public class NSGateway extends RestObject {
    @JsonProperty(value = "associatedNSGInfoID")
    protected String associatedNSGInfoID;
    
+   @JsonProperty(value = "associatedNSGUpgradeProfileID")
+   protected String associatedNSGUpgradeProfileID;
+   
    @JsonProperty(value = "autoDiscGatewayID")
    protected String autoDiscGatewayID;
    
@@ -132,6 +136,12 @@ public class NSGateway extends RestObject {
    
    @JsonProperty(value = "configurationStatus")
    protected ConfigurationStatus configurationStatus;
+   
+   @JsonProperty(value = "controlTrafficCOSValue")
+   protected Long controlTrafficCOSValue;
+   
+   @JsonProperty(value = "controlTrafficDSCPValue")
+   protected Long controlTrafficDSCPValue;
    
    @JsonProperty(value = "datapathID")
    protected String datapathID;
@@ -217,6 +227,9 @@ public class NSGateway extends RestObject {
    private BootstrapActivationsFetcher bootstrapActivations;
    
    @JsonIgnore
+   private CommandsFetcher commands;
+   
+   @JsonIgnore
    private EnterprisePermissionsFetcher enterprisePermissions;
    
    @JsonIgnore
@@ -272,6 +285,8 @@ public class NSGateway extends RestObject {
       bootstraps = new BootstrapsFetcher(this);
       
       bootstrapActivations = new BootstrapActivationsFetcher(this);
+      
+      commands = new CommandsFetcher(this);
       
       enterprisePermissions = new EnterprisePermissionsFetcher(this);
       
@@ -434,6 +449,15 @@ public class NSGateway extends RestObject {
       this.associatedNSGInfoID = value;
    }
    @JsonIgnore
+   public String getAssociatedNSGUpgradeProfileID() {
+      return associatedNSGUpgradeProfileID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedNSGUpgradeProfileID(String value) { 
+      this.associatedNSGUpgradeProfileID = value;
+   }
+   @JsonIgnore
    public String getAutoDiscGatewayID() {
       return autoDiscGatewayID;
    }
@@ -477,6 +501,24 @@ public class NSGateway extends RestObject {
    @JsonIgnore
    public void setConfigurationStatus(ConfigurationStatus value) { 
       this.configurationStatus = value;
+   }
+   @JsonIgnore
+   public Long getControlTrafficCOSValue() {
+      return controlTrafficCOSValue;
+   }
+
+   @JsonIgnore
+   public void setControlTrafficCOSValue(Long value) { 
+      this.controlTrafficCOSValue = value;
+   }
+   @JsonIgnore
+   public Long getControlTrafficDSCPValue() {
+      return controlTrafficDSCPValue;
+   }
+
+   @JsonIgnore
+   public void setControlTrafficDSCPValue(Long value) { 
+      this.controlTrafficDSCPValue = value;
    }
    @JsonIgnore
    public String getDatapathID() {
@@ -713,6 +755,11 @@ public class NSGateway extends RestObject {
    }
    
    @JsonIgnore
+   public CommandsFetcher getCommands() {
+      return commands;
+   }
+   
+   @JsonIgnore
    public EnterprisePermissionsFetcher getEnterprisePermissions() {
       return enterprisePermissions;
    }
@@ -794,7 +841,7 @@ public class NSGateway extends RestObject {
    
 
    public String toString() {
-      return "NSGateway [" + "BIOSVersion=" + BIOSVersion + ", CPUType=" + CPUType + ", MACAddress=" + MACAddress + ", NATTraversalEnabled=" + NATTraversalEnabled + ", NSGVersion=" + NSGVersion + ", SKU=" + SKU + ", SSHService=" + SSHService + ", TCPMSSEnabled=" + TCPMSSEnabled + ", TCPMaximumSegmentSize=" + TCPMaximumSegmentSize + ", TPMStatus=" + TPMStatus + ", UUID=" + UUID + ", associatedGatewaySecurityID=" + associatedGatewaySecurityID + ", associatedGatewaySecurityProfileID=" + associatedGatewaySecurityProfileID + ", associatedNSGInfoID=" + associatedNSGInfoID + ", autoDiscGatewayID=" + autoDiscGatewayID + ", bootstrapID=" + bootstrapID + ", bootstrapStatus=" + bootstrapStatus + ", configurationReloadState=" + configurationReloadState + ", configurationStatus=" + configurationStatus + ", datapathID=" + datapathID + ", derivedSSHServiceState=" + derivedSSHServiceState + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", family=" + family + ", inheritedSSHServiceState=" + inheritedSSHServiceState + ", lastConfigurationReloadTimestamp=" + lastConfigurationReloadTimestamp + ", lastUpdatedBy=" + lastUpdatedBy + ", libraries=" + libraries + ", locationID=" + locationID + ", name=" + name + ", networkAcceleration=" + networkAcceleration + ", operationMode=" + operationMode + ", operationStatus=" + operationStatus + ", pending=" + pending + ", permittedAction=" + permittedAction + ", personality=" + personality + ", productName=" + productName + ", redundancyGroupID=" + redundancyGroupID + ", serialNumber=" + serialNumber + ", systemID=" + systemID + ", templateID=" + templateID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NSGateway [" + "BIOSVersion=" + BIOSVersion + ", CPUType=" + CPUType + ", MACAddress=" + MACAddress + ", NATTraversalEnabled=" + NATTraversalEnabled + ", NSGVersion=" + NSGVersion + ", SKU=" + SKU + ", SSHService=" + SSHService + ", TCPMSSEnabled=" + TCPMSSEnabled + ", TCPMaximumSegmentSize=" + TCPMaximumSegmentSize + ", TPMStatus=" + TPMStatus + ", UUID=" + UUID + ", associatedGatewaySecurityID=" + associatedGatewaySecurityID + ", associatedGatewaySecurityProfileID=" + associatedGatewaySecurityProfileID + ", associatedNSGInfoID=" + associatedNSGInfoID + ", associatedNSGUpgradeProfileID=" + associatedNSGUpgradeProfileID + ", autoDiscGatewayID=" + autoDiscGatewayID + ", bootstrapID=" + bootstrapID + ", bootstrapStatus=" + bootstrapStatus + ", configurationReloadState=" + configurationReloadState + ", configurationStatus=" + configurationStatus + ", controlTrafficCOSValue=" + controlTrafficCOSValue + ", controlTrafficDSCPValue=" + controlTrafficDSCPValue + ", datapathID=" + datapathID + ", derivedSSHServiceState=" + derivedSSHServiceState + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", family=" + family + ", inheritedSSHServiceState=" + inheritedSSHServiceState + ", lastConfigurationReloadTimestamp=" + lastConfigurationReloadTimestamp + ", lastUpdatedBy=" + lastUpdatedBy + ", libraries=" + libraries + ", locationID=" + locationID + ", name=" + name + ", networkAcceleration=" + networkAcceleration + ", operationMode=" + operationMode + ", operationStatus=" + operationStatus + ", pending=" + pending + ", permittedAction=" + permittedAction + ", personality=" + personality + ", productName=" + productName + ", redundancyGroupID=" + redundancyGroupID + ", serialNumber=" + serialNumber + ", systemID=" + systemID + ", templateID=" + templateID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -52,6 +52,9 @@ public class Group extends RestObject {
    public enum Role { CMS, CSPOPERATOR, CSPROOT, JMS, ORGADMIN, ORGAPPDESIGNER, ORGNETWORKDESIGNER, ORGUSER, SYSTEM, UNKNOWN, USER };
 
    
+   @JsonProperty(value = "LDAPGroupDN")
+   protected String LDAPGroupDN;
+   
    @JsonProperty(value = "accountRestrictions")
    protected Boolean accountRestrictions;
    
@@ -109,6 +112,15 @@ public class Group extends RestObject {
       
    }
 
+   @JsonIgnore
+   public String getLDAPGroupDN() {
+      return LDAPGroupDN;
+   }
+
+   @JsonIgnore
+   public void setLDAPGroupDN(String value) { 
+      this.LDAPGroupDN = value;
+   }
    @JsonIgnore
    public Boolean getAccountRestrictions() {
       return accountRestrictions;
@@ -224,7 +236,7 @@ public class Group extends RestObject {
    
 
    public String toString() {
-      return "Group [" + "accountRestrictions=" + accountRestrictions + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", managementMode=" + managementMode + ", name=" + name + ", private_=" + private_ + ", restrictionDate=" + restrictionDate + ", role=" + role + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Group [" + "LDAPGroupDN=" + LDAPGroupDN + ", accountRestrictions=" + accountRestrictions + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", managementMode=" + managementMode + ", name=" + name + ", private_=" + private_ + ", restrictionDate=" + restrictionDate + ", role=" + role + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

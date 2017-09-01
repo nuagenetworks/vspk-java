@@ -49,6 +49,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.IngressExternalServiceTemplatesFetch
 import net.nuagenetworks.vspk.v5_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PermissionsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.PGExpressionTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PolicyGroupTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.QOSsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.RedirectionTargetTemplatesFetcher;
@@ -150,6 +151,9 @@ public class DomainTemplate extends RestObject {
    private PermissionsFetcher permissions;
    
    @JsonIgnore
+   private PGExpressionTemplatesFetcher pGExpressionTemplates;
+   
+   @JsonIgnore
    private PolicyGroupTemplatesFetcher policyGroupTemplates;
    
    @JsonIgnore
@@ -194,6 +198,8 @@ public class DomainTemplate extends RestObject {
       metadatas = new MetadatasFetcher(this);
       
       permissions = new PermissionsFetcher(this);
+      
+      pGExpressionTemplates = new PGExpressionTemplatesFetcher(this);
       
       policyGroupTemplates = new PolicyGroupTemplatesFetcher(this);
       
@@ -386,6 +392,11 @@ public class DomainTemplate extends RestObject {
    @JsonIgnore
    public PermissionsFetcher getPermissions() {
       return permissions;
+   }
+   
+   @JsonIgnore
+   public PGExpressionTemplatesFetcher getPGExpressionTemplates() {
+      return pGExpressionTemplates;
    }
    
    @JsonIgnore

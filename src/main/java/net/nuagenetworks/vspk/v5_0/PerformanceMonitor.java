@@ -36,6 +36,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 import net.nuagenetworks.vspk.v5_0.fetchers.ApplicationperformancemanagementsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.NSGatewaysFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "performancemonitor", resourceName = "performancemonitors")
@@ -44,14 +45,31 @@ public class PerformanceMonitor extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum ProbeType { HTTP, IPSEC_AND_VXLAN, ONEWAY };
    public enum ServiceClass { A, B, C, D, E, F, G, H };
 
    
    @JsonProperty(value = "description")
    protected String description;
    
+   @JsonProperty(value = "destinationTargetList")
+   protected java.util.List<String> destinationTargetList;
+   
+   @JsonProperty(value = "downThresholdCount")
+   protected Long downThresholdCount;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
    @JsonProperty(value = "interval")
    protected Long interval;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
    protected String name;
@@ -62,21 +80,32 @@ public class PerformanceMonitor extends RestObject {
    @JsonProperty(value = "payloadSize")
    protected Long payloadSize;
    
+   @JsonProperty(value = "probeType")
+   protected ProbeType probeType;
+   
    @JsonProperty(value = "readOnly")
    protected Boolean readOnly;
    
    @JsonProperty(value = "serviceClass")
    protected ServiceClass serviceClass;
    
+   @JsonProperty(value = "timeout")
+   protected Long timeout;
+   
 
    
    @JsonIgnore
    private ApplicationperformancemanagementsFetcher applicationperformancemanagements;
    
+   @JsonIgnore
+   private NSGatewaysFetcher nSGateways;
+   
 
    public PerformanceMonitor() {
       
       applicationperformancemanagements = new ApplicationperformancemanagementsFetcher(this);
+      
+      nSGateways = new NSGatewaysFetcher(this);
       
    }
 
@@ -90,6 +119,42 @@ public class PerformanceMonitor extends RestObject {
       this.description = value;
    }
    @JsonIgnore
+   public java.util.List<String> getDestinationTargetList() {
+      return destinationTargetList;
+   }
+
+   @JsonIgnore
+   public void setDestinationTargetList(java.util.List<String> value) { 
+      this.destinationTargetList = value;
+   }
+   @JsonIgnore
+   public Long getDownThresholdCount() {
+      return downThresholdCount;
+   }
+
+   @JsonIgnore
+   public void setDownThresholdCount(Long value) { 
+      this.downThresholdCount = value;
+   }
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   @JsonIgnore
    public Long getInterval() {
       return interval;
    }
@@ -97,6 +162,15 @@ public class PerformanceMonitor extends RestObject {
    @JsonIgnore
    public void setInterval(Long value) { 
       this.interval = value;
+   }
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    @JsonIgnore
    public String getName() {
@@ -126,6 +200,15 @@ public class PerformanceMonitor extends RestObject {
       this.payloadSize = value;
    }
    @JsonIgnore
+   public ProbeType getProbeType() {
+      return probeType;
+   }
+
+   @JsonIgnore
+   public void setProbeType(ProbeType value) { 
+      this.probeType = value;
+   }
+   @JsonIgnore
    public Boolean getReadOnly() {
       return readOnly;
    }
@@ -143,6 +226,15 @@ public class PerformanceMonitor extends RestObject {
    public void setServiceClass(ServiceClass value) { 
       this.serviceClass = value;
    }
+   @JsonIgnore
+   public Long getTimeout() {
+      return timeout;
+   }
+
+   @JsonIgnore
+   public void setTimeout(Long value) { 
+      this.timeout = value;
+   }
    
 
    
@@ -151,9 +243,14 @@ public class PerformanceMonitor extends RestObject {
       return applicationperformancemanagements;
    }
    
+   @JsonIgnore
+   public NSGatewaysFetcher getNSGateways() {
+      return nSGateways;
+   }
+   
 
    public String toString() {
-      return "PerformanceMonitor [" + "description=" + description + ", interval=" + interval + ", name=" + name + ", numberOfPackets=" + numberOfPackets + ", payloadSize=" + payloadSize + ", readOnly=" + readOnly + ", serviceClass=" + serviceClass + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "PerformanceMonitor [" + "description=" + description + ", destinationTargetList=" + destinationTargetList + ", downThresholdCount=" + downThresholdCount + ", entityScope=" + entityScope + ", externalID=" + externalID + ", interval=" + interval + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", numberOfPackets=" + numberOfPackets + ", payloadSize=" + payloadSize + ", probeType=" + probeType + ", readOnly=" + readOnly + ", serviceClass=" + serviceClass + ", timeout=" + timeout + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

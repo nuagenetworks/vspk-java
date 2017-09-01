@@ -48,9 +48,10 @@ public class IngressACLEntryTemplate extends RestObject {
 
    
    public enum Action { DROP, FORWARD, REDIRECT };
+   public enum AssociatedTrafficType { L4_SERVICE, L4_SERVICE_GROUP };
    public enum EntityScope { ENTERPRISE, GLOBAL };
-   public enum LocationType { ANY, POLICYGROUP, REDIRECTIONTARGET, SUBNET, VPORTTAG, ZONE };
-   public enum NetworkType { ANY, ENDPOINT_DOMAIN, ENDPOINT_SUBNET, ENDPOINT_ZONE, ENTERPRISE_NETWORK, INTERNET_POLICYGROUP, NETWORK_MACRO_GROUP, POLICYGROUP, PUBLIC_NETWORK, SUBNET, ZONE };
+   public enum LocationType { ANY, PGEXPRESSION, POLICYGROUP, REDIRECTIONTARGET, SUBNET, VPORTTAG, ZONE };
+   public enum NetworkType { ANY, ENDPOINT_DOMAIN, ENDPOINT_SUBNET, ENDPOINT_ZONE, ENTERPRISE_NETWORK, INTERNET_POLICYGROUP, NETWORK_MACRO_GROUP, PGEXPRESSION, POLICYGROUP, PUBLIC_NETWORK, SUBNET, ZONE };
    public enum PolicyState { DRAFT, LIVE };
 
    
@@ -75,8 +76,17 @@ public class IngressACLEntryTemplate extends RestObject {
    @JsonProperty(value = "addressOverride")
    protected String addressOverride;
    
+   @JsonProperty(value = "associatedL7ApplicationSignatureID")
+   protected String associatedL7ApplicationSignatureID;
+   
    @JsonProperty(value = "associatedLiveEntityID")
    protected String associatedLiveEntityID;
+   
+   @JsonProperty(value = "associatedTrafficType")
+   protected AssociatedTrafficType associatedTrafficType;
+   
+   @JsonProperty(value = "associatedTrafficTypeID")
+   protected String associatedTrafficTypeID;
    
    @JsonProperty(value = "description")
    protected String description;
@@ -241,6 +251,15 @@ public class IngressACLEntryTemplate extends RestObject {
       this.addressOverride = value;
    }
    @JsonIgnore
+   public String getAssociatedL7ApplicationSignatureID() {
+      return associatedL7ApplicationSignatureID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedL7ApplicationSignatureID(String value) { 
+      this.associatedL7ApplicationSignatureID = value;
+   }
+   @JsonIgnore
    public String getAssociatedLiveEntityID() {
       return associatedLiveEntityID;
    }
@@ -248,6 +267,24 @@ public class IngressACLEntryTemplate extends RestObject {
    @JsonIgnore
    public void setAssociatedLiveEntityID(String value) { 
       this.associatedLiveEntityID = value;
+   }
+   @JsonIgnore
+   public AssociatedTrafficType getAssociatedTrafficType() {
+      return associatedTrafficType;
+   }
+
+   @JsonIgnore
+   public void setAssociatedTrafficType(AssociatedTrafficType value) { 
+      this.associatedTrafficType = value;
+   }
+   @JsonIgnore
+   public String getAssociatedTrafficTypeID() {
+      return associatedTrafficTypeID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedTrafficTypeID(String value) { 
+      this.associatedTrafficTypeID = value;
    }
    @JsonIgnore
    public String getDescription() {
@@ -472,7 +509,7 @@ public class IngressACLEntryTemplate extends RestObject {
    
 
    public String toString() {
-      return "IngressACLEntryTemplate [" + "ACLTemplateName=" + ACLTemplateName + ", DSCP=" + DSCP + ", ICMPCode=" + ICMPCode + ", ICMPType=" + ICMPType + ", IPv6AddressOverride=" + IPv6AddressOverride + ", action=" + action + ", addressOverride=" + addressOverride + ", associatedLiveEntityID=" + associatedLiveEntityID + ", description=" + description + ", destinationPort=" + destinationPort + ", domainName=" + domainName + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", etherType=" + etherType + ", externalID=" + externalID + ", flowLoggingEnabled=" + flowLoggingEnabled + ", lastUpdatedBy=" + lastUpdatedBy + ", locationID=" + locationID + ", locationType=" + locationType + ", mirrorDestinationID=" + mirrorDestinationID + ", networkID=" + networkID + ", networkType=" + networkType + ", overlayMirrorDestinationID=" + overlayMirrorDestinationID + ", policyState=" + policyState + ", priority=" + priority + ", protocol=" + protocol + ", sourcePort=" + sourcePort + ", stateful=" + stateful + ", statsID=" + statsID + ", statsLoggingEnabled=" + statsLoggingEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "IngressACLEntryTemplate [" + "ACLTemplateName=" + ACLTemplateName + ", DSCP=" + DSCP + ", ICMPCode=" + ICMPCode + ", ICMPType=" + ICMPType + ", IPv6AddressOverride=" + IPv6AddressOverride + ", action=" + action + ", addressOverride=" + addressOverride + ", associatedL7ApplicationSignatureID=" + associatedL7ApplicationSignatureID + ", associatedLiveEntityID=" + associatedLiveEntityID + ", associatedTrafficType=" + associatedTrafficType + ", associatedTrafficTypeID=" + associatedTrafficTypeID + ", description=" + description + ", destinationPort=" + destinationPort + ", domainName=" + domainName + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", etherType=" + etherType + ", externalID=" + externalID + ", flowLoggingEnabled=" + flowLoggingEnabled + ", lastUpdatedBy=" + lastUpdatedBy + ", locationID=" + locationID + ", locationType=" + locationType + ", mirrorDestinationID=" + mirrorDestinationID + ", networkID=" + networkID + ", networkType=" + networkType + ", overlayMirrorDestinationID=" + overlayMirrorDestinationID + ", policyState=" + policyState + ", priority=" + priority + ", protocol=" + protocol + ", sourcePort=" + sourcePort + ", stateful=" + stateful + ", statsID=" + statsID + ", statsLoggingEnabled=" + statsLoggingEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

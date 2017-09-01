@@ -49,6 +49,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.L2DomainsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.OverlayMirrorDestinationTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PermissionsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.PGExpressionTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PolicyGroupTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.QOSsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.RedirectionTargetTemplatesFetcher;
@@ -61,7 +62,7 @@ public class L2DomainTemplate extends RestObject {
 
    
    public enum DPI { DISABLED, ENABLED, INHERITED };
-   public enum IPType { IPV4, DUALSTACK };
+   public enum IPType { DUALSTACK, IPV4 };
    public enum Encryption { DISABLED, ENABLED };
    public enum EntityScope { ENTERPRISE, GLOBAL };
    public enum EntityState { MARKED_FOR_DELETION, UNDER_CONSTRUCTION };
@@ -172,6 +173,9 @@ public class L2DomainTemplate extends RestObject {
    private PermissionsFetcher permissions;
    
    @JsonIgnore
+   private PGExpressionTemplatesFetcher pGExpressionTemplates;
+   
+   @JsonIgnore
    private PolicyGroupTemplatesFetcher policyGroupTemplates;
    
    @JsonIgnore
@@ -210,6 +214,8 @@ public class L2DomainTemplate extends RestObject {
       overlayMirrorDestinationTemplates = new OverlayMirrorDestinationTemplatesFetcher(this);
       
       permissions = new PermissionsFetcher(this);
+      
+      pGExpressionTemplates = new PGExpressionTemplatesFetcher(this);
       
       policyGroupTemplates = new PolicyGroupTemplatesFetcher(this);
       
@@ -461,6 +467,11 @@ public class L2DomainTemplate extends RestObject {
    @JsonIgnore
    public PermissionsFetcher getPermissions() {
       return permissions;
+   }
+   
+   @JsonIgnore
+   public PGExpressionTemplatesFetcher getPGExpressionTemplates() {
+      return pGExpressionTemplates;
    }
    
    @JsonIgnore

@@ -45,7 +45,11 @@ public class NetworkPerformanceMeasurement extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum NPMType { IPSEC, NONE, VXLAN };
 
+   
+   @JsonProperty(value = "NPMType")
+   protected NPMType NPMType;
    
    @JsonProperty(value = "associatedPerformanceMonitorID")
    protected String associatedPerformanceMonitorID;
@@ -76,6 +80,15 @@ public class NetworkPerformanceMeasurement extends RestObject {
       
    }
 
+   @JsonIgnore
+   public NPMType getNPMType() {
+      return NPMType;
+   }
+
+   @JsonIgnore
+   public void setNPMType(NPMType value) { 
+      this.NPMType = value;
+   }
    @JsonIgnore
    public String getAssociatedPerformanceMonitorID() {
       return associatedPerformanceMonitorID;
@@ -127,7 +140,7 @@ public class NetworkPerformanceMeasurement extends RestObject {
    
 
    public String toString() {
-      return "NetworkPerformanceMeasurement [" + "associatedPerformanceMonitorID=" + associatedPerformanceMonitorID + ", description=" + description + ", name=" + name + ", readOnly=" + readOnly + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NetworkPerformanceMeasurement [" + "NPMType=" + NPMType + ", associatedPerformanceMonitorID=" + associatedPerformanceMonitorID + ", description=" + description + ", name=" + name + ", readOnly=" + readOnly + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

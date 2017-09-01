@@ -35,6 +35,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v5_0.fetchers.BFDSessionsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.CustomPropertiesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.UnderlaysFetcher;
 
@@ -46,9 +47,9 @@ public class UplinkConnection extends RestObject {
 
    
    public enum Address { IPv4, IPv6 };
-   public enum AdvertisementCriteria { CONTROL_SESSION, FATE_SHARING, GATEWAY_PING, OPERATIONAL_LINK };
+   public enum AdvertisementCriteria { BFD, CONTROL_SESSION, OPERATIONAL_LINK };
    public enum InterfaceConnectionType { AUTOMATIC, EMBEDDED, PCI_EXPRESS, USB_ETHERNET, USB_MODEM };
-   public enum Mode { Any, Dynamic, LTE, PPPoE, Static };
+   public enum Mode { Dynamic, LTE, PPPoE, Static };
    public enum Role { NONE, PRIMARY, SECONDARY, TERTIARY, UNKNOWN };
 
    
@@ -115,6 +116,9 @@ public class UplinkConnection extends RestObject {
 
    
    @JsonIgnore
+   private BFDSessionsFetcher bFDSessions;
+   
+   @JsonIgnore
    private CustomPropertiesFetcher customProperties;
    
    @JsonIgnore
@@ -122,6 +126,8 @@ public class UplinkConnection extends RestObject {
    
 
    public UplinkConnection() {
+      
+      bFDSessions = new BFDSessionsFetcher(this);
       
       customProperties = new CustomPropertiesFetcher(this);
       
@@ -311,6 +317,11 @@ public class UplinkConnection extends RestObject {
    }
    
 
+   
+   @JsonIgnore
+   public BFDSessionsFetcher getBFDSessions() {
+      return bFDSessions;
+   }
    
    @JsonIgnore
    public CustomPropertiesFetcher getCustomProperties() {
