@@ -67,7 +67,7 @@ public class NSGateway extends RestObject {
    public enum ConfigurationStatus { FAILURE, SUCCESS, UNKNOWN };
    public enum DerivedSSHServiceState { INHERITED_DISABLED, INHERITED_ENABLED, INSTANCE_DISABLED, INSTANCE_ENABLED, UNKNOWN };
    public enum EntityScope { ENTERPRISE, GLOBAL };
-   public enum Family { ANY, NSG_E, NSG_V };
+   public enum Family { ANY, NSG_E, NSG_V, NSG_AMI, NSG_X, NSG_C };
    public enum InheritedSSHServiceState { DISABLED, ENABLED };
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    public enum Personality { DC7X50, HARDWARE_VTEP, NSG, NSGBR, NSGDUC, OTHER, VRSG, VSA, VSG };
