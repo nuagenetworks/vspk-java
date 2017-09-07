@@ -68,9 +68,6 @@ public class UplinkConnection extends RestObject {
    @JsonProperty(value = "associatedUnderlayName")
    protected String associatedUnderlayName;
    
-   @JsonProperty(value = "associatedVSCProfileID")
-   protected String associatedVSCProfileID;
-   
    @JsonProperty(value = "auxiliaryLink")
    protected Boolean auxiliaryLink;
    
@@ -164,15 +161,6 @@ public class UplinkConnection extends RestObject {
    @JsonIgnore
    public void setAssociatedUnderlayName(String value) { 
       this.associatedUnderlayName = value;
-   }
-   @JsonIgnore
-   public String getAssociatedVSCProfileID() {
-      return associatedVSCProfileID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedVSCProfileID(String value) { 
-      this.associatedVSCProfileID = value;
    }
    @JsonIgnore
    public Boolean getAuxiliaryLink() {
@@ -275,7 +263,7 @@ public class UplinkConnection extends RestObject {
    
 
    public String toString() {
-      return "UplinkConnection [" + "DNSAddress=" + DNSAddress + ", address=" + address + ", advertisementCriteria=" + advertisementCriteria + ", assocUnderlayID=" + assocUnderlayID + ", associatedUnderlayName=" + associatedUnderlayName + ", associatedVSCProfileID=" + associatedVSCProfileID + ", auxiliaryLink=" + auxiliaryLink + ", gateway=" + gateway + ", interfaceConnectionType=" + interfaceConnectionType + ", mode=" + mode + ", netmask=" + netmask + ", password=" + password + ", role=" + role + ", uplinkID=" + uplinkID + ", username=" + username + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "UplinkConnection [" + "DNSAddress=" + DNSAddress + ", address=" + address + ", advertisementCriteria=" + advertisementCriteria + ", assocUnderlayID=" + assocUnderlayID + ", associatedUnderlayName=" + associatedUnderlayName + ", auxiliaryLink=" + auxiliaryLink + ", gateway=" + gateway + ", interfaceConnectionType=" + interfaceConnectionType + ", mode=" + mode + ", netmask=" + netmask + ", password=" + password + ", role=" + role + ", uplinkID=" + uplinkID + ", username=" + username + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    
