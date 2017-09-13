@@ -44,6 +44,7 @@ public class PerformanceMonitor extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum ServiceClass { A, B, C, D, E, F, G, H };
 
    
@@ -80,6 +81,7 @@ public class PerformanceMonitor extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -89,6 +91,7 @@ public class PerformanceMonitor extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public Long getInterval() {
       return interval;
@@ -98,6 +101,7 @@ public class PerformanceMonitor extends RestObject {
    public void setInterval(Long value) { 
       this.interval = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -107,6 +111,7 @@ public class PerformanceMonitor extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public Long getNumberOfPackets() {
       return numberOfPackets;
@@ -116,6 +121,7 @@ public class PerformanceMonitor extends RestObject {
    public void setNumberOfPackets(Long value) { 
       this.numberOfPackets = value;
    }
+   
    @JsonIgnore
    public Long getPayloadSize() {
       return payloadSize;
@@ -125,6 +131,7 @@ public class PerformanceMonitor extends RestObject {
    public void setPayloadSize(Long value) { 
       this.payloadSize = value;
    }
+   
    @JsonIgnore
    public Boolean getReadOnly() {
       return readOnly;
@@ -134,6 +141,7 @@ public class PerformanceMonitor extends RestObject {
    public void setReadOnly(Boolean value) { 
       this.readOnly = value;
    }
+   
    @JsonIgnore
    public ServiceClass getServiceClass() {
       return serviceClass;

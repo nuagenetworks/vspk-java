@@ -47,8 +47,11 @@ public class IKEGateway extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum IKEVersion { V1, V2 };
+   
    public enum IKEv1Mode { AGGRESSIVE, MAIN, NONE };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -106,6 +109,7 @@ public class IKEGateway extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public IKEVersion getIKEVersion() {
       return IKEVersion;
@@ -115,6 +119,7 @@ public class IKEGateway extends RestObject {
    public void setIKEVersion(IKEVersion value) { 
       this.IKEVersion = value;
    }
+   
    @JsonIgnore
    public IKEv1Mode getIKEv1Mode() {
       return IKEv1Mode;
@@ -124,6 +129,7 @@ public class IKEGateway extends RestObject {
    public void setIKEv1Mode(IKEv1Mode value) { 
       this.IKEv1Mode = value;
    }
+   
    @JsonIgnore
    public String getIPAddress() {
       return IPAddress;
@@ -133,6 +139,7 @@ public class IKEGateway extends RestObject {
    public void setIPAddress(String value) { 
       this.IPAddress = value;
    }
+   
    @JsonIgnore
    public String getAssociatedEnterpriseID() {
       return associatedEnterpriseID;
@@ -142,6 +149,7 @@ public class IKEGateway extends RestObject {
    public void setAssociatedEnterpriseID(String value) { 
       this.associatedEnterpriseID = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -151,6 +159,7 @@ public class IKEGateway extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -160,6 +169,7 @@ public class IKEGateway extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -169,6 +179,7 @@ public class IKEGateway extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -178,6 +189,7 @@ public class IKEGateway extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;

@@ -49,9 +49,13 @@ public class VsgRedundantPort extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
+   
    public enum PortType { ACCESS, NETWORK };
+   
    public enum Status { INITIALIZED, MISMATCH, ORPHAN, READY };
 
    
@@ -137,6 +141,7 @@ public class VsgRedundantPort extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getVLANRange() {
       return VLANRange;
@@ -146,6 +151,7 @@ public class VsgRedundantPort extends RestObject {
    public void setVLANRange(String value) { 
       this.VLANRange = value;
    }
+   
    @JsonIgnore
    public String getAssociatedEgressQOSPolicyID() {
       return associatedEgressQOSPolicyID;
@@ -155,6 +161,7 @@ public class VsgRedundantPort extends RestObject {
    public void setAssociatedEgressQOSPolicyID(String value) { 
       this.associatedEgressQOSPolicyID = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -164,6 +171,7 @@ public class VsgRedundantPort extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -173,6 +181,7 @@ public class VsgRedundantPort extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -182,6 +191,7 @@ public class VsgRedundantPort extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -191,6 +201,7 @@ public class VsgRedundantPort extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -200,6 +211,7 @@ public class VsgRedundantPort extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public PermittedAction getPermittedAction() {
       return permittedAction;
@@ -209,6 +221,7 @@ public class VsgRedundantPort extends RestObject {
    public void setPermittedAction(PermittedAction value) { 
       this.permittedAction = value;
    }
+   
    @JsonIgnore
    public String getPhysicalName() {
       return physicalName;
@@ -218,6 +231,7 @@ public class VsgRedundantPort extends RestObject {
    public void setPhysicalName(String value) { 
       this.physicalName = value;
    }
+   
    @JsonIgnore
    public String getPortPeer1ID() {
       return portPeer1ID;
@@ -227,6 +241,7 @@ public class VsgRedundantPort extends RestObject {
    public void setPortPeer1ID(String value) { 
       this.portPeer1ID = value;
    }
+   
    @JsonIgnore
    public String getPortPeer2ID() {
       return portPeer2ID;
@@ -236,6 +251,7 @@ public class VsgRedundantPort extends RestObject {
    public void setPortPeer2ID(String value) { 
       this.portPeer2ID = value;
    }
+   
    @JsonIgnore
    public PortType getPortType() {
       return portType;
@@ -245,6 +261,7 @@ public class VsgRedundantPort extends RestObject {
    public void setPortType(PortType value) { 
       this.portType = value;
    }
+   
    @JsonIgnore
    public Status getStatus() {
       return status;
@@ -254,6 +271,7 @@ public class VsgRedundantPort extends RestObject {
    public void setStatus(Status value) { 
       this.status = value;
    }
+   
    @JsonIgnore
    public Boolean getUseUserMnemonic() {
       return useUserMnemonic;
@@ -263,6 +281,7 @@ public class VsgRedundantPort extends RestObject {
    public void setUseUserMnemonic(Boolean value) { 
       this.useUserMnemonic = value;
    }
+   
    @JsonIgnore
    public String getUserMnemonic() {
       return userMnemonic;

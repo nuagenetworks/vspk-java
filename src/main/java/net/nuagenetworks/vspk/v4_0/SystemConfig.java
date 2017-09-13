@@ -45,16 +45,27 @@ public class SystemConfig extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum CsprootAuthenticationMethod { LDAP, LOCAL };
+   
    public enum DomainTunnelType { DC_DEFAULT, GRE, VXLAN };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum GroupKeyDefaultSEKPayloadEncryptionAlgorithm { RSA_1024 };
+   
    public enum GroupKeyDefaultSEKPayloadSigningAlgorithm { SHA1withRSA, SHA224withRSA, SHA256withRSA, SHA384withRSA, SHA512withRSA };
+   
    public enum GroupKeyDefaultSeedPayloadAuthenticationAlgorithm { HMAC_SHA1, HMAC_SHA256, HMAC_SHA512 };
+   
    public enum GroupKeyDefaultSeedPayloadEncryptionAlgorithm { AES_128_CBC, AES_256_CBC, TRIPLE_DES_CBC };
+   
    public enum GroupKeyDefaultSeedPayloadSigningAlgorithm { SHA1withRSA, SHA224withRSA, SHA256withRSA, SHA384withRSA, SHA512withRSA };
+   
    public enum GroupKeyDefaultTrafficAuthenticationAlgorithm { HMAC_MD5, HMAC_SHA1, HMAC_SHA256, HMAC_SHA384, HMAC_SHA512 };
+   
    public enum GroupKeyDefaultTrafficEncryptionAlgorithm { AES_128_CBC, AES_192_CBC, AES_256_CBC, TRIPLE_DES_CBC };
+   
    public enum SystemAvatarType { BASE64, COMPUTEDURL, URL };
 
    
@@ -471,6 +482,7 @@ public class SystemConfig extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Long getAARFlowStatsInterval() {
       return AARFlowStatsInterval;
@@ -480,6 +492,7 @@ public class SystemConfig extends RestObject {
    public void setAARFlowStatsInterval(Long value) { 
       this.AARFlowStatsInterval = value;
    }
+   
    @JsonIgnore
    public Long getAARProbeStatsInterval() {
       return AARProbeStatsInterval;
@@ -489,6 +502,7 @@ public class SystemConfig extends RestObject {
    public void setAARProbeStatsInterval(Long value) { 
       this.AARProbeStatsInterval = value;
    }
+   
    @JsonIgnore
    public String getACLAllowOrigin() {
       return ACLAllowOrigin;
@@ -498,6 +512,7 @@ public class SystemConfig extends RestObject {
    public void setACLAllowOrigin(String value) { 
       this.ACLAllowOrigin = value;
    }
+   
    @JsonIgnore
    public Long getADGatewayPurgeTime() {
       return ADGatewayPurgeTime;
@@ -507,6 +522,7 @@ public class SystemConfig extends RestObject {
    public void setADGatewayPurgeTime(Long value) { 
       this.ADGatewayPurgeTime = value;
    }
+   
    @JsonIgnore
    public Long getAPIKeyRenewalInterval() {
       return APIKeyRenewalInterval;
@@ -516,6 +532,7 @@ public class SystemConfig extends RestObject {
    public void setAPIKeyRenewalInterval(Long value) { 
       this.APIKeyRenewalInterval = value;
    }
+   
    @JsonIgnore
    public Long getAPIKeyValidity() {
       return APIKeyValidity;
@@ -525,6 +542,7 @@ public class SystemConfig extends RestObject {
    public void setAPIKeyValidity(Long value) { 
       this.APIKeyValidity = value;
    }
+   
    @JsonIgnore
    public Long getASNumber() {
       return ASNumber;
@@ -534,6 +552,7 @@ public class SystemConfig extends RestObject {
    public void setASNumber(Long value) { 
       this.ASNumber = value;
    }
+   
    @JsonIgnore
    public Long getDHCPOptionSize() {
       return DHCPOptionSize;
@@ -543,6 +562,7 @@ public class SystemConfig extends RestObject {
    public void setDHCPOptionSize(Long value) { 
       this.DHCPOptionSize = value;
    }
+   
    @JsonIgnore
    public Long getECMPCount() {
       return ECMPCount;
@@ -552,6 +572,7 @@ public class SystemConfig extends RestObject {
    public void setECMPCount(Long value) { 
       this.ECMPCount = value;
    }
+   
    @JsonIgnore
    public Long getEVPNBGPCommunityTagASNumber() {
       return EVPNBGPCommunityTagASNumber;
@@ -561,6 +582,7 @@ public class SystemConfig extends RestObject {
    public void setEVPNBGPCommunityTagASNumber(Long value) { 
       this.EVPNBGPCommunityTagASNumber = value;
    }
+   
    @JsonIgnore
    public Long getEVPNBGPCommunityTagLowerLimit() {
       return EVPNBGPCommunityTagLowerLimit;
@@ -570,6 +592,7 @@ public class SystemConfig extends RestObject {
    public void setEVPNBGPCommunityTagLowerLimit(Long value) { 
       this.EVPNBGPCommunityTagLowerLimit = value;
    }
+   
    @JsonIgnore
    public Long getEVPNBGPCommunityTagUpperLimit() {
       return EVPNBGPCommunityTagUpperLimit;
@@ -579,6 +602,7 @@ public class SystemConfig extends RestObject {
    public void setEVPNBGPCommunityTagUpperLimit(Long value) { 
       this.EVPNBGPCommunityTagUpperLimit = value;
    }
+   
    @JsonIgnore
    public Long getLDAPSyncInterval() {
       return LDAPSyncInterval;
@@ -588,6 +612,7 @@ public class SystemConfig extends RestObject {
    public void setLDAPSyncInterval(Long value) { 
       this.LDAPSyncInterval = value;
    }
+   
    @JsonIgnore
    public String getLDAPTrustStoreCertifcate() {
       return LDAPTrustStoreCertifcate;
@@ -597,6 +622,7 @@ public class SystemConfig extends RestObject {
    public void setLDAPTrustStoreCertifcate(String value) { 
       this.LDAPTrustStoreCertifcate = value;
    }
+   
    @JsonIgnore
    public String getLDAPTrustStorePassword() {
       return LDAPTrustStorePassword;
@@ -606,6 +632,7 @@ public class SystemConfig extends RestObject {
    public void setLDAPTrustStorePassword(String value) { 
       this.LDAPTrustStorePassword = value;
    }
+   
    @JsonIgnore
    public Long getLRUCacheSizePerSubnet() {
       return LRUCacheSizePerSubnet;
@@ -615,6 +642,7 @@ public class SystemConfig extends RestObject {
    public void setLRUCacheSizePerSubnet(Long value) { 
       this.LRUCacheSizePerSubnet = value;
    }
+   
    @JsonIgnore
    public Long getNSGUplinkHoldDownTimer() {
       return NSGUplinkHoldDownTimer;
@@ -624,6 +652,7 @@ public class SystemConfig extends RestObject {
    public void setNSGUplinkHoldDownTimer(Long value) { 
       this.NSGUplinkHoldDownTimer = value;
    }
+   
    @JsonIgnore
    public Long getRDLowerLimit() {
       return RDLowerLimit;
@@ -633,6 +662,7 @@ public class SystemConfig extends RestObject {
    public void setRDLowerLimit(Long value) { 
       this.RDLowerLimit = value;
    }
+   
    @JsonIgnore
    public Long getRDPublicNetworkLowerLimit() {
       return RDPublicNetworkLowerLimit;
@@ -642,6 +672,7 @@ public class SystemConfig extends RestObject {
    public void setRDPublicNetworkLowerLimit(Long value) { 
       this.RDPublicNetworkLowerLimit = value;
    }
+   
    @JsonIgnore
    public Long getRDPublicNetworkUpperLimit() {
       return RDPublicNetworkUpperLimit;
@@ -651,6 +682,7 @@ public class SystemConfig extends RestObject {
    public void setRDPublicNetworkUpperLimit(Long value) { 
       this.RDPublicNetworkUpperLimit = value;
    }
+   
    @JsonIgnore
    public Long getRDUpperLimit() {
       return RDUpperLimit;
@@ -660,6 +692,7 @@ public class SystemConfig extends RestObject {
    public void setRDUpperLimit(Long value) { 
       this.RDUpperLimit = value;
    }
+   
    @JsonIgnore
    public Long getRTLowerLimit() {
       return RTLowerLimit;
@@ -669,6 +702,7 @@ public class SystemConfig extends RestObject {
    public void setRTLowerLimit(Long value) { 
       this.RTLowerLimit = value;
    }
+   
    @JsonIgnore
    public Long getRTPublicNetworkLowerLimit() {
       return RTPublicNetworkLowerLimit;
@@ -678,6 +712,7 @@ public class SystemConfig extends RestObject {
    public void setRTPublicNetworkLowerLimit(Long value) { 
       this.RTPublicNetworkLowerLimit = value;
    }
+   
    @JsonIgnore
    public Long getRTPublicNetworkUpperLimit() {
       return RTPublicNetworkUpperLimit;
@@ -687,6 +722,7 @@ public class SystemConfig extends RestObject {
    public void setRTPublicNetworkUpperLimit(Long value) { 
       this.RTPublicNetworkUpperLimit = value;
    }
+   
    @JsonIgnore
    public Long getRTUpperLimit() {
       return RTUpperLimit;
@@ -696,6 +732,7 @@ public class SystemConfig extends RestObject {
    public void setRTUpperLimit(Long value) { 
       this.RTUpperLimit = value;
    }
+   
    @JsonIgnore
    public Long getVLANIDLowerLimit() {
       return VLANIDLowerLimit;
@@ -705,6 +742,7 @@ public class SystemConfig extends RestObject {
    public void setVLANIDLowerLimit(Long value) { 
       this.VLANIDLowerLimit = value;
    }
+   
    @JsonIgnore
    public Long getVLANIDUpperLimit() {
       return VLANIDUpperLimit;
@@ -714,6 +752,7 @@ public class SystemConfig extends RestObject {
    public void setVLANIDUpperLimit(Long value) { 
       this.VLANIDUpperLimit = value;
    }
+   
    @JsonIgnore
    public Long getVMCacheSize() {
       return VMCacheSize;
@@ -723,6 +762,7 @@ public class SystemConfig extends RestObject {
    public void setVMCacheSize(Long value) { 
       this.VMCacheSize = value;
    }
+   
    @JsonIgnore
    public Long getVMPurgeTime() {
       return VMPurgeTime;
@@ -732,6 +772,7 @@ public class SystemConfig extends RestObject {
    public void setVMPurgeTime(Long value) { 
       this.VMPurgeTime = value;
    }
+   
    @JsonIgnore
    public Long getVMResyncDeletionWaitTime() {
       return VMResyncDeletionWaitTime;
@@ -741,6 +782,7 @@ public class SystemConfig extends RestObject {
    public void setVMResyncDeletionWaitTime(Long value) { 
       this.VMResyncDeletionWaitTime = value;
    }
+   
    @JsonIgnore
    public Long getVMResyncOutstandingInterval() {
       return VMResyncOutstandingInterval;
@@ -750,6 +792,7 @@ public class SystemConfig extends RestObject {
    public void setVMResyncOutstandingInterval(Long value) { 
       this.VMResyncOutstandingInterval = value;
    }
+   
    @JsonIgnore
    public Long getVMUnreachableCleanupTime() {
       return VMUnreachableCleanupTime;
@@ -759,6 +802,7 @@ public class SystemConfig extends RestObject {
    public void setVMUnreachableCleanupTime(Long value) { 
       this.VMUnreachableCleanupTime = value;
    }
+   
    @JsonIgnore
    public Long getVMUnreachableTime() {
       return VMUnreachableTime;
@@ -768,6 +812,7 @@ public class SystemConfig extends RestObject {
    public void setVMUnreachableTime(Long value) { 
       this.VMUnreachableTime = value;
    }
+   
    @JsonIgnore
    public Long getVNIDLowerLimit() {
       return VNIDLowerLimit;
@@ -777,6 +822,7 @@ public class SystemConfig extends RestObject {
    public void setVNIDLowerLimit(Long value) { 
       this.VNIDLowerLimit = value;
    }
+   
    @JsonIgnore
    public Long getVNIDPublicNetworkLowerLimit() {
       return VNIDPublicNetworkLowerLimit;
@@ -786,6 +832,7 @@ public class SystemConfig extends RestObject {
    public void setVNIDPublicNetworkLowerLimit(Long value) { 
       this.VNIDPublicNetworkLowerLimit = value;
    }
+   
    @JsonIgnore
    public Long getVNIDPublicNetworkUpperLimit() {
       return VNIDPublicNetworkUpperLimit;
@@ -795,6 +842,7 @@ public class SystemConfig extends RestObject {
    public void setVNIDPublicNetworkUpperLimit(Long value) { 
       this.VNIDPublicNetworkUpperLimit = value;
    }
+   
    @JsonIgnore
    public Long getVNIDUpperLimit() {
       return VNIDUpperLimit;
@@ -804,6 +852,7 @@ public class SystemConfig extends RestObject {
    public void setVNIDUpperLimit(Long value) { 
       this.VNIDUpperLimit = value;
    }
+   
    @JsonIgnore
    public Long getVPortInitStatefulTimer() {
       return VPortInitStatefulTimer;
@@ -813,6 +862,7 @@ public class SystemConfig extends RestObject {
    public void setVPortInitStatefulTimer(Long value) { 
       this.VPortInitStatefulTimer = value;
    }
+   
    @JsonIgnore
    public Boolean getVSCOnSameVersionAsVSD() {
       return VSCOnSameVersionAsVSD;
@@ -822,6 +872,7 @@ public class SystemConfig extends RestObject {
    public void setVSCOnSameVersionAsVSD(Boolean value) { 
       this.VSCOnSameVersionAsVSD = value;
    }
+   
    @JsonIgnore
    public Boolean getVSDReadOnlyMode() {
       return VSDReadOnlyMode;
@@ -831,6 +882,7 @@ public class SystemConfig extends RestObject {
    public void setVSDReadOnlyMode(Boolean value) { 
       this.VSDReadOnlyMode = value;
    }
+   
    @JsonIgnore
    public Boolean getVSDUpgradeIsComplete() {
       return VSDUpgradeIsComplete;
@@ -840,6 +892,7 @@ public class SystemConfig extends RestObject {
    public void setVSDUpgradeIsComplete(Boolean value) { 
       this.VSDUpgradeIsComplete = value;
    }
+   
    @JsonIgnore
    public Long getVSSStatsInterval() {
       return VSSStatsInterval;
@@ -849,6 +902,7 @@ public class SystemConfig extends RestObject {
    public void setVSSStatsInterval(Long value) { 
       this.VSSStatsInterval = value;
    }
+   
    @JsonIgnore
    public Boolean getZFBBootstrapEnabled() {
       return ZFBBootstrapEnabled;
@@ -858,6 +912,7 @@ public class SystemConfig extends RestObject {
    public void setZFBBootstrapEnabled(Boolean value) { 
       this.ZFBBootstrapEnabled = value;
    }
+   
    @JsonIgnore
    public Long getZFBRequestRetryTimer() {
       return ZFBRequestRetryTimer;
@@ -867,6 +922,7 @@ public class SystemConfig extends RestObject {
    public void setZFBRequestRetryTimer(Long value) { 
       this.ZFBRequestRetryTimer = value;
    }
+   
    @JsonIgnore
    public Long getZFBSchedulerStaleRequestTimeout() {
       return ZFBSchedulerStaleRequestTimeout;
@@ -876,6 +932,7 @@ public class SystemConfig extends RestObject {
    public void setZFBSchedulerStaleRequestTimeout(Long value) { 
       this.ZFBSchedulerStaleRequestTimeout = value;
    }
+   
    @JsonIgnore
    public Boolean getAccumulateLicensesEnabled() {
       return accumulateLicensesEnabled;
@@ -885,6 +942,7 @@ public class SystemConfig extends RestObject {
    public void setAccumulateLicensesEnabled(Boolean value) { 
       this.accumulateLicensesEnabled = value;
    }
+   
    @JsonIgnore
    public Long getAlarmsMaxPerObject() {
       return alarmsMaxPerObject;
@@ -894,6 +952,7 @@ public class SystemConfig extends RestObject {
    public void setAlarmsMaxPerObject(Long value) { 
       this.alarmsMaxPerObject = value;
    }
+   
    @JsonIgnore
    public Boolean getAllowEnterpriseAvatarOnNSG() {
       return allowEnterpriseAvatarOnNSG;
@@ -903,6 +962,7 @@ public class SystemConfig extends RestObject {
    public void setAllowEnterpriseAvatarOnNSG(Boolean value) { 
       this.allowEnterpriseAvatarOnNSG = value;
    }
+   
    @JsonIgnore
    public String getAvatarBasePath() {
       return avatarBasePath;
@@ -912,6 +972,7 @@ public class SystemConfig extends RestObject {
    public void setAvatarBasePath(String value) { 
       this.avatarBasePath = value;
    }
+   
    @JsonIgnore
    public String getAvatarBaseURL() {
       return avatarBaseURL;
@@ -921,6 +982,7 @@ public class SystemConfig extends RestObject {
    public void setAvatarBaseURL(String value) { 
       this.avatarBaseURL = value;
    }
+   
    @JsonIgnore
    public CsprootAuthenticationMethod getCsprootAuthenticationMethod() {
       return csprootAuthenticationMethod;
@@ -930,6 +992,7 @@ public class SystemConfig extends RestObject {
    public void setCsprootAuthenticationMethod(CsprootAuthenticationMethod value) { 
       this.csprootAuthenticationMethod = value;
    }
+   
    @JsonIgnore
    public Long getCustomerIDUpperLimit() {
       return customerIDUpperLimit;
@@ -939,6 +1002,7 @@ public class SystemConfig extends RestObject {
    public void setCustomerIDUpperLimit(Long value) { 
       this.customerIDUpperLimit = value;
    }
+   
    @JsonIgnore
    public String getCustomerKey() {
       return customerKey;
@@ -948,6 +1012,7 @@ public class SystemConfig extends RestObject {
    public void setCustomerKey(String value) { 
       this.customerKey = value;
    }
+   
    @JsonIgnore
    public DomainTunnelType getDomainTunnelType() {
       return domainTunnelType;
@@ -957,6 +1022,7 @@ public class SystemConfig extends RestObject {
    public void setDomainTunnelType(DomainTunnelType value) { 
       this.domainTunnelType = value;
    }
+   
    @JsonIgnore
    public Long getDynamicWANServiceDiffTime() {
       return dynamicWANServiceDiffTime;
@@ -966,6 +1032,7 @@ public class SystemConfig extends RestObject {
    public void setDynamicWANServiceDiffTime(Long value) { 
       this.dynamicWANServiceDiffTime = value;
    }
+   
    @JsonIgnore
    public String getEjbcaNSGCertificateProfile() {
       return ejbcaNSGCertificateProfile;
@@ -975,6 +1042,7 @@ public class SystemConfig extends RestObject {
    public void setEjbcaNSGCertificateProfile(String value) { 
       this.ejbcaNSGCertificateProfile = value;
    }
+   
    @JsonIgnore
    public String getEjbcaNSGEndEntityProfile() {
       return ejbcaNSGEndEntityProfile;
@@ -984,6 +1052,7 @@ public class SystemConfig extends RestObject {
    public void setEjbcaNSGEndEntityProfile(String value) { 
       this.ejbcaNSGEndEntityProfile = value;
    }
+   
    @JsonIgnore
    public String getEjbcaOCSPResponderCN() {
       return ejbcaOCSPResponderCN;
@@ -993,6 +1062,7 @@ public class SystemConfig extends RestObject {
    public void setEjbcaOCSPResponderCN(String value) { 
       this.ejbcaOCSPResponderCN = value;
    }
+   
    @JsonIgnore
    public String getEjbcaOCSPResponderURI() {
       return ejbcaOCSPResponderURI;
@@ -1002,6 +1072,7 @@ public class SystemConfig extends RestObject {
    public void setEjbcaOCSPResponderURI(String value) { 
       this.ejbcaOCSPResponderURI = value;
    }
+   
    @JsonIgnore
    public String getEjbcaVspRootCa() {
       return ejbcaVspRootCa;
@@ -1011,6 +1082,7 @@ public class SystemConfig extends RestObject {
    public void setEjbcaVspRootCa(String value) { 
       this.ejbcaVspRootCa = value;
    }
+   
    @JsonIgnore
    public String getElasticClusterName() {
       return elasticClusterName;
@@ -1020,6 +1092,7 @@ public class SystemConfig extends RestObject {
    public void setElasticClusterName(String value) { 
       this.elasticClusterName = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -1029,6 +1102,7 @@ public class SystemConfig extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public Long getEsiID() {
       return esiID;
@@ -1038,6 +1112,7 @@ public class SystemConfig extends RestObject {
    public void setEsiID(Long value) { 
       this.esiID = value;
    }
+   
    @JsonIgnore
    public Long getEventLogCleanupInterval() {
       return eventLogCleanupInterval;
@@ -1047,6 +1122,7 @@ public class SystemConfig extends RestObject {
    public void setEventLogCleanupInterval(Long value) { 
       this.eventLogCleanupInterval = value;
    }
+   
    @JsonIgnore
    public Long getEventLogEntryMaxAge() {
       return eventLogEntryMaxAge;
@@ -1056,6 +1132,7 @@ public class SystemConfig extends RestObject {
    public void setEventLogEntryMaxAge(Long value) { 
       this.eventLogEntryMaxAge = value;
    }
+   
    @JsonIgnore
    public Long getEventProcessorInterval() {
       return eventProcessorInterval;
@@ -1065,6 +1142,7 @@ public class SystemConfig extends RestObject {
    public void setEventProcessorInterval(Long value) { 
       this.eventProcessorInterval = value;
    }
+   
    @JsonIgnore
    public Long getEventProcessorMaxEventsCount() {
       return eventProcessorMaxEventsCount;
@@ -1074,6 +1152,7 @@ public class SystemConfig extends RestObject {
    public void setEventProcessorMaxEventsCount(Long value) { 
       this.eventProcessorMaxEventsCount = value;
    }
+   
    @JsonIgnore
    public Long getEventProcessorTimeout() {
       return eventProcessorTimeout;
@@ -1083,6 +1162,7 @@ public class SystemConfig extends RestObject {
    public void setEventProcessorTimeout(Long value) { 
       this.eventProcessorTimeout = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -1092,6 +1172,7 @@ public class SystemConfig extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public Boolean getFlowCollectionEnabled() {
       return flowCollectionEnabled;
@@ -1101,6 +1182,7 @@ public class SystemConfig extends RestObject {
    public void setFlowCollectionEnabled(Boolean value) { 
       this.flowCollectionEnabled = value;
    }
+   
    @JsonIgnore
    public String getGlobalMACAddress() {
       return globalMACAddress;
@@ -1110,6 +1192,7 @@ public class SystemConfig extends RestObject {
    public void setGlobalMACAddress(String value) { 
       this.globalMACAddress = value;
    }
+   
    @JsonIgnore
    public Long getGroupKeyDefaultSEKGenerationInterval() {
       return groupKeyDefaultSEKGenerationInterval;
@@ -1119,6 +1202,7 @@ public class SystemConfig extends RestObject {
    public void setGroupKeyDefaultSEKGenerationInterval(Long value) { 
       this.groupKeyDefaultSEKGenerationInterval = value;
    }
+   
    @JsonIgnore
    public Long getGroupKeyDefaultSEKLifetime() {
       return groupKeyDefaultSEKLifetime;
@@ -1128,6 +1212,7 @@ public class SystemConfig extends RestObject {
    public void setGroupKeyDefaultSEKLifetime(Long value) { 
       this.groupKeyDefaultSEKLifetime = value;
    }
+   
    @JsonIgnore
    public GroupKeyDefaultSEKPayloadEncryptionAlgorithm getGroupKeyDefaultSEKPayloadEncryptionAlgorithm() {
       return groupKeyDefaultSEKPayloadEncryptionAlgorithm;
@@ -1137,6 +1222,7 @@ public class SystemConfig extends RestObject {
    public void setGroupKeyDefaultSEKPayloadEncryptionAlgorithm(GroupKeyDefaultSEKPayloadEncryptionAlgorithm value) { 
       this.groupKeyDefaultSEKPayloadEncryptionAlgorithm = value;
    }
+   
    @JsonIgnore
    public GroupKeyDefaultSEKPayloadSigningAlgorithm getGroupKeyDefaultSEKPayloadSigningAlgorithm() {
       return groupKeyDefaultSEKPayloadSigningAlgorithm;
@@ -1146,6 +1232,7 @@ public class SystemConfig extends RestObject {
    public void setGroupKeyDefaultSEKPayloadSigningAlgorithm(GroupKeyDefaultSEKPayloadSigningAlgorithm value) { 
       this.groupKeyDefaultSEKPayloadSigningAlgorithm = value;
    }
+   
    @JsonIgnore
    public Long getGroupKeyDefaultSeedGenerationInterval() {
       return groupKeyDefaultSeedGenerationInterval;
@@ -1155,6 +1242,7 @@ public class SystemConfig extends RestObject {
    public void setGroupKeyDefaultSeedGenerationInterval(Long value) { 
       this.groupKeyDefaultSeedGenerationInterval = value;
    }
+   
    @JsonIgnore
    public Long getGroupKeyDefaultSeedLifetime() {
       return groupKeyDefaultSeedLifetime;
@@ -1164,6 +1252,7 @@ public class SystemConfig extends RestObject {
    public void setGroupKeyDefaultSeedLifetime(Long value) { 
       this.groupKeyDefaultSeedLifetime = value;
    }
+   
    @JsonIgnore
    public GroupKeyDefaultSeedPayloadAuthenticationAlgorithm getGroupKeyDefaultSeedPayloadAuthenticationAlgorithm() {
       return groupKeyDefaultSeedPayloadAuthenticationAlgorithm;
@@ -1173,6 +1262,7 @@ public class SystemConfig extends RestObject {
    public void setGroupKeyDefaultSeedPayloadAuthenticationAlgorithm(GroupKeyDefaultSeedPayloadAuthenticationAlgorithm value) { 
       this.groupKeyDefaultSeedPayloadAuthenticationAlgorithm = value;
    }
+   
    @JsonIgnore
    public GroupKeyDefaultSeedPayloadEncryptionAlgorithm getGroupKeyDefaultSeedPayloadEncryptionAlgorithm() {
       return groupKeyDefaultSeedPayloadEncryptionAlgorithm;
@@ -1182,6 +1272,7 @@ public class SystemConfig extends RestObject {
    public void setGroupKeyDefaultSeedPayloadEncryptionAlgorithm(GroupKeyDefaultSeedPayloadEncryptionAlgorithm value) { 
       this.groupKeyDefaultSeedPayloadEncryptionAlgorithm = value;
    }
+   
    @JsonIgnore
    public GroupKeyDefaultSeedPayloadSigningAlgorithm getGroupKeyDefaultSeedPayloadSigningAlgorithm() {
       return groupKeyDefaultSeedPayloadSigningAlgorithm;
@@ -1191,6 +1282,7 @@ public class SystemConfig extends RestObject {
    public void setGroupKeyDefaultSeedPayloadSigningAlgorithm(GroupKeyDefaultSeedPayloadSigningAlgorithm value) { 
       this.groupKeyDefaultSeedPayloadSigningAlgorithm = value;
    }
+   
    @JsonIgnore
    public GroupKeyDefaultTrafficAuthenticationAlgorithm getGroupKeyDefaultTrafficAuthenticationAlgorithm() {
       return groupKeyDefaultTrafficAuthenticationAlgorithm;
@@ -1200,6 +1292,7 @@ public class SystemConfig extends RestObject {
    public void setGroupKeyDefaultTrafficAuthenticationAlgorithm(GroupKeyDefaultTrafficAuthenticationAlgorithm value) { 
       this.groupKeyDefaultTrafficAuthenticationAlgorithm = value;
    }
+   
    @JsonIgnore
    public GroupKeyDefaultTrafficEncryptionAlgorithm getGroupKeyDefaultTrafficEncryptionAlgorithm() {
       return groupKeyDefaultTrafficEncryptionAlgorithm;
@@ -1209,6 +1302,7 @@ public class SystemConfig extends RestObject {
    public void setGroupKeyDefaultTrafficEncryptionAlgorithm(GroupKeyDefaultTrafficEncryptionAlgorithm value) { 
       this.groupKeyDefaultTrafficEncryptionAlgorithm = value;
    }
+   
    @JsonIgnore
    public Long getGroupKeyDefaultTrafficEncryptionKeyLifetime() {
       return groupKeyDefaultTrafficEncryptionKeyLifetime;
@@ -1218,6 +1312,7 @@ public class SystemConfig extends RestObject {
    public void setGroupKeyDefaultTrafficEncryptionKeyLifetime(Long value) { 
       this.groupKeyDefaultTrafficEncryptionKeyLifetime = value;
    }
+   
    @JsonIgnore
    public Long getGroupKeyGenerationIntervalOnForcedReKey() {
       return groupKeyGenerationIntervalOnForcedReKey;
@@ -1227,6 +1322,7 @@ public class SystemConfig extends RestObject {
    public void setGroupKeyGenerationIntervalOnForcedReKey(Long value) { 
       this.groupKeyGenerationIntervalOnForcedReKey = value;
    }
+   
    @JsonIgnore
    public Long getGroupKeyGenerationIntervalOnRevoke() {
       return groupKeyGenerationIntervalOnRevoke;
@@ -1236,6 +1332,7 @@ public class SystemConfig extends RestObject {
    public void setGroupKeyGenerationIntervalOnRevoke(Long value) { 
       this.groupKeyGenerationIntervalOnRevoke = value;
    }
+   
    @JsonIgnore
    public Long getGroupKeyMinimumSEKGenerationInterval() {
       return groupKeyMinimumSEKGenerationInterval;
@@ -1245,6 +1342,7 @@ public class SystemConfig extends RestObject {
    public void setGroupKeyMinimumSEKGenerationInterval(Long value) { 
       this.groupKeyMinimumSEKGenerationInterval = value;
    }
+   
    @JsonIgnore
    public Long getGroupKeyMinimumSEKLifetime() {
       return groupKeyMinimumSEKLifetime;
@@ -1254,6 +1352,7 @@ public class SystemConfig extends RestObject {
    public void setGroupKeyMinimumSEKLifetime(Long value) { 
       this.groupKeyMinimumSEKLifetime = value;
    }
+   
    @JsonIgnore
    public Long getGroupKeyMinimumSeedGenerationInterval() {
       return groupKeyMinimumSeedGenerationInterval;
@@ -1263,6 +1362,7 @@ public class SystemConfig extends RestObject {
    public void setGroupKeyMinimumSeedGenerationInterval(Long value) { 
       this.groupKeyMinimumSeedGenerationInterval = value;
    }
+   
    @JsonIgnore
    public Long getGroupKeyMinimumSeedLifetime() {
       return groupKeyMinimumSeedLifetime;
@@ -1272,6 +1372,7 @@ public class SystemConfig extends RestObject {
    public void setGroupKeyMinimumSeedLifetime(Long value) { 
       this.groupKeyMinimumSeedLifetime = value;
    }
+   
    @JsonIgnore
    public Long getGroupKeyMinimumTrafficEncryptionKeyLifetime() {
       return groupKeyMinimumTrafficEncryptionKeyLifetime;
@@ -1281,6 +1382,7 @@ public class SystemConfig extends RestObject {
    public void setGroupKeyMinimumTrafficEncryptionKeyLifetime(Long value) { 
       this.groupKeyMinimumTrafficEncryptionKeyLifetime = value;
    }
+   
    @JsonIgnore
    public Long getInactiveTimeout() {
       return inactiveTimeout;
@@ -1290,6 +1392,7 @@ public class SystemConfig extends RestObject {
    public void setInactiveTimeout(Long value) { 
       this.inactiveTimeout = value;
    }
+   
    @JsonIgnore
    public Boolean getKeyServerMonitorEnabled() {
       return keyServerMonitorEnabled;
@@ -1299,6 +1402,7 @@ public class SystemConfig extends RestObject {
    public void setKeyServerMonitorEnabled(Boolean value) { 
       this.keyServerMonitorEnabled = value;
    }
+   
    @JsonIgnore
    public Long getKeyServerVSDDataSynchronizationInterval() {
       return keyServerVSDDataSynchronizationInterval;
@@ -1308,6 +1412,7 @@ public class SystemConfig extends RestObject {
    public void setKeyServerVSDDataSynchronizationInterval(Long value) { 
       this.keyServerVSDDataSynchronizationInterval = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -1317,6 +1422,7 @@ public class SystemConfig extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public Long getMaxFailedLogins() {
       return maxFailedLogins;
@@ -1326,6 +1432,7 @@ public class SystemConfig extends RestObject {
    public void setMaxFailedLogins(Long value) { 
       this.maxFailedLogins = value;
    }
+   
    @JsonIgnore
    public Long getMaxResponse() {
       return maxResponse;
@@ -1335,6 +1442,7 @@ public class SystemConfig extends RestObject {
    public void setMaxResponse(Long value) { 
       this.maxResponse = value;
    }
+   
    @JsonIgnore
    public String getNsgBootstrapEndpoint() {
       return nsgBootstrapEndpoint;
@@ -1344,6 +1452,7 @@ public class SystemConfig extends RestObject {
    public void setNsgBootstrapEndpoint(String value) { 
       this.nsgBootstrapEndpoint = value;
    }
+   
    @JsonIgnore
    public String getNsgConfigEndpoint() {
       return nsgConfigEndpoint;
@@ -1353,6 +1462,7 @@ public class SystemConfig extends RestObject {
    public void setNsgConfigEndpoint(String value) { 
       this.nsgConfigEndpoint = value;
    }
+   
    @JsonIgnore
    public String getNsgLocalUiUrl() {
       return nsgLocalUiUrl;
@@ -1362,6 +1472,7 @@ public class SystemConfig extends RestObject {
    public void setNsgLocalUiUrl(String value) { 
       this.nsgLocalUiUrl = value;
    }
+   
    @JsonIgnore
    public Long getOffsetCustomerID() {
       return offsetCustomerID;
@@ -1371,6 +1482,7 @@ public class SystemConfig extends RestObject {
    public void setOffsetCustomerID(Long value) { 
       this.offsetCustomerID = value;
    }
+   
    @JsonIgnore
    public Long getOffsetServiceID() {
       return offsetServiceID;
@@ -1380,6 +1492,7 @@ public class SystemConfig extends RestObject {
    public void setOffsetServiceID(Long value) { 
       this.offsetServiceID = value;
    }
+   
    @JsonIgnore
    public Long getPageMaxSize() {
       return pageMaxSize;
@@ -1389,6 +1502,7 @@ public class SystemConfig extends RestObject {
    public void setPageMaxSize(Long value) { 
       this.pageMaxSize = value;
    }
+   
    @JsonIgnore
    public Long getPageSize() {
       return pageSize;
@@ -1398,6 +1512,7 @@ public class SystemConfig extends RestObject {
    public void setPageSize(Long value) { 
       this.pageSize = value;
    }
+   
    @JsonIgnore
    public Boolean getPerDomainVlanIdEnabled() {
       return perDomainVlanIdEnabled;
@@ -1407,6 +1522,7 @@ public class SystemConfig extends RestObject {
    public void setPerDomainVlanIdEnabled(Boolean value) { 
       this.perDomainVlanIdEnabled = value;
    }
+   
    @JsonIgnore
    public Long getPerformancePathSelectionVNID() {
       return performancePathSelectionVNID;
@@ -1416,6 +1532,7 @@ public class SystemConfig extends RestObject {
    public void setPerformancePathSelectionVNID(Long value) { 
       this.performancePathSelectionVNID = value;
    }
+   
    @JsonIgnore
    public Long getPostProcessorThreadsCount() {
       return postProcessorThreadsCount;
@@ -1425,6 +1542,7 @@ public class SystemConfig extends RestObject {
    public void setPostProcessorThreadsCount(Long value) { 
       this.postProcessorThreadsCount = value;
    }
+   
    @JsonIgnore
    public Long getServiceIDUpperLimit() {
       return serviceIDUpperLimit;
@@ -1434,6 +1552,7 @@ public class SystemConfig extends RestObject {
    public void setServiceIDUpperLimit(Long value) { 
       this.serviceIDUpperLimit = value;
    }
+   
    @JsonIgnore
    public Boolean getStackTraceEnabled() {
       return stackTraceEnabled;
@@ -1443,6 +1562,7 @@ public class SystemConfig extends RestObject {
    public void setStackTraceEnabled(Boolean value) { 
       this.stackTraceEnabled = value;
    }
+   
    @JsonIgnore
    public Long getStatefulACLNonTCPTimeout() {
       return statefulACLNonTCPTimeout;
@@ -1452,6 +1572,7 @@ public class SystemConfig extends RestObject {
    public void setStatefulACLNonTCPTimeout(Long value) { 
       this.statefulACLNonTCPTimeout = value;
    }
+   
    @JsonIgnore
    public Long getStatefulACLTCPTimeout() {
       return statefulACLTCPTimeout;
@@ -1461,6 +1582,7 @@ public class SystemConfig extends RestObject {
    public void setStatefulACLTCPTimeout(Long value) { 
       this.statefulACLTCPTimeout = value;
    }
+   
    @JsonIgnore
    public Long getStaticWANServicePurgeTime() {
       return staticWANServicePurgeTime;
@@ -1470,6 +1592,7 @@ public class SystemConfig extends RestObject {
    public void setStaticWANServicePurgeTime(Long value) { 
       this.staticWANServicePurgeTime = value;
    }
+   
    @JsonIgnore
    public Boolean getStatisticsEnabled() {
       return statisticsEnabled;
@@ -1479,6 +1602,7 @@ public class SystemConfig extends RestObject {
    public void setStatisticsEnabled(Boolean value) { 
       this.statisticsEnabled = value;
    }
+   
    @JsonIgnore
    public String getStatsCollectorAddress() {
       return statsCollectorAddress;
@@ -1488,6 +1612,7 @@ public class SystemConfig extends RestObject {
    public void setStatsCollectorAddress(String value) { 
       this.statsCollectorAddress = value;
    }
+   
    @JsonIgnore
    public String getStatsCollectorPort() {
       return statsCollectorPort;
@@ -1497,6 +1622,7 @@ public class SystemConfig extends RestObject {
    public void setStatsCollectorPort(String value) { 
       this.statsCollectorPort = value;
    }
+   
    @JsonIgnore
    public String getStatsCollectorProtoBufPort() {
       return statsCollectorProtoBufPort;
@@ -1506,6 +1632,7 @@ public class SystemConfig extends RestObject {
    public void setStatsCollectorProtoBufPort(String value) { 
       this.statsCollectorProtoBufPort = value;
    }
+   
    @JsonIgnore
    public Long getStatsMaxDataPoints() {
       return statsMaxDataPoints;
@@ -1515,6 +1642,7 @@ public class SystemConfig extends RestObject {
    public void setStatsMaxDataPoints(Long value) { 
       this.statsMaxDataPoints = value;
    }
+   
    @JsonIgnore
    public Long getStatsMinDuration() {
       return statsMinDuration;
@@ -1524,6 +1652,7 @@ public class SystemConfig extends RestObject {
    public void setStatsMinDuration(Long value) { 
       this.statsMinDuration = value;
    }
+   
    @JsonIgnore
    public Long getStatsNumberOfDataPoints() {
       return statsNumberOfDataPoints;
@@ -1533,6 +1662,7 @@ public class SystemConfig extends RestObject {
    public void setStatsNumberOfDataPoints(Long value) { 
       this.statsNumberOfDataPoints = value;
    }
+   
    @JsonIgnore
    public String getStatsTSDBServerAddress() {
       return statsTSDBServerAddress;
@@ -1542,6 +1672,7 @@ public class SystemConfig extends RestObject {
    public void setStatsTSDBServerAddress(String value) { 
       this.statsTSDBServerAddress = value;
    }
+   
    @JsonIgnore
    public Long getStickyECMPIdleTimeout() {
       return stickyECMPIdleTimeout;
@@ -1551,6 +1682,7 @@ public class SystemConfig extends RestObject {
    public void setStickyECMPIdleTimeout(Long value) { 
       this.stickyECMPIdleTimeout = value;
    }
+   
    @JsonIgnore
    public Long getSubnetResyncInterval() {
       return subnetResyncInterval;
@@ -1560,6 +1692,7 @@ public class SystemConfig extends RestObject {
    public void setSubnetResyncInterval(Long value) { 
       this.subnetResyncInterval = value;
    }
+   
    @JsonIgnore
    public Long getSubnetResyncOutstandingInterval() {
       return subnetResyncOutstandingInterval;
@@ -1569,6 +1702,7 @@ public class SystemConfig extends RestObject {
    public void setSubnetResyncOutstandingInterval(Long value) { 
       this.subnetResyncOutstandingInterval = value;
    }
+   
    @JsonIgnore
    public String getSyslogDestinationHost() {
       return syslogDestinationHost;
@@ -1578,6 +1712,7 @@ public class SystemConfig extends RestObject {
    public void setSyslogDestinationHost(String value) { 
       this.syslogDestinationHost = value;
    }
+   
    @JsonIgnore
    public Long getSyslogDestinationPort() {
       return syslogDestinationPort;
@@ -1587,6 +1722,7 @@ public class SystemConfig extends RestObject {
    public void setSyslogDestinationPort(Long value) { 
       this.syslogDestinationPort = value;
    }
+   
    @JsonIgnore
    public Long getSysmonCleanupTaskInterval() {
       return sysmonCleanupTaskInterval;
@@ -1596,6 +1732,7 @@ public class SystemConfig extends RestObject {
    public void setSysmonCleanupTaskInterval(Long value) { 
       this.sysmonCleanupTaskInterval = value;
    }
+   
    @JsonIgnore
    public Long getSysmonNodePresenceTimeout() {
       return sysmonNodePresenceTimeout;
@@ -1605,6 +1742,7 @@ public class SystemConfig extends RestObject {
    public void setSysmonNodePresenceTimeout(Long value) { 
       this.sysmonNodePresenceTimeout = value;
    }
+   
    @JsonIgnore
    public Long getSysmonProbeResponseTimeout() {
       return sysmonProbeResponseTimeout;
@@ -1614,6 +1752,7 @@ public class SystemConfig extends RestObject {
    public void setSysmonProbeResponseTimeout(Long value) { 
       this.sysmonProbeResponseTimeout = value;
    }
+   
    @JsonIgnore
    public String getSystemAvatarData() {
       return systemAvatarData;
@@ -1623,6 +1762,7 @@ public class SystemConfig extends RestObject {
    public void setSystemAvatarData(String value) { 
       this.systemAvatarData = value;
    }
+   
    @JsonIgnore
    public SystemAvatarType getSystemAvatarType() {
       return systemAvatarType;
@@ -1632,6 +1772,7 @@ public class SystemConfig extends RestObject {
    public void setSystemAvatarType(SystemAvatarType value) { 
       this.systemAvatarType = value;
    }
+   
    @JsonIgnore
    public Long getTwoFactorCodeExpiry() {
       return twoFactorCodeExpiry;
@@ -1641,6 +1782,7 @@ public class SystemConfig extends RestObject {
    public void setTwoFactorCodeExpiry(Long value) { 
       this.twoFactorCodeExpiry = value;
    }
+   
    @JsonIgnore
    public Long getTwoFactorCodeLength() {
       return twoFactorCodeLength;
@@ -1650,6 +1792,7 @@ public class SystemConfig extends RestObject {
    public void setTwoFactorCodeLength(Long value) { 
       this.twoFactorCodeLength = value;
    }
+   
    @JsonIgnore
    public Long getTwoFactorCodeSeedLength() {
       return twoFactorCodeSeedLength;

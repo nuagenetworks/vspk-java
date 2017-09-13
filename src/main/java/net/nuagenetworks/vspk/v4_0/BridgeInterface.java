@@ -53,7 +53,9 @@ public class BridgeInterface extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum AttachedNetworkType { L2DOMAIN, SUBNET };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -168,6 +170,7 @@ public class BridgeInterface extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getVPortID() {
       return VPortID;
@@ -177,6 +180,7 @@ public class BridgeInterface extends RestObject {
    public void setVPortID(String value) { 
       this.VPortID = value;
    }
+   
    @JsonIgnore
    public String getVPortName() {
       return VPortName;
@@ -186,6 +190,7 @@ public class BridgeInterface extends RestObject {
    public void setVPortName(String value) { 
       this.VPortName = value;
    }
+   
    @JsonIgnore
    public String getAssociatedFloatingIPAddress() {
       return associatedFloatingIPAddress;
@@ -195,6 +200,7 @@ public class BridgeInterface extends RestObject {
    public void setAssociatedFloatingIPAddress(String value) { 
       this.associatedFloatingIPAddress = value;
    }
+   
    @JsonIgnore
    public String getAttachedNetworkID() {
       return attachedNetworkID;
@@ -204,6 +210,7 @@ public class BridgeInterface extends RestObject {
    public void setAttachedNetworkID(String value) { 
       this.attachedNetworkID = value;
    }
+   
    @JsonIgnore
    public AttachedNetworkType getAttachedNetworkType() {
       return attachedNetworkType;
@@ -213,6 +220,7 @@ public class BridgeInterface extends RestObject {
    public void setAttachedNetworkType(AttachedNetworkType value) { 
       this.attachedNetworkType = value;
    }
+   
    @JsonIgnore
    public String getDomainID() {
       return domainID;
@@ -222,6 +230,7 @@ public class BridgeInterface extends RestObject {
    public void setDomainID(String value) { 
       this.domainID = value;
    }
+   
    @JsonIgnore
    public String getDomainName() {
       return domainName;
@@ -231,6 +240,7 @@ public class BridgeInterface extends RestObject {
    public void setDomainName(String value) { 
       this.domainName = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -240,6 +250,7 @@ public class BridgeInterface extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -249,6 +260,7 @@ public class BridgeInterface extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getGateway() {
       return gateway;
@@ -258,6 +270,7 @@ public class BridgeInterface extends RestObject {
    public void setGateway(String value) { 
       this.gateway = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -267,6 +280,7 @@ public class BridgeInterface extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -276,6 +290,7 @@ public class BridgeInterface extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getNetmask() {
       return netmask;
@@ -285,6 +300,7 @@ public class BridgeInterface extends RestObject {
    public void setNetmask(String value) { 
       this.netmask = value;
    }
+   
    @JsonIgnore
    public String getNetworkName() {
       return networkName;
@@ -294,6 +310,7 @@ public class BridgeInterface extends RestObject {
    public void setNetworkName(String value) { 
       this.networkName = value;
    }
+   
    @JsonIgnore
    public String getPolicyDecisionID() {
       return policyDecisionID;
@@ -303,6 +320,7 @@ public class BridgeInterface extends RestObject {
    public void setPolicyDecisionID(String value) { 
       this.policyDecisionID = value;
    }
+   
    @JsonIgnore
    public String getTierID() {
       return tierID;
@@ -312,6 +330,7 @@ public class BridgeInterface extends RestObject {
    public void setTierID(String value) { 
       this.tierID = value;
    }
+   
    @JsonIgnore
    public String getZoneID() {
       return zoneID;
@@ -321,6 +340,7 @@ public class BridgeInterface extends RestObject {
    public void setZoneID(String value) { 
       this.zoneID = value;
    }
+   
    @JsonIgnore
    public String getZoneName() {
       return zoneName;

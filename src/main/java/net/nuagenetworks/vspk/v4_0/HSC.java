@@ -51,8 +51,11 @@ public class HSC extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum Status { ADMIN_DOWN, DOWN, UP };
+   
    public enum Type { DC7X50, NONE, VSA, VSG };
 
    
@@ -175,6 +178,7 @@ public class HSC extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAddress() {
       return address;
@@ -184,6 +188,7 @@ public class HSC extends RestObject {
    public void setAddress(String value) { 
       this.address = value;
    }
+   
    @JsonIgnore
    public Boolean getAlreadyMarkedForUnavailable() {
       return alreadyMarkedForUnavailable;
@@ -193,6 +198,7 @@ public class HSC extends RestObject {
    public void setAlreadyMarkedForUnavailable(Boolean value) { 
       this.alreadyMarkedForUnavailable = value;
    }
+   
    @JsonIgnore
    public Float getAverageCPUUsage() {
       return averageCPUUsage;
@@ -202,6 +208,7 @@ public class HSC extends RestObject {
    public void setAverageCPUUsage(Float value) { 
       this.averageCPUUsage = value;
    }
+   
    @JsonIgnore
    public Float getAverageMemoryUsage() {
       return averageMemoryUsage;
@@ -211,6 +218,7 @@ public class HSC extends RestObject {
    public void setAverageMemoryUsage(Float value) { 
       this.averageMemoryUsage = value;
    }
+   
    @JsonIgnore
    public Float getCurrentCPUUsage() {
       return currentCPUUsage;
@@ -220,6 +228,7 @@ public class HSC extends RestObject {
    public void setCurrentCPUUsage(Float value) { 
       this.currentCPUUsage = value;
    }
+   
    @JsonIgnore
    public Float getCurrentMemoryUsage() {
       return currentMemoryUsage;
@@ -229,6 +238,7 @@ public class HSC extends RestObject {
    public void setCurrentMemoryUsage(Float value) { 
       this.currentMemoryUsage = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -238,6 +248,7 @@ public class HSC extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public java.util.List<DiskStat> getDisks() {
       return disks;
@@ -247,6 +258,7 @@ public class HSC extends RestObject {
    public void setDisks(java.util.List<DiskStat> value) { 
       this.disks = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -256,6 +268,7 @@ public class HSC extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -265,6 +278,7 @@ public class HSC extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public Long getLastStateChange() {
       return lastStateChange;
@@ -274,6 +288,7 @@ public class HSC extends RestObject {
    public void setLastStateChange(Long value) { 
       this.lastStateChange = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -283,6 +298,7 @@ public class HSC extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getLocation() {
       return location;
@@ -292,6 +308,7 @@ public class HSC extends RestObject {
    public void setLocation(String value) { 
       this.location = value;
    }
+   
    @JsonIgnore
    public String getManagementIP() {
       return managementIP;
@@ -301,6 +318,7 @@ public class HSC extends RestObject {
    public void setManagementIP(String value) { 
       this.managementIP = value;
    }
+   
    @JsonIgnore
    public java.util.List<String> getMessages() {
       return messages;
@@ -310,6 +328,7 @@ public class HSC extends RestObject {
    public void setMessages(java.util.List<String> value) { 
       this.messages = value;
    }
+   
    @JsonIgnore
    public String getModel() {
       return model;
@@ -319,6 +338,7 @@ public class HSC extends RestObject {
    public void setModel(String value) { 
       this.model = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -328,6 +348,7 @@ public class HSC extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public Float getPeakCPUUsage() {
       return peakCPUUsage;
@@ -337,6 +358,7 @@ public class HSC extends RestObject {
    public void setPeakCPUUsage(Float value) { 
       this.peakCPUUsage = value;
    }
+   
    @JsonIgnore
    public Float getPeakMemoryUsage() {
       return peakMemoryUsage;
@@ -346,6 +368,7 @@ public class HSC extends RestObject {
    public void setPeakMemoryUsage(Float value) { 
       this.peakMemoryUsage = value;
    }
+   
    @JsonIgnore
    public String getProductVersion() {
       return productVersion;
@@ -355,6 +378,7 @@ public class HSC extends RestObject {
    public void setProductVersion(String value) { 
       this.productVersion = value;
    }
+   
    @JsonIgnore
    public Status getStatus() {
       return status;
@@ -364,6 +388,7 @@ public class HSC extends RestObject {
    public void setStatus(Status value) { 
       this.status = value;
    }
+   
    @JsonIgnore
    public Type getType() {
       return type;
@@ -373,6 +398,7 @@ public class HSC extends RestObject {
    public void setType(Type value) { 
       this.type = value;
    }
+   
    @JsonIgnore
    public Long getUnavailableTimestamp() {
       return unavailableTimestamp;
@@ -382,6 +408,7 @@ public class HSC extends RestObject {
    public void setUnavailableTimestamp(Long value) { 
       this.unavailableTimestamp = value;
    }
+   
    @JsonIgnore
    public java.util.List<String> getVsds() {
       return vsds;

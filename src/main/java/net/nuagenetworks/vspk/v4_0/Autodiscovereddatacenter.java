@@ -43,6 +43,7 @@ public class Autodiscovereddatacenter extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -71,6 +72,7 @@ public class Autodiscovereddatacenter extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAssociatedVCenterID() {
       return associatedVCenterID;
@@ -80,6 +82,7 @@ public class Autodiscovereddatacenter extends RestObject {
    public void setAssociatedVCenterID(String value) { 
       this.associatedVCenterID = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -89,6 +92,7 @@ public class Autodiscovereddatacenter extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -98,6 +102,7 @@ public class Autodiscovereddatacenter extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -107,6 +112,7 @@ public class Autodiscovereddatacenter extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getManagedObjectID() {
       return managedObjectID;
@@ -116,6 +122,7 @@ public class Autodiscovereddatacenter extends RestObject {
    public void setManagedObjectID(String value) { 
       this.managedObjectID = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;

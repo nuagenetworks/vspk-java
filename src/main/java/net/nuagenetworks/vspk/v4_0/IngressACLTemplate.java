@@ -50,8 +50,11 @@ public class IngressACLTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum PolicyState { DRAFT, LIVE };
+   
    public enum PriorityType { BOTTOM, NONE, TOP };
 
    
@@ -145,6 +148,7 @@ public class IngressACLTemplate extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Boolean getActive() {
       return active;
@@ -154,6 +158,7 @@ public class IngressACLTemplate extends RestObject {
    public void setActive(Boolean value) { 
       this.active = value;
    }
+   
    @JsonIgnore
    public Boolean getAllowAddressSpoof() {
       return allowAddressSpoof;
@@ -163,6 +168,7 @@ public class IngressACLTemplate extends RestObject {
    public void setAllowAddressSpoof(Boolean value) { 
       this.allowAddressSpoof = value;
    }
+   
    @JsonIgnore
    public Boolean getAllowL2AddressSpoof() {
       return allowL2AddressSpoof;
@@ -172,6 +178,7 @@ public class IngressACLTemplate extends RestObject {
    public void setAllowL2AddressSpoof(Boolean value) { 
       this.allowL2AddressSpoof = value;
    }
+   
    @JsonIgnore
    public String getAssocAclTemplateId() {
       return assocAclTemplateId;
@@ -181,6 +188,7 @@ public class IngressACLTemplate extends RestObject {
    public void setAssocAclTemplateId(String value) { 
       this.assocAclTemplateId = value;
    }
+   
    @JsonIgnore
    public String getAssociatedLiveEntityID() {
       return associatedLiveEntityID;
@@ -190,6 +198,7 @@ public class IngressACLTemplate extends RestObject {
    public void setAssociatedLiveEntityID(String value) { 
       this.associatedLiveEntityID = value;
    }
+   
    @JsonIgnore
    public Boolean getAutoGeneratePriority() {
       return autoGeneratePriority;
@@ -199,6 +208,7 @@ public class IngressACLTemplate extends RestObject {
    public void setAutoGeneratePriority(Boolean value) { 
       this.autoGeneratePriority = value;
    }
+   
    @JsonIgnore
    public Boolean getDefaultAllowIP() {
       return defaultAllowIP;
@@ -208,6 +218,7 @@ public class IngressACLTemplate extends RestObject {
    public void setDefaultAllowIP(Boolean value) { 
       this.defaultAllowIP = value;
    }
+   
    @JsonIgnore
    public Boolean getDefaultAllowNonIP() {
       return defaultAllowNonIP;
@@ -217,6 +228,7 @@ public class IngressACLTemplate extends RestObject {
    public void setDefaultAllowNonIP(Boolean value) { 
       this.defaultAllowNonIP = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -226,6 +238,7 @@ public class IngressACLTemplate extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -235,6 +248,7 @@ public class IngressACLTemplate extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -244,6 +258,7 @@ public class IngressACLTemplate extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -253,6 +268,7 @@ public class IngressACLTemplate extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -262,6 +278,7 @@ public class IngressACLTemplate extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public PolicyState getPolicyState() {
       return policyState;
@@ -271,6 +288,7 @@ public class IngressACLTemplate extends RestObject {
    public void setPolicyState(PolicyState value) { 
       this.policyState = value;
    }
+   
    @JsonIgnore
    public Long getPriority() {
       return priority;
@@ -280,6 +298,7 @@ public class IngressACLTemplate extends RestObject {
    public void setPriority(Long value) { 
       this.priority = value;
    }
+   
    @JsonIgnore
    public PriorityType getPriorityType() {
       return priorityType;

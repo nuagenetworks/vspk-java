@@ -67,12 +67,19 @@ public class VPort extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum DPI { DISABLED, ENABLED, INHERITED };
+   
    public enum AddressSpoofing { DISABLED, ENABLED, INHERITED };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum Multicast { DISABLED, ENABLED, INHERITED };
+   
    public enum OperationalState { DOWN, INIT, UP };
+   
    public enum SystemType { HARDWARE, HARDWARE_VTEP, NUAGE_1, NUAGE_2, NUAGE_VRSG, SOFTWARE };
+   
    public enum Type { BRIDGE, CONTAINER, HOST, VM };
 
    
@@ -267,6 +274,7 @@ public class VPort extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public DPI getDPI() {
       return DPI;
@@ -276,6 +284,7 @@ public class VPort extends RestObject {
    public void setDPI(DPI value) { 
       this.DPI = value;
    }
+   
    @JsonIgnore
    public String getVLANID() {
       return VLANID;
@@ -285,6 +294,7 @@ public class VPort extends RestObject {
    public void setVLANID(String value) { 
       this.VLANID = value;
    }
+   
    @JsonIgnore
    public Boolean getActive() {
       return active;
@@ -294,6 +304,7 @@ public class VPort extends RestObject {
    public void setActive(Boolean value) { 
       this.active = value;
    }
+   
    @JsonIgnore
    public AddressSpoofing getAddressSpoofing() {
       return addressSpoofing;
@@ -303,6 +314,7 @@ public class VPort extends RestObject {
    public void setAddressSpoofing(AddressSpoofing value) { 
       this.addressSpoofing = value;
    }
+   
    @JsonIgnore
    public String getAssociatedFloatingIPID() {
       return associatedFloatingIPID;
@@ -312,6 +324,7 @@ public class VPort extends RestObject {
    public void setAssociatedFloatingIPID(String value) { 
       this.associatedFloatingIPID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedMulticastChannelMapID() {
       return associatedMulticastChannelMapID;
@@ -321,6 +334,7 @@ public class VPort extends RestObject {
    public void setAssociatedMulticastChannelMapID(String value) { 
       this.associatedMulticastChannelMapID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedSendMulticastChannelMapID() {
       return associatedSendMulticastChannelMapID;
@@ -330,6 +344,7 @@ public class VPort extends RestObject {
    public void setAssociatedSendMulticastChannelMapID(String value) { 
       this.associatedSendMulticastChannelMapID = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -339,6 +354,7 @@ public class VPort extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getDomainID() {
       return domainID;
@@ -348,6 +364,7 @@ public class VPort extends RestObject {
    public void setDomainID(String value) { 
       this.domainID = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -357,6 +374,7 @@ public class VPort extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -366,6 +384,7 @@ public class VPort extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public Boolean getHasAttachedInterfaces() {
       return hasAttachedInterfaces;
@@ -375,6 +394,7 @@ public class VPort extends RestObject {
    public void setHasAttachedInterfaces(Boolean value) { 
       this.hasAttachedInterfaces = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -384,6 +404,7 @@ public class VPort extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getMultiNICVPortID() {
       return multiNICVPortID;
@@ -393,6 +414,7 @@ public class VPort extends RestObject {
    public void setMultiNICVPortID(String value) { 
       this.multiNICVPortID = value;
    }
+   
    @JsonIgnore
    public Multicast getMulticast() {
       return multicast;
@@ -402,6 +424,7 @@ public class VPort extends RestObject {
    public void setMulticast(Multicast value) { 
       this.multicast = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -411,6 +434,7 @@ public class VPort extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public OperationalState getOperationalState() {
       return operationalState;
@@ -420,6 +444,7 @@ public class VPort extends RestObject {
    public void setOperationalState(OperationalState value) { 
       this.operationalState = value;
    }
+   
    @JsonIgnore
    public SystemType getSystemType() {
       return systemType;
@@ -429,6 +454,7 @@ public class VPort extends RestObject {
    public void setSystemType(SystemType value) { 
       this.systemType = value;
    }
+   
    @JsonIgnore
    public Type getType() {
       return type;
@@ -438,6 +464,7 @@ public class VPort extends RestObject {
    public void setType(Type value) { 
       this.type = value;
    }
+   
    @JsonIgnore
    public String getZoneID() {
       return zoneID;

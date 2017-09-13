@@ -61,10 +61,15 @@ public class DomainTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum DPI { DISABLED, ENABLED };
+   
    public enum Encryption { DISABLED, ENABLED };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum Multicast { DISABLED, ENABLED, INHERITED };
+   
    public enum PolicyChangeStatus { APPLIED, DISCARDED, STARTED };
 
    
@@ -201,6 +206,7 @@ public class DomainTemplate extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public DPI getDPI() {
       return DPI;
@@ -210,6 +216,7 @@ public class DomainTemplate extends RestObject {
    public void setDPI(DPI value) { 
       this.DPI = value;
    }
+   
    @JsonIgnore
    public String getAssociatedBGPProfileID() {
       return associatedBGPProfileID;
@@ -219,6 +226,7 @@ public class DomainTemplate extends RestObject {
    public void setAssociatedBGPProfileID(String value) { 
       this.associatedBGPProfileID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedMulticastChannelMapID() {
       return associatedMulticastChannelMapID;
@@ -228,6 +236,7 @@ public class DomainTemplate extends RestObject {
    public void setAssociatedMulticastChannelMapID(String value) { 
       this.associatedMulticastChannelMapID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedPATMapperID() {
       return associatedPATMapperID;
@@ -237,6 +246,7 @@ public class DomainTemplate extends RestObject {
    public void setAssociatedPATMapperID(String value) { 
       this.associatedPATMapperID = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -246,6 +256,7 @@ public class DomainTemplate extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public Encryption getEncryption() {
       return encryption;
@@ -255,6 +266,7 @@ public class DomainTemplate extends RestObject {
    public void setEncryption(Encryption value) { 
       this.encryption = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -264,6 +276,7 @@ public class DomainTemplate extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -273,6 +286,7 @@ public class DomainTemplate extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -282,6 +296,7 @@ public class DomainTemplate extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public Multicast getMulticast() {
       return multicast;
@@ -291,6 +306,7 @@ public class DomainTemplate extends RestObject {
    public void setMulticast(Multicast value) { 
       this.multicast = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -300,6 +316,7 @@ public class DomainTemplate extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public PolicyChangeStatus getPolicyChangeStatus() {
       return policyChangeStatus;

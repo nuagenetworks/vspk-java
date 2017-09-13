@@ -58,6 +58,7 @@ public class CustomProperty extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAttributeName() {
       return attributeName;
@@ -67,6 +68,7 @@ public class CustomProperty extends RestObject {
    public void setAttributeName(String value) { 
       this.attributeName = value;
    }
+   
    @JsonIgnore
    public String getAttributeValue() {
       return attributeValue;

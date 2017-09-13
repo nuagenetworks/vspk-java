@@ -45,6 +45,7 @@ public class KeyServerMonitorEncryptedSeed extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -95,6 +96,7 @@ public class KeyServerMonitorEncryptedSeed extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Long getSEKCreationTime() {
       return SEKCreationTime;
@@ -104,6 +106,7 @@ public class KeyServerMonitorEncryptedSeed extends RestObject {
    public void setSEKCreationTime(Long value) { 
       this.SEKCreationTime = value;
    }
+   
    @JsonIgnore
    public Long getAssociatedKeyServerMonitorSEKCreationTime() {
       return associatedKeyServerMonitorSEKCreationTime;
@@ -113,6 +116,7 @@ public class KeyServerMonitorEncryptedSeed extends RestObject {
    public void setAssociatedKeyServerMonitorSEKCreationTime(Long value) { 
       this.associatedKeyServerMonitorSEKCreationTime = value;
    }
+   
    @JsonIgnore
    public String getAssociatedKeyServerMonitorSEKID() {
       return associatedKeyServerMonitorSEKID;
@@ -122,6 +126,7 @@ public class KeyServerMonitorEncryptedSeed extends RestObject {
    public void setAssociatedKeyServerMonitorSEKID(String value) { 
       this.associatedKeyServerMonitorSEKID = value;
    }
+   
    @JsonIgnore
    public Long getAssociatedKeyServerMonitorSeedCreationTime() {
       return associatedKeyServerMonitorSeedCreationTime;
@@ -131,6 +136,7 @@ public class KeyServerMonitorEncryptedSeed extends RestObject {
    public void setAssociatedKeyServerMonitorSeedCreationTime(Long value) { 
       this.associatedKeyServerMonitorSeedCreationTime = value;
    }
+   
    @JsonIgnore
    public String getAssociatedKeyServerMonitorSeedID() {
       return associatedKeyServerMonitorSeedID;
@@ -140,6 +146,7 @@ public class KeyServerMonitorEncryptedSeed extends RestObject {
    public void setAssociatedKeyServerMonitorSeedID(String value) { 
       this.associatedKeyServerMonitorSeedID = value;
    }
+   
    @JsonIgnore
    public String getEnterpriseSecuredDataID() {
       return enterpriseSecuredDataID;
@@ -149,6 +156,7 @@ public class KeyServerMonitorEncryptedSeed extends RestObject {
    public void setEnterpriseSecuredDataID(String value) { 
       this.enterpriseSecuredDataID = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -158,6 +166,7 @@ public class KeyServerMonitorEncryptedSeed extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -167,6 +176,7 @@ public class KeyServerMonitorEncryptedSeed extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public Long getKeyServerCertificateSerialNumber() {
       return keyServerCertificateSerialNumber;
@@ -176,6 +186,7 @@ public class KeyServerMonitorEncryptedSeed extends RestObject {
    public void setKeyServerCertificateSerialNumber(Long value) { 
       this.keyServerCertificateSerialNumber = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;

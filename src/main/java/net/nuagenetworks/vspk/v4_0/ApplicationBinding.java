@@ -61,6 +61,7 @@ public class ApplicationBinding extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAssociatedApplicationID() {
       return associatedApplicationID;
@@ -70,6 +71,7 @@ public class ApplicationBinding extends RestObject {
    public void setAssociatedApplicationID(String value) { 
       this.associatedApplicationID = value;
    }
+   
    @JsonIgnore
    public Long getPriority() {
       return priority;
@@ -79,6 +81,7 @@ public class ApplicationBinding extends RestObject {
    public void setPriority(Long value) { 
       this.priority = value;
    }
+   
    @JsonIgnore
    public Boolean getReadOnly() {
       return readOnly;

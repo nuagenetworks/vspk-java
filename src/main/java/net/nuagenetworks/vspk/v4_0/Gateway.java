@@ -53,8 +53,11 @@ public class Gateway extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
+   
    public enum Personality { DC7X50, HARDWARE_VTEP, NSG, OTHER, VRSB, VRSG, VSA, VSG };
 
    
@@ -164,6 +167,7 @@ public class Gateway extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAutoDiscGatewayID() {
       return autoDiscGatewayID;
@@ -173,6 +177,7 @@ public class Gateway extends RestObject {
    public void setAutoDiscGatewayID(String value) { 
       this.autoDiscGatewayID = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -182,6 +187,7 @@ public class Gateway extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getEnterpriseID() {
       return enterpriseID;
@@ -191,6 +197,7 @@ public class Gateway extends RestObject {
    public void setEnterpriseID(String value) { 
       this.enterpriseID = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -200,6 +207,7 @@ public class Gateway extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -209,6 +217,7 @@ public class Gateway extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -218,6 +227,7 @@ public class Gateway extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -227,6 +237,7 @@ public class Gateway extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getPeer() {
       return peer;
@@ -236,6 +247,7 @@ public class Gateway extends RestObject {
    public void setPeer(String value) { 
       this.peer = value;
    }
+   
    @JsonIgnore
    public Boolean getPending() {
       return pending;
@@ -245,6 +257,7 @@ public class Gateway extends RestObject {
    public void setPending(Boolean value) { 
       this.pending = value;
    }
+   
    @JsonIgnore
    public PermittedAction getPermittedAction() {
       return permittedAction;
@@ -254,6 +267,7 @@ public class Gateway extends RestObject {
    public void setPermittedAction(PermittedAction value) { 
       this.permittedAction = value;
    }
+   
    @JsonIgnore
    public Personality getPersonality() {
       return personality;
@@ -263,6 +277,7 @@ public class Gateway extends RestObject {
    public void setPersonality(Personality value) { 
       this.personality = value;
    }
+   
    @JsonIgnore
    public String getRedundancyGroupID() {
       return redundancyGroupID;
@@ -272,6 +287,7 @@ public class Gateway extends RestObject {
    public void setRedundancyGroupID(String value) { 
       this.redundancyGroupID = value;
    }
+   
    @JsonIgnore
    public String getSystemID() {
       return systemID;
@@ -281,6 +297,7 @@ public class Gateway extends RestObject {
    public void setSystemID(String value) { 
       this.systemID = value;
    }
+   
    @JsonIgnore
    public String getTemplateID() {
       return templateID;
@@ -290,6 +307,7 @@ public class Gateway extends RestObject {
    public void setTemplateID(String value) { 
       this.templateID = value;
    }
+   
    @JsonIgnore
    public Boolean getUseGatewayVLANVNID() {
       return useGatewayVLANVNID;
@@ -299,6 +317,7 @@ public class Gateway extends RestObject {
    public void setUseGatewayVLANVNID(Boolean value) { 
       this.useGatewayVLANVNID = value;
    }
+   
    @JsonIgnore
    public String getVtep() {
       return vtep;

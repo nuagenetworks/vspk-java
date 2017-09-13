@@ -61,6 +61,7 @@ public class NextHopAddress extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAddress() {
       return address;
@@ -70,6 +71,7 @@ public class NextHopAddress extends RestObject {
    public void setAddress(String value) { 
       this.address = value;
    }
+   
    @JsonIgnore
    public String getRouteDistinguisher() {
       return routeDistinguisher;
@@ -79,6 +81,7 @@ public class NextHopAddress extends RestObject {
    public void setRouteDistinguisher(String value) { 
       this.routeDistinguisher = value;
    }
+   
    @JsonIgnore
    public String getType() {
       return type;

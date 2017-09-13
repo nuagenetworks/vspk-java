@@ -63,17 +63,29 @@ public class Subnet extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum DHCPRelayStatus { DISABLED, ENABLED };
+   
    public enum DPI { DISABLED, ENABLED, INHERITED };
+   
    public enum IPType { DUALSTACK, IPV4 };
+   
    public enum PATEnabled { DISABLED, ENABLED, INHERITED };
+   
    public enum AssociatedApplicationObjectType { ACLENTRY_LOCATION, ADDRESS_RANGE, ADDRESS_RANGE_STATE, ALARM, APPD_APPLICATION, APPD_EXTERNAL_APP_SERVICE, APPD_FLOW, APPD_FLOW_FORWARDING_POLICY, APPD_FLOW_SECURITY_POLICY, APPD_SERVICE, APPD_TIER, APPLICATION, AUTO_DISC_GATEWAY, BACK_HAUL_SERVICE_RESP, BGPPEER, BGP_DAMPENING_MED_RESPONSE, BGP_NEIGHBOR, BGP_NEIGHBOR_MED_RESPONSE, BGP_PROFILE, BGP_PROFILE_MED_RESPONSE, BOOTSTRAP, BOOTSTRAP_ACTIVATION, BRIDGEINTERFACE, CERTIFICATE, CHILD_ENTITY_POLICY_CHANGE, CLOUD_MGMT_SYSTEM, CONTAINER_RESYNC, CUSTOMER_VRF_SEQUENCENO, DC_CONFIG, DHCP_ALLOC_MESSAGE, DHCP_CONFIG_RESP, DHCP_OPTION, DISKSTATS, DOMAIN, DOMAIN_CONFIG, DOMAIN_CONFIG_RESP, DOMAIN_FLOATING_IP_ACL_TEMPLATE, DOMAIN_FLOATING_IP_ACL_TEMPLATE_ENTRY, DOMAIN_TEMPLATE, DSCP_FORWARDING_CLASS_MAPPING, DSCP_FORWARDING_CLASS_TABLE, EGRESS_ACL, EGRESS_ACL_ENTRY, EGRESS_ACL_TEMPLATE, EGRESS_ACL_TEMPLATE_ENTRY, EGRESS_QOS_MR, EGRESS_QOS_PRIMITIVE, EGRESS_QOS_QUEUE_MR, ENDPOINT, ENTERPRISE, ENTERPRISE_CONFIG, ENTERPRISE_CONFIG_RESP, ENTERPRISE_NETWORK, ENTERPRISE_PERMISSION, ENTERPRISE_PROFILE, ENTERPRISE_SECURED_DATA, ENTERPRISE_SECURITY, ENTITY_METADATA_BINDING, ESI_SEQUENCENO, EVENT_LOG, EVPN_BGP_COMMUNITY_TAG_ENTRY, EVPN_BGP_COMMUNITY_TAG_SEQ_NO, EXPORTIMPORT, EXTERNAL_SERVICE, FLOATINGIP, FLOATINGIP_ACL, FLOATINGIP_ACL_ENTRY, FLOATING_IP_ACL_TEMPLATE, FLOATING_IP_ACL_TEMPLATE_ENTRY, GATEWAY, GATEWAY_CONFIG, GATEWAY_CONFIG_RESP, GATEWAY_SECURED_DATA, GATEWAY_SECURITY, GATEWAY_SECURITY_PROFILE_REQUEST, GATEWAY_SECURITY_PROFILE_RESPONSE, GATEWAY_SECURITY_REQUEST, GATEWAY_SECURITY_RESPONSE, GATEWAY_SERVICE_CONFIG, GATEWAY_SERVICE_CONFIG_RESP, GATEWAY_TEMPLATE, GATEWAY_VPORT_CONFIG, GATEWAY_VPORT_CONFIG_RESP, GEO_VM_EVENT, GEO_VM_REQ, GEO_VM_RES, GROUP, GROUPKEY_ENCRYPTION_PROFILE, HEALTH_REQ, HOSTINTERFACE, HSC, IKE_CERTIFICATE, IKE_ENCRYPTION_PROFILE, IKE_GATEWAY, IKE_GATEWAY_CONFIG, IKE_GATEWAY_CONNECTION, IKE_GATEWAY_PROFILE, IKE_PSK, IKE_SUBNET, INFRASTRUCTURE_CONFIG, INFRASTRUCTURE_GATEWAY_PROFILE, INFRASTRUCTURE_PORT_PROFILE, INFRASTRUCTURE_VSC_PROFILE, INGRESS_ACL, INGRESS_ACL_ENTRY, INGRESS_ACL_TEMPLATE, INGRESS_ACL_TEMPLATE_ENTRY, INGRESS_ADV_FWD, INGRESS_ADV_FWD_ENTRY, INGRESS_ADV_FWD_TEMPLATE, INGRESS_ADV_FWD_TEMPLATE_ENTRY, INGRESS_EXT_SERVICE, INGRESS_EXT_SERVICE_ENTRY, INGRESS_EXT_SERVICE_TEMPLATE, INGRESS_EXT_SERVICE_TEMPLATE_ENTRY, IP_BINDING, JOB, KEYSERVER_MEMBER, KEYSERVER_MONITOR, KEYSERVER_MONITOR_ENCRYPTED_SEED, KEYSERVER_MONITOR_SEED, KEYSERVER_MONITOR_SEK, KEYSERVER_NOTIFICATION, L2DOMAIN, L2DOMAIN_SHARED, L2DOMAIN_TEMPLATE, LDAP_CONFIG, LIBVIRT_INTERFACE, LICENSE, LOCATION, MC_CHANNEL_MAP, MC_LIST, MC_RANGE, METADATA, METADATA_TAG, MIRROR_DESTINATION, MONITORING_PORT, MULTI_NIC_VPORT, NATMAPENTRY, NETWORK_ELEMENT, NETWORK_LAYOUT, NETWORK_MACRO_GROUP, NETWORK_POLICY_GROUP, NEXT_HOP_RESP, NODE_EXECUTION_ERROR, NSGATEWAY, NSGATEWAY_CONFIG, NSGATEWAY_TEMPLATE, NSG_NOTIFICATION, NSPORT, NSPORT_STATIC_CONFIG, NSPORT_TEMPLATE, NSPORT_VLAN_CONFIG, NSREDUNDANT_GW_GRP, NS_REDUNDANT_PORT, PATCONFIG_CONFIG_RESP, PATNATPOOL, PERMISSION, PERMITTED_ACTION, POLICING_POLICY, POLICY_DECISION, POLICY_GROUP, POLICY_GROUP_TEMPLATE, PORT, PORT_MR, PORT_PUSH, PORT_TEMPLATE, PORT_VLAN_CONFIG, PORT_VLAN_CONFIG_RESPONSE, PUBLIC_NETWORK, QOS_PRIMITIVE, RATE_LIMITER, RD_SEQUENCENO, REDUNDANT_GW_GRP, ROUTING_POLICY, ROUTING_POL_MED_RESPONSE, RTRD_ENTITY, RTRD_SEQUENCENO, SERVICES_GATEWAY_RESPONSE, SERVICE_GATEWAY_RESPONSE, SERVICE_VRF_SEQUENCENO, SHAPING_POLICY, SHARED_RESOURCE, SITE, SITE_REQ, SITE_RES, STATIC_ROUTE, STATIC_ROUTE_RESP, STATISTICS, STATSSERVER, STATS_COLLECTOR, STATS_POLICY, STATS_TCA, SUBNET, SUBNET_ENTRY, SUBNET_MAC_ENTRY, SUBNET_POOL_ENTRY, SUBNET_TEMPLATE, SYSTEM_CONFIG, SYSTEM_CONFIG_REQ, SYSTEM_CONFIG_RESP, SYSTEM_MONITORING, UNSUPPORTED, UPLINK_RD, USER, VIRTUAL_IP, VIRTUAL_MACHINE, VIRTUAL_MACHINE_REPORT, VLAN, VLAN_CONFIG_RESPONSE, VLAN_TEMPLATE, VMWARE_RELOAD_CONFIG, VMWARE_VCENTER, VMWARE_VCENTER_CLUSTER, VMWARE_VCENTER_DATACENTER, VMWARE_VCENTER_EAM_CONFIG, VMWARE_VCENTER_HYPERVISOR, VMWARE_VCENTER_VRS_BASE_CONFIG, VMWARE_VCENTER_VRS_CONFIG, VMWARE_VRS_ADDRESS_RANGE, VM_DESCRIPTION, VM_INTERFACE, VM_RESYNC, VNID_SEQUENCENO, VPN_CONNECT, VPORT, VPORTTAG, VPORTTAGTEMPLATE, VPORT_GATEWAY_RESPONSE, VPORT_MEDIATION_REQUEST, VPORT_MIRROR, VPORT_TAG_BASE, VPRN_LABEL_SEQUENCENO, VRS, VSC, VSD, VSD_COMPONENT, VSG_REDUNDANT_PORT, VSP, WAN_SERVICE, ZONE, ZONE_TEMPLATE };
+   
    public enum DefaultAction { DROP_TRAFFIC, USE_UNDERLAY };
+   
    public enum Encryption { DISABLED, ENABLED, INHERITED };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum MaintenanceMode { DISABLED, ENABLED, ENABLED_INHERITED };
+   
    public enum Multicast { DISABLED, ENABLED, INHERITED };
+   
    public enum UnderlayEnabled { DISABLED, ENABLED, INHERITED };
+   
    public enum UseGlobalMAC { DISABLED, ENABLED };
 
    
@@ -296,6 +308,7 @@ public class Subnet extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public DHCPRelayStatus getDHCPRelayStatus() {
       return DHCPRelayStatus;
@@ -305,6 +318,7 @@ public class Subnet extends RestObject {
    public void setDHCPRelayStatus(DHCPRelayStatus value) { 
       this.DHCPRelayStatus = value;
    }
+   
    @JsonIgnore
    public DPI getDPI() {
       return DPI;
@@ -314,6 +328,7 @@ public class Subnet extends RestObject {
    public void setDPI(DPI value) { 
       this.DPI = value;
    }
+   
    @JsonIgnore
    public IPType getIPType() {
       return IPType;
@@ -323,6 +338,7 @@ public class Subnet extends RestObject {
    public void setIPType(IPType value) { 
       this.IPType = value;
    }
+   
    @JsonIgnore
    public String getIPv6Address() {
       return IPv6Address;
@@ -332,6 +348,7 @@ public class Subnet extends RestObject {
    public void setIPv6Address(String value) { 
       this.IPv6Address = value;
    }
+   
    @JsonIgnore
    public String getIPv6Gateway() {
       return IPv6Gateway;
@@ -341,6 +358,7 @@ public class Subnet extends RestObject {
    public void setIPv6Gateway(String value) { 
       this.IPv6Gateway = value;
    }
+   
    @JsonIgnore
    public PATEnabled getPATEnabled() {
       return PATEnabled;
@@ -350,6 +368,7 @@ public class Subnet extends RestObject {
    public void setPATEnabled(PATEnabled value) { 
       this.PATEnabled = value;
    }
+   
    @JsonIgnore
    public String getAddress() {
       return address;
@@ -359,6 +378,7 @@ public class Subnet extends RestObject {
    public void setAddress(String value) { 
       this.address = value;
    }
+   
    @JsonIgnore
    public String getAssociatedApplicationID() {
       return associatedApplicationID;
@@ -368,6 +388,7 @@ public class Subnet extends RestObject {
    public void setAssociatedApplicationID(String value) { 
       this.associatedApplicationID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedApplicationObjectID() {
       return associatedApplicationObjectID;
@@ -377,6 +398,7 @@ public class Subnet extends RestObject {
    public void setAssociatedApplicationObjectID(String value) { 
       this.associatedApplicationObjectID = value;
    }
+   
    @JsonIgnore
    public AssociatedApplicationObjectType getAssociatedApplicationObjectType() {
       return associatedApplicationObjectType;
@@ -386,6 +408,7 @@ public class Subnet extends RestObject {
    public void setAssociatedApplicationObjectType(AssociatedApplicationObjectType value) { 
       this.associatedApplicationObjectType = value;
    }
+   
    @JsonIgnore
    public String getAssociatedMulticastChannelMapID() {
       return associatedMulticastChannelMapID;
@@ -395,6 +418,7 @@ public class Subnet extends RestObject {
    public void setAssociatedMulticastChannelMapID(String value) { 
       this.associatedMulticastChannelMapID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedSharedNetworkResourceID() {
       return associatedSharedNetworkResourceID;
@@ -404,6 +428,7 @@ public class Subnet extends RestObject {
    public void setAssociatedSharedNetworkResourceID(String value) { 
       this.associatedSharedNetworkResourceID = value;
    }
+   
    @JsonIgnore
    public DefaultAction getDefaultAction() {
       return defaultAction;
@@ -413,6 +438,7 @@ public class Subnet extends RestObject {
    public void setDefaultAction(DefaultAction value) { 
       this.defaultAction = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -422,6 +448,7 @@ public class Subnet extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public Encryption getEncryption() {
       return encryption;
@@ -431,6 +458,7 @@ public class Subnet extends RestObject {
    public void setEncryption(Encryption value) { 
       this.encryption = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -440,6 +468,7 @@ public class Subnet extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -449,6 +478,7 @@ public class Subnet extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getGateway() {
       return gateway;
@@ -458,6 +488,7 @@ public class Subnet extends RestObject {
    public void setGateway(String value) { 
       this.gateway = value;
    }
+   
    @JsonIgnore
    public String getGatewayMACAddress() {
       return gatewayMACAddress;
@@ -467,6 +498,7 @@ public class Subnet extends RestObject {
    public void setGatewayMACAddress(String value) { 
       this.gatewayMACAddress = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -476,6 +508,7 @@ public class Subnet extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public MaintenanceMode getMaintenanceMode() {
       return maintenanceMode;
@@ -485,6 +518,7 @@ public class Subnet extends RestObject {
    public void setMaintenanceMode(MaintenanceMode value) { 
       this.maintenanceMode = value;
    }
+   
    @JsonIgnore
    public Multicast getMulticast() {
       return multicast;
@@ -494,6 +528,7 @@ public class Subnet extends RestObject {
    public void setMulticast(Multicast value) { 
       this.multicast = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -503,6 +538,7 @@ public class Subnet extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getNetmask() {
       return netmask;
@@ -512,6 +548,7 @@ public class Subnet extends RestObject {
    public void setNetmask(String value) { 
       this.netmask = value;
    }
+   
    @JsonIgnore
    public Long getPolicyGroupID() {
       return policyGroupID;
@@ -521,6 +558,7 @@ public class Subnet extends RestObject {
    public void setPolicyGroupID(Long value) { 
       this.policyGroupID = value;
    }
+   
    @JsonIgnore
    public Boolean getProxyARP() {
       return proxyARP;
@@ -530,6 +568,7 @@ public class Subnet extends RestObject {
    public void setProxyARP(Boolean value) { 
       this.proxyARP = value;
    }
+   
    @JsonIgnore
    public Boolean getPublic_() {
       return public_;
@@ -539,6 +578,7 @@ public class Subnet extends RestObject {
    public void setPublic_(Boolean value) { 
       this.public_ = value;
    }
+   
    @JsonIgnore
    public String getRouteDistinguisher() {
       return routeDistinguisher;
@@ -548,6 +588,7 @@ public class Subnet extends RestObject {
    public void setRouteDistinguisher(String value) { 
       this.routeDistinguisher = value;
    }
+   
    @JsonIgnore
    public String getRouteTarget() {
       return routeTarget;
@@ -557,6 +598,7 @@ public class Subnet extends RestObject {
    public void setRouteTarget(String value) { 
       this.routeTarget = value;
    }
+   
    @JsonIgnore
    public Long getServiceID() {
       return serviceID;
@@ -566,6 +608,7 @@ public class Subnet extends RestObject {
    public void setServiceID(Long value) { 
       this.serviceID = value;
    }
+   
    @JsonIgnore
    public Boolean getSplitSubnet() {
       return splitSubnet;
@@ -575,6 +618,7 @@ public class Subnet extends RestObject {
    public void setSplitSubnet(Boolean value) { 
       this.splitSubnet = value;
    }
+   
    @JsonIgnore
    public String getTemplateID() {
       return templateID;
@@ -584,6 +628,7 @@ public class Subnet extends RestObject {
    public void setTemplateID(String value) { 
       this.templateID = value;
    }
+   
    @JsonIgnore
    public Boolean getUnderlay() {
       return underlay;
@@ -593,6 +638,7 @@ public class Subnet extends RestObject {
    public void setUnderlay(Boolean value) { 
       this.underlay = value;
    }
+   
    @JsonIgnore
    public UnderlayEnabled getUnderlayEnabled() {
       return underlayEnabled;
@@ -602,6 +648,7 @@ public class Subnet extends RestObject {
    public void setUnderlayEnabled(UnderlayEnabled value) { 
       this.underlayEnabled = value;
    }
+   
    @JsonIgnore
    public UseGlobalMAC getUseGlobalMAC() {
       return useGlobalMAC;
@@ -611,6 +658,7 @@ public class Subnet extends RestObject {
    public void setUseGlobalMAC(UseGlobalMAC value) { 
       this.useGlobalMAC = value;
    }
+   
    @JsonIgnore
    public Long getVnId() {
       return vnId;

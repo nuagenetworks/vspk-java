@@ -45,6 +45,7 @@ public class Metadata extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -89,6 +90,7 @@ public class Metadata extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getBlob() {
       return blob;
@@ -98,6 +100,7 @@ public class Metadata extends RestObject {
    public void setBlob(String value) { 
       this.blob = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -107,6 +110,7 @@ public class Metadata extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -116,6 +120,7 @@ public class Metadata extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -125,6 +130,7 @@ public class Metadata extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public Boolean getGlobalMetadata() {
       return globalMetadata;
@@ -134,6 +140,7 @@ public class Metadata extends RestObject {
    public void setGlobalMetadata(Boolean value) { 
       this.globalMetadata = value;
    }
+   
    @JsonIgnore
    public java.util.List<String> getMetadataTagIDs() {
       return metadataTagIDs;
@@ -143,6 +150,7 @@ public class Metadata extends RestObject {
    public void setMetadataTagIDs(java.util.List<String> value) { 
       this.metadataTagIDs = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -152,6 +160,7 @@ public class Metadata extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public Boolean getNetworkNotificationDisabled() {
       return networkNotificationDisabled;

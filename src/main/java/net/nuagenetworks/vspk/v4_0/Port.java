@@ -50,9 +50,13 @@ public class Port extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
+   
    public enum PortType { ACCESS, NETWORK };
+   
    public enum Status { INITIALIZED, MISMATCH, ORPHAN, READY };
 
    
@@ -146,6 +150,7 @@ public class Port extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getVLANRange() {
       return VLANRange;
@@ -155,6 +160,7 @@ public class Port extends RestObject {
    public void setVLANRange(String value) { 
       this.VLANRange = value;
    }
+   
    @JsonIgnore
    public String getAssociatedEgressQOSPolicyID() {
       return associatedEgressQOSPolicyID;
@@ -164,6 +170,7 @@ public class Port extends RestObject {
    public void setAssociatedEgressQOSPolicyID(String value) { 
       this.associatedEgressQOSPolicyID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedRedundantPortID() {
       return associatedRedundantPortID;
@@ -173,6 +180,7 @@ public class Port extends RestObject {
    public void setAssociatedRedundantPortID(String value) { 
       this.associatedRedundantPortID = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -182,6 +190,7 @@ public class Port extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -191,6 +200,7 @@ public class Port extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -200,6 +210,7 @@ public class Port extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public Boolean getIsResilient() {
       return isResilient;
@@ -209,6 +220,7 @@ public class Port extends RestObject {
    public void setIsResilient(Boolean value) { 
       this.isResilient = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -218,6 +230,7 @@ public class Port extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -227,6 +240,7 @@ public class Port extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public PermittedAction getPermittedAction() {
       return permittedAction;
@@ -236,6 +250,7 @@ public class Port extends RestObject {
    public void setPermittedAction(PermittedAction value) { 
       this.permittedAction = value;
    }
+   
    @JsonIgnore
    public String getPhysicalName() {
       return physicalName;
@@ -245,6 +260,7 @@ public class Port extends RestObject {
    public void setPhysicalName(String value) { 
       this.physicalName = value;
    }
+   
    @JsonIgnore
    public PortType getPortType() {
       return portType;
@@ -254,6 +270,7 @@ public class Port extends RestObject {
    public void setPortType(PortType value) { 
       this.portType = value;
    }
+   
    @JsonIgnore
    public Status getStatus() {
       return status;
@@ -263,6 +280,7 @@ public class Port extends RestObject {
    public void setStatus(Status value) { 
       this.status = value;
    }
+   
    @JsonIgnore
    public String getTemplateID() {
       return templateID;
@@ -272,6 +290,7 @@ public class Port extends RestObject {
    public void setTemplateID(String value) { 
       this.templateID = value;
    }
+   
    @JsonIgnore
    public Boolean getUseUserMnemonic() {
       return useUserMnemonic;
@@ -281,6 +300,7 @@ public class Port extends RestObject {
    public void setUseUserMnemonic(Boolean value) { 
       this.useUserMnemonic = value;
    }
+   
    @JsonIgnore
    public String getUserMnemonic() {
       return userMnemonic;

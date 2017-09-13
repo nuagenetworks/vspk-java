@@ -45,8 +45,11 @@ public class KeyServerMonitorSEK extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum SeedPayloadAuthenticationAlgorithm { HMAC_SHA1, HMAC_SHA256, HMAC_SHA512 };
+   
    public enum SeedPayloadEncryptionAlgorithm { AES_128_CBC, AES_256_CBC, TRIPLE_DES_CBC };
 
    
@@ -91,6 +94,7 @@ public class KeyServerMonitorSEK extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Long getCreationTime() {
       return creationTime;
@@ -100,6 +104,7 @@ public class KeyServerMonitorSEK extends RestObject {
    public void setCreationTime(Long value) { 
       this.creationTime = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -109,6 +114,7 @@ public class KeyServerMonitorSEK extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -118,6 +124,7 @@ public class KeyServerMonitorSEK extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -127,6 +134,7 @@ public class KeyServerMonitorSEK extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public Long getLifetime() {
       return lifetime;
@@ -136,6 +144,7 @@ public class KeyServerMonitorSEK extends RestObject {
    public void setLifetime(Long value) { 
       this.lifetime = value;
    }
+   
    @JsonIgnore
    public SeedPayloadAuthenticationAlgorithm getSeedPayloadAuthenticationAlgorithm() {
       return seedPayloadAuthenticationAlgorithm;
@@ -145,6 +154,7 @@ public class KeyServerMonitorSEK extends RestObject {
    public void setSeedPayloadAuthenticationAlgorithm(SeedPayloadAuthenticationAlgorithm value) { 
       this.seedPayloadAuthenticationAlgorithm = value;
    }
+   
    @JsonIgnore
    public SeedPayloadEncryptionAlgorithm getSeedPayloadEncryptionAlgorithm() {
       return seedPayloadEncryptionAlgorithm;
@@ -154,6 +164,7 @@ public class KeyServerMonitorSEK extends RestObject {
    public void setSeedPayloadEncryptionAlgorithm(SeedPayloadEncryptionAlgorithm value) { 
       this.seedPayloadEncryptionAlgorithm = value;
    }
+   
    @JsonIgnore
    public Long getStartTime() {
       return startTime;

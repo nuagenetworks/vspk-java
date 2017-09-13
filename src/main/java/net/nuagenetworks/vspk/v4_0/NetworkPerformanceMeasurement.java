@@ -76,6 +76,7 @@ public class NetworkPerformanceMeasurement extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAssociatedPerformanceMonitorID() {
       return associatedPerformanceMonitorID;
@@ -85,6 +86,7 @@ public class NetworkPerformanceMeasurement extends RestObject {
    public void setAssociatedPerformanceMonitorID(String value) { 
       this.associatedPerformanceMonitorID = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -94,6 +96,7 @@ public class NetworkPerformanceMeasurement extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -103,6 +106,7 @@ public class NetworkPerformanceMeasurement extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public Boolean getReadOnly() {
       return readOnly;

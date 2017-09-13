@@ -47,8 +47,11 @@ public class Group extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum ManagementMode { CMS, DEFAULT };
+   
    public enum Role { CMS, CSPOPERATOR, CSPROOT, JMS, ORGADMIN, ORGAPPDESIGNER, ORGNETWORKDESIGNER, ORGUSER, SYSTEM, UNKNOWN, USER };
 
    
@@ -112,6 +115,7 @@ public class Group extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getLDAPGroupDN() {
       return LDAPGroupDN;
@@ -121,6 +125,7 @@ public class Group extends RestObject {
    public void setLDAPGroupDN(String value) { 
       this.LDAPGroupDN = value;
    }
+   
    @JsonIgnore
    public Boolean getAccountRestrictions() {
       return accountRestrictions;
@@ -130,6 +135,7 @@ public class Group extends RestObject {
    public void setAccountRestrictions(Boolean value) { 
       this.accountRestrictions = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -139,6 +145,7 @@ public class Group extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -148,6 +155,7 @@ public class Group extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -157,6 +165,7 @@ public class Group extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -166,6 +175,7 @@ public class Group extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public ManagementMode getManagementMode() {
       return managementMode;
@@ -175,6 +185,7 @@ public class Group extends RestObject {
    public void setManagementMode(ManagementMode value) { 
       this.managementMode = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -184,6 +195,7 @@ public class Group extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public Boolean getPrivate_() {
       return private_;
@@ -193,6 +205,7 @@ public class Group extends RestObject {
    public void setPrivate_(Boolean value) { 
       this.private_ = value;
    }
+   
    @JsonIgnore
    public Float getRestrictionDate() {
       return restrictionDate;
@@ -202,6 +215,7 @@ public class Group extends RestObject {
    public void setRestrictionDate(Float value) { 
       this.restrictionDate = value;
    }
+   
    @JsonIgnore
    public Role getRole() {
       return role;

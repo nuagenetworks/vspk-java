@@ -45,7 +45,9 @@ public class Alarm extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum Severity { CRITICAL, INFO, MAJOR, MINOR, WARNING };
 
    
@@ -105,6 +107,7 @@ public class Alarm extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Boolean getAcknowledged() {
       return acknowledged;
@@ -114,6 +117,7 @@ public class Alarm extends RestObject {
    public void setAcknowledged(Boolean value) { 
       this.acknowledged = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -123,6 +127,7 @@ public class Alarm extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getEnterpriseID() {
       return enterpriseID;
@@ -132,6 +137,7 @@ public class Alarm extends RestObject {
    public void setEnterpriseID(String value) { 
       this.enterpriseID = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -141,6 +147,7 @@ public class Alarm extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public Long getErrorCondition() {
       return errorCondition;
@@ -150,6 +157,7 @@ public class Alarm extends RestObject {
    public void setErrorCondition(Long value) { 
       this.errorCondition = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -159,6 +167,7 @@ public class Alarm extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -168,6 +177,7 @@ public class Alarm extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -177,6 +187,7 @@ public class Alarm extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public Long getNumberOfOccurances() {
       return numberOfOccurances;
@@ -186,6 +197,7 @@ public class Alarm extends RestObject {
    public void setNumberOfOccurances(Long value) { 
       this.numberOfOccurances = value;
    }
+   
    @JsonIgnore
    public String getReason() {
       return reason;
@@ -195,6 +207,7 @@ public class Alarm extends RestObject {
    public void setReason(String value) { 
       this.reason = value;
    }
+   
    @JsonIgnore
    public Severity getSeverity() {
       return severity;
@@ -204,6 +217,7 @@ public class Alarm extends RestObject {
    public void setSeverity(Severity value) { 
       this.severity = value;
    }
+   
    @JsonIgnore
    public String getTargetObject() {
       return targetObject;
@@ -213,6 +227,7 @@ public class Alarm extends RestObject {
    public void setTargetObject(String value) { 
       this.targetObject = value;
    }
+   
    @JsonIgnore
    public Long getTimestamp() {
       return timestamp;

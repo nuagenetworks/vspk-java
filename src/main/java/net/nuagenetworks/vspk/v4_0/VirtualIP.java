@@ -46,6 +46,7 @@ public class VirtualIP extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -92,6 +93,7 @@ public class VirtualIP extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getMAC() {
       return MAC;
@@ -101,6 +103,7 @@ public class VirtualIP extends RestObject {
    public void setMAC(String value) { 
       this.MAC = value;
    }
+   
    @JsonIgnore
    public String getAssociatedFloatingIPID() {
       return associatedFloatingIPID;
@@ -110,6 +113,7 @@ public class VirtualIP extends RestObject {
    public void setAssociatedFloatingIPID(String value) { 
       this.associatedFloatingIPID = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -119,6 +123,7 @@ public class VirtualIP extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -128,6 +133,7 @@ public class VirtualIP extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -137,6 +143,7 @@ public class VirtualIP extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getSubnetID() {
       return subnetID;
@@ -146,6 +153,7 @@ public class VirtualIP extends RestObject {
    public void setSubnetID(String value) { 
       this.subnetID = value;
    }
+   
    @JsonIgnore
    public String getVirtualIP() {
       return virtualIP;

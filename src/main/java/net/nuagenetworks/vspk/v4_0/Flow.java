@@ -48,6 +48,7 @@ public class Flow extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -107,6 +108,7 @@ public class Flow extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -116,6 +118,7 @@ public class Flow extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getDestinationTierID() {
       return destinationTierID;
@@ -125,6 +128,7 @@ public class Flow extends RestObject {
    public void setDestinationTierID(String value) { 
       this.destinationTierID = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -134,6 +138,7 @@ public class Flow extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -143,6 +148,7 @@ public class Flow extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -152,6 +158,7 @@ public class Flow extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getMetadata() {
       return metadata;
@@ -161,6 +168,7 @@ public class Flow extends RestObject {
    public void setMetadata(String value) { 
       this.metadata = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -170,6 +178,7 @@ public class Flow extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getOriginTierID() {
       return originTierID;

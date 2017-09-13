@@ -46,8 +46,11 @@ public class License extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum LicenseEncryption { ENCRYPTION_DISABLED, ENCRYPTION_ENABLED };
+   
    public enum LicenseType { CLUSTERED, STANDARD };
 
    
@@ -178,6 +181,7 @@ public class License extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAdditionalSupportedVersions() {
       return additionalSupportedVersions;
@@ -187,6 +191,7 @@ public class License extends RestObject {
    public void setAdditionalSupportedVersions(String value) { 
       this.additionalSupportedVersions = value;
    }
+   
    @JsonIgnore
    public Long getAllowedAVRSGsCount() {
       return allowedAVRSGsCount;
@@ -196,6 +201,7 @@ public class License extends RestObject {
    public void setAllowedAVRSGsCount(Long value) { 
       this.allowedAVRSGsCount = value;
    }
+   
    @JsonIgnore
    public Long getAllowedAVRSsCount() {
       return allowedAVRSsCount;
@@ -205,6 +211,7 @@ public class License extends RestObject {
    public void setAllowedAVRSsCount(Long value) { 
       this.allowedAVRSsCount = value;
    }
+   
    @JsonIgnore
    public Long getAllowedCPEsCount() {
       return allowedCPEsCount;
@@ -214,6 +221,7 @@ public class License extends RestObject {
    public void setAllowedCPEsCount(Long value) { 
       this.allowedCPEsCount = value;
    }
+   
    @JsonIgnore
    public Long getAllowedNICsCount() {
       return allowedNICsCount;
@@ -223,6 +231,7 @@ public class License extends RestObject {
    public void setAllowedNICsCount(Long value) { 
       this.allowedNICsCount = value;
    }
+   
    @JsonIgnore
    public Long getAllowedVMsCount() {
       return allowedVMsCount;
@@ -232,6 +241,7 @@ public class License extends RestObject {
    public void setAllowedVMsCount(Long value) { 
       this.allowedVMsCount = value;
    }
+   
    @JsonIgnore
    public Long getAllowedVRSGsCount() {
       return allowedVRSGsCount;
@@ -241,6 +251,7 @@ public class License extends RestObject {
    public void setAllowedVRSGsCount(Long value) { 
       this.allowedVRSGsCount = value;
    }
+   
    @JsonIgnore
    public Long getAllowedVRSsCount() {
       return allowedVRSsCount;
@@ -250,6 +261,7 @@ public class License extends RestObject {
    public void setAllowedVRSsCount(Long value) { 
       this.allowedVRSsCount = value;
    }
+   
    @JsonIgnore
    public String getCity() {
       return city;
@@ -259,6 +271,7 @@ public class License extends RestObject {
    public void setCity(String value) { 
       this.city = value;
    }
+   
    @JsonIgnore
    public String getCompany() {
       return company;
@@ -268,6 +281,7 @@ public class License extends RestObject {
    public void setCompany(String value) { 
       this.company = value;
    }
+   
    @JsonIgnore
    public String getCountry() {
       return country;
@@ -277,6 +291,7 @@ public class License extends RestObject {
    public void setCountry(String value) { 
       this.country = value;
    }
+   
    @JsonIgnore
    public String getCustomerKey() {
       return customerKey;
@@ -286,6 +301,7 @@ public class License extends RestObject {
    public void setCustomerKey(String value) { 
       this.customerKey = value;
    }
+   
    @JsonIgnore
    public String getEmail() {
       return email;
@@ -295,6 +311,7 @@ public class License extends RestObject {
    public void setEmail(String value) { 
       this.email = value;
    }
+   
    @JsonIgnore
    public Boolean getEncryptionMode() {
       return encryptionMode;
@@ -304,6 +321,7 @@ public class License extends RestObject {
    public void setEncryptionMode(Boolean value) { 
       this.encryptionMode = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -313,6 +331,7 @@ public class License extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public Float getExpirationDate() {
       return expirationDate;
@@ -322,6 +341,7 @@ public class License extends RestObject {
    public void setExpirationDate(Float value) { 
       this.expirationDate = value;
    }
+   
    @JsonIgnore
    public Long getExpiryTimestamp() {
       return expiryTimestamp;
@@ -331,6 +351,7 @@ public class License extends RestObject {
    public void setExpiryTimestamp(Long value) { 
       this.expiryTimestamp = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -340,6 +361,7 @@ public class License extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public Boolean getIsClusterLicense() {
       return isClusterLicense;
@@ -349,6 +371,7 @@ public class License extends RestObject {
    public void setIsClusterLicense(Boolean value) { 
       this.isClusterLicense = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -358,6 +381,7 @@ public class License extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getLicense() {
       return license;
@@ -367,6 +391,7 @@ public class License extends RestObject {
    public void setLicense(String value) { 
       this.license = value;
    }
+   
    @JsonIgnore
    public LicenseEncryption getLicenseEncryption() {
       return licenseEncryption;
@@ -376,6 +401,7 @@ public class License extends RestObject {
    public void setLicenseEncryption(LicenseEncryption value) { 
       this.licenseEncryption = value;
    }
+   
    @JsonIgnore
    public String getLicenseEntities() {
       return licenseEntities;
@@ -385,6 +411,7 @@ public class License extends RestObject {
    public void setLicenseEntities(String value) { 
       this.licenseEntities = value;
    }
+   
    @JsonIgnore
    public Long getLicenseID() {
       return licenseID;
@@ -394,6 +421,7 @@ public class License extends RestObject {
    public void setLicenseID(Long value) { 
       this.licenseID = value;
    }
+   
    @JsonIgnore
    public LicenseType getLicenseType() {
       return licenseType;
@@ -403,6 +431,7 @@ public class License extends RestObject {
    public void setLicenseType(LicenseType value) { 
       this.licenseType = value;
    }
+   
    @JsonIgnore
    public Long getMajorRelease() {
       return majorRelease;
@@ -412,6 +441,7 @@ public class License extends RestObject {
    public void setMajorRelease(Long value) { 
       this.majorRelease = value;
    }
+   
    @JsonIgnore
    public Long getMinorRelease() {
       return minorRelease;
@@ -421,6 +451,7 @@ public class License extends RestObject {
    public void setMinorRelease(Long value) { 
       this.minorRelease = value;
    }
+   
    @JsonIgnore
    public String getPhone() {
       return phone;
@@ -430,6 +461,7 @@ public class License extends RestObject {
    public void setPhone(String value) { 
       this.phone = value;
    }
+   
    @JsonIgnore
    public String getProductVersion() {
       return productVersion;
@@ -439,6 +471,7 @@ public class License extends RestObject {
    public void setProductVersion(String value) { 
       this.productVersion = value;
    }
+   
    @JsonIgnore
    public String getProvider() {
       return provider;
@@ -448,6 +481,7 @@ public class License extends RestObject {
    public void setProvider(String value) { 
       this.provider = value;
    }
+   
    @JsonIgnore
    public String getState() {
       return state;
@@ -457,6 +491,7 @@ public class License extends RestObject {
    public void setState(String value) { 
       this.state = value;
    }
+   
    @JsonIgnore
    public String getStreet() {
       return street;
@@ -466,6 +501,7 @@ public class License extends RestObject {
    public void setStreet(String value) { 
       this.street = value;
    }
+   
    @JsonIgnore
    public String getUniqueLicenseIdentifier() {
       return uniqueLicenseIdentifier;
@@ -475,6 +511,7 @@ public class License extends RestObject {
    public void setUniqueLicenseIdentifier(String value) { 
       this.uniqueLicenseIdentifier = value;
    }
+   
    @JsonIgnore
    public String getUserName() {
       return userName;
@@ -484,6 +521,7 @@ public class License extends RestObject {
    public void setUserName(String value) { 
       this.userName = value;
    }
+   
    @JsonIgnore
    public String getZip() {
       return zip;

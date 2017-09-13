@@ -45,6 +45,7 @@ public class BFDSession extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -86,6 +87,7 @@ public class BFDSession extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getBFDDestinationIP() {
       return BFDDestinationIP;
@@ -95,6 +97,7 @@ public class BFDSession extends RestObject {
    public void setBFDDestinationIP(String value) { 
       this.BFDDestinationIP = value;
    }
+   
    @JsonIgnore
    public Long getBFDMultiplier() {
       return BFDMultiplier;
@@ -104,6 +107,7 @@ public class BFDSession extends RestObject {
    public void setBFDMultiplier(Long value) { 
       this.BFDMultiplier = value;
    }
+   
    @JsonIgnore
    public Long getBFDTimer() {
       return BFDTimer;
@@ -113,6 +117,7 @@ public class BFDSession extends RestObject {
    public void setBFDTimer(Long value) { 
       this.BFDTimer = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -122,6 +127,7 @@ public class BFDSession extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -131,6 +137,7 @@ public class BFDSession extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -140,6 +147,7 @@ public class BFDSession extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public Boolean getMultiHopEnabled() {
       return multiHopEnabled;

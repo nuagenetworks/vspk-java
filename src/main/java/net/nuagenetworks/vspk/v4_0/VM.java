@@ -50,9 +50,13 @@ public class VM extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum DeleteMode { TIMER };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum ReasonType { BLOCKED_LAST, BLOCKED_UNKNOWN, CRASHED_LAST, CRASHED_UNKNOWN, NOSTATE_LAST, NOSTATE_UNKNOWN, PAUSED_DUMP, PAUSED_FROM_SNAPSHOT, PAUSED_IOERROR, PAUSED_LAST, PAUSED_MIGRATION, PAUSED_SAVE, PAUSED_SHUTTING_DOWN, PAUSED_UNKNOWN, PAUSED_USER, PAUSED_WATCHDOG, RUNNING_BOOTED, RUNNING_FROM_SNAPSHOT, RUNNING_LAST, RUNNING_MIGRATED, RUNNING_MIGRATION_CANCELED, RUNNING_RESTORED, RUNNING_SAVE_CANCELED, RUNNING_UNKNOWN, RUNNING_UNPAUSED, SHUTDOWN_LAST, SHUTDOWN_UNKNOWN, SHUTDOWN_USER, SHUTOFF_CRASHED, SHUTOFF_DESTROYED, SHUTOFF_FAILED, SHUTOFF_FROM_SNAPSHOT, SHUTOFF_LAST, SHUTOFF_MIGRATED, SHUTOFF_SAVED, SHUTOFF_SHUTDOWN, SHUTOFF_UNKNOWN, UNKNOWN };
+   
    public enum Status { BLOCKED, CRASHED, DELETE_PENDING, INIT, LAST, NOSTATE, PAUSED, RUNNING, SHUTDOWN, SHUTOFF, UNKNOWN, UNREACHABLE };
 
    
@@ -167,6 +171,7 @@ public class VM extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getUUID() {
       return UUID;
@@ -176,6 +181,7 @@ public class VM extends RestObject {
    public void setUUID(String value) { 
       this.UUID = value;
    }
+   
    @JsonIgnore
    public String getVRSID() {
       return VRSID;
@@ -185,6 +191,7 @@ public class VM extends RestObject {
    public void setVRSID(String value) { 
       this.VRSID = value;
    }
+   
    @JsonIgnore
    public Long getDeleteExpiry() {
       return deleteExpiry;
@@ -194,6 +201,7 @@ public class VM extends RestObject {
    public void setDeleteExpiry(Long value) { 
       this.deleteExpiry = value;
    }
+   
    @JsonIgnore
    public DeleteMode getDeleteMode() {
       return deleteMode;
@@ -203,6 +211,7 @@ public class VM extends RestObject {
    public void setDeleteMode(DeleteMode value) { 
       this.deleteMode = value;
    }
+   
    @JsonIgnore
    public java.util.List<String> getDomainIDs() {
       return domainIDs;
@@ -212,6 +221,7 @@ public class VM extends RestObject {
    public void setDomainIDs(java.util.List<String> value) { 
       this.domainIDs = value;
    }
+   
    @JsonIgnore
    public String getEnterpriseID() {
       return enterpriseID;
@@ -221,6 +231,7 @@ public class VM extends RestObject {
    public void setEnterpriseID(String value) { 
       this.enterpriseID = value;
    }
+   
    @JsonIgnore
    public String getEnterpriseName() {
       return enterpriseName;
@@ -230,6 +241,7 @@ public class VM extends RestObject {
    public void setEnterpriseName(String value) { 
       this.enterpriseName = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -239,6 +251,7 @@ public class VM extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -248,6 +261,7 @@ public class VM extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getHypervisorIP() {
       return hypervisorIP;
@@ -257,6 +271,7 @@ public class VM extends RestObject {
    public void setHypervisorIP(String value) { 
       this.hypervisorIP = value;
    }
+   
    @JsonIgnore
    public java.util.List<VMInterface> getInterfaces() {
       return interfaces;
@@ -266,6 +281,7 @@ public class VM extends RestObject {
    public void setInterfaces(java.util.List<VMInterface> value) { 
       this.interfaces = value;
    }
+   
    @JsonIgnore
    public java.util.List<String> getL2DomainIDs() {
       return l2DomainIDs;
@@ -275,6 +291,7 @@ public class VM extends RestObject {
    public void setL2DomainIDs(java.util.List<String> value) { 
       this.l2DomainIDs = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -284,6 +301,7 @@ public class VM extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -293,6 +311,7 @@ public class VM extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getOrchestrationID() {
       return orchestrationID;
@@ -302,6 +321,7 @@ public class VM extends RestObject {
    public void setOrchestrationID(String value) { 
       this.orchestrationID = value;
    }
+   
    @JsonIgnore
    public ReasonType getReasonType() {
       return reasonType;
@@ -311,6 +331,7 @@ public class VM extends RestObject {
    public void setReasonType(ReasonType value) { 
       this.reasonType = value;
    }
+   
    @JsonIgnore
    public VMResync getResyncInfo() {
       return resyncInfo;
@@ -320,6 +341,7 @@ public class VM extends RestObject {
    public void setResyncInfo(VMResync value) { 
       this.resyncInfo = value;
    }
+   
    @JsonIgnore
    public String getSiteIdentifier() {
       return siteIdentifier;
@@ -329,6 +351,7 @@ public class VM extends RestObject {
    public void setSiteIdentifier(String value) { 
       this.siteIdentifier = value;
    }
+   
    @JsonIgnore
    public Status getStatus() {
       return status;
@@ -338,6 +361,7 @@ public class VM extends RestObject {
    public void setStatus(Status value) { 
       this.status = value;
    }
+   
    @JsonIgnore
    public java.util.List<String> getSubnetIDs() {
       return subnetIDs;
@@ -347,6 +371,7 @@ public class VM extends RestObject {
    public void setSubnetIDs(java.util.List<String> value) { 
       this.subnetIDs = value;
    }
+   
    @JsonIgnore
    public String getUserID() {
       return userID;
@@ -356,6 +381,7 @@ public class VM extends RestObject {
    public void setUserID(String value) { 
       this.userID = value;
    }
+   
    @JsonIgnore
    public String getUserName() {
       return userName;
@@ -365,6 +391,7 @@ public class VM extends RestObject {
    public void setUserName(String value) { 
       this.userName = value;
    }
+   
    @JsonIgnore
    public java.util.List<String> getZoneIDs() {
       return zoneIDs;

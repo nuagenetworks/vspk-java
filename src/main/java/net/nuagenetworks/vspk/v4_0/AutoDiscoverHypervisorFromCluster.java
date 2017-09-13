@@ -43,6 +43,7 @@ public class AutoDiscoverHypervisorFromCluster extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -71,6 +72,7 @@ public class AutoDiscoverHypervisorFromCluster extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAssocEntityID() {
       return assocEntityID;
@@ -80,6 +82,7 @@ public class AutoDiscoverHypervisorFromCluster extends RestObject {
    public void setAssocEntityID(String value) { 
       this.assocEntityID = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -89,6 +92,7 @@ public class AutoDiscoverHypervisorFromCluster extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -98,6 +102,7 @@ public class AutoDiscoverHypervisorFromCluster extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getHypervisorIP() {
       return hypervisorIP;
@@ -107,6 +112,7 @@ public class AutoDiscoverHypervisorFromCluster extends RestObject {
    public void setHypervisorIP(String value) { 
       this.hypervisorIP = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -116,6 +122,7 @@ public class AutoDiscoverHypervisorFromCluster extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public java.util.List<String> getNetworkList() {
       return networkList;

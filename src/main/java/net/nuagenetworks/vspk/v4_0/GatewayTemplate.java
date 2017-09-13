@@ -46,7 +46,9 @@ public class GatewayTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum Personality { DC7X50, HARDWARE_VTEP, NSG, OTHER, VRSB, VRSG, VSA, VSG };
 
    
@@ -94,6 +96,7 @@ public class GatewayTemplate extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -103,6 +106,7 @@ public class GatewayTemplate extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getEnterpriseID() {
       return enterpriseID;
@@ -112,6 +116,7 @@ public class GatewayTemplate extends RestObject {
    public void setEnterpriseID(String value) { 
       this.enterpriseID = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -121,6 +126,7 @@ public class GatewayTemplate extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -130,6 +136,7 @@ public class GatewayTemplate extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -139,6 +146,7 @@ public class GatewayTemplate extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -148,6 +156,7 @@ public class GatewayTemplate extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public Personality getPersonality() {
       return personality;

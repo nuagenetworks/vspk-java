@@ -43,6 +43,7 @@ public class DemarcationService extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum Type { BR_PORT, GATEWAY };
 
    
@@ -68,6 +69,7 @@ public class DemarcationService extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAssociatedGatewayID() {
       return associatedGatewayID;
@@ -77,6 +79,7 @@ public class DemarcationService extends RestObject {
    public void setAssociatedGatewayID(String value) { 
       this.associatedGatewayID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedVLANID() {
       return associatedVLANID;
@@ -86,6 +89,7 @@ public class DemarcationService extends RestObject {
    public void setAssociatedVLANID(String value) { 
       this.associatedVLANID = value;
    }
+   
    @JsonIgnore
    public String getPriority() {
       return priority;
@@ -95,6 +99,7 @@ public class DemarcationService extends RestObject {
    public void setPriority(String value) { 
       this.priority = value;
    }
+   
    @JsonIgnore
    public String getRouteDistinguisher() {
       return routeDistinguisher;
@@ -104,6 +109,7 @@ public class DemarcationService extends RestObject {
    public void setRouteDistinguisher(String value) { 
       this.routeDistinguisher = value;
    }
+   
    @JsonIgnore
    public Type getType() {
       return type;

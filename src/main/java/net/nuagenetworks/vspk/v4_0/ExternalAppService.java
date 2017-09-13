@@ -45,8 +45,11 @@ public class ExternalAppService extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EgressType { REDIRECT, ROUTE };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum IngressType { REDIRECT, ROUTE };
 
    
@@ -124,6 +127,7 @@ public class ExternalAppService extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAssociatedServiceEgressGroupID() {
       return associatedServiceEgressGroupID;
@@ -133,6 +137,7 @@ public class ExternalAppService extends RestObject {
    public void setAssociatedServiceEgressGroupID(String value) { 
       this.associatedServiceEgressGroupID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedServiceEgressRedirectID() {
       return associatedServiceEgressRedirectID;
@@ -142,6 +147,7 @@ public class ExternalAppService extends RestObject {
    public void setAssociatedServiceEgressRedirectID(String value) { 
       this.associatedServiceEgressRedirectID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedServiceIngressGroupID() {
       return associatedServiceIngressGroupID;
@@ -151,6 +157,7 @@ public class ExternalAppService extends RestObject {
    public void setAssociatedServiceIngressGroupID(String value) { 
       this.associatedServiceIngressGroupID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedServiceIngressRedirectID() {
       return associatedServiceIngressRedirectID;
@@ -160,6 +167,7 @@ public class ExternalAppService extends RestObject {
    public void setAssociatedServiceIngressRedirectID(String value) { 
       this.associatedServiceIngressRedirectID = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -169,6 +177,7 @@ public class ExternalAppService extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getDestinationNATAddress() {
       return destinationNATAddress;
@@ -178,6 +187,7 @@ public class ExternalAppService extends RestObject {
    public void setDestinationNATAddress(String value) { 
       this.destinationNATAddress = value;
    }
+   
    @JsonIgnore
    public Boolean getDestinationNATEnabled() {
       return destinationNATEnabled;
@@ -187,6 +197,7 @@ public class ExternalAppService extends RestObject {
    public void setDestinationNATEnabled(Boolean value) { 
       this.destinationNATEnabled = value;
    }
+   
    @JsonIgnore
    public String getDestinationNATMask() {
       return destinationNATMask;
@@ -196,6 +207,7 @@ public class ExternalAppService extends RestObject {
    public void setDestinationNATMask(String value) { 
       this.destinationNATMask = value;
    }
+   
    @JsonIgnore
    public EgressType getEgressType() {
       return egressType;
@@ -205,6 +217,7 @@ public class ExternalAppService extends RestObject {
    public void setEgressType(EgressType value) { 
       this.egressType = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -214,6 +227,7 @@ public class ExternalAppService extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -223,6 +237,7 @@ public class ExternalAppService extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public IngressType getIngressType() {
       return ingressType;
@@ -232,6 +247,7 @@ public class ExternalAppService extends RestObject {
    public void setIngressType(IngressType value) { 
       this.ingressType = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -241,6 +257,7 @@ public class ExternalAppService extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getMetadata() {
       return metadata;
@@ -250,6 +267,7 @@ public class ExternalAppService extends RestObject {
    public void setMetadata(String value) { 
       this.metadata = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -259,6 +277,7 @@ public class ExternalAppService extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getSourceNATAddress() {
       return sourceNATAddress;
@@ -268,6 +287,7 @@ public class ExternalAppService extends RestObject {
    public void setSourceNATAddress(String value) { 
       this.sourceNATAddress = value;
    }
+   
    @JsonIgnore
    public Boolean getSourceNATEnabled() {
       return sourceNATEnabled;
@@ -277,6 +297,7 @@ public class ExternalAppService extends RestObject {
    public void setSourceNATEnabled(Boolean value) { 
       this.sourceNATEnabled = value;
    }
+   
    @JsonIgnore
    public String getVirtualIP() {
       return virtualIP;
@@ -286,6 +307,7 @@ public class ExternalAppService extends RestObject {
    public void setVirtualIP(String value) { 
       this.virtualIP = value;
    }
+   
    @JsonIgnore
    public Boolean getVirtualIPRequired() {
       return virtualIPRequired;

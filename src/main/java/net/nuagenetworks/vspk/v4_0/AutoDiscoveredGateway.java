@@ -49,7 +49,9 @@ public class AutoDiscoveredGateway extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum Personality { DC7X50, HARDWARE_VTEP, NSG, OTHER, VRSB, VRSG, VSA, VSG };
 
    
@@ -126,6 +128,7 @@ public class AutoDiscoveredGateway extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public java.util.List<String> getControllers() {
       return controllers;
@@ -135,6 +138,7 @@ public class AutoDiscoveredGateway extends RestObject {
    public void setControllers(java.util.List<String> value) { 
       this.controllers = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -144,6 +148,7 @@ public class AutoDiscoveredGateway extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -153,6 +158,7 @@ public class AutoDiscoveredGateway extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -162,6 +168,7 @@ public class AutoDiscoveredGateway extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getGatewayID() {
       return gatewayID;
@@ -171,6 +178,7 @@ public class AutoDiscoveredGateway extends RestObject {
    public void setGatewayID(String value) { 
       this.gatewayID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -180,6 +188,7 @@ public class AutoDiscoveredGateway extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -189,6 +198,7 @@ public class AutoDiscoveredGateway extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getPeer() {
       return peer;
@@ -198,6 +208,7 @@ public class AutoDiscoveredGateway extends RestObject {
    public void setPeer(String value) { 
       this.peer = value;
    }
+   
    @JsonIgnore
    public Personality getPersonality() {
       return personality;
@@ -207,6 +218,7 @@ public class AutoDiscoveredGateway extends RestObject {
    public void setPersonality(Personality value) { 
       this.personality = value;
    }
+   
    @JsonIgnore
    public String getSystemID() {
       return systemID;
@@ -216,6 +228,7 @@ public class AutoDiscoveredGateway extends RestObject {
    public void setSystemID(String value) { 
       this.systemID = value;
    }
+   
    @JsonIgnore
    public Boolean getUseGatewayVLANVNID() {
       return useGatewayVLANVNID;
@@ -225,6 +238,7 @@ public class AutoDiscoveredGateway extends RestObject {
    public void setUseGatewayVLANVNID(Boolean value) { 
       this.useGatewayVLANVNID = value;
    }
+   
    @JsonIgnore
    public String getVtep() {
       return vtep;

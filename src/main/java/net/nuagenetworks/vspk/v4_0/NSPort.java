@@ -52,11 +52,17 @@ public class NSPort extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum NATTraversal { FULL_NAT, NONE, ONE_TO_ONE_NAT };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
+   
    public enum PortType { ACCESS, NETWORK };
+   
    public enum Speed { AUTONEGOTIATE, BASE10, BASET1000, BASETX100, BASEX10G };
+   
    public enum Status { INITIALIZED, MISMATCH, ORPHAN, READY };
 
    
@@ -166,6 +172,7 @@ public class NSPort extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public NATTraversal getNATTraversal() {
       return NATTraversal;
@@ -175,6 +182,7 @@ public class NSPort extends RestObject {
    public void setNATTraversal(NATTraversal value) { 
       this.NATTraversal = value;
    }
+   
    @JsonIgnore
    public String getVLANRange() {
       return VLANRange;
@@ -184,6 +192,7 @@ public class NSPort extends RestObject {
    public void setVLANRange(String value) { 
       this.VLANRange = value;
    }
+   
    @JsonIgnore
    public String getAssociatedEgressQOSPolicyID() {
       return associatedEgressQOSPolicyID;
@@ -193,6 +202,7 @@ public class NSPort extends RestObject {
    public void setAssociatedEgressQOSPolicyID(String value) { 
       this.associatedEgressQOSPolicyID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedRedundantPortID() {
       return associatedRedundantPortID;
@@ -202,6 +212,7 @@ public class NSPort extends RestObject {
    public void setAssociatedRedundantPortID(String value) { 
       this.associatedRedundantPortID = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -211,6 +222,7 @@ public class NSPort extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -220,6 +232,7 @@ public class NSPort extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -229,6 +242,7 @@ public class NSPort extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -238,6 +252,7 @@ public class NSPort extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public Long getMtu() {
       return mtu;
@@ -247,6 +262,7 @@ public class NSPort extends RestObject {
    public void setMtu(Long value) { 
       this.mtu = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -256,6 +272,7 @@ public class NSPort extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public PermittedAction getPermittedAction() {
       return permittedAction;
@@ -265,6 +282,7 @@ public class NSPort extends RestObject {
    public void setPermittedAction(PermittedAction value) { 
       this.permittedAction = value;
    }
+   
    @JsonIgnore
    public String getPhysicalName() {
       return physicalName;
@@ -274,6 +292,7 @@ public class NSPort extends RestObject {
    public void setPhysicalName(String value) { 
       this.physicalName = value;
    }
+   
    @JsonIgnore
    public PortType getPortType() {
       return portType;
@@ -283,6 +302,7 @@ public class NSPort extends RestObject {
    public void setPortType(PortType value) { 
       this.portType = value;
    }
+   
    @JsonIgnore
    public Speed getSpeed() {
       return speed;
@@ -292,6 +312,7 @@ public class NSPort extends RestObject {
    public void setSpeed(Speed value) { 
       this.speed = value;
    }
+   
    @JsonIgnore
    public Status getStatus() {
       return status;
@@ -301,6 +322,7 @@ public class NSPort extends RestObject {
    public void setStatus(Status value) { 
       this.status = value;
    }
+   
    @JsonIgnore
    public String getTemplateID() {
       return templateID;
@@ -310,6 +332,7 @@ public class NSPort extends RestObject {
    public void setTemplateID(String value) { 
       this.templateID = value;
    }
+   
    @JsonIgnore
    public Boolean getUseUserMnemonic() {
       return useUserMnemonic;
@@ -319,6 +342,7 @@ public class NSPort extends RestObject {
    public void setUseUserMnemonic(Boolean value) { 
       this.useUserMnemonic = value;
    }
+   
    @JsonIgnore
    public String getUserMnemonic() {
       return userMnemonic;

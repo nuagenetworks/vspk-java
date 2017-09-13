@@ -45,11 +45,17 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum Action { DROP, FORWARD, REDIRECT };
+   
    public enum AssociatedApplicationObjectType { ACLENTRY_LOCATION, ADDRESS_RANGE, ADDRESS_RANGE_STATE, ALARM, APPD_APPLICATION, APPD_EXTERNAL_APP_SERVICE, APPD_FLOW, APPD_FLOW_FORWARDING_POLICY, APPD_FLOW_SECURITY_POLICY, APPD_SERVICE, APPD_TIER, APPLICATION, AUTO_DISC_GATEWAY, BACK_HAUL_SERVICE_RESP, BGPPEER, BGP_DAMPENING_MED_RESPONSE, BGP_NEIGHBOR, BGP_NEIGHBOR_MED_RESPONSE, BGP_PROFILE, BGP_PROFILE_MED_RESPONSE, BOOTSTRAP, BOOTSTRAP_ACTIVATION, BRIDGEINTERFACE, CERTIFICATE, CHILD_ENTITY_POLICY_CHANGE, CLOUD_MGMT_SYSTEM, CONTAINER_RESYNC, CUSTOMER_VRF_SEQUENCENO, DC_CONFIG, DHCP_ALLOC_MESSAGE, DHCP_CONFIG_RESP, DHCP_OPTION, DISKSTATS, DOMAIN, DOMAIN_CONFIG, DOMAIN_CONFIG_RESP, DOMAIN_FLOATING_IP_ACL_TEMPLATE, DOMAIN_FLOATING_IP_ACL_TEMPLATE_ENTRY, DOMAIN_TEMPLATE, DSCP_FORWARDING_CLASS_MAPPING, DSCP_FORWARDING_CLASS_TABLE, EGRESS_ACL, EGRESS_ACL_ENTRY, EGRESS_ACL_TEMPLATE, EGRESS_ACL_TEMPLATE_ENTRY, EGRESS_QOS_MR, EGRESS_QOS_PRIMITIVE, EGRESS_QOS_QUEUE_MR, ENDPOINT, ENTERPRISE, ENTERPRISE_CONFIG, ENTERPRISE_CONFIG_RESP, ENTERPRISE_NETWORK, ENTERPRISE_PERMISSION, ENTERPRISE_PROFILE, ENTERPRISE_SECURED_DATA, ENTERPRISE_SECURITY, ENTITY_METADATA_BINDING, ESI_SEQUENCENO, EVENT_LOG, EVPN_BGP_COMMUNITY_TAG_ENTRY, EVPN_BGP_COMMUNITY_TAG_SEQ_NO, EXPORTIMPORT, EXTERNAL_SERVICE, FLOATINGIP, FLOATINGIP_ACL, FLOATINGIP_ACL_ENTRY, FLOATING_IP_ACL_TEMPLATE, FLOATING_IP_ACL_TEMPLATE_ENTRY, GATEWAY, GATEWAY_CONFIG, GATEWAY_CONFIG_RESP, GATEWAY_SECURED_DATA, GATEWAY_SECURITY, GATEWAY_SECURITY_PROFILE_REQUEST, GATEWAY_SECURITY_PROFILE_RESPONSE, GATEWAY_SECURITY_REQUEST, GATEWAY_SECURITY_RESPONSE, GATEWAY_SERVICE_CONFIG, GATEWAY_SERVICE_CONFIG_RESP, GATEWAY_TEMPLATE, GATEWAY_VPORT_CONFIG, GATEWAY_VPORT_CONFIG_RESP, GEO_VM_EVENT, GEO_VM_REQ, GEO_VM_RES, GROUP, GROUPKEY_ENCRYPTION_PROFILE, HEALTH_REQ, HOSTINTERFACE, HSC, IKE_ENCRYPTION_PROFILE, IKE_GATEWAY, IKE_GATEWAY_CONFIG, IKE_GATEWAY_PROFILE, IKE_GATEWAY_CONNECTION, IKE_CERTIFICATE, IKE_PSK, IKE_SUBNET, INFRASTRUCTURE_CONFIG, INFRASTRUCTURE_GATEWAY_PROFILE, INFRASTRUCTURE_PORT_PROFILE, INFRASTRUCTURE_VSC_PROFILE, INGRESS_ACL, INGRESS_ACL_ENTRY, INGRESS_ACL_TEMPLATE, INGRESS_ACL_TEMPLATE_ENTRY, INGRESS_ADV_FWD, INGRESS_ADV_FWD_ENTRY, INGRESS_ADV_FWD_TEMPLATE, INGRESS_ADV_FWD_TEMPLATE_ENTRY, INGRESS_EXT_SERVICE, INGRESS_EXT_SERVICE_ENTRY, INGRESS_EXT_SERVICE_TEMPLATE, INGRESS_EXT_SERVICE_TEMPLATE_ENTRY, IP_BINDING, JOB, KEYSERVER_MEMBER, KEYSERVER_MONITOR, KEYSERVER_MONITOR_ENCRYPTED_SEED, KEYSERVER_MONITOR_SEED, KEYSERVER_MONITOR_SEK, KEYSERVER_NOTIFICATION, L2DOMAIN, L2DOMAIN_SHARED, L2DOMAIN_TEMPLATE, LDAP_CONFIG, LIBVIRT_INTERFACE, LICENSE, LOCATION, MC_CHANNEL_MAP, MC_LIST, MC_RANGE, METADATA, METADATA_TAG, MIRROR_DESTINATION, MONITORING_PORT, MULTI_NIC_VPORT, NATMAPENTRY, NETWORK_ELEMENT, NETWORK_LAYOUT, NETWORK_MACRO_GROUP, NETWORK_POLICY_GROUP, NEXT_HOP_RESP, NODE_EXECUTION_ERROR, NSGATEWAY, NSGATEWAY_CONFIG, NSGATEWAY_TEMPLATE, NSG_NOTIFICATION, NSPORT, NSPORT_STATIC_CONFIG, NSPORT_TEMPLATE, NSPORT_VLAN_CONFIG, NSREDUNDANT_GW_GRP, NS_REDUNDANT_PORT, PATCONFIG_CONFIG_RESP, PATNATPOOL, PERMISSION, PERMITTED_ACTION, POLICING_POLICY, POLICY_DECISION, POLICY_GROUP, POLICY_GROUP_TEMPLATE, PORT, PORT_MR, PORT_PUSH, PORT_TEMPLATE, PORT_VLAN_CONFIG, PORT_VLAN_CONFIG_RESPONSE, PUBLIC_NETWORK, QOS_PRIMITIVE, RATE_LIMITER, RD_SEQUENCENO, REDUNDANT_GW_GRP, ROUTING_POLICY, ROUTING_POL_MED_RESPONSE, RTRD_ENTITY, RTRD_SEQUENCENO, SERVICES_GATEWAY_RESPONSE, SERVICE_GATEWAY_RESPONSE, SERVICE_VRF_SEQUENCENO, SHAPING_POLICY, SHARED_RESOURCE, SITE, SITE_REQ, SITE_RES, STATIC_ROUTE, STATIC_ROUTE_RESP, STATISTICS, STATSSERVER, STATS_COLLECTOR, STATS_POLICY, STATS_TCA, SUBNET, SUBNET_ENTRY, SUBNET_MAC_ENTRY, SUBNET_POOL_ENTRY, SUBNET_TEMPLATE, SYSTEM_CONFIG, SYSTEM_CONFIG_REQ, SYSTEM_CONFIG_RESP, SYSTEM_MONITORING, UNSUPPORTED, UPLINK_RD, USER, VIRTUAL_IP, VIRTUAL_MACHINE, VIRTUAL_MACHINE_REPORT, VLAN, VLAN_CONFIG_RESPONSE, VLAN_TEMPLATE, VMWARE_RELOAD_CONFIG, VMWARE_VCENTER, VMWARE_VCENTER_CLUSTER, VMWARE_VCENTER_DATACENTER, VMWARE_VCENTER_EAM_CONFIG, VMWARE_VCENTER_HYPERVISOR, VMWARE_VCENTER_VRS_BASE_CONFIG, VMWARE_VCENTER_VRS_CONFIG, VMWARE_VRS_ADDRESS_RANGE, VM_DESCRIPTION, VM_INTERFACE, VM_RESYNC, VNID_SEQUENCENO, VPN_CONNECT, VPORT, VPORTTAG, VPORTTAGTEMPLATE, VPORT_GATEWAY_RESPONSE, VPORT_MEDIATION_REQUEST, VPORT_MIRROR, VPORT_TAG_BASE, VPRN_LABEL_SEQUENCENO, VRS, VSC, VSD, VSD_COMPONENT, VSG_REDUNDANT_PORT, VSP, WAN_SERVICE, ZONE, ZONE_TEMPLATE };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum LocationType { ANY, POLICYGROUP, REDIRECTIONTARGET, SUBNET, VPORTTAG, ZONE };
+   
    public enum NetworkType { ANY, ENDPOINT_DOMAIN, ENDPOINT_SUBNET, ENDPOINT_ZONE, ENTERPRISE_NETWORK, INTERNET_POLICYGROUP, NETWORK_MACRO_GROUP, POLICYGROUP, PUBLIC_NETWORK, SUBNET, ZONE };
+   
    public enum PolicyState { DRAFT, LIVE };
 
    
@@ -166,6 +172,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getACLTemplateName() {
       return ACLTemplateName;
@@ -175,6 +182,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setACLTemplateName(String value) { 
       this.ACLTemplateName = value;
    }
+   
    @JsonIgnore
    public String getDSCP() {
       return DSCP;
@@ -184,6 +192,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setDSCP(String value) { 
       this.DSCP = value;
    }
+   
    @JsonIgnore
    public String getICMPCode() {
       return ICMPCode;
@@ -193,6 +202,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setICMPCode(String value) { 
       this.ICMPCode = value;
    }
+   
    @JsonIgnore
    public String getICMPType() {
       return ICMPType;
@@ -202,6 +212,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setICMPType(String value) { 
       this.ICMPType = value;
    }
+   
    @JsonIgnore
    public Action getAction() {
       return action;
@@ -211,6 +222,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setAction(Action value) { 
       this.action = value;
    }
+   
    @JsonIgnore
    public String getAddressOverride() {
       return addressOverride;
@@ -220,6 +232,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setAddressOverride(String value) { 
       this.addressOverride = value;
    }
+   
    @JsonIgnore
    public String getAssociatedApplicationID() {
       return associatedApplicationID;
@@ -229,6 +242,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setAssociatedApplicationID(String value) { 
       this.associatedApplicationID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedApplicationObjectID() {
       return associatedApplicationObjectID;
@@ -238,6 +252,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setAssociatedApplicationObjectID(String value) { 
       this.associatedApplicationObjectID = value;
    }
+   
    @JsonIgnore
    public AssociatedApplicationObjectType getAssociatedApplicationObjectType() {
       return associatedApplicationObjectType;
@@ -247,6 +262,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setAssociatedApplicationObjectType(AssociatedApplicationObjectType value) { 
       this.associatedApplicationObjectType = value;
    }
+   
    @JsonIgnore
    public String getAssociatedLiveEntityID() {
       return associatedLiveEntityID;
@@ -256,6 +272,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setAssociatedLiveEntityID(String value) { 
       this.associatedLiveEntityID = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -265,6 +282,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getDestinationPort() {
       return destinationPort;
@@ -274,6 +292,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setDestinationPort(String value) { 
       this.destinationPort = value;
    }
+   
    @JsonIgnore
    public String getDomainName() {
       return domainName;
@@ -283,6 +302,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setDomainName(String value) { 
       this.domainName = value;
    }
+   
    @JsonIgnore
    public String getEnterpriseName() {
       return enterpriseName;
@@ -292,6 +312,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setEnterpriseName(String value) { 
       this.enterpriseName = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -301,6 +322,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getEtherType() {
       return etherType;
@@ -310,6 +332,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setEtherType(String value) { 
       this.etherType = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -319,6 +342,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public Boolean getFlowLoggingEnabled() {
       return flowLoggingEnabled;
@@ -328,6 +352,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setFlowLoggingEnabled(Boolean value) { 
       this.flowLoggingEnabled = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -337,6 +362,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getLocationID() {
       return locationID;
@@ -346,6 +372,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setLocationID(String value) { 
       this.locationID = value;
    }
+   
    @JsonIgnore
    public LocationType getLocationType() {
       return locationType;
@@ -355,6 +382,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setLocationType(LocationType value) { 
       this.locationType = value;
    }
+   
    @JsonIgnore
    public String getMirrorDestinationID() {
       return mirrorDestinationID;
@@ -364,6 +392,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setMirrorDestinationID(String value) { 
       this.mirrorDestinationID = value;
    }
+   
    @JsonIgnore
    public String getNetworkID() {
       return networkID;
@@ -373,6 +402,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setNetworkID(String value) { 
       this.networkID = value;
    }
+   
    @JsonIgnore
    public NetworkType getNetworkType() {
       return networkType;
@@ -382,6 +412,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setNetworkType(NetworkType value) { 
       this.networkType = value;
    }
+   
    @JsonIgnore
    public PolicyState getPolicyState() {
       return policyState;
@@ -391,6 +422,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setPolicyState(PolicyState value) { 
       this.policyState = value;
    }
+   
    @JsonIgnore
    public Long getPriority() {
       return priority;
@@ -400,6 +432,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setPriority(Long value) { 
       this.priority = value;
    }
+   
    @JsonIgnore
    public String getProtocol() {
       return protocol;
@@ -409,6 +442,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setProtocol(String value) { 
       this.protocol = value;
    }
+   
    @JsonIgnore
    public Boolean getReflexive() {
       return reflexive;
@@ -418,6 +452,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setReflexive(Boolean value) { 
       this.reflexive = value;
    }
+   
    @JsonIgnore
    public String getSourcePort() {
       return sourcePort;
@@ -427,6 +462,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setSourcePort(String value) { 
       this.sourcePort = value;
    }
+   
    @JsonIgnore
    public Boolean getStateful() {
       return stateful;
@@ -436,6 +472,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setStateful(Boolean value) { 
       this.stateful = value;
    }
+   
    @JsonIgnore
    public String getStatsID() {
       return statsID;
@@ -445,6 +482,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setStatsID(String value) { 
       this.statsID = value;
    }
+   
    @JsonIgnore
    public Boolean getStatsLoggingEnabled() {
       return statsLoggingEnabled;

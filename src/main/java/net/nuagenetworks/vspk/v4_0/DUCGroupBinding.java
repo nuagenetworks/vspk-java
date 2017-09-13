@@ -61,6 +61,7 @@ public class DUCGroupBinding extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAssociatedDUCGroupID() {
       return associatedDUCGroupID;
@@ -70,6 +71,7 @@ public class DUCGroupBinding extends RestObject {
    public void setAssociatedDUCGroupID(String value) { 
       this.associatedDUCGroupID = value;
    }
+   
    @JsonIgnore
    public Long getOneWayDelay() {
       return oneWayDelay;
@@ -79,6 +81,7 @@ public class DUCGroupBinding extends RestObject {
    public void setOneWayDelay(Long value) { 
       this.oneWayDelay = value;
    }
+   
    @JsonIgnore
    public Long getPriority() {
       return priority;

@@ -46,7 +46,9 @@ public class ApplicationService extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum Direction { REFLEXIVE, UNIDIRECTIONAL };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -109,6 +111,7 @@ public class ApplicationService extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getDSCP() {
       return DSCP;
@@ -118,6 +121,7 @@ public class ApplicationService extends RestObject {
    public void setDSCP(String value) { 
       this.DSCP = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -127,6 +131,7 @@ public class ApplicationService extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getDestinationPort() {
       return destinationPort;
@@ -136,6 +141,7 @@ public class ApplicationService extends RestObject {
    public void setDestinationPort(String value) { 
       this.destinationPort = value;
    }
+   
    @JsonIgnore
    public Direction getDirection() {
       return direction;
@@ -145,6 +151,7 @@ public class ApplicationService extends RestObject {
    public void setDirection(Direction value) { 
       this.direction = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -154,6 +161,7 @@ public class ApplicationService extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getEtherType() {
       return etherType;
@@ -163,6 +171,7 @@ public class ApplicationService extends RestObject {
    public void setEtherType(String value) { 
       this.etherType = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -172,6 +181,7 @@ public class ApplicationService extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -181,6 +191,7 @@ public class ApplicationService extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -190,6 +201,7 @@ public class ApplicationService extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getProtocol() {
       return protocol;
@@ -199,6 +211,7 @@ public class ApplicationService extends RestObject {
    public void setProtocol(String value) { 
       this.protocol = value;
    }
+   
    @JsonIgnore
    public String getSourcePort() {
       return sourcePort;

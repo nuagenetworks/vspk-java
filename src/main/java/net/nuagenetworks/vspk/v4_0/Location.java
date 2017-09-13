@@ -45,6 +45,7 @@ public class Location extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -99,6 +100,7 @@ public class Location extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAddress() {
       return address;
@@ -108,6 +110,7 @@ public class Location extends RestObject {
    public void setAddress(String value) { 
       this.address = value;
    }
+   
    @JsonIgnore
    public String getCountry() {
       return country;
@@ -117,6 +120,7 @@ public class Location extends RestObject {
    public void setCountry(String value) { 
       this.country = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -126,6 +130,7 @@ public class Location extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -135,6 +140,7 @@ public class Location extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public Boolean getIgnoreGeocode() {
       return ignoreGeocode;
@@ -144,6 +150,7 @@ public class Location extends RestObject {
    public void setIgnoreGeocode(Boolean value) { 
       this.ignoreGeocode = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -153,6 +160,7 @@ public class Location extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public Float getLatitude() {
       return latitude;
@@ -162,6 +170,7 @@ public class Location extends RestObject {
    public void setLatitude(Float value) { 
       this.latitude = value;
    }
+   
    @JsonIgnore
    public String getLocality() {
       return locality;
@@ -171,6 +180,7 @@ public class Location extends RestObject {
    public void setLocality(String value) { 
       this.locality = value;
    }
+   
    @JsonIgnore
    public Float getLongitude() {
       return longitude;
@@ -180,6 +190,7 @@ public class Location extends RestObject {
    public void setLongitude(Float value) { 
       this.longitude = value;
    }
+   
    @JsonIgnore
    public String getState() {
       return state;
@@ -189,6 +200,7 @@ public class Location extends RestObject {
    public void setState(String value) { 
       this.state = value;
    }
+   
    @JsonIgnore
    public String getTimeZoneID() {
       return timeZoneID;

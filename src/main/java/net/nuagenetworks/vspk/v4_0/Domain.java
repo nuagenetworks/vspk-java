@@ -85,19 +85,33 @@ public class Domain extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum DHCPBehavior { CONSUME, FLOOD, OVERLAY_RELAY, UNDERLAY_RELAY };
+   
    public enum DPI { DISABLED, ENABLED };
+   
    public enum PATEnabled { DISABLED, ENABLED, INHERITED };
+   
    public enum AdvertiseCriteria { HUB_ROUTES };
+   
    public enum ApplicationDeploymentPolicy { NONE, ZONE };
+   
    public enum Encryption { DISABLED, ENABLED };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum MaintenanceMode { DISABLED, ENABLED, ENABLED_INHERITED };
+   
    public enum Multicast { DISABLED, ENABLED, INHERITED };
+   
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
+   
    public enum PolicyChangeStatus { APPLIED, DISCARDED, STARTED };
+   
    public enum TunnelType { DC_DEFAULT, GRE, VXLAN };
+   
    public enum UnderlayEnabled { DISABLED, ENABLED, INHERITED };
+   
    public enum UplinkPreference { PRIMARY, PRIMARY_SECONDARY, SECONDARY, SECONDARY_PRIMARY, SYMMETRIC };
 
    
@@ -454,6 +468,7 @@ public class Domain extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Boolean getBGPEnabled() {
       return BGPEnabled;
@@ -463,6 +478,7 @@ public class Domain extends RestObject {
    public void setBGPEnabled(Boolean value) { 
       this.BGPEnabled = value;
    }
+   
    @JsonIgnore
    public DHCPBehavior getDHCPBehavior() {
       return DHCPBehavior;
@@ -472,6 +488,7 @@ public class Domain extends RestObject {
    public void setDHCPBehavior(DHCPBehavior value) { 
       this.DHCPBehavior = value;
    }
+   
    @JsonIgnore
    public String getDHCPServerAddress() {
       return DHCPServerAddress;
@@ -481,6 +498,7 @@ public class Domain extends RestObject {
    public void setDHCPServerAddress(String value) { 
       this.DHCPServerAddress = value;
    }
+   
    @JsonIgnore
    public DPI getDPI() {
       return DPI;
@@ -490,6 +508,7 @@ public class Domain extends RestObject {
    public void setDPI(DPI value) { 
       this.DPI = value;
    }
+   
    @JsonIgnore
    public Long getECMPCount() {
       return ECMPCount;
@@ -499,6 +518,7 @@ public class Domain extends RestObject {
    public void setECMPCount(Long value) { 
       this.ECMPCount = value;
    }
+   
    @JsonIgnore
    public PATEnabled getPATEnabled() {
       return PATEnabled;
@@ -508,6 +528,7 @@ public class Domain extends RestObject {
    public void setPATEnabled(PATEnabled value) { 
       this.PATEnabled = value;
    }
+   
    @JsonIgnore
    public AdvertiseCriteria getAdvertiseCriteria() {
       return advertiseCriteria;
@@ -517,6 +538,7 @@ public class Domain extends RestObject {
    public void setAdvertiseCriteria(AdvertiseCriteria value) { 
       this.advertiseCriteria = value;
    }
+   
    @JsonIgnore
    public ApplicationDeploymentPolicy getApplicationDeploymentPolicy() {
       return applicationDeploymentPolicy;
@@ -526,6 +548,7 @@ public class Domain extends RestObject {
    public void setApplicationDeploymentPolicy(ApplicationDeploymentPolicy value) { 
       this.applicationDeploymentPolicy = value;
    }
+   
    @JsonIgnore
    public String getAssociatedBGPProfileID() {
       return associatedBGPProfileID;
@@ -535,6 +558,7 @@ public class Domain extends RestObject {
    public void setAssociatedBGPProfileID(String value) { 
       this.associatedBGPProfileID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedMulticastChannelMapID() {
       return associatedMulticastChannelMapID;
@@ -544,6 +568,7 @@ public class Domain extends RestObject {
    public void setAssociatedMulticastChannelMapID(String value) { 
       this.associatedMulticastChannelMapID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedPATMapperID() {
       return associatedPATMapperID;
@@ -553,6 +578,7 @@ public class Domain extends RestObject {
    public void setAssociatedPATMapperID(String value) { 
       this.associatedPATMapperID = value;
    }
+   
    @JsonIgnore
    public String getBackHaulRouteDistinguisher() {
       return backHaulRouteDistinguisher;
@@ -562,6 +588,7 @@ public class Domain extends RestObject {
    public void setBackHaulRouteDistinguisher(String value) { 
       this.backHaulRouteDistinguisher = value;
    }
+   
    @JsonIgnore
    public String getBackHaulRouteTarget() {
       return backHaulRouteTarget;
@@ -571,6 +598,7 @@ public class Domain extends RestObject {
    public void setBackHaulRouteTarget(String value) { 
       this.backHaulRouteTarget = value;
    }
+   
    @JsonIgnore
    public String getBackHaulSubnetIPAddress() {
       return backHaulSubnetIPAddress;
@@ -580,6 +608,7 @@ public class Domain extends RestObject {
    public void setBackHaulSubnetIPAddress(String value) { 
       this.backHaulSubnetIPAddress = value;
    }
+   
    @JsonIgnore
    public String getBackHaulSubnetMask() {
       return backHaulSubnetMask;
@@ -589,6 +618,7 @@ public class Domain extends RestObject {
    public void setBackHaulSubnetMask(String value) { 
       this.backHaulSubnetMask = value;
    }
+   
    @JsonIgnore
    public Long getBackHaulVNID() {
       return backHaulVNID;
@@ -598,6 +628,7 @@ public class Domain extends RestObject {
    public void setBackHaulVNID(Long value) { 
       this.backHaulVNID = value;
    }
+   
    @JsonIgnore
    public Long getCustomerID() {
       return customerID;
@@ -607,6 +638,7 @@ public class Domain extends RestObject {
    public void setCustomerID(Long value) { 
       this.customerID = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -616,6 +648,7 @@ public class Domain extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public java.util.List<String> getDhcpServerAddresses() {
       return dhcpServerAddresses;
@@ -625,6 +658,7 @@ public class Domain extends RestObject {
    public void setDhcpServerAddresses(java.util.List<String> value) { 
       this.dhcpServerAddresses = value;
    }
+   
    @JsonIgnore
    public Long getDomainID() {
       return domainID;
@@ -634,6 +668,7 @@ public class Domain extends RestObject {
    public void setDomainID(Long value) { 
       this.domainID = value;
    }
+   
    @JsonIgnore
    public Long getDomainVLANID() {
       return domainVLANID;
@@ -643,6 +678,7 @@ public class Domain extends RestObject {
    public void setDomainVLANID(Long value) { 
       this.domainVLANID = value;
    }
+   
    @JsonIgnore
    public Encryption getEncryption() {
       return encryption;
@@ -652,6 +688,7 @@ public class Domain extends RestObject {
    public void setEncryption(Encryption value) { 
       this.encryption = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -661,6 +698,7 @@ public class Domain extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExportRouteTarget() {
       return exportRouteTarget;
@@ -670,6 +708,7 @@ public class Domain extends RestObject {
    public void setExportRouteTarget(String value) { 
       this.exportRouteTarget = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -679,6 +718,7 @@ public class Domain extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public Boolean getGlobalRoutingEnabled() {
       return globalRoutingEnabled;
@@ -688,6 +728,7 @@ public class Domain extends RestObject {
    public void setGlobalRoutingEnabled(Boolean value) { 
       this.globalRoutingEnabled = value;
    }
+   
    @JsonIgnore
    public String getImportRouteTarget() {
       return importRouteTarget;
@@ -697,6 +738,7 @@ public class Domain extends RestObject {
    public void setImportRouteTarget(String value) { 
       this.importRouteTarget = value;
    }
+   
    @JsonIgnore
    public Long getLabelID() {
       return labelID;
@@ -706,6 +748,7 @@ public class Domain extends RestObject {
    public void setLabelID(Long value) { 
       this.labelID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -715,6 +758,7 @@ public class Domain extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public Boolean getLeakingEnabled() {
       return leakingEnabled;
@@ -724,6 +768,7 @@ public class Domain extends RestObject {
    public void setLeakingEnabled(Boolean value) { 
       this.leakingEnabled = value;
    }
+   
    @JsonIgnore
    public MaintenanceMode getMaintenanceMode() {
       return maintenanceMode;
@@ -733,6 +778,7 @@ public class Domain extends RestObject {
    public void setMaintenanceMode(MaintenanceMode value) { 
       this.maintenanceMode = value;
    }
+   
    @JsonIgnore
    public Multicast getMulticast() {
       return multicast;
@@ -742,6 +788,7 @@ public class Domain extends RestObject {
    public void setMulticast(Multicast value) { 
       this.multicast = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -751,6 +798,7 @@ public class Domain extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public PermittedAction getPermittedAction() {
       return permittedAction;
@@ -760,6 +808,7 @@ public class Domain extends RestObject {
    public void setPermittedAction(PermittedAction value) { 
       this.permittedAction = value;
    }
+   
    @JsonIgnore
    public PolicyChangeStatus getPolicyChangeStatus() {
       return policyChangeStatus;
@@ -769,6 +818,7 @@ public class Domain extends RestObject {
    public void setPolicyChangeStatus(PolicyChangeStatus value) { 
       this.policyChangeStatus = value;
    }
+   
    @JsonIgnore
    public String getRouteDistinguisher() {
       return routeDistinguisher;
@@ -778,6 +828,7 @@ public class Domain extends RestObject {
    public void setRouteDistinguisher(String value) { 
       this.routeDistinguisher = value;
    }
+   
    @JsonIgnore
    public String getRouteTarget() {
       return routeTarget;
@@ -787,6 +838,7 @@ public class Domain extends RestObject {
    public void setRouteTarget(String value) { 
       this.routeTarget = value;
    }
+   
    @JsonIgnore
    public String getSecondaryDHCPServerAddress() {
       return secondaryDHCPServerAddress;
@@ -796,6 +848,7 @@ public class Domain extends RestObject {
    public void setSecondaryDHCPServerAddress(String value) { 
       this.secondaryDHCPServerAddress = value;
    }
+   
    @JsonIgnore
    public Long getServiceID() {
       return serviceID;
@@ -805,6 +858,7 @@ public class Domain extends RestObject {
    public void setServiceID(Long value) { 
       this.serviceID = value;
    }
+   
    @JsonIgnore
    public Boolean getStretched() {
       return stretched;
@@ -814,6 +868,7 @@ public class Domain extends RestObject {
    public void setStretched(Boolean value) { 
       this.stretched = value;
    }
+   
    @JsonIgnore
    public String getTemplateID() {
       return templateID;
@@ -823,6 +878,7 @@ public class Domain extends RestObject {
    public void setTemplateID(String value) { 
       this.templateID = value;
    }
+   
    @JsonIgnore
    public TunnelType getTunnelType() {
       return tunnelType;
@@ -832,6 +888,7 @@ public class Domain extends RestObject {
    public void setTunnelType(TunnelType value) { 
       this.tunnelType = value;
    }
+   
    @JsonIgnore
    public UnderlayEnabled getUnderlayEnabled() {
       return underlayEnabled;
@@ -841,6 +898,7 @@ public class Domain extends RestObject {
    public void setUnderlayEnabled(UnderlayEnabled value) { 
       this.underlayEnabled = value;
    }
+   
    @JsonIgnore
    public UplinkPreference getUplinkPreference() {
       return uplinkPreference;

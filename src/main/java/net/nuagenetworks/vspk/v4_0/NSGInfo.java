@@ -43,8 +43,11 @@ public class NSGInfo extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum TPMStatus { DISABLED, ENABLED_NOT_OPERATIONAL, ENABLED_OPERATIONAL, UNKNOWN };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum Family { ANY, NSG_E, NSG_V };
 
    
@@ -91,6 +94,7 @@ public class NSGInfo extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getCPUType() {
       return CPUType;
@@ -100,6 +104,7 @@ public class NSGInfo extends RestObject {
    public void setCPUType(String value) { 
       this.CPUType = value;
    }
+   
    @JsonIgnore
    public String getMACAddress() {
       return MACAddress;
@@ -109,6 +114,7 @@ public class NSGInfo extends RestObject {
    public void setMACAddress(String value) { 
       this.MACAddress = value;
    }
+   
    @JsonIgnore
    public String getNSGVersion() {
       return NSGVersion;
@@ -118,6 +124,7 @@ public class NSGInfo extends RestObject {
    public void setNSGVersion(String value) { 
       this.NSGVersion = value;
    }
+   
    @JsonIgnore
    public String getSKU() {
       return SKU;
@@ -127,6 +134,7 @@ public class NSGInfo extends RestObject {
    public void setSKU(String value) { 
       this.SKU = value;
    }
+   
    @JsonIgnore
    public TPMStatus getTPMStatus() {
       return TPMStatus;
@@ -136,6 +144,7 @@ public class NSGInfo extends RestObject {
    public void setTPMStatus(TPMStatus value) { 
       this.TPMStatus = value;
    }
+   
    @JsonIgnore
    public String getUUID() {
       return UUID;
@@ -145,6 +154,7 @@ public class NSGInfo extends RestObject {
    public void setUUID(String value) { 
       this.UUID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedNSGatewayID() {
       return associatedNSGatewayID;
@@ -154,6 +164,7 @@ public class NSGInfo extends RestObject {
    public void setAssociatedNSGatewayID(String value) { 
       this.associatedNSGatewayID = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -163,6 +174,7 @@ public class NSGInfo extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -172,6 +184,7 @@ public class NSGInfo extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public Family getFamily() {
       return family;
@@ -181,6 +194,7 @@ public class NSGInfo extends RestObject {
    public void setFamily(Family value) { 
       this.family = value;
    }
+   
    @JsonIgnore
    public String getLibraries() {
       return libraries;
@@ -190,6 +204,7 @@ public class NSGInfo extends RestObject {
    public void setLibraries(String value) { 
       this.libraries = value;
    }
+   
    @JsonIgnore
    public String getSerialNumber() {
       return serialNumber;

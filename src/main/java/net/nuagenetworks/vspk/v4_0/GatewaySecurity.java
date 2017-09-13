@@ -46,6 +46,7 @@ public class GatewaySecurity extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -86,6 +87,7 @@ public class GatewaySecurity extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -95,6 +97,7 @@ public class GatewaySecurity extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -104,6 +107,7 @@ public class GatewaySecurity extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getGatewayID() {
       return gatewayID;
@@ -113,6 +117,7 @@ public class GatewaySecurity extends RestObject {
    public void setGatewayID(String value) { 
       this.gatewayID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -122,6 +127,7 @@ public class GatewaySecurity extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public Long getRevision() {
       return revision;

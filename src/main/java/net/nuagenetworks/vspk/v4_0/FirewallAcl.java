@@ -82,6 +82,7 @@ public class FirewallAcl extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Boolean getActive() {
       return active;
@@ -91,6 +92,7 @@ public class FirewallAcl extends RestObject {
    public void setActive(Boolean value) { 
       this.active = value;
    }
+   
    @JsonIgnore
    public Boolean getDefaultAllowIP() {
       return defaultAllowIP;
@@ -100,6 +102,7 @@ public class FirewallAcl extends RestObject {
    public void setDefaultAllowIP(Boolean value) { 
       this.defaultAllowIP = value;
    }
+   
    @JsonIgnore
    public Boolean getDefaultAllowNonIP() {
       return defaultAllowNonIP;
@@ -109,6 +112,7 @@ public class FirewallAcl extends RestObject {
    public void setDefaultAllowNonIP(Boolean value) { 
       this.defaultAllowNonIP = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -118,6 +122,7 @@ public class FirewallAcl extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -127,6 +132,7 @@ public class FirewallAcl extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public java.util.List<String> getRuleIds() {
       return ruleIds;

@@ -115,7 +115,9 @@ public class Me extends RestRootObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum AvatarType { BASE64, COMPUTEDURL, URL };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -540,6 +542,7 @@ public class Me extends RestRootObject {
       
    }
 
+   
    @JsonIgnore
    public String getAvatarData() {
       return avatarData;
@@ -549,6 +552,7 @@ public class Me extends RestRootObject {
    public void setAvatarData(String value) { 
       this.avatarData = value;
    }
+   
    @JsonIgnore
    public AvatarType getAvatarType() {
       return avatarType;
@@ -558,6 +562,7 @@ public class Me extends RestRootObject {
    public void setAvatarType(AvatarType value) { 
       this.avatarType = value;
    }
+   
    @JsonIgnore
    public Boolean getDisabled() {
       return disabled;
@@ -567,6 +572,7 @@ public class Me extends RestRootObject {
    public void setDisabled(Boolean value) { 
       this.disabled = value;
    }
+   
    @JsonIgnore
    public String getElasticSearchAddress() {
       return elasticSearchAddress;
@@ -576,6 +582,7 @@ public class Me extends RestRootObject {
    public void setElasticSearchAddress(String value) { 
       this.elasticSearchAddress = value;
    }
+   
    @JsonIgnore
    public String getEmail() {
       return email;
@@ -585,6 +592,7 @@ public class Me extends RestRootObject {
    public void setEmail(String value) { 
       this.email = value;
    }
+   
    @JsonIgnore
    public String getEnterpriseID() {
       return enterpriseID;
@@ -594,6 +602,7 @@ public class Me extends RestRootObject {
    public void setEnterpriseID(String value) { 
       this.enterpriseID = value;
    }
+   
    @JsonIgnore
    public String getEnterpriseName() {
       return enterpriseName;
@@ -603,6 +612,7 @@ public class Me extends RestRootObject {
    public void setEnterpriseName(String value) { 
       this.enterpriseName = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -612,6 +622,7 @@ public class Me extends RestRootObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -621,6 +632,7 @@ public class Me extends RestRootObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getFirstName() {
       return firstName;
@@ -630,6 +642,7 @@ public class Me extends RestRootObject {
    public void setFirstName(String value) { 
       this.firstName = value;
    }
+   
    @JsonIgnore
    public Boolean getFlowCollectionEnabled() {
       return flowCollectionEnabled;
@@ -639,6 +652,7 @@ public class Me extends RestRootObject {
    public void setFlowCollectionEnabled(Boolean value) { 
       this.flowCollectionEnabled = value;
    }
+   
    @JsonIgnore
    public String getLastName() {
       return lastName;
@@ -648,6 +662,7 @@ public class Me extends RestRootObject {
    public void setLastName(String value) { 
       this.lastName = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -657,6 +672,7 @@ public class Me extends RestRootObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getMobileNumber() {
       return mobileNumber;
@@ -666,6 +682,7 @@ public class Me extends RestRootObject {
    public void setMobileNumber(String value) { 
       this.mobileNumber = value;
    }
+   
    @JsonIgnore
    public String getPassword() {
       return password;
@@ -675,6 +692,7 @@ public class Me extends RestRootObject {
    public void setPassword(String value) { 
       this.password = value;
    }
+   
    @JsonIgnore
    public String getRole() {
       return role;
@@ -684,6 +702,7 @@ public class Me extends RestRootObject {
    public void setRole(String value) { 
       this.role = value;
    }
+   
    @JsonIgnore
    public Boolean getStatisticsEnabled() {
       return statisticsEnabled;
@@ -693,6 +712,7 @@ public class Me extends RestRootObject {
    public void setStatisticsEnabled(Boolean value) { 
       this.statisticsEnabled = value;
    }
+   
    @JsonIgnore
    public String getUserName() {
       return userName;

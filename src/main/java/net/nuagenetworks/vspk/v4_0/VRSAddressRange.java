@@ -45,6 +45,7 @@ public class VRSAddressRange extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -80,6 +81,7 @@ public class VRSAddressRange extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -89,6 +91,7 @@ public class VRSAddressRange extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -98,6 +101,7 @@ public class VRSAddressRange extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -107,6 +111,7 @@ public class VRSAddressRange extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getMaxAddress() {
       return maxAddress;
@@ -116,6 +121,7 @@ public class VRSAddressRange extends RestObject {
    public void setMaxAddress(String value) { 
       this.maxAddress = value;
    }
+   
    @JsonIgnore
    public String getMinAddress() {
       return minAddress;

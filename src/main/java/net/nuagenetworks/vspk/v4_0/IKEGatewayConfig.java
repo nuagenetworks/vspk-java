@@ -45,6 +45,7 @@ public class IKEGatewayConfig extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -77,6 +78,7 @@ public class IKEGatewayConfig extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Object getConfig() {
       return config;
@@ -86,6 +88,7 @@ public class IKEGatewayConfig extends RestObject {
    public void setConfig(Object value) { 
       this.config = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -95,6 +98,7 @@ public class IKEGatewayConfig extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -104,6 +108,7 @@ public class IKEGatewayConfig extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;

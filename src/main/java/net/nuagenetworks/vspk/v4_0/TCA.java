@@ -47,9 +47,13 @@ public class TCA extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum Action { ALERT, ALERT_POLICYGROUPCHANGE };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum Metric { ACL_DENY_EVENT_COUNT, ADDRESS_MAP_EGRESS_BYTE_CNT, ADDRESS_MAP_EGRESS_PKT_CNT, ADDRESS_MAP_INGRESS_BYTE_CNT, ADDRESS_MAP_INGRESS_PKT_CNT, ANTI_SPOOF_EVENT_COUNT, BYTES_IN, BYTES_OUT, EGRESS_BYTE_COUNT, EGRESS_PACKET_COUNT, FIP_PRE_RATE_LIMIT_BYTES, FIP_PRE_RATE_LIMIT_PACKETS, FIP_RATE_LIMIT_DROPPED_BYTES, FIP_RATE_LIMIT_DROPPED_PACKETS, INGRESS_BYTE_COUNT, INGRESS_PACKET_COUNT, PACKETS_DROPPED_BY_RATE_LIMIT, PACKETS_IN, PACKETS_IN_DROPPED, PACKETS_IN_ERROR, PACKETS_OUT, PACKETS_OUT_DROPPED, PACKETS_OUT_ERROR, TCP_FLAG_ACK_IN, TCP_FLAG_ACK_OUT, TCP_FLAG_NULL_IN, TCP_FLAG_NULL_OUT, TCP_FLAG_RST_IN, TCP_FLAG_RST_OUT, TCP_FLAG_SYN_IN, TCP_FLAG_SYN_OUT, TCP_SYN_EVENT_COUNT };
+   
    public enum Type { BREACH, ROLLING_AVERAGE };
 
    
@@ -133,6 +137,7 @@ public class TCA extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getURLEndPoint() {
       return URLEndPoint;
@@ -142,6 +147,7 @@ public class TCA extends RestObject {
    public void setURLEndPoint(String value) { 
       this.URLEndPoint = value;
    }
+   
    @JsonIgnore
    public Action getAction() {
       return action;
@@ -151,6 +157,7 @@ public class TCA extends RestObject {
    public void setAction(Action value) { 
       this.action = value;
    }
+   
    @JsonIgnore
    public Long getCount() {
       return count;
@@ -160,6 +167,7 @@ public class TCA extends RestObject {
    public void setCount(Long value) { 
       this.count = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -169,6 +177,7 @@ public class TCA extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public Boolean getDisable() {
       return disable;
@@ -178,6 +187,7 @@ public class TCA extends RestObject {
    public void setDisable(Boolean value) { 
       this.disable = value;
    }
+   
    @JsonIgnore
    public String getDisplayStatus() {
       return displayStatus;
@@ -187,6 +197,7 @@ public class TCA extends RestObject {
    public void setDisplayStatus(String value) { 
       this.displayStatus = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -196,6 +207,7 @@ public class TCA extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -205,6 +217,7 @@ public class TCA extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -214,6 +227,7 @@ public class TCA extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public Metric getMetric() {
       return metric;
@@ -223,6 +237,7 @@ public class TCA extends RestObject {
    public void setMetric(Metric value) { 
       this.metric = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -232,6 +247,7 @@ public class TCA extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public Long getPeriod() {
       return period;
@@ -241,6 +257,7 @@ public class TCA extends RestObject {
    public void setPeriod(Long value) { 
       this.period = value;
    }
+   
    @JsonIgnore
    public Boolean getStatus() {
       return status;
@@ -250,6 +267,7 @@ public class TCA extends RestObject {
    public void setStatus(Boolean value) { 
       this.status = value;
    }
+   
    @JsonIgnore
    public String getTargetPolicyGroupID() {
       return targetPolicyGroupID;
@@ -259,6 +277,7 @@ public class TCA extends RestObject {
    public void setTargetPolicyGroupID(String value) { 
       this.targetPolicyGroupID = value;
    }
+   
    @JsonIgnore
    public Long getThreshold() {
       return threshold;
@@ -268,6 +287,7 @@ public class TCA extends RestObject {
    public void setThreshold(Long value) { 
       this.threshold = value;
    }
+   
    @JsonIgnore
    public Long getThrottleTime() {
       return throttleTime;
@@ -277,6 +297,7 @@ public class TCA extends RestObject {
    public void setThrottleTime(Long value) { 
       this.throttleTime = value;
    }
+   
    @JsonIgnore
    public Type getType() {
       return type;

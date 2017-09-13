@@ -43,6 +43,7 @@ public class VRSMetrics extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -95,6 +96,7 @@ public class VRSMetrics extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Boolean getALUbr0Status() {
       return ALUbr0Status;
@@ -104,6 +106,7 @@ public class VRSMetrics extends RestObject {
    public void setALUbr0Status(Boolean value) { 
       this.ALUbr0Status = value;
    }
+   
    @JsonIgnore
    public Float getCPUUtilization() {
       return CPUUtilization;
@@ -113,6 +116,7 @@ public class VRSMetrics extends RestObject {
    public void setCPUUtilization(Float value) { 
       this.CPUUtilization = value;
    }
+   
    @JsonIgnore
    public Boolean getVRSProcess() {
       return VRSProcess;
@@ -122,6 +126,7 @@ public class VRSMetrics extends RestObject {
    public void setVRSProcess(Boolean value) { 
       this.VRSProcess = value;
    }
+   
    @JsonIgnore
    public Boolean getVRSVSCStatus() {
       return VRSVSCStatus;
@@ -131,6 +136,7 @@ public class VRSMetrics extends RestObject {
    public void setVRSVSCStatus(Boolean value) { 
       this.VRSVSCStatus = value;
    }
+   
    @JsonIgnore
    public String getAgentName() {
       return agentName;
@@ -140,6 +146,7 @@ public class VRSMetrics extends RestObject {
    public void setAgentName(String value) { 
       this.agentName = value;
    }
+   
    @JsonIgnore
    public String getAssociatedVCenterHypervisorID() {
       return associatedVCenterHypervisorID;
@@ -149,6 +156,7 @@ public class VRSMetrics extends RestObject {
    public void setAssociatedVCenterHypervisorID(String value) { 
       this.associatedVCenterHypervisorID = value;
    }
+   
    @JsonIgnore
    public String getCurrentVersion() {
       return currentVersion;
@@ -158,6 +166,7 @@ public class VRSMetrics extends RestObject {
    public void setCurrentVersion(String value) { 
       this.currentVersion = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -167,6 +176,7 @@ public class VRSMetrics extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -176,6 +186,7 @@ public class VRSMetrics extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public Boolean getJesxmonProcess() {
       return jesxmonProcess;
@@ -185,6 +196,7 @@ public class VRSMetrics extends RestObject {
    public void setJesxmonProcess(Boolean value) { 
       this.jesxmonProcess = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -194,6 +206,7 @@ public class VRSMetrics extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public Float getMemoryUtilization() {
       return memoryUtilization;
@@ -203,6 +216,7 @@ public class VRSMetrics extends RestObject {
    public void setMemoryUtilization(Float value) { 
       this.memoryUtilization = value;
    }
+   
    @JsonIgnore
    public Boolean getReDeploy() {
       return reDeploy;
@@ -212,6 +226,7 @@ public class VRSMetrics extends RestObject {
    public void setReDeploy(Boolean value) { 
       this.reDeploy = value;
    }
+   
    @JsonIgnore
    public Boolean getReceivingMetrics() {
       return receivingMetrics;

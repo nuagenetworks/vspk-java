@@ -46,8 +46,11 @@ public class StaticRoute extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum IPType { DUALSTACK, IPV4, IPV6 };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum Type { EXIT_DOMAIN, OVERLAY };
 
    
@@ -103,6 +106,7 @@ public class StaticRoute extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public IPType getIPType() {
       return IPType;
@@ -112,6 +116,7 @@ public class StaticRoute extends RestObject {
    public void setIPType(IPType value) { 
       this.IPType = value;
    }
+   
    @JsonIgnore
    public String getIPv6Address() {
       return IPv6Address;
@@ -121,6 +126,7 @@ public class StaticRoute extends RestObject {
    public void setIPv6Address(String value) { 
       this.IPv6Address = value;
    }
+   
    @JsonIgnore
    public String getAddress() {
       return address;
@@ -130,6 +136,7 @@ public class StaticRoute extends RestObject {
    public void setAddress(String value) { 
       this.address = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -139,6 +146,7 @@ public class StaticRoute extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -148,6 +156,7 @@ public class StaticRoute extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -157,6 +166,7 @@ public class StaticRoute extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getNetmask() {
       return netmask;
@@ -166,6 +176,7 @@ public class StaticRoute extends RestObject {
    public void setNetmask(String value) { 
       this.netmask = value;
    }
+   
    @JsonIgnore
    public String getNextHopIp() {
       return nextHopIp;
@@ -175,6 +186,7 @@ public class StaticRoute extends RestObject {
    public void setNextHopIp(String value) { 
       this.nextHopIp = value;
    }
+   
    @JsonIgnore
    public String getRouteDistinguisher() {
       return routeDistinguisher;
@@ -184,6 +196,7 @@ public class StaticRoute extends RestObject {
    public void setRouteDistinguisher(String value) { 
       this.routeDistinguisher = value;
    }
+   
    @JsonIgnore
    public Type getType() {
       return type;

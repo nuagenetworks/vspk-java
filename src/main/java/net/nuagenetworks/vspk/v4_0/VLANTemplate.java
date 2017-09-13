@@ -47,6 +47,7 @@ public class VLANTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -101,6 +102,7 @@ public class VLANTemplate extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAssociatedEgressQOSPolicyID() {
       return associatedEgressQOSPolicyID;
@@ -110,6 +112,7 @@ public class VLANTemplate extends RestObject {
    public void setAssociatedEgressQOSPolicyID(String value) { 
       this.associatedEgressQOSPolicyID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedVSCProfileID() {
       return associatedVSCProfileID;
@@ -119,6 +122,7 @@ public class VLANTemplate extends RestObject {
    public void setAssociatedVSCProfileID(String value) { 
       this.associatedVSCProfileID = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -128,6 +132,7 @@ public class VLANTemplate extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public Boolean getDucVlan() {
       return ducVlan;
@@ -137,6 +142,7 @@ public class VLANTemplate extends RestObject {
    public void setDucVlan(Boolean value) { 
       this.ducVlan = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -146,6 +152,7 @@ public class VLANTemplate extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -155,6 +162,7 @@ public class VLANTemplate extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -164,6 +172,7 @@ public class VLANTemplate extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public Long getValue() {
       return value;

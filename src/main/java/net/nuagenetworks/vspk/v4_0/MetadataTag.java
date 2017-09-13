@@ -46,6 +46,7 @@ public class MetadataTag extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -92,6 +93,7 @@ public class MetadataTag extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAssociatedExternalServiceID() {
       return associatedExternalServiceID;
@@ -101,6 +103,7 @@ public class MetadataTag extends RestObject {
    public void setAssociatedExternalServiceID(String value) { 
       this.associatedExternalServiceID = value;
    }
+   
    @JsonIgnore
    public Boolean getAutoCreated() {
       return autoCreated;
@@ -110,6 +113,7 @@ public class MetadataTag extends RestObject {
    public void setAutoCreated(Boolean value) { 
       this.autoCreated = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -119,6 +123,7 @@ public class MetadataTag extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -128,6 +133,7 @@ public class MetadataTag extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -137,6 +143,7 @@ public class MetadataTag extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -146,6 +153,7 @@ public class MetadataTag extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;

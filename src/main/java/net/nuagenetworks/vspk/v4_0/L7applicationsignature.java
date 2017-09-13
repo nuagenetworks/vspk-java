@@ -76,6 +76,7 @@ public class L7applicationsignature extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getCategory() {
       return category;
@@ -85,6 +86,7 @@ public class L7applicationsignature extends RestObject {
    public void setCategory(String value) { 
       this.category = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -94,6 +96,7 @@ public class L7applicationsignature extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public Long getDictionaryVersion() {
       return dictionaryVersion;
@@ -103,6 +106,7 @@ public class L7applicationsignature extends RestObject {
    public void setDictionaryVersion(Long value) { 
       this.dictionaryVersion = value;
    }
+   
    @JsonIgnore
    public String getGuidstring() {
       return guidstring;
@@ -112,6 +116,7 @@ public class L7applicationsignature extends RestObject {
    public void setGuidstring(String value) { 
       this.guidstring = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -121,6 +126,7 @@ public class L7applicationsignature extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public Boolean getReadonly() {
       return readonly;

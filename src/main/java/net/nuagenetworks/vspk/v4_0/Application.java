@@ -45,10 +45,15 @@ public class Application extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum OptimizePathSelection { JITTER, LATENCY, PACKETLOSS };
+   
    public enum PerformanceMonitorType { CONTINUOUS, FIRST_PACKET, FIRST_PACKET_AND_CONTINUOUS };
+   
    public enum PostClassificationPath { ANY, PRIMARY, SECONDARY };
+   
    public enum PreClassificationPath { DEFAULT, PRIMARY, SECONDARY };
+   
    public enum Protocol { NONE, TCP, UDP };
 
    
@@ -135,6 +140,7 @@ public class Application extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getDSCP() {
       return DSCP;
@@ -144,6 +150,7 @@ public class Application extends RestObject {
    public void setDSCP(String value) { 
       this.DSCP = value;
    }
+   
    @JsonIgnore
    public Long getAppId() {
       return appId;
@@ -153,6 +160,7 @@ public class Application extends RestObject {
    public void setAppId(Long value) { 
       this.appId = value;
    }
+   
    @JsonIgnore
    public String getAssociatedL7ApplicationSignatureID() {
       return associatedL7ApplicationSignatureID;
@@ -162,6 +170,7 @@ public class Application extends RestObject {
    public void setAssociatedL7ApplicationSignatureID(String value) { 
       this.associatedL7ApplicationSignatureID = value;
    }
+   
    @JsonIgnore
    public Long getBandwidth() {
       return bandwidth;
@@ -171,6 +180,7 @@ public class Application extends RestObject {
    public void setBandwidth(Long value) { 
       this.bandwidth = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -180,6 +190,7 @@ public class Application extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getDestinationIP() {
       return destinationIP;
@@ -189,6 +200,7 @@ public class Application extends RestObject {
    public void setDestinationIP(String value) { 
       this.destinationIP = value;
    }
+   
    @JsonIgnore
    public String getDestinationPort() {
       return destinationPort;
@@ -198,6 +210,7 @@ public class Application extends RestObject {
    public void setDestinationPort(String value) { 
       this.destinationPort = value;
    }
+   
    @JsonIgnore
    public Boolean getEnablePPS() {
       return enablePPS;
@@ -207,6 +220,7 @@ public class Application extends RestObject {
    public void setEnablePPS(Boolean value) { 
       this.enablePPS = value;
    }
+   
    @JsonIgnore
    public String getEtherType() {
       return etherType;
@@ -216,6 +230,7 @@ public class Application extends RestObject {
    public void setEtherType(String value) { 
       this.etherType = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -225,6 +240,7 @@ public class Application extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public Long getOneWayDelay() {
       return oneWayDelay;
@@ -234,6 +250,7 @@ public class Application extends RestObject {
    public void setOneWayDelay(Long value) { 
       this.oneWayDelay = value;
    }
+   
    @JsonIgnore
    public Long getOneWayJitter() {
       return oneWayJitter;
@@ -243,6 +260,7 @@ public class Application extends RestObject {
    public void setOneWayJitter(Long value) { 
       this.oneWayJitter = value;
    }
+   
    @JsonIgnore
    public Float getOneWayLoss() {
       return oneWayLoss;
@@ -252,6 +270,7 @@ public class Application extends RestObject {
    public void setOneWayLoss(Float value) { 
       this.oneWayLoss = value;
    }
+   
    @JsonIgnore
    public OptimizePathSelection getOptimizePathSelection() {
       return optimizePathSelection;
@@ -261,6 +280,7 @@ public class Application extends RestObject {
    public void setOptimizePathSelection(OptimizePathSelection value) { 
       this.optimizePathSelection = value;
    }
+   
    @JsonIgnore
    public PerformanceMonitorType getPerformanceMonitorType() {
       return performanceMonitorType;
@@ -270,6 +290,7 @@ public class Application extends RestObject {
    public void setPerformanceMonitorType(PerformanceMonitorType value) { 
       this.performanceMonitorType = value;
    }
+   
    @JsonIgnore
    public PostClassificationPath getPostClassificationPath() {
       return postClassificationPath;
@@ -279,6 +300,7 @@ public class Application extends RestObject {
    public void setPostClassificationPath(PostClassificationPath value) { 
       this.postClassificationPath = value;
    }
+   
    @JsonIgnore
    public PreClassificationPath getPreClassificationPath() {
       return preClassificationPath;
@@ -288,6 +310,7 @@ public class Application extends RestObject {
    public void setPreClassificationPath(PreClassificationPath value) { 
       this.preClassificationPath = value;
    }
+   
    @JsonIgnore
    public Protocol getProtocol() {
       return protocol;
@@ -297,6 +320,7 @@ public class Application extends RestObject {
    public void setProtocol(Protocol value) { 
       this.protocol = value;
    }
+   
    @JsonIgnore
    public Boolean getReadOnly() {
       return readOnly;
@@ -306,6 +330,7 @@ public class Application extends RestObject {
    public void setReadOnly(Boolean value) { 
       this.readOnly = value;
    }
+   
    @JsonIgnore
    public String getSourceIP() {
       return sourceIP;
@@ -315,6 +340,7 @@ public class Application extends RestObject {
    public void setSourceIP(String value) { 
       this.sourceIP = value;
    }
+   
    @JsonIgnore
    public String getSourcePort() {
       return sourcePort;
@@ -324,6 +350,7 @@ public class Application extends RestObject {
    public void setSourcePort(String value) { 
       this.sourcePort = value;
    }
+   
    @JsonIgnore
    public Boolean getSymmetry() {
       return symmetry;

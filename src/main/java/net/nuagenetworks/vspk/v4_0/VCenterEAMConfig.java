@@ -45,6 +45,7 @@ public class VCenterEAMConfig extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -92,6 +93,7 @@ public class VCenterEAMConfig extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getEamServerIP() {
       return eamServerIP;
@@ -101,6 +103,7 @@ public class VCenterEAMConfig extends RestObject {
    public void setEamServerIP(String value) { 
       this.eamServerIP = value;
    }
+   
    @JsonIgnore
    public Long getEamServerPortNumber() {
       return eamServerPortNumber;
@@ -110,6 +113,7 @@ public class VCenterEAMConfig extends RestObject {
    public void setEamServerPortNumber(Long value) { 
       this.eamServerPortNumber = value;
    }
+   
    @JsonIgnore
    public String getEamServerPortType() {
       return eamServerPortType;
@@ -119,6 +123,7 @@ public class VCenterEAMConfig extends RestObject {
    public void setEamServerPortType(String value) { 
       this.eamServerPortType = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -128,6 +133,7 @@ public class VCenterEAMConfig extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExtensionKey() {
       return extensionKey;
@@ -137,6 +143,7 @@ public class VCenterEAMConfig extends RestObject {
    public void setExtensionKey(String value) { 
       this.extensionKey = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -146,6 +153,7 @@ public class VCenterEAMConfig extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -155,6 +163,7 @@ public class VCenterEAMConfig extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getOvfURL() {
       return ovfURL;
@@ -164,6 +173,7 @@ public class VCenterEAMConfig extends RestObject {
    public void setOvfURL(String value) { 
       this.ovfURL = value;
    }
+   
    @JsonIgnore
    public String getVibURL() {
       return vibURL;

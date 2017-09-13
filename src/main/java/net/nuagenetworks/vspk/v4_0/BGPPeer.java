@@ -45,7 +45,9 @@ public class BGPPeer extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum Status { ADMIN_DOWN, DOWN, UP };
 
    
@@ -81,6 +83,7 @@ public class BGPPeer extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAddress() {
       return address;
@@ -90,6 +93,7 @@ public class BGPPeer extends RestObject {
    public void setAddress(String value) { 
       this.address = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -99,6 +103,7 @@ public class BGPPeer extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -108,6 +113,7 @@ public class BGPPeer extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public Long getLastStateChange() {
       return lastStateChange;
@@ -117,6 +123,7 @@ public class BGPPeer extends RestObject {
    public void setLastStateChange(Long value) { 
       this.lastStateChange = value;
    }
+   
    @JsonIgnore
    public Status getStatus() {
       return status;

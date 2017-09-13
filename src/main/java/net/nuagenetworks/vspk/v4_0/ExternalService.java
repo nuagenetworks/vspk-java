@@ -48,9 +48,13 @@ public class ExternalService extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum Direction { INGRESS };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum ServiceType { L2, L3 };
+   
    public enum Stage { START };
 
    
@@ -110,6 +114,7 @@ public class ExternalService extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -119,6 +124,7 @@ public class ExternalService extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public Direction getDirection() {
       return direction;
@@ -128,6 +134,7 @@ public class ExternalService extends RestObject {
    public void setDirection(Direction value) { 
       this.direction = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -137,6 +144,7 @@ public class ExternalService extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -146,6 +154,7 @@ public class ExternalService extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -155,6 +164,7 @@ public class ExternalService extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -164,6 +174,7 @@ public class ExternalService extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public ServiceType getServiceType() {
       return serviceType;
@@ -173,6 +184,7 @@ public class ExternalService extends RestObject {
    public void setServiceType(ServiceType value) { 
       this.serviceType = value;
    }
+   
    @JsonIgnore
    public Stage getStage() {
       return stage;

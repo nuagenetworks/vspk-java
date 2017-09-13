@@ -58,12 +58,19 @@ public class L2DomainTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum DPI { DISABLED, ENABLED, INHERITED };
+   
    public enum IPType { IPV4, DUALSTACK };
+   
    public enum Encryption { DISABLED, ENABLED };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum Multicast { DISABLED, ENABLED, INHERITED };
+   
    public enum PolicyChangeStatus { APPLIED, DISCARDED, STARTED };
+   
    public enum UseGlobalMAC { DISABLED, ENABLED };
 
    
@@ -200,6 +207,7 @@ public class L2DomainTemplate extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Boolean getDHCPManaged() {
       return DHCPManaged;
@@ -209,6 +217,7 @@ public class L2DomainTemplate extends RestObject {
    public void setDHCPManaged(Boolean value) { 
       this.DHCPManaged = value;
    }
+   
    @JsonIgnore
    public DPI getDPI() {
       return DPI;
@@ -218,6 +227,7 @@ public class L2DomainTemplate extends RestObject {
    public void setDPI(DPI value) { 
       this.DPI = value;
    }
+   
    @JsonIgnore
    public IPType getIPType() {
       return IPType;
@@ -227,6 +237,7 @@ public class L2DomainTemplate extends RestObject {
    public void setIPType(IPType value) { 
       this.IPType = value;
    }
+   
    @JsonIgnore
    public String getAddress() {
       return address;
@@ -236,6 +247,7 @@ public class L2DomainTemplate extends RestObject {
    public void setAddress(String value) { 
       this.address = value;
    }
+   
    @JsonIgnore
    public String getAssociatedMulticastChannelMapID() {
       return associatedMulticastChannelMapID;
@@ -245,6 +257,7 @@ public class L2DomainTemplate extends RestObject {
    public void setAssociatedMulticastChannelMapID(String value) { 
       this.associatedMulticastChannelMapID = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -254,6 +267,7 @@ public class L2DomainTemplate extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public Encryption getEncryption() {
       return encryption;
@@ -263,6 +277,7 @@ public class L2DomainTemplate extends RestObject {
    public void setEncryption(Encryption value) { 
       this.encryption = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -272,6 +287,7 @@ public class L2DomainTemplate extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -281,6 +297,7 @@ public class L2DomainTemplate extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getGateway() {
       return gateway;
@@ -290,6 +307,7 @@ public class L2DomainTemplate extends RestObject {
    public void setGateway(String value) { 
       this.gateway = value;
    }
+   
    @JsonIgnore
    public String getGatewayMACAddress() {
       return gatewayMACAddress;
@@ -299,6 +317,7 @@ public class L2DomainTemplate extends RestObject {
    public void setGatewayMACAddress(String value) { 
       this.gatewayMACAddress = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -308,6 +327,7 @@ public class L2DomainTemplate extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public Multicast getMulticast() {
       return multicast;
@@ -317,6 +337,7 @@ public class L2DomainTemplate extends RestObject {
    public void setMulticast(Multicast value) { 
       this.multicast = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -326,6 +347,7 @@ public class L2DomainTemplate extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getNetmask() {
       return netmask;
@@ -335,6 +357,7 @@ public class L2DomainTemplate extends RestObject {
    public void setNetmask(String value) { 
       this.netmask = value;
    }
+   
    @JsonIgnore
    public PolicyChangeStatus getPolicyChangeStatus() {
       return policyChangeStatus;
@@ -344,6 +367,7 @@ public class L2DomainTemplate extends RestObject {
    public void setPolicyChangeStatus(PolicyChangeStatus value) { 
       this.policyChangeStatus = value;
    }
+   
    @JsonIgnore
    public UseGlobalMAC getUseGlobalMAC() {
       return useGlobalMAC;

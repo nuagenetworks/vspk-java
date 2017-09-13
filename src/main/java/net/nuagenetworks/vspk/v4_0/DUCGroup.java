@@ -67,6 +67,7 @@ public class DUCGroup extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAssociatedPerformanceMonitorID() {
       return associatedPerformanceMonitorID;
@@ -76,6 +77,7 @@ public class DUCGroup extends RestObject {
    public void setAssociatedPerformanceMonitorID(String value) { 
       this.associatedPerformanceMonitorID = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -85,6 +87,7 @@ public class DUCGroup extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;

@@ -46,6 +46,7 @@ public class DHCPOption extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -95,6 +96,7 @@ public class DHCPOption extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Long getActualType() {
       return actualType;
@@ -104,6 +106,7 @@ public class DHCPOption extends RestObject {
    public void setActualType(Long value) { 
       this.actualType = value;
    }
+   
    @JsonIgnore
    public java.util.List<String> getActualValues() {
       return actualValues;
@@ -113,6 +116,7 @@ public class DHCPOption extends RestObject {
    public void setActualValues(java.util.List<String> value) { 
       this.actualValues = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -122,6 +126,7 @@ public class DHCPOption extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -131,6 +136,7 @@ public class DHCPOption extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -140,6 +146,7 @@ public class DHCPOption extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getLength() {
       return length;
@@ -149,6 +156,7 @@ public class DHCPOption extends RestObject {
    public void setLength(String value) { 
       this.length = value;
    }
+   
    @JsonIgnore
    public String getType() {
       return type;
@@ -158,6 +166,7 @@ public class DHCPOption extends RestObject {
    public void setType(String value) { 
       this.type = value;
    }
+   
    @JsonIgnore
    public String getValue() {
       return value;

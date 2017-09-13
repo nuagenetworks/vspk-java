@@ -45,6 +45,7 @@ public class KeyServerMember extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -92,6 +93,7 @@ public class KeyServerMember extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Long getCertificateSerialNumber() {
       return certificateSerialNumber;
@@ -101,6 +103,7 @@ public class KeyServerMember extends RestObject {
    public void setCertificateSerialNumber(Long value) { 
       this.certificateSerialNumber = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -110,6 +113,7 @@ public class KeyServerMember extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -119,6 +123,7 @@ public class KeyServerMember extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getFqdn() {
       return fqdn;
@@ -128,6 +133,7 @@ public class KeyServerMember extends RestObject {
    public void setFqdn(String value) { 
       this.fqdn = value;
    }
+   
    @JsonIgnore
    public String getIssuerDN() {
       return issuerDN;
@@ -137,6 +143,7 @@ public class KeyServerMember extends RestObject {
    public void setIssuerDN(String value) { 
       this.issuerDN = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -146,6 +153,7 @@ public class KeyServerMember extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getPemEncoded() {
       return pemEncoded;
@@ -155,6 +163,7 @@ public class KeyServerMember extends RestObject {
    public void setPemEncoded(String value) { 
       this.pemEncoded = value;
    }
+   
    @JsonIgnore
    public String getPublicKey() {
       return publicKey;
@@ -164,6 +173,7 @@ public class KeyServerMember extends RestObject {
    public void setPublicKey(String value) { 
       this.publicKey = value;
    }
+   
    @JsonIgnore
    public String getSubjectDN() {
       return subjectDN;

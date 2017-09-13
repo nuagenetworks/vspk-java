@@ -45,6 +45,7 @@ public class StatisticsPolicy extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -83,6 +84,7 @@ public class StatisticsPolicy extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Long getDataCollectionFrequency() {
       return dataCollectionFrequency;
@@ -92,6 +94,7 @@ public class StatisticsPolicy extends RestObject {
    public void setDataCollectionFrequency(Long value) { 
       this.dataCollectionFrequency = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -101,6 +104,7 @@ public class StatisticsPolicy extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -110,6 +114,7 @@ public class StatisticsPolicy extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -119,6 +124,7 @@ public class StatisticsPolicy extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -128,6 +134,7 @@ public class StatisticsPolicy extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;

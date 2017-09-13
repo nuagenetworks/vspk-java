@@ -49,11 +49,17 @@ public class SubnetTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum DPI { DISABLED, ENABLED, INHERITED };
+   
    public enum IPType { DUALSTACK, IPV4 };
+   
    public enum Encryption { DISABLED, ENABLED, INHERITED };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum Multicast { DISABLED, ENABLED, INHERITED };
+   
    public enum UseGlobalMAC { DISABLED, ENABLED };
 
    
@@ -150,6 +156,7 @@ public class SubnetTemplate extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public DPI getDPI() {
       return DPI;
@@ -159,6 +166,7 @@ public class SubnetTemplate extends RestObject {
    public void setDPI(DPI value) { 
       this.DPI = value;
    }
+   
    @JsonIgnore
    public IPType getIPType() {
       return IPType;
@@ -168,6 +176,7 @@ public class SubnetTemplate extends RestObject {
    public void setIPType(IPType value) { 
       this.IPType = value;
    }
+   
    @JsonIgnore
    public String getIPv6Gateway() {
       return IPv6Gateway;
@@ -177,6 +186,7 @@ public class SubnetTemplate extends RestObject {
    public void setIPv6Gateway(String value) { 
       this.IPv6Gateway = value;
    }
+   
    @JsonIgnore
    public String getIPv6address() {
       return IPv6address;
@@ -186,6 +196,7 @@ public class SubnetTemplate extends RestObject {
    public void setIPv6address(String value) { 
       this.IPv6address = value;
    }
+   
    @JsonIgnore
    public String getAddress() {
       return address;
@@ -195,6 +206,7 @@ public class SubnetTemplate extends RestObject {
    public void setAddress(String value) { 
       this.address = value;
    }
+   
    @JsonIgnore
    public String getAssociatedMulticastChannelMapID() {
       return associatedMulticastChannelMapID;
@@ -204,6 +216,7 @@ public class SubnetTemplate extends RestObject {
    public void setAssociatedMulticastChannelMapID(String value) { 
       this.associatedMulticastChannelMapID = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -213,6 +226,7 @@ public class SubnetTemplate extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public Encryption getEncryption() {
       return encryption;
@@ -222,6 +236,7 @@ public class SubnetTemplate extends RestObject {
    public void setEncryption(Encryption value) { 
       this.encryption = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -231,6 +246,7 @@ public class SubnetTemplate extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -240,6 +256,7 @@ public class SubnetTemplate extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getGateway() {
       return gateway;
@@ -249,6 +266,7 @@ public class SubnetTemplate extends RestObject {
    public void setGateway(String value) { 
       this.gateway = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -258,6 +276,7 @@ public class SubnetTemplate extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public Multicast getMulticast() {
       return multicast;
@@ -267,6 +286,7 @@ public class SubnetTemplate extends RestObject {
    public void setMulticast(Multicast value) { 
       this.multicast = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -276,6 +296,7 @@ public class SubnetTemplate extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getNetmask() {
       return netmask;
@@ -285,6 +306,7 @@ public class SubnetTemplate extends RestObject {
    public void setNetmask(String value) { 
       this.netmask = value;
    }
+   
    @JsonIgnore
    public Boolean getProxyARP() {
       return proxyARP;
@@ -294,6 +316,7 @@ public class SubnetTemplate extends RestObject {
    public void setProxyARP(Boolean value) { 
       this.proxyARP = value;
    }
+   
    @JsonIgnore
    public Boolean getSplitSubnet() {
       return splitSubnet;
@@ -303,6 +326,7 @@ public class SubnetTemplate extends RestObject {
    public void setSplitSubnet(Boolean value) { 
       this.splitSubnet = value;
    }
+   
    @JsonIgnore
    public UseGlobalMAC getUseGlobalMAC() {
       return useGlobalMAC;

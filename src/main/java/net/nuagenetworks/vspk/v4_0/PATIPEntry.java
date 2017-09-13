@@ -43,7 +43,9 @@ public class PATIPEntry extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum IPType { IPV4, IPV6 };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -78,6 +80,7 @@ public class PATIPEntry extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getIPAddress() {
       return IPAddress;
@@ -87,6 +90,7 @@ public class PATIPEntry extends RestObject {
    public void setIPAddress(String value) { 
       this.IPAddress = value;
    }
+   
    @JsonIgnore
    public IPType getIPType() {
       return IPType;
@@ -96,6 +100,7 @@ public class PATIPEntry extends RestObject {
    public void setIPType(IPType value) { 
       this.IPType = value;
    }
+   
    @JsonIgnore
    public Boolean getPATCentralized() {
       return PATCentralized;
@@ -105,6 +110,7 @@ public class PATIPEntry extends RestObject {
    public void setPATCentralized(Boolean value) { 
       this.PATCentralized = value;
    }
+   
    @JsonIgnore
    public String getAssociatedDomainID() {
       return associatedDomainID;
@@ -114,6 +120,7 @@ public class PATIPEntry extends RestObject {
    public void setAssociatedDomainID(String value) { 
       this.associatedDomainID = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -123,6 +130,7 @@ public class PATIPEntry extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -132,6 +140,7 @@ public class PATIPEntry extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getHypervisorID() {
       return hypervisorID;
@@ -141,6 +150,7 @@ public class PATIPEntry extends RestObject {
    public void setHypervisorID(String value) { 
       this.hypervisorID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;

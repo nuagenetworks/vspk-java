@@ -43,6 +43,7 @@ public class SSHKey extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum KeyType { RSA };
 
    
@@ -65,6 +66,7 @@ public class SSHKey extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -74,6 +76,7 @@ public class SSHKey extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public KeyType getKeyType() {
       return keyType;
@@ -83,6 +86,7 @@ public class SSHKey extends RestObject {
    public void setKeyType(KeyType value) { 
       this.keyType = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -92,6 +96,7 @@ public class SSHKey extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getPublicKey() {
       return publicKey;

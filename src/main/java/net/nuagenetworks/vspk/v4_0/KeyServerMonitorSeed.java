@@ -46,8 +46,11 @@ public class KeyServerMonitorSeed extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum SeedTrafficAuthenticationAlgorithm { HMAC_MD5, HMAC_SHA1, HMAC_SHA256, HMAC_SHA384, HMAC_SHA512 };
+   
    public enum SeedTrafficEncryptionAlgorithm { AES_128_CBC, AES_192_CBC, AES_256_CBC, TRIPLE_DES_CBC };
 
    
@@ -100,6 +103,7 @@ public class KeyServerMonitorSeed extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Long getCreationTime() {
       return creationTime;
@@ -109,6 +113,7 @@ public class KeyServerMonitorSeed extends RestObject {
    public void setCreationTime(Long value) { 
       this.creationTime = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -118,6 +123,7 @@ public class KeyServerMonitorSeed extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -127,6 +133,7 @@ public class KeyServerMonitorSeed extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -136,6 +143,7 @@ public class KeyServerMonitorSeed extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public Long getLifetime() {
       return lifetime;
@@ -145,6 +153,7 @@ public class KeyServerMonitorSeed extends RestObject {
    public void setLifetime(Long value) { 
       this.lifetime = value;
    }
+   
    @JsonIgnore
    public SeedTrafficAuthenticationAlgorithm getSeedTrafficAuthenticationAlgorithm() {
       return seedTrafficAuthenticationAlgorithm;
@@ -154,6 +163,7 @@ public class KeyServerMonitorSeed extends RestObject {
    public void setSeedTrafficAuthenticationAlgorithm(SeedTrafficAuthenticationAlgorithm value) { 
       this.seedTrafficAuthenticationAlgorithm = value;
    }
+   
    @JsonIgnore
    public SeedTrafficEncryptionAlgorithm getSeedTrafficEncryptionAlgorithm() {
       return seedTrafficEncryptionAlgorithm;
@@ -163,6 +173,7 @@ public class KeyServerMonitorSeed extends RestObject {
    public void setSeedTrafficEncryptionAlgorithm(SeedTrafficEncryptionAlgorithm value) { 
       this.seedTrafficEncryptionAlgorithm = value;
    }
+   
    @JsonIgnore
    public Long getSeedTrafficEncryptionKeyLifetime() {
       return seedTrafficEncryptionKeyLifetime;
@@ -172,6 +183,7 @@ public class KeyServerMonitorSeed extends RestObject {
    public void setSeedTrafficEncryptionKeyLifetime(Long value) { 
       this.seedTrafficEncryptionKeyLifetime = value;
    }
+   
    @JsonIgnore
    public Long getStartTime() {
       return startTime;
