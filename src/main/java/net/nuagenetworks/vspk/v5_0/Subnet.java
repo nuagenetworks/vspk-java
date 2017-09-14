@@ -66,18 +66,31 @@ public class Subnet extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum DHCPRelayStatus { DISABLED, ENABLED };
+   
    public enum DPI { DISABLED, ENABLED, INHERITED };
+   
    public enum IPType { DUALSTACK, IPV4 };
+   
    public enum PATEnabled { DISABLED, ENABLED, INHERITED };
+   
    public enum DefaultAction { DROP_TRAFFIC, USE_UNDERLAY };
+   
    public enum Encryption { DISABLED, ENABLED, INHERITED };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum EntityState { MARKED_FOR_DELETION, UNDER_CONSTRUCTION };
+   
    public enum MaintenanceMode { DISABLED, ENABLED, ENABLED_INHERITED };
+   
    public enum Multicast { DISABLED, ENABLED, INHERITED };
+   
    public enum ResourceType { FLOATING, NSG_VNF, PUBLIC, STANDARD };
+   
    public enum UnderlayEnabled { DISABLED, ENABLED, INHERITED };
+   
    public enum UseGlobalMAC { DISABLED, ENABLED };
 
    
@@ -321,6 +334,7 @@ public class Subnet extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public DHCPRelayStatus getDHCPRelayStatus() {
       return DHCPRelayStatus;
@@ -330,6 +344,7 @@ public class Subnet extends RestObject {
    public void setDHCPRelayStatus(DHCPRelayStatus value) { 
       this.DHCPRelayStatus = value;
    }
+   
    @JsonIgnore
    public DPI getDPI() {
       return DPI;
@@ -339,6 +354,7 @@ public class Subnet extends RestObject {
    public void setDPI(DPI value) { 
       this.DPI = value;
    }
+   
    @JsonIgnore
    public IPType getIPType() {
       return IPType;
@@ -348,6 +364,7 @@ public class Subnet extends RestObject {
    public void setIPType(IPType value) { 
       this.IPType = value;
    }
+   
    @JsonIgnore
    public String getIPv6Address() {
       return IPv6Address;
@@ -357,6 +374,7 @@ public class Subnet extends RestObject {
    public void setIPv6Address(String value) { 
       this.IPv6Address = value;
    }
+   
    @JsonIgnore
    public String getIPv6Gateway() {
       return IPv6Gateway;
@@ -366,6 +384,7 @@ public class Subnet extends RestObject {
    public void setIPv6Gateway(String value) { 
       this.IPv6Gateway = value;
    }
+   
    @JsonIgnore
    public PATEnabled getPATEnabled() {
       return PATEnabled;
@@ -375,6 +394,7 @@ public class Subnet extends RestObject {
    public void setPATEnabled(PATEnabled value) { 
       this.PATEnabled = value;
    }
+   
    @JsonIgnore
    public Boolean getAccessRestrictionEnabled() {
       return accessRestrictionEnabled;
@@ -384,6 +404,7 @@ public class Subnet extends RestObject {
    public void setAccessRestrictionEnabled(Boolean value) { 
       this.accessRestrictionEnabled = value;
    }
+   
    @JsonIgnore
    public String getAddress() {
       return address;
@@ -393,6 +414,7 @@ public class Subnet extends RestObject {
    public void setAddress(String value) { 
       this.address = value;
    }
+   
    @JsonIgnore
    public Boolean getAdvertise() {
       return advertise;
@@ -402,6 +424,7 @@ public class Subnet extends RestObject {
    public void setAdvertise(Boolean value) { 
       this.advertise = value;
    }
+   
    @JsonIgnore
    public String getAssociatedMulticastChannelMapID() {
       return associatedMulticastChannelMapID;
@@ -411,6 +434,7 @@ public class Subnet extends RestObject {
    public void setAssociatedMulticastChannelMapID(String value) { 
       this.associatedMulticastChannelMapID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedSharedNetworkResourceID() {
       return associatedSharedNetworkResourceID;
@@ -420,6 +444,7 @@ public class Subnet extends RestObject {
    public void setAssociatedSharedNetworkResourceID(String value) { 
       this.associatedSharedNetworkResourceID = value;
    }
+   
    @JsonIgnore
    public DefaultAction getDefaultAction() {
       return defaultAction;
@@ -429,6 +454,7 @@ public class Subnet extends RestObject {
    public void setDefaultAction(DefaultAction value) { 
       this.defaultAction = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -438,6 +464,7 @@ public class Subnet extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public Boolean getDynamicIpv6Address() {
       return dynamicIpv6Address;
@@ -447,6 +474,7 @@ public class Subnet extends RestObject {
    public void setDynamicIpv6Address(Boolean value) { 
       this.dynamicIpv6Address = value;
    }
+   
    @JsonIgnore
    public Encryption getEncryption() {
       return encryption;
@@ -456,6 +484,7 @@ public class Subnet extends RestObject {
    public void setEncryption(Encryption value) { 
       this.encryption = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -465,6 +494,7 @@ public class Subnet extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public EntityState getEntityState() {
       return entityState;
@@ -474,6 +504,7 @@ public class Subnet extends RestObject {
    public void setEntityState(EntityState value) { 
       this.entityState = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -483,6 +514,7 @@ public class Subnet extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getGateway() {
       return gateway;
@@ -492,6 +524,7 @@ public class Subnet extends RestObject {
    public void setGateway(String value) { 
       this.gateway = value;
    }
+   
    @JsonIgnore
    public String getGatewayMACAddress() {
       return gatewayMACAddress;
@@ -501,6 +534,7 @@ public class Subnet extends RestObject {
    public void setGatewayMACAddress(String value) { 
       this.gatewayMACAddress = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -510,6 +544,7 @@ public class Subnet extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public MaintenanceMode getMaintenanceMode() {
       return maintenanceMode;
@@ -519,6 +554,7 @@ public class Subnet extends RestObject {
    public void setMaintenanceMode(MaintenanceMode value) { 
       this.maintenanceMode = value;
    }
+   
    @JsonIgnore
    public Multicast getMulticast() {
       return multicast;
@@ -528,6 +564,7 @@ public class Subnet extends RestObject {
    public void setMulticast(Multicast value) { 
       this.multicast = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -537,6 +574,7 @@ public class Subnet extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getNetmask() {
       return netmask;
@@ -546,6 +584,7 @@ public class Subnet extends RestObject {
    public void setNetmask(String value) { 
       this.netmask = value;
    }
+   
    @JsonIgnore
    public Long getPolicyGroupID() {
       return policyGroupID;
@@ -555,6 +594,7 @@ public class Subnet extends RestObject {
    public void setPolicyGroupID(Long value) { 
       this.policyGroupID = value;
    }
+   
    @JsonIgnore
    public Boolean getProxyARP() {
       return proxyARP;
@@ -564,6 +604,7 @@ public class Subnet extends RestObject {
    public void setProxyARP(Boolean value) { 
       this.proxyARP = value;
    }
+   
    @JsonIgnore
    public Boolean getPublic_() {
       return public_;
@@ -573,6 +614,7 @@ public class Subnet extends RestObject {
    public void setPublic_(Boolean value) { 
       this.public_ = value;
    }
+   
    @JsonIgnore
    public ResourceType getResourceType() {
       return resourceType;
@@ -582,6 +624,7 @@ public class Subnet extends RestObject {
    public void setResourceType(ResourceType value) { 
       this.resourceType = value;
    }
+   
    @JsonIgnore
    public String getRouteDistinguisher() {
       return routeDistinguisher;
@@ -591,6 +634,7 @@ public class Subnet extends RestObject {
    public void setRouteDistinguisher(String value) { 
       this.routeDistinguisher = value;
    }
+   
    @JsonIgnore
    public String getRouteTarget() {
       return routeTarget;
@@ -600,6 +644,7 @@ public class Subnet extends RestObject {
    public void setRouteTarget(String value) { 
       this.routeTarget = value;
    }
+   
    @JsonIgnore
    public Long getServiceID() {
       return serviceID;
@@ -609,6 +654,7 @@ public class Subnet extends RestObject {
    public void setServiceID(Long value) { 
       this.serviceID = value;
    }
+   
    @JsonIgnore
    public Boolean getSplitSubnet() {
       return splitSubnet;
@@ -618,6 +664,7 @@ public class Subnet extends RestObject {
    public void setSplitSubnet(Boolean value) { 
       this.splitSubnet = value;
    }
+   
    @JsonIgnore
    public String getTemplateID() {
       return templateID;
@@ -627,6 +674,7 @@ public class Subnet extends RestObject {
    public void setTemplateID(String value) { 
       this.templateID = value;
    }
+   
    @JsonIgnore
    public Boolean getUnderlay() {
       return underlay;
@@ -636,6 +684,7 @@ public class Subnet extends RestObject {
    public void setUnderlay(Boolean value) { 
       this.underlay = value;
    }
+   
    @JsonIgnore
    public UnderlayEnabled getUnderlayEnabled() {
       return underlayEnabled;
@@ -645,6 +694,7 @@ public class Subnet extends RestObject {
    public void setUnderlayEnabled(UnderlayEnabled value) { 
       this.underlayEnabled = value;
    }
+   
    @JsonIgnore
    public UseGlobalMAC getUseGlobalMAC() {
       return useGlobalMAC;
@@ -654,6 +704,7 @@ public class Subnet extends RestObject {
    public void setUseGlobalMAC(UseGlobalMAC value) { 
       this.useGlobalMAC = value;
    }
+   
    @JsonIgnore
    public Long getVnId() {
       return vnId;

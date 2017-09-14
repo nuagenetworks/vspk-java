@@ -43,7 +43,9 @@ public class OverlayMirrorDestination extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EndPointType { VIRTUAL_WIRE };
+   
    public enum TriggerType { GARP, NONE };
 
    
@@ -78,6 +80,7 @@ public class OverlayMirrorDestination extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getESI() {
       return ESI;
@@ -87,6 +90,7 @@ public class OverlayMirrorDestination extends RestObject {
    public void setESI(String value) { 
       this.ESI = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -96,6 +100,7 @@ public class OverlayMirrorDestination extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public EndPointType getEndPointType() {
       return endPointType;
@@ -105,6 +110,7 @@ public class OverlayMirrorDestination extends RestObject {
    public void setEndPointType(EndPointType value) { 
       this.endPointType = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -114,6 +120,7 @@ public class OverlayMirrorDestination extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public Boolean getRedundancyEnabled() {
       return redundancyEnabled;
@@ -123,6 +130,7 @@ public class OverlayMirrorDestination extends RestObject {
    public void setRedundancyEnabled(Boolean value) { 
       this.redundancyEnabled = value;
    }
+   
    @JsonIgnore
    public String getTemplateID() {
       return templateID;
@@ -132,6 +140,7 @@ public class OverlayMirrorDestination extends RestObject {
    public void setTemplateID(String value) { 
       this.templateID = value;
    }
+   
    @JsonIgnore
    public TriggerType getTriggerType() {
       return triggerType;
@@ -141,6 +150,7 @@ public class OverlayMirrorDestination extends RestObject {
    public void setTriggerType(TriggerType value) { 
       this.triggerType = value;
    }
+   
    @JsonIgnore
    public String getVirtualNetworkID() {
       return virtualNetworkID;

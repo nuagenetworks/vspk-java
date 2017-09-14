@@ -47,10 +47,15 @@ public class RedundantPort extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
+   
    public enum PortType { ACCESS };
+   
    public enum Speed { AUTONEGOTIATE, BASE10, BASET1000, BASETX100, BASEX10G };
+   
    public enum Status { INITIALIZED, MISMATCH, ORPHAN, READY };
 
    
@@ -138,6 +143,7 @@ public class RedundantPort extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Long getMTU() {
       return MTU;
@@ -147,6 +153,7 @@ public class RedundantPort extends RestObject {
    public void setMTU(Long value) { 
       this.MTU = value;
    }
+   
    @JsonIgnore
    public String getVLANRange() {
       return VLANRange;
@@ -156,6 +163,7 @@ public class RedundantPort extends RestObject {
    public void setVLANRange(String value) { 
       this.VLANRange = value;
    }
+   
    @JsonIgnore
    public String getAssociatedEgressQOSPolicyID() {
       return associatedEgressQOSPolicyID;
@@ -165,6 +173,7 @@ public class RedundantPort extends RestObject {
    public void setAssociatedEgressQOSPolicyID(String value) { 
       this.associatedEgressQOSPolicyID = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -174,6 +183,7 @@ public class RedundantPort extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -183,6 +193,7 @@ public class RedundantPort extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -192,6 +203,7 @@ public class RedundantPort extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getInfrastructureProfileID() {
       return infrastructureProfileID;
@@ -201,6 +213,7 @@ public class RedundantPort extends RestObject {
    public void setInfrastructureProfileID(String value) { 
       this.infrastructureProfileID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -210,6 +223,7 @@ public class RedundantPort extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -219,6 +233,7 @@ public class RedundantPort extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public PermittedAction getPermittedAction() {
       return permittedAction;
@@ -228,6 +243,7 @@ public class RedundantPort extends RestObject {
    public void setPermittedAction(PermittedAction value) { 
       this.permittedAction = value;
    }
+   
    @JsonIgnore
    public String getPhysicalName() {
       return physicalName;
@@ -237,6 +253,7 @@ public class RedundantPort extends RestObject {
    public void setPhysicalName(String value) { 
       this.physicalName = value;
    }
+   
    @JsonIgnore
    public String getPortPeer1ID() {
       return portPeer1ID;
@@ -246,6 +263,7 @@ public class RedundantPort extends RestObject {
    public void setPortPeer1ID(String value) { 
       this.portPeer1ID = value;
    }
+   
    @JsonIgnore
    public String getPortPeer2ID() {
       return portPeer2ID;
@@ -255,6 +273,7 @@ public class RedundantPort extends RestObject {
    public void setPortPeer2ID(String value) { 
       this.portPeer2ID = value;
    }
+   
    @JsonIgnore
    public PortType getPortType() {
       return portType;
@@ -264,6 +283,7 @@ public class RedundantPort extends RestObject {
    public void setPortType(PortType value) { 
       this.portType = value;
    }
+   
    @JsonIgnore
    public Speed getSpeed() {
       return speed;
@@ -273,6 +293,7 @@ public class RedundantPort extends RestObject {
    public void setSpeed(Speed value) { 
       this.speed = value;
    }
+   
    @JsonIgnore
    public Status getStatus() {
       return status;
@@ -282,6 +303,7 @@ public class RedundantPort extends RestObject {
    public void setStatus(Status value) { 
       this.status = value;
    }
+   
    @JsonIgnore
    public Boolean getUseUntaggedHeartbeatVlan() {
       return useUntaggedHeartbeatVlan;
@@ -291,6 +313,7 @@ public class RedundantPort extends RestObject {
    public void setUseUntaggedHeartbeatVlan(Boolean value) { 
       this.useUntaggedHeartbeatVlan = value;
    }
+   
    @JsonIgnore
    public Boolean getUseUserMnemonic() {
       return useUserMnemonic;
@@ -300,6 +323,7 @@ public class RedundantPort extends RestObject {
    public void setUseUserMnemonic(Boolean value) { 
       this.useUserMnemonic = value;
    }
+   
    @JsonIgnore
    public String getUserMnemonic() {
       return userMnemonic;

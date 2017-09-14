@@ -43,6 +43,7 @@ public class VNFInterface extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum AttachedNetworkType { L2DOMAIN, SUBNET };
 
    
@@ -104,6 +105,7 @@ public class VNFInterface extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getIPAddress() {
       return IPAddress;
@@ -113,6 +115,7 @@ public class VNFInterface extends RestObject {
    public void setIPAddress(String value) { 
       this.IPAddress = value;
    }
+   
    @JsonIgnore
    public String getMAC() {
       return MAC;
@@ -122,6 +125,7 @@ public class VNFInterface extends RestObject {
    public void setMAC(String value) { 
       this.MAC = value;
    }
+   
    @JsonIgnore
    public String getVNFUUID() {
       return VNFUUID;
@@ -131,6 +135,7 @@ public class VNFInterface extends RestObject {
    public void setVNFUUID(String value) { 
       this.VNFUUID = value;
    }
+   
    @JsonIgnore
    public String getVPortID() {
       return VPortID;
@@ -140,6 +145,7 @@ public class VNFInterface extends RestObject {
    public void setVPortID(String value) { 
       this.VPortID = value;
    }
+   
    @JsonIgnore
    public String getVPortName() {
       return VPortName;
@@ -149,6 +155,7 @@ public class VNFInterface extends RestObject {
    public void setVPortName(String value) { 
       this.VPortName = value;
    }
+   
    @JsonIgnore
    public String getAttachedNetworkID() {
       return attachedNetworkID;
@@ -158,6 +165,7 @@ public class VNFInterface extends RestObject {
    public void setAttachedNetworkID(String value) { 
       this.attachedNetworkID = value;
    }
+   
    @JsonIgnore
    public AttachedNetworkType getAttachedNetworkType() {
       return attachedNetworkType;
@@ -167,6 +175,7 @@ public class VNFInterface extends RestObject {
    public void setAttachedNetworkType(AttachedNetworkType value) { 
       this.attachedNetworkType = value;
    }
+   
    @JsonIgnore
    public String getDomainID() {
       return domainID;
@@ -176,6 +185,7 @@ public class VNFInterface extends RestObject {
    public void setDomainID(String value) { 
       this.domainID = value;
    }
+   
    @JsonIgnore
    public String getDomainName() {
       return domainName;
@@ -185,6 +195,7 @@ public class VNFInterface extends RestObject {
    public void setDomainName(String value) { 
       this.domainName = value;
    }
+   
    @JsonIgnore
    public String getGateway() {
       return gateway;
@@ -194,6 +205,7 @@ public class VNFInterface extends RestObject {
    public void setGateway(String value) { 
       this.gateway = value;
    }
+   
    @JsonIgnore
    public String getIsManagementInterface() {
       return isManagementInterface;
@@ -203,6 +215,7 @@ public class VNFInterface extends RestObject {
    public void setIsManagementInterface(String value) { 
       this.isManagementInterface = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -212,6 +225,7 @@ public class VNFInterface extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getNetmask() {
       return netmask;
@@ -221,6 +235,7 @@ public class VNFInterface extends RestObject {
    public void setNetmask(String value) { 
       this.netmask = value;
    }
+   
    @JsonIgnore
    public String getNetworkName() {
       return networkName;
@@ -230,6 +245,7 @@ public class VNFInterface extends RestObject {
    public void setNetworkName(String value) { 
       this.networkName = value;
    }
+   
    @JsonIgnore
    public String getPolicyDecisionID() {
       return policyDecisionID;
@@ -239,6 +255,7 @@ public class VNFInterface extends RestObject {
    public void setPolicyDecisionID(String value) { 
       this.policyDecisionID = value;
    }
+   
    @JsonIgnore
    public String getZoneID() {
       return zoneID;
@@ -248,6 +265,7 @@ public class VNFInterface extends RestObject {
    public void setZoneID(String value) { 
       this.zoneID = value;
    }
+   
    @JsonIgnore
    public String getZoneName() {
       return zoneName;

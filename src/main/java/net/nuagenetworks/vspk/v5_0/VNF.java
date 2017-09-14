@@ -46,8 +46,11 @@ public class VNF extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum AllowedActions { DEPLOY, REDEPLOY, RESTART, START, STOP, UNDEPLOY };
+   
    public enum Status { BLOCKED, CRASHED, DYING, IDLE, INIT, LAST, PAUSED, PMSUSPENDED, RUNNING, SHUTDOWN, SHUTOFF };
+   
    public enum TaskState { DEPLOYING, NONE, STARTING, STOPPING, UNDEPLOYING };
 
    
@@ -130,6 +133,7 @@ public class VNF extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Long getCPUCount() {
       return CPUCount;
@@ -139,6 +143,7 @@ public class VNF extends RestObject {
    public void setCPUCount(Long value) { 
       this.CPUCount = value;
    }
+   
    @JsonIgnore
    public String getNSGName() {
       return NSGName;
@@ -148,6 +153,7 @@ public class VNF extends RestObject {
    public void setNSGName(String value) { 
       this.NSGName = value;
    }
+   
    @JsonIgnore
    public String getNSGSystemID() {
       return NSGSystemID;
@@ -157,6 +163,7 @@ public class VNF extends RestObject {
    public void setNSGSystemID(String value) { 
       this.NSGSystemID = value;
    }
+   
    @JsonIgnore
    public String getNSGatewayID() {
       return NSGatewayID;
@@ -166,6 +173,7 @@ public class VNF extends RestObject {
    public void setNSGatewayID(String value) { 
       this.NSGatewayID = value;
    }
+   
    @JsonIgnore
    public String getVNFDescriptorID() {
       return VNFDescriptorID;
@@ -175,6 +183,7 @@ public class VNF extends RestObject {
    public void setVNFDescriptorID(String value) { 
       this.VNFDescriptorID = value;
    }
+   
    @JsonIgnore
    public String getVNFDescriptorName() {
       return VNFDescriptorName;
@@ -184,6 +193,7 @@ public class VNF extends RestObject {
    public void setVNFDescriptorName(String value) { 
       this.VNFDescriptorName = value;
    }
+   
    @JsonIgnore
    public AllowedActions getAllowedActions() {
       return allowedActions;
@@ -193,6 +203,7 @@ public class VNF extends RestObject {
    public void setAllowedActions(AllowedActions value) { 
       this.allowedActions = value;
    }
+   
    @JsonIgnore
    public String getAssociatedVNFMetadataID() {
       return associatedVNFMetadataID;
@@ -202,6 +213,7 @@ public class VNF extends RestObject {
    public void setAssociatedVNFMetadataID(String value) { 
       this.associatedVNFMetadataID = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -211,6 +223,7 @@ public class VNF extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getEnterpriseID() {
       return enterpriseID;
@@ -220,6 +233,7 @@ public class VNF extends RestObject {
    public void setEnterpriseID(String value) { 
       this.enterpriseID = value;
    }
+   
    @JsonIgnore
    public Boolean getIsAttachedToDescriptor() {
       return isAttachedToDescriptor;
@@ -229,6 +243,7 @@ public class VNF extends RestObject {
    public void setIsAttachedToDescriptor(Boolean value) { 
       this.isAttachedToDescriptor = value;
    }
+   
    @JsonIgnore
    public String getLastKnownError() {
       return lastKnownError;
@@ -238,6 +253,7 @@ public class VNF extends RestObject {
    public void setLastKnownError(String value) { 
       this.lastKnownError = value;
    }
+   
    @JsonIgnore
    public Long getMemoryMB() {
       return memoryMB;
@@ -247,6 +263,7 @@ public class VNF extends RestObject {
    public void setMemoryMB(Long value) { 
       this.memoryMB = value;
    }
+   
    @JsonIgnore
    public String getMetadataID() {
       return metadataID;
@@ -256,6 +273,7 @@ public class VNF extends RestObject {
    public void setMetadataID(String value) { 
       this.metadataID = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -265,6 +283,7 @@ public class VNF extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public Status getStatus() {
       return status;
@@ -274,6 +293,7 @@ public class VNF extends RestObject {
    public void setStatus(Status value) { 
       this.status = value;
    }
+   
    @JsonIgnore
    public Long getStorageGB() {
       return storageGB;
@@ -283,6 +303,7 @@ public class VNF extends RestObject {
    public void setStorageGB(Long value) { 
       this.storageGB = value;
    }
+   
    @JsonIgnore
    public TaskState getTaskState() {
       return taskState;
@@ -292,6 +313,7 @@ public class VNF extends RestObject {
    public void setTaskState(TaskState value) { 
       this.taskState = value;
    }
+   
    @JsonIgnore
    public String getVendor() {
       return vendor;

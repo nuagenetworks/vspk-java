@@ -46,9 +46,13 @@ public class NSGatewayTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum SSHService { DISABLED, ENABLED };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum InstanceSSHOverride { ALLOWED, DISALLOWED };
+   
    public enum Personality { NSG, NSGBR, NSGDUC };
 
    
@@ -107,6 +111,7 @@ public class NSGatewayTemplate extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public SSHService getSSHService() {
       return SSHService;
@@ -116,6 +121,7 @@ public class NSGatewayTemplate extends RestObject {
    public void setSSHService(SSHService value) { 
       this.SSHService = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -125,6 +131,7 @@ public class NSGatewayTemplate extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getEnterpriseID() {
       return enterpriseID;
@@ -134,6 +141,7 @@ public class NSGatewayTemplate extends RestObject {
    public void setEnterpriseID(String value) { 
       this.enterpriseID = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -143,6 +151,7 @@ public class NSGatewayTemplate extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -152,6 +161,7 @@ public class NSGatewayTemplate extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getInfrastructureAccessProfileID() {
       return infrastructureAccessProfileID;
@@ -161,6 +171,7 @@ public class NSGatewayTemplate extends RestObject {
    public void setInfrastructureAccessProfileID(String value) { 
       this.infrastructureAccessProfileID = value;
    }
+   
    @JsonIgnore
    public String getInfrastructureProfileID() {
       return infrastructureProfileID;
@@ -170,6 +181,7 @@ public class NSGatewayTemplate extends RestObject {
    public void setInfrastructureProfileID(String value) { 
       this.infrastructureProfileID = value;
    }
+   
    @JsonIgnore
    public InstanceSSHOverride getInstanceSSHOverride() {
       return instanceSSHOverride;
@@ -179,6 +191,7 @@ public class NSGatewayTemplate extends RestObject {
    public void setInstanceSSHOverride(InstanceSSHOverride value) { 
       this.instanceSSHOverride = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -188,6 +201,7 @@ public class NSGatewayTemplate extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -197,6 +211,7 @@ public class NSGatewayTemplate extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public Personality getPersonality() {
       return personality;

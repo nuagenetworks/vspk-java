@@ -55,9 +55,13 @@ public class VLAN extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
+   
    public enum Status { INITIALIZED, MISMATCH, ORPHAN, READY };
+   
    public enum Type { ACCESS, BR, DUC, UPLINK };
 
    
@@ -191,6 +195,7 @@ public class VLAN extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAssociatedBGPProfileID() {
       return associatedBGPProfileID;
@@ -200,6 +205,7 @@ public class VLAN extends RestObject {
    public void setAssociatedBGPProfileID(String value) { 
       this.associatedBGPProfileID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedEgressQOSPolicyID() {
       return associatedEgressQOSPolicyID;
@@ -209,6 +215,7 @@ public class VLAN extends RestObject {
    public void setAssociatedEgressQOSPolicyID(String value) { 
       this.associatedEgressQOSPolicyID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedIngressQOSPolicyID() {
       return associatedIngressQOSPolicyID;
@@ -218,6 +225,7 @@ public class VLAN extends RestObject {
    public void setAssociatedIngressQOSPolicyID(String value) { 
       this.associatedIngressQOSPolicyID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedUplinkConnectionID() {
       return associatedUplinkConnectionID;
@@ -227,6 +235,7 @@ public class VLAN extends RestObject {
    public void setAssociatedUplinkConnectionID(String value) { 
       this.associatedUplinkConnectionID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedVSCProfileID() {
       return associatedVSCProfileID;
@@ -236,6 +245,7 @@ public class VLAN extends RestObject {
    public void setAssociatedVSCProfileID(String value) { 
       this.associatedVSCProfileID = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -245,6 +255,7 @@ public class VLAN extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public Boolean getDucVlan() {
       return ducVlan;
@@ -254,6 +265,7 @@ public class VLAN extends RestObject {
    public void setDucVlan(Boolean value) { 
       this.ducVlan = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -263,6 +275,7 @@ public class VLAN extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -272,6 +285,7 @@ public class VLAN extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getGatewayID() {
       return gatewayID;
@@ -281,6 +295,7 @@ public class VLAN extends RestObject {
    public void setGatewayID(String value) { 
       this.gatewayID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -290,6 +305,7 @@ public class VLAN extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public PermittedAction getPermittedAction() {
       return permittedAction;
@@ -299,6 +315,7 @@ public class VLAN extends RestObject {
    public void setPermittedAction(PermittedAction value) { 
       this.permittedAction = value;
    }
+   
    @JsonIgnore
    public Boolean getReadonly() {
       return readonly;
@@ -308,6 +325,7 @@ public class VLAN extends RestObject {
    public void setReadonly(Boolean value) { 
       this.readonly = value;
    }
+   
    @JsonIgnore
    public Boolean getRestricted() {
       return restricted;
@@ -317,6 +335,7 @@ public class VLAN extends RestObject {
    public void setRestricted(Boolean value) { 
       this.restricted = value;
    }
+   
    @JsonIgnore
    public Status getStatus() {
       return status;
@@ -326,6 +345,7 @@ public class VLAN extends RestObject {
    public void setStatus(Status value) { 
       this.status = value;
    }
+   
    @JsonIgnore
    public String getTemplateID() {
       return templateID;
@@ -335,6 +355,7 @@ public class VLAN extends RestObject {
    public void setTemplateID(String value) { 
       this.templateID = value;
    }
+   
    @JsonIgnore
    public Type getType() {
       return type;
@@ -344,6 +365,7 @@ public class VLAN extends RestObject {
    public void setType(Type value) { 
       this.type = value;
    }
+   
    @JsonIgnore
    public Boolean getUseUserMnemonic() {
       return useUserMnemonic;
@@ -353,6 +375,7 @@ public class VLAN extends RestObject {
    public void setUseUserMnemonic(Boolean value) { 
       this.useUserMnemonic = value;
    }
+   
    @JsonIgnore
    public String getUserMnemonic() {
       return userMnemonic;
@@ -362,6 +385,7 @@ public class VLAN extends RestObject {
    public void setUserMnemonic(String value) { 
       this.userMnemonic = value;
    }
+   
    @JsonIgnore
    public Long getValue() {
       return value;
@@ -371,6 +395,7 @@ public class VLAN extends RestObject {
    public void setValue(Long value) { 
       this.value = value;
    }
+   
    @JsonIgnore
    public String getVportID() {
       return vportID;

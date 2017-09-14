@@ -79,6 +79,7 @@ public class BulkStatistics extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public java.util.List<com.fasterxml.jackson.databind.JsonNode> getData() {
       return data;
@@ -88,6 +89,7 @@ public class BulkStatistics extends RestObject {
    public void setData(java.util.List<com.fasterxml.jackson.databind.JsonNode> value) { 
       this.data = value;
    }
+   
    @JsonIgnore
    public Long getEndTime() {
       return endTime;
@@ -97,6 +99,7 @@ public class BulkStatistics extends RestObject {
    public void setEndTime(Long value) { 
       this.endTime = value;
    }
+   
    @JsonIgnore
    public Long getNumberOfDataPoints() {
       return numberOfDataPoints;
@@ -106,6 +109,7 @@ public class BulkStatistics extends RestObject {
    public void setNumberOfDataPoints(Long value) { 
       this.numberOfDataPoints = value;
    }
+   
    @JsonIgnore
    public Long getStartTime() {
       return startTime;
@@ -115,6 +119,7 @@ public class BulkStatistics extends RestObject {
    public void setStartTime(Long value) { 
       this.startTime = value;
    }
+   
    @JsonIgnore
    public Long getVersion() {
       return version;

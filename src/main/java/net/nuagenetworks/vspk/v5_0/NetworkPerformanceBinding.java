@@ -61,6 +61,7 @@ public class NetworkPerformanceBinding extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAssociatedNetworkMeasurementID() {
       return associatedNetworkMeasurementID;
@@ -70,6 +71,7 @@ public class NetworkPerformanceBinding extends RestObject {
    public void setAssociatedNetworkMeasurementID(String value) { 
       this.associatedNetworkMeasurementID = value;
    }
+   
    @JsonIgnore
    public Long getPriority() {
       return priority;
@@ -79,6 +81,7 @@ public class NetworkPerformanceBinding extends RestObject {
    public void setPriority(Long value) { 
       this.priority = value;
    }
+   
    @JsonIgnore
    public Boolean getReadOnly() {
       return readOnly;

@@ -47,6 +47,7 @@ public class FloatingIp extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -101,6 +102,7 @@ public class FloatingIp extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Boolean getAccessControl() {
       return accessControl;
@@ -110,6 +112,7 @@ public class FloatingIp extends RestObject {
    public void setAccessControl(Boolean value) { 
       this.accessControl = value;
    }
+   
    @JsonIgnore
    public String getAddress() {
       return address;
@@ -119,6 +122,7 @@ public class FloatingIp extends RestObject {
    public void setAddress(String value) { 
       this.address = value;
    }
+   
    @JsonIgnore
    public Boolean getAssigned() {
       return assigned;
@@ -128,6 +132,7 @@ public class FloatingIp extends RestObject {
    public void setAssigned(Boolean value) { 
       this.assigned = value;
    }
+   
    @JsonIgnore
    public String getAssignedToObjectType() {
       return assignedToObjectType;
@@ -137,6 +142,7 @@ public class FloatingIp extends RestObject {
    public void setAssignedToObjectType(String value) { 
       this.assignedToObjectType = value;
    }
+   
    @JsonIgnore
    public String getAssociatedSharedNetworkResourceID() {
       return associatedSharedNetworkResourceID;
@@ -146,6 +152,7 @@ public class FloatingIp extends RestObject {
    public void setAssociatedSharedNetworkResourceID(String value) { 
       this.associatedSharedNetworkResourceID = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -155,6 +162,7 @@ public class FloatingIp extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -164,6 +172,7 @@ public class FloatingIp extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;

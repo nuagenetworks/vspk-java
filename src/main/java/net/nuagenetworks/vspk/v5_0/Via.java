@@ -55,6 +55,7 @@ public class Via extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public java.util.List<String> getNextHops() {
       return nextHops;

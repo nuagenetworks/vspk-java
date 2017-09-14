@@ -45,6 +45,7 @@ public class BGPNeighbor extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -95,6 +96,7 @@ public class BGPNeighbor extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAssociatedExportRoutingPolicyID() {
       return associatedExportRoutingPolicyID;
@@ -104,6 +106,7 @@ public class BGPNeighbor extends RestObject {
    public void setAssociatedExportRoutingPolicyID(String value) { 
       this.associatedExportRoutingPolicyID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedImportRoutingPolicyID() {
       return associatedImportRoutingPolicyID;
@@ -113,6 +116,7 @@ public class BGPNeighbor extends RestObject {
    public void setAssociatedImportRoutingPolicyID(String value) { 
       this.associatedImportRoutingPolicyID = value;
    }
+   
    @JsonIgnore
    public Boolean getDampeningEnabled() {
       return dampeningEnabled;
@@ -122,6 +126,7 @@ public class BGPNeighbor extends RestObject {
    public void setDampeningEnabled(Boolean value) { 
       this.dampeningEnabled = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -131,6 +136,7 @@ public class BGPNeighbor extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -140,6 +146,7 @@ public class BGPNeighbor extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -149,6 +156,7 @@ public class BGPNeighbor extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -158,6 +166,7 @@ public class BGPNeighbor extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public Long getPeerAS() {
       return peerAS;
@@ -167,6 +176,7 @@ public class BGPNeighbor extends RestObject {
    public void setPeerAS(Long value) { 
       this.peerAS = value;
    }
+   
    @JsonIgnore
    public String getPeerIP() {
       return peerIP;
@@ -176,6 +186,7 @@ public class BGPNeighbor extends RestObject {
    public void setPeerIP(String value) { 
       this.peerIP = value;
    }
+   
    @JsonIgnore
    public String getSession() {
       return session;

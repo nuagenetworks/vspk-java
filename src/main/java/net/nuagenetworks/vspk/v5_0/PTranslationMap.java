@@ -43,6 +43,7 @@ public class PTranslationMap extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum MappingType { NAT, PAT };
 
    
@@ -65,6 +66,7 @@ public class PTranslationMap extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public java.util.List<String> getSPATSourceList() {
       return SPATSourceList;
@@ -74,6 +76,7 @@ public class PTranslationMap extends RestObject {
    public void setSPATSourceList(java.util.List<String> value) { 
       this.SPATSourceList = value;
    }
+   
    @JsonIgnore
    public MappingType getMappingType() {
       return mappingType;
@@ -83,6 +86,7 @@ public class PTranslationMap extends RestObject {
    public void setMappingType(MappingType value) { 
       this.mappingType = value;
    }
+   
    @JsonIgnore
    public String getProviderAliasIP() {
       return providerAliasIP;
@@ -92,6 +96,7 @@ public class PTranslationMap extends RestObject {
    public void setProviderAliasIP(String value) { 
       this.providerAliasIP = value;
    }
+   
    @JsonIgnore
    public String getProviderIP() {
       return providerIP;

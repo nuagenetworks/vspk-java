@@ -49,9 +49,13 @@ public class NSRedundantGatewayGroup extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
+   
    public enum Personality { DC7X50, HARDWARE_VTEP, NSG, OTHER, VRSG, VSA, VSG };
+   
    public enum RedundantGatewayStatus { FAILED, SUCCESS };
 
    
@@ -149,6 +153,7 @@ public class NSRedundantGatewayGroup extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Long getConsecutiveFailuresCount() {
       return consecutiveFailuresCount;
@@ -158,6 +163,7 @@ public class NSRedundantGatewayGroup extends RestObject {
    public void setConsecutiveFailuresCount(Long value) { 
       this.consecutiveFailuresCount = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -167,6 +173,7 @@ public class NSRedundantGatewayGroup extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getEnterpriseID() {
       return enterpriseID;
@@ -176,6 +183,7 @@ public class NSRedundantGatewayGroup extends RestObject {
    public void setEnterpriseID(String value) { 
       this.enterpriseID = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -185,6 +193,7 @@ public class NSRedundantGatewayGroup extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -194,6 +203,7 @@ public class NSRedundantGatewayGroup extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getGatewayPeer1AutodiscoveredGatewayID() {
       return gatewayPeer1AutodiscoveredGatewayID;
@@ -203,6 +213,7 @@ public class NSRedundantGatewayGroup extends RestObject {
    public void setGatewayPeer1AutodiscoveredGatewayID(String value) { 
       this.gatewayPeer1AutodiscoveredGatewayID = value;
    }
+   
    @JsonIgnore
    public String getGatewayPeer1ID() {
       return gatewayPeer1ID;
@@ -212,6 +223,7 @@ public class NSRedundantGatewayGroup extends RestObject {
    public void setGatewayPeer1ID(String value) { 
       this.gatewayPeer1ID = value;
    }
+   
    @JsonIgnore
    public String getGatewayPeer1Name() {
       return gatewayPeer1Name;
@@ -221,6 +233,7 @@ public class NSRedundantGatewayGroup extends RestObject {
    public void setGatewayPeer1Name(String value) { 
       this.gatewayPeer1Name = value;
    }
+   
    @JsonIgnore
    public String getGatewayPeer2AutodiscoveredGatewayID() {
       return gatewayPeer2AutodiscoveredGatewayID;
@@ -230,6 +243,7 @@ public class NSRedundantGatewayGroup extends RestObject {
    public void setGatewayPeer2AutodiscoveredGatewayID(String value) { 
       this.gatewayPeer2AutodiscoveredGatewayID = value;
    }
+   
    @JsonIgnore
    public String getGatewayPeer2ID() {
       return gatewayPeer2ID;
@@ -239,6 +253,7 @@ public class NSRedundantGatewayGroup extends RestObject {
    public void setGatewayPeer2ID(String value) { 
       this.gatewayPeer2ID = value;
    }
+   
    @JsonIgnore
    public String getGatewayPeer2Name() {
       return gatewayPeer2Name;
@@ -248,6 +263,7 @@ public class NSRedundantGatewayGroup extends RestObject {
    public void setGatewayPeer2Name(String value) { 
       this.gatewayPeer2Name = value;
    }
+   
    @JsonIgnore
    public Long getHeartbeatInterval() {
       return heartbeatInterval;
@@ -257,6 +273,7 @@ public class NSRedundantGatewayGroup extends RestObject {
    public void setHeartbeatInterval(Long value) { 
       this.heartbeatInterval = value;
    }
+   
    @JsonIgnore
    public Long getHeartbeatVLANID() {
       return heartbeatVLANID;
@@ -266,6 +283,7 @@ public class NSRedundantGatewayGroup extends RestObject {
    public void setHeartbeatVLANID(Long value) { 
       this.heartbeatVLANID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -275,6 +293,7 @@ public class NSRedundantGatewayGroup extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -284,6 +303,7 @@ public class NSRedundantGatewayGroup extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public PermittedAction getPermittedAction() {
       return permittedAction;
@@ -293,6 +313,7 @@ public class NSRedundantGatewayGroup extends RestObject {
    public void setPermittedAction(PermittedAction value) { 
       this.permittedAction = value;
    }
+   
    @JsonIgnore
    public Personality getPersonality() {
       return personality;
@@ -302,6 +323,7 @@ public class NSRedundantGatewayGroup extends RestObject {
    public void setPersonality(Personality value) { 
       this.personality = value;
    }
+   
    @JsonIgnore
    public java.util.List<String> getRedundancyPortIDs() {
       return redundancyPortIDs;
@@ -311,6 +333,7 @@ public class NSRedundantGatewayGroup extends RestObject {
    public void setRedundancyPortIDs(java.util.List<String> value) { 
       this.redundancyPortIDs = value;
    }
+   
    @JsonIgnore
    public RedundantGatewayStatus getRedundantGatewayStatus() {
       return redundantGatewayStatus;

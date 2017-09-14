@@ -43,6 +43,7 @@ public class CTranslationMap extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum MappingType { NAT, PAT };
 
    
@@ -62,6 +63,7 @@ public class CTranslationMap extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getCustomerAliasIP() {
       return customerAliasIP;
@@ -71,6 +73,7 @@ public class CTranslationMap extends RestObject {
    public void setCustomerAliasIP(String value) { 
       this.customerAliasIP = value;
    }
+   
    @JsonIgnore
    public String getCustomerIP() {
       return customerIP;
@@ -80,6 +83,7 @@ public class CTranslationMap extends RestObject {
    public void setCustomerIP(String value) { 
       this.customerIP = value;
    }
+   
    @JsonIgnore
    public MappingType getMappingType() {
       return mappingType;

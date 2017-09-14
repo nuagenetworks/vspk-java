@@ -43,7 +43,9 @@ public class Connectionendpoint extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum IPType { IPV4 };
+   
    public enum EndPointType { SOURCE };
 
    
@@ -69,6 +71,7 @@ public class Connectionendpoint extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getIPAddress() {
       return IPAddress;
@@ -78,6 +81,7 @@ public class Connectionendpoint extends RestObject {
    public void setIPAddress(String value) { 
       this.IPAddress = value;
    }
+   
    @JsonIgnore
    public IPType getIPType() {
       return IPType;
@@ -87,6 +91,7 @@ public class Connectionendpoint extends RestObject {
    public void setIPType(IPType value) { 
       this.IPType = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -96,6 +101,7 @@ public class Connectionendpoint extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public EndPointType getEndPointType() {
       return endPointType;
@@ -105,6 +111,7 @@ public class Connectionendpoint extends RestObject {
    public void setEndPointType(EndPointType value) { 
       this.endPointType = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;

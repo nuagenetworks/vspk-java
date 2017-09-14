@@ -46,7 +46,9 @@ public class MultiCastList extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum McastType { RECEIVE, SEND };
 
    
@@ -84,6 +86,7 @@ public class MultiCastList extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -93,6 +96,7 @@ public class MultiCastList extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -102,6 +106,7 @@ public class MultiCastList extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -111,6 +116,7 @@ public class MultiCastList extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public McastType getMcastType() {
       return mcastType;

@@ -43,6 +43,7 @@ public class SPATSourcesPool extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum Family { IPV4 };
 
    
@@ -62,6 +63,7 @@ public class SPATSourcesPool extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public java.util.List<String> getAddressList() {
       return addressList;
@@ -71,6 +73,7 @@ public class SPATSourcesPool extends RestObject {
    public void setAddressList(java.util.List<String> value) { 
       this.addressList = value;
    }
+   
    @JsonIgnore
    public Family getFamily() {
       return family;
@@ -80,6 +83,7 @@ public class SPATSourcesPool extends RestObject {
    public void setFamily(Family value) { 
       this.family = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;

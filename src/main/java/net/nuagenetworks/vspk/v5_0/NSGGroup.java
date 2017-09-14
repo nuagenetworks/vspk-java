@@ -70,6 +70,7 @@ public class NSGGroup extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -79,6 +80,7 @@ public class NSGGroup extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;

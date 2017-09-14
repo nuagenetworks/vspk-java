@@ -46,6 +46,7 @@ public class PolicyDecision extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -104,6 +105,7 @@ public class PolicyDecision extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public java.util.List<com.fasterxml.jackson.databind.JsonNode> getEgressACLs() {
       return egressACLs;
@@ -113,6 +115,7 @@ public class PolicyDecision extends RestObject {
    public void setEgressACLs(java.util.List<com.fasterxml.jackson.databind.JsonNode> value) { 
       this.egressACLs = value;
    }
+   
    @JsonIgnore
    public Object getEgressQos() {
       return egressQos;
@@ -122,6 +125,7 @@ public class PolicyDecision extends RestObject {
    public void setEgressQos(Object value) { 
       this.egressQos = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -131,6 +135,7 @@ public class PolicyDecision extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -140,6 +145,7 @@ public class PolicyDecision extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public java.util.List<com.fasterxml.jackson.databind.JsonNode> getFipACLs() {
       return fipACLs;
@@ -149,6 +155,7 @@ public class PolicyDecision extends RestObject {
    public void setFipACLs(java.util.List<com.fasterxml.jackson.databind.JsonNode> value) { 
       this.fipACLs = value;
    }
+   
    @JsonIgnore
    public java.util.List<com.fasterxml.jackson.databind.JsonNode> getIngressACLs() {
       return ingressACLs;
@@ -158,6 +165,7 @@ public class PolicyDecision extends RestObject {
    public void setIngressACLs(java.util.List<com.fasterxml.jackson.databind.JsonNode> value) { 
       this.ingressACLs = value;
    }
+   
    @JsonIgnore
    public java.util.List<com.fasterxml.jackson.databind.JsonNode> getIngressAdvFwd() {
       return ingressAdvFwd;
@@ -167,6 +175,7 @@ public class PolicyDecision extends RestObject {
    public void setIngressAdvFwd(java.util.List<com.fasterxml.jackson.databind.JsonNode> value) { 
       this.ingressAdvFwd = value;
    }
+   
    @JsonIgnore
    public java.util.List<com.fasterxml.jackson.databind.JsonNode> getIngressExternalServiceACLs() {
       return ingressExternalServiceACLs;
@@ -176,6 +185,7 @@ public class PolicyDecision extends RestObject {
    public void setIngressExternalServiceACLs(java.util.List<com.fasterxml.jackson.databind.JsonNode> value) { 
       this.ingressExternalServiceACLs = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -185,6 +195,7 @@ public class PolicyDecision extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public Object getQos() {
       return qos;
@@ -194,6 +205,7 @@ public class PolicyDecision extends RestObject {
    public void setQos(Object value) { 
       this.qos = value;
    }
+   
    @JsonIgnore
    public StatisticsPolicy getStats() {
       return stats;

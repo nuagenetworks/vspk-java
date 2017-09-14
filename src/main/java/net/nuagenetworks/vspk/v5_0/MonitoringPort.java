@@ -45,8 +45,11 @@ public class MonitoringPort extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum ResiliencyState { backup, master, none };
+   
    public enum State { ADMIN_DOWN, DOWN, UP };
 
    
@@ -97,6 +100,7 @@ public class MonitoringPort extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Boolean getAccess() {
       return access;
@@ -106,6 +110,7 @@ public class MonitoringPort extends RestObject {
    public void setAccess(Boolean value) { 
       this.access = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -115,6 +120,7 @@ public class MonitoringPort extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -124,6 +130,7 @@ public class MonitoringPort extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -133,6 +140,7 @@ public class MonitoringPort extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public Long getLastStateChange() {
       return lastStateChange;
@@ -142,6 +150,7 @@ public class MonitoringPort extends RestObject {
    public void setLastStateChange(Long value) { 
       this.lastStateChange = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -151,6 +160,7 @@ public class MonitoringPort extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public ResiliencyState getResiliencyState() {
       return resiliencyState;
@@ -160,6 +170,7 @@ public class MonitoringPort extends RestObject {
    public void setResiliencyState(ResiliencyState value) { 
       this.resiliencyState = value;
    }
+   
    @JsonIgnore
    public Boolean getResilient() {
       return resilient;
@@ -169,6 +180,7 @@ public class MonitoringPort extends RestObject {
    public void setResilient(Boolean value) { 
       this.resilient = value;
    }
+   
    @JsonIgnore
    public State getState() {
       return state;
@@ -178,6 +190,7 @@ public class MonitoringPort extends RestObject {
    public void setState(State value) { 
       this.state = value;
    }
+   
    @JsonIgnore
    public Boolean getUplink() {
       return uplink;

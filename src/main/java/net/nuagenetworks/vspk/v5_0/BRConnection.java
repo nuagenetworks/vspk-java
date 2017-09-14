@@ -44,7 +44,9 @@ public class BRConnection extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum AdvertisementCriteria { BFD, LINK_BASED, OPENFLOW };
+   
    public enum Mode { Static };
 
    
@@ -81,6 +83,7 @@ public class BRConnection extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getDNSAddress() {
       return DNSAddress;
@@ -90,6 +93,7 @@ public class BRConnection extends RestObject {
    public void setDNSAddress(String value) { 
       this.DNSAddress = value;
    }
+   
    @JsonIgnore
    public String getAddress() {
       return address;
@@ -99,6 +103,7 @@ public class BRConnection extends RestObject {
    public void setAddress(String value) { 
       this.address = value;
    }
+   
    @JsonIgnore
    public AdvertisementCriteria getAdvertisementCriteria() {
       return advertisementCriteria;
@@ -108,6 +113,7 @@ public class BRConnection extends RestObject {
    public void setAdvertisementCriteria(AdvertisementCriteria value) { 
       this.advertisementCriteria = value;
    }
+   
    @JsonIgnore
    public String getGateway() {
       return gateway;
@@ -117,6 +123,7 @@ public class BRConnection extends RestObject {
    public void setGateway(String value) { 
       this.gateway = value;
    }
+   
    @JsonIgnore
    public Mode getMode() {
       return mode;
@@ -126,6 +133,7 @@ public class BRConnection extends RestObject {
    public void setMode(Mode value) { 
       this.mode = value;
    }
+   
    @JsonIgnore
    public String getNetmask() {
       return netmask;
@@ -135,6 +143,7 @@ public class BRConnection extends RestObject {
    public void setNetmask(String value) { 
       this.netmask = value;
    }
+   
    @JsonIgnore
    public Long getUplinkID() {
       return uplinkID;

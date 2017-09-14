@@ -45,6 +45,7 @@ public class IKECertificate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -101,6 +102,7 @@ public class IKECertificate extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getPEMEncoded() {
       return PEMEncoded;
@@ -110,6 +112,7 @@ public class IKECertificate extends RestObject {
    public void setPEMEncoded(String value) { 
       this.PEMEncoded = value;
    }
+   
    @JsonIgnore
    public String getAssociatedEnterpriseID() {
       return associatedEnterpriseID;
@@ -119,6 +122,7 @@ public class IKECertificate extends RestObject {
    public void setAssociatedEnterpriseID(String value) { 
       this.associatedEnterpriseID = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -128,6 +132,7 @@ public class IKECertificate extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -137,6 +142,7 @@ public class IKECertificate extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -146,6 +152,7 @@ public class IKECertificate extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getIssuerDN() {
       return issuerDN;
@@ -155,6 +162,7 @@ public class IKECertificate extends RestObject {
    public void setIssuerDN(String value) { 
       this.issuerDN = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -164,6 +172,7 @@ public class IKECertificate extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -173,6 +182,7 @@ public class IKECertificate extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public Float getNotAfter() {
       return notAfter;
@@ -182,6 +192,7 @@ public class IKECertificate extends RestObject {
    public void setNotAfter(Float value) { 
       this.notAfter = value;
    }
+   
    @JsonIgnore
    public Float getNotBefore() {
       return notBefore;
@@ -191,6 +202,7 @@ public class IKECertificate extends RestObject {
    public void setNotBefore(Float value) { 
       this.notBefore = value;
    }
+   
    @JsonIgnore
    public Long getSerialNumber() {
       return serialNumber;
@@ -200,6 +212,7 @@ public class IKECertificate extends RestObject {
    public void setSerialNumber(Long value) { 
       this.serialNumber = value;
    }
+   
    @JsonIgnore
    public String getSubjectDN() {
       return subjectDN;

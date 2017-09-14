@@ -46,6 +46,7 @@ public class IPReservation extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -89,6 +90,7 @@ public class IPReservation extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getIPAddress() {
       return IPAddress;
@@ -98,6 +100,7 @@ public class IPReservation extends RestObject {
    public void setIPAddress(String value) { 
       this.IPAddress = value;
    }
+   
    @JsonIgnore
    public String getMAC() {
       return MAC;
@@ -107,6 +110,7 @@ public class IPReservation extends RestObject {
    public void setMAC(String value) { 
       this.MAC = value;
    }
+   
    @JsonIgnore
    public Boolean getDynamicAllocationEnabled() {
       return dynamicAllocationEnabled;
@@ -116,6 +120,7 @@ public class IPReservation extends RestObject {
    public void setDynamicAllocationEnabled(Boolean value) { 
       this.dynamicAllocationEnabled = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -125,6 +130,7 @@ public class IPReservation extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -134,6 +140,7 @@ public class IPReservation extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;

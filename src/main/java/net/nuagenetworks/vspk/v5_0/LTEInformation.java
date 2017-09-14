@@ -55,6 +55,7 @@ public class LTEInformation extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getLTEConnectionInfo() {
       return LTEConnectionInfo;

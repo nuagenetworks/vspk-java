@@ -45,6 +45,7 @@ public class EnterpriseSecuredData extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -89,6 +90,7 @@ public class EnterpriseSecuredData extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getData() {
       return data;
@@ -98,6 +100,7 @@ public class EnterpriseSecuredData extends RestObject {
    public void setData(String value) { 
       this.data = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -107,6 +110,7 @@ public class EnterpriseSecuredData extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -116,6 +120,7 @@ public class EnterpriseSecuredData extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getHash() {
       return hash;
@@ -125,6 +130,7 @@ public class EnterpriseSecuredData extends RestObject {
    public void setHash(String value) { 
       this.hash = value;
    }
+   
    @JsonIgnore
    public String getKeyserverCertSerialNumber() {
       return keyserverCertSerialNumber;
@@ -134,6 +140,7 @@ public class EnterpriseSecuredData extends RestObject {
    public void setKeyserverCertSerialNumber(String value) { 
       this.keyserverCertSerialNumber = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -143,6 +150,7 @@ public class EnterpriseSecuredData extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public Long getSekId() {
       return sekId;
@@ -152,6 +160,7 @@ public class EnterpriseSecuredData extends RestObject {
    public void setSekId(Long value) { 
       this.sekId = value;
    }
+   
    @JsonIgnore
    public String getSignedHash() {
       return signedHash;

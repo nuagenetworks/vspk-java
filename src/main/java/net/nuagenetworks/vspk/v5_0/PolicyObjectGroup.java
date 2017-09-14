@@ -44,6 +44,7 @@ public class PolicyObjectGroup extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum Type { NSGateway };
 
    
@@ -68,6 +69,7 @@ public class PolicyObjectGroup extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -77,6 +79,7 @@ public class PolicyObjectGroup extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -86,6 +89,7 @@ public class PolicyObjectGroup extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public Type getType() {
       return type;

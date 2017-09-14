@@ -64,6 +64,7 @@ public class Trunk extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAssociatedVPortID() {
       return associatedVPortID;
@@ -73,6 +74,7 @@ public class Trunk extends RestObject {
    public void setAssociatedVPortID(String value) { 
       this.associatedVPortID = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;

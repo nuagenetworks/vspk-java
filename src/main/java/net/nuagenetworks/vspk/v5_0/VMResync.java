@@ -45,7 +45,9 @@ public class VMResync extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum Status { IN_PROGRESS, SUCCESS };
 
    
@@ -84,6 +86,7 @@ public class VMResync extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -93,6 +96,7 @@ public class VMResync extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -102,6 +106,7 @@ public class VMResync extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public Long getLastRequestTimestamp() {
       return lastRequestTimestamp;
@@ -111,6 +116,7 @@ public class VMResync extends RestObject {
    public void setLastRequestTimestamp(Long value) { 
       this.lastRequestTimestamp = value;
    }
+   
    @JsonIgnore
    public Long getLastTimeResyncInitiated() {
       return lastTimeResyncInitiated;
@@ -120,6 +126,7 @@ public class VMResync extends RestObject {
    public void setLastTimeResyncInitiated(Long value) { 
       this.lastTimeResyncInitiated = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -129,6 +136,7 @@ public class VMResync extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public Status getStatus() {
       return status;

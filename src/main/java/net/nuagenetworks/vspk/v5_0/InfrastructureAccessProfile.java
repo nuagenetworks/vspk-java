@@ -45,8 +45,11 @@ public class InfrastructureAccessProfile extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum SSHAuthMode { KEY_BASED, PASSWORD_AND_KEY_BASED, PASSWORD_BASED };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum SourceIPFilter { DISABLED, ENABLED };
 
    
@@ -97,6 +100,7 @@ public class InfrastructureAccessProfile extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public SSHAuthMode getSSHAuthMode() {
       return SSHAuthMode;
@@ -106,6 +110,7 @@ public class InfrastructureAccessProfile extends RestObject {
    public void setSSHAuthMode(SSHAuthMode value) { 
       this.SSHAuthMode = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -115,6 +120,7 @@ public class InfrastructureAccessProfile extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getEnterpriseID() {
       return enterpriseID;
@@ -124,6 +130,7 @@ public class InfrastructureAccessProfile extends RestObject {
    public void setEnterpriseID(String value) { 
       this.enterpriseID = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -133,6 +140,7 @@ public class InfrastructureAccessProfile extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -142,6 +150,7 @@ public class InfrastructureAccessProfile extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -151,6 +160,7 @@ public class InfrastructureAccessProfile extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -160,6 +170,7 @@ public class InfrastructureAccessProfile extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getPassword() {
       return password;
@@ -169,6 +180,7 @@ public class InfrastructureAccessProfile extends RestObject {
    public void setPassword(String value) { 
       this.password = value;
    }
+   
    @JsonIgnore
    public SourceIPFilter getSourceIPFilter() {
       return sourceIPFilter;
@@ -178,6 +190,7 @@ public class InfrastructureAccessProfile extends RestObject {
    public void setSourceIPFilter(SourceIPFilter value) { 
       this.sourceIPFilter = value;
    }
+   
    @JsonIgnore
    public String getUserName() {
       return userName;

@@ -43,7 +43,9 @@ public class ZFBAutoAssignment extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum ZFBMatchAttribute { HOSTNAME, IP_ADDRESS, MAC_ADDRESS, NSGATEWAY_ID, SERIAL_NUMBER };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -84,6 +86,7 @@ public class ZFBAutoAssignment extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public ZFBMatchAttribute getZFBMatchAttribute() {
       return ZFBMatchAttribute;
@@ -93,6 +96,7 @@ public class ZFBAutoAssignment extends RestObject {
    public void setZFBMatchAttribute(ZFBMatchAttribute value) { 
       this.ZFBMatchAttribute = value;
    }
+   
    @JsonIgnore
    public java.util.List<String> getZFBMatchAttributeValues() {
       return ZFBMatchAttributeValues;
@@ -102,6 +106,7 @@ public class ZFBAutoAssignment extends RestObject {
    public void setZFBMatchAttributeValues(java.util.List<String> value) { 
       this.ZFBMatchAttributeValues = value;
    }
+   
    @JsonIgnore
    public String getAssociatedEnterpriseID() {
       return associatedEnterpriseID;
@@ -111,6 +116,7 @@ public class ZFBAutoAssignment extends RestObject {
    public void setAssociatedEnterpriseID(String value) { 
       this.associatedEnterpriseID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedEnterpriseName() {
       return associatedEnterpriseName;
@@ -120,6 +126,7 @@ public class ZFBAutoAssignment extends RestObject {
    public void setAssociatedEnterpriseName(String value) { 
       this.associatedEnterpriseName = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -129,6 +136,7 @@ public class ZFBAutoAssignment extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -138,6 +146,7 @@ public class ZFBAutoAssignment extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -147,6 +156,7 @@ public class ZFBAutoAssignment extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -156,6 +166,7 @@ public class ZFBAutoAssignment extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -165,6 +176,7 @@ public class ZFBAutoAssignment extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public Long getPriority() {
       return priority;

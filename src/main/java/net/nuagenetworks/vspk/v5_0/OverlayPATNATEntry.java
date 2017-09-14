@@ -67,6 +67,7 @@ public class OverlayPATNATEntry extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getNATEnabled() {
       return NATEnabled;
@@ -76,6 +77,7 @@ public class OverlayPATNATEntry extends RestObject {
    public void setNATEnabled(String value) { 
       this.NATEnabled = value;
    }
+   
    @JsonIgnore
    public String getAssociatedDomainID() {
       return associatedDomainID;
@@ -85,6 +87,7 @@ public class OverlayPATNATEntry extends RestObject {
    public void setAssociatedDomainID(String value) { 
       this.associatedDomainID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedLinkID() {
       return associatedLinkID;
@@ -94,6 +97,7 @@ public class OverlayPATNATEntry extends RestObject {
    public void setAssociatedLinkID(String value) { 
       this.associatedLinkID = value;
    }
+   
    @JsonIgnore
    public String getPrivateIP() {
       return privateIP;
@@ -103,6 +107,7 @@ public class OverlayPATNATEntry extends RestObject {
    public void setPrivateIP(String value) { 
       this.privateIP = value;
    }
+   
    @JsonIgnore
    public String getPublicIP() {
       return publicIP;

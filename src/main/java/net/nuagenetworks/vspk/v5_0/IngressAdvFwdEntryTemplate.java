@@ -47,16 +47,27 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum FCOverride { A, B, C, D, E, F, G, H, NONE };
+   
    public enum Action { DROP, FORWARD, REDIRECT };
+   
    public enum AppType { ALL, APPLICATION, NONE };
+   
    public enum AssociatedTrafficType { L4_SERVICE, L4_SERVICE_GROUP };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum FailsafeDatapath { FAIL_TO_BLOCK, FAIL_TO_WIRE };
+   
    public enum LocationType { ANY, PGEXPRESSION, POLICYGROUP, REDIRECTIONTARGET, SUBNET, VPORTTAG, ZONE };
+   
    public enum NetworkType { ANY, ENDPOINT_DOMAIN, ENDPOINT_SUBNET, ENDPOINT_ZONE, ENTERPRISE_NETWORK, INTERNET_POLICYGROUP, NETWORK_MACRO_GROUP, PGEXPRESSION, POLICYGROUP, PUBLIC_NETWORK, SUBNET, UNDERLAY_INTERNET_POLICYGROUP, ZONE };
+   
    public enum PolicyState { DRAFT, LIVE };
+   
    public enum RedirectRewriteType { VLAN };
+   
    public enum UplinkPreference { DEFAULT, PRIMARY, PRIMARY_SECONDARY, SECONDARY, SECONDARY_PRIMARY, SYMMETRIC };
 
    
@@ -216,6 +227,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getACLTemplateName() {
       return ACLTemplateName;
@@ -225,6 +237,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setACLTemplateName(String value) { 
       this.ACLTemplateName = value;
    }
+   
    @JsonIgnore
    public String getDSCP() {
       return DSCP;
@@ -234,6 +247,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setDSCP(String value) { 
       this.DSCP = value;
    }
+   
    @JsonIgnore
    public FCOverride getFCOverride() {
       return FCOverride;
@@ -243,6 +257,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setFCOverride(FCOverride value) { 
       this.FCOverride = value;
    }
+   
    @JsonIgnore
    public String getICMPCode() {
       return ICMPCode;
@@ -252,6 +267,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setICMPCode(String value) { 
       this.ICMPCode = value;
    }
+   
    @JsonIgnore
    public String getICMPType() {
       return ICMPType;
@@ -261,6 +277,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setICMPType(String value) { 
       this.ICMPType = value;
    }
+   
    @JsonIgnore
    public String getIPv6AddressOverride() {
       return IPv6AddressOverride;
@@ -270,6 +287,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setIPv6AddressOverride(String value) { 
       this.IPv6AddressOverride = value;
    }
+   
    @JsonIgnore
    public Action getAction() {
       return action;
@@ -279,6 +297,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setAction(Action value) { 
       this.action = value;
    }
+   
    @JsonIgnore
    public String getAddressOverride() {
       return addressOverride;
@@ -288,6 +307,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setAddressOverride(String value) { 
       this.addressOverride = value;
    }
+   
    @JsonIgnore
    public AppType getAppType() {
       return appType;
@@ -297,6 +317,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setAppType(AppType value) { 
       this.appType = value;
    }
+   
    @JsonIgnore
    public String getAssociatedApplicationID() {
       return associatedApplicationID;
@@ -306,6 +327,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setAssociatedApplicationID(String value) { 
       this.associatedApplicationID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedLiveEntityID() {
       return associatedLiveEntityID;
@@ -315,6 +337,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setAssociatedLiveEntityID(String value) { 
       this.associatedLiveEntityID = value;
    }
+   
    @JsonIgnore
    public AssociatedTrafficType getAssociatedTrafficType() {
       return associatedTrafficType;
@@ -324,6 +347,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setAssociatedTrafficType(AssociatedTrafficType value) { 
       this.associatedTrafficType = value;
    }
+   
    @JsonIgnore
    public String getAssociatedTrafficTypeID() {
       return associatedTrafficTypeID;
@@ -333,6 +357,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setAssociatedTrafficTypeID(String value) { 
       this.associatedTrafficTypeID = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -342,6 +367,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getDestinationPort() {
       return destinationPort;
@@ -351,6 +377,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setDestinationPort(String value) { 
       this.destinationPort = value;
    }
+   
    @JsonIgnore
    public String getDomainName() {
       return domainName;
@@ -360,6 +387,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setDomainName(String value) { 
       this.domainName = value;
    }
+   
    @JsonIgnore
    public String getEnterpriseName() {
       return enterpriseName;
@@ -369,6 +397,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setEnterpriseName(String value) { 
       this.enterpriseName = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -378,6 +407,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getEtherType() {
       return etherType;
@@ -387,6 +417,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setEtherType(String value) { 
       this.etherType = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -396,6 +427,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public FailsafeDatapath getFailsafeDatapath() {
       return failsafeDatapath;
@@ -405,6 +437,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setFailsafeDatapath(FailsafeDatapath value) { 
       this.failsafeDatapath = value;
    }
+   
    @JsonIgnore
    public Boolean getFlowLoggingEnabled() {
       return flowLoggingEnabled;
@@ -414,6 +447,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setFlowLoggingEnabled(Boolean value) { 
       this.flowLoggingEnabled = value;
    }
+   
    @JsonIgnore
    public Boolean getIsSLAAware() {
       return isSLAAware;
@@ -423,6 +457,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setIsSLAAware(Boolean value) { 
       this.isSLAAware = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -432,6 +467,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getLocationID() {
       return locationID;
@@ -441,6 +477,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setLocationID(String value) { 
       this.locationID = value;
    }
+   
    @JsonIgnore
    public LocationType getLocationType() {
       return locationType;
@@ -450,6 +487,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setLocationType(LocationType value) { 
       this.locationType = value;
    }
+   
    @JsonIgnore
    public String getMirrorDestinationID() {
       return mirrorDestinationID;
@@ -459,6 +497,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setMirrorDestinationID(String value) { 
       this.mirrorDestinationID = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -468,6 +507,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getNetworkID() {
       return networkID;
@@ -477,6 +517,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setNetworkID(String value) { 
       this.networkID = value;
    }
+   
    @JsonIgnore
    public NetworkType getNetworkType() {
       return networkType;
@@ -486,6 +527,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setNetworkType(NetworkType value) { 
       this.networkType = value;
    }
+   
    @JsonIgnore
    public PolicyState getPolicyState() {
       return policyState;
@@ -495,6 +537,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setPolicyState(PolicyState value) { 
       this.policyState = value;
    }
+   
    @JsonIgnore
    public Long getPriority() {
       return priority;
@@ -504,6 +547,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setPriority(Long value) { 
       this.priority = value;
    }
+   
    @JsonIgnore
    public String getProtocol() {
       return protocol;
@@ -513,6 +557,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setProtocol(String value) { 
       this.protocol = value;
    }
+   
    @JsonIgnore
    public RedirectRewriteType getRedirectRewriteType() {
       return redirectRewriteType;
@@ -522,6 +567,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setRedirectRewriteType(RedirectRewriteType value) { 
       this.redirectRewriteType = value;
    }
+   
    @JsonIgnore
    public String getRedirectRewriteValue() {
       return redirectRewriteValue;
@@ -531,6 +577,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setRedirectRewriteValue(String value) { 
       this.redirectRewriteValue = value;
    }
+   
    @JsonIgnore
    public String getRedirectVPortTagID() {
       return redirectVPortTagID;
@@ -540,6 +587,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setRedirectVPortTagID(String value) { 
       this.redirectVPortTagID = value;
    }
+   
    @JsonIgnore
    public String getSourcePort() {
       return sourcePort;
@@ -549,6 +597,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setSourcePort(String value) { 
       this.sourcePort = value;
    }
+   
    @JsonIgnore
    public String getStatsID() {
       return statsID;
@@ -558,6 +607,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setStatsID(String value) { 
       this.statsID = value;
    }
+   
    @JsonIgnore
    public Boolean getStatsLoggingEnabled() {
       return statsLoggingEnabled;
@@ -567,6 +617,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setStatsLoggingEnabled(Boolean value) { 
       this.statsLoggingEnabled = value;
    }
+   
    @JsonIgnore
    public UplinkPreference getUplinkPreference() {
       return uplinkPreference;
@@ -576,6 +627,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public void setUplinkPreference(UplinkPreference value) { 
       this.uplinkPreference = value;
    }
+   
    @JsonIgnore
    public String getVlanRange() {
       return vlanRange;

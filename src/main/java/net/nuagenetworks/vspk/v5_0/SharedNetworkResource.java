@@ -51,9 +51,13 @@ public class SharedNetworkResource extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum PermittedActionType { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
+   
    public enum Type { FLOATING, L2DOMAIN, PUBLIC, UPLINK_SUBNET };
+   
    public enum UseGlobalMAC { DISABLED, ENABLED };
 
    
@@ -193,6 +197,7 @@ public class SharedNetworkResource extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Boolean getDHCPManaged() {
       return DHCPManaged;
@@ -202,6 +207,7 @@ public class SharedNetworkResource extends RestObject {
    public void setDHCPManaged(Boolean value) { 
       this.DHCPManaged = value;
    }
+   
    @JsonIgnore
    public Long getECMPCount() {
       return ECMPCount;
@@ -211,6 +217,7 @@ public class SharedNetworkResource extends RestObject {
    public void setECMPCount(Long value) { 
       this.ECMPCount = value;
    }
+   
    @JsonIgnore
    public Boolean getAccessRestrictionEnabled() {
       return accessRestrictionEnabled;
@@ -220,6 +227,7 @@ public class SharedNetworkResource extends RestObject {
    public void setAccessRestrictionEnabled(Boolean value) { 
       this.accessRestrictionEnabled = value;
    }
+   
    @JsonIgnore
    public String getAddress() {
       return address;
@@ -229,6 +237,7 @@ public class SharedNetworkResource extends RestObject {
    public void setAddress(String value) { 
       this.address = value;
    }
+   
    @JsonIgnore
    public String getAssociatedPATMapperID() {
       return associatedPATMapperID;
@@ -238,6 +247,7 @@ public class SharedNetworkResource extends RestObject {
    public void setAssociatedPATMapperID(String value) { 
       this.associatedPATMapperID = value;
    }
+   
    @JsonIgnore
    public String getBackHaulRouteDistinguisher() {
       return backHaulRouteDistinguisher;
@@ -247,6 +257,7 @@ public class SharedNetworkResource extends RestObject {
    public void setBackHaulRouteDistinguisher(String value) { 
       this.backHaulRouteDistinguisher = value;
    }
+   
    @JsonIgnore
    public String getBackHaulRouteTarget() {
       return backHaulRouteTarget;
@@ -256,6 +267,7 @@ public class SharedNetworkResource extends RestObject {
    public void setBackHaulRouteTarget(String value) { 
       this.backHaulRouteTarget = value;
    }
+   
    @JsonIgnore
    public Long getBackHaulVNID() {
       return backHaulVNID;
@@ -265,6 +277,7 @@ public class SharedNetworkResource extends RestObject {
    public void setBackHaulVNID(Long value) { 
       this.backHaulVNID = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -274,6 +287,7 @@ public class SharedNetworkResource extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getDomainRouteDistinguisher() {
       return domainRouteDistinguisher;
@@ -283,6 +297,7 @@ public class SharedNetworkResource extends RestObject {
    public void setDomainRouteDistinguisher(String value) { 
       this.domainRouteDistinguisher = value;
    }
+   
    @JsonIgnore
    public String getDomainRouteTarget() {
       return domainRouteTarget;
@@ -292,6 +307,7 @@ public class SharedNetworkResource extends RestObject {
    public void setDomainRouteTarget(String value) { 
       this.domainRouteTarget = value;
    }
+   
    @JsonIgnore
    public Boolean getDynamicPATAllocationEnabled() {
       return dynamicPATAllocationEnabled;
@@ -301,6 +317,7 @@ public class SharedNetworkResource extends RestObject {
    public void setDynamicPATAllocationEnabled(Boolean value) { 
       this.dynamicPATAllocationEnabled = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -310,6 +327,7 @@ public class SharedNetworkResource extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -319,6 +337,7 @@ public class SharedNetworkResource extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getGateway() {
       return gateway;
@@ -328,6 +347,7 @@ public class SharedNetworkResource extends RestObject {
    public void setGateway(String value) { 
       this.gateway = value;
    }
+   
    @JsonIgnore
    public String getGatewayMACAddress() {
       return gatewayMACAddress;
@@ -337,6 +357,7 @@ public class SharedNetworkResource extends RestObject {
    public void setGatewayMACAddress(String value) { 
       this.gatewayMACAddress = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -346,6 +367,7 @@ public class SharedNetworkResource extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -355,6 +377,7 @@ public class SharedNetworkResource extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getNetmask() {
       return netmask;
@@ -364,6 +387,7 @@ public class SharedNetworkResource extends RestObject {
    public void setNetmask(String value) { 
       this.netmask = value;
    }
+   
    @JsonIgnore
    public PermittedActionType getPermittedActionType() {
       return permittedActionType;
@@ -373,6 +397,7 @@ public class SharedNetworkResource extends RestObject {
    public void setPermittedActionType(PermittedActionType value) { 
       this.permittedActionType = value;
    }
+   
    @JsonIgnore
    public String getSharedResourceParentID() {
       return sharedResourceParentID;
@@ -382,6 +407,7 @@ public class SharedNetworkResource extends RestObject {
    public void setSharedResourceParentID(String value) { 
       this.sharedResourceParentID = value;
    }
+   
    @JsonIgnore
    public Type getType() {
       return type;
@@ -391,6 +417,7 @@ public class SharedNetworkResource extends RestObject {
    public void setType(Type value) { 
       this.type = value;
    }
+   
    @JsonIgnore
    public Boolean getUnderlay() {
       return underlay;
@@ -400,6 +427,7 @@ public class SharedNetworkResource extends RestObject {
    public void setUnderlay(Boolean value) { 
       this.underlay = value;
    }
+   
    @JsonIgnore
    public String getUplinkGWVlanAttachmentID() {
       return uplinkGWVlanAttachmentID;
@@ -409,6 +437,7 @@ public class SharedNetworkResource extends RestObject {
    public void setUplinkGWVlanAttachmentID(String value) { 
       this.uplinkGWVlanAttachmentID = value;
    }
+   
    @JsonIgnore
    public String getUplinkInterfaceIP() {
       return uplinkInterfaceIP;
@@ -418,6 +447,7 @@ public class SharedNetworkResource extends RestObject {
    public void setUplinkInterfaceIP(String value) { 
       this.uplinkInterfaceIP = value;
    }
+   
    @JsonIgnore
    public String getUplinkInterfaceMAC() {
       return uplinkInterfaceMAC;
@@ -427,6 +457,7 @@ public class SharedNetworkResource extends RestObject {
    public void setUplinkInterfaceMAC(String value) { 
       this.uplinkInterfaceMAC = value;
    }
+   
    @JsonIgnore
    public String getUplinkVPortName() {
       return uplinkVPortName;
@@ -436,6 +467,7 @@ public class SharedNetworkResource extends RestObject {
    public void setUplinkVPortName(String value) { 
       this.uplinkVPortName = value;
    }
+   
    @JsonIgnore
    public UseGlobalMAC getUseGlobalMAC() {
       return useGlobalMAC;
@@ -445,6 +477,7 @@ public class SharedNetworkResource extends RestObject {
    public void setUseGlobalMAC(UseGlobalMAC value) { 
       this.useGlobalMAC = value;
    }
+   
    @JsonIgnore
    public Long getVnID() {
       return vnID;

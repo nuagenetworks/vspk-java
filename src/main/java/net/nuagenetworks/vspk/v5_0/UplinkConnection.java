@@ -46,10 +46,15 @@ public class UplinkConnection extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum Address { IPv4, IPv6 };
+   
    public enum AdvertisementCriteria { BFD, CONTROL_SESSION, OPERATIONAL_LINK };
+   
    public enum InterfaceConnectionType { AUTOMATIC, EMBEDDED, PCI_EXPRESS, USB_ETHERNET, USB_MODEM };
+   
    public enum Mode { Dynamic, LTE, PPPoE, Static };
+   
    public enum Role { NONE, PRIMARY, SECONDARY, TERTIARY, UNKNOWN };
 
    
@@ -135,6 +140,7 @@ public class UplinkConnection extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getDNSAddress() {
       return DNSAddress;
@@ -144,6 +150,7 @@ public class UplinkConnection extends RestObject {
    public void setDNSAddress(String value) { 
       this.DNSAddress = value;
    }
+   
    @JsonIgnore
    public Address getAddress() {
       return address;
@@ -153,6 +160,7 @@ public class UplinkConnection extends RestObject {
    public void setAddress(Address value) { 
       this.address = value;
    }
+   
    @JsonIgnore
    public AdvertisementCriteria getAdvertisementCriteria() {
       return advertisementCriteria;
@@ -162,6 +170,7 @@ public class UplinkConnection extends RestObject {
    public void setAdvertisementCriteria(AdvertisementCriteria value) { 
       this.advertisementCriteria = value;
    }
+   
    @JsonIgnore
    public String getAssocUnderlayID() {
       return assocUnderlayID;
@@ -171,6 +180,7 @@ public class UplinkConnection extends RestObject {
    public void setAssocUnderlayID(String value) { 
       this.assocUnderlayID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedBGPNeighborID() {
       return associatedBGPNeighborID;
@@ -180,6 +190,7 @@ public class UplinkConnection extends RestObject {
    public void setAssociatedBGPNeighborID(String value) { 
       this.associatedBGPNeighborID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedUnderlayName() {
       return associatedUnderlayName;
@@ -189,6 +200,7 @@ public class UplinkConnection extends RestObject {
    public void setAssociatedUnderlayName(String value) { 
       this.associatedUnderlayName = value;
    }
+   
    @JsonIgnore
    public Boolean getAuxiliaryLink() {
       return auxiliaryLink;
@@ -198,6 +210,7 @@ public class UplinkConnection extends RestObject {
    public void setAuxiliaryLink(Boolean value) { 
       this.auxiliaryLink = value;
    }
+   
    @JsonIgnore
    public Float getDownloadRateLimit() {
       return downloadRateLimit;
@@ -207,6 +220,7 @@ public class UplinkConnection extends RestObject {
    public void setDownloadRateLimit(Float value) { 
       this.downloadRateLimit = value;
    }
+   
    @JsonIgnore
    public String getGateway() {
       return gateway;
@@ -216,6 +230,7 @@ public class UplinkConnection extends RestObject {
    public void setGateway(String value) { 
       this.gateway = value;
    }
+   
    @JsonIgnore
    public InterfaceConnectionType getInterfaceConnectionType() {
       return interfaceConnectionType;
@@ -225,6 +240,7 @@ public class UplinkConnection extends RestObject {
    public void setInterfaceConnectionType(InterfaceConnectionType value) { 
       this.interfaceConnectionType = value;
    }
+   
    @JsonIgnore
    public Mode getMode() {
       return mode;
@@ -234,6 +250,7 @@ public class UplinkConnection extends RestObject {
    public void setMode(Mode value) { 
       this.mode = value;
    }
+   
    @JsonIgnore
    public String getNetmask() {
       return netmask;
@@ -243,6 +260,7 @@ public class UplinkConnection extends RestObject {
    public void setNetmask(String value) { 
       this.netmask = value;
    }
+   
    @JsonIgnore
    public String getPassword() {
       return password;
@@ -252,6 +270,7 @@ public class UplinkConnection extends RestObject {
    public void setPassword(String value) { 
       this.password = value;
    }
+   
    @JsonIgnore
    public String getPortName() {
       return portName;
@@ -261,6 +280,7 @@ public class UplinkConnection extends RestObject {
    public void setPortName(String value) { 
       this.portName = value;
    }
+   
    @JsonIgnore
    public Role getRole() {
       return role;
@@ -270,6 +290,7 @@ public class UplinkConnection extends RestObject {
    public void setRole(Role value) { 
       this.role = value;
    }
+   
    @JsonIgnore
    public String getRoleOrder() {
       return roleOrder;
@@ -279,6 +300,7 @@ public class UplinkConnection extends RestObject {
    public void setRoleOrder(String value) { 
       this.roleOrder = value;
    }
+   
    @JsonIgnore
    public String getSecondaryAddress() {
       return secondaryAddress;
@@ -288,6 +310,7 @@ public class UplinkConnection extends RestObject {
    public void setSecondaryAddress(String value) { 
       this.secondaryAddress = value;
    }
+   
    @JsonIgnore
    public String getUplinkID() {
       return uplinkID;
@@ -297,6 +320,7 @@ public class UplinkConnection extends RestObject {
    public void setUplinkID(String value) { 
       this.uplinkID = value;
    }
+   
    @JsonIgnore
    public String getUsername() {
       return username;
@@ -306,6 +330,7 @@ public class UplinkConnection extends RestObject {
    public void setUsername(String value) { 
       this.username = value;
    }
+   
    @JsonIgnore
    public String getVlanId() {
       return vlanId;

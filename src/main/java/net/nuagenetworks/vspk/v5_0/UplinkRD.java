@@ -45,7 +45,9 @@ public class UplinkRD extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum UplinkType { RD_PRIMARY1, RD_PRIMARY2, RD_SECONDARY1, RD_SECONDARY2 };
 
    
@@ -81,6 +83,7 @@ public class UplinkRD extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -90,6 +93,7 @@ public class UplinkRD extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -99,6 +103,7 @@ public class UplinkRD extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -108,6 +113,7 @@ public class UplinkRD extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getRouteDistinguisher() {
       return routeDistinguisher;
@@ -117,6 +123,7 @@ public class UplinkRD extends RestObject {
    public void setRouteDistinguisher(String value) { 
       this.routeDistinguisher = value;
    }
+   
    @JsonIgnore
    public UplinkType getUplinkType() {
       return uplinkType;

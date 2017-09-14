@@ -48,8 +48,11 @@ public class EnterpriseProfile extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum AllowedForwardingClasses { A, B, C, D, E, F, G, H, NONE };
+   
    public enum EncryptionManagementMode { DISABLED, MANAGED };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -138,6 +141,7 @@ public class EnterpriseProfile extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Boolean getBGPEnabled() {
       return BGPEnabled;
@@ -147,6 +151,7 @@ public class EnterpriseProfile extends RestObject {
    public void setBGPEnabled(Boolean value) { 
       this.BGPEnabled = value;
    }
+   
    @JsonIgnore
    public Long getDHCPLeaseInterval() {
       return DHCPLeaseInterval;
@@ -156,6 +161,7 @@ public class EnterpriseProfile extends RestObject {
    public void setDHCPLeaseInterval(Long value) { 
       this.DHCPLeaseInterval = value;
    }
+   
    @JsonIgnore
    public Boolean getVNFManagementEnabled() {
       return VNFManagementEnabled;
@@ -165,6 +171,7 @@ public class EnterpriseProfile extends RestObject {
    public void setVNFManagementEnabled(Boolean value) { 
       this.VNFManagementEnabled = value;
    }
+   
    @JsonIgnore
    public Boolean getAllowAdvancedQOSConfiguration() {
       return allowAdvancedQOSConfiguration;
@@ -174,6 +181,7 @@ public class EnterpriseProfile extends RestObject {
    public void setAllowAdvancedQOSConfiguration(Boolean value) { 
       this.allowAdvancedQOSConfiguration = value;
    }
+   
    @JsonIgnore
    public Boolean getAllowGatewayManagement() {
       return allowGatewayManagement;
@@ -183,6 +191,7 @@ public class EnterpriseProfile extends RestObject {
    public void setAllowGatewayManagement(Boolean value) { 
       this.allowGatewayManagement = value;
    }
+   
    @JsonIgnore
    public Boolean getAllowTrustedForwardingClass() {
       return allowTrustedForwardingClass;
@@ -192,6 +201,7 @@ public class EnterpriseProfile extends RestObject {
    public void setAllowTrustedForwardingClass(Boolean value) { 
       this.allowTrustedForwardingClass = value;
    }
+   
    @JsonIgnore
    public java.util.List<AllowedForwardingClasses> getAllowedForwardingClasses() {
       return allowedForwardingClasses;
@@ -201,6 +211,7 @@ public class EnterpriseProfile extends RestObject {
    public void setAllowedForwardingClasses(java.util.List<AllowedForwardingClasses> value) { 
       this.allowedForwardingClasses = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -210,6 +221,7 @@ public class EnterpriseProfile extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public Boolean getEnableApplicationPerformanceManagement() {
       return enableApplicationPerformanceManagement;
@@ -219,6 +231,7 @@ public class EnterpriseProfile extends RestObject {
    public void setEnableApplicationPerformanceManagement(Boolean value) { 
       this.enableApplicationPerformanceManagement = value;
    }
+   
    @JsonIgnore
    public EncryptionManagementMode getEncryptionManagementMode() {
       return encryptionManagementMode;
@@ -228,6 +241,7 @@ public class EnterpriseProfile extends RestObject {
    public void setEncryptionManagementMode(EncryptionManagementMode value) { 
       this.encryptionManagementMode = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -237,6 +251,7 @@ public class EnterpriseProfile extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -246,6 +261,7 @@ public class EnterpriseProfile extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public Long getFloatingIPsQuota() {
       return floatingIPsQuota;
@@ -255,6 +271,7 @@ public class EnterpriseProfile extends RestObject {
    public void setFloatingIPsQuota(Long value) { 
       this.floatingIPsQuota = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -264,6 +281,7 @@ public class EnterpriseProfile extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -273,6 +291,7 @@ public class EnterpriseProfile extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getReceiveMultiCastListID() {
       return receiveMultiCastListID;
@@ -282,6 +301,7 @@ public class EnterpriseProfile extends RestObject {
    public void setReceiveMultiCastListID(String value) { 
       this.receiveMultiCastListID = value;
    }
+   
    @JsonIgnore
    public String getSendMultiCastListID() {
       return sendMultiCastListID;

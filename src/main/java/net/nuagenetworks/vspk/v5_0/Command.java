@@ -43,13 +43,16 @@ public class Command extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum Command { NSG_DOWNLOAD_OS_IMAGE, NSG_UPGRADE_TO_IMAGE, UNKNOWN };
+   
+   public enum ECommand { NSG_DOWNLOAD_OS_IMAGE, NSG_UPGRADE_TO_IMAGE, UNKNOWN };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum Status { COMPLETE, FAILED, STARTED, UNKNOWN };
 
    
    @JsonProperty(value = "command")
-   protected Command command;
+   protected ECommand command;
    
    @JsonProperty(value = "commandInformation")
    protected String commandInformation;
@@ -82,15 +85,17 @@ public class Command extends RestObject {
       
    }
 
+   
    @JsonIgnore
-   public Command getCommand() {
+   public ECommand getCommand() {
       return command;
    }
 
    @JsonIgnore
-   public void setCommand(Command value) { 
+   public void setCommand(ECommand value) { 
       this.command = value;
    }
+   
    @JsonIgnore
    public String getCommandInformation() {
       return commandInformation;
@@ -100,6 +105,7 @@ public class Command extends RestObject {
    public void setCommandInformation(String value) { 
       this.commandInformation = value;
    }
+   
    @JsonIgnore
    public String getDetailedStatus() {
       return detailedStatus;
@@ -109,6 +115,7 @@ public class Command extends RestObject {
    public void setDetailedStatus(String value) { 
       this.detailedStatus = value;
    }
+   
    @JsonIgnore
    public Long getDetailedStatusCode() {
       return detailedStatusCode;
@@ -118,6 +125,7 @@ public class Command extends RestObject {
    public void setDetailedStatusCode(Long value) { 
       this.detailedStatusCode = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -127,6 +135,7 @@ public class Command extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -136,6 +145,7 @@ public class Command extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -145,6 +155,7 @@ public class Command extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public Status getStatus() {
       return status;
@@ -154,6 +165,7 @@ public class Command extends RestObject {
    public void setStatus(Status value) { 
       this.status = value;
    }
+   
    @JsonIgnore
    public String getSummary() {
       return summary;

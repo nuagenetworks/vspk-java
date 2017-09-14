@@ -103,9 +103,13 @@ public class Enterprise extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum AllowedForwardingClasses { A, B, C, D, E, F, G, H, NONE };
+   
    public enum AvatarType { BASE64, COMPUTEDURL, URL };
+   
    public enum EncryptionManagementMode { DISABLED, MANAGED };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -506,6 +510,7 @@ public class Enterprise extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Boolean getBGPEnabled() {
       return BGPEnabled;
@@ -515,6 +520,7 @@ public class Enterprise extends RestObject {
    public void setBGPEnabled(Boolean value) { 
       this.BGPEnabled = value;
    }
+   
    @JsonIgnore
    public Long getDHCPLeaseInterval() {
       return DHCPLeaseInterval;
@@ -524,6 +530,7 @@ public class Enterprise extends RestObject {
    public void setDHCPLeaseInterval(Long value) { 
       this.DHCPLeaseInterval = value;
    }
+   
    @JsonIgnore
    public Boolean getLDAPAuthorizationEnabled() {
       return LDAPAuthorizationEnabled;
@@ -533,6 +540,7 @@ public class Enterprise extends RestObject {
    public void setLDAPAuthorizationEnabled(Boolean value) { 
       this.LDAPAuthorizationEnabled = value;
    }
+   
    @JsonIgnore
    public Boolean getLDAPEnabled() {
       return LDAPEnabled;
@@ -542,6 +550,7 @@ public class Enterprise extends RestObject {
    public void setLDAPEnabled(Boolean value) { 
       this.LDAPEnabled = value;
    }
+   
    @JsonIgnore
    public Boolean getVNFManagementEnabled() {
       return VNFManagementEnabled;
@@ -551,6 +560,7 @@ public class Enterprise extends RestObject {
    public void setVNFManagementEnabled(Boolean value) { 
       this.VNFManagementEnabled = value;
    }
+   
    @JsonIgnore
    public Boolean getAllowAdvancedQOSConfiguration() {
       return allowAdvancedQOSConfiguration;
@@ -560,6 +570,7 @@ public class Enterprise extends RestObject {
    public void setAllowAdvancedQOSConfiguration(Boolean value) { 
       this.allowAdvancedQOSConfiguration = value;
    }
+   
    @JsonIgnore
    public Boolean getAllowGatewayManagement() {
       return allowGatewayManagement;
@@ -569,6 +580,7 @@ public class Enterprise extends RestObject {
    public void setAllowGatewayManagement(Boolean value) { 
       this.allowGatewayManagement = value;
    }
+   
    @JsonIgnore
    public Boolean getAllowTrustedForwardingClass() {
       return allowTrustedForwardingClass;
@@ -578,6 +590,7 @@ public class Enterprise extends RestObject {
    public void setAllowTrustedForwardingClass(Boolean value) { 
       this.allowTrustedForwardingClass = value;
    }
+   
    @JsonIgnore
    public java.util.List<AllowedForwardingClasses> getAllowedForwardingClasses() {
       return allowedForwardingClasses;
@@ -587,6 +600,7 @@ public class Enterprise extends RestObject {
    public void setAllowedForwardingClasses(java.util.List<AllowedForwardingClasses> value) { 
       this.allowedForwardingClasses = value;
    }
+   
    @JsonIgnore
    public String getAssociatedEnterpriseSecurityID() {
       return associatedEnterpriseSecurityID;
@@ -596,6 +610,7 @@ public class Enterprise extends RestObject {
    public void setAssociatedEnterpriseSecurityID(String value) { 
       this.associatedEnterpriseSecurityID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedGroupKeyEncryptionProfileID() {
       return associatedGroupKeyEncryptionProfileID;
@@ -605,6 +620,7 @@ public class Enterprise extends RestObject {
    public void setAssociatedGroupKeyEncryptionProfileID(String value) { 
       this.associatedGroupKeyEncryptionProfileID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedKeyServerMonitorID() {
       return associatedKeyServerMonitorID;
@@ -614,6 +630,7 @@ public class Enterprise extends RestObject {
    public void setAssociatedKeyServerMonitorID(String value) { 
       this.associatedKeyServerMonitorID = value;
    }
+   
    @JsonIgnore
    public String getAvatarData() {
       return avatarData;
@@ -623,6 +640,7 @@ public class Enterprise extends RestObject {
    public void setAvatarData(String value) { 
       this.avatarData = value;
    }
+   
    @JsonIgnore
    public AvatarType getAvatarType() {
       return avatarType;
@@ -632,6 +650,7 @@ public class Enterprise extends RestObject {
    public void setAvatarType(AvatarType value) { 
       this.avatarType = value;
    }
+   
    @JsonIgnore
    public Long getCustomerID() {
       return customerID;
@@ -641,6 +660,7 @@ public class Enterprise extends RestObject {
    public void setCustomerID(Long value) { 
       this.customerID = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -650,6 +670,7 @@ public class Enterprise extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public Long getDictionaryVersion() {
       return dictionaryVersion;
@@ -659,6 +680,7 @@ public class Enterprise extends RestObject {
    public void setDictionaryVersion(Long value) { 
       this.dictionaryVersion = value;
    }
+   
    @JsonIgnore
    public Boolean getEnableApplicationPerformanceManagement() {
       return enableApplicationPerformanceManagement;
@@ -668,6 +690,7 @@ public class Enterprise extends RestObject {
    public void setEnableApplicationPerformanceManagement(Boolean value) { 
       this.enableApplicationPerformanceManagement = value;
    }
+   
    @JsonIgnore
    public EncryptionManagementMode getEncryptionManagementMode() {
       return encryptionManagementMode;
@@ -677,6 +700,7 @@ public class Enterprise extends RestObject {
    public void setEncryptionManagementMode(EncryptionManagementMode value) { 
       this.encryptionManagementMode = value;
    }
+   
    @JsonIgnore
    public String getEnterpriseProfileID() {
       return enterpriseProfileID;
@@ -686,6 +710,7 @@ public class Enterprise extends RestObject {
    public void setEnterpriseProfileID(String value) { 
       this.enterpriseProfileID = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -695,6 +720,7 @@ public class Enterprise extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -704,6 +730,7 @@ public class Enterprise extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public Long getFloatingIPsQuota() {
       return floatingIPsQuota;
@@ -713,6 +740,7 @@ public class Enterprise extends RestObject {
    public void setFloatingIPsQuota(Long value) { 
       this.floatingIPsQuota = value;
    }
+   
    @JsonIgnore
    public Long getFloatingIPsUsed() {
       return floatingIPsUsed;
@@ -722,6 +750,7 @@ public class Enterprise extends RestObject {
    public void setFloatingIPsUsed(Long value) { 
       this.floatingIPsUsed = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -731,6 +760,7 @@ public class Enterprise extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public Long getLocalAS() {
       return localAS;
@@ -740,6 +770,7 @@ public class Enterprise extends RestObject {
    public void setLocalAS(Long value) { 
       this.localAS = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -749,6 +780,7 @@ public class Enterprise extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getReceiveMultiCastListID() {
       return receiveMultiCastListID;
@@ -758,6 +790,7 @@ public class Enterprise extends RestObject {
    public void setReceiveMultiCastListID(String value) { 
       this.receiveMultiCastListID = value;
    }
+   
    @JsonIgnore
    public String getSendMultiCastListID() {
       return sendMultiCastListID;
@@ -767,6 +800,7 @@ public class Enterprise extends RestObject {
    public void setSendMultiCastListID(String value) { 
       this.sendMultiCastListID = value;
    }
+   
    @JsonIgnore
    public Boolean getSharedEnterprise() {
       return sharedEnterprise;

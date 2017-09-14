@@ -45,7 +45,9 @@ public class EnterprisePermission extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
 
    
@@ -94,6 +96,7 @@ public class EnterprisePermission extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -103,6 +106,7 @@ public class EnterprisePermission extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -112,6 +116,7 @@ public class EnterprisePermission extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -121,6 +126,7 @@ public class EnterprisePermission extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -130,6 +136,7 @@ public class EnterprisePermission extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public PermittedAction getPermittedAction() {
       return permittedAction;
@@ -139,6 +146,7 @@ public class EnterprisePermission extends RestObject {
    public void setPermittedAction(PermittedAction value) { 
       this.permittedAction = value;
    }
+   
    @JsonIgnore
    public String getPermittedEntityDescription() {
       return permittedEntityDescription;
@@ -148,6 +156,7 @@ public class EnterprisePermission extends RestObject {
    public void setPermittedEntityDescription(String value) { 
       this.permittedEntityDescription = value;
    }
+   
    @JsonIgnore
    public String getPermittedEntityID() {
       return permittedEntityID;
@@ -157,6 +166,7 @@ public class EnterprisePermission extends RestObject {
    public void setPermittedEntityID(String value) { 
       this.permittedEntityID = value;
    }
+   
    @JsonIgnore
    public String getPermittedEntityName() {
       return permittedEntityName;
@@ -166,6 +176,7 @@ public class EnterprisePermission extends RestObject {
    public void setPermittedEntityName(String value) { 
       this.permittedEntityName = value;
    }
+   
    @JsonIgnore
    public String getPermittedEntityType() {
       return permittedEntityType;

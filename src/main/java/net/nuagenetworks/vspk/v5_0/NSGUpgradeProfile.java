@@ -43,6 +43,7 @@ public class NSGUpgradeProfile extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -74,6 +75,7 @@ public class NSGUpgradeProfile extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -83,6 +85,7 @@ public class NSGUpgradeProfile extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getEnterpriseID() {
       return enterpriseID;
@@ -92,6 +95,7 @@ public class NSGUpgradeProfile extends RestObject {
    public void setEnterpriseID(String value) { 
       this.enterpriseID = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -101,6 +105,7 @@ public class NSGUpgradeProfile extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -110,6 +115,7 @@ public class NSGUpgradeProfile extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -119,6 +125,7 @@ public class NSGUpgradeProfile extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getMetadataUpgradePath() {
       return metadataUpgradePath;
@@ -128,6 +135,7 @@ public class NSGUpgradeProfile extends RestObject {
    public void setMetadataUpgradePath(String value) { 
       this.metadataUpgradePath = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;

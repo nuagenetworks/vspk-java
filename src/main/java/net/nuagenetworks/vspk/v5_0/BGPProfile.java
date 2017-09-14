@@ -45,6 +45,7 @@ public class BGPProfile extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -98,6 +99,7 @@ public class BGPProfile extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAssociatedExportRoutingPolicyID() {
       return associatedExportRoutingPolicyID;
@@ -107,6 +109,7 @@ public class BGPProfile extends RestObject {
    public void setAssociatedExportRoutingPolicyID(String value) { 
       this.associatedExportRoutingPolicyID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedImportRoutingPolicyID() {
       return associatedImportRoutingPolicyID;
@@ -116,6 +119,7 @@ public class BGPProfile extends RestObject {
    public void setAssociatedImportRoutingPolicyID(String value) { 
       this.associatedImportRoutingPolicyID = value;
    }
+   
    @JsonIgnore
    public Long getDampeningHalfLife() {
       return dampeningHalfLife;
@@ -125,6 +129,7 @@ public class BGPProfile extends RestObject {
    public void setDampeningHalfLife(Long value) { 
       this.dampeningHalfLife = value;
    }
+   
    @JsonIgnore
    public Long getDampeningMaxSuppress() {
       return dampeningMaxSuppress;
@@ -134,6 +139,7 @@ public class BGPProfile extends RestObject {
    public void setDampeningMaxSuppress(Long value) { 
       this.dampeningMaxSuppress = value;
    }
+   
    @JsonIgnore
    public String getDampeningName() {
       return dampeningName;
@@ -143,6 +149,7 @@ public class BGPProfile extends RestObject {
    public void setDampeningName(String value) { 
       this.dampeningName = value;
    }
+   
    @JsonIgnore
    public Long getDampeningReuse() {
       return dampeningReuse;
@@ -152,6 +159,7 @@ public class BGPProfile extends RestObject {
    public void setDampeningReuse(Long value) { 
       this.dampeningReuse = value;
    }
+   
    @JsonIgnore
    public Long getDampeningSuppress() {
       return dampeningSuppress;
@@ -161,6 +169,7 @@ public class BGPProfile extends RestObject {
    public void setDampeningSuppress(Long value) { 
       this.dampeningSuppress = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -170,6 +179,7 @@ public class BGPProfile extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -179,6 +189,7 @@ public class BGPProfile extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -188,6 +199,7 @@ public class BGPProfile extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;

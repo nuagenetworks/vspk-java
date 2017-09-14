@@ -45,7 +45,9 @@ public class InfrastructureConfig extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum ConfigStatus { FAILURE, SUCCESS, UNKNOWN };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -81,6 +83,7 @@ public class InfrastructureConfig extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Object getConfig() {
       return config;
@@ -90,6 +93,7 @@ public class InfrastructureConfig extends RestObject {
    public void setConfig(Object value) { 
       this.config = value;
    }
+   
    @JsonIgnore
    public ConfigStatus getConfigStatus() {
       return configStatus;
@@ -99,6 +103,7 @@ public class InfrastructureConfig extends RestObject {
    public void setConfigStatus(ConfigStatus value) { 
       this.configStatus = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -108,6 +113,7 @@ public class InfrastructureConfig extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -117,6 +123,7 @@ public class InfrastructureConfig extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;

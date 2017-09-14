@@ -43,7 +43,9 @@ public class OverlayMirrorDestinationTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EndPointType { NONE, VIRTUAL_WIRE };
+   
    public enum TriggerType { GARP, NONE };
 
    
@@ -69,6 +71,7 @@ public class OverlayMirrorDestinationTemplate extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -78,6 +81,7 @@ public class OverlayMirrorDestinationTemplate extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public EndPointType getEndPointType() {
       return endPointType;
@@ -87,6 +91,7 @@ public class OverlayMirrorDestinationTemplate extends RestObject {
    public void setEndPointType(EndPointType value) { 
       this.endPointType = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -96,6 +101,7 @@ public class OverlayMirrorDestinationTemplate extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public Boolean getRedundancyEnabled() {
       return redundancyEnabled;
@@ -105,6 +111,7 @@ public class OverlayMirrorDestinationTemplate extends RestObject {
    public void setRedundancyEnabled(Boolean value) { 
       this.redundancyEnabled = value;
    }
+   
    @JsonIgnore
    public TriggerType getTriggerType() {
       return triggerType;

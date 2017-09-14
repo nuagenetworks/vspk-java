@@ -46,7 +46,9 @@ public class SSIDConnection extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum AuthenticationMode { CAPTIVE_PORTAL, OPEN, WEP, WPA, WPA2, WPA_OTP, WPA_WPA2 };
+   
    public enum RedirectOption { CONFIGURED_URL, ORIGINAL_REQUEST };
 
    
@@ -111,6 +113,7 @@ public class SSIDConnection extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAssociatedCaptivePortalProfileID() {
       return associatedCaptivePortalProfileID;
@@ -120,6 +123,7 @@ public class SSIDConnection extends RestObject {
    public void setAssociatedCaptivePortalProfileID(String value) { 
       this.associatedCaptivePortalProfileID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedEgressQOSPolicyID() {
       return associatedEgressQOSPolicyID;
@@ -129,6 +133,7 @@ public class SSIDConnection extends RestObject {
    public void setAssociatedEgressQOSPolicyID(String value) { 
       this.associatedEgressQOSPolicyID = value;
    }
+   
    @JsonIgnore
    public AuthenticationMode getAuthenticationMode() {
       return authenticationMode;
@@ -138,6 +143,7 @@ public class SSIDConnection extends RestObject {
    public void setAuthenticationMode(AuthenticationMode value) { 
       this.authenticationMode = value;
    }
+   
    @JsonIgnore
    public java.util.List<String> getBlackList() {
       return blackList;
@@ -147,6 +153,7 @@ public class SSIDConnection extends RestObject {
    public void setBlackList(java.util.List<String> value) { 
       this.blackList = value;
    }
+   
    @JsonIgnore
    public Boolean getBroadcastSSID() {
       return broadcastSSID;
@@ -156,6 +163,7 @@ public class SSIDConnection extends RestObject {
    public void setBroadcastSSID(Boolean value) { 
       this.broadcastSSID = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -165,6 +173,7 @@ public class SSIDConnection extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getGenericConfig() {
       return genericConfig;
@@ -174,6 +183,7 @@ public class SSIDConnection extends RestObject {
    public void setGenericConfig(String value) { 
       this.genericConfig = value;
    }
+   
    @JsonIgnore
    public String getInterfaceName() {
       return interfaceName;
@@ -183,6 +193,7 @@ public class SSIDConnection extends RestObject {
    public void setInterfaceName(String value) { 
       this.interfaceName = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -192,6 +203,7 @@ public class SSIDConnection extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getPassphrase() {
       return passphrase;
@@ -201,6 +213,7 @@ public class SSIDConnection extends RestObject {
    public void setPassphrase(String value) { 
       this.passphrase = value;
    }
+   
    @JsonIgnore
    public RedirectOption getRedirectOption() {
       return redirectOption;
@@ -210,6 +223,7 @@ public class SSIDConnection extends RestObject {
    public void setRedirectOption(RedirectOption value) { 
       this.redirectOption = value;
    }
+   
    @JsonIgnore
    public String getRedirectURL() {
       return redirectURL;
@@ -219,6 +233,7 @@ public class SSIDConnection extends RestObject {
    public void setRedirectURL(String value) { 
       this.redirectURL = value;
    }
+   
    @JsonIgnore
    public java.util.List<String> getWhiteList() {
       return whiteList;

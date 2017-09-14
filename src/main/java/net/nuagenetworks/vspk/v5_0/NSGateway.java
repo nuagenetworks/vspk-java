@@ -63,17 +63,29 @@ public class NSGateway extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum SSHService { DISABLED, ENABLED, INHERITED };
+   
    public enum TPMStatus { DISABLED, ENABLED_NOT_OPERATIONAL, ENABLED_OPERATIONAL, UNKNOWN };
+   
    public enum BootstrapStatus { ACTIVE, CERTIFICATE_SIGNED, INACTIVE, NOTIFICATION_APP_REQ_ACK, NOTIFICATION_APP_REQ_SENT };
+   
    public enum ConfigurationReloadState { APPLIED, FAILED_TO_APPLY, PENDING, SENT, UNKNOWN };
+   
    public enum ConfigurationStatus { FAILURE, SUCCESS, UNKNOWN };
+   
    public enum DerivedSSHServiceState { INHERITED_DISABLED, INHERITED_ENABLED, INSTANCE_DISABLED, INSTANCE_ENABLED, UNKNOWN };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum Family { ANY, NSG_E, NSG_V, NSG_AMI, NSG_X, NSG_C, NSG_E200, NSG_E300, NSG_X200 };
+   
    public enum InheritedSSHServiceState { DISABLED, ENABLED };
+   
    public enum NetworkAcceleration { NONE, NORMAL, OPTIMAL, PERFORMANCE };
+   
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
+   
    public enum Personality { DC7X50, HARDWARE_VTEP, NSG, NSGBR, NSGDUC, OTHER, VRSG, VSA, VSG };
 
    
@@ -322,6 +334,7 @@ public class NSGateway extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getBIOSVersion() {
       return BIOSVersion;
@@ -331,6 +344,7 @@ public class NSGateway extends RestObject {
    public void setBIOSVersion(String value) { 
       this.BIOSVersion = value;
    }
+   
    @JsonIgnore
    public String getCPUType() {
       return CPUType;
@@ -340,6 +354,7 @@ public class NSGateway extends RestObject {
    public void setCPUType(String value) { 
       this.CPUType = value;
    }
+   
    @JsonIgnore
    public String getMACAddress() {
       return MACAddress;
@@ -349,6 +364,7 @@ public class NSGateway extends RestObject {
    public void setMACAddress(String value) { 
       this.MACAddress = value;
    }
+   
    @JsonIgnore
    public Boolean getNATTraversalEnabled() {
       return NATTraversalEnabled;
@@ -358,6 +374,7 @@ public class NSGateway extends RestObject {
    public void setNATTraversalEnabled(Boolean value) { 
       this.NATTraversalEnabled = value;
    }
+   
    @JsonIgnore
    public String getNSGVersion() {
       return NSGVersion;
@@ -367,6 +384,7 @@ public class NSGateway extends RestObject {
    public void setNSGVersion(String value) { 
       this.NSGVersion = value;
    }
+   
    @JsonIgnore
    public String getSKU() {
       return SKU;
@@ -376,6 +394,7 @@ public class NSGateway extends RestObject {
    public void setSKU(String value) { 
       this.SKU = value;
    }
+   
    @JsonIgnore
    public SSHService getSSHService() {
       return SSHService;
@@ -385,6 +404,7 @@ public class NSGateway extends RestObject {
    public void setSSHService(SSHService value) { 
       this.SSHService = value;
    }
+   
    @JsonIgnore
    public Boolean getTCPMSSEnabled() {
       return TCPMSSEnabled;
@@ -394,6 +414,7 @@ public class NSGateway extends RestObject {
    public void setTCPMSSEnabled(Boolean value) { 
       this.TCPMSSEnabled = value;
    }
+   
    @JsonIgnore
    public Long getTCPMaximumSegmentSize() {
       return TCPMaximumSegmentSize;
@@ -403,6 +424,7 @@ public class NSGateway extends RestObject {
    public void setTCPMaximumSegmentSize(Long value) { 
       this.TCPMaximumSegmentSize = value;
    }
+   
    @JsonIgnore
    public TPMStatus getTPMStatus() {
       return TPMStatus;
@@ -412,6 +434,7 @@ public class NSGateway extends RestObject {
    public void setTPMStatus(TPMStatus value) { 
       this.TPMStatus = value;
    }
+   
    @JsonIgnore
    public String getUUID() {
       return UUID;
@@ -421,6 +444,7 @@ public class NSGateway extends RestObject {
    public void setUUID(String value) { 
       this.UUID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedGatewaySecurityID() {
       return associatedGatewaySecurityID;
@@ -430,6 +454,7 @@ public class NSGateway extends RestObject {
    public void setAssociatedGatewaySecurityID(String value) { 
       this.associatedGatewaySecurityID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedGatewaySecurityProfileID() {
       return associatedGatewaySecurityProfileID;
@@ -439,6 +464,7 @@ public class NSGateway extends RestObject {
    public void setAssociatedGatewaySecurityProfileID(String value) { 
       this.associatedGatewaySecurityProfileID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedNSGInfoID() {
       return associatedNSGInfoID;
@@ -448,6 +474,7 @@ public class NSGateway extends RestObject {
    public void setAssociatedNSGInfoID(String value) { 
       this.associatedNSGInfoID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedNSGUpgradeProfileID() {
       return associatedNSGUpgradeProfileID;
@@ -457,6 +484,7 @@ public class NSGateway extends RestObject {
    public void setAssociatedNSGUpgradeProfileID(String value) { 
       this.associatedNSGUpgradeProfileID = value;
    }
+   
    @JsonIgnore
    public String getAutoDiscGatewayID() {
       return autoDiscGatewayID;
@@ -466,6 +494,7 @@ public class NSGateway extends RestObject {
    public void setAutoDiscGatewayID(String value) { 
       this.autoDiscGatewayID = value;
    }
+   
    @JsonIgnore
    public String getBootstrapID() {
       return bootstrapID;
@@ -475,6 +504,7 @@ public class NSGateway extends RestObject {
    public void setBootstrapID(String value) { 
       this.bootstrapID = value;
    }
+   
    @JsonIgnore
    public BootstrapStatus getBootstrapStatus() {
       return bootstrapStatus;
@@ -484,6 +514,7 @@ public class NSGateway extends RestObject {
    public void setBootstrapStatus(BootstrapStatus value) { 
       this.bootstrapStatus = value;
    }
+   
    @JsonIgnore
    public ConfigurationReloadState getConfigurationReloadState() {
       return configurationReloadState;
@@ -493,6 +524,7 @@ public class NSGateway extends RestObject {
    public void setConfigurationReloadState(ConfigurationReloadState value) { 
       this.configurationReloadState = value;
    }
+   
    @JsonIgnore
    public ConfigurationStatus getConfigurationStatus() {
       return configurationStatus;
@@ -502,6 +534,7 @@ public class NSGateway extends RestObject {
    public void setConfigurationStatus(ConfigurationStatus value) { 
       this.configurationStatus = value;
    }
+   
    @JsonIgnore
    public Long getControlTrafficCOSValue() {
       return controlTrafficCOSValue;
@@ -511,6 +544,7 @@ public class NSGateway extends RestObject {
    public void setControlTrafficCOSValue(Long value) { 
       this.controlTrafficCOSValue = value;
    }
+   
    @JsonIgnore
    public Long getControlTrafficDSCPValue() {
       return controlTrafficDSCPValue;
@@ -520,6 +554,7 @@ public class NSGateway extends RestObject {
    public void setControlTrafficDSCPValue(Long value) { 
       this.controlTrafficDSCPValue = value;
    }
+   
    @JsonIgnore
    public String getDatapathID() {
       return datapathID;
@@ -529,6 +564,7 @@ public class NSGateway extends RestObject {
    public void setDatapathID(String value) { 
       this.datapathID = value;
    }
+   
    @JsonIgnore
    public DerivedSSHServiceState getDerivedSSHServiceState() {
       return derivedSSHServiceState;
@@ -538,6 +574,7 @@ public class NSGateway extends RestObject {
    public void setDerivedSSHServiceState(DerivedSSHServiceState value) { 
       this.derivedSSHServiceState = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -547,6 +584,7 @@ public class NSGateway extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getEnterpriseID() {
       return enterpriseID;
@@ -556,6 +594,7 @@ public class NSGateway extends RestObject {
    public void setEnterpriseID(String value) { 
       this.enterpriseID = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -565,6 +604,7 @@ public class NSGateway extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -574,6 +614,7 @@ public class NSGateway extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public Family getFamily() {
       return family;
@@ -583,6 +624,7 @@ public class NSGateway extends RestObject {
    public void setFamily(Family value) { 
       this.family = value;
    }
+   
    @JsonIgnore
    public InheritedSSHServiceState getInheritedSSHServiceState() {
       return inheritedSSHServiceState;
@@ -592,6 +634,7 @@ public class NSGateway extends RestObject {
    public void setInheritedSSHServiceState(InheritedSSHServiceState value) { 
       this.inheritedSSHServiceState = value;
    }
+   
    @JsonIgnore
    public Long getLastConfigurationReloadTimestamp() {
       return lastConfigurationReloadTimestamp;
@@ -601,6 +644,7 @@ public class NSGateway extends RestObject {
    public void setLastConfigurationReloadTimestamp(Long value) { 
       this.lastConfigurationReloadTimestamp = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -610,6 +654,7 @@ public class NSGateway extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getLibraries() {
       return libraries;
@@ -619,6 +664,7 @@ public class NSGateway extends RestObject {
    public void setLibraries(String value) { 
       this.libraries = value;
    }
+   
    @JsonIgnore
    public String getLocationID() {
       return locationID;
@@ -628,6 +674,7 @@ public class NSGateway extends RestObject {
    public void setLocationID(String value) { 
       this.locationID = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -637,6 +684,7 @@ public class NSGateway extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public NetworkAcceleration getNetworkAcceleration() {
       return networkAcceleration;
@@ -646,6 +694,7 @@ public class NSGateway extends RestObject {
    public void setNetworkAcceleration(NetworkAcceleration value) { 
       this.networkAcceleration = value;
    }
+   
    @JsonIgnore
    public String getOperationMode() {
       return operationMode;
@@ -655,6 +704,7 @@ public class NSGateway extends RestObject {
    public void setOperationMode(String value) { 
       this.operationMode = value;
    }
+   
    @JsonIgnore
    public String getOperationStatus() {
       return operationStatus;
@@ -664,6 +714,7 @@ public class NSGateway extends RestObject {
    public void setOperationStatus(String value) { 
       this.operationStatus = value;
    }
+   
    @JsonIgnore
    public Boolean getPending() {
       return pending;
@@ -673,6 +724,7 @@ public class NSGateway extends RestObject {
    public void setPending(Boolean value) { 
       this.pending = value;
    }
+   
    @JsonIgnore
    public PermittedAction getPermittedAction() {
       return permittedAction;
@@ -682,6 +734,7 @@ public class NSGateway extends RestObject {
    public void setPermittedAction(PermittedAction value) { 
       this.permittedAction = value;
    }
+   
    @JsonIgnore
    public Personality getPersonality() {
       return personality;
@@ -691,6 +744,7 @@ public class NSGateway extends RestObject {
    public void setPersonality(Personality value) { 
       this.personality = value;
    }
+   
    @JsonIgnore
    public String getProductName() {
       return productName;
@@ -700,6 +754,7 @@ public class NSGateway extends RestObject {
    public void setProductName(String value) { 
       this.productName = value;
    }
+   
    @JsonIgnore
    public String getRedundancyGroupID() {
       return redundancyGroupID;
@@ -709,6 +764,7 @@ public class NSGateway extends RestObject {
    public void setRedundancyGroupID(String value) { 
       this.redundancyGroupID = value;
    }
+   
    @JsonIgnore
    public String getSerialNumber() {
       return serialNumber;
@@ -718,6 +774,7 @@ public class NSGateway extends RestObject {
    public void setSerialNumber(String value) { 
       this.serialNumber = value;
    }
+   
    @JsonIgnore
    public String getSystemID() {
       return systemID;
@@ -727,6 +784,7 @@ public class NSGateway extends RestObject {
    public void setSystemID(String value) { 
       this.systemID = value;
    }
+   
    @JsonIgnore
    public String getTemplateID() {
       return templateID;

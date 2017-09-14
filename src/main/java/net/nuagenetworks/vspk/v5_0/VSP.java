@@ -49,6 +49,7 @@ public class VSP extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -110,6 +111,7 @@ public class VSP extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -119,6 +121,7 @@ public class VSP extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -128,6 +131,7 @@ public class VSP extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -137,6 +141,7 @@ public class VSP extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -146,6 +151,7 @@ public class VSP extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getLocation() {
       return location;
@@ -155,6 +161,7 @@ public class VSP extends RestObject {
    public void setLocation(String value) { 
       this.location = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -164,6 +171,7 @@ public class VSP extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getProductVersion() {
       return productVersion;

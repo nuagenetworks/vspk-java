@@ -45,7 +45,9 @@ public class COSRemarkingPolicy extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum ForwardingClass { A, B, C, D, E, F, G, H };
 
    
@@ -81,6 +83,7 @@ public class COSRemarkingPolicy extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getDSCP() {
       return DSCP;
@@ -90,6 +93,7 @@ public class COSRemarkingPolicy extends RestObject {
    public void setDSCP(String value) { 
       this.DSCP = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -99,6 +103,7 @@ public class COSRemarkingPolicy extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -108,6 +113,7 @@ public class COSRemarkingPolicy extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public ForwardingClass getForwardingClass() {
       return forwardingClass;
@@ -117,6 +123,7 @@ public class COSRemarkingPolicy extends RestObject {
    public void setForwardingClass(ForwardingClass value) { 
       this.forwardingClass = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;

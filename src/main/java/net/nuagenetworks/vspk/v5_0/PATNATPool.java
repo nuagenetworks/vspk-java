@@ -51,8 +51,11 @@ public class PATNATPool extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum AssociatedGatewayType { AUTO_DISC_GATEWAY, GATEWAY, IKE_GATEWAY, NSGATEWAY };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
 
    
@@ -154,6 +157,7 @@ public class PATNATPool extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAddressRange() {
       return addressRange;
@@ -163,6 +167,7 @@ public class PATNATPool extends RestObject {
    public void setAddressRange(String value) { 
       this.addressRange = value;
    }
+   
    @JsonIgnore
    public String getAssociatedGatewayId() {
       return associatedGatewayId;
@@ -172,6 +177,7 @@ public class PATNATPool extends RestObject {
    public void setAssociatedGatewayId(String value) { 
       this.associatedGatewayId = value;
    }
+   
    @JsonIgnore
    public AssociatedGatewayType getAssociatedGatewayType() {
       return associatedGatewayType;
@@ -181,6 +187,7 @@ public class PATNATPool extends RestObject {
    public void setAssociatedGatewayType(AssociatedGatewayType value) { 
       this.associatedGatewayType = value;
    }
+   
    @JsonIgnore
    public String getAssociatedSubnetId() {
       return associatedSubnetId;
@@ -190,6 +197,7 @@ public class PATNATPool extends RestObject {
    public void setAssociatedSubnetId(String value) { 
       this.associatedSubnetId = value;
    }
+   
    @JsonIgnore
    public String getAssociatedVlanId() {
       return associatedVlanId;
@@ -199,6 +207,7 @@ public class PATNATPool extends RestObject {
    public void setAssociatedVlanId(String value) { 
       this.associatedVlanId = value;
    }
+   
    @JsonIgnore
    public String getDefaultPATIP() {
       return defaultPATIP;
@@ -208,6 +217,7 @@ public class PATNATPool extends RestObject {
    public void setDefaultPATIP(String value) { 
       this.defaultPATIP = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -217,6 +227,7 @@ public class PATNATPool extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public Boolean getDynamicSourceEnabled() {
       return dynamicSourceEnabled;
@@ -226,6 +237,7 @@ public class PATNATPool extends RestObject {
    public void setDynamicSourceEnabled(Boolean value) { 
       this.dynamicSourceEnabled = value;
    }
+   
    @JsonIgnore
    public String getEndAddressRange() {
       return endAddressRange;
@@ -235,6 +247,7 @@ public class PATNATPool extends RestObject {
    public void setEndAddressRange(String value) { 
       this.endAddressRange = value;
    }
+   
    @JsonIgnore
    public String getEndSourceAddress() {
       return endSourceAddress;
@@ -244,6 +257,7 @@ public class PATNATPool extends RestObject {
    public void setEndSourceAddress(String value) { 
       this.endSourceAddress = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -253,6 +267,7 @@ public class PATNATPool extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -262,6 +277,7 @@ public class PATNATPool extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -271,6 +287,7 @@ public class PATNATPool extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -280,6 +297,7 @@ public class PATNATPool extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public PermittedAction getPermittedAction() {
       return permittedAction;
@@ -289,6 +307,7 @@ public class PATNATPool extends RestObject {
    public void setPermittedAction(PermittedAction value) { 
       this.permittedAction = value;
    }
+   
    @JsonIgnore
    public String getStartAddressRange() {
       return startAddressRange;
@@ -298,6 +317,7 @@ public class PATNATPool extends RestObject {
    public void setStartAddressRange(String value) { 
       this.startAddressRange = value;
    }
+   
    @JsonIgnore
    public String getStartSourceAddress() {
       return startSourceAddress;

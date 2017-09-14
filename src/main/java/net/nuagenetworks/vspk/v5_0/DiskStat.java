@@ -43,7 +43,9 @@ public class DiskStat extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum Unit { Bytes, EB, GB, KB, MB, PB, TB, YB, ZB };
 
    
@@ -75,6 +77,7 @@ public class DiskStat extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Float getAvailable() {
       return available;
@@ -84,6 +87,7 @@ public class DiskStat extends RestObject {
    public void setAvailable(Float value) { 
       this.available = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -93,6 +97,7 @@ public class DiskStat extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -102,6 +107,7 @@ public class DiskStat extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -111,6 +117,7 @@ public class DiskStat extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public Float getSize() {
       return size;
@@ -120,6 +127,7 @@ public class DiskStat extends RestObject {
    public void setSize(Float value) { 
       this.size = value;
    }
+   
    @JsonIgnore
    public Unit getUnit() {
       return unit;
@@ -129,6 +137,7 @@ public class DiskStat extends RestObject {
    public void setUnit(Unit value) { 
       this.unit = value;
    }
+   
    @JsonIgnore
    public Float getUsed() {
       return used;

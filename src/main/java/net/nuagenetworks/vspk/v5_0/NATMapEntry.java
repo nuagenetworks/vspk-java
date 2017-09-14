@@ -45,7 +45,9 @@ public class NATMapEntry extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum Type { MANY_TO_ONE_PAT, ONE_TO_MANY_PAT, ONE_TO_ONE_NAT, UNKNOWN };
 
    
@@ -87,6 +89,7 @@ public class NATMapEntry extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAssociatedPATNATPoolID() {
       return associatedPATNATPoolID;
@@ -96,6 +99,7 @@ public class NATMapEntry extends RestObject {
    public void setAssociatedPATNATPoolID(String value) { 
       this.associatedPATNATPoolID = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -105,6 +109,7 @@ public class NATMapEntry extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -114,6 +119,7 @@ public class NATMapEntry extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -123,6 +129,7 @@ public class NATMapEntry extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getPrivateIP() {
       return privateIP;
@@ -132,6 +139,7 @@ public class NATMapEntry extends RestObject {
    public void setPrivateIP(String value) { 
       this.privateIP = value;
    }
+   
    @JsonIgnore
    public String getPublicIP() {
       return publicIP;
@@ -141,6 +149,7 @@ public class NATMapEntry extends RestObject {
    public void setPublicIP(String value) { 
       this.publicIP = value;
    }
+   
    @JsonIgnore
    public Type getType() {
       return type;

@@ -58,6 +58,7 @@ public class VNFInterfaceDescriptor extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Boolean getIsManagementInterface() {
       return isManagementInterface;
@@ -67,6 +68,7 @@ public class VNFInterfaceDescriptor extends RestObject {
    public void setIsManagementInterface(Boolean value) { 
       this.isManagementInterface = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;

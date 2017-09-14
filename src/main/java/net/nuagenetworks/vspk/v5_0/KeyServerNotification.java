@@ -45,7 +45,9 @@ public class KeyServerNotification extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum NotificationType { CONFIG_UPDATE, ENCRYPTION_DISABLED, ENCRYPTION_ENABLED, REKEY, TEST };
 
    
@@ -81,6 +83,7 @@ public class KeyServerNotification extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getBase64JSONString() {
       return base64JSONString;
@@ -90,6 +93,7 @@ public class KeyServerNotification extends RestObject {
    public void setBase64JSONString(String value) { 
       this.base64JSONString = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -99,6 +103,7 @@ public class KeyServerNotification extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -108,6 +113,7 @@ public class KeyServerNotification extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public Object getMessage() {
       return message;
@@ -117,6 +123,7 @@ public class KeyServerNotification extends RestObject {
    public void setMessage(Object value) { 
       this.message = value;
    }
+   
    @JsonIgnore
    public NotificationType getNotificationType() {
       return notificationType;

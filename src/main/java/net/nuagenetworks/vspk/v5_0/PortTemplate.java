@@ -46,7 +46,9 @@ public class PortTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum PortType { ACCESS, NETWORK };
 
    
@@ -99,6 +101,7 @@ public class PortTemplate extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getVLANRange() {
       return VLANRange;
@@ -108,6 +111,7 @@ public class PortTemplate extends RestObject {
    public void setVLANRange(String value) { 
       this.VLANRange = value;
    }
+   
    @JsonIgnore
    public String getAssociatedEgressQOSPolicyID() {
       return associatedEgressQOSPolicyID;
@@ -117,6 +121,7 @@ public class PortTemplate extends RestObject {
    public void setAssociatedEgressQOSPolicyID(String value) { 
       this.associatedEgressQOSPolicyID = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -126,6 +131,7 @@ public class PortTemplate extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -135,6 +141,7 @@ public class PortTemplate extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -144,6 +151,7 @@ public class PortTemplate extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -153,6 +161,7 @@ public class PortTemplate extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -162,6 +171,7 @@ public class PortTemplate extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getPhysicalName() {
       return physicalName;
@@ -171,6 +181,7 @@ public class PortTemplate extends RestObject {
    public void setPhysicalName(String value) { 
       this.physicalName = value;
    }
+   
    @JsonIgnore
    public PortType getPortType() {
       return portType;

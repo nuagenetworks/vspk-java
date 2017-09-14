@@ -47,7 +47,9 @@ public class EnterpriseNetwork extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum IPType { DUALSTACK, IPV4, IPV6 };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -103,6 +105,7 @@ public class EnterpriseNetwork extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public IPType getIPType() {
       return IPType;
@@ -112,6 +115,7 @@ public class EnterpriseNetwork extends RestObject {
    public void setIPType(IPType value) { 
       this.IPType = value;
    }
+   
    @JsonIgnore
    public String getIPv6Address() {
       return IPv6Address;
@@ -121,6 +125,7 @@ public class EnterpriseNetwork extends RestObject {
    public void setIPv6Address(String value) { 
       this.IPv6Address = value;
    }
+   
    @JsonIgnore
    public String getAddress() {
       return address;
@@ -130,6 +135,7 @@ public class EnterpriseNetwork extends RestObject {
    public void setAddress(String value) { 
       this.address = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -139,6 +145,7 @@ public class EnterpriseNetwork extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -148,6 +155,7 @@ public class EnterpriseNetwork extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -157,6 +165,7 @@ public class EnterpriseNetwork extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -166,6 +175,7 @@ public class EnterpriseNetwork extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getNetmask() {
       return netmask;

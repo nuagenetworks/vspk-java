@@ -43,10 +43,15 @@ public class WirelessPortTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum CountryCode { CA, FR, UK, US };
+   
    public enum FrequencyChannel { CH_0, CH_1, CH_2 };
+   
    public enum PortType { ACCESS };
+   
    public enum WifiFrequencyBand { FREQ_2_4_GHZ, FREQ_5_0_GHZ };
+   
    public enum WifiMode { WIFI_A, WIFI_A_AC, WIFI_A_N, WIFI_A_N_AC, WIFI_B_G, WIFI_B_G_N };
 
    
@@ -84,6 +89,7 @@ public class WirelessPortTemplate extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public CountryCode getCountryCode() {
       return countryCode;
@@ -93,6 +99,7 @@ public class WirelessPortTemplate extends RestObject {
    public void setCountryCode(CountryCode value) { 
       this.countryCode = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -102,6 +109,7 @@ public class WirelessPortTemplate extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public FrequencyChannel getFrequencyChannel() {
       return frequencyChannel;
@@ -111,6 +119,7 @@ public class WirelessPortTemplate extends RestObject {
    public void setFrequencyChannel(FrequencyChannel value) { 
       this.frequencyChannel = value;
    }
+   
    @JsonIgnore
    public String getGenericConfig() {
       return genericConfig;
@@ -120,6 +129,7 @@ public class WirelessPortTemplate extends RestObject {
    public void setGenericConfig(String value) { 
       this.genericConfig = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -129,6 +139,7 @@ public class WirelessPortTemplate extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getPhysicalName() {
       return physicalName;
@@ -138,6 +149,7 @@ public class WirelessPortTemplate extends RestObject {
    public void setPhysicalName(String value) { 
       this.physicalName = value;
    }
+   
    @JsonIgnore
    public PortType getPortType() {
       return portType;
@@ -147,6 +159,7 @@ public class WirelessPortTemplate extends RestObject {
    public void setPortType(PortType value) { 
       this.portType = value;
    }
+   
    @JsonIgnore
    public WifiFrequencyBand getWifiFrequencyBand() {
       return wifiFrequencyBand;
@@ -156,6 +169,7 @@ public class WirelessPortTemplate extends RestObject {
    public void setWifiFrequencyBand(WifiFrequencyBand value) { 
       this.wifiFrequencyBand = value;
    }
+   
    @JsonIgnore
    public WifiMode getWifiMode() {
       return wifiMode;

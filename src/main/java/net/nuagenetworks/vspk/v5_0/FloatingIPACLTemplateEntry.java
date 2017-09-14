@@ -45,10 +45,15 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum Action { DROP, FORWARD, REDIRECT };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum LocationType { ANY, POLICYGROUP, REDIRECTIONTARGET, SUBNET, VPORTTAG, ZONE };
+   
    public enum NetworkType { ANY, ENDPOINT_DOMAIN, ENDPOINT_SUBNET, ENDPOINT_ZONE, ENTERPRISE_NETWORK, INTERNET_POLICYGROUP, NETWORK_MACRO_GROUP, POLICYGROUP, PUBLIC_NETWORK, SUBNET, ZONE };
+   
    public enum PolicyState { DRAFT, LIVE };
 
    
@@ -156,6 +161,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getACLTemplateName() {
       return ACLTemplateName;
@@ -165,6 +171,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setACLTemplateName(String value) { 
       this.ACLTemplateName = value;
    }
+   
    @JsonIgnore
    public String getDSCP() {
       return DSCP;
@@ -174,6 +181,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setDSCP(String value) { 
       this.DSCP = value;
    }
+   
    @JsonIgnore
    public String getICMPCode() {
       return ICMPCode;
@@ -183,6 +191,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setICMPCode(String value) { 
       this.ICMPCode = value;
    }
+   
    @JsonIgnore
    public String getICMPType() {
       return ICMPType;
@@ -192,6 +201,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setICMPType(String value) { 
       this.ICMPType = value;
    }
+   
    @JsonIgnore
    public String getIPv6AddressOverride() {
       return IPv6AddressOverride;
@@ -201,6 +211,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setIPv6AddressOverride(String value) { 
       this.IPv6AddressOverride = value;
    }
+   
    @JsonIgnore
    public Action getAction() {
       return action;
@@ -210,6 +221,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setAction(Action value) { 
       this.action = value;
    }
+   
    @JsonIgnore
    public String getAddressOverride() {
       return addressOverride;
@@ -219,6 +231,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setAddressOverride(String value) { 
       this.addressOverride = value;
    }
+   
    @JsonIgnore
    public String getAssociatedLiveEntityID() {
       return associatedLiveEntityID;
@@ -228,6 +241,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setAssociatedLiveEntityID(String value) { 
       this.associatedLiveEntityID = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -237,6 +251,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getDestinationPort() {
       return destinationPort;
@@ -246,6 +261,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setDestinationPort(String value) { 
       this.destinationPort = value;
    }
+   
    @JsonIgnore
    public String getDomainName() {
       return domainName;
@@ -255,6 +271,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setDomainName(String value) { 
       this.domainName = value;
    }
+   
    @JsonIgnore
    public String getEnterpriseName() {
       return enterpriseName;
@@ -264,6 +281,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setEnterpriseName(String value) { 
       this.enterpriseName = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -273,6 +291,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getEtherType() {
       return etherType;
@@ -282,6 +301,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setEtherType(String value) { 
       this.etherType = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -291,6 +311,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public Boolean getFlowLoggingEnabled() {
       return flowLoggingEnabled;
@@ -300,6 +321,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setFlowLoggingEnabled(Boolean value) { 
       this.flowLoggingEnabled = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -309,6 +331,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getLocationID() {
       return locationID;
@@ -318,6 +341,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setLocationID(String value) { 
       this.locationID = value;
    }
+   
    @JsonIgnore
    public LocationType getLocationType() {
       return locationType;
@@ -327,6 +351,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setLocationType(LocationType value) { 
       this.locationType = value;
    }
+   
    @JsonIgnore
    public String getMirrorDestinationID() {
       return mirrorDestinationID;
@@ -336,6 +361,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setMirrorDestinationID(String value) { 
       this.mirrorDestinationID = value;
    }
+   
    @JsonIgnore
    public String getNetworkID() {
       return networkID;
@@ -345,6 +371,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setNetworkID(String value) { 
       this.networkID = value;
    }
+   
    @JsonIgnore
    public NetworkType getNetworkType() {
       return networkType;
@@ -354,6 +381,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setNetworkType(NetworkType value) { 
       this.networkType = value;
    }
+   
    @JsonIgnore
    public PolicyState getPolicyState() {
       return policyState;
@@ -363,6 +391,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setPolicyState(PolicyState value) { 
       this.policyState = value;
    }
+   
    @JsonIgnore
    public Long getPriority() {
       return priority;
@@ -372,6 +401,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setPriority(Long value) { 
       this.priority = value;
    }
+   
    @JsonIgnore
    public String getProtocol() {
       return protocol;
@@ -381,6 +411,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setProtocol(String value) { 
       this.protocol = value;
    }
+   
    @JsonIgnore
    public String getSourcePort() {
       return sourcePort;
@@ -390,6 +421,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setSourcePort(String value) { 
       this.sourcePort = value;
    }
+   
    @JsonIgnore
    public Boolean getStateful() {
       return stateful;
@@ -399,6 +431,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setStateful(Boolean value) { 
       this.stateful = value;
    }
+   
    @JsonIgnore
    public String getStatsID() {
       return statsID;
@@ -408,6 +441,7 @@ public class FloatingIPACLTemplateEntry extends RestObject {
    public void setStatsID(String value) { 
       this.statsID = value;
    }
+   
    @JsonIgnore
    public Boolean getStatsLoggingEnabled() {
       return statsLoggingEnabled;

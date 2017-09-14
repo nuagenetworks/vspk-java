@@ -61,6 +61,7 @@ public class PSPATMap extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAssociatedSPATSourcesPoolID() {
       return associatedSPATSourcesPoolID;
@@ -70,6 +71,7 @@ public class PSPATMap extends RestObject {
    public void setAssociatedSPATSourcesPoolID(String value) { 
       this.associatedSPATSourcesPoolID = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -79,6 +81,7 @@ public class PSPATMap extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public java.util.List<String> getReservedSPATIPs() {
       return reservedSPATIPs;

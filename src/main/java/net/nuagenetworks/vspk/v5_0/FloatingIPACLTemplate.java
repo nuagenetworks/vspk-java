@@ -46,8 +46,11 @@ public class FloatingIPACLTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum PolicyState { DRAFT, LIVE };
+   
    public enum PriorityType { BOTTOM, NONE, TOP };
 
    
@@ -112,6 +115,7 @@ public class FloatingIPACLTemplate extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Boolean getActive() {
       return active;
@@ -121,6 +125,7 @@ public class FloatingIPACLTemplate extends RestObject {
    public void setActive(Boolean value) { 
       this.active = value;
    }
+   
    @JsonIgnore
    public String getAssociatedLiveEntityID() {
       return associatedLiveEntityID;
@@ -130,6 +135,7 @@ public class FloatingIPACLTemplate extends RestObject {
    public void setAssociatedLiveEntityID(String value) { 
       this.associatedLiveEntityID = value;
    }
+   
    @JsonIgnore
    public String getAutoGeneratePriority() {
       return autoGeneratePriority;
@@ -139,6 +145,7 @@ public class FloatingIPACLTemplate extends RestObject {
    public void setAutoGeneratePriority(String value) { 
       this.autoGeneratePriority = value;
    }
+   
    @JsonIgnore
    public Boolean getDefaultAllowIP() {
       return defaultAllowIP;
@@ -148,6 +155,7 @@ public class FloatingIPACLTemplate extends RestObject {
    public void setDefaultAllowIP(Boolean value) { 
       this.defaultAllowIP = value;
    }
+   
    @JsonIgnore
    public Boolean getDefaultAllowNonIP() {
       return defaultAllowNonIP;
@@ -157,6 +165,7 @@ public class FloatingIPACLTemplate extends RestObject {
    public void setDefaultAllowNonIP(Boolean value) { 
       this.defaultAllowNonIP = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -166,6 +175,7 @@ public class FloatingIPACLTemplate extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -175,6 +185,7 @@ public class FloatingIPACLTemplate extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -184,6 +195,7 @@ public class FloatingIPACLTemplate extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -193,6 +205,7 @@ public class FloatingIPACLTemplate extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -202,6 +215,7 @@ public class FloatingIPACLTemplate extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public PolicyState getPolicyState() {
       return policyState;
@@ -211,6 +225,7 @@ public class FloatingIPACLTemplate extends RestObject {
    public void setPolicyState(PolicyState value) { 
       this.policyState = value;
    }
+   
    @JsonIgnore
    public Long getPriority() {
       return priority;
@@ -220,6 +235,7 @@ public class FloatingIPACLTemplate extends RestObject {
    public void setPriority(Long value) { 
       this.priority = value;
    }
+   
    @JsonIgnore
    public PriorityType getPriorityType() {
       return priorityType;

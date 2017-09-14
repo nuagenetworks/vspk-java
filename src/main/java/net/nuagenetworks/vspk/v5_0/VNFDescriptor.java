@@ -82,6 +82,7 @@ public class VNFDescriptor extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Long getCPUCount() {
       return CPUCount;
@@ -91,6 +92,7 @@ public class VNFDescriptor extends RestObject {
    public void setCPUCount(Long value) { 
       this.CPUCount = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -100,6 +102,7 @@ public class VNFDescriptor extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public Long getMemoryMB() {
       return memoryMB;
@@ -109,6 +112,7 @@ public class VNFDescriptor extends RestObject {
    public void setMemoryMB(Long value) { 
       this.memoryMB = value;
    }
+   
    @JsonIgnore
    public String getMetadataID() {
       return metadataID;
@@ -118,6 +122,7 @@ public class VNFDescriptor extends RestObject {
    public void setMetadataID(String value) { 
       this.metadataID = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -127,6 +132,7 @@ public class VNFDescriptor extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public Long getStorageGB() {
       return storageGB;
@@ -136,6 +142,7 @@ public class VNFDescriptor extends RestObject {
    public void setStorageGB(Long value) { 
       this.storageGB = value;
    }
+   
    @JsonIgnore
    public String getVendor() {
       return vendor;
@@ -145,6 +152,7 @@ public class VNFDescriptor extends RestObject {
    public void setVendor(String value) { 
       this.vendor = value;
    }
+   
    @JsonIgnore
    public Boolean getVisible() {
       return visible;

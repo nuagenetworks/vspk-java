@@ -45,6 +45,7 @@ public class EventLog extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -104,6 +105,7 @@ public class EventLog extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Object getDiff() {
       return diff;
@@ -113,6 +115,7 @@ public class EventLog extends RestObject {
    public void setDiff(Object value) { 
       this.diff = value;
    }
+   
    @JsonIgnore
    public String getEnterprise() {
       return enterprise;
@@ -122,6 +125,7 @@ public class EventLog extends RestObject {
    public void setEnterprise(String value) { 
       this.enterprise = value;
    }
+   
    @JsonIgnore
    public java.util.List<com.fasterxml.jackson.databind.JsonNode> getEntities() {
       return entities;
@@ -131,6 +135,7 @@ public class EventLog extends RestObject {
    public void setEntities(java.util.List<com.fasterxml.jackson.databind.JsonNode> value) { 
       this.entities = value;
    }
+   
    @JsonIgnore
    public String getEntityID() {
       return entityID;
@@ -140,6 +145,7 @@ public class EventLog extends RestObject {
    public void setEntityID(String value) { 
       this.entityID = value;
    }
+   
    @JsonIgnore
    public String getEntityParentID() {
       return entityParentID;
@@ -149,6 +155,7 @@ public class EventLog extends RestObject {
    public void setEntityParentID(String value) { 
       this.entityParentID = value;
    }
+   
    @JsonIgnore
    public String getEntityParentType() {
       return entityParentType;
@@ -158,6 +165,7 @@ public class EventLog extends RestObject {
    public void setEntityParentType(String value) { 
       this.entityParentType = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -167,6 +175,7 @@ public class EventLog extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getEntityType() {
       return entityType;
@@ -176,6 +185,7 @@ public class EventLog extends RestObject {
    public void setEntityType(String value) { 
       this.entityType = value;
    }
+   
    @JsonIgnore
    public Float getEventReceivedTime() {
       return eventReceivedTime;
@@ -185,6 +195,7 @@ public class EventLog extends RestObject {
    public void setEventReceivedTime(Float value) { 
       this.eventReceivedTime = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -194,6 +205,7 @@ public class EventLog extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getRequestID() {
       return requestID;
@@ -203,6 +215,7 @@ public class EventLog extends RestObject {
    public void setRequestID(String value) { 
       this.requestID = value;
    }
+   
    @JsonIgnore
    public String getType() {
       return type;
@@ -212,6 +225,7 @@ public class EventLog extends RestObject {
    public void setType(String value) { 
       this.type = value;
    }
+   
    @JsonIgnore
    public String getUser() {
       return user;

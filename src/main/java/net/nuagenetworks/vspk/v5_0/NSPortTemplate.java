@@ -46,8 +46,11 @@ public class NSPortTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum PortType { ACCESS, NETWORK };
+   
    public enum Speed { AUTONEGOTIATE, BASET10, BASET1000, BASETX100, BASEX10G };
 
    
@@ -109,6 +112,7 @@ public class NSPortTemplate extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getVLANRange() {
       return VLANRange;
@@ -118,6 +122,7 @@ public class NSPortTemplate extends RestObject {
    public void setVLANRange(String value) { 
       this.VLANRange = value;
    }
+   
    @JsonIgnore
    public String getAssociatedEgressQOSPolicyID() {
       return associatedEgressQOSPolicyID;
@@ -127,6 +132,7 @@ public class NSPortTemplate extends RestObject {
    public void setAssociatedEgressQOSPolicyID(String value) { 
       this.associatedEgressQOSPolicyID = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -136,6 +142,7 @@ public class NSPortTemplate extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -145,6 +152,7 @@ public class NSPortTemplate extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -154,6 +162,7 @@ public class NSPortTemplate extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getInfrastructureProfileID() {
       return infrastructureProfileID;
@@ -163,6 +172,7 @@ public class NSPortTemplate extends RestObject {
    public void setInfrastructureProfileID(String value) { 
       this.infrastructureProfileID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -172,6 +182,7 @@ public class NSPortTemplate extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public Long getMtu() {
       return mtu;
@@ -181,6 +192,7 @@ public class NSPortTemplate extends RestObject {
    public void setMtu(Long value) { 
       this.mtu = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -190,6 +202,7 @@ public class NSPortTemplate extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getPhysicalName() {
       return physicalName;
@@ -199,6 +212,7 @@ public class NSPortTemplate extends RestObject {
    public void setPhysicalName(String value) { 
       this.physicalName = value;
    }
+   
    @JsonIgnore
    public PortType getPortType() {
       return portType;
@@ -208,6 +222,7 @@ public class NSPortTemplate extends RestObject {
    public void setPortType(PortType value) { 
       this.portType = value;
    }
+   
    @JsonIgnore
    public Speed getSpeed() {
       return speed;

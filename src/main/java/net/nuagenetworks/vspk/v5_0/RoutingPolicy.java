@@ -45,7 +45,9 @@ public class RoutingPolicy extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum DefaultAction { ACCEPT, REJECT };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -84,6 +86,7 @@ public class RoutingPolicy extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public DefaultAction getDefaultAction() {
       return defaultAction;
@@ -93,6 +96,7 @@ public class RoutingPolicy extends RestObject {
    public void setDefaultAction(DefaultAction value) { 
       this.defaultAction = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -102,6 +106,7 @@ public class RoutingPolicy extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -111,6 +116,7 @@ public class RoutingPolicy extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -120,6 +126,7 @@ public class RoutingPolicy extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -129,6 +136,7 @@ public class RoutingPolicy extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getPolicyDefinition() {
       return policyDefinition;

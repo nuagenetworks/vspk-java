@@ -79,6 +79,7 @@ public class Statistics extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Long getEndTime() {
       return endTime;
@@ -88,6 +89,7 @@ public class Statistics extends RestObject {
    public void setEndTime(Long value) { 
       this.endTime = value;
    }
+   
    @JsonIgnore
    public Long getNumberOfDataPoints() {
       return numberOfDataPoints;
@@ -97,6 +99,7 @@ public class Statistics extends RestObject {
    public void setNumberOfDataPoints(Long value) { 
       this.numberOfDataPoints = value;
    }
+   
    @JsonIgnore
    public Long getStartTime() {
       return startTime;
@@ -106,6 +109,7 @@ public class Statistics extends RestObject {
    public void setStartTime(Long value) { 
       this.startTime = value;
    }
+   
    @JsonIgnore
    public java.util.Map<String, Long[]> getStatsData() {
       return statsData;
@@ -115,6 +119,7 @@ public class Statistics extends RestObject {
    public void setStatsData(java.util.Map<String, Long[]> value) { 
       this.statsData = value;
    }
+   
    @JsonIgnore
    public Long getVersion() {
       return version;

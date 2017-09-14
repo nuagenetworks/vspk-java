@@ -73,6 +73,7 @@ public class OverlayAddressPool extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAssociatedDomainID() {
       return associatedDomainID;
@@ -82,6 +83,7 @@ public class OverlayAddressPool extends RestObject {
    public void setAssociatedDomainID(String value) { 
       this.associatedDomainID = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -91,6 +93,7 @@ public class OverlayAddressPool extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getEndAddressRange() {
       return endAddressRange;
@@ -100,6 +103,7 @@ public class OverlayAddressPool extends RestObject {
    public void setEndAddressRange(String value) { 
       this.endAddressRange = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -109,6 +113,7 @@ public class OverlayAddressPool extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getStartAddressRange() {
       return startAddressRange;

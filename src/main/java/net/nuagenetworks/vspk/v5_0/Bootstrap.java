@@ -45,8 +45,11 @@ public class Bootstrap extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum ZFBMatchAttribute { NONE, MAC_ADDRESS, IP_ADDRESS, HOSTNAME, NSGATEWAY_ID, SERIAL_NUMBER };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum Status { ACTIVE, CERTIFICATE_SIGNED, INACTIVE, NOTIFICATION_APP_REQ_ACK, NOTIFICATION_APP_REQ_SENT };
 
    
@@ -92,6 +95,7 @@ public class Bootstrap extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getZFBInfo() {
       return ZFBInfo;
@@ -101,6 +105,7 @@ public class Bootstrap extends RestObject {
    public void setZFBInfo(String value) { 
       this.ZFBInfo = value;
    }
+   
    @JsonIgnore
    public ZFBMatchAttribute getZFBMatchAttribute() {
       return ZFBMatchAttribute;
@@ -110,6 +115,7 @@ public class Bootstrap extends RestObject {
    public void setZFBMatchAttribute(ZFBMatchAttribute value) { 
       this.ZFBMatchAttribute = value;
    }
+   
    @JsonIgnore
    public String getZFBMatchValue() {
       return ZFBMatchValue;
@@ -119,6 +125,7 @@ public class Bootstrap extends RestObject {
    public void setZFBMatchValue(String value) { 
       this.ZFBMatchValue = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -128,6 +135,7 @@ public class Bootstrap extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -137,6 +145,7 @@ public class Bootstrap extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getInstallerID() {
       return installerID;
@@ -146,6 +155,7 @@ public class Bootstrap extends RestObject {
    public void setInstallerID(String value) { 
       this.installerID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -155,6 +165,7 @@ public class Bootstrap extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public Status getStatus() {
       return status;

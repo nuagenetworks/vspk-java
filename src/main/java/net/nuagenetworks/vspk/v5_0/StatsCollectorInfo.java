@@ -45,7 +45,9 @@ public class StatsCollectorInfo extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum AddressType { fqdn, ip };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -87,6 +89,7 @@ public class StatsCollectorInfo extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public AddressType getAddressType() {
       return addressType;
@@ -96,6 +99,7 @@ public class StatsCollectorInfo extends RestObject {
    public void setAddressType(AddressType value) { 
       this.addressType = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -105,6 +109,7 @@ public class StatsCollectorInfo extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -114,6 +119,7 @@ public class StatsCollectorInfo extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getIpAddress() {
       return ipAddress;
@@ -123,6 +129,7 @@ public class StatsCollectorInfo extends RestObject {
    public void setIpAddress(String value) { 
       this.ipAddress = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -132,6 +139,7 @@ public class StatsCollectorInfo extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getPort() {
       return port;
@@ -141,6 +149,7 @@ public class StatsCollectorInfo extends RestObject {
    public void setPort(String value) { 
       this.port = value;
    }
+   
    @JsonIgnore
    public String getProtoBufPort() {
       return protoBufPort;

@@ -47,7 +47,9 @@ public class AddressMap extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum Type { MANY_TO_ONE_PAT, ONE_TO_ONE_NAT };
 
    
@@ -105,6 +107,7 @@ public class AddressMap extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAssociatedPATNATPoolID() {
       return associatedPATNATPoolID;
@@ -114,6 +117,7 @@ public class AddressMap extends RestObject {
    public void setAssociatedPATNATPoolID(String value) { 
       this.associatedPATNATPoolID = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -123,6 +127,7 @@ public class AddressMap extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -132,6 +137,7 @@ public class AddressMap extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -141,6 +147,7 @@ public class AddressMap extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getPrivateIP() {
       return privateIP;
@@ -150,6 +157,7 @@ public class AddressMap extends RestObject {
    public void setPrivateIP(String value) { 
       this.privateIP = value;
    }
+   
    @JsonIgnore
    public Long getPrivatePort() {
       return privatePort;
@@ -159,6 +167,7 @@ public class AddressMap extends RestObject {
    public void setPrivatePort(Long value) { 
       this.privatePort = value;
    }
+   
    @JsonIgnore
    public String getPublicIP() {
       return publicIP;
@@ -168,6 +177,7 @@ public class AddressMap extends RestObject {
    public void setPublicIP(String value) { 
       this.publicIP = value;
    }
+   
    @JsonIgnore
    public Long getPublicPort() {
       return publicPort;
@@ -177,6 +187,7 @@ public class AddressMap extends RestObject {
    public void setPublicPort(Long value) { 
       this.publicPort = value;
    }
+   
    @JsonIgnore
    public Type getType() {
       return type;

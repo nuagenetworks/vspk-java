@@ -45,6 +45,7 @@ public class GatewaySecuredData extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -86,6 +87,7 @@ public class GatewaySecuredData extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getData() {
       return data;
@@ -95,6 +97,7 @@ public class GatewaySecuredData extends RestObject {
    public void setData(String value) { 
       this.data = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -104,6 +107,7 @@ public class GatewaySecuredData extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -113,6 +117,7 @@ public class GatewaySecuredData extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getGatewayCertSerialNumber() {
       return gatewayCertSerialNumber;
@@ -122,6 +127,7 @@ public class GatewaySecuredData extends RestObject {
    public void setGatewayCertSerialNumber(String value) { 
       this.gatewayCertSerialNumber = value;
    }
+   
    @JsonIgnore
    public String getKeyserverCertSerialNumber() {
       return keyserverCertSerialNumber;
@@ -131,6 +137,7 @@ public class GatewaySecuredData extends RestObject {
    public void setKeyserverCertSerialNumber(String value) { 
       this.keyserverCertSerialNumber = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -140,6 +147,7 @@ public class GatewaySecuredData extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getSignedData() {
       return signedData;

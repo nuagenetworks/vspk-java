@@ -51,8 +51,11 @@ public class VCenterDataCenter extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum DestinationMirrorPort { ens160, ens161, ens224, ens256, no_mirror };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum RemoteSyslogServerType { NONE, TCP, UDP };
 
    
@@ -349,6 +352,7 @@ public class VCenterDataCenter extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Long getVRSConfigurationTimeLimit() {
       return VRSConfigurationTimeLimit;
@@ -358,6 +362,7 @@ public class VCenterDataCenter extends RestObject {
    public void setVRSConfigurationTimeLimit(Long value) { 
       this.VRSConfigurationTimeLimit = value;
    }
+   
    @JsonIgnore
    public Boolean getAllowDataDHCP() {
       return allowDataDHCP;
@@ -367,6 +372,7 @@ public class VCenterDataCenter extends RestObject {
    public void setAllowDataDHCP(Boolean value) { 
       this.allowDataDHCP = value;
    }
+   
    @JsonIgnore
    public Boolean getAllowMgmtDHCP() {
       return allowMgmtDHCP;
@@ -376,6 +382,7 @@ public class VCenterDataCenter extends RestObject {
    public void setAllowMgmtDHCP(Boolean value) { 
       this.allowMgmtDHCP = value;
    }
+   
    @JsonIgnore
    public String getAssociatedVCenterID() {
       return associatedVCenterID;
@@ -385,6 +392,7 @@ public class VCenterDataCenter extends RestObject {
    public void setAssociatedVCenterID(String value) { 
       this.associatedVCenterID = value;
    }
+   
    @JsonIgnore
    public String getCustomizedScriptURL() {
       return customizedScriptURL;
@@ -394,6 +402,7 @@ public class VCenterDataCenter extends RestObject {
    public void setCustomizedScriptURL(String value) { 
       this.customizedScriptURL = value;
    }
+   
    @JsonIgnore
    public String getDataDNS1() {
       return dataDNS1;
@@ -403,6 +412,7 @@ public class VCenterDataCenter extends RestObject {
    public void setDataDNS1(String value) { 
       this.dataDNS1 = value;
    }
+   
    @JsonIgnore
    public String getDataDNS2() {
       return dataDNS2;
@@ -412,6 +422,7 @@ public class VCenterDataCenter extends RestObject {
    public void setDataDNS2(String value) { 
       this.dataDNS2 = value;
    }
+   
    @JsonIgnore
    public String getDataGateway() {
       return dataGateway;
@@ -421,6 +432,7 @@ public class VCenterDataCenter extends RestObject {
    public void setDataGateway(String value) { 
       this.dataGateway = value;
    }
+   
    @JsonIgnore
    public String getDataNetworkPortgroup() {
       return dataNetworkPortgroup;
@@ -430,6 +442,7 @@ public class VCenterDataCenter extends RestObject {
    public void setDataNetworkPortgroup(String value) { 
       this.dataNetworkPortgroup = value;
    }
+   
    @JsonIgnore
    public Long getDatapathSyncTimeout() {
       return datapathSyncTimeout;
@@ -439,6 +452,7 @@ public class VCenterDataCenter extends RestObject {
    public void setDatapathSyncTimeout(Long value) { 
       this.datapathSyncTimeout = value;
    }
+   
    @JsonIgnore
    public Boolean getDeletedFromVCenter() {
       return deletedFromVCenter;
@@ -448,6 +462,7 @@ public class VCenterDataCenter extends RestObject {
    public void setDeletedFromVCenter(Boolean value) { 
       this.deletedFromVCenter = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -457,6 +472,7 @@ public class VCenterDataCenter extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public DestinationMirrorPort getDestinationMirrorPort() {
       return destinationMirrorPort;
@@ -466,6 +482,7 @@ public class VCenterDataCenter extends RestObject {
    public void setDestinationMirrorPort(DestinationMirrorPort value) { 
       this.destinationMirrorPort = value;
    }
+   
    @JsonIgnore
    public String getDhcpRelayServer() {
       return dhcpRelayServer;
@@ -475,6 +492,7 @@ public class VCenterDataCenter extends RestObject {
    public void setDhcpRelayServer(String value) { 
       this.dhcpRelayServer = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -484,6 +502,7 @@ public class VCenterDataCenter extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -493,6 +512,7 @@ public class VCenterDataCenter extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public Long getFlowEvictionThreshold() {
       return flowEvictionThreshold;
@@ -502,6 +522,7 @@ public class VCenterDataCenter extends RestObject {
    public void setFlowEvictionThreshold(Long value) { 
       this.flowEvictionThreshold = value;
    }
+   
    @JsonIgnore
    public Boolean getGenericSplitActivation() {
       return genericSplitActivation;
@@ -511,6 +532,7 @@ public class VCenterDataCenter extends RestObject {
    public void setGenericSplitActivation(Boolean value) { 
       this.genericSplitActivation = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -520,6 +542,7 @@ public class VCenterDataCenter extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getManagedObjectID() {
       return managedObjectID;
@@ -529,6 +552,7 @@ public class VCenterDataCenter extends RestObject {
    public void setManagedObjectID(String value) { 
       this.managedObjectID = value;
    }
+   
    @JsonIgnore
    public String getMetadataServerIP() {
       return metadataServerIP;
@@ -538,6 +562,7 @@ public class VCenterDataCenter extends RestObject {
    public void setMetadataServerIP(String value) { 
       this.metadataServerIP = value;
    }
+   
    @JsonIgnore
    public Long getMetadataServerListenPort() {
       return metadataServerListenPort;
@@ -547,6 +572,7 @@ public class VCenterDataCenter extends RestObject {
    public void setMetadataServerListenPort(Long value) { 
       this.metadataServerListenPort = value;
    }
+   
    @JsonIgnore
    public Long getMetadataServerPort() {
       return metadataServerPort;
@@ -556,6 +582,7 @@ public class VCenterDataCenter extends RestObject {
    public void setMetadataServerPort(Long value) { 
       this.metadataServerPort = value;
    }
+   
    @JsonIgnore
    public Boolean getMetadataServiceEnabled() {
       return metadataServiceEnabled;
@@ -565,6 +592,7 @@ public class VCenterDataCenter extends RestObject {
    public void setMetadataServiceEnabled(Boolean value) { 
       this.metadataServiceEnabled = value;
    }
+   
    @JsonIgnore
    public String getMgmtDNS1() {
       return mgmtDNS1;
@@ -574,6 +602,7 @@ public class VCenterDataCenter extends RestObject {
    public void setMgmtDNS1(String value) { 
       this.mgmtDNS1 = value;
    }
+   
    @JsonIgnore
    public String getMgmtDNS2() {
       return mgmtDNS2;
@@ -583,6 +612,7 @@ public class VCenterDataCenter extends RestObject {
    public void setMgmtDNS2(String value) { 
       this.mgmtDNS2 = value;
    }
+   
    @JsonIgnore
    public String getMgmtGateway() {
       return mgmtGateway;
@@ -592,6 +622,7 @@ public class VCenterDataCenter extends RestObject {
    public void setMgmtGateway(String value) { 
       this.mgmtGateway = value;
    }
+   
    @JsonIgnore
    public String getMgmtNetworkPortgroup() {
       return mgmtNetworkPortgroup;
@@ -601,6 +632,7 @@ public class VCenterDataCenter extends RestObject {
    public void setMgmtNetworkPortgroup(String value) { 
       this.mgmtNetworkPortgroup = value;
    }
+   
    @JsonIgnore
    public String getMirrorNetworkPortgroup() {
       return mirrorNetworkPortgroup;
@@ -610,6 +642,7 @@ public class VCenterDataCenter extends RestObject {
    public void setMirrorNetworkPortgroup(String value) { 
       this.mirrorNetworkPortgroup = value;
    }
+   
    @JsonIgnore
    public Long getMtu() {
       return mtu;
@@ -619,6 +652,7 @@ public class VCenterDataCenter extends RestObject {
    public void setMtu(Long value) { 
       this.mtu = value;
    }
+   
    @JsonIgnore
    public Boolean getMultiVMSsupport() {
       return multiVMSsupport;
@@ -628,6 +662,7 @@ public class VCenterDataCenter extends RestObject {
    public void setMultiVMSsupport(Boolean value) { 
       this.multiVMSsupport = value;
    }
+   
    @JsonIgnore
    public String getMulticastReceiveInterface() {
       return multicastReceiveInterface;
@@ -637,6 +672,7 @@ public class VCenterDataCenter extends RestObject {
    public void setMulticastReceiveInterface(String value) { 
       this.multicastReceiveInterface = value;
    }
+   
    @JsonIgnore
    public String getMulticastReceiveInterfaceIP() {
       return multicastReceiveInterfaceIP;
@@ -646,6 +682,7 @@ public class VCenterDataCenter extends RestObject {
    public void setMulticastReceiveInterfaceIP(String value) { 
       this.multicastReceiveInterfaceIP = value;
    }
+   
    @JsonIgnore
    public String getMulticastReceiveInterfaceNetmask() {
       return multicastReceiveInterfaceNetmask;
@@ -655,6 +692,7 @@ public class VCenterDataCenter extends RestObject {
    public void setMulticastReceiveInterfaceNetmask(String value) { 
       this.multicastReceiveInterfaceNetmask = value;
    }
+   
    @JsonIgnore
    public String getMulticastReceiveRange() {
       return multicastReceiveRange;
@@ -664,6 +702,7 @@ public class VCenterDataCenter extends RestObject {
    public void setMulticastReceiveRange(String value) { 
       this.multicastReceiveRange = value;
    }
+   
    @JsonIgnore
    public String getMulticastSendInterface() {
       return multicastSendInterface;
@@ -673,6 +712,7 @@ public class VCenterDataCenter extends RestObject {
    public void setMulticastSendInterface(String value) { 
       this.multicastSendInterface = value;
    }
+   
    @JsonIgnore
    public String getMulticastSendInterfaceIP() {
       return multicastSendInterfaceIP;
@@ -682,6 +722,7 @@ public class VCenterDataCenter extends RestObject {
    public void setMulticastSendInterfaceIP(String value) { 
       this.multicastSendInterfaceIP = value;
    }
+   
    @JsonIgnore
    public String getMulticastSendInterfaceNetmask() {
       return multicastSendInterfaceNetmask;
@@ -691,6 +732,7 @@ public class VCenterDataCenter extends RestObject {
    public void setMulticastSendInterfaceNetmask(String value) { 
       this.multicastSendInterfaceNetmask = value;
    }
+   
    @JsonIgnore
    public String getMulticastSourcePortgroup() {
       return multicastSourcePortgroup;
@@ -700,6 +742,7 @@ public class VCenterDataCenter extends RestObject {
    public void setMulticastSourcePortgroup(String value) { 
       this.multicastSourcePortgroup = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -709,6 +752,7 @@ public class VCenterDataCenter extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getNetworkUplinkInterface() {
       return networkUplinkInterface;
@@ -718,6 +762,7 @@ public class VCenterDataCenter extends RestObject {
    public void setNetworkUplinkInterface(String value) { 
       this.networkUplinkInterface = value;
    }
+   
    @JsonIgnore
    public String getNetworkUplinkInterfaceGateway() {
       return networkUplinkInterfaceGateway;
@@ -727,6 +772,7 @@ public class VCenterDataCenter extends RestObject {
    public void setNetworkUplinkInterfaceGateway(String value) { 
       this.networkUplinkInterfaceGateway = value;
    }
+   
    @JsonIgnore
    public String getNetworkUplinkInterfaceIp() {
       return networkUplinkInterfaceIp;
@@ -736,6 +782,7 @@ public class VCenterDataCenter extends RestObject {
    public void setNetworkUplinkInterfaceIp(String value) { 
       this.networkUplinkInterfaceIp = value;
    }
+   
    @JsonIgnore
    public String getNetworkUplinkInterfaceNetmask() {
       return networkUplinkInterfaceNetmask;
@@ -745,6 +792,7 @@ public class VCenterDataCenter extends RestObject {
    public void setNetworkUplinkInterfaceNetmask(String value) { 
       this.networkUplinkInterfaceNetmask = value;
    }
+   
    @JsonIgnore
    public String getNfsLogServer() {
       return nfsLogServer;
@@ -754,6 +802,7 @@ public class VCenterDataCenter extends RestObject {
    public void setNfsLogServer(String value) { 
       this.nfsLogServer = value;
    }
+   
    @JsonIgnore
    public String getNfsMountPath() {
       return nfsMountPath;
@@ -763,6 +812,7 @@ public class VCenterDataCenter extends RestObject {
    public void setNfsMountPath(String value) { 
       this.nfsMountPath = value;
    }
+   
    @JsonIgnore
    public Long getNovaClientVersion() {
       return novaClientVersion;
@@ -772,6 +822,7 @@ public class VCenterDataCenter extends RestObject {
    public void setNovaClientVersion(Long value) { 
       this.novaClientVersion = value;
    }
+   
    @JsonIgnore
    public String getNovaIdentityURLVersion() {
       return novaIdentityURLVersion;
@@ -781,6 +832,7 @@ public class VCenterDataCenter extends RestObject {
    public void setNovaIdentityURLVersion(String value) { 
       this.novaIdentityURLVersion = value;
    }
+   
    @JsonIgnore
    public String getNovaMetadataServiceAuthUrl() {
       return novaMetadataServiceAuthUrl;
@@ -790,6 +842,7 @@ public class VCenterDataCenter extends RestObject {
    public void setNovaMetadataServiceAuthUrl(String value) { 
       this.novaMetadataServiceAuthUrl = value;
    }
+   
    @JsonIgnore
    public String getNovaMetadataServiceEndpoint() {
       return novaMetadataServiceEndpoint;
@@ -799,6 +852,7 @@ public class VCenterDataCenter extends RestObject {
    public void setNovaMetadataServiceEndpoint(String value) { 
       this.novaMetadataServiceEndpoint = value;
    }
+   
    @JsonIgnore
    public String getNovaMetadataServicePassword() {
       return novaMetadataServicePassword;
@@ -808,6 +862,7 @@ public class VCenterDataCenter extends RestObject {
    public void setNovaMetadataServicePassword(String value) { 
       this.novaMetadataServicePassword = value;
    }
+   
    @JsonIgnore
    public String getNovaMetadataServiceTenant() {
       return novaMetadataServiceTenant;
@@ -817,6 +872,7 @@ public class VCenterDataCenter extends RestObject {
    public void setNovaMetadataServiceTenant(String value) { 
       this.novaMetadataServiceTenant = value;
    }
+   
    @JsonIgnore
    public String getNovaMetadataServiceUsername() {
       return novaMetadataServiceUsername;
@@ -826,6 +882,7 @@ public class VCenterDataCenter extends RestObject {
    public void setNovaMetadataServiceUsername(String value) { 
       this.novaMetadataServiceUsername = value;
    }
+   
    @JsonIgnore
    public String getNovaMetadataSharedSecret() {
       return novaMetadataSharedSecret;
@@ -835,6 +892,7 @@ public class VCenterDataCenter extends RestObject {
    public void setNovaMetadataSharedSecret(String value) { 
       this.novaMetadataSharedSecret = value;
    }
+   
    @JsonIgnore
    public String getNovaOSKeystoneUsername() {
       return novaOSKeystoneUsername;
@@ -844,6 +902,7 @@ public class VCenterDataCenter extends RestObject {
    public void setNovaOSKeystoneUsername(String value) { 
       this.novaOSKeystoneUsername = value;
    }
+   
    @JsonIgnore
    public String getNovaProjectDomainName() {
       return novaProjectDomainName;
@@ -853,6 +912,7 @@ public class VCenterDataCenter extends RestObject {
    public void setNovaProjectDomainName(String value) { 
       this.novaProjectDomainName = value;
    }
+   
    @JsonIgnore
    public String getNovaProjectName() {
       return novaProjectName;
@@ -862,6 +922,7 @@ public class VCenterDataCenter extends RestObject {
    public void setNovaProjectName(String value) { 
       this.novaProjectName = value;
    }
+   
    @JsonIgnore
    public String getNovaRegionName() {
       return novaRegionName;
@@ -871,6 +932,7 @@ public class VCenterDataCenter extends RestObject {
    public void setNovaRegionName(String value) { 
       this.novaRegionName = value;
    }
+   
    @JsonIgnore
    public String getNovaUserDomainName() {
       return novaUserDomainName;
@@ -880,6 +942,7 @@ public class VCenterDataCenter extends RestObject {
    public void setNovaUserDomainName(String value) { 
       this.novaUserDomainName = value;
    }
+   
    @JsonIgnore
    public String getNtpServer1() {
       return ntpServer1;
@@ -889,6 +952,7 @@ public class VCenterDataCenter extends RestObject {
    public void setNtpServer1(String value) { 
       this.ntpServer1 = value;
    }
+   
    @JsonIgnore
    public String getNtpServer2() {
       return ntpServer2;
@@ -898,6 +962,7 @@ public class VCenterDataCenter extends RestObject {
    public void setNtpServer2(String value) { 
       this.ntpServer2 = value;
    }
+   
    @JsonIgnore
    public String getOvfURL() {
       return ovfURL;
@@ -907,6 +972,7 @@ public class VCenterDataCenter extends RestObject {
    public void setOvfURL(String value) { 
       this.ovfURL = value;
    }
+   
    @JsonIgnore
    public String getPersonality() {
       return personality;
@@ -916,6 +982,7 @@ public class VCenterDataCenter extends RestObject {
    public void setPersonality(String value) { 
       this.personality = value;
    }
+   
    @JsonIgnore
    public Boolean getPortgroupMetadata() {
       return portgroupMetadata;
@@ -925,6 +992,7 @@ public class VCenterDataCenter extends RestObject {
    public void setPortgroupMetadata(Boolean value) { 
       this.portgroupMetadata = value;
    }
+   
    @JsonIgnore
    public String getPrimaryNuageController() {
       return primaryNuageController;
@@ -934,6 +1002,7 @@ public class VCenterDataCenter extends RestObject {
    public void setPrimaryNuageController(String value) { 
       this.primaryNuageController = value;
    }
+   
    @JsonIgnore
    public String getRemoteSyslogServerIP() {
       return remoteSyslogServerIP;
@@ -943,6 +1012,7 @@ public class VCenterDataCenter extends RestObject {
    public void setRemoteSyslogServerIP(String value) { 
       this.remoteSyslogServerIP = value;
    }
+   
    @JsonIgnore
    public Long getRemoteSyslogServerPort() {
       return remoteSyslogServerPort;
@@ -952,6 +1022,7 @@ public class VCenterDataCenter extends RestObject {
    public void setRemoteSyslogServerPort(Long value) { 
       this.remoteSyslogServerPort = value;
    }
+   
    @JsonIgnore
    public RemoteSyslogServerType getRemoteSyslogServerType() {
       return remoteSyslogServerType;
@@ -961,6 +1032,7 @@ public class VCenterDataCenter extends RestObject {
    public void setRemoteSyslogServerType(RemoteSyslogServerType value) { 
       this.remoteSyslogServerType = value;
    }
+   
    @JsonIgnore
    public String getSecondaryNuageController() {
       return secondaryNuageController;
@@ -970,6 +1042,7 @@ public class VCenterDataCenter extends RestObject {
    public void setSecondaryNuageController(String value) { 
       this.secondaryNuageController = value;
    }
+   
    @JsonIgnore
    public Boolean getSeparateDataNetwork() {
       return separateDataNetwork;
@@ -979,6 +1052,7 @@ public class VCenterDataCenter extends RestObject {
    public void setSeparateDataNetwork(Boolean value) { 
       this.separateDataNetwork = value;
    }
+   
    @JsonIgnore
    public String getSiteId() {
       return siteId;
@@ -988,6 +1062,7 @@ public class VCenterDataCenter extends RestObject {
    public void setSiteId(String value) { 
       this.siteId = value;
    }
+   
    @JsonIgnore
    public String getStaticRoute() {
       return staticRoute;
@@ -997,6 +1072,7 @@ public class VCenterDataCenter extends RestObject {
    public void setStaticRoute(String value) { 
       this.staticRoute = value;
    }
+   
    @JsonIgnore
    public String getStaticRouteGateway() {
       return staticRouteGateway;
@@ -1006,6 +1082,7 @@ public class VCenterDataCenter extends RestObject {
    public void setStaticRouteGateway(String value) { 
       this.staticRouteGateway = value;
    }
+   
    @JsonIgnore
    public String getStaticRouteNetmask() {
       return staticRouteNetmask;
@@ -1015,6 +1092,7 @@ public class VCenterDataCenter extends RestObject {
    public void setStaticRouteNetmask(String value) { 
       this.staticRouteNetmask = value;
    }
+   
    @JsonIgnore
    public String getUpgradePackagePassword() {
       return upgradePackagePassword;
@@ -1024,6 +1102,7 @@ public class VCenterDataCenter extends RestObject {
    public void setUpgradePackagePassword(String value) { 
       this.upgradePackagePassword = value;
    }
+   
    @JsonIgnore
    public String getUpgradePackageURL() {
       return upgradePackageURL;
@@ -1033,6 +1112,7 @@ public class VCenterDataCenter extends RestObject {
    public void setUpgradePackageURL(String value) { 
       this.upgradePackageURL = value;
    }
+   
    @JsonIgnore
    public String getUpgradePackageUsername() {
       return upgradePackageUsername;
@@ -1042,6 +1122,7 @@ public class VCenterDataCenter extends RestObject {
    public void setUpgradePackageUsername(String value) { 
       this.upgradePackageUsername = value;
    }
+   
    @JsonIgnore
    public Long getUpgradeScriptTimeLimit() {
       return upgradeScriptTimeLimit;
@@ -1051,6 +1132,7 @@ public class VCenterDataCenter extends RestObject {
    public void setUpgradeScriptTimeLimit(Long value) { 
       this.upgradeScriptTimeLimit = value;
    }
+   
    @JsonIgnore
    public Boolean getVRequireNuageMetadata() {
       return vRequireNuageMetadata;
@@ -1060,6 +1142,7 @@ public class VCenterDataCenter extends RestObject {
    public void setVRequireNuageMetadata(Boolean value) { 
       this.vRequireNuageMetadata = value;
    }
+   
    @JsonIgnore
    public String getVmNetworkPortgroup() {
       return vmNetworkPortgroup;
@@ -1069,6 +1152,7 @@ public class VCenterDataCenter extends RestObject {
    public void setVmNetworkPortgroup(String value) { 
       this.vmNetworkPortgroup = value;
    }
+   
    @JsonIgnore
    public String getVrsPassword() {
       return vrsPassword;
@@ -1078,6 +1162,7 @@ public class VCenterDataCenter extends RestObject {
    public void setVrsPassword(String value) { 
       this.vrsPassword = value;
    }
+   
    @JsonIgnore
    public String getVrsUserName() {
       return vrsUserName;

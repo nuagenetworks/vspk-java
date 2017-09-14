@@ -46,7 +46,9 @@ public class ZFBRequest extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum ZFBApprovalStatus { APPROVED, ASSIGNED, DENIED, UNASSIGNED };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -138,6 +140,7 @@ public class ZFBRequest extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getCPUType() {
       return CPUType;
@@ -147,6 +150,7 @@ public class ZFBRequest extends RestObject {
    public void setCPUType(String value) { 
       this.CPUType = value;
    }
+   
    @JsonIgnore
    public String getIPAddress() {
       return IPAddress;
@@ -156,6 +160,7 @@ public class ZFBRequest extends RestObject {
    public void setIPAddress(String value) { 
       this.IPAddress = value;
    }
+   
    @JsonIgnore
    public String getMACAddress() {
       return MACAddress;
@@ -165,6 +170,7 @@ public class ZFBRequest extends RestObject {
    public void setMACAddress(String value) { 
       this.MACAddress = value;
    }
+   
    @JsonIgnore
    public String getNSGVersion() {
       return NSGVersion;
@@ -174,6 +180,7 @@ public class ZFBRequest extends RestObject {
    public void setNSGVersion(String value) { 
       this.NSGVersion = value;
    }
+   
    @JsonIgnore
    public String getSKU() {
       return SKU;
@@ -183,6 +190,7 @@ public class ZFBRequest extends RestObject {
    public void setSKU(String value) { 
       this.SKU = value;
    }
+   
    @JsonIgnore
    public String getUUID() {
       return UUID;
@@ -192,6 +200,7 @@ public class ZFBRequest extends RestObject {
    public void setUUID(String value) { 
       this.UUID = value;
    }
+   
    @JsonIgnore
    public ZFBApprovalStatus getZFBApprovalStatus() {
       return ZFBApprovalStatus;
@@ -201,6 +210,7 @@ public class ZFBRequest extends RestObject {
    public void setZFBApprovalStatus(ZFBApprovalStatus value) { 
       this.ZFBApprovalStatus = value;
    }
+   
    @JsonIgnore
    public Boolean getZFBBootstrapEnabled() {
       return ZFBBootstrapEnabled;
@@ -210,6 +220,7 @@ public class ZFBRequest extends RestObject {
    public void setZFBBootstrapEnabled(Boolean value) { 
       this.ZFBBootstrapEnabled = value;
    }
+   
    @JsonIgnore
    public String getZFBInfo() {
       return ZFBInfo;
@@ -219,6 +230,7 @@ public class ZFBRequest extends RestObject {
    public void setZFBInfo(String value) { 
       this.ZFBInfo = value;
    }
+   
    @JsonIgnore
    public Long getZFBRequestRetryTimer() {
       return ZFBRequestRetryTimer;
@@ -228,6 +240,7 @@ public class ZFBRequest extends RestObject {
    public void setZFBRequestRetryTimer(Long value) { 
       this.ZFBRequestRetryTimer = value;
    }
+   
    @JsonIgnore
    public String getAssociatedEnterpriseID() {
       return associatedEnterpriseID;
@@ -237,6 +250,7 @@ public class ZFBRequest extends RestObject {
    public void setAssociatedEnterpriseID(String value) { 
       this.associatedEnterpriseID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedEnterpriseName() {
       return associatedEnterpriseName;
@@ -246,6 +260,7 @@ public class ZFBRequest extends RestObject {
    public void setAssociatedEnterpriseName(String value) { 
       this.associatedEnterpriseName = value;
    }
+   
    @JsonIgnore
    public String getAssociatedNSGatewayID() {
       return associatedNSGatewayID;
@@ -255,6 +270,7 @@ public class ZFBRequest extends RestObject {
    public void setAssociatedNSGatewayID(String value) { 
       this.associatedNSGatewayID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedNSGatewayName() {
       return associatedNSGatewayName;
@@ -264,6 +280,7 @@ public class ZFBRequest extends RestObject {
    public void setAssociatedNSGatewayName(String value) { 
       this.associatedNSGatewayName = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -273,6 +290,7 @@ public class ZFBRequest extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -282,6 +300,7 @@ public class ZFBRequest extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getFamily() {
       return family;
@@ -291,6 +310,7 @@ public class ZFBRequest extends RestObject {
    public void setFamily(String value) { 
       this.family = value;
    }
+   
    @JsonIgnore
    public String getHostname() {
       return hostname;
@@ -300,6 +320,7 @@ public class ZFBRequest extends RestObject {
    public void setHostname(String value) { 
       this.hostname = value;
    }
+   
    @JsonIgnore
    public Float getLastConnectedTime() {
       return lastConnectedTime;
@@ -309,6 +330,7 @@ public class ZFBRequest extends RestObject {
    public void setLastConnectedTime(Float value) { 
       this.lastConnectedTime = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -318,6 +340,7 @@ public class ZFBRequest extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getSerialNumber() {
       return serialNumber;
@@ -327,6 +350,7 @@ public class ZFBRequest extends RestObject {
    public void setSerialNumber(String value) { 
       this.serialNumber = value;
    }
+   
    @JsonIgnore
    public String getStatusString() {
       return statusString;

@@ -51,9 +51,13 @@ public class Link extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum AcceptanceCriteria { ALL, SUBNETS_ONLY };
+   
    public enum AssociatedDestinationType { DOMAIN };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum Type { BIDIR, BORDER_ROUTER, HUB_AND_SPOKE, OVERLAY_ADDRESS_TRANSLATION, SERVICE_CHAINING };
 
    
@@ -140,6 +144,7 @@ public class Link extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public AcceptanceCriteria getAcceptanceCriteria() {
       return acceptanceCriteria;
@@ -149,6 +154,7 @@ public class Link extends RestObject {
    public void setAcceptanceCriteria(AcceptanceCriteria value) { 
       this.acceptanceCriteria = value;
    }
+   
    @JsonIgnore
    public String getAssociatedDestinationID() {
       return associatedDestinationID;
@@ -158,6 +164,7 @@ public class Link extends RestObject {
    public void setAssociatedDestinationID(String value) { 
       this.associatedDestinationID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedDestinationName() {
       return associatedDestinationName;
@@ -167,6 +174,7 @@ public class Link extends RestObject {
    public void setAssociatedDestinationName(String value) { 
       this.associatedDestinationName = value;
    }
+   
    @JsonIgnore
    public AssociatedDestinationType getAssociatedDestinationType() {
       return associatedDestinationType;
@@ -176,6 +184,7 @@ public class Link extends RestObject {
    public void setAssociatedDestinationType(AssociatedDestinationType value) { 
       this.associatedDestinationType = value;
    }
+   
    @JsonIgnore
    public String getAssociatedSourceID() {
       return associatedSourceID;
@@ -185,6 +194,7 @@ public class Link extends RestObject {
    public void setAssociatedSourceID(String value) { 
       this.associatedSourceID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedSourceName() {
       return associatedSourceName;
@@ -194,6 +204,7 @@ public class Link extends RestObject {
    public void setAssociatedSourceName(String value) { 
       this.associatedSourceName = value;
    }
+   
    @JsonIgnore
    public String getAssociatedSourceType() {
       return associatedSourceType;
@@ -203,6 +214,7 @@ public class Link extends RestObject {
    public void setAssociatedSourceType(String value) { 
       this.associatedSourceType = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -212,6 +224,7 @@ public class Link extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -221,6 +234,7 @@ public class Link extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -230,6 +244,7 @@ public class Link extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public Boolean getReadOnly() {
       return readOnly;
@@ -239,6 +254,7 @@ public class Link extends RestObject {
    public void setReadOnly(Boolean value) { 
       this.readOnly = value;
    }
+   
    @JsonIgnore
    public Type getType() {
       return type;

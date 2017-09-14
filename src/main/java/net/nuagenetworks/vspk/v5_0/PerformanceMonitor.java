@@ -45,8 +45,11 @@ public class PerformanceMonitor extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum ProbeType { HTTP, IPSEC_AND_VXLAN, ONEWAY };
+   
    public enum ServiceClass { A, B, C, D, E, F, G, H };
 
    
@@ -109,6 +112,7 @@ public class PerformanceMonitor extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -118,6 +122,7 @@ public class PerformanceMonitor extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public java.util.List<String> getDestinationTargetList() {
       return destinationTargetList;
@@ -127,6 +132,7 @@ public class PerformanceMonitor extends RestObject {
    public void setDestinationTargetList(java.util.List<String> value) { 
       this.destinationTargetList = value;
    }
+   
    @JsonIgnore
    public Long getDownThresholdCount() {
       return downThresholdCount;
@@ -136,6 +142,7 @@ public class PerformanceMonitor extends RestObject {
    public void setDownThresholdCount(Long value) { 
       this.downThresholdCount = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -145,6 +152,7 @@ public class PerformanceMonitor extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -154,6 +162,7 @@ public class PerformanceMonitor extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public Long getInterval() {
       return interval;
@@ -163,6 +172,7 @@ public class PerformanceMonitor extends RestObject {
    public void setInterval(Long value) { 
       this.interval = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -172,6 +182,7 @@ public class PerformanceMonitor extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -181,6 +192,7 @@ public class PerformanceMonitor extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public Long getNumberOfPackets() {
       return numberOfPackets;
@@ -190,6 +202,7 @@ public class PerformanceMonitor extends RestObject {
    public void setNumberOfPackets(Long value) { 
       this.numberOfPackets = value;
    }
+   
    @JsonIgnore
    public Long getPayloadSize() {
       return payloadSize;
@@ -199,6 +212,7 @@ public class PerformanceMonitor extends RestObject {
    public void setPayloadSize(Long value) { 
       this.payloadSize = value;
    }
+   
    @JsonIgnore
    public ProbeType getProbeType() {
       return probeType;
@@ -208,6 +222,7 @@ public class PerformanceMonitor extends RestObject {
    public void setProbeType(ProbeType value) { 
       this.probeType = value;
    }
+   
    @JsonIgnore
    public Boolean getReadOnly() {
       return readOnly;
@@ -217,6 +232,7 @@ public class PerformanceMonitor extends RestObject {
    public void setReadOnly(Boolean value) { 
       this.readOnly = value;
    }
+   
    @JsonIgnore
    public ServiceClass getServiceClass() {
       return serviceClass;
@@ -226,6 +242,7 @@ public class PerformanceMonitor extends RestObject {
    public void setServiceClass(ServiceClass value) { 
       this.serviceClass = value;
    }
+   
    @JsonIgnore
    public Long getTimeout() {
       return timeout;

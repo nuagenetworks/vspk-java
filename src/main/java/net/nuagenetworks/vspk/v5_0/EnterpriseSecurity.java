@@ -46,6 +46,7 @@ public class EnterpriseSecurity extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -89,6 +90,7 @@ public class EnterpriseSecurity extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getEnterpriseID() {
       return enterpriseID;
@@ -98,6 +100,7 @@ public class EnterpriseSecurity extends RestObject {
    public void setEnterpriseID(String value) { 
       this.enterpriseID = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -107,6 +110,7 @@ public class EnterpriseSecurity extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -116,6 +120,7 @@ public class EnterpriseSecurity extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public Long getGatewaySecurityRevision() {
       return gatewaySecurityRevision;
@@ -125,6 +130,7 @@ public class EnterpriseSecurity extends RestObject {
    public void setGatewaySecurityRevision(Long value) { 
       this.gatewaySecurityRevision = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -134,6 +140,7 @@ public class EnterpriseSecurity extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public Long getRevision() {
       return revision;

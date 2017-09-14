@@ -43,6 +43,7 @@ public class VNFDomainMapping extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum SegmentationType { VLAN };
 
    
@@ -65,6 +66,7 @@ public class VNFDomainMapping extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAssociatedNSGatewayID() {
       return associatedNSGatewayID;
@@ -74,6 +76,7 @@ public class VNFDomainMapping extends RestObject {
    public void setAssociatedNSGatewayID(String value) { 
       this.associatedNSGatewayID = value;
    }
+   
    @JsonIgnore
    public String getAssociatedNSGatewayName() {
       return associatedNSGatewayName;
@@ -83,6 +86,7 @@ public class VNFDomainMapping extends RestObject {
    public void setAssociatedNSGatewayName(String value) { 
       this.associatedNSGatewayName = value;
    }
+   
    @JsonIgnore
    public Long getSegmentationID() {
       return segmentationID;
@@ -92,6 +96,7 @@ public class VNFDomainMapping extends RestObject {
    public void setSegmentationID(Long value) { 
       this.segmentationID = value;
    }
+   
    @JsonIgnore
    public SegmentationType getSegmentationType() {
       return segmentationType;

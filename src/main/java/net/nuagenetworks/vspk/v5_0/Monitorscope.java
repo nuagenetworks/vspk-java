@@ -70,6 +70,7 @@ public class Monitorscope extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Boolean getAllowAllDestinationNSGs() {
       return allowAllDestinationNSGs;
@@ -79,6 +80,7 @@ public class Monitorscope extends RestObject {
    public void setAllowAllDestinationNSGs(Boolean value) { 
       this.allowAllDestinationNSGs = value;
    }
+   
    @JsonIgnore
    public Boolean getAllowAllSourceNSGs() {
       return allowAllSourceNSGs;
@@ -88,6 +90,7 @@ public class Monitorscope extends RestObject {
    public void setAllowAllSourceNSGs(Boolean value) { 
       this.allowAllSourceNSGs = value;
    }
+   
    @JsonIgnore
    public java.util.List<String> getDestinationNSGs() {
       return destinationNSGs;
@@ -97,6 +100,7 @@ public class Monitorscope extends RestObject {
    public void setDestinationNSGs(java.util.List<String> value) { 
       this.destinationNSGs = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -106,6 +110,7 @@ public class Monitorscope extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public Boolean getReadOnly() {
       return readOnly;
@@ -115,6 +120,7 @@ public class Monitorscope extends RestObject {
    public void setReadOnly(Boolean value) { 
       this.readOnly = value;
    }
+   
    @JsonIgnore
    public java.util.List<String> getSourceNSGs() {
       return sourceNSGs;

@@ -47,8 +47,11 @@ public class RedirectionTargetTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EndPointType { L3, NONE, NSG_VNF, VIRTUAL_WIRE };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum TriggerType { GARP, NONE };
 
    
@@ -104,6 +107,7 @@ public class RedirectionTargetTemplate extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -113,6 +117,7 @@ public class RedirectionTargetTemplate extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public EndPointType getEndPointType() {
       return endPointType;
@@ -122,6 +127,7 @@ public class RedirectionTargetTemplate extends RestObject {
    public void setEndPointType(EndPointType value) { 
       this.endPointType = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -131,6 +137,7 @@ public class RedirectionTargetTemplate extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -140,6 +147,7 @@ public class RedirectionTargetTemplate extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -149,6 +157,7 @@ public class RedirectionTargetTemplate extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -158,6 +167,7 @@ public class RedirectionTargetTemplate extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public Boolean getRedundancyEnabled() {
       return redundancyEnabled;
@@ -167,6 +177,7 @@ public class RedirectionTargetTemplate extends RestObject {
    public void setRedundancyEnabled(Boolean value) { 
       this.redundancyEnabled = value;
    }
+   
    @JsonIgnore
    public TriggerType getTriggerType() {
       return triggerType;

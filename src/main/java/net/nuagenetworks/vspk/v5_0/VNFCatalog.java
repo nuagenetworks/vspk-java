@@ -64,6 +64,7 @@ public class VNFCatalog extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -73,6 +74,7 @@ public class VNFCatalog extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;

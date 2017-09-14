@@ -70,6 +70,7 @@ public class UserContext extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Long getAARFlowStatsInterval() {
       return AARFlowStatsInterval;
@@ -79,6 +80,7 @@ public class UserContext extends RestObject {
    public void setAARFlowStatsInterval(Long value) { 
       this.AARFlowStatsInterval = value;
    }
+   
    @JsonIgnore
    public Long getAARProbeStatsInterval() {
       return AARProbeStatsInterval;
@@ -88,6 +90,7 @@ public class UserContext extends RestObject {
    public void setAARProbeStatsInterval(Long value) { 
       this.AARProbeStatsInterval = value;
    }
+   
    @JsonIgnore
    public Long getVSSStatsInterval() {
       return VSSStatsInterval;
@@ -97,6 +100,7 @@ public class UserContext extends RestObject {
    public void setVSSStatsInterval(Long value) { 
       this.VSSStatsInterval = value;
    }
+   
    @JsonIgnore
    public Boolean getFlowCollectionEnabled() {
       return flowCollectionEnabled;
@@ -106,6 +110,7 @@ public class UserContext extends RestObject {
    public void setFlowCollectionEnabled(Boolean value) { 
       this.flowCollectionEnabled = value;
    }
+   
    @JsonIgnore
    public Boolean getStatisticsEnabled() {
       return statisticsEnabled;
@@ -115,6 +120,7 @@ public class UserContext extends RestObject {
    public void setStatisticsEnabled(Boolean value) { 
       this.statisticsEnabled = value;
    }
+   
    @JsonIgnore
    public String getStatsTSDBServerAddress() {
       return statsTSDBServerAddress;

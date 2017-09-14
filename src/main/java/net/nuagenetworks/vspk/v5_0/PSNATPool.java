@@ -70,6 +70,7 @@ public class PSNATPool extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getEndAddress() {
       return endAddress;
@@ -79,6 +80,7 @@ public class PSNATPool extends RestObject {
    public void setEndAddress(String value) { 
       this.endAddress = value;
    }
+   
    @JsonIgnore
    public String getStartAddress() {
       return startAddress;

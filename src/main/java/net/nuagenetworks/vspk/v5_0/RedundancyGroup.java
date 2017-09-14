@@ -53,9 +53,13 @@ public class RedundancyGroup extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
+   
    public enum Personality { DC7X50, HARDWARE_VTEP, NSG, OTHER, VRSG, VSA, VSG };
+   
    public enum RedundantGatewayStatus { FAILED, SUCCESS };
 
    
@@ -164,6 +168,7 @@ public class RedundancyGroup extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -173,6 +178,7 @@ public class RedundancyGroup extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getEnterpriseID() {
       return enterpriseID;
@@ -182,6 +188,7 @@ public class RedundancyGroup extends RestObject {
    public void setEnterpriseID(String value) { 
       this.enterpriseID = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -191,6 +198,7 @@ public class RedundancyGroup extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -200,6 +208,7 @@ public class RedundancyGroup extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getGatewayPeer1AutodiscoveredGatewayID() {
       return gatewayPeer1AutodiscoveredGatewayID;
@@ -209,6 +218,7 @@ public class RedundancyGroup extends RestObject {
    public void setGatewayPeer1AutodiscoveredGatewayID(String value) { 
       this.gatewayPeer1AutodiscoveredGatewayID = value;
    }
+   
    @JsonIgnore
    public String getGatewayPeer1ID() {
       return gatewayPeer1ID;
@@ -218,6 +228,7 @@ public class RedundancyGroup extends RestObject {
    public void setGatewayPeer1ID(String value) { 
       this.gatewayPeer1ID = value;
    }
+   
    @JsonIgnore
    public String getGatewayPeer1Name() {
       return gatewayPeer1Name;
@@ -227,6 +238,7 @@ public class RedundancyGroup extends RestObject {
    public void setGatewayPeer1Name(String value) { 
       this.gatewayPeer1Name = value;
    }
+   
    @JsonIgnore
    public String getGatewayPeer2AutodiscoveredGatewayID() {
       return gatewayPeer2AutodiscoveredGatewayID;
@@ -236,6 +248,7 @@ public class RedundancyGroup extends RestObject {
    public void setGatewayPeer2AutodiscoveredGatewayID(String value) { 
       this.gatewayPeer2AutodiscoveredGatewayID = value;
    }
+   
    @JsonIgnore
    public String getGatewayPeer2ID() {
       return gatewayPeer2ID;
@@ -245,6 +258,7 @@ public class RedundancyGroup extends RestObject {
    public void setGatewayPeer2ID(String value) { 
       this.gatewayPeer2ID = value;
    }
+   
    @JsonIgnore
    public String getGatewayPeer2Name() {
       return gatewayPeer2Name;
@@ -254,6 +268,7 @@ public class RedundancyGroup extends RestObject {
    public void setGatewayPeer2Name(String value) { 
       this.gatewayPeer2Name = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -263,6 +278,7 @@ public class RedundancyGroup extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -272,6 +288,7 @@ public class RedundancyGroup extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public PermittedAction getPermittedAction() {
       return permittedAction;
@@ -281,6 +298,7 @@ public class RedundancyGroup extends RestObject {
    public void setPermittedAction(PermittedAction value) { 
       this.permittedAction = value;
    }
+   
    @JsonIgnore
    public Personality getPersonality() {
       return personality;
@@ -290,6 +308,7 @@ public class RedundancyGroup extends RestObject {
    public void setPersonality(Personality value) { 
       this.personality = value;
    }
+   
    @JsonIgnore
    public RedundantGatewayStatus getRedundantGatewayStatus() {
       return redundantGatewayStatus;
@@ -299,6 +318,7 @@ public class RedundancyGroup extends RestObject {
    public void setRedundantGatewayStatus(RedundantGatewayStatus value) { 
       this.redundantGatewayStatus = value;
    }
+   
    @JsonIgnore
    public String getVtep() {
       return vtep;

@@ -61,6 +61,7 @@ public class VNFMetadata extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getBlob() {
       return blob;
@@ -70,6 +71,7 @@ public class VNFMetadata extends RestObject {
    public void setBlob(String value) { 
       this.blob = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -79,6 +81,7 @@ public class VNFMetadata extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;

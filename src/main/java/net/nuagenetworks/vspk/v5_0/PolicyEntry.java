@@ -64,6 +64,7 @@ public class PolicyEntry extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Object getActions() {
       return actions;
@@ -73,6 +74,7 @@ public class PolicyEntry extends RestObject {
    public void setActions(Object value) { 
       this.actions = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -82,6 +84,7 @@ public class PolicyEntry extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public Object getMatchCriteria() {
       return matchCriteria;
@@ -91,6 +94,7 @@ public class PolicyEntry extends RestObject {
    public void setMatchCriteria(Object value) { 
       this.matchCriteria = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;

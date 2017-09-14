@@ -61,6 +61,7 @@ public class Applicationperformancemanagementbinding extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAssociatedApplicationPerformanceManagementID() {
       return associatedApplicationPerformanceManagementID;
@@ -70,6 +71,7 @@ public class Applicationperformancemanagementbinding extends RestObject {
    public void setAssociatedApplicationPerformanceManagementID(String value) { 
       this.associatedApplicationPerformanceManagementID = value;
    }
+   
    @JsonIgnore
    public Long getPriority() {
       return priority;
@@ -79,6 +81,7 @@ public class Applicationperformancemanagementbinding extends RestObject {
    public void setPriority(Long value) { 
       this.priority = value;
    }
+   
    @JsonIgnore
    public Boolean getReadOnly() {
       return readOnly;

@@ -48,7 +48,9 @@ public class PolicyGroup extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum Type { HARDWARE, SOFTWARE };
 
    
@@ -115,6 +117,7 @@ public class PolicyGroup extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getEVPNCommunityTag() {
       return EVPNCommunityTag;
@@ -124,6 +127,7 @@ public class PolicyGroup extends RestObject {
    public void setEVPNCommunityTag(String value) { 
       this.EVPNCommunityTag = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -133,6 +137,7 @@ public class PolicyGroup extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -142,6 +147,7 @@ public class PolicyGroup extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public Boolean getExternal() {
       return external;
@@ -151,6 +157,7 @@ public class PolicyGroup extends RestObject {
    public void setExternal(Boolean value) { 
       this.external = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -160,6 +167,7 @@ public class PolicyGroup extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -169,6 +177,7 @@ public class PolicyGroup extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -178,6 +187,7 @@ public class PolicyGroup extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public Long getPolicyGroupID() {
       return policyGroupID;
@@ -187,6 +197,7 @@ public class PolicyGroup extends RestObject {
    public void setPolicyGroupID(Long value) { 
       this.policyGroupID = value;
    }
+   
    @JsonIgnore
    public String getTemplateID() {
       return templateID;
@@ -196,6 +207,7 @@ public class PolicyGroup extends RestObject {
    public void setTemplateID(String value) { 
       this.templateID = value;
    }
+   
    @JsonIgnore
    public Type getType() {
       return type;

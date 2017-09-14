@@ -48,6 +48,7 @@ public class KeyServerMonitor extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -113,6 +114,7 @@ public class KeyServerMonitor extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public Long getEnterpriseSecuredDataRecordCount() {
       return enterpriseSecuredDataRecordCount;
@@ -122,6 +124,7 @@ public class KeyServerMonitor extends RestObject {
    public void setEnterpriseSecuredDataRecordCount(Long value) { 
       this.enterpriseSecuredDataRecordCount = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -131,6 +134,7 @@ public class KeyServerMonitor extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -140,6 +144,7 @@ public class KeyServerMonitor extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public Long getGatewaySecuredDataRecordCount() {
       return gatewaySecuredDataRecordCount;
@@ -149,6 +154,7 @@ public class KeyServerMonitor extends RestObject {
    public void setGatewaySecuredDataRecordCount(Long value) { 
       this.gatewaySecuredDataRecordCount = value;
    }
+   
    @JsonIgnore
    public Long getKeyserverMonitorEncryptedSEKCount() {
       return keyserverMonitorEncryptedSEKCount;
@@ -158,6 +164,7 @@ public class KeyServerMonitor extends RestObject {
    public void setKeyserverMonitorEncryptedSEKCount(Long value) { 
       this.keyserverMonitorEncryptedSEKCount = value;
    }
+   
    @JsonIgnore
    public Long getKeyserverMonitorEncryptedSeedCount() {
       return keyserverMonitorEncryptedSeedCount;
@@ -167,6 +174,7 @@ public class KeyServerMonitor extends RestObject {
    public void setKeyserverMonitorEncryptedSeedCount(Long value) { 
       this.keyserverMonitorEncryptedSeedCount = value;
    }
+   
    @JsonIgnore
    public Long getKeyserverMonitorSEKCount() {
       return keyserverMonitorSEKCount;
@@ -176,6 +184,7 @@ public class KeyServerMonitor extends RestObject {
    public void setKeyserverMonitorSEKCount(Long value) { 
       this.keyserverMonitorSEKCount = value;
    }
+   
    @JsonIgnore
    public Long getKeyserverMonitorSeedCount() {
       return keyserverMonitorSeedCount;
@@ -185,6 +194,7 @@ public class KeyServerMonitor extends RestObject {
    public void setKeyserverMonitorSeedCount(Long value) { 
       this.keyserverMonitorSeedCount = value;
    }
+   
    @JsonIgnore
    public Long getLastUpdateTime() {
       return lastUpdateTime;
@@ -194,6 +204,7 @@ public class KeyServerMonitor extends RestObject {
    public void setLastUpdateTime(Long value) { 
       this.lastUpdateTime = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;

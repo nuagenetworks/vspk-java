@@ -45,6 +45,7 @@ public class IKEPSK extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -101,6 +102,7 @@ public class IKEPSK extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAssociatedEnterpriseID() {
       return associatedEnterpriseID;
@@ -110,6 +112,7 @@ public class IKEPSK extends RestObject {
    public void setAssociatedEnterpriseID(String value) { 
       this.associatedEnterpriseID = value;
    }
+   
    @JsonIgnore
    public Boolean getAutoCreated() {
       return autoCreated;
@@ -119,6 +122,7 @@ public class IKEPSK extends RestObject {
    public void setAutoCreated(Boolean value) { 
       this.autoCreated = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -128,6 +132,7 @@ public class IKEPSK extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public String getEncryptedPSK() {
       return encryptedPSK;
@@ -137,6 +142,7 @@ public class IKEPSK extends RestObject {
    public void setEncryptedPSK(String value) { 
       this.encryptedPSK = value;
    }
+   
    @JsonIgnore
    public Long getEncryptingCertificateSerialNumber() {
       return encryptingCertificateSerialNumber;
@@ -146,6 +152,7 @@ public class IKEPSK extends RestObject {
    public void setEncryptingCertificateSerialNumber(Long value) { 
       this.encryptingCertificateSerialNumber = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -155,6 +162,7 @@ public class IKEPSK extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -164,6 +172,7 @@ public class IKEPSK extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -173,6 +182,7 @@ public class IKEPSK extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -182,6 +192,7 @@ public class IKEPSK extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getSignature() {
       return signature;
@@ -191,6 +202,7 @@ public class IKEPSK extends RestObject {
    public void setSignature(String value) { 
       this.signature = value;
    }
+   
    @JsonIgnore
    public Long getSigningCertificateSerialNumber() {
       return signingCertificateSerialNumber;
@@ -200,6 +212,7 @@ public class IKEPSK extends RestObject {
    public void setSigningCertificateSerialNumber(Long value) { 
       this.signingCertificateSerialNumber = value;
    }
+   
    @JsonIgnore
    public String getUnencryptedPSK() {
       return unencryptedPSK;

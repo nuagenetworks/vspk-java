@@ -64,6 +64,7 @@ public class CSNATPool extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getEndAddress() {
       return endAddress;
@@ -73,6 +74,7 @@ public class CSNATPool extends RestObject {
    public void setEndAddress(String value) { 
       this.endAddress = value;
    }
+   
    @JsonIgnore
    public String getStartAddress() {
       return startAddress;

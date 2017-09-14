@@ -45,6 +45,7 @@ public class RateLimiter extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -89,6 +90,7 @@ public class RateLimiter extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getCommittedInformationRate() {
       return committedInformationRate;
@@ -98,6 +100,7 @@ public class RateLimiter extends RestObject {
    public void setCommittedInformationRate(String value) { 
       this.committedInformationRate = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -107,6 +110,7 @@ public class RateLimiter extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -116,6 +120,7 @@ public class RateLimiter extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -125,6 +130,7 @@ public class RateLimiter extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -134,6 +140,7 @@ public class RateLimiter extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -143,6 +150,7 @@ public class RateLimiter extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getPeakBurstSize() {
       return peakBurstSize;
@@ -152,6 +160,7 @@ public class RateLimiter extends RestObject {
    public void setPeakBurstSize(String value) { 
       this.peakBurstSize = value;
    }
+   
    @JsonIgnore
    public String getPeakInformationRate() {
       return peakInformationRate;

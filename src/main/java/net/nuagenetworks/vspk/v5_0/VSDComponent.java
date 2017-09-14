@@ -45,8 +45,11 @@ public class VSDComponent extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum Status { ADMIN_DOWN, DOWN, UP };
+   
    public enum Type { EJABBERD, JBOSS, MEDIATOR, PERCONA, STATSCOLLECTOR, STATSSERVER, TCA };
 
    
@@ -97,6 +100,7 @@ public class VSDComponent extends RestObject {
       
    }
 
+   
    @JsonIgnore
    public String getAddress() {
       return address;
@@ -106,6 +110,7 @@ public class VSDComponent extends RestObject {
    public void setAddress(String value) { 
       this.address = value;
    }
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -115,6 +120,7 @@ public class VSDComponent extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
@@ -124,6 +130,7 @@ public class VSDComponent extends RestObject {
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
    }
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -133,6 +140,7 @@ public class VSDComponent extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    @JsonIgnore
    public String getLocation() {
       return location;
@@ -142,6 +150,7 @@ public class VSDComponent extends RestObject {
    public void setLocation(String value) { 
       this.location = value;
    }
+   
    @JsonIgnore
    public String getManagementIP() {
       return managementIP;
@@ -151,6 +160,7 @@ public class VSDComponent extends RestObject {
    public void setManagementIP(String value) { 
       this.managementIP = value;
    }
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -160,6 +170,7 @@ public class VSDComponent extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    @JsonIgnore
    public String getProductVersion() {
       return productVersion;
@@ -169,6 +180,7 @@ public class VSDComponent extends RestObject {
    public void setProductVersion(String value) { 
       this.productVersion = value;
    }
+   
    @JsonIgnore
    public Status getStatus() {
       return status;
@@ -178,6 +190,7 @@ public class VSDComponent extends RestObject {
    public void setStatus(Status value) { 
       this.status = value;
    }
+   
    @JsonIgnore
    public Type getType() {
       return type;
