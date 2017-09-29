@@ -69,6 +69,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.IngressQOSPoliciesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.KeyServerMembersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.L2DomainsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.L4ServicesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.LicensesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.LicenseStatusFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
@@ -291,6 +292,9 @@ public class Me extends RestRootObject {
    private L2DomainsFetcher l2Domains;
    
    @JsonIgnore
+   private L4ServicesFetcher l4Services;
+   
+   @JsonIgnore
    private LicensesFetcher licenses;
    
    @JsonIgnore
@@ -480,6 +484,8 @@ public class Me extends RestRootObject {
       keyServerMembers = new KeyServerMembersFetcher(this);
       
       l2Domains = new L2DomainsFetcher(this);
+      
+      l4Services = new L4ServicesFetcher(this);
       
       licenses = new LicensesFetcher(this);
       
@@ -944,6 +950,11 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public L2DomainsFetcher getL2Domains() {
       return l2Domains;
+   }
+   
+   @JsonIgnore
+   public L4ServicesFetcher getL4Services() {
+      return l4Services;
    }
    
    @JsonIgnore
