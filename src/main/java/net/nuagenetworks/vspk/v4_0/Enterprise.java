@@ -64,6 +64,7 @@ import net.nuagenetworks.vspk.v4_0.fetchers.IKEEncryptionprofilesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IKEGatewaysFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IKEGatewayProfilesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IKEPSKsFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.IngressQOSPoliciesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.KeyServerMonitorsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.L2DomainsFetcher;
@@ -281,6 +282,9 @@ public class Enterprise extends RestObject {
    private IKEPSKsFetcher iKEPSKs;
    
    @JsonIgnore
+   private IngressQOSPoliciesFetcher ingressQOSPolicies;
+   
+   @JsonIgnore
    private JobsFetcher jobs;
    
    @JsonIgnore
@@ -415,6 +419,8 @@ public class Enterprise extends RestObject {
       iKEGatewayProfiles = new IKEGatewayProfilesFetcher(this);
       
       iKEPSKs = new IKEPSKsFetcher(this);
+      
+      ingressQOSPolicies = new IngressQOSPoliciesFetcher(this);
       
       jobs = new JobsFetcher(this);
       
@@ -894,6 +900,11 @@ public class Enterprise extends RestObject {
    @JsonIgnore
    public IKEPSKsFetcher getIKEPSKs() {
       return iKEPSKs;
+   }
+   
+   @JsonIgnore
+   public IngressQOSPoliciesFetcher getIngressQOSPolicies() {
+      return ingressQOSPolicies;
    }
    
    @JsonIgnore

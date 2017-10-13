@@ -66,6 +66,7 @@ import net.nuagenetworks.vspk.v4_0.fetchers.InfrastructureVscProfilesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IngressACLEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IngressACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.IngressAdvFwdEntryTemplatesFetcher;
+import net.nuagenetworks.vspk.v4_0.fetchers.IngressQOSPoliciesFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.KeyServerMembersFetcher;
 import net.nuagenetworks.vspk.v4_0.fetchers.L2DomainsFetcher;
@@ -271,6 +272,9 @@ public class Me extends RestRootObject {
    private IngressAdvFwdEntryTemplatesFetcher ingressAdvFwdEntryTemplates;
    
    @JsonIgnore
+   private IngressQOSPoliciesFetcher ingressQOSPolicies;
+   
+   @JsonIgnore
    private JobsFetcher jobs;
    
    @JsonIgnore
@@ -457,6 +461,8 @@ public class Me extends RestRootObject {
       ingressACLTemplates = new IngressACLTemplatesFetcher(this);
       
       ingressAdvFwdEntryTemplates = new IngressAdvFwdEntryTemplatesFetcher(this);
+      
+      ingressQOSPolicies = new IngressQOSPoliciesFetcher(this);
       
       jobs = new JobsFetcher(this);
       
@@ -878,6 +884,11 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public IngressAdvFwdEntryTemplatesFetcher getIngressAdvFwdEntryTemplates() {
       return ingressAdvFwdEntryTemplates;
+   }
+   
+   @JsonIgnore
+   public IngressQOSPoliciesFetcher getIngressQOSPolicies() {
+      return ingressQOSPolicies;
    }
    
    @JsonIgnore

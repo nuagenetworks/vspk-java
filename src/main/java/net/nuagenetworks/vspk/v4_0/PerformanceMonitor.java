@@ -45,14 +45,25 @@ public class PerformanceMonitor extends RestObject {
 
    
    
+   public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum ServiceClass { A, B, C, D, E, F, G, H };
 
    
    @JsonProperty(value = "description")
    protected String description;
    
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
    @JsonProperty(value = "interval")
    protected Long interval;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
    protected String name;
@@ -93,6 +104,26 @@ public class PerformanceMonitor extends RestObject {
    }
    
    @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   
+   @JsonIgnore
    public Long getInterval() {
       return interval;
    }
@@ -100,6 +131,16 @@ public class PerformanceMonitor extends RestObject {
    @JsonIgnore
    public void setInterval(Long value) { 
       this.interval = value;
+   }
+   
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    
    @JsonIgnore
@@ -161,7 +202,7 @@ public class PerformanceMonitor extends RestObject {
    
 
    public String toString() {
-      return "PerformanceMonitor [" + "description=" + description + ", interval=" + interval + ", name=" + name + ", numberOfPackets=" + numberOfPackets + ", payloadSize=" + payloadSize + ", readOnly=" + readOnly + ", serviceClass=" + serviceClass + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "PerformanceMonitor [" + "description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", interval=" + interval + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", numberOfPackets=" + numberOfPackets + ", payloadSize=" + payloadSize + ", readOnly=" + readOnly + ", serviceClass=" + serviceClass + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    
