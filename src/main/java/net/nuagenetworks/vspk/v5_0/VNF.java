@@ -78,6 +78,9 @@ public class VNF extends RestObject {
    @JsonProperty(value = "associatedVNFMetadataID")
    protected String associatedVNFMetadataID;
    
+   @JsonProperty(value = "associatedVNFThresholdPolicyID")
+   protected String associatedVNFThresholdPolicyID;
+   
    @JsonProperty(value = "description")
    protected String description;
    
@@ -215,6 +218,16 @@ public class VNF extends RestObject {
    }
    
    @JsonIgnore
+   public String getAssociatedVNFThresholdPolicyID() {
+      return associatedVNFThresholdPolicyID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedVNFThresholdPolicyID(String value) { 
+      this.associatedVNFThresholdPolicyID = value;
+   }
+   
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
@@ -343,7 +356,7 @@ public class VNF extends RestObject {
    
 
    public String toString() {
-      return "VNF [" + "CPUCount=" + CPUCount + ", NSGName=" + NSGName + ", NSGSystemID=" + NSGSystemID + ", NSGatewayID=" + NSGatewayID + ", VNFDescriptorID=" + VNFDescriptorID + ", VNFDescriptorName=" + VNFDescriptorName + ", allowedActions=" + allowedActions + ", associatedVNFMetadataID=" + associatedVNFMetadataID + ", description=" + description + ", enterpriseID=" + enterpriseID + ", isAttachedToDescriptor=" + isAttachedToDescriptor + ", lastKnownError=" + lastKnownError + ", memoryMB=" + memoryMB + ", metadataID=" + metadataID + ", name=" + name + ", status=" + status + ", storageGB=" + storageGB + ", taskState=" + taskState + ", vendor=" + vendor + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VNF [" + "CPUCount=" + CPUCount + ", NSGName=" + NSGName + ", NSGSystemID=" + NSGSystemID + ", NSGatewayID=" + NSGatewayID + ", VNFDescriptorID=" + VNFDescriptorID + ", VNFDescriptorName=" + VNFDescriptorName + ", allowedActions=" + allowedActions + ", associatedVNFMetadataID=" + associatedVNFMetadataID + ", associatedVNFThresholdPolicyID=" + associatedVNFThresholdPolicyID + ", description=" + description + ", enterpriseID=" + enterpriseID + ", isAttachedToDescriptor=" + isAttachedToDescriptor + ", lastKnownError=" + lastKnownError + ", memoryMB=" + memoryMB + ", metadataID=" + metadataID + ", name=" + name + ", status=" + status + ", storageGB=" + storageGB + ", taskState=" + taskState + ", vendor=" + vendor + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

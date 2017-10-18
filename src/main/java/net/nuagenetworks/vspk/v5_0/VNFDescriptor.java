@@ -49,6 +49,9 @@ public class VNFDescriptor extends RestObject {
    @JsonProperty(value = "CPUCount")
    protected Long CPUCount;
    
+   @JsonProperty(value = "associatedVNFThresholdPolicyID")
+   protected String associatedVNFThresholdPolicyID;
+   
    @JsonProperty(value = "description")
    protected String description;
    
@@ -91,6 +94,16 @@ public class VNFDescriptor extends RestObject {
    @JsonIgnore
    public void setCPUCount(Long value) { 
       this.CPUCount = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedVNFThresholdPolicyID() {
+      return associatedVNFThresholdPolicyID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedVNFThresholdPolicyID(String value) { 
+      this.associatedVNFThresholdPolicyID = value;
    }
    
    @JsonIgnore
@@ -172,7 +185,7 @@ public class VNFDescriptor extends RestObject {
    
 
    public String toString() {
-      return "VNFDescriptor [" + "CPUCount=" + CPUCount + ", description=" + description + ", memoryMB=" + memoryMB + ", metadataID=" + metadataID + ", name=" + name + ", storageGB=" + storageGB + ", vendor=" + vendor + ", visible=" + visible + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VNFDescriptor [" + "CPUCount=" + CPUCount + ", associatedVNFThresholdPolicyID=" + associatedVNFThresholdPolicyID + ", description=" + description + ", memoryMB=" + memoryMB + ", metadataID=" + metadataID + ", name=" + name + ", storageGB=" + storageGB + ", vendor=" + vendor + ", visible=" + visible + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

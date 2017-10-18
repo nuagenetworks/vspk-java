@@ -85,6 +85,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.PATMappersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PATNATPoolsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PerformanceMonitorsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PolicyGroupsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.QosPolicersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.RateLimitersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.RedirectionTargetsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.RedundancyGroupsFetcher;
@@ -105,6 +106,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.VMsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VMInterfacesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VNFCatalogsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VNFMetadatasFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.VNFThresholdPoliciesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VCenterVRSConfigsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VSPsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ZFBAutoAssignmentsFetcher;
@@ -340,6 +342,9 @@ public class Me extends RestRootObject {
    private PolicyGroupsFetcher policyGroups;
    
    @JsonIgnore
+   private QosPolicersFetcher qosPolicers;
+   
+   @JsonIgnore
    private RateLimitersFetcher rateLimiters;
    
    @JsonIgnore
@@ -398,6 +403,9 @@ public class Me extends RestRootObject {
    
    @JsonIgnore
    private VNFMetadatasFetcher vNFMetadatas;
+   
+   @JsonIgnore
+   private VNFThresholdPoliciesFetcher vNFThresholdPolicies;
    
    @JsonIgnore
    private VCenterVRSConfigsFetcher vCenterVRSConfigs;
@@ -517,6 +525,8 @@ public class Me extends RestRootObject {
       
       policyGroups = new PolicyGroupsFetcher(this);
       
+      qosPolicers = new QosPolicersFetcher(this);
+      
       rateLimiters = new RateLimitersFetcher(this);
       
       redirectionTargets = new RedirectionTargetsFetcher(this);
@@ -556,6 +566,8 @@ public class Me extends RestRootObject {
       vNFCatalogs = new VNFCatalogsFetcher(this);
       
       vNFMetadatas = new VNFMetadatasFetcher(this);
+      
+      vNFThresholdPolicies = new VNFThresholdPoliciesFetcher(this);
       
       vCenterVRSConfigs = new VCenterVRSConfigsFetcher(this);
       
@@ -1033,6 +1045,11 @@ public class Me extends RestRootObject {
    }
    
    @JsonIgnore
+   public QosPolicersFetcher getQosPolicers() {
+      return qosPolicers;
+   }
+   
+   @JsonIgnore
    public RateLimitersFetcher getRateLimiters() {
       return rateLimiters;
    }
@@ -1130,6 +1147,11 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public VNFMetadatasFetcher getVNFMetadatas() {
       return vNFMetadatas;
+   }
+   
+   @JsonIgnore
+   public VNFThresholdPoliciesFetcher getVNFThresholdPolicies() {
+      return vNFThresholdPolicies;
    }
    
    @JsonIgnore

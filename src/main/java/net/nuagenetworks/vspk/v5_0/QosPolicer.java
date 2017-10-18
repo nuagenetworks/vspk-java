@@ -35,135 +35,144 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v5_0.fetchers.BFDSessionsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "brconnection", resourceName = "brconnections")
-public class BRConnection extends RestObject {
+@RestEntity(restName = "qospolicer", resourceName = "qospolicers")
+public class QosPolicer extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
    
-   public enum AdvertisementCriteria { BFD, LINK_BASED, OPENFLOW };
-   
-   public enum Mode { Static };
+   public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "DNSAddress")
-   protected String DNSAddress;
+   @JsonProperty(value = "burst")
+   protected Long burst;
    
-   @JsonProperty(value = "address")
-   protected String address;
+   @JsonProperty(value = "description")
+   protected String description;
    
-   @JsonProperty(value = "advertisementCriteria")
-   protected AdvertisementCriteria advertisementCriteria;
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
    
-   @JsonProperty(value = "gateway")
-   protected String gateway;
+   @JsonProperty(value = "externalID")
+   protected String externalID;
    
-   @JsonProperty(value = "mode")
-   protected Mode mode;
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
-   @JsonProperty(value = "netmask")
-   protected String netmask;
+   @JsonProperty(value = "name")
+   protected String name;
    
-   @JsonProperty(value = "uplinkID")
-   protected Long uplinkID;
+   @JsonProperty(value = "rate")
+   protected Long rate;
    
 
    
    @JsonIgnore
-   private BFDSessionsFetcher bFDSessions;
+   private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
    
 
-   public BRConnection() {
+   public QosPolicer() {
       
-      bFDSessions = new BFDSessionsFetcher(this);
+      globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
    }
 
    
    @JsonIgnore
-   public String getDNSAddress() {
-      return DNSAddress;
+   public Long getBurst() {
+      return burst;
    }
 
    @JsonIgnore
-   public void setDNSAddress(String value) { 
-      this.DNSAddress = value;
+   public void setBurst(Long value) { 
+      this.burst = value;
    }
    
    @JsonIgnore
-   public String getAddress() {
-      return address;
+   public String getDescription() {
+      return description;
    }
 
    @JsonIgnore
-   public void setAddress(String value) { 
-      this.address = value;
+   public void setDescription(String value) { 
+      this.description = value;
    }
    
    @JsonIgnore
-   public AdvertisementCriteria getAdvertisementCriteria() {
-      return advertisementCriteria;
+   public EntityScope getEntityScope() {
+      return entityScope;
    }
 
    @JsonIgnore
-   public void setAdvertisementCriteria(AdvertisementCriteria value) { 
-      this.advertisementCriteria = value;
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
    }
    
    @JsonIgnore
-   public String getGateway() {
-      return gateway;
+   public String getExternalID() {
+      return externalID;
    }
 
    @JsonIgnore
-   public void setGateway(String value) { 
-      this.gateway = value;
+   public void setExternalID(String value) { 
+      this.externalID = value;
    }
    
    @JsonIgnore
-   public Mode getMode() {
-      return mode;
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
    }
 
    @JsonIgnore
-   public void setMode(Mode value) { 
-      this.mode = value;
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    
    @JsonIgnore
-   public String getNetmask() {
-      return netmask;
+   public String getName() {
+      return name;
    }
 
    @JsonIgnore
-   public void setNetmask(String value) { 
-      this.netmask = value;
+   public void setName(String value) { 
+      this.name = value;
    }
    
    @JsonIgnore
-   public Long getUplinkID() {
-      return uplinkID;
+   public Long getRate() {
+      return rate;
    }
 
    @JsonIgnore
-   public void setUplinkID(Long value) { 
-      this.uplinkID = value;
+   public void setRate(Long value) { 
+      this.rate = value;
    }
    
 
    
    @JsonIgnore
-   public BFDSessionsFetcher getBFDSessions() {
-      return bFDSessions;
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
    }
    
 
    public String toString() {
-      return "BRConnection [" + "DNSAddress=" + DNSAddress + ", address=" + address + ", advertisementCriteria=" + advertisementCriteria + ", gateway=" + gateway + ", mode=" + mode + ", netmask=" + netmask + ", uplinkID=" + uplinkID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "QosPolicer [" + "burst=" + burst + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", rate=" + rate + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    
