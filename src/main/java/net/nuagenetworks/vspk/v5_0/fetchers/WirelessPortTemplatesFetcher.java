@@ -29,14 +29,14 @@ package net.nuagenetworks.vspk.v5_0.fetchers;
 
 import net.nuagenetworks.bambou.RestObject;
 import net.nuagenetworks.bambou.RestFetcher;
-import net.nuagenetworks.vspk.v5_0.VNFThresholdPolicy;
+import net.nuagenetworks.vspk.v5_0.WirelessPortTemplate;
 
-public class VNFThresholdPoliciesFetcher extends RestFetcher<VNFThresholdPolicy> {
+public class WirelessPortTemplatesFetcher extends RestFetcher<WirelessPortTemplate> {
 
    private static final long serialVersionUID = 1L;
    
-   public VNFThresholdPoliciesFetcher(RestObject parentRestObj) {
-      super(parentRestObj, VNFThresholdPolicy.class);
+   public WirelessPortTemplatesFetcher(RestObject parentRestObj) {
+      super(parentRestObj, WirelessPortTemplate.class);
    }
    
    

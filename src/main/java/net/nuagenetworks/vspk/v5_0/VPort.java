@@ -86,13 +86,13 @@ public class VPort extends RestObject {
    
    public enum OperationalState { DOWN, INIT, UP };
    
-   public enum SegmentationType { NONE, VLAN };
+   public enum SegmentationType { VLAN };
    
    public enum SubType { NONE, VNF };
    
    public enum SystemType { HARDWARE, HARDWARE_VTEP, NUAGE_1, NUAGE_2, NUAGE_VRSG, SOFTWARE };
    
-   public enum TrunkRole { NONE, PARENT_PORT, SUB_PORT };
+   public enum TrunkRole { PARENT_PORT, SUB_PORT };
    
    public enum Type { BRIDGE, CONTAINER, HOST, VM };
 

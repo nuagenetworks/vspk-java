@@ -48,24 +48,13 @@ public class VLANTemplate extends RestObject {
 
    
    
-   public enum AssociatedConnectionType { BR_CONNECTION, UPLINK_CONNECTION };
-   
    public enum EntityScope { ENTERPRISE, GLOBAL };
    
    public enum Type { ACCESS, BR, DUC, UPLINK };
 
    
-   @JsonProperty(value = "associatedConnectionType")
-   protected AssociatedConnectionType associatedConnectionType;
-   
    @JsonProperty(value = "associatedEgressQOSPolicyID")
    protected String associatedEgressQOSPolicyID;
-   
-   @JsonProperty(value = "associatedIngressQOSPolicyID")
-   protected String associatedIngressQOSPolicyID;
-   
-   @JsonProperty(value = "associatedUplinkConnectionID")
-   protected String associatedUplinkConnectionID;
    
    @JsonProperty(value = "associatedVSCProfileID")
    protected String associatedVSCProfileID;
@@ -81,9 +70,6 @@ public class VLANTemplate extends RestObject {
    
    @JsonProperty(value = "externalID")
    protected String externalID;
-   
-   @JsonProperty(value = "isUplink")
-   protected Boolean isUplink;
    
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
@@ -123,16 +109,6 @@ public class VLANTemplate extends RestObject {
 
    
    @JsonIgnore
-   public AssociatedConnectionType getAssociatedConnectionType() {
-      return associatedConnectionType;
-   }
-
-   @JsonIgnore
-   public void setAssociatedConnectionType(AssociatedConnectionType value) { 
-      this.associatedConnectionType = value;
-   }
-   
-   @JsonIgnore
    public String getAssociatedEgressQOSPolicyID() {
       return associatedEgressQOSPolicyID;
    }
@@ -140,26 +116,6 @@ public class VLANTemplate extends RestObject {
    @JsonIgnore
    public void setAssociatedEgressQOSPolicyID(String value) { 
       this.associatedEgressQOSPolicyID = value;
-   }
-   
-   @JsonIgnore
-   public String getAssociatedIngressQOSPolicyID() {
-      return associatedIngressQOSPolicyID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedIngressQOSPolicyID(String value) { 
-      this.associatedIngressQOSPolicyID = value;
-   }
-   
-   @JsonIgnore
-   public String getAssociatedUplinkConnectionID() {
-      return associatedUplinkConnectionID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedUplinkConnectionID(String value) { 
-      this.associatedUplinkConnectionID = value;
    }
    
    @JsonIgnore
@@ -210,16 +166,6 @@ public class VLANTemplate extends RestObject {
    @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
-   }
-   
-   @JsonIgnore
-   public Boolean getIsUplink() {
-      return isUplink;
-   }
-
-   @JsonIgnore
-   public void setIsUplink(Boolean value) { 
-      this.isUplink = value;
    }
    
    @JsonIgnore
@@ -276,7 +222,7 @@ public class VLANTemplate extends RestObject {
    
 
    public String toString() {
-      return "VLANTemplate [" + "associatedConnectionType=" + associatedConnectionType + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", associatedIngressQOSPolicyID=" + associatedIngressQOSPolicyID + ", associatedUplinkConnectionID=" + associatedUplinkConnectionID + ", associatedVSCProfileID=" + associatedVSCProfileID + ", description=" + description + ", ducVlan=" + ducVlan + ", entityScope=" + entityScope + ", externalID=" + externalID + ", isUplink=" + isUplink + ", lastUpdatedBy=" + lastUpdatedBy + ", type=" + type + ", value=" + value + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VLANTemplate [" + "associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", associatedVSCProfileID=" + associatedVSCProfileID + ", description=" + description + ", ducVlan=" + ducVlan + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", type=" + type + ", value=" + value + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -88,9 +88,6 @@ public class SSIDConnection extends RestObject {
    @JsonProperty(value = "redirectURL")
    protected String redirectURL;
    
-   @JsonProperty(value = "vportID")
-   protected String vportID;
-   
    @JsonProperty(value = "whiteList")
    protected java.util.List<String> whiteList;
    
@@ -238,16 +235,6 @@ public class SSIDConnection extends RestObject {
    }
    
    @JsonIgnore
-   public String getVportID() {
-      return vportID;
-   }
-
-   @JsonIgnore
-   public void setVportID(String value) { 
-      this.vportID = value;
-   }
-   
-   @JsonIgnore
    public java.util.List<String> getWhiteList() {
       return whiteList;
    }
@@ -276,7 +263,7 @@ public class SSIDConnection extends RestObject {
    
 
    public String toString() {
-      return "SSIDConnection [" + "associatedCaptivePortalProfileID=" + associatedCaptivePortalProfileID + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", authenticationMode=" + authenticationMode + ", blackList=" + blackList + ", broadcastSSID=" + broadcastSSID + ", description=" + description + ", genericConfig=" + genericConfig + ", interfaceName=" + interfaceName + ", name=" + name + ", passphrase=" + passphrase + ", redirectOption=" + redirectOption + ", redirectURL=" + redirectURL + ", vportID=" + vportID + ", whiteList=" + whiteList + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "SSIDConnection [" + "associatedCaptivePortalProfileID=" + associatedCaptivePortalProfileID + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", authenticationMode=" + authenticationMode + ", blackList=" + blackList + ", broadcastSSID=" + broadcastSSID + ", description=" + description + ", genericConfig=" + genericConfig + ", interfaceName=" + interfaceName + ", name=" + name + ", passphrase=" + passphrase + ", redirectOption=" + redirectOption + ", redirectURL=" + redirectURL + ", whiteList=" + whiteList + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

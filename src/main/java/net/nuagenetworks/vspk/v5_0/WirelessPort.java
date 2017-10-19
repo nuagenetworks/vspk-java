@@ -48,9 +48,9 @@ public class WirelessPort extends RestObject {
 
    
    
-   public enum CountryCode { AT, AU, BE, BR, CA, CH, CN, CY, CZ, DE, DK, EE, ES, FI, FR, GB, GR, HK, HU, ID, IE, IL, IN, IT, JP, KR, LT, LU, LV, MY, NL, NO, NZ, PH, PL, PT, SE, SG, SI, SK, TH, TW, US, ZA };
+   public enum CountryCode { AU, AT, BE, BR, CA, CN, CY, CZ, DK, EE, FI, FR, DE, GR, HK, HU, IN, ID, IE, IL, IT, JP, KR, LV, LT, LU, MY, NL, NZ, NO, PH, PL, PT, SG, SK, SI, ZA, ES, SE, CH, TW, TH, GB, US };
    
-   public enum FrequencyChannel { CH_0, CH_1, CH_10, CH_100, CH_104, CH_108, CH_11, CH_112, CH_116, CH_12, CH_120, CH_124, CH_128, CH_13, CH_132, CH_136, CH_14, CH_140, CH_144, CH_149, CH_153, CH_157, CH_161, CH_165, CH_2, CH_3, CH_36, CH_4, CH_40, CH_44, CH_48, CH_5, CH_52, CH_56, CH_6, CH_60, CH_64, CH_7, CH_8, CH_9 };
+   public enum FrequencyChannel { CH_0, CH_1, CH_2, CH_3, CH_4, CH_5, CH_6, CH_7, CH_8, CH_9, CH_10, CH_11, CH_12, CH_13, CH_14, CH_36, CH_40, CH_44, CH_48, CH_52, CH_56, CH_60, CH_64, CH_100, CH_104, CH_108, CH_112, CH_116, CH_120, CH_124, CH_128, CH_132, CH_136, CH_140, CH_144, CH_149, CH_153, CH_157, CH_161, CH_165 };
    
    public enum PortType { ACCESS };
    
@@ -79,6 +79,9 @@ public class WirelessPort extends RestObject {
    
    @JsonProperty(value = "portType")
    protected PortType portType;
+   
+   @JsonProperty(value = "templateID")
+   protected String templateID;
    
    @JsonProperty(value = "wifiFrequencyBand")
    protected WifiFrequencyBand wifiFrequencyBand;
@@ -185,6 +188,16 @@ public class WirelessPort extends RestObject {
    }
    
    @JsonIgnore
+   public String getTemplateID() {
+      return templateID;
+   }
+
+   @JsonIgnore
+   public void setTemplateID(String value) { 
+      this.templateID = value;
+   }
+   
+   @JsonIgnore
    public WifiFrequencyBand getWifiFrequencyBand() {
       return wifiFrequencyBand;
    }
@@ -228,7 +241,7 @@ public class WirelessPort extends RestObject {
    
 
    public String toString() {
-      return "WirelessPort [" + "countryCode=" + countryCode + ", description=" + description + ", frequencyChannel=" + frequencyChannel + ", genericConfig=" + genericConfig + ", name=" + name + ", physicalName=" + physicalName + ", portType=" + portType + ", wifiFrequencyBand=" + wifiFrequencyBand + ", wifiMode=" + wifiMode + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "WirelessPort [" + "countryCode=" + countryCode + ", description=" + description + ", frequencyChannel=" + frequencyChannel + ", genericConfig=" + genericConfig + ", name=" + name + ", physicalName=" + physicalName + ", portType=" + portType + ", templateID=" + templateID + ", wifiFrequencyBand=" + wifiFrequencyBand + ", wifiMode=" + wifiMode + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -69,7 +69,6 @@ import net.nuagenetworks.vspk.v5_0.fetchers.IngressQOSPoliciesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.KeyServerMembersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.L2DomainsFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.L4ServicesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.LicensesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.LicenseStatusFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
@@ -85,7 +84,6 @@ import net.nuagenetworks.vspk.v5_0.fetchers.PATMappersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PATNATPoolsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PerformanceMonitorsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PolicyGroupsFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.QosPolicersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.RateLimitersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.RedirectionTargetsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.RedundancyGroupsFetcher;
@@ -106,7 +104,6 @@ import net.nuagenetworks.vspk.v5_0.fetchers.VMsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VMInterfacesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VNFCatalogsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VNFMetadatasFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.VNFThresholdPoliciesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VCenterVRSConfigsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VSPsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ZFBAutoAssignmentsFetcher;
@@ -294,9 +291,6 @@ public class Me extends RestRootObject {
    private L2DomainsFetcher l2Domains;
    
    @JsonIgnore
-   private L4ServicesFetcher l4Services;
-   
-   @JsonIgnore
    private LicensesFetcher licenses;
    
    @JsonIgnore
@@ -340,9 +334,6 @@ public class Me extends RestRootObject {
    
    @JsonIgnore
    private PolicyGroupsFetcher policyGroups;
-   
-   @JsonIgnore
-   private QosPolicersFetcher qosPolicers;
    
    @JsonIgnore
    private RateLimitersFetcher rateLimiters;
@@ -403,9 +394,6 @@ public class Me extends RestRootObject {
    
    @JsonIgnore
    private VNFMetadatasFetcher vNFMetadatas;
-   
-   @JsonIgnore
-   private VNFThresholdPoliciesFetcher vNFThresholdPolicies;
    
    @JsonIgnore
    private VCenterVRSConfigsFetcher vCenterVRSConfigs;
@@ -493,8 +481,6 @@ public class Me extends RestRootObject {
       
       l2Domains = new L2DomainsFetcher(this);
       
-      l4Services = new L4ServicesFetcher(this);
-      
       licenses = new LicensesFetcher(this);
       
       licenseStatus = new LicenseStatusFetcher(this);
@@ -524,8 +510,6 @@ public class Me extends RestRootObject {
       performanceMonitors = new PerformanceMonitorsFetcher(this);
       
       policyGroups = new PolicyGroupsFetcher(this);
-      
-      qosPolicers = new QosPolicersFetcher(this);
       
       rateLimiters = new RateLimitersFetcher(this);
       
@@ -566,8 +550,6 @@ public class Me extends RestRootObject {
       vNFCatalogs = new VNFCatalogsFetcher(this);
       
       vNFMetadatas = new VNFMetadatasFetcher(this);
-      
-      vNFThresholdPolicies = new VNFThresholdPoliciesFetcher(this);
       
       vCenterVRSConfigs = new VCenterVRSConfigsFetcher(this);
       
@@ -965,11 +947,6 @@ public class Me extends RestRootObject {
    }
    
    @JsonIgnore
-   public L4ServicesFetcher getL4Services() {
-      return l4Services;
-   }
-   
-   @JsonIgnore
    public LicensesFetcher getLicenses() {
       return licenses;
    }
@@ -1042,11 +1019,6 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public PolicyGroupsFetcher getPolicyGroups() {
       return policyGroups;
-   }
-   
-   @JsonIgnore
-   public QosPolicersFetcher getQosPolicers() {
-      return qosPolicers;
    }
    
    @JsonIgnore
@@ -1147,11 +1119,6 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public VNFMetadatasFetcher getVNFMetadatas() {
       return vNFMetadatas;
-   }
-   
-   @JsonIgnore
-   public VNFThresholdPoliciesFetcher getVNFThresholdPolicies() {
-      return vNFThresholdPolicies;
    }
    
    @JsonIgnore

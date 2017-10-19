@@ -94,7 +94,6 @@ import net.nuagenetworks.vspk.v5_0.fetchers.UsersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VMsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VNFsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VNFMetadatasFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.VNFThresholdPoliciesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ZFBRequestsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -384,9 +383,6 @@ public class Enterprise extends RestObject {
    private VNFMetadatasFetcher vNFMetadatas;
    
    @JsonIgnore
-   private VNFThresholdPoliciesFetcher vNFThresholdPolicies;
-   
-   @JsonIgnore
    private ZFBRequestsFetcher zFBRequests;
    
 
@@ -509,8 +505,6 @@ public class Enterprise extends RestObject {
       vNFs = new VNFsFetcher(this);
       
       vNFMetadatas = new VNFMetadatasFetcher(this);
-      
-      vNFThresholdPolicies = new VNFThresholdPoliciesFetcher(this);
       
       zFBRequests = new ZFBRequestsFetcher(this);
       
@@ -1112,11 +1106,6 @@ public class Enterprise extends RestObject {
    @JsonIgnore
    public VNFMetadatasFetcher getVNFMetadatas() {
       return vNFMetadatas;
-   }
-   
-   @JsonIgnore
-   public VNFThresholdPoliciesFetcher getVNFThresholdPolicies() {
-      return vNFThresholdPolicies;
    }
    
    @JsonIgnore

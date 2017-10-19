@@ -38,7 +38,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import net.nuagenetworks.vspk.v5_0.fetchers.BFDSessionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "brconnection", resourceName = "brconnections")
+@RestEntity(restName = "brconnections", resourceName = "brconnections")
 public class BRConnection extends RestObject {
 
    private static final long serialVersionUID = 1L;

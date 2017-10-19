@@ -61,26 +61,8 @@ public class L7applicationsignature extends RestObject {
    @JsonProperty(value = "name")
    protected String name;
    
-   @JsonProperty(value = "pluginName")
-   protected String pluginName;
-   
-   @JsonProperty(value = "productivity")
-   protected Long productivity;
-   
    @JsonProperty(value = "readonly")
    protected Boolean readonly;
-   
-   @JsonProperty(value = "reference")
-   protected String reference;
-   
-   @JsonProperty(value = "risk")
-   protected Long risk;
-   
-   @JsonProperty(value = "signatureIndex")
-   protected Long signatureIndex;
-   
-   @JsonProperty(value = "softwareFlags")
-   protected String softwareFlags;
    
 
    
@@ -146,26 +128,6 @@ public class L7applicationsignature extends RestObject {
    }
    
    @JsonIgnore
-   public String getPluginName() {
-      return pluginName;
-   }
-
-   @JsonIgnore
-   public void setPluginName(String value) { 
-      this.pluginName = value;
-   }
-   
-   @JsonIgnore
-   public Long getProductivity() {
-      return productivity;
-   }
-
-   @JsonIgnore
-   public void setProductivity(Long value) { 
-      this.productivity = value;
-   }
-   
-   @JsonIgnore
    public Boolean getReadonly() {
       return readonly;
    }
@@ -173,46 +135,6 @@ public class L7applicationsignature extends RestObject {
    @JsonIgnore
    public void setReadonly(Boolean value) { 
       this.readonly = value;
-   }
-   
-   @JsonIgnore
-   public String getReference() {
-      return reference;
-   }
-
-   @JsonIgnore
-   public void setReference(String value) { 
-      this.reference = value;
-   }
-   
-   @JsonIgnore
-   public Long getRisk() {
-      return risk;
-   }
-
-   @JsonIgnore
-   public void setRisk(Long value) { 
-      this.risk = value;
-   }
-   
-   @JsonIgnore
-   public Long getSignatureIndex() {
-      return signatureIndex;
-   }
-
-   @JsonIgnore
-   public void setSignatureIndex(Long value) { 
-      this.signatureIndex = value;
-   }
-   
-   @JsonIgnore
-   public String getSoftwareFlags() {
-      return softwareFlags;
-   }
-
-   @JsonIgnore
-   public void setSoftwareFlags(String value) { 
-      this.softwareFlags = value;
    }
    
 
@@ -224,7 +146,7 @@ public class L7applicationsignature extends RestObject {
    
 
    public String toString() {
-      return "L7applicationsignature [" + "category=" + category + ", description=" + description + ", dictionaryVersion=" + dictionaryVersion + ", guidstring=" + guidstring + ", name=" + name + ", pluginName=" + pluginName + ", productivity=" + productivity + ", readonly=" + readonly + ", reference=" + reference + ", risk=" + risk + ", signatureIndex=" + signatureIndex + ", softwareFlags=" + softwareFlags + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "L7applicationsignature [" + "category=" + category + ", description=" + description + ", dictionaryVersion=" + dictionaryVersion + ", guidstring=" + guidstring + ", name=" + name + ", readonly=" + readonly + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

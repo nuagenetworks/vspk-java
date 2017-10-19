@@ -66,7 +66,7 @@ public class VRS extends RestObject {
    
    public enum LicensedState { LICENSED, UNLICENSED };
    
-   public enum Personality { HARDWARE_VTEP, NONE, NSG, NSGBR, NSGDUC, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, VRS, VRSB, VRSG };
+   public enum Personality { HARDWARE_VTEP, NONE, NSG, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, VRS, VRSG };
    
    public enum Role { MASTER, NONE, SLAVE };
    

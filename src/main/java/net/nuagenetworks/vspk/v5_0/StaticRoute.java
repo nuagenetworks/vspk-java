@@ -51,7 +51,7 @@ public class StaticRoute extends RestObject {
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    
-   public enum Type { EXIT_DOMAIN, OVERLAY, OVERLAY_ADDRESS_TRANSLATION };
+   public enum Type { EXIT_DOMAIN, OVERLAY };
 
    
    @JsonProperty(value = "IPType")

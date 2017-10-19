@@ -47,6 +47,8 @@ public class UplinkConnection extends RestObject {
 
    
    
+   public enum Address { IPv4, IPv6 };
+   
    public enum AdvertisementCriteria { BFD, CONTROL_SESSION, OPERATIONAL_LINK };
    
    public enum InterfaceConnectionType { AUTOMATIC, EMBEDDED, PCI_EXPRESS, USB_ETHERNET, USB_MODEM };
@@ -60,7 +62,7 @@ public class UplinkConnection extends RestObject {
    protected String DNSAddress;
    
    @JsonProperty(value = "address")
-   protected String address;
+   protected Address address;
    
    @JsonProperty(value = "advertisementCriteria")
    protected AdvertisementCriteria advertisementCriteria;
@@ -108,7 +110,7 @@ public class UplinkConnection extends RestObject {
    protected String secondaryAddress;
    
    @JsonProperty(value = "uplinkID")
-   protected Long uplinkID;
+   protected String uplinkID;
    
    @JsonProperty(value = "username")
    protected String username;
@@ -150,12 +152,12 @@ public class UplinkConnection extends RestObject {
    }
    
    @JsonIgnore
-   public String getAddress() {
+   public Address getAddress() {
       return address;
    }
 
    @JsonIgnore
-   public void setAddress(String value) { 
+   public void setAddress(Address value) { 
       this.address = value;
    }
    
@@ -310,12 +312,12 @@ public class UplinkConnection extends RestObject {
    }
    
    @JsonIgnore
-   public Long getUplinkID() {
+   public String getUplinkID() {
       return uplinkID;
    }
 
    @JsonIgnore
-   public void setUplinkID(Long value) { 
+   public void setUplinkID(String value) { 
       this.uplinkID = value;
    }
    
