@@ -61,7 +61,7 @@ public class NSPort extends RestObject {
    
    public enum PortType { ACCESS, NETWORK };
    
-   public enum Speed { AUTONEGOTIATE, BASE10, BASET1000, BASETX100, BASEX10G };
+   public enum Speed { AUTONEGOTIATE, BASET10, BASET1000, BASETX100, BASEX10G };
    
    public enum Status { INITIALIZED, MISMATCH, ORPHAN, READY };
 
