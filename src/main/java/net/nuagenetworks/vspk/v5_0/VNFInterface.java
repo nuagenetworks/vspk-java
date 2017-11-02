@@ -78,7 +78,7 @@ public class VNFInterface extends RestObject {
    protected String gateway;
    
    @JsonProperty(value = "isManagementInterface")
-   protected String isManagementInterface;
+   protected Boolean isManagementInterface;
    
    @JsonProperty(value = "name")
    protected String name;
@@ -207,12 +207,12 @@ public class VNFInterface extends RestObject {
    }
    
    @JsonIgnore
-   public String getIsManagementInterface() {
+   public Boolean getIsManagementInterface() {
       return isManagementInterface;
    }
 
    @JsonIgnore
-   public void setIsManagementInterface(String value) { 
+   public void setIsManagementInterface(Boolean value) { 
       this.isManagementInterface = value;
    }
    

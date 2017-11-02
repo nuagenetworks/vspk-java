@@ -35,135 +35,135 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v5_0.fetchers.BFDSessionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "brconnection", resourceName = "brconnections")
-public class BRConnection extends RestObject {
+@RestEntity(restName = "vnfthresholdpolicy", resourceName = "vnfthresholdpolicies")
+public class VNFThresholdPolicy extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
    
-   public enum AdvertisementCriteria { BFD, LINK_BASED, OPENFLOW };
-   
-   public enum Mode { Static };
+   public enum Action { NONE, SHUTOFF };
 
    
-   @JsonProperty(value = "DNSAddress")
-   protected String DNSAddress;
+   @JsonProperty(value = "CPUThreshold")
+   protected Long CPUThreshold;
    
-   @JsonProperty(value = "address")
-   protected String address;
+   @JsonProperty(value = "action")
+   protected Action action;
    
-   @JsonProperty(value = "advertisementCriteria")
-   protected AdvertisementCriteria advertisementCriteria;
+   @JsonProperty(value = "description")
+   protected String description;
    
-   @JsonProperty(value = "gateway")
-   protected String gateway;
+   @JsonProperty(value = "memoryThreshold")
+   protected Long memoryThreshold;
    
-   @JsonProperty(value = "mode")
-   protected Mode mode;
+   @JsonProperty(value = "minOccurrence")
+   protected Long minOccurrence;
    
-   @JsonProperty(value = "netmask")
-   protected String netmask;
+   @JsonProperty(value = "monitInterval")
+   protected Long monitInterval;
    
-   @JsonProperty(value = "uplinkID")
-   protected Long uplinkID;
+   @JsonProperty(value = "name")
+   protected String name;
    
-
-   
-   @JsonIgnore
-   private BFDSessionsFetcher bFDSessions;
+   @JsonProperty(value = "storageThreshold")
+   protected Long storageThreshold;
    
 
-   public BRConnection() {
-      
-      bFDSessions = new BFDSessionsFetcher(this);
+   
+
+   public VNFThresholdPolicy() {
       
    }
 
    
    @JsonIgnore
-   public String getDNSAddress() {
-      return DNSAddress;
+   public Long getCPUThreshold() {
+      return CPUThreshold;
    }
 
    @JsonIgnore
-   public void setDNSAddress(String value) { 
-      this.DNSAddress = value;
+   public void setCPUThreshold(Long value) { 
+      this.CPUThreshold = value;
    }
    
    @JsonIgnore
-   public String getAddress() {
-      return address;
+   public Action getAction() {
+      return action;
    }
 
    @JsonIgnore
-   public void setAddress(String value) { 
-      this.address = value;
+   public void setAction(Action value) { 
+      this.action = value;
    }
    
    @JsonIgnore
-   public AdvertisementCriteria getAdvertisementCriteria() {
-      return advertisementCriteria;
+   public String getDescription() {
+      return description;
    }
 
    @JsonIgnore
-   public void setAdvertisementCriteria(AdvertisementCriteria value) { 
-      this.advertisementCriteria = value;
+   public void setDescription(String value) { 
+      this.description = value;
    }
    
    @JsonIgnore
-   public String getGateway() {
-      return gateway;
+   public Long getMemoryThreshold() {
+      return memoryThreshold;
    }
 
    @JsonIgnore
-   public void setGateway(String value) { 
-      this.gateway = value;
+   public void setMemoryThreshold(Long value) { 
+      this.memoryThreshold = value;
    }
    
    @JsonIgnore
-   public Mode getMode() {
-      return mode;
+   public Long getMinOccurrence() {
+      return minOccurrence;
    }
 
    @JsonIgnore
-   public void setMode(Mode value) { 
-      this.mode = value;
+   public void setMinOccurrence(Long value) { 
+      this.minOccurrence = value;
    }
    
    @JsonIgnore
-   public String getNetmask() {
-      return netmask;
+   public Long getMonitInterval() {
+      return monitInterval;
    }
 
    @JsonIgnore
-   public void setNetmask(String value) { 
-      this.netmask = value;
+   public void setMonitInterval(Long value) { 
+      this.monitInterval = value;
    }
    
    @JsonIgnore
-   public Long getUplinkID() {
-      return uplinkID;
+   public String getName() {
+      return name;
    }
 
    @JsonIgnore
-   public void setUplinkID(Long value) { 
-      this.uplinkID = value;
+   public void setName(String value) { 
+      this.name = value;
+   }
+   
+   @JsonIgnore
+   public Long getStorageThreshold() {
+      return storageThreshold;
+   }
+
+   @JsonIgnore
+   public void setStorageThreshold(Long value) { 
+      this.storageThreshold = value;
    }
    
 
-   
-   @JsonIgnore
-   public BFDSessionsFetcher getBFDSessions() {
-      return bFDSessions;
-   }
    
 
    public String toString() {
-      return "BRConnection [" + "DNSAddress=" + DNSAddress + ", address=" + address + ", advertisementCriteria=" + advertisementCriteria + ", gateway=" + gateway + ", mode=" + mode + ", netmask=" + netmask + ", uplinkID=" + uplinkID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VNFThresholdPolicy [" + "CPUThreshold=" + CPUThreshold + ", action=" + action + ", description=" + description + ", memoryThreshold=" + memoryThreshold + ", minOccurrence=" + minOccurrence + ", monitInterval=" + monitInterval + ", name=" + name + ", storageThreshold=" + storageThreshold + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

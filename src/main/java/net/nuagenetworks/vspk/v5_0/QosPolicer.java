@@ -35,69 +35,67 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "wirelessporttemplate", resourceName = "wirelessporttemplates")
-public class WirelessPortTemplate extends RestObject {
+@RestEntity(restName = "qospolicer", resourceName = "qospolicers")
+public class QosPolicer extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
    
-   public enum CountryCode { CA, FR, UK, US };
-   
-   public enum FrequencyChannel { CH_0, CH_1, CH_2 };
-   
-   public enum PortType { ACCESS };
-   
-   public enum WifiFrequencyBand { FREQ_2_4_GHZ, FREQ_5_0_GHZ };
-   
-   public enum WifiMode { WIFI_A, WIFI_A_AC, WIFI_A_N, WIFI_A_N_AC, WIFI_B_G, WIFI_B_G_N };
+   public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "countryCode")
-   protected CountryCode countryCode;
+   @JsonProperty(value = "burst")
+   protected Long burst;
    
    @JsonProperty(value = "description")
    protected String description;
    
-   @JsonProperty(value = "frequencyChannel")
-   protected FrequencyChannel frequencyChannel;
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
    
-   @JsonProperty(value = "genericConfig")
-   protected String genericConfig;
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
    protected String name;
    
-   @JsonProperty(value = "physicalName")
-   protected String physicalName;
-   
-   @JsonProperty(value = "portType")
-   protected PortType portType;
-   
-   @JsonProperty(value = "wifiFrequencyBand")
-   protected WifiFrequencyBand wifiFrequencyBand;
-   
-   @JsonProperty(value = "wifiMode")
-   protected WifiMode wifiMode;
+   @JsonProperty(value = "rate")
+   protected Long rate;
    
 
    
+   @JsonIgnore
+   private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
-   public WirelessPortTemplate() {
+   public QosPolicer() {
+      
+      globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
    }
 
    
    @JsonIgnore
-   public CountryCode getCountryCode() {
-      return countryCode;
+   public Long getBurst() {
+      return burst;
    }
 
    @JsonIgnore
-   public void setCountryCode(CountryCode value) { 
-      this.countryCode = value;
+   public void setBurst(Long value) { 
+      this.burst = value;
    }
    
    @JsonIgnore
@@ -111,23 +109,33 @@ public class WirelessPortTemplate extends RestObject {
    }
    
    @JsonIgnore
-   public FrequencyChannel getFrequencyChannel() {
-      return frequencyChannel;
+   public EntityScope getEntityScope() {
+      return entityScope;
    }
 
    @JsonIgnore
-   public void setFrequencyChannel(FrequencyChannel value) { 
-      this.frequencyChannel = value;
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
    }
    
    @JsonIgnore
-   public String getGenericConfig() {
-      return genericConfig;
+   public String getExternalID() {
+      return externalID;
    }
 
    @JsonIgnore
-   public void setGenericConfig(String value) { 
-      this.genericConfig = value;
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    
    @JsonIgnore
@@ -141,50 +149,30 @@ public class WirelessPortTemplate extends RestObject {
    }
    
    @JsonIgnore
-   public String getPhysicalName() {
-      return physicalName;
+   public Long getRate() {
+      return rate;
    }
 
    @JsonIgnore
-   public void setPhysicalName(String value) { 
-      this.physicalName = value;
-   }
-   
-   @JsonIgnore
-   public PortType getPortType() {
-      return portType;
-   }
-
-   @JsonIgnore
-   public void setPortType(PortType value) { 
-      this.portType = value;
-   }
-   
-   @JsonIgnore
-   public WifiFrequencyBand getWifiFrequencyBand() {
-      return wifiFrequencyBand;
-   }
-
-   @JsonIgnore
-   public void setWifiFrequencyBand(WifiFrequencyBand value) { 
-      this.wifiFrequencyBand = value;
-   }
-   
-   @JsonIgnore
-   public WifiMode getWifiMode() {
-      return wifiMode;
-   }
-
-   @JsonIgnore
-   public void setWifiMode(WifiMode value) { 
-      this.wifiMode = value;
+   public void setRate(Long value) { 
+      this.rate = value;
    }
    
 
+   
+   @JsonIgnore
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
    
 
    public String toString() {
-      return "WirelessPortTemplate [" + "countryCode=" + countryCode + ", description=" + description + ", frequencyChannel=" + frequencyChannel + ", genericConfig=" + genericConfig + ", name=" + name + ", physicalName=" + physicalName + ", portType=" + portType + ", wifiFrequencyBand=" + wifiFrequencyBand + ", wifiMode=" + wifiMode + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "QosPolicer [" + "burst=" + burst + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", rate=" + rate + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

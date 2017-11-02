@@ -35,6 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "overlaymirrordestinationtemplate", resourceName = "overlaymirrordestinationtemplates")
@@ -46,6 +48,8 @@ public class OverlayMirrorDestinationTemplate extends RestObject {
    
    public enum EndPointType { NONE, VIRTUAL_WIRE };
    
+   public enum EntityScope { ENTERPRISE, GLOBAL };
+   
    public enum TriggerType { GARP, NONE };
 
    
@@ -54,6 +58,15 @@ public class OverlayMirrorDestinationTemplate extends RestObject {
    
    @JsonProperty(value = "endPointType")
    protected EndPointType endPointType;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
    protected String name;
@@ -66,8 +79,18 @@ public class OverlayMirrorDestinationTemplate extends RestObject {
    
 
    
+   @JsonIgnore
+   private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public OverlayMirrorDestinationTemplate() {
+      
+      globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
    }
 
@@ -90,6 +113,36 @@ public class OverlayMirrorDestinationTemplate extends RestObject {
    @JsonIgnore
    public void setEndPointType(EndPointType value) { 
       this.endPointType = value;
+   }
+   
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    
    @JsonIgnore
@@ -124,9 +177,19 @@ public class OverlayMirrorDestinationTemplate extends RestObject {
    
 
    
+   @JsonIgnore
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "OverlayMirrorDestinationTemplate [" + "description=" + description + ", endPointType=" + endPointType + ", name=" + name + ", redundancyEnabled=" + redundancyEnabled + ", triggerType=" + triggerType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "OverlayMirrorDestinationTemplate [" + "description=" + description + ", endPointType=" + endPointType + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", redundancyEnabled=" + redundancyEnabled + ", triggerType=" + triggerType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    
