@@ -78,16 +78,17 @@ public class NSGateway extends RestObject {
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    
-   public enum Family { ANY, NSG_E, NSG_V, NSG_AMI, NSG_X, NSG_C, NSG_E200, NSG_E300, NSG_X200 };
+   public enum Family { ANY, NSG_AMI, NSG_C, NSG_E, NSG_E200, NSG_E300, NSG_V, NSG_X, NSG_X200 };
    
    public enum InheritedSSHServiceState { DISABLED, ENABLED };
-   
-   public enum NetworkAcceleration { NONE, NORMAL, OPTIMAL, PERFORMANCE };
    
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    
    public enum Personality { DC7X50, HARDWARE_VTEP, NSG, NSGBR, NSGDUC, OTHER, VRSG, VSA, VSG };
 
+   
+   @JsonProperty(value = "BIOSReleaseDate")
+   protected String BIOSReleaseDate;
    
    @JsonProperty(value = "BIOSVersion")
    protected String BIOSVersion;
@@ -193,9 +194,6 @@ public class NSGateway extends RestObject {
    
    @JsonProperty(value = "name")
    protected String name;
-   
-   @JsonProperty(value = "networkAcceleration")
-   protected NetworkAcceleration networkAcceleration;
    
    @JsonProperty(value = "operationMode")
    protected String operationMode;
@@ -334,6 +332,16 @@ public class NSGateway extends RestObject {
       
    }
 
+   
+   @JsonIgnore
+   public String getBIOSReleaseDate() {
+      return BIOSReleaseDate;
+   }
+
+   @JsonIgnore
+   public void setBIOSReleaseDate(String value) { 
+      this.BIOSReleaseDate = value;
+   }
    
    @JsonIgnore
    public String getBIOSVersion() {
@@ -686,16 +694,6 @@ public class NSGateway extends RestObject {
    }
    
    @JsonIgnore
-   public NetworkAcceleration getNetworkAcceleration() {
-      return networkAcceleration;
-   }
-
-   @JsonIgnore
-   public void setNetworkAcceleration(NetworkAcceleration value) { 
-      this.networkAcceleration = value;
-   }
-   
-   @JsonIgnore
    public String getOperationMode() {
       return operationMode;
    }
@@ -899,7 +897,7 @@ public class NSGateway extends RestObject {
    
 
    public String toString() {
-      return "NSGateway [" + "BIOSVersion=" + BIOSVersion + ", CPUType=" + CPUType + ", MACAddress=" + MACAddress + ", NATTraversalEnabled=" + NATTraversalEnabled + ", NSGVersion=" + NSGVersion + ", SKU=" + SKU + ", SSHService=" + SSHService + ", TCPMSSEnabled=" + TCPMSSEnabled + ", TCPMaximumSegmentSize=" + TCPMaximumSegmentSize + ", TPMStatus=" + TPMStatus + ", UUID=" + UUID + ", associatedGatewaySecurityID=" + associatedGatewaySecurityID + ", associatedGatewaySecurityProfileID=" + associatedGatewaySecurityProfileID + ", associatedNSGInfoID=" + associatedNSGInfoID + ", associatedNSGUpgradeProfileID=" + associatedNSGUpgradeProfileID + ", autoDiscGatewayID=" + autoDiscGatewayID + ", bootstrapID=" + bootstrapID + ", bootstrapStatus=" + bootstrapStatus + ", configurationReloadState=" + configurationReloadState + ", configurationStatus=" + configurationStatus + ", controlTrafficCOSValue=" + controlTrafficCOSValue + ", controlTrafficDSCPValue=" + controlTrafficDSCPValue + ", datapathID=" + datapathID + ", derivedSSHServiceState=" + derivedSSHServiceState + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", family=" + family + ", inheritedSSHServiceState=" + inheritedSSHServiceState + ", lastConfigurationReloadTimestamp=" + lastConfigurationReloadTimestamp + ", lastUpdatedBy=" + lastUpdatedBy + ", libraries=" + libraries + ", locationID=" + locationID + ", name=" + name + ", networkAcceleration=" + networkAcceleration + ", operationMode=" + operationMode + ", operationStatus=" + operationStatus + ", pending=" + pending + ", permittedAction=" + permittedAction + ", personality=" + personality + ", productName=" + productName + ", redundancyGroupID=" + redundancyGroupID + ", serialNumber=" + serialNumber + ", systemID=" + systemID + ", templateID=" + templateID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NSGateway [" + "BIOSReleaseDate=" + BIOSReleaseDate + ", BIOSVersion=" + BIOSVersion + ", CPUType=" + CPUType + ", MACAddress=" + MACAddress + ", NATTraversalEnabled=" + NATTraversalEnabled + ", NSGVersion=" + NSGVersion + ", SKU=" + SKU + ", SSHService=" + SSHService + ", TCPMSSEnabled=" + TCPMSSEnabled + ", TCPMaximumSegmentSize=" + TCPMaximumSegmentSize + ", TPMStatus=" + TPMStatus + ", UUID=" + UUID + ", associatedGatewaySecurityID=" + associatedGatewaySecurityID + ", associatedGatewaySecurityProfileID=" + associatedGatewaySecurityProfileID + ", associatedNSGInfoID=" + associatedNSGInfoID + ", associatedNSGUpgradeProfileID=" + associatedNSGUpgradeProfileID + ", autoDiscGatewayID=" + autoDiscGatewayID + ", bootstrapID=" + bootstrapID + ", bootstrapStatus=" + bootstrapStatus + ", configurationReloadState=" + configurationReloadState + ", configurationStatus=" + configurationStatus + ", controlTrafficCOSValue=" + controlTrafficCOSValue + ", controlTrafficDSCPValue=" + controlTrafficDSCPValue + ", datapathID=" + datapathID + ", derivedSSHServiceState=" + derivedSSHServiceState + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", family=" + family + ", inheritedSSHServiceState=" + inheritedSSHServiceState + ", lastConfigurationReloadTimestamp=" + lastConfigurationReloadTimestamp + ", lastUpdatedBy=" + lastUpdatedBy + ", libraries=" + libraries + ", locationID=" + locationID + ", name=" + name + ", operationMode=" + operationMode + ", operationStatus=" + operationStatus + ", pending=" + pending + ", permittedAction=" + permittedAction + ", personality=" + personality + ", productName=" + productName + ", redundancyGroupID=" + redundancyGroupID + ", serialNumber=" + serialNumber + ", systemID=" + systemID + ", templateID=" + templateID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

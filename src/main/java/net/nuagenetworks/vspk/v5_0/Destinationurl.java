@@ -39,30 +39,26 @@ import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "bgpneighbor", resourceName = "bgpneighbors")
-public class BGPNeighbor extends RestObject {
+@RestEntity(restName = "destinationurl", resourceName = "destinationurls")
+public class Destinationurl extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
    
+   public enum HTTPMethod { GET, HEAD };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "BFDEnabled")
-   protected Boolean BFDEnabled;
+   @JsonProperty(value = "HTTPMethod")
+   protected HTTPMethod HTTPMethod;
    
-   @JsonProperty(value = "associatedExportRoutingPolicyID")
-   protected String associatedExportRoutingPolicyID;
+   @JsonProperty(value = "URL")
+   protected String URL;
    
-   @JsonProperty(value = "associatedImportRoutingPolicyID")
-   protected String associatedImportRoutingPolicyID;
-   
-   @JsonProperty(value = "dampeningEnabled")
-   protected Boolean dampeningEnabled;
-   
-   @JsonProperty(value = "description")
-   protected String description;
+   @JsonProperty(value = "downThresholdCount")
+   protected Long downThresholdCount;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
@@ -70,17 +66,11 @@ public class BGPNeighbor extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-   @JsonProperty(value = "name")
-   protected String name;
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
-   @JsonProperty(value = "peerAS")
-   protected Long peerAS;
-   
-   @JsonProperty(value = "peerIP")
-   protected String peerIP;
-   
-   @JsonProperty(value = "session")
-   protected String session;
+   @JsonProperty(value = "percentageWeight")
+   protected Long percentageWeight;
    
 
    
@@ -91,7 +81,7 @@ public class BGPNeighbor extends RestObject {
    private MetadatasFetcher metadatas;
    
 
-   public BGPNeighbor() {
+   public Destinationurl() {
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
@@ -101,53 +91,33 @@ public class BGPNeighbor extends RestObject {
 
    
    @JsonIgnore
-   public Boolean getBFDEnabled() {
-      return BFDEnabled;
+   public HTTPMethod getHTTPMethod() {
+      return HTTPMethod;
    }
 
    @JsonIgnore
-   public void setBFDEnabled(Boolean value) { 
-      this.BFDEnabled = value;
+   public void setHTTPMethod(HTTPMethod value) { 
+      this.HTTPMethod = value;
    }
    
    @JsonIgnore
-   public String getAssociatedExportRoutingPolicyID() {
-      return associatedExportRoutingPolicyID;
+   public String getURL() {
+      return URL;
    }
 
    @JsonIgnore
-   public void setAssociatedExportRoutingPolicyID(String value) { 
-      this.associatedExportRoutingPolicyID = value;
+   public void setURL(String value) { 
+      this.URL = value;
    }
    
    @JsonIgnore
-   public String getAssociatedImportRoutingPolicyID() {
-      return associatedImportRoutingPolicyID;
+   public Long getDownThresholdCount() {
+      return downThresholdCount;
    }
 
    @JsonIgnore
-   public void setAssociatedImportRoutingPolicyID(String value) { 
-      this.associatedImportRoutingPolicyID = value;
-   }
-   
-   @JsonIgnore
-   public Boolean getDampeningEnabled() {
-      return dampeningEnabled;
-   }
-
-   @JsonIgnore
-   public void setDampeningEnabled(Boolean value) { 
-      this.dampeningEnabled = value;
-   }
-   
-   @JsonIgnore
-   public String getDescription() {
-      return description;
-   }
-
-   @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
+   public void setDownThresholdCount(Long value) { 
+      this.downThresholdCount = value;
    }
    
    @JsonIgnore
@@ -171,43 +141,23 @@ public class BGPNeighbor extends RestObject {
    }
    
    @JsonIgnore
-   public String getName() {
-      return name;
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    
    @JsonIgnore
-   public Long getPeerAS() {
-      return peerAS;
+   public Long getPercentageWeight() {
+      return percentageWeight;
    }
 
    @JsonIgnore
-   public void setPeerAS(Long value) { 
-      this.peerAS = value;
-   }
-   
-   @JsonIgnore
-   public String getPeerIP() {
-      return peerIP;
-   }
-
-   @JsonIgnore
-   public void setPeerIP(String value) { 
-      this.peerIP = value;
-   }
-   
-   @JsonIgnore
-   public String getSession() {
-      return session;
-   }
-
-   @JsonIgnore
-   public void setSession(String value) { 
-      this.session = value;
+   public void setPercentageWeight(Long value) { 
+      this.percentageWeight = value;
    }
    
 
@@ -224,7 +174,7 @@ public class BGPNeighbor extends RestObject {
    
 
    public String toString() {
-      return "BGPNeighbor [" + "BFDEnabled=" + BFDEnabled + ", associatedExportRoutingPolicyID=" + associatedExportRoutingPolicyID + ", associatedImportRoutingPolicyID=" + associatedImportRoutingPolicyID + ", dampeningEnabled=" + dampeningEnabled + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", name=" + name + ", peerAS=" + peerAS + ", peerIP=" + peerIP + ", session=" + session + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Destinationurl [" + "HTTPMethod=" + HTTPMethod + ", URL=" + URL + ", downThresholdCount=" + downThresholdCount + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", percentageWeight=" + percentageWeight + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

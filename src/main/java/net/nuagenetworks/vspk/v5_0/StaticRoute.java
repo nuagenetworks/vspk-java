@@ -54,6 +54,9 @@ public class StaticRoute extends RestObject {
    public enum Type { EXIT_DOMAIN, OVERLAY, OVERLAY_ADDRESS_TRANSLATION };
 
    
+   @JsonProperty(value = "BFDEnabled")
+   protected Boolean BFDEnabled;
+   
    @JsonProperty(value = "IPType")
    protected IPType IPType;
    
@@ -109,6 +112,16 @@ public class StaticRoute extends RestObject {
       
    }
 
+   
+   @JsonIgnore
+   public Boolean getBFDEnabled() {
+      return BFDEnabled;
+   }
+
+   @JsonIgnore
+   public void setBFDEnabled(Boolean value) { 
+      this.BFDEnabled = value;
+   }
    
    @JsonIgnore
    public IPType getIPType() {
@@ -239,7 +252,7 @@ public class StaticRoute extends RestObject {
    
 
    public String toString() {
-      return "StaticRoute [" + "IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", address=" + address + ", associatedSubnetID=" + associatedSubnetID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", netmask=" + netmask + ", nextHopIp=" + nextHopIp + ", routeDistinguisher=" + routeDistinguisher + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "StaticRoute [" + "BFDEnabled=" + BFDEnabled + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", address=" + address + ", associatedSubnetID=" + associatedSubnetID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", netmask=" + netmask + ", nextHopIp=" + nextHopIp + ", routeDistinguisher=" + routeDistinguisher + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

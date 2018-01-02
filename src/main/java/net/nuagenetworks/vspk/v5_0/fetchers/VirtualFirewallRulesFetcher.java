@@ -29,14 +29,14 @@ package net.nuagenetworks.vspk.v5_0.fetchers;
 
 import net.nuagenetworks.bambou.RestObject;
 import net.nuagenetworks.bambou.RestFetcher;
-import net.nuagenetworks.vspk.v5_0.KeyServerNotification;
+import net.nuagenetworks.vspk.v5_0.VirtualFirewallRule;
 
-public class KeyServerNotificationsFetcher extends RestFetcher<KeyServerNotification> {
+public class VirtualFirewallRulesFetcher extends RestFetcher<VirtualFirewallRule> {
 
    private static final long serialVersionUID = 1L;
    
-   public KeyServerNotificationsFetcher(RestObject parentRestObj) {
-      super(parentRestObj, KeyServerNotification.class);
+   public VirtualFirewallRulesFetcher(RestObject parentRestObj) {
+      super(parentRestObj, VirtualFirewallRule.class);
    }
    
    

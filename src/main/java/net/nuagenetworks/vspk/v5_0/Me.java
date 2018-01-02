@@ -100,8 +100,10 @@ import net.nuagenetworks.vspk.v5_0.fetchers.TCAsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.UnderlaysFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.UplinkRDsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.UsersFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.UserContextsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VCentersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VCenterHypervisorsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.VirtualFirewallPoliciesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VMsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VMInterfacesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VNFCatalogsFetcher;
@@ -387,10 +389,16 @@ public class Me extends RestRootObject {
    private UsersFetcher users;
    
    @JsonIgnore
+   private UserContextsFetcher userContexts;
+   
+   @JsonIgnore
    private VCentersFetcher vCenters;
    
    @JsonIgnore
    private VCenterHypervisorsFetcher vCenterHypervisors;
+   
+   @JsonIgnore
+   private VirtualFirewallPoliciesFetcher virtualFirewallPolicies;
    
    @JsonIgnore
    private VMsFetcher vMs;
@@ -555,9 +563,13 @@ public class Me extends RestRootObject {
       
       users = new UsersFetcher(this);
       
+      userContexts = new UserContextsFetcher(this);
+      
       vCenters = new VCentersFetcher(this);
       
       vCenterHypervisors = new VCenterHypervisorsFetcher(this);
+      
+      virtualFirewallPolicies = new VirtualFirewallPoliciesFetcher(this);
       
       vMs = new VMsFetcher(this);
       
@@ -1120,6 +1132,11 @@ public class Me extends RestRootObject {
    }
    
    @JsonIgnore
+   public UserContextsFetcher getUserContexts() {
+      return userContexts;
+   }
+   
+   @JsonIgnore
    public VCentersFetcher getVCenters() {
       return vCenters;
    }
@@ -1127,6 +1144,11 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public VCenterHypervisorsFetcher getVCenterHypervisors() {
       return vCenterHypervisors;
+   }
+   
+   @JsonIgnore
+   public VirtualFirewallPoliciesFetcher getVirtualFirewallPolicies() {
+      return virtualFirewallPolicies;
    }
    
    @JsonIgnore

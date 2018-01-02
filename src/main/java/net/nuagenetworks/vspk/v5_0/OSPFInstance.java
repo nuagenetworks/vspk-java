@@ -37,10 +37,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.OSPFAreasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "bgpneighbor", resourceName = "bgpneighbors")
-public class BGPNeighbor extends RestObject {
+@RestEntity(restName = "ospfinstance", resourceName = "ospfinstances")
+public class OSPFInstance extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
@@ -49,17 +50,11 @@ public class BGPNeighbor extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "BFDEnabled")
-   protected Boolean BFDEnabled;
-   
    @JsonProperty(value = "associatedExportRoutingPolicyID")
    protected String associatedExportRoutingPolicyID;
    
    @JsonProperty(value = "associatedImportRoutingPolicyID")
    protected String associatedImportRoutingPolicyID;
-   
-   @JsonProperty(value = "dampeningEnabled")
-   protected Boolean dampeningEnabled;
    
    @JsonProperty(value = "description")
    protected String description;
@@ -67,20 +62,26 @@ public class BGPNeighbor extends RestObject {
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
+   @JsonProperty(value = "exportLimit")
+   protected Long exportLimit;
+   
+   @JsonProperty(value = "exportToOverlay")
+   protected Boolean exportToOverlay;
+   
    @JsonProperty(value = "externalID")
    protected String externalID;
+   
+   @JsonProperty(value = "externalPreference")
+   protected Long externalPreference;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
    protected String name;
    
-   @JsonProperty(value = "peerAS")
-   protected Long peerAS;
-   
-   @JsonProperty(value = "peerIP")
-   protected String peerIP;
-   
-   @JsonProperty(value = "session")
-   protected String session;
+   @JsonProperty(value = "preference")
+   protected Long preference;
    
 
    
@@ -90,25 +91,20 @@ public class BGPNeighbor extends RestObject {
    @JsonIgnore
    private MetadatasFetcher metadatas;
    
+   @JsonIgnore
+   private OSPFAreasFetcher oSPFAreas;
+   
 
-   public BGPNeighbor() {
+   public OSPFInstance() {
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
       
+      oSPFAreas = new OSPFAreasFetcher(this);
+      
    }
 
-   
-   @JsonIgnore
-   public Boolean getBFDEnabled() {
-      return BFDEnabled;
-   }
-
-   @JsonIgnore
-   public void setBFDEnabled(Boolean value) { 
-      this.BFDEnabled = value;
-   }
    
    @JsonIgnore
    public String getAssociatedExportRoutingPolicyID() {
@@ -128,16 +124,6 @@ public class BGPNeighbor extends RestObject {
    @JsonIgnore
    public void setAssociatedImportRoutingPolicyID(String value) { 
       this.associatedImportRoutingPolicyID = value;
-   }
-   
-   @JsonIgnore
-   public Boolean getDampeningEnabled() {
-      return dampeningEnabled;
-   }
-
-   @JsonIgnore
-   public void setDampeningEnabled(Boolean value) { 
-      this.dampeningEnabled = value;
    }
    
    @JsonIgnore
@@ -161,6 +147,26 @@ public class BGPNeighbor extends RestObject {
    }
    
    @JsonIgnore
+   public Long getExportLimit() {
+      return exportLimit;
+   }
+
+   @JsonIgnore
+   public void setExportLimit(Long value) { 
+      this.exportLimit = value;
+   }
+   
+   @JsonIgnore
+   public Boolean getExportToOverlay() {
+      return exportToOverlay;
+   }
+
+   @JsonIgnore
+   public void setExportToOverlay(Boolean value) { 
+      this.exportToOverlay = value;
+   }
+   
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
@@ -168,6 +174,26 @@ public class BGPNeighbor extends RestObject {
    @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
+   }
+   
+   @JsonIgnore
+   public Long getExternalPreference() {
+      return externalPreference;
+   }
+
+   @JsonIgnore
+   public void setExternalPreference(Long value) { 
+      this.externalPreference = value;
+   }
+   
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    
    @JsonIgnore
@@ -181,33 +207,13 @@ public class BGPNeighbor extends RestObject {
    }
    
    @JsonIgnore
-   public Long getPeerAS() {
-      return peerAS;
+   public Long getPreference() {
+      return preference;
    }
 
    @JsonIgnore
-   public void setPeerAS(Long value) { 
-      this.peerAS = value;
-   }
-   
-   @JsonIgnore
-   public String getPeerIP() {
-      return peerIP;
-   }
-
-   @JsonIgnore
-   public void setPeerIP(String value) { 
-      this.peerIP = value;
-   }
-   
-   @JsonIgnore
-   public String getSession() {
-      return session;
-   }
-
-   @JsonIgnore
-   public void setSession(String value) { 
-      this.session = value;
+   public void setPreference(Long value) { 
+      this.preference = value;
    }
    
 
@@ -222,9 +228,14 @@ public class BGPNeighbor extends RestObject {
       return metadatas;
    }
    
+   @JsonIgnore
+   public OSPFAreasFetcher getOSPFAreas() {
+      return oSPFAreas;
+   }
+   
 
    public String toString() {
-      return "BGPNeighbor [" + "BFDEnabled=" + BFDEnabled + ", associatedExportRoutingPolicyID=" + associatedExportRoutingPolicyID + ", associatedImportRoutingPolicyID=" + associatedImportRoutingPolicyID + ", dampeningEnabled=" + dampeningEnabled + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", name=" + name + ", peerAS=" + peerAS + ", peerIP=" + peerIP + ", session=" + session + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "OSPFInstance [" + "associatedExportRoutingPolicyID=" + associatedExportRoutingPolicyID + ", associatedImportRoutingPolicyID=" + associatedImportRoutingPolicyID + ", description=" + description + ", entityScope=" + entityScope + ", exportLimit=" + exportLimit + ", exportToOverlay=" + exportToOverlay + ", externalID=" + externalID + ", externalPreference=" + externalPreference + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", preference=" + preference + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

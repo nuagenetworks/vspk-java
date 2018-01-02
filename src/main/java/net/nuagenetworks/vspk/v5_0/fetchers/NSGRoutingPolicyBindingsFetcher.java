@@ -25,53 +25,18 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-package net.nuagenetworks.vspk.v5_0;
+package net.nuagenetworks.vspk.v5_0.fetchers;
 
 import net.nuagenetworks.bambou.RestObject;
-import net.nuagenetworks.bambou.annotation.RestEntity;
+import net.nuagenetworks.bambou.RestFetcher;
+import net.nuagenetworks.vspk.v5_0.NSGRoutingPolicyBinding;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-
-
-@JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "via", resourceName = "vias")
-public class Via extends RestObject {
+public class NSGRoutingPolicyBindingsFetcher extends RestFetcher<NSGRoutingPolicyBinding> {
 
    private static final long serialVersionUID = 1L;
-
    
-
-   
-   @JsonProperty(value = "nextHops")
-   protected java.util.List<String> nextHops;
-   
-
-   
-
-   public Via() {
-      
-   }
-
-   
-   @JsonIgnore
-   public java.util.List<String> getNextHops() {
-      return nextHops;
-   }
-
-   @JsonIgnore
-   public void setNextHops(java.util.List<String> value) { 
-      this.nextHops = value;
-   }
-   
-
-   
-
-   public String toString() {
-      return "Via [" + "nextHops=" + nextHops + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+   public NSGRoutingPolicyBindingsFetcher(RestObject parentRestObj) {
+      super(parentRestObj, NSGRoutingPolicyBinding.class);
    }
    
    

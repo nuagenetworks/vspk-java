@@ -35,34 +35,25 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v5_0.fetchers.DestinationurlsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "bgpneighbor", resourceName = "bgpneighbors")
-public class BGPNeighbor extends RestObject {
+@RestEntity(restName = "tier", resourceName = "tiers")
+public class Tier extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
+   public enum TierType { TIER1, TIER2 };
 
    
-   @JsonProperty(value = "BFDEnabled")
-   protected Boolean BFDEnabled;
-   
-   @JsonProperty(value = "associatedExportRoutingPolicyID")
-   protected String associatedExportRoutingPolicyID;
-   
-   @JsonProperty(value = "associatedImportRoutingPolicyID")
-   protected String associatedImportRoutingPolicyID;
-   
-   @JsonProperty(value = "dampeningEnabled")
-   protected Boolean dampeningEnabled;
-   
-   @JsonProperty(value = "description")
-   protected String description;
+   @JsonProperty(value = "downThresholdCount")
+   protected Long downThresholdCount;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
@@ -70,19 +61,25 @@ public class BGPNeighbor extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-   @JsonProperty(value = "name")
-   protected String name;
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
-   @JsonProperty(value = "peerAS")
-   protected Long peerAS;
+   @JsonProperty(value = "packetCount")
+   protected Long packetCount;
    
-   @JsonProperty(value = "peerIP")
-   protected String peerIP;
+   @JsonProperty(value = "probeInterval")
+   protected Long probeInterval;
    
-   @JsonProperty(value = "session")
-   protected String session;
+   @JsonProperty(value = "tierType")
+   protected TierType tierType;
+   
+   @JsonProperty(value = "timeout")
+   protected Long timeout;
    
 
+   
+   @JsonIgnore
+   private DestinationurlsFetcher destinationurls;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
@@ -91,7 +88,9 @@ public class BGPNeighbor extends RestObject {
    private MetadatasFetcher metadatas;
    
 
-   public BGPNeighbor() {
+   public Tier() {
+      
+      destinationurls = new DestinationurlsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
@@ -101,53 +100,13 @@ public class BGPNeighbor extends RestObject {
 
    
    @JsonIgnore
-   public Boolean getBFDEnabled() {
-      return BFDEnabled;
+   public Long getDownThresholdCount() {
+      return downThresholdCount;
    }
 
    @JsonIgnore
-   public void setBFDEnabled(Boolean value) { 
-      this.BFDEnabled = value;
-   }
-   
-   @JsonIgnore
-   public String getAssociatedExportRoutingPolicyID() {
-      return associatedExportRoutingPolicyID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedExportRoutingPolicyID(String value) { 
-      this.associatedExportRoutingPolicyID = value;
-   }
-   
-   @JsonIgnore
-   public String getAssociatedImportRoutingPolicyID() {
-      return associatedImportRoutingPolicyID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedImportRoutingPolicyID(String value) { 
-      this.associatedImportRoutingPolicyID = value;
-   }
-   
-   @JsonIgnore
-   public Boolean getDampeningEnabled() {
-      return dampeningEnabled;
-   }
-
-   @JsonIgnore
-   public void setDampeningEnabled(Boolean value) { 
-      this.dampeningEnabled = value;
-   }
-   
-   @JsonIgnore
-   public String getDescription() {
-      return description;
-   }
-
-   @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
+   public void setDownThresholdCount(Long value) { 
+      this.downThresholdCount = value;
    }
    
    @JsonIgnore
@@ -171,46 +130,61 @@ public class BGPNeighbor extends RestObject {
    }
    
    @JsonIgnore
-   public String getName() {
-      return name;
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    
    @JsonIgnore
-   public Long getPeerAS() {
-      return peerAS;
+   public Long getPacketCount() {
+      return packetCount;
    }
 
    @JsonIgnore
-   public void setPeerAS(Long value) { 
-      this.peerAS = value;
+   public void setPacketCount(Long value) { 
+      this.packetCount = value;
    }
    
    @JsonIgnore
-   public String getPeerIP() {
-      return peerIP;
+   public Long getProbeInterval() {
+      return probeInterval;
    }
 
    @JsonIgnore
-   public void setPeerIP(String value) { 
-      this.peerIP = value;
+   public void setProbeInterval(Long value) { 
+      this.probeInterval = value;
    }
    
    @JsonIgnore
-   public String getSession() {
-      return session;
+   public TierType getTierType() {
+      return tierType;
    }
 
    @JsonIgnore
-   public void setSession(String value) { 
-      this.session = value;
+   public void setTierType(TierType value) { 
+      this.tierType = value;
+   }
+   
+   @JsonIgnore
+   public Long getTimeout() {
+      return timeout;
+   }
+
+   @JsonIgnore
+   public void setTimeout(Long value) { 
+      this.timeout = value;
    }
    
 
+   
+   @JsonIgnore
+   public DestinationurlsFetcher getDestinationurls() {
+      return destinationurls;
+   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
@@ -224,7 +198,7 @@ public class BGPNeighbor extends RestObject {
    
 
    public String toString() {
-      return "BGPNeighbor [" + "BFDEnabled=" + BFDEnabled + ", associatedExportRoutingPolicyID=" + associatedExportRoutingPolicyID + ", associatedImportRoutingPolicyID=" + associatedImportRoutingPolicyID + ", dampeningEnabled=" + dampeningEnabled + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", name=" + name + ", peerAS=" + peerAS + ", peerIP=" + peerIP + ", session=" + session + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Tier [" + "downThresholdCount=" + downThresholdCount + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", packetCount=" + packetCount + ", probeInterval=" + probeInterval + ", tierType=" + tierType + ", timeout=" + timeout + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

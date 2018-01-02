@@ -35,8 +35,10 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v5_0.fetchers.ConnectionendpointsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.SSHKeysFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "infrastructureaccessprofile", resourceName = "infrastructureaccessprofiles")
@@ -86,17 +88,27 @@ public class InfrastructureAccessProfile extends RestObject {
 
    
    @JsonIgnore
+   private ConnectionendpointsFetcher connectionendpoints;
+   
+   @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
    private MetadatasFetcher metadatas;
    
+   @JsonIgnore
+   private SSHKeysFetcher sSHKeys;
+   
 
    public InfrastructureAccessProfile() {
+      
+      connectionendpoints = new ConnectionendpointsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
+      
+      sSHKeys = new SSHKeysFetcher(this);
       
    }
 
@@ -204,6 +216,11 @@ public class InfrastructureAccessProfile extends RestObject {
 
    
    @JsonIgnore
+   public ConnectionendpointsFetcher getConnectionendpoints() {
+      return connectionendpoints;
+   }
+   
+   @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
@@ -211,6 +228,11 @@ public class InfrastructureAccessProfile extends RestObject {
    @JsonIgnore
    public MetadatasFetcher getMetadatas() {
       return metadatas;
+   }
+   
+   @JsonIgnore
+   public SSHKeysFetcher getSSHKeys() {
+      return sSHKeys;
    }
    
 

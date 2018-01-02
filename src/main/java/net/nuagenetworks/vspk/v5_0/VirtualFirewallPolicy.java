@@ -35,17 +35,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v5_0.fetchers.ContainersFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.EgressACLEntryTemplatesFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.VMsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.VirtualFirewallRulesFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "egressacltemplate", resourceName = "egressacltemplates")
-public class EgressACLTemplate extends RestObject {
+@RestEntity(restName = "virtualfirewallpolicy", resourceName = "virtualfirewallpolicies")
+public class VirtualFirewallPolicy extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
@@ -55,17 +51,23 @@ public class EgressACLTemplate extends RestObject {
    
    public enum PolicyState { DRAFT, LIVE };
    
-   public enum PriorityType { BOTTOM, BOTTOM_FIREWALL, MIDDLE_FIREWALL, NONE, TOP, TOP_FIREWALL };
+   public enum PriorityType { BOTTOM, NONE, TOP };
 
    
    @JsonProperty(value = "active")
    protected Boolean active;
    
+   @JsonProperty(value = "allowAddressSpoof")
+   protected Boolean allowAddressSpoof;
+   
+   @JsonProperty(value = "associatedEgressTemplateID")
+   protected String associatedEgressTemplateID;
+   
+   @JsonProperty(value = "associatedIngressTemplateID")
+   protected String associatedIngressTemplateID;
+   
    @JsonProperty(value = "associatedLiveEntityID")
    protected String associatedLiveEntityID;
-   
-   @JsonProperty(value = "associatedVirtualFirewallPolicyID")
-   protected String associatedVirtualFirewallPolicyID;
    
    @JsonProperty(value = "autoGeneratePriority")
    protected Boolean autoGeneratePriority;
@@ -106,42 +108,22 @@ public class EgressACLTemplate extends RestObject {
 
    
    @JsonIgnore
-   private ContainersFetcher containers;
-   
-   @JsonIgnore
-   private EgressACLEntryTemplatesFetcher egressACLEntryTemplates;
-   
-   @JsonIgnore
-   private EventLogsFetcher eventLogs;
-   
-   @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
-   
-   @JsonIgnore
-   private JobsFetcher jobs;
    
    @JsonIgnore
    private MetadatasFetcher metadatas;
    
    @JsonIgnore
-   private VMsFetcher vMs;
+   private VirtualFirewallRulesFetcher virtualFirewallRules;
    
 
-   public EgressACLTemplate() {
-      
-      containers = new ContainersFetcher(this);
-      
-      egressACLEntryTemplates = new EgressACLEntryTemplatesFetcher(this);
-      
-      eventLogs = new EventLogsFetcher(this);
+   public VirtualFirewallPolicy() {
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
-      jobs = new JobsFetcher(this);
-      
       metadatas = new MetadatasFetcher(this);
       
-      vMs = new VMsFetcher(this);
+      virtualFirewallRules = new VirtualFirewallRulesFetcher(this);
       
    }
 
@@ -157,6 +139,36 @@ public class EgressACLTemplate extends RestObject {
    }
    
    @JsonIgnore
+   public Boolean getAllowAddressSpoof() {
+      return allowAddressSpoof;
+   }
+
+   @JsonIgnore
+   public void setAllowAddressSpoof(Boolean value) { 
+      this.allowAddressSpoof = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedEgressTemplateID() {
+      return associatedEgressTemplateID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedEgressTemplateID(String value) { 
+      this.associatedEgressTemplateID = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedIngressTemplateID() {
+      return associatedIngressTemplateID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedIngressTemplateID(String value) { 
+      this.associatedIngressTemplateID = value;
+   }
+   
+   @JsonIgnore
    public String getAssociatedLiveEntityID() {
       return associatedLiveEntityID;
    }
@@ -164,16 +176,6 @@ public class EgressACLTemplate extends RestObject {
    @JsonIgnore
    public void setAssociatedLiveEntityID(String value) { 
       this.associatedLiveEntityID = value;
-   }
-   
-   @JsonIgnore
-   public String getAssociatedVirtualFirewallPolicyID() {
-      return associatedVirtualFirewallPolicyID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedVirtualFirewallPolicyID(String value) { 
-      this.associatedVirtualFirewallPolicyID = value;
    }
    
    @JsonIgnore
@@ -299,28 +301,8 @@ public class EgressACLTemplate extends RestObject {
 
    
    @JsonIgnore
-   public ContainersFetcher getContainers() {
-      return containers;
-   }
-   
-   @JsonIgnore
-   public EgressACLEntryTemplatesFetcher getEgressACLEntryTemplates() {
-      return egressACLEntryTemplates;
-   }
-   
-   @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
-   }
-   
-   @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
-   }
-   
-   @JsonIgnore
-   public JobsFetcher getJobs() {
-      return jobs;
    }
    
    @JsonIgnore
@@ -329,13 +311,13 @@ public class EgressACLTemplate extends RestObject {
    }
    
    @JsonIgnore
-   public VMsFetcher getVMs() {
-      return vMs;
+   public VirtualFirewallRulesFetcher getVirtualFirewallRules() {
+      return virtualFirewallRules;
    }
    
 
    public String toString() {
-      return "EgressACLTemplate [" + "active=" + active + ", associatedLiveEntityID=" + associatedLiveEntityID + ", associatedVirtualFirewallPolicyID=" + associatedVirtualFirewallPolicyID + ", autoGeneratePriority=" + autoGeneratePriority + ", defaultAllowIP=" + defaultAllowIP + ", defaultAllowNonIP=" + defaultAllowNonIP + ", defaultInstallACLImplicitRules=" + defaultInstallACLImplicitRules + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", policyState=" + policyState + ", priority=" + priority + ", priorityType=" + priorityType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VirtualFirewallPolicy [" + "active=" + active + ", allowAddressSpoof=" + allowAddressSpoof + ", associatedEgressTemplateID=" + associatedEgressTemplateID + ", associatedIngressTemplateID=" + associatedIngressTemplateID + ", associatedLiveEntityID=" + associatedLiveEntityID + ", autoGeneratePriority=" + autoGeneratePriority + ", defaultAllowIP=" + defaultAllowIP + ", defaultAllowNonIP=" + defaultAllowNonIP + ", defaultInstallACLImplicitRules=" + defaultInstallACLImplicitRules + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", policyState=" + policyState + ", priority=" + priority + ", priorityType=" + priorityType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -37,6 +37,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import net.nuagenetworks.vspk.v5_0.fetchers.ApplicationperformancemanagementsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSGatewaysFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.TiersFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "performancemonitor", resourceName = "performancemonitors")
@@ -59,14 +60,14 @@ public class PerformanceMonitor extends RestObject {
    @JsonProperty(value = "destinationTargetList")
    protected java.util.List<String> destinationTargetList;
    
-   @JsonProperty(value = "downThresholdCount")
-   protected Long downThresholdCount;
-   
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
+   
+   @JsonProperty(value = "holdDownTimer")
+   protected Long holdDownTimer;
    
    @JsonProperty(value = "interval")
    protected Long interval;
@@ -103,12 +104,17 @@ public class PerformanceMonitor extends RestObject {
    @JsonIgnore
    private NSGatewaysFetcher nSGateways;
    
+   @JsonIgnore
+   private TiersFetcher tiers;
+   
 
    public PerformanceMonitor() {
       
       applicationperformancemanagements = new ApplicationperformancemanagementsFetcher(this);
       
       nSGateways = new NSGatewaysFetcher(this);
+      
+      tiers = new TiersFetcher(this);
       
    }
 
@@ -134,16 +140,6 @@ public class PerformanceMonitor extends RestObject {
    }
    
    @JsonIgnore
-   public Long getDownThresholdCount() {
-      return downThresholdCount;
-   }
-
-   @JsonIgnore
-   public void setDownThresholdCount(Long value) { 
-      this.downThresholdCount = value;
-   }
-   
-   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
@@ -161,6 +157,16 @@ public class PerformanceMonitor extends RestObject {
    @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
+   }
+   
+   @JsonIgnore
+   public Long getHoldDownTimer() {
+      return holdDownTimer;
+   }
+
+   @JsonIgnore
+   public void setHoldDownTimer(Long value) { 
+      this.holdDownTimer = value;
    }
    
    @JsonIgnore
@@ -265,9 +271,14 @@ public class PerformanceMonitor extends RestObject {
       return nSGateways;
    }
    
+   @JsonIgnore
+   public TiersFetcher getTiers() {
+      return tiers;
+   }
+   
 
    public String toString() {
-      return "PerformanceMonitor [" + "description=" + description + ", destinationTargetList=" + destinationTargetList + ", downThresholdCount=" + downThresholdCount + ", entityScope=" + entityScope + ", externalID=" + externalID + ", interval=" + interval + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", numberOfPackets=" + numberOfPackets + ", payloadSize=" + payloadSize + ", probeType=" + probeType + ", readOnly=" + readOnly + ", serviceClass=" + serviceClass + ", timeout=" + timeout + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "PerformanceMonitor [" + "description=" + description + ", destinationTargetList=" + destinationTargetList + ", entityScope=" + entityScope + ", externalID=" + externalID + ", holdDownTimer=" + holdDownTimer + ", interval=" + interval + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", numberOfPackets=" + numberOfPackets + ", payloadSize=" + payloadSize + ", probeType=" + probeType + ", readOnly=" + readOnly + ", serviceClass=" + serviceClass + ", timeout=" + timeout + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

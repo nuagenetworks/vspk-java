@@ -54,6 +54,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.PolicyGroupTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.QOSsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.RedirectionTargetTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.SubnetTemplatesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.VirtualFirewallPoliciesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ZoneTemplatesFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -171,6 +172,9 @@ public class DomainTemplate extends RestObject {
    private SubnetTemplatesFetcher subnetTemplates;
    
    @JsonIgnore
+   private VirtualFirewallPoliciesFetcher virtualFirewallPolicies;
+   
+   @JsonIgnore
    private ZoneTemplatesFetcher zoneTemplates;
    
 
@@ -213,6 +217,8 @@ public class DomainTemplate extends RestObject {
       redirectionTargetTemplates = new RedirectionTargetTemplatesFetcher(this);
       
       subnetTemplates = new SubnetTemplatesFetcher(this);
+      
+      virtualFirewallPolicies = new VirtualFirewallPoliciesFetcher(this);
       
       zoneTemplates = new ZoneTemplatesFetcher(this);
       
@@ -434,6 +440,11 @@ public class DomainTemplate extends RestObject {
    @JsonIgnore
    public SubnetTemplatesFetcher getSubnetTemplates() {
       return subnetTemplates;
+   }
+   
+   @JsonIgnore
+   public VirtualFirewallPoliciesFetcher getVirtualFirewallPolicies() {
+      return virtualFirewallPolicies;
    }
    
    @JsonIgnore

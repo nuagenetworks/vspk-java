@@ -29,14 +29,14 @@ package net.nuagenetworks.vspk.v5_0.fetchers;
 
 import net.nuagenetworks.bambou.RestObject;
 import net.nuagenetworks.bambou.RestFetcher;
-import net.nuagenetworks.vspk.v5_0.Via;
+import net.nuagenetworks.vspk.v5_0.Tier;
 
-public class ViasFetcher extends RestFetcher<Via> {
+public class TiersFetcher extends RestFetcher<Tier> {
 
    private static final long serialVersionUID = 1L;
    
-   public ViasFetcher(RestObject parentRestObj) {
-      super(parentRestObj, Via.class);
+   public TiersFetcher(RestObject parentRestObj) {
+      super(parentRestObj, Tier.class);
    }
    
    

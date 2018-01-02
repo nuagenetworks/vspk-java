@@ -53,6 +53,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.PGExpressionTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PolicyGroupTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.QOSsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.RedirectionTargetTemplatesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.VirtualFirewallPoliciesFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "l2domaintemplate", resourceName = "l2domaintemplates")
@@ -195,6 +196,9 @@ public class L2DomainTemplate extends RestObject {
    @JsonIgnore
    private RedirectionTargetTemplatesFetcher redirectionTargetTemplates;
    
+   @JsonIgnore
+   private VirtualFirewallPoliciesFetcher virtualFirewallPolicies;
+   
 
    public L2DomainTemplate() {
       
@@ -233,6 +237,8 @@ public class L2DomainTemplate extends RestObject {
       qOSs = new QOSsFetcher(this);
       
       redirectionTargetTemplates = new RedirectionTargetTemplatesFetcher(this);
+      
+      virtualFirewallPolicies = new VirtualFirewallPoliciesFetcher(this);
       
    }
 
@@ -527,6 +533,11 @@ public class L2DomainTemplate extends RestObject {
    @JsonIgnore
    public RedirectionTargetTemplatesFetcher getRedirectionTargetTemplates() {
       return redirectionTargetTemplates;
+   }
+   
+   @JsonIgnore
+   public VirtualFirewallPoliciesFetcher getVirtualFirewallPolicies() {
+      return virtualFirewallPolicies;
    }
    
 

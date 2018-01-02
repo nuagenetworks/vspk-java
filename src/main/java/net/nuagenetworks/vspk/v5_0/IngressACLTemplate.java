@@ -55,7 +55,7 @@ public class IngressACLTemplate extends RestObject {
    
    public enum PolicyState { DRAFT, LIVE };
    
-   public enum PriorityType { BOTTOM, NONE, TOP };
+   public enum PriorityType { BOTTOM, BOTTOM_FIREWALL, MIDDLE_FIREWALL, NONE, TOP, TOP_FIREWALL };
 
    
    @JsonProperty(value = "active")
@@ -69,6 +69,9 @@ public class IngressACLTemplate extends RestObject {
    
    @JsonProperty(value = "associatedLiveEntityID")
    protected String associatedLiveEntityID;
+   
+   @JsonProperty(value = "associatedVirtualFirewallPolicyID")
+   protected String associatedVirtualFirewallPolicyID;
    
    @JsonProperty(value = "autoGeneratePriority")
    protected Boolean autoGeneratePriority;
@@ -184,6 +187,16 @@ public class IngressACLTemplate extends RestObject {
    @JsonIgnore
    public void setAssociatedLiveEntityID(String value) { 
       this.associatedLiveEntityID = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedVirtualFirewallPolicyID() {
+      return associatedVirtualFirewallPolicyID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedVirtualFirewallPolicyID(String value) { 
+      this.associatedVirtualFirewallPolicyID = value;
    }
    
    @JsonIgnore
@@ -335,7 +348,7 @@ public class IngressACLTemplate extends RestObject {
    
 
    public String toString() {
-      return "IngressACLTemplate [" + "active=" + active + ", allowAddressSpoof=" + allowAddressSpoof + ", assocAclTemplateId=" + assocAclTemplateId + ", associatedLiveEntityID=" + associatedLiveEntityID + ", autoGeneratePriority=" + autoGeneratePriority + ", defaultAllowIP=" + defaultAllowIP + ", defaultAllowNonIP=" + defaultAllowNonIP + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", policyState=" + policyState + ", priority=" + priority + ", priorityType=" + priorityType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "IngressACLTemplate [" + "active=" + active + ", allowAddressSpoof=" + allowAddressSpoof + ", assocAclTemplateId=" + assocAclTemplateId + ", associatedLiveEntityID=" + associatedLiveEntityID + ", associatedVirtualFirewallPolicyID=" + associatedVirtualFirewallPolicyID + ", autoGeneratePriority=" + autoGeneratePriority + ", defaultAllowIP=" + defaultAllowIP + ", defaultAllowNonIP=" + defaultAllowNonIP + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", policyState=" + policyState + ", priority=" + priority + ", priorityType=" + priorityType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

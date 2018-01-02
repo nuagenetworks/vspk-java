@@ -39,8 +39,8 @@ import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "keyservernotification", resourceName = "keyservernotifications")
-public class KeyServerNotification extends RestObject {
+@RestEntity(restName = "nsgroutingpolicybinding", resourceName = "nsgroutingpolicybindings")
+public class NSGRoutingPolicyBinding extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
@@ -48,23 +48,35 @@ public class KeyServerNotification extends RestObject {
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    
-   public enum NotificationType { CONFIG_UPDATE, ENCRYPTION_DISABLED, ENCRYPTION_ENABLED, REKEY, TEST };
+   public enum ExportToOverlay { INHERITED, DISABLED, ENABLED };
 
    
-   @JsonProperty(value = "base64JSONString")
-   protected String base64JSONString;
+   @JsonProperty(value = "associatedExportRoutingPolicyID")
+   protected String associatedExportRoutingPolicyID;
+   
+   @JsonProperty(value = "associatedImportRoutingPolicyID")
+   protected String associatedImportRoutingPolicyID;
+   
+   @JsonProperty(value = "associatedPolicyObjectGroupID")
+   protected String associatedPolicyObjectGroupID;
+   
+   @JsonProperty(value = "description")
+   protected String description;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
+   @JsonProperty(value = "exportToOverlay")
+   protected ExportToOverlay exportToOverlay;
+   
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-   @JsonProperty(value = "message")
-   protected Object message;
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
-   @JsonProperty(value = "notificationType")
-   protected NotificationType notificationType;
+   @JsonProperty(value = "name")
+   protected String name;
    
 
    
@@ -75,7 +87,7 @@ public class KeyServerNotification extends RestObject {
    private MetadatasFetcher metadatas;
    
 
-   public KeyServerNotification() {
+   public NSGRoutingPolicyBinding() {
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
@@ -85,13 +97,43 @@ public class KeyServerNotification extends RestObject {
 
    
    @JsonIgnore
-   public String getBase64JSONString() {
-      return base64JSONString;
+   public String getAssociatedExportRoutingPolicyID() {
+      return associatedExportRoutingPolicyID;
    }
 
    @JsonIgnore
-   public void setBase64JSONString(String value) { 
-      this.base64JSONString = value;
+   public void setAssociatedExportRoutingPolicyID(String value) { 
+      this.associatedExportRoutingPolicyID = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedImportRoutingPolicyID() {
+      return associatedImportRoutingPolicyID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedImportRoutingPolicyID(String value) { 
+      this.associatedImportRoutingPolicyID = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedPolicyObjectGroupID() {
+      return associatedPolicyObjectGroupID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedPolicyObjectGroupID(String value) { 
+      this.associatedPolicyObjectGroupID = value;
+   }
+   
+   @JsonIgnore
+   public String getDescription() {
+      return description;
+   }
+
+   @JsonIgnore
+   public void setDescription(String value) { 
+      this.description = value;
    }
    
    @JsonIgnore
@@ -105,6 +147,16 @@ public class KeyServerNotification extends RestObject {
    }
    
    @JsonIgnore
+   public ExportToOverlay getExportToOverlay() {
+      return exportToOverlay;
+   }
+
+   @JsonIgnore
+   public void setExportToOverlay(ExportToOverlay value) { 
+      this.exportToOverlay = value;
+   }
+   
+   @JsonIgnore
    public String getExternalID() {
       return externalID;
    }
@@ -115,23 +167,23 @@ public class KeyServerNotification extends RestObject {
    }
    
    @JsonIgnore
-   public Object getMessage() {
-      return message;
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
    }
 
    @JsonIgnore
-   public void setMessage(Object value) { 
-      this.message = value;
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    
    @JsonIgnore
-   public NotificationType getNotificationType() {
-      return notificationType;
+   public String getName() {
+      return name;
    }
 
    @JsonIgnore
-   public void setNotificationType(NotificationType value) { 
-      this.notificationType = value;
+   public void setName(String value) { 
+      this.name = value;
    }
    
 
@@ -148,7 +200,7 @@ public class KeyServerNotification extends RestObject {
    
 
    public String toString() {
-      return "KeyServerNotification [" + "base64JSONString=" + base64JSONString + ", entityScope=" + entityScope + ", externalID=" + externalID + ", message=" + message + ", notificationType=" + notificationType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NSGRoutingPolicyBinding [" + "associatedExportRoutingPolicyID=" + associatedExportRoutingPolicyID + ", associatedImportRoutingPolicyID=" + associatedImportRoutingPolicyID + ", associatedPolicyObjectGroupID=" + associatedPolicyObjectGroupID + ", description=" + description + ", entityScope=" + entityScope + ", exportToOverlay=" + exportToOverlay + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

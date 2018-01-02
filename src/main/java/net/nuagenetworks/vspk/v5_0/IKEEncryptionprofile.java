@@ -48,9 +48,9 @@ public class IKEEncryptionprofile extends RestObject {
    
    public enum DPDMode { ON_DEMAND, REPLY_ONLY };
    
-   public enum IPsecAuthenticationAlgorithm { HMAC_SHA1, HMAC_SHA256, HMAC_SHA512 };
+   public enum IPsecAuthenticationAlgorithm { HMAC_SHA1, HMAC_SHA256, HMAC_SHA512, HMAC_MD5 };
    
-   public enum IPsecEncryptionAlgorithm { AES128, AES192, AES256, TRIPLE_DES };
+   public enum IPsecEncryptionAlgorithm { AES128, AES192, AES256, TRIPLE_DES, NULL };
    
    public enum IPsecSAReplayWindowSize { WINDOW_SIZE_0, WINDOW_SIZE_1024, WINDOW_SIZE_128, WINDOW_SIZE_256, WINDOW_SIZE_32, WINDOW_SIZE_512, WINDOW_SIZE_64 };
    

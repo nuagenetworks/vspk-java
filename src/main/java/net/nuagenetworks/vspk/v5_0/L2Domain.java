@@ -36,7 +36,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 import net.nuagenetworks.vspk.v5_0.fetchers.AddressRangesFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.ApplicationperformancemanagementbindingsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.BridgeInterfacesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ContainersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ContainerInterfacesFetcher;
@@ -54,6 +53,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.IngressAdvFwdTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.IngressExternalServiceTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.NetworkPerformanceBindingsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.OverlayMirrorDestinationsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PGExpressionsFetcher;
@@ -64,6 +64,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.StatisticsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.StatisticsPoliciesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.TCAsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.UplinkRDsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.VirtualFirewallPoliciesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VMsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VMInterfacesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VPNConnectionsFetcher;
@@ -121,6 +122,9 @@ public class L2Domain extends RestObject {
    
    @JsonProperty(value = "associatedSharedNetworkResourceID")
    protected String associatedSharedNetworkResourceID;
+   
+   @JsonProperty(value = "associatedUnderlayID")
+   protected String associatedUnderlayID;
    
    @JsonProperty(value = "description")
    protected String description;
@@ -194,9 +198,6 @@ public class L2Domain extends RestObject {
    private AddressRangesFetcher addressRanges;
    
    @JsonIgnore
-   private ApplicationperformancemanagementbindingsFetcher applicationperformancemanagementbindings;
-   
-   @JsonIgnore
    private BridgeInterfacesFetcher bridgeInterfaces;
    
    @JsonIgnore
@@ -248,6 +249,9 @@ public class L2Domain extends RestObject {
    private MetadatasFetcher metadatas;
    
    @JsonIgnore
+   private NetworkPerformanceBindingsFetcher networkPerformanceBindings;
+   
+   @JsonIgnore
    private OverlayMirrorDestinationsFetcher overlayMirrorDestinations;
    
    @JsonIgnore
@@ -278,6 +282,9 @@ public class L2Domain extends RestObject {
    private UplinkRDsFetcher uplinkRDs;
    
    @JsonIgnore
+   private VirtualFirewallPoliciesFetcher virtualFirewallPolicies;
+   
+   @JsonIgnore
    private VMsFetcher vMs;
    
    @JsonIgnore
@@ -294,8 +301,6 @@ public class L2Domain extends RestObject {
       maintenanceMode = MaintenanceMode.DISABLED;
       
       addressRanges = new AddressRangesFetcher(this);
-      
-      applicationperformancemanagementbindings = new ApplicationperformancemanagementbindingsFetcher(this);
       
       bridgeInterfaces = new BridgeInterfacesFetcher(this);
       
@@ -331,6 +336,8 @@ public class L2Domain extends RestObject {
       
       metadatas = new MetadatasFetcher(this);
       
+      networkPerformanceBindings = new NetworkPerformanceBindingsFetcher(this);
+      
       overlayMirrorDestinations = new OverlayMirrorDestinationsFetcher(this);
       
       permissions = new PermissionsFetcher(this);
@@ -350,6 +357,8 @@ public class L2Domain extends RestObject {
       tCAs = new TCAsFetcher(this);
       
       uplinkRDs = new UplinkRDsFetcher(this);
+      
+      virtualFirewallPolicies = new VirtualFirewallPoliciesFetcher(this);
       
       vMs = new VMsFetcher(this);
       
@@ -440,6 +449,16 @@ public class L2Domain extends RestObject {
    @JsonIgnore
    public void setAssociatedSharedNetworkResourceID(String value) { 
       this.associatedSharedNetworkResourceID = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedUnderlayID() {
+      return associatedUnderlayID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedUnderlayID(String value) { 
+      this.associatedUnderlayID = value;
    }
    
    @JsonIgnore
@@ -670,11 +689,6 @@ public class L2Domain extends RestObject {
    }
    
    @JsonIgnore
-   public ApplicationperformancemanagementbindingsFetcher getApplicationperformancemanagementbindings() {
-      return applicationperformancemanagementbindings;
-   }
-   
-   @JsonIgnore
    public BridgeInterfacesFetcher getBridgeInterfaces() {
       return bridgeInterfaces;
    }
@@ -760,6 +774,11 @@ public class L2Domain extends RestObject {
    }
    
    @JsonIgnore
+   public NetworkPerformanceBindingsFetcher getNetworkPerformanceBindings() {
+      return networkPerformanceBindings;
+   }
+   
+   @JsonIgnore
    public OverlayMirrorDestinationsFetcher getOverlayMirrorDestinations() {
       return overlayMirrorDestinations;
    }
@@ -810,6 +829,11 @@ public class L2Domain extends RestObject {
    }
    
    @JsonIgnore
+   public VirtualFirewallPoliciesFetcher getVirtualFirewallPolicies() {
+      return virtualFirewallPolicies;
+   }
+   
+   @JsonIgnore
    public VMsFetcher getVMs() {
       return vMs;
    }
@@ -831,7 +855,7 @@ public class L2Domain extends RestObject {
    
 
    public String toString() {
-      return "L2Domain [" + "DHCPManaged=" + DHCPManaged + ", DPI=" + DPI + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", IPv6Gateway=" + IPv6Gateway + ", address=" + address + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSharedNetworkResourceID=" + associatedSharedNetworkResourceID + ", description=" + description + ", dynamicIpv6Address=" + dynamicIpv6Address + ", encryption=" + encryption + ", entityScope=" + entityScope + ", entityState=" + entityState + ", externalID=" + externalID + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", lastUpdatedBy=" + lastUpdatedBy + ", maintenanceMode=" + maintenanceMode + ", multicast=" + multicast + ", name=" + name + ", netmask=" + netmask + ", policyChangeStatus=" + policyChangeStatus + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", serviceID=" + serviceID + ", stretched=" + stretched + ", templateID=" + templateID + ", uplinkPreference=" + uplinkPreference + ", useGlobalMAC=" + useGlobalMAC + ", vnId=" + vnId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "L2Domain [" + "DHCPManaged=" + DHCPManaged + ", DPI=" + DPI + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", IPv6Gateway=" + IPv6Gateway + ", address=" + address + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSharedNetworkResourceID=" + associatedSharedNetworkResourceID + ", associatedUnderlayID=" + associatedUnderlayID + ", description=" + description + ", dynamicIpv6Address=" + dynamicIpv6Address + ", encryption=" + encryption + ", entityScope=" + entityScope + ", entityState=" + entityState + ", externalID=" + externalID + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", lastUpdatedBy=" + lastUpdatedBy + ", maintenanceMode=" + maintenanceMode + ", multicast=" + multicast + ", name=" + name + ", netmask=" + netmask + ", policyChangeStatus=" + policyChangeStatus + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", serviceID=" + serviceID + ", stretched=" + stretched + ", templateID=" + templateID + ", uplinkPreference=" + uplinkPreference + ", useGlobalMAC=" + useGlobalMAC + ", vnId=" + vnId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

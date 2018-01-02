@@ -48,8 +48,11 @@ public class NSGInfo extends RestObject {
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    
-   public enum Family { ANY, NSG_E, NSG_V };
+   public enum Family { ANY, NSG_AMI, NSG_C, NSG_DOCKER, NSG_E, NSG_E200, NSG_E300, NSG_V, NSG_X, NSG_X200 };
 
+   
+   @JsonProperty(value = "BIOSReleaseDate")
+   protected String BIOSReleaseDate;
    
    @JsonProperty(value = "BIOSVersion")
    protected String BIOSVersion;
@@ -100,6 +103,16 @@ public class NSGInfo extends RestObject {
       
    }
 
+   
+   @JsonIgnore
+   public String getBIOSReleaseDate() {
+      return BIOSReleaseDate;
+   }
+
+   @JsonIgnore
+   public void setBIOSReleaseDate(String value) { 
+      this.BIOSReleaseDate = value;
+   }
    
    @JsonIgnore
    public String getBIOSVersion() {
@@ -245,7 +258,7 @@ public class NSGInfo extends RestObject {
    
 
    public String toString() {
-      return "NSGInfo [" + "BIOSVersion=" + BIOSVersion + ", CPUType=" + CPUType + ", MACAddress=" + MACAddress + ", NSGVersion=" + NSGVersion + ", SKU=" + SKU + ", TPMStatus=" + TPMStatus + ", UUID=" + UUID + ", associatedNSGatewayID=" + associatedNSGatewayID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", family=" + family + ", libraries=" + libraries + ", productName=" + productName + ", serialNumber=" + serialNumber + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NSGInfo [" + "BIOSReleaseDate=" + BIOSReleaseDate + ", BIOSVersion=" + BIOSVersion + ", CPUType=" + CPUType + ", MACAddress=" + MACAddress + ", NSGVersion=" + NSGVersion + ", SKU=" + SKU + ", TPMStatus=" + TPMStatus + ", UUID=" + UUID + ", associatedNSGatewayID=" + associatedNSGatewayID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", family=" + family + ", libraries=" + libraries + ", productName=" + productName + ", serialNumber=" + serialNumber + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    
