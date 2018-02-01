@@ -54,7 +54,7 @@ public class NSRedundantGatewayGroup extends RestObject {
    
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    
-   public enum Personality { DC7X50, HARDWARE_VTEP, NSG, OTHER, VRSG, VSA, VSG };
+   public enum Personality { DC7X50, HARDWARE_VTEP, NSG, NSGBR, NSGDUC, OTHER, VRSB, VRSG, VSA, VSG, NUAGE_210_WBX_48_S, NUAGE_210_WBX_32_Q };
    
    public enum RedundantGatewayStatus { FAILED, SUCCESS };
 
