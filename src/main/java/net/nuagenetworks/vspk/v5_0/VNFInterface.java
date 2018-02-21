@@ -45,6 +45,8 @@ public class VNFInterface extends RestObject {
    
    
    public enum AttachedNetworkType { L2DOMAIN, SUBNET };
+   
+   public enum Type { LAN, MANAGEMENT, WAN };
 
    
    @JsonProperty(value = "IPAddress")
@@ -77,9 +79,6 @@ public class VNFInterface extends RestObject {
    @JsonProperty(value = "gateway")
    protected String gateway;
    
-   @JsonProperty(value = "isManagementInterface")
-   protected Boolean isManagementInterface;
-   
    @JsonProperty(value = "name")
    protected String name;
    
@@ -91,6 +90,9 @@ public class VNFInterface extends RestObject {
    
    @JsonProperty(value = "policyDecisionID")
    protected String policyDecisionID;
+   
+   @JsonProperty(value = "type")
+   protected Type type;
    
    @JsonProperty(value = "zoneID")
    protected String zoneID;
@@ -207,16 +209,6 @@ public class VNFInterface extends RestObject {
    }
    
    @JsonIgnore
-   public Boolean getIsManagementInterface() {
-      return isManagementInterface;
-   }
-
-   @JsonIgnore
-   public void setIsManagementInterface(Boolean value) { 
-      this.isManagementInterface = value;
-   }
-   
-   @JsonIgnore
    public String getName() {
       return name;
    }
@@ -257,6 +249,16 @@ public class VNFInterface extends RestObject {
    }
    
    @JsonIgnore
+   public Type getType() {
+      return type;
+   }
+
+   @JsonIgnore
+   public void setType(Type value) { 
+      this.type = value;
+   }
+   
+   @JsonIgnore
    public String getZoneID() {
       return zoneID;
    }
@@ -280,7 +282,7 @@ public class VNFInterface extends RestObject {
    
 
    public String toString() {
-      return "VNFInterface [" + "IPAddress=" + IPAddress + ", MAC=" + MAC + ", VNFUUID=" + VNFUUID + ", VPortID=" + VPortID + ", VPortName=" + VPortName + ", attachedNetworkID=" + attachedNetworkID + ", attachedNetworkType=" + attachedNetworkType + ", domainID=" + domainID + ", domainName=" + domainName + ", gateway=" + gateway + ", isManagementInterface=" + isManagementInterface + ", name=" + name + ", netmask=" + netmask + ", networkName=" + networkName + ", policyDecisionID=" + policyDecisionID + ", zoneID=" + zoneID + ", zoneName=" + zoneName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VNFInterface [" + "IPAddress=" + IPAddress + ", MAC=" + MAC + ", VNFUUID=" + VNFUUID + ", VPortID=" + VPortID + ", VPortName=" + VPortName + ", attachedNetworkID=" + attachedNetworkID + ", attachedNetworkType=" + attachedNetworkType + ", domainID=" + domainID + ", domainName=" + domainName + ", gateway=" + gateway + ", name=" + name + ", netmask=" + netmask + ", networkName=" + networkName + ", policyDecisionID=" + policyDecisionID + ", type=" + type + ", zoneID=" + zoneID + ", zoneName=" + zoneName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

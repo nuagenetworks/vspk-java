@@ -37,29 +37,97 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "vnfinterfacedescriptor", resourceName = "vnfinterfacedescriptors")
-public class VNFInterfaceDescriptor extends RestObject {
+@RestEntity(restName = "nsgpatchprofile", resourceName = "nsgpatchprofiles")
+public class NSGPatchProfile extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
    
-   public enum Type { LAN, MANAGEMENT, WAN };
+   public enum EntityScope { ENTERPRISE, GLOBAL };
 
+   
+   @JsonProperty(value = "description")
+   protected String description;
+   
+   @JsonProperty(value = "enterpriseID")
+   protected String enterpriseID;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
    protected String name;
    
-   @JsonProperty(value = "type")
-   protected Type type;
+   @JsonProperty(value = "patchTag")
+   protected String patchTag;
+   
+   @JsonProperty(value = "patchURL")
+   protected String patchURL;
    
 
    
 
-   public VNFInterfaceDescriptor() {
+   public NSGPatchProfile() {
       
    }
 
+   
+   @JsonIgnore
+   public String getDescription() {
+      return description;
+   }
+
+   @JsonIgnore
+   public void setDescription(String value) { 
+      this.description = value;
+   }
+   
+   @JsonIgnore
+   public String getEnterpriseID() {
+      return enterpriseID;
+   }
+
+   @JsonIgnore
+   public void setEnterpriseID(String value) { 
+      this.enterpriseID = value;
+   }
+   
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
    
    @JsonIgnore
    public String getName() {
@@ -72,20 +140,30 @@ public class VNFInterfaceDescriptor extends RestObject {
    }
    
    @JsonIgnore
-   public Type getType() {
-      return type;
+   public String getPatchTag() {
+      return patchTag;
    }
 
    @JsonIgnore
-   public void setType(Type value) { 
-      this.type = value;
+   public void setPatchTag(String value) { 
+      this.patchTag = value;
+   }
+   
+   @JsonIgnore
+   public String getPatchURL() {
+      return patchURL;
+   }
+
+   @JsonIgnore
+   public void setPatchURL(String value) { 
+      this.patchURL = value;
    }
    
 
    
 
    public String toString() {
-      return "VNFInterfaceDescriptor [" + "name=" + name + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NSGPatchProfile [" + "description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", patchTag=" + patchTag + ", patchURL=" + patchURL + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

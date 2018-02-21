@@ -69,8 +69,17 @@ public class Destinationurl extends RestObject {
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "packetCount")
+   protected Long packetCount;
+   
    @JsonProperty(value = "percentageWeight")
    protected Long percentageWeight;
+   
+   @JsonProperty(value = "probeInterval")
+   protected Long probeInterval;
+   
+   @JsonProperty(value = "timeout")
+   protected Long timeout;
    
 
    
@@ -151,6 +160,16 @@ public class Destinationurl extends RestObject {
    }
    
    @JsonIgnore
+   public Long getPacketCount() {
+      return packetCount;
+   }
+
+   @JsonIgnore
+   public void setPacketCount(Long value) { 
+      this.packetCount = value;
+   }
+   
+   @JsonIgnore
    public Long getPercentageWeight() {
       return percentageWeight;
    }
@@ -158,6 +177,26 @@ public class Destinationurl extends RestObject {
    @JsonIgnore
    public void setPercentageWeight(Long value) { 
       this.percentageWeight = value;
+   }
+   
+   @JsonIgnore
+   public Long getProbeInterval() {
+      return probeInterval;
+   }
+
+   @JsonIgnore
+   public void setProbeInterval(Long value) { 
+      this.probeInterval = value;
+   }
+   
+   @JsonIgnore
+   public Long getTimeout() {
+      return timeout;
+   }
+
+   @JsonIgnore
+   public void setTimeout(Long value) { 
+      this.timeout = value;
    }
    
 
@@ -174,7 +213,7 @@ public class Destinationurl extends RestObject {
    
 
    public String toString() {
-      return "Destinationurl [" + "HTTPMethod=" + HTTPMethod + ", URL=" + URL + ", downThresholdCount=" + downThresholdCount + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", percentageWeight=" + percentageWeight + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Destinationurl [" + "HTTPMethod=" + HTTPMethod + ", URL=" + URL + ", downThresholdCount=" + downThresholdCount + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", packetCount=" + packetCount + ", percentageWeight=" + percentageWeight + ", probeInterval=" + probeInterval + ", timeout=" + timeout + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

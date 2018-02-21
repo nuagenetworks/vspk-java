@@ -46,7 +46,7 @@ public class Bootstrap extends RestObject {
 
    
    
-   public enum ZFBMatchAttribute { NONE, MAC_ADDRESS, IP_ADDRESS, HOSTNAME, NSGATEWAY_ID, SERIAL_NUMBER };
+   public enum ZFBMatchAttribute { HOSTNAME, IP_ADDRESS, MAC_ADDRESS, NONE, NSGATEWAY_ID, SERIAL_NUMBER };
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    

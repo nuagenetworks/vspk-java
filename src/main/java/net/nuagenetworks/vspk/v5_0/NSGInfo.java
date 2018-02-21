@@ -72,6 +72,9 @@ public class NSGInfo extends RestObject {
    @JsonProperty(value = "TPMStatus")
    protected TPMStatus TPMStatus;
    
+   @JsonProperty(value = "TPMVersion")
+   protected String TPMVersion;
+   
    @JsonProperty(value = "UUID")
    protected String UUID;
    
@@ -89,6 +92,9 @@ public class NSGInfo extends RestObject {
    
    @JsonProperty(value = "libraries")
    protected String libraries;
+   
+   @JsonProperty(value = "patches")
+   protected String patches;
    
    @JsonProperty(value = "productName")
    protected String productName;
@@ -175,6 +181,16 @@ public class NSGInfo extends RestObject {
    }
    
    @JsonIgnore
+   public String getTPMVersion() {
+      return TPMVersion;
+   }
+
+   @JsonIgnore
+   public void setTPMVersion(String value) { 
+      this.TPMVersion = value;
+   }
+   
+   @JsonIgnore
    public String getUUID() {
       return UUID;
    }
@@ -235,6 +251,16 @@ public class NSGInfo extends RestObject {
    }
    
    @JsonIgnore
+   public String getPatches() {
+      return patches;
+   }
+
+   @JsonIgnore
+   public void setPatches(String value) { 
+      this.patches = value;
+   }
+   
+   @JsonIgnore
    public String getProductName() {
       return productName;
    }
@@ -258,7 +284,7 @@ public class NSGInfo extends RestObject {
    
 
    public String toString() {
-      return "NSGInfo [" + "BIOSReleaseDate=" + BIOSReleaseDate + ", BIOSVersion=" + BIOSVersion + ", CPUType=" + CPUType + ", MACAddress=" + MACAddress + ", NSGVersion=" + NSGVersion + ", SKU=" + SKU + ", TPMStatus=" + TPMStatus + ", UUID=" + UUID + ", associatedNSGatewayID=" + associatedNSGatewayID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", family=" + family + ", libraries=" + libraries + ", productName=" + productName + ", serialNumber=" + serialNumber + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NSGInfo [" + "BIOSReleaseDate=" + BIOSReleaseDate + ", BIOSVersion=" + BIOSVersion + ", CPUType=" + CPUType + ", MACAddress=" + MACAddress + ", NSGVersion=" + NSGVersion + ", SKU=" + SKU + ", TPMStatus=" + TPMStatus + ", TPMVersion=" + TPMVersion + ", UUID=" + UUID + ", associatedNSGatewayID=" + associatedNSGatewayID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", family=" + family + ", libraries=" + libraries + ", patches=" + patches + ", productName=" + productName + ", serialNumber=" + serialNumber + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

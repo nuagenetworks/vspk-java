@@ -47,8 +47,13 @@ public class VirtualIP extends RestObject {
 
    
    
+   public enum IPType { IPV4, IPV6 };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
+   
+   @JsonProperty(value = "IPType")
+   protected IPType IPType;
    
    @JsonProperty(value = "MAC")
    protected String MAC;
@@ -93,6 +98,16 @@ public class VirtualIP extends RestObject {
       
    }
 
+   
+   @JsonIgnore
+   public IPType getIPType() {
+      return IPType;
+   }
+
+   @JsonIgnore
+   public void setIPType(IPType value) { 
+      this.IPType = value;
+   }
    
    @JsonIgnore
    public String getMAC() {
@@ -183,7 +198,7 @@ public class VirtualIP extends RestObject {
    
 
    public String toString() {
-      return "VirtualIP [" + "MAC=" + MAC + ", associatedFloatingIPID=" + associatedFloatingIPID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", subnetID=" + subnetID + ", virtualIP=" + virtualIP + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VirtualIP [" + "IPType=" + IPType + ", MAC=" + MAC + ", associatedFloatingIPID=" + associatedFloatingIPID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", subnetID=" + subnetID + ", virtualIP=" + virtualIP + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

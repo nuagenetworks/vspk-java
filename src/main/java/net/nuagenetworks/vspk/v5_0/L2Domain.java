@@ -88,6 +88,8 @@ public class L2Domain extends RestObject {
    
    public enum EntityState { MARKED_FOR_DELETION, UNDER_CONSTRUCTION };
    
+   public enum FlowCollectionEnabled { DISABLED, ENABLED, INHERITED };
+   
    public enum MaintenanceMode { DISABLED, ENABLED, ENABLED_INHERITED };
    
    public enum Multicast { DISABLED, ENABLED, INHERITED };
@@ -143,6 +145,9 @@ public class L2Domain extends RestObject {
    
    @JsonProperty(value = "externalID")
    protected String externalID;
+   
+   @JsonProperty(value = "flowCollectionEnabled")
+   protected FlowCollectionEnabled flowCollectionEnabled;
    
    @JsonProperty(value = "gateway")
    protected String gateway;
@@ -522,6 +527,16 @@ public class L2Domain extends RestObject {
    }
    
    @JsonIgnore
+   public FlowCollectionEnabled getFlowCollectionEnabled() {
+      return flowCollectionEnabled;
+   }
+
+   @JsonIgnore
+   public void setFlowCollectionEnabled(FlowCollectionEnabled value) { 
+      this.flowCollectionEnabled = value;
+   }
+   
+   @JsonIgnore
    public String getGateway() {
       return gateway;
    }
@@ -855,7 +870,7 @@ public class L2Domain extends RestObject {
    
 
    public String toString() {
-      return "L2Domain [" + "DHCPManaged=" + DHCPManaged + ", DPI=" + DPI + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", IPv6Gateway=" + IPv6Gateway + ", address=" + address + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSharedNetworkResourceID=" + associatedSharedNetworkResourceID + ", associatedUnderlayID=" + associatedUnderlayID + ", description=" + description + ", dynamicIpv6Address=" + dynamicIpv6Address + ", encryption=" + encryption + ", entityScope=" + entityScope + ", entityState=" + entityState + ", externalID=" + externalID + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", lastUpdatedBy=" + lastUpdatedBy + ", maintenanceMode=" + maintenanceMode + ", multicast=" + multicast + ", name=" + name + ", netmask=" + netmask + ", policyChangeStatus=" + policyChangeStatus + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", serviceID=" + serviceID + ", stretched=" + stretched + ", templateID=" + templateID + ", uplinkPreference=" + uplinkPreference + ", useGlobalMAC=" + useGlobalMAC + ", vnId=" + vnId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "L2Domain [" + "DHCPManaged=" + DHCPManaged + ", DPI=" + DPI + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", IPv6Gateway=" + IPv6Gateway + ", address=" + address + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSharedNetworkResourceID=" + associatedSharedNetworkResourceID + ", associatedUnderlayID=" + associatedUnderlayID + ", description=" + description + ", dynamicIpv6Address=" + dynamicIpv6Address + ", encryption=" + encryption + ", entityScope=" + entityScope + ", entityState=" + entityState + ", externalID=" + externalID + ", flowCollectionEnabled=" + flowCollectionEnabled + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", lastUpdatedBy=" + lastUpdatedBy + ", maintenanceMode=" + maintenanceMode + ", multicast=" + multicast + ", name=" + name + ", netmask=" + netmask + ", policyChangeStatus=" + policyChangeStatus + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", serviceID=" + serviceID + ", stretched=" + stretched + ", templateID=" + templateID + ", uplinkPreference=" + uplinkPreference + ", useGlobalMAC=" + useGlobalMAC + ", vnId=" + vnId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

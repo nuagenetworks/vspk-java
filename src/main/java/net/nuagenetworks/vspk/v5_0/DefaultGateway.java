@@ -37,29 +37,50 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "vnfinterfacedescriptor", resourceName = "vnfinterfacedescriptors")
-public class VNFInterfaceDescriptor extends RestObject {
+@RestEntity(restName = "defaultgateway", resourceName = "defaultgateways")
+public class DefaultGateway extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum Type { LAN, MANAGEMENT, WAN };
 
+   
+   @JsonProperty(value = "gatewayIPAddress")
+   protected String gatewayIPAddress;
+   
+   @JsonProperty(value = "gatewayMACAddress")
+   protected String gatewayMACAddress;
    
    @JsonProperty(value = "name")
    protected String name;
    
-   @JsonProperty(value = "type")
-   protected Type type;
-   
 
    
 
-   public VNFInterfaceDescriptor() {
+   public DefaultGateway() {
       
    }
 
+   
+   @JsonIgnore
+   public String getGatewayIPAddress() {
+      return gatewayIPAddress;
+   }
+
+   @JsonIgnore
+   public void setGatewayIPAddress(String value) { 
+      this.gatewayIPAddress = value;
+   }
+   
+   @JsonIgnore
+   public String getGatewayMACAddress() {
+      return gatewayMACAddress;
+   }
+
+   @JsonIgnore
+   public void setGatewayMACAddress(String value) { 
+      this.gatewayMACAddress = value;
+   }
    
    @JsonIgnore
    public String getName() {
@@ -71,21 +92,11 @@ public class VNFInterfaceDescriptor extends RestObject {
       this.name = value;
    }
    
-   @JsonIgnore
-   public Type getType() {
-      return type;
-   }
-
-   @JsonIgnore
-   public void setType(Type value) { 
-      this.type = value;
-   }
-   
 
    
 
    public String toString() {
-      return "VNFInterfaceDescriptor [" + "name=" + name + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "DefaultGateway [" + "gatewayIPAddress=" + gatewayIPAddress + ", gatewayMACAddress=" + gatewayMACAddress + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

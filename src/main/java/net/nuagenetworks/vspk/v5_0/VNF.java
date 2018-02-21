@@ -52,6 +52,8 @@ public class VNF extends RestObject {
    public enum Status { BLOCKED, CRASHED, DYING, IDLE, INIT, LAST, PAUSED, PMSUSPENDED, RUNNING, SHUTDOWN, SHUTOFF };
    
    public enum TaskState { DEPLOYING, NONE, STARTING, STOPPING, UNDEPLOYING };
+   
+   public enum Type { FIREWALL, WAN_OPT };
 
    
    @JsonProperty(value = "CPUCount")
@@ -110,6 +112,9 @@ public class VNF extends RestObject {
    
    @JsonProperty(value = "taskState")
    protected TaskState taskState;
+   
+   @JsonProperty(value = "type")
+   protected Type type;
    
    @JsonProperty(value = "vendor")
    protected String vendor;
@@ -328,6 +333,16 @@ public class VNF extends RestObject {
    }
    
    @JsonIgnore
+   public Type getType() {
+      return type;
+   }
+
+   @JsonIgnore
+   public void setType(Type value) { 
+      this.type = value;
+   }
+   
+   @JsonIgnore
    public String getVendor() {
       return vendor;
    }
@@ -356,7 +371,7 @@ public class VNF extends RestObject {
    
 
    public String toString() {
-      return "VNF [" + "CPUCount=" + CPUCount + ", NSGName=" + NSGName + ", NSGSystemID=" + NSGSystemID + ", NSGatewayID=" + NSGatewayID + ", VNFDescriptorID=" + VNFDescriptorID + ", VNFDescriptorName=" + VNFDescriptorName + ", allowedActions=" + allowedActions + ", associatedVNFMetadataID=" + associatedVNFMetadataID + ", associatedVNFThresholdPolicyID=" + associatedVNFThresholdPolicyID + ", description=" + description + ", enterpriseID=" + enterpriseID + ", isAttachedToDescriptor=" + isAttachedToDescriptor + ", lastKnownError=" + lastKnownError + ", memoryMB=" + memoryMB + ", metadataID=" + metadataID + ", name=" + name + ", status=" + status + ", storageGB=" + storageGB + ", taskState=" + taskState + ", vendor=" + vendor + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VNF [" + "CPUCount=" + CPUCount + ", NSGName=" + NSGName + ", NSGSystemID=" + NSGSystemID + ", NSGatewayID=" + NSGatewayID + ", VNFDescriptorID=" + VNFDescriptorID + ", VNFDescriptorName=" + VNFDescriptorName + ", allowedActions=" + allowedActions + ", associatedVNFMetadataID=" + associatedVNFMetadataID + ", associatedVNFThresholdPolicyID=" + associatedVNFThresholdPolicyID + ", description=" + description + ", enterpriseID=" + enterpriseID + ", isAttachedToDescriptor=" + isAttachedToDescriptor + ", lastKnownError=" + lastKnownError + ", memoryMB=" + memoryMB + ", metadataID=" + metadataID + ", name=" + name + ", status=" + status + ", storageGB=" + storageGB + ", taskState=" + taskState + ", type=" + type + ", vendor=" + vendor + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

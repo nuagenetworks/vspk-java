@@ -48,13 +48,13 @@ public class IngressQOSPolicy extends RestObject {
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    
-   public enum Queue1ForwardingClasses { NONE, A, B, C, D, E, F, G, H };
+   public enum Queue1ForwardingClasses { A, B, C, D, E, F, G, H, NONE };
    
-   public enum Queue2ForwardingClasses { NONE, A, B, C, D, E, F, G, H };
+   public enum Queue2ForwardingClasses { A, B, C, D, E, F, G, H, NONE };
    
-   public enum Queue3ForwardingClasses { NONE, A, B, C, D, E, F, G, H };
+   public enum Queue3ForwardingClasses { A, B, C, D, E, F, G, H, NONE };
    
-   public enum Queue4ForwardingClasses { NONE, A, B, C, D, E, F, G, H };
+   public enum Queue4ForwardingClasses { A, B, C, D, E, F, G, H, NONE };
 
    
    @JsonProperty(value = "assocEgressQosId")

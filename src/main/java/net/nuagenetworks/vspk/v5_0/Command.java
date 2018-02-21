@@ -44,12 +44,20 @@ public class Command extends RestObject {
 
    
    
-   public enum ECommand { NSG_DOWNLOAD_OS_IMAGE, NSG_UPGRADE_TO_IMAGE, UNKNOWN };
+   public enum ECommand { NSG_APPLY_PATCH, NSG_DOWNLOAD_OS_IMAGE, NSG_UPGRADE_TO_IMAGE, UNKNOWN };
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    
+   public enum Override { ABANDON, UNSPECIFIED };
+   
    public enum Status { COMPLETE, FAILED, STARTED, UNKNOWN };
 
+   
+   @JsonProperty(value = "associatedParam")
+   protected String associatedParam;
+   
+   @JsonProperty(value = "associatedParamType")
+   protected String associatedParamType;
    
    @JsonProperty(value = "command")
    protected ECommand command;
@@ -69,8 +77,14 @@ public class Command extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
+   @JsonProperty(value = "fullCommand")
+   protected String fullCommand;
+   
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "override")
+   protected Override override;
    
    @JsonProperty(value = "status")
    protected Status status;
@@ -85,6 +99,26 @@ public class Command extends RestObject {
       
    }
 
+   
+   @JsonIgnore
+   public String getAssociatedParam() {
+      return associatedParam;
+   }
+
+   @JsonIgnore
+   public void setAssociatedParam(String value) { 
+      this.associatedParam = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedParamType() {
+      return associatedParamType;
+   }
+
+   @JsonIgnore
+   public void setAssociatedParamType(String value) { 
+      this.associatedParamType = value;
+   }
    
    @JsonIgnore
    public ECommand getCommand() {
@@ -147,6 +181,16 @@ public class Command extends RestObject {
    }
    
    @JsonIgnore
+   public String getFullCommand() {
+      return fullCommand;
+   }
+
+   @JsonIgnore
+   public void setFullCommand(String value) { 
+      this.fullCommand = value;
+   }
+   
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
@@ -154,6 +198,16 @@ public class Command extends RestObject {
    @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
+   }
+   
+   @JsonIgnore
+   public Override getOverride() {
+      return override;
+   }
+
+   @JsonIgnore
+   public void setOverride(Override value) { 
+      this.override = value;
    }
    
    @JsonIgnore
@@ -180,7 +234,7 @@ public class Command extends RestObject {
    
 
    public String toString() {
-      return "Command [" + "command=" + command + ", commandInformation=" + commandInformation + ", detailedStatus=" + detailedStatus + ", detailedStatusCode=" + detailedStatusCode + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", status=" + status + ", summary=" + summary + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Command [" + "associatedParam=" + associatedParam + ", associatedParamType=" + associatedParamType + ", command=" + command + ", commandInformation=" + commandInformation + ", detailedStatus=" + detailedStatus + ", detailedStatusCode=" + detailedStatusCode + ", entityScope=" + entityScope + ", externalID=" + externalID + ", fullCommand=" + fullCommand + ", lastUpdatedBy=" + lastUpdatedBy + ", override=" + override + ", status=" + status + ", summary=" + summary + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

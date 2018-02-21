@@ -25,68 +25,18 @@
   SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-package net.nuagenetworks.vspk.v5_0;
+package net.nuagenetworks.vspk.v5_0.fetchers;
 
 import net.nuagenetworks.bambou.RestObject;
-import net.nuagenetworks.bambou.annotation.RestEntity;
+import net.nuagenetworks.bambou.RestFetcher;
+import net.nuagenetworks.vspk.v5_0.NSGPatchProfile;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
-
-
-@JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "vnfinterfacedescriptor", resourceName = "vnfinterfacedescriptors")
-public class VNFInterfaceDescriptor extends RestObject {
+public class NSGPatchProfilesFetcher extends RestFetcher<NSGPatchProfile> {
 
    private static final long serialVersionUID = 1L;
-
    
-   
-   public enum Type { LAN, MANAGEMENT, WAN };
-
-   
-   @JsonProperty(value = "name")
-   protected String name;
-   
-   @JsonProperty(value = "type")
-   protected Type type;
-   
-
-   
-
-   public VNFInterfaceDescriptor() {
-      
-   }
-
-   
-   @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   
-   @JsonIgnore
-   public Type getType() {
-      return type;
-   }
-
-   @JsonIgnore
-   public void setType(Type value) { 
-      this.type = value;
-   }
-   
-
-   
-
-   public String toString() {
-      return "VNFInterfaceDescriptor [" + "name=" + name + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+   public NSGPatchProfilesFetcher(RestObject parentRestObj) {
+      super(parentRestObj, NSGPatchProfile.class);
    }
    
    

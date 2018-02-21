@@ -36,6 +36,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 import net.nuagenetworks.vspk.v5_0.fetchers.ApplicationBindingsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MonitorscopesFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -45,6 +47,8 @@ public class Application extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
+   public enum EntityScope { ENTERPRISE, GLOBAL };
    
    public enum OptimizePathSelection { JITTER, LATENCY, PACKETLOSS };
    
@@ -81,8 +85,17 @@ public class Application extends RestObject {
    @JsonProperty(value = "enablePPS")
    protected Boolean enablePPS;
    
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
    @JsonProperty(value = "etherType")
    protected String etherType;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
    protected String name;
@@ -129,12 +142,22 @@ public class Application extends RestObject {
    private ApplicationBindingsFetcher applicationBindings;
    
    @JsonIgnore
+   private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
+   @JsonIgnore
    private MonitorscopesFetcher monitorscopes;
    
 
    public Application() {
       
       applicationBindings = new ApplicationBindingsFetcher(this);
+      
+      globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
       monitorscopes = new MonitorscopesFetcher(this);
       
@@ -222,6 +245,16 @@ public class Application extends RestObject {
    }
    
    @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   
+   @JsonIgnore
    public String getEtherType() {
       return etherType;
    }
@@ -229,6 +262,26 @@ public class Application extends RestObject {
    @JsonIgnore
    public void setEtherType(String value) { 
       this.etherType = value;
+   }
+   
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    
    @JsonIgnore
@@ -369,13 +422,23 @@ public class Application extends RestObject {
    }
    
    @JsonIgnore
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
+   @JsonIgnore
    public MonitorscopesFetcher getMonitorscopes() {
       return monitorscopes;
    }
    
 
    public String toString() {
-      return "Application [" + "DSCP=" + DSCP + ", appId=" + appId + ", associatedL7ApplicationSignatureID=" + associatedL7ApplicationSignatureID + ", bandwidth=" + bandwidth + ", description=" + description + ", destinationIP=" + destinationIP + ", destinationPort=" + destinationPort + ", enablePPS=" + enablePPS + ", etherType=" + etherType + ", name=" + name + ", oneWayDelay=" + oneWayDelay + ", oneWayJitter=" + oneWayJitter + ", oneWayLoss=" + oneWayLoss + ", optimizePathSelection=" + optimizePathSelection + ", performanceMonitorType=" + performanceMonitorType + ", postClassificationPath=" + postClassificationPath + ", preClassificationPath=" + preClassificationPath + ", protocol=" + protocol + ", readOnly=" + readOnly + ", sourceIP=" + sourceIP + ", sourcePort=" + sourcePort + ", symmetry=" + symmetry + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Application [" + "DSCP=" + DSCP + ", appId=" + appId + ", associatedL7ApplicationSignatureID=" + associatedL7ApplicationSignatureID + ", bandwidth=" + bandwidth + ", description=" + description + ", destinationIP=" + destinationIP + ", destinationPort=" + destinationPort + ", enablePPS=" + enablePPS + ", entityScope=" + entityScope + ", etherType=" + etherType + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", oneWayDelay=" + oneWayDelay + ", oneWayJitter=" + oneWayJitter + ", oneWayLoss=" + oneWayLoss + ", optimizePathSelection=" + optimizePathSelection + ", performanceMonitorType=" + performanceMonitorType + ", postClassificationPath=" + postClassificationPath + ", preClassificationPath=" + preClassificationPath + ", protocol=" + protocol + ", readOnly=" + readOnly + ", sourceIP=" + sourceIP + ", sourcePort=" + sourcePort + ", symmetry=" + symmetry + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

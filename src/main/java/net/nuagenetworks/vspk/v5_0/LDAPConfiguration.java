@@ -97,6 +97,9 @@ public class LDAPConfiguration extends RestObject {
    @JsonProperty(value = "userDNTemplate")
    protected String userDNTemplate;
    
+   @JsonProperty(value = "userNameAttribute")
+   protected String userNameAttribute;
+   
 
    
    @JsonIgnore
@@ -275,6 +278,16 @@ public class LDAPConfiguration extends RestObject {
       this.userDNTemplate = value;
    }
    
+   @JsonIgnore
+   public String getUserNameAttribute() {
+      return userNameAttribute;
+   }
+
+   @JsonIgnore
+   public void setUserNameAttribute(String value) { 
+      this.userNameAttribute = value;
+   }
+   
 
    
    @JsonIgnore
@@ -289,7 +302,7 @@ public class LDAPConfiguration extends RestObject {
    
 
    public String toString() {
-      return "LDAPConfiguration [" + "SSLEnabled=" + SSLEnabled + ", acceptAllCertificates=" + acceptAllCertificates + ", authorizationEnabled=" + authorizationEnabled + ", authorizingUserDN=" + authorizingUserDN + ", certificate=" + certificate + ", enabled=" + enabled + ", entityScope=" + entityScope + ", externalID=" + externalID + ", groupDN=" + groupDN + ", groupNamePrefix=" + groupNamePrefix + ", groupNameSuffix=" + groupNameSuffix + ", lastUpdatedBy=" + lastUpdatedBy + ", password=" + password + ", port=" + port + ", server=" + server + ", userDNTemplate=" + userDNTemplate + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "LDAPConfiguration [" + "SSLEnabled=" + SSLEnabled + ", acceptAllCertificates=" + acceptAllCertificates + ", authorizationEnabled=" + authorizationEnabled + ", authorizingUserDN=" + authorizingUserDN + ", certificate=" + certificate + ", enabled=" + enabled + ", entityScope=" + entityScope + ", externalID=" + externalID + ", groupDN=" + groupDN + ", groupNamePrefix=" + groupNamePrefix + ", groupNameSuffix=" + groupNameSuffix + ", lastUpdatedBy=" + lastUpdatedBy + ", password=" + password + ", port=" + port + ", server=" + server + ", userDNTemplate=" + userDNTemplate + ", userNameAttribute=" + userNameAttribute + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    
