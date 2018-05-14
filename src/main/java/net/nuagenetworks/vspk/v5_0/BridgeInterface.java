@@ -59,6 +59,12 @@ public class BridgeInterface extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
+   @JsonProperty(value = "IPv6Address")
+   protected String IPv6Address;
+   
+   @JsonProperty(value = "IPv6Gateway")
+   protected String IPv6Gateway;
+   
    @JsonProperty(value = "VPortID")
    protected String VPortID;
    
@@ -170,6 +176,26 @@ public class BridgeInterface extends RestObject {
       
    }
 
+   
+   @JsonIgnore
+   public String getIPv6Address() {
+      return IPv6Address;
+   }
+
+   @JsonIgnore
+   public void setIPv6Address(String value) { 
+      this.IPv6Address = value;
+   }
+   
+   @JsonIgnore
+   public String getIPv6Gateway() {
+      return IPv6Gateway;
+   }
+
+   @JsonIgnore
+   public void setIPv6Gateway(String value) { 
+      this.IPv6Gateway = value;
+   }
    
    @JsonIgnore
    public String getVPortID() {
@@ -405,7 +431,7 @@ public class BridgeInterface extends RestObject {
    
 
    public String toString() {
-      return "BridgeInterface [" + "VPortID=" + VPortID + ", VPortName=" + VPortName + ", associatedFloatingIPAddress=" + associatedFloatingIPAddress + ", attachedNetworkID=" + attachedNetworkID + ", attachedNetworkType=" + attachedNetworkType + ", domainID=" + domainID + ", domainName=" + domainName + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gateway=" + gateway + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", netmask=" + netmask + ", networkName=" + networkName + ", policyDecisionID=" + policyDecisionID + ", tierID=" + tierID + ", zoneID=" + zoneID + ", zoneName=" + zoneName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "BridgeInterface [" + "IPv6Address=" + IPv6Address + ", IPv6Gateway=" + IPv6Gateway + ", VPortID=" + VPortID + ", VPortName=" + VPortName + ", associatedFloatingIPAddress=" + associatedFloatingIPAddress + ", attachedNetworkID=" + attachedNetworkID + ", attachedNetworkType=" + attachedNetworkType + ", domainID=" + domainID + ", domainName=" + domainName + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gateway=" + gateway + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", netmask=" + netmask + ", networkName=" + networkName + ", policyDecisionID=" + policyDecisionID + ", tierID=" + tierID + ", zoneID=" + zoneID + ", zoneName=" + zoneName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

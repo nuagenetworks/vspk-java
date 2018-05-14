@@ -50,6 +50,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.FloatingIPACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.FirewallAclsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.FloatingIpsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.ForwardingPathListsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GroupsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.HostInterfacesFetcher;
@@ -316,6 +317,9 @@ public class Domain extends RestObject {
    private FloatingIpsFetcher floatingIps;
    
    @JsonIgnore
+   private ForwardingPathListsFetcher forwardingPathLists;
+   
+   @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
@@ -450,6 +454,8 @@ public class Domain extends RestObject {
       firewallAcls = new FirewallAclsFetcher(this);
       
       floatingIps = new FloatingIpsFetcher(this);
+      
+      forwardingPathLists = new ForwardingPathListsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
@@ -1085,6 +1091,11 @@ public class Domain extends RestObject {
    @JsonIgnore
    public FloatingIpsFetcher getFloatingIps() {
       return floatingIps;
+   }
+   
+   @JsonIgnore
+   public ForwardingPathListsFetcher getForwardingPathLists() {
+      return forwardingPathLists;
    }
    
    @JsonIgnore

@@ -51,7 +51,7 @@ public class UplinkConnection extends RestObject {
    
    public enum InterfaceConnectionType { AUTOMATIC, EMBEDDED, PCI_EXPRESS, USB_ETHERNET, USB_MODEM };
    
-   public enum Mode { Dynamic, LTE, PPPoE, Static };
+   public enum Mode { Any, Dynamic, LTE, PPPoE, Static };
    
    public enum Role { NONE, PRIMARY, SECONDARY, TERTIARY, UNKNOWN };
 
@@ -85,6 +85,9 @@ public class UplinkConnection extends RestObject {
    
    @JsonProperty(value = "gateway")
    protected String gateway;
+   
+   @JsonProperty(value = "inherited")
+   protected Boolean inherited;
    
    @JsonProperty(value = "installerManaged")
    protected Boolean installerManaged;
@@ -249,6 +252,16 @@ public class UplinkConnection extends RestObject {
    }
    
    @JsonIgnore
+   public Boolean getInherited() {
+      return inherited;
+   }
+
+   @JsonIgnore
+   public void setInherited(Boolean value) { 
+      this.inherited = value;
+   }
+   
+   @JsonIgnore
    public Boolean getInstallerManaged() {
       return installerManaged;
    }
@@ -397,7 +410,7 @@ public class UplinkConnection extends RestObject {
    
 
    public String toString() {
-      return "UplinkConnection [" + "DNSAddress=" + DNSAddress + ", PATEnabled=" + PATEnabled + ", address=" + address + ", advertisementCriteria=" + advertisementCriteria + ", assocUnderlayID=" + assocUnderlayID + ", associatedBGPNeighborID=" + associatedBGPNeighborID + ", associatedUnderlayName=" + associatedUnderlayName + ", auxiliaryLink=" + auxiliaryLink + ", downloadRateLimit=" + downloadRateLimit + ", gateway=" + gateway + ", installerManaged=" + installerManaged + ", interfaceConnectionType=" + interfaceConnectionType + ", mode=" + mode + ", netmask=" + netmask + ", password=" + password + ", portName=" + portName + ", role=" + role + ", roleOrder=" + roleOrder + ", secondaryAddress=" + secondaryAddress + ", underlayEnabled=" + underlayEnabled + ", uplinkID=" + uplinkID + ", username=" + username + ", vlanId=" + vlanId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "UplinkConnection [" + "DNSAddress=" + DNSAddress + ", PATEnabled=" + PATEnabled + ", address=" + address + ", advertisementCriteria=" + advertisementCriteria + ", assocUnderlayID=" + assocUnderlayID + ", associatedBGPNeighborID=" + associatedBGPNeighborID + ", associatedUnderlayName=" + associatedUnderlayName + ", auxiliaryLink=" + auxiliaryLink + ", downloadRateLimit=" + downloadRateLimit + ", gateway=" + gateway + ", inherited=" + inherited + ", installerManaged=" + installerManaged + ", interfaceConnectionType=" + interfaceConnectionType + ", mode=" + mode + ", netmask=" + netmask + ", password=" + password + ", portName=" + portName + ", role=" + role + ", roleOrder=" + roleOrder + ", secondaryAddress=" + secondaryAddress + ", underlayEnabled=" + underlayEnabled + ", uplinkID=" + uplinkID + ", username=" + username + ", vlanId=" + vlanId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

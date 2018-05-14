@@ -44,7 +44,7 @@ public class ZFBAutoAssignment extends RestObject {
 
    
    
-   public enum ZFBMatchAttribute { HOSTNAME, IP_ADDRESS, MAC_ADDRESS, NSGATEWAY_ID, SERIAL_NUMBER };
+   public enum ZFBMatchAttribute { HOSTNAME, IP_ADDRESS, MAC_ADDRESS, NSGATEWAY_ID, SERIAL_NUMBER, UUID };
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
 

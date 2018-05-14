@@ -37,7 +37,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import net.nuagenetworks.vspk.v5_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VPortsFetcher;
 
@@ -93,9 +92,6 @@ public class PolicyGroup extends RestObject {
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private JobsFetcher jobs;
-   
-   @JsonIgnore
    private MetadatasFetcher metadatas;
    
    @JsonIgnore
@@ -108,8 +104,6 @@ public class PolicyGroup extends RestObject {
       eventLogs = new EventLogsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
-      
-      jobs = new JobsFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
       
@@ -228,11 +222,6 @@ public class PolicyGroup extends RestObject {
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
-   }
-   
-   @JsonIgnore
-   public JobsFetcher getJobs() {
-      return jobs;
    }
    
    @JsonIgnore

@@ -37,7 +37,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import net.nuagenetworks.vspk.v5_0.fetchers.EgressAdvFwdEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -97,9 +96,6 @@ public class EgressAdvFwdTemplate extends RestObject {
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private JobsFetcher jobs;
-   
-   @JsonIgnore
    private MetadatasFetcher metadatas;
    
 
@@ -108,8 +104,6 @@ public class EgressAdvFwdTemplate extends RestObject {
       egressAdvFwdEntryTemplates = new EgressAdvFwdEntryTemplatesFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
-      
-      jobs = new JobsFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
       
@@ -236,11 +230,6 @@ public class EgressAdvFwdTemplate extends RestObject {
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
-   }
-   
-   @JsonIgnore
-   public JobsFetcher getJobs() {
-      return jobs;
    }
    
    @JsonIgnore

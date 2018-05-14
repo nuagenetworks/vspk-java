@@ -35,30 +35,20 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v5_0.fetchers.ForwardingPathListEntriesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.IngressExternalServiceTemplateEntriesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "ingressexternalservicetemplate", resourceName = "ingressexternalservicetemplates")
-public class IngressExternalServiceTemplate extends RestObject {
+@RestEntity(restName = "forwardingpathlist", resourceName = "forwardingpathlists")
+public class ForwardingPathList extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum PolicyState { DRAFT, LIVE };
-   
-   public enum PriorityType { BOTTOM, NONE, TOP };
 
-   
-   @JsonProperty(value = "active")
-   protected Boolean active;
-   
-   @JsonProperty(value = "associatedLiveEntityID")
-   protected String associatedLiveEntityID;
    
    @JsonProperty(value = "description")
    protected String description;
@@ -69,60 +59,34 @@ public class IngressExternalServiceTemplate extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
    @JsonProperty(value = "name")
    protected String name;
    
-   @JsonProperty(value = "policyState")
-   protected PolicyState policyState;
-   
-   @JsonProperty(value = "priority")
-   protected Long priority;
-   
-   @JsonProperty(value = "priorityType")
-   protected PriorityType priorityType;
-   
 
+   
+   @JsonIgnore
+   private ForwardingPathListEntriesFetcher forwardingPathListEntries;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private IngressExternalServiceTemplateEntriesFetcher ingressExternalServiceTemplateEntries;
-   
-   @JsonIgnore
    private MetadatasFetcher metadatas;
    
 
-   public IngressExternalServiceTemplate() {
+   public ForwardingPathList() {
+      
+      forwardingPathListEntries = new ForwardingPathListEntriesFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
-      
-      ingressExternalServiceTemplateEntries = new IngressExternalServiceTemplateEntriesFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
       
    }
 
-   
-   @JsonIgnore
-   public Boolean getActive() {
-      return active;
-   }
-
-   @JsonIgnore
-   public void setActive(Boolean value) { 
-      this.active = value;
-   }
-   
-   @JsonIgnore
-   public String getAssociatedLiveEntityID() {
-      return associatedLiveEntityID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedLiveEntityID(String value) { 
-      this.associatedLiveEntityID = value;
-   }
    
    @JsonIgnore
    public String getDescription() {
@@ -155,6 +119,16 @@ public class IngressExternalServiceTemplate extends RestObject {
    }
    
    @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   
+   @JsonIgnore
    public String getName() {
       return name;
    }
@@ -164,46 +138,16 @@ public class IngressExternalServiceTemplate extends RestObject {
       this.name = value;
    }
    
-   @JsonIgnore
-   public PolicyState getPolicyState() {
-      return policyState;
-   }
 
-   @JsonIgnore
-   public void setPolicyState(PolicyState value) { 
-      this.policyState = value;
-   }
    
    @JsonIgnore
-   public Long getPriority() {
-      return priority;
+   public ForwardingPathListEntriesFetcher getForwardingPathListEntries() {
+      return forwardingPathListEntries;
    }
-
-   @JsonIgnore
-   public void setPriority(Long value) { 
-      this.priority = value;
-   }
-   
-   @JsonIgnore
-   public PriorityType getPriorityType() {
-      return priorityType;
-   }
-
-   @JsonIgnore
-   public void setPriorityType(PriorityType value) { 
-      this.priorityType = value;
-   }
-   
-
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
-   }
-   
-   @JsonIgnore
-   public IngressExternalServiceTemplateEntriesFetcher getIngressExternalServiceTemplateEntries() {
-      return ingressExternalServiceTemplateEntries;
    }
    
    @JsonIgnore
@@ -213,7 +157,7 @@ public class IngressExternalServiceTemplate extends RestObject {
    
 
    public String toString() {
-      return "IngressExternalServiceTemplate [" + "active=" + active + ", associatedLiveEntityID=" + associatedLiveEntityID + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", name=" + name + ", policyState=" + policyState + ", priority=" + priority + ", priorityType=" + priorityType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "ForwardingPathList [" + "description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -50,7 +50,7 @@ public class Group extends RestObject {
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    
-   public enum ManagementMode { CMS, DEFAULT };
+   public enum ManagementMode { CMS, DEFAULT, RESERVED };
    
    public enum Role { ADMINOPERATOR, CMS, CSPOPERATOR, CSPROOT, JMS, ORGADMIN, ORGAPPDESIGNER, ORGNETWORKDESIGNER, ORGUSER, SECURITYADMINISTRATOR, SYSTEM, UNKNOWN, USER };
 

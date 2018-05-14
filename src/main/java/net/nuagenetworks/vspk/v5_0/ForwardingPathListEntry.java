@@ -36,32 +36,27 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.IngressExternalServiceTemplateEntriesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "ingressexternalservicetemplate", resourceName = "ingressexternalservicetemplates")
-public class IngressExternalServiceTemplate extends RestObject {
+@RestEntity(restName = "forwardingpathlistentry", resourceName = "forwardingpathlistentries")
+public class ForwardingPathListEntry extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
    
+   public enum FCOverride { A, B, C, D, E, F, G, H, NONE };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
    
-   public enum PolicyState { DRAFT, LIVE };
+   public enum ForwardingAction { IKE, UNDERLAY_PAT, UNDERLAY_ROUTE };
    
-   public enum PriorityType { BOTTOM, NONE, TOP };
+   public enum UplinkPreference { PRIMARY, SECONDARY };
 
    
-   @JsonProperty(value = "active")
-   protected Boolean active;
-   
-   @JsonProperty(value = "associatedLiveEntityID")
-   protected String associatedLiveEntityID;
-   
-   @JsonProperty(value = "description")
-   protected String description;
+   @JsonProperty(value = "FCOverride")
+   protected FCOverride FCOverride;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
@@ -69,17 +64,14 @@ public class IngressExternalServiceTemplate extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-   @JsonProperty(value = "name")
-   protected String name;
+   @JsonProperty(value = "forwardingAction")
+   protected ForwardingAction forwardingAction;
    
-   @JsonProperty(value = "policyState")
-   protected PolicyState policyState;
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
-   @JsonProperty(value = "priority")
-   protected Long priority;
-   
-   @JsonProperty(value = "priorityType")
-   protected PriorityType priorityType;
+   @JsonProperty(value = "uplinkPreference")
+   protected UplinkPreference uplinkPreference;
    
 
    
@@ -87,17 +79,12 @@ public class IngressExternalServiceTemplate extends RestObject {
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private IngressExternalServiceTemplateEntriesFetcher ingressExternalServiceTemplateEntries;
-   
-   @JsonIgnore
    private MetadatasFetcher metadatas;
    
 
-   public IngressExternalServiceTemplate() {
+   public ForwardingPathListEntry() {
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
-      
-      ingressExternalServiceTemplateEntries = new IngressExternalServiceTemplateEntriesFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
       
@@ -105,33 +92,13 @@ public class IngressExternalServiceTemplate extends RestObject {
 
    
    @JsonIgnore
-   public Boolean getActive() {
-      return active;
+   public FCOverride getFCOverride() {
+      return FCOverride;
    }
 
    @JsonIgnore
-   public void setActive(Boolean value) { 
-      this.active = value;
-   }
-   
-   @JsonIgnore
-   public String getAssociatedLiveEntityID() {
-      return associatedLiveEntityID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedLiveEntityID(String value) { 
-      this.associatedLiveEntityID = value;
-   }
-   
-   @JsonIgnore
-   public String getDescription() {
-      return description;
-   }
-
-   @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
+   public void setFCOverride(FCOverride value) { 
+      this.FCOverride = value;
    }
    
    @JsonIgnore
@@ -155,43 +122,33 @@ public class IngressExternalServiceTemplate extends RestObject {
    }
    
    @JsonIgnore
-   public String getName() {
-      return name;
+   public ForwardingAction getForwardingAction() {
+      return forwardingAction;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
+   public void setForwardingAction(ForwardingAction value) { 
+      this.forwardingAction = value;
    }
    
    @JsonIgnore
-   public PolicyState getPolicyState() {
-      return policyState;
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
    }
 
    @JsonIgnore
-   public void setPolicyState(PolicyState value) { 
-      this.policyState = value;
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    
    @JsonIgnore
-   public Long getPriority() {
-      return priority;
+   public UplinkPreference getUplinkPreference() {
+      return uplinkPreference;
    }
 
    @JsonIgnore
-   public void setPriority(Long value) { 
-      this.priority = value;
-   }
-   
-   @JsonIgnore
-   public PriorityType getPriorityType() {
-      return priorityType;
-   }
-
-   @JsonIgnore
-   public void setPriorityType(PriorityType value) { 
-      this.priorityType = value;
+   public void setUplinkPreference(UplinkPreference value) { 
+      this.uplinkPreference = value;
    }
    
 
@@ -202,18 +159,13 @@ public class IngressExternalServiceTemplate extends RestObject {
    }
    
    @JsonIgnore
-   public IngressExternalServiceTemplateEntriesFetcher getIngressExternalServiceTemplateEntries() {
-      return ingressExternalServiceTemplateEntries;
-   }
-   
-   @JsonIgnore
    public MetadatasFetcher getMetadatas() {
       return metadatas;
    }
    
 
    public String toString() {
-      return "IngressExternalServiceTemplate [" + "active=" + active + ", associatedLiveEntityID=" + associatedLiveEntityID + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", name=" + name + ", policyState=" + policyState + ", priority=" + priority + ", priorityType=" + priorityType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "ForwardingPathListEntry [" + "FCOverride=" + FCOverride + ", entityScope=" + entityScope + ", externalID=" + externalID + ", forwardingAction=" + forwardingAction + ", lastUpdatedBy=" + lastUpdatedBy + ", uplinkPreference=" + uplinkPreference + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

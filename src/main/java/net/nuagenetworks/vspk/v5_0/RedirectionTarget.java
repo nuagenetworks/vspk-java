@@ -37,7 +37,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import net.nuagenetworks.vspk.v5_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VirtualIPsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VPortsFetcher;
@@ -50,7 +49,7 @@ public class RedirectionTarget extends RestObject {
 
    
    
-   public enum EndPointType { L3, NONE, NSG_VNF, VIRTUAL_WIRE };
+   public enum EndPointType { L3, NSG_VNF, VIRTUAL_WIRE };
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    
@@ -99,9 +98,6 @@ public class RedirectionTarget extends RestObject {
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private JobsFetcher jobs;
-   
-   @JsonIgnore
    private MetadatasFetcher metadatas;
    
    @JsonIgnore
@@ -117,8 +113,6 @@ public class RedirectionTarget extends RestObject {
       eventLogs = new EventLogsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
-      
-      jobs = new JobsFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
       
@@ -249,11 +243,6 @@ public class RedirectionTarget extends RestObject {
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
-   }
-   
-   @JsonIgnore
-   public JobsFetcher getJobs() {
-      return jobs;
    }
    
    @JsonIgnore

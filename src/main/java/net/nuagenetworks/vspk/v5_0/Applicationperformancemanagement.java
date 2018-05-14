@@ -36,6 +36,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 import net.nuagenetworks.vspk.v5_0.fetchers.ApplicationBindingsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "applicationperformancemanagement", resourceName = "applicationperformancemanagements")
@@ -44,6 +46,8 @@ public class Applicationperformancemanagement extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
+   public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "associatedPerformanceMonitorID")
@@ -51,6 +55,15 @@ public class Applicationperformancemanagement extends RestObject {
    
    @JsonProperty(value = "description")
    protected String description;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
    protected String name;
@@ -63,10 +76,20 @@ public class Applicationperformancemanagement extends RestObject {
    @JsonIgnore
    private ApplicationBindingsFetcher applicationBindings;
    
+   @JsonIgnore
+   private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public Applicationperformancemanagement() {
       
       applicationBindings = new ApplicationBindingsFetcher(this);
+      
+      globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
    }
 
@@ -89,6 +112,36 @@ public class Applicationperformancemanagement extends RestObject {
    @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
+   }
+   
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    
    @JsonIgnore
@@ -118,9 +171,19 @@ public class Applicationperformancemanagement extends RestObject {
       return applicationBindings;
    }
    
+   @JsonIgnore
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "Applicationperformancemanagement [" + "associatedPerformanceMonitorID=" + associatedPerformanceMonitorID + ", description=" + description + ", name=" + name + ", readOnly=" + readOnly + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Applicationperformancemanagement [" + "associatedPerformanceMonitorID=" + associatedPerformanceMonitorID + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", readOnly=" + readOnly + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

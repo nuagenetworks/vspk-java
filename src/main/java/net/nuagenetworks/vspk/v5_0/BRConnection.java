@@ -45,7 +45,7 @@ public class BRConnection extends RestObject {
 
    
    
-   public enum AdvertisementCriteria { BFD, LINK_BASED, OPENFLOW };
+   public enum AdvertisementCriteria { BFD, LINK_BASED, OPENFLOW, OPERATIONAL_LINK };
    
    public enum Mode { Static };
 
@@ -61,6 +61,9 @@ public class BRConnection extends RestObject {
    
    @JsonProperty(value = "gateway")
    protected String gateway;
+   
+   @JsonProperty(value = "inherited")
+   protected Boolean inherited;
    
    @JsonProperty(value = "mode")
    protected Mode mode;
@@ -125,6 +128,16 @@ public class BRConnection extends RestObject {
    }
    
    @JsonIgnore
+   public Boolean getInherited() {
+      return inherited;
+   }
+
+   @JsonIgnore
+   public void setInherited(Boolean value) { 
+      this.inherited = value;
+   }
+   
+   @JsonIgnore
    public Mode getMode() {
       return mode;
    }
@@ -163,7 +176,7 @@ public class BRConnection extends RestObject {
    
 
    public String toString() {
-      return "BRConnection [" + "DNSAddress=" + DNSAddress + ", address=" + address + ", advertisementCriteria=" + advertisementCriteria + ", gateway=" + gateway + ", mode=" + mode + ", netmask=" + netmask + ", uplinkID=" + uplinkID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "BRConnection [" + "DNSAddress=" + DNSAddress + ", address=" + address + ", advertisementCriteria=" + advertisementCriteria + ", gateway=" + gateway + ", inherited=" + inherited + ", mode=" + mode + ", netmask=" + netmask + ", uplinkID=" + uplinkID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

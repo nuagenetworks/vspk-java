@@ -50,6 +50,9 @@ public class PSNATPool extends RestObject {
    @JsonProperty(value = "endAddress")
    protected String endAddress;
    
+   @JsonProperty(value = "name")
+   protected String name;
+   
    @JsonProperty(value = "startAddress")
    protected String startAddress;
    
@@ -82,6 +85,16 @@ public class PSNATPool extends RestObject {
    }
    
    @JsonIgnore
+   public String getName() {
+      return name;
+   }
+
+   @JsonIgnore
+   public void setName(String value) { 
+      this.name = value;
+   }
+   
+   @JsonIgnore
    public String getStartAddress() {
       return startAddress;
    }
@@ -105,7 +118,7 @@ public class PSNATPool extends RestObject {
    
 
    public String toString() {
-      return "PSNATPool [" + "endAddress=" + endAddress + ", startAddress=" + startAddress + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "PSNATPool [" + "endAddress=" + endAddress + ", name=" + name + ", startAddress=" + startAddress + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

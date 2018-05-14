@@ -36,7 +36,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.StatisticsFetcher;
 
@@ -52,9 +51,9 @@ public class IngressExternalServiceTemplateEntry extends RestObject {
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    
-   public enum LocationType { ANY, POLICYGROUP, REDIRECTIONTARGET, SUBNET, VPORTTAG, ZONE };
+   public enum LocationType { ANY, POLICYGROUP, SUBNET, ZONE };
    
-   public enum NetworkType { ANY, ENDPOINT_DOMAIN, ENDPOINT_SUBNET, ENDPOINT_ZONE, ENTERPRISE_NETWORK, INTERNET_POLICYGROUP, NETWORK_MACRO_GROUP, POLICYGROUP, PUBLIC_NETWORK, SUBNET, ZONE };
+   public enum NetworkType { ANY, ENDPOINT_DOMAIN, ENDPOINT_SUBNET, ENDPOINT_ZONE, ENTERPRISE_NETWORK, NETWORK_MACRO_GROUP, POLICYGROUP, PUBLIC_NETWORK, SUBNET, ZONE };
    
    public enum PolicyState { DRAFT, LIVE };
 
@@ -155,9 +154,6 @@ public class IngressExternalServiceTemplateEntry extends RestObject {
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private JobsFetcher jobs;
-   
-   @JsonIgnore
    private MetadatasFetcher metadatas;
    
    @JsonIgnore
@@ -167,8 +163,6 @@ public class IngressExternalServiceTemplateEntry extends RestObject {
    public IngressExternalServiceTemplateEntry() {
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
-      
-      jobs = new JobsFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
       
@@ -482,11 +476,6 @@ public class IngressExternalServiceTemplateEntry extends RestObject {
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
-   }
-   
-   @JsonIgnore
-   public JobsFetcher getJobs() {
-      return jobs;
    }
    
    @JsonIgnore

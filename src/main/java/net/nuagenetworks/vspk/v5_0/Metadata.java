@@ -48,6 +48,12 @@ public class Metadata extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
+   @JsonProperty(value = "assocEntityID")
+   protected String assocEntityID;
+   
+   @JsonProperty(value = "assocEntityType")
+   protected String assocEntityType;
+   
    @JsonProperty(value = "blob")
    protected String blob;
    
@@ -62,6 +68,9 @@ public class Metadata extends RestObject {
    
    @JsonProperty(value = "global")
    protected Boolean globalMetadata;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
    @JsonProperty(value = "metadataTagIDs")
    protected java.util.List<String> metadataTagIDs;
@@ -84,6 +93,26 @@ public class Metadata extends RestObject {
       
    }
 
+   
+   @JsonIgnore
+   public String getAssocEntityID() {
+      return assocEntityID;
+   }
+
+   @JsonIgnore
+   public void setAssocEntityID(String value) { 
+      this.assocEntityID = value;
+   }
+   
+   @JsonIgnore
+   public String getAssocEntityType() {
+      return assocEntityType;
+   }
+
+   @JsonIgnore
+   public void setAssocEntityType(String value) { 
+      this.assocEntityType = value;
+   }
    
    @JsonIgnore
    public String getBlob() {
@@ -136,6 +165,16 @@ public class Metadata extends RestObject {
    }
    
    @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   
+   @JsonIgnore
    public java.util.List<String> getMetadataTagIDs() {
       return metadataTagIDs;
    }
@@ -174,7 +213,7 @@ public class Metadata extends RestObject {
    
 
    public String toString() {
-      return "Metadata [" + "blob=" + blob + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", globalMetadata=" + globalMetadata + ", metadataTagIDs=" + metadataTagIDs + ", name=" + name + ", networkNotificationDisabled=" + networkNotificationDisabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Metadata [" + "assocEntityID=" + assocEntityID + ", assocEntityType=" + assocEntityType + ", blob=" + blob + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", globalMetadata=" + globalMetadata + ", lastUpdatedBy=" + lastUpdatedBy + ", metadataTagIDs=" + metadataTagIDs + ", name=" + name + ", networkNotificationDisabled=" + networkNotificationDisabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    
