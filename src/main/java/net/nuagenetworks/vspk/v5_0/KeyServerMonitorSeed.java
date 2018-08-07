@@ -52,6 +52,8 @@ public class KeyServerMonitorSeed extends RestObject {
    public enum SeedTrafficAuthenticationAlgorithm { HMAC_MD5, HMAC_SHA1, HMAC_SHA256, HMAC_SHA384, HMAC_SHA512 };
    
    public enum SeedTrafficEncryptionAlgorithm { AES_128_CBC, AES_192_CBC, AES_256_CBC, TRIPLE_DES_CBC };
+   
+   public enum SeedType { DR, STANDARD };
 
    
    @JsonProperty(value = "creationTime")
@@ -77,6 +79,9 @@ public class KeyServerMonitorSeed extends RestObject {
    
    @JsonProperty(value = "seedTrafficEncryptionKeyLifetime")
    protected Long seedTrafficEncryptionKeyLifetime;
+   
+   @JsonProperty(value = "seedType")
+   protected SeedType seedType;
    
    @JsonProperty(value = "startTime")
    protected Long startTime;
@@ -185,6 +190,16 @@ public class KeyServerMonitorSeed extends RestObject {
    }
    
    @JsonIgnore
+   public SeedType getSeedType() {
+      return seedType;
+   }
+
+   @JsonIgnore
+   public void setSeedType(SeedType value) { 
+      this.seedType = value;
+   }
+   
+   @JsonIgnore
    public Long getStartTime() {
       return startTime;
    }
@@ -213,7 +228,7 @@ public class KeyServerMonitorSeed extends RestObject {
    
 
    public String toString() {
-      return "KeyServerMonitorSeed [" + "creationTime=" + creationTime + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lifetime=" + lifetime + ", seedTrafficAuthenticationAlgorithm=" + seedTrafficAuthenticationAlgorithm + ", seedTrafficEncryptionAlgorithm=" + seedTrafficEncryptionAlgorithm + ", seedTrafficEncryptionKeyLifetime=" + seedTrafficEncryptionKeyLifetime + ", startTime=" + startTime + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "KeyServerMonitorSeed [" + "creationTime=" + creationTime + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lifetime=" + lifetime + ", seedTrafficAuthenticationAlgorithm=" + seedTrafficAuthenticationAlgorithm + ", seedTrafficEncryptionAlgorithm=" + seedTrafficEncryptionAlgorithm + ", seedTrafficEncryptionKeyLifetime=" + seedTrafficEncryptionKeyLifetime + ", seedType=" + seedType + ", startTime=" + startTime + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

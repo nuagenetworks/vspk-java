@@ -36,13 +36,24 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 import net.nuagenetworks.vspk.v5_0.fetchers.AlarmsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.DeploymentFailuresFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.EgressProfilesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EnterprisePermissionsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GatewaysFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.GatewayRedundantPortsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.IngressProfilesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.IPFilterProfilesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.IPv6FilterProfilesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.JobsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.L2DomainsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.MACFilterProfilesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PortsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.SAPEgressQoSProfilesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.SAPIngressQoSProfilesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.WANServicesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VsgRedundantPortsFetcher;
 
@@ -58,7 +69,7 @@ public class RedundancyGroup extends RestObject {
    
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    
-   public enum Personality { DC7X50, HARDWARE_VTEP, NSG, NSGBR, NSGDUC, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, OTHER, VRSB, VRSG, VSA, VSG };
+   public enum Personality { DC7X50, HARDWARE_VTEP, NETCONF_7X50, NSG, NSGBR, NSGDUC, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, OTHER, VDFG, VRSB, VRSG, VSA, VSG };
    
    public enum RedundantGatewayStatus { FAILED, SUCCESS };
 
@@ -78,6 +89,9 @@ public class RedundancyGroup extends RestObject {
    @JsonProperty(value = "gatewayPeer1AutodiscoveredGatewayID")
    protected String gatewayPeer1AutodiscoveredGatewayID;
    
+   @JsonProperty(value = "gatewayPeer1Connected")
+   protected Boolean gatewayPeer1Connected;
+   
    @JsonProperty(value = "gatewayPeer1ID")
    protected String gatewayPeer1ID;
    
@@ -86,6 +100,9 @@ public class RedundancyGroup extends RestObject {
    
    @JsonProperty(value = "gatewayPeer2AutodiscoveredGatewayID")
    protected String gatewayPeer2AutodiscoveredGatewayID;
+   
+   @JsonProperty(value = "gatewayPeer2Connected")
+   protected Boolean gatewayPeer2Connected;
    
    @JsonProperty(value = "gatewayPeer2ID")
    protected String gatewayPeer2ID;
@@ -117,6 +134,12 @@ public class RedundancyGroup extends RestObject {
    private AlarmsFetcher alarms;
    
    @JsonIgnore
+   private DeploymentFailuresFetcher deploymentFailures;
+   
+   @JsonIgnore
+   private EgressProfilesFetcher egressProfiles;
+   
+   @JsonIgnore
    private EnterprisePermissionsFetcher enterprisePermissions;
    
    @JsonIgnore
@@ -126,7 +149,28 @@ public class RedundancyGroup extends RestObject {
    private GatewaysFetcher gateways;
    
    @JsonIgnore
+   private GatewayRedundantPortsFetcher gatewayRedundantPorts;
+   
+   @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private IngressProfilesFetcher ingressProfiles;
+   
+   @JsonIgnore
+   private IPFilterProfilesFetcher iPFilterProfiles;
+   
+   @JsonIgnore
+   private IPv6FilterProfilesFetcher iPv6FilterProfiles;
+   
+   @JsonIgnore
+   private JobsFetcher jobs;
+   
+   @JsonIgnore
+   private L2DomainsFetcher l2Domains;
+   
+   @JsonIgnore
+   private MACFilterProfilesFetcher mACFilterProfiles;
    
    @JsonIgnore
    private MetadatasFetcher metadatas;
@@ -136,6 +180,12 @@ public class RedundancyGroup extends RestObject {
    
    @JsonIgnore
    private PortsFetcher ports;
+   
+   @JsonIgnore
+   private SAPEgressQoSProfilesFetcher sAPEgressQoSProfiles;
+   
+   @JsonIgnore
+   private SAPIngressQoSProfilesFetcher sAPIngressQoSProfiles;
    
    @JsonIgnore
    private WANServicesFetcher wANServices;
@@ -148,19 +198,41 @@ public class RedundancyGroup extends RestObject {
       
       alarms = new AlarmsFetcher(this);
       
+      deploymentFailures = new DeploymentFailuresFetcher(this);
+      
+      egressProfiles = new EgressProfilesFetcher(this);
+      
       enterprisePermissions = new EnterprisePermissionsFetcher(this);
       
       eventLogs = new EventLogsFetcher(this);
       
       gateways = new GatewaysFetcher(this);
       
+      gatewayRedundantPorts = new GatewayRedundantPortsFetcher(this);
+      
       globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      ingressProfiles = new IngressProfilesFetcher(this);
+      
+      iPFilterProfiles = new IPFilterProfilesFetcher(this);
+      
+      iPv6FilterProfiles = new IPv6FilterProfilesFetcher(this);
+      
+      jobs = new JobsFetcher(this);
+      
+      l2Domains = new L2DomainsFetcher(this);
+      
+      mACFilterProfiles = new MACFilterProfilesFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
       
       permissions = new PermissionsFetcher(this);
       
       ports = new PortsFetcher(this);
+      
+      sAPEgressQoSProfiles = new SAPEgressQoSProfilesFetcher(this);
+      
+      sAPIngressQoSProfiles = new SAPIngressQoSProfilesFetcher(this);
       
       wANServices = new WANServicesFetcher(this);
       
@@ -220,6 +292,16 @@ public class RedundancyGroup extends RestObject {
    }
    
    @JsonIgnore
+   public Boolean getGatewayPeer1Connected() {
+      return gatewayPeer1Connected;
+   }
+
+   @JsonIgnore
+   public void setGatewayPeer1Connected(Boolean value) { 
+      this.gatewayPeer1Connected = value;
+   }
+   
+   @JsonIgnore
    public String getGatewayPeer1ID() {
       return gatewayPeer1ID;
    }
@@ -247,6 +329,16 @@ public class RedundancyGroup extends RestObject {
    @JsonIgnore
    public void setGatewayPeer2AutodiscoveredGatewayID(String value) { 
       this.gatewayPeer2AutodiscoveredGatewayID = value;
+   }
+   
+   @JsonIgnore
+   public Boolean getGatewayPeer2Connected() {
+      return gatewayPeer2Connected;
+   }
+
+   @JsonIgnore
+   public void setGatewayPeer2Connected(Boolean value) { 
+      this.gatewayPeer2Connected = value;
    }
    
    @JsonIgnore
@@ -337,6 +429,16 @@ public class RedundancyGroup extends RestObject {
    }
    
    @JsonIgnore
+   public DeploymentFailuresFetcher getDeploymentFailures() {
+      return deploymentFailures;
+   }
+   
+   @JsonIgnore
+   public EgressProfilesFetcher getEgressProfiles() {
+      return egressProfiles;
+   }
+   
+   @JsonIgnore
    public EnterprisePermissionsFetcher getEnterprisePermissions() {
       return enterprisePermissions;
    }
@@ -352,8 +454,43 @@ public class RedundancyGroup extends RestObject {
    }
    
    @JsonIgnore
+   public GatewayRedundantPortsFetcher getGatewayRedundantPorts() {
+      return gatewayRedundantPorts;
+   }
+   
+   @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public IngressProfilesFetcher getIngressProfiles() {
+      return ingressProfiles;
+   }
+   
+   @JsonIgnore
+   public IPFilterProfilesFetcher getIPFilterProfiles() {
+      return iPFilterProfiles;
+   }
+   
+   @JsonIgnore
+   public IPv6FilterProfilesFetcher getIPv6FilterProfiles() {
+      return iPv6FilterProfiles;
+   }
+   
+   @JsonIgnore
+   public JobsFetcher getJobs() {
+      return jobs;
+   }
+   
+   @JsonIgnore
+   public L2DomainsFetcher getL2Domains() {
+      return l2Domains;
+   }
+   
+   @JsonIgnore
+   public MACFilterProfilesFetcher getMACFilterProfiles() {
+      return mACFilterProfiles;
    }
    
    @JsonIgnore
@@ -372,6 +509,16 @@ public class RedundancyGroup extends RestObject {
    }
    
    @JsonIgnore
+   public SAPEgressQoSProfilesFetcher getSAPEgressQoSProfiles() {
+      return sAPEgressQoSProfiles;
+   }
+   
+   @JsonIgnore
+   public SAPIngressQoSProfilesFetcher getSAPIngressQoSProfiles() {
+      return sAPIngressQoSProfiles;
+   }
+   
+   @JsonIgnore
    public WANServicesFetcher getWANServices() {
       return wANServices;
    }
@@ -383,7 +530,7 @@ public class RedundancyGroup extends RestObject {
    
 
    public String toString() {
-      return "RedundancyGroup [" + "description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayPeer1AutodiscoveredGatewayID=" + gatewayPeer1AutodiscoveredGatewayID + ", gatewayPeer1ID=" + gatewayPeer1ID + ", gatewayPeer1Name=" + gatewayPeer1Name + ", gatewayPeer2AutodiscoveredGatewayID=" + gatewayPeer2AutodiscoveredGatewayID + ", gatewayPeer2ID=" + gatewayPeer2ID + ", gatewayPeer2Name=" + gatewayPeer2Name + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", permittedAction=" + permittedAction + ", personality=" + personality + ", redundantGatewayStatus=" + redundantGatewayStatus + ", vtep=" + vtep + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "RedundancyGroup [" + "description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayPeer1AutodiscoveredGatewayID=" + gatewayPeer1AutodiscoveredGatewayID + ", gatewayPeer1Connected=" + gatewayPeer1Connected + ", gatewayPeer1ID=" + gatewayPeer1ID + ", gatewayPeer1Name=" + gatewayPeer1Name + ", gatewayPeer2AutodiscoveredGatewayID=" + gatewayPeer2AutodiscoveredGatewayID + ", gatewayPeer2Connected=" + gatewayPeer2Connected + ", gatewayPeer2ID=" + gatewayPeer2ID + ", gatewayPeer2Name=" + gatewayPeer2Name + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", permittedAction=" + permittedAction + ", personality=" + personality + ", redundantGatewayStatus=" + redundantGatewayStatus + ", vtep=" + vtep + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

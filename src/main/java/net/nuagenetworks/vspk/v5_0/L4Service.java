@@ -47,6 +47,12 @@ public class L4Service extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
+   @JsonProperty(value = "ICMPCode")
+   protected String ICMPCode;
+   
+   @JsonProperty(value = "ICMPType")
+   protected String ICMPType;
+   
    @JsonProperty(value = "defaultService")
    protected Boolean defaultService;
    
@@ -78,6 +84,26 @@ public class L4Service extends RestObject {
       
    }
 
+   
+   @JsonIgnore
+   public String getICMPCode() {
+      return ICMPCode;
+   }
+
+   @JsonIgnore
+   public void setICMPCode(String value) { 
+      this.ICMPCode = value;
+   }
+   
+   @JsonIgnore
+   public String getICMPType() {
+      return ICMPType;
+   }
+
+   @JsonIgnore
+   public void setICMPType(String value) { 
+      this.ICMPType = value;
+   }
    
    @JsonIgnore
    public Boolean getDefaultService() {
@@ -163,7 +189,7 @@ public class L4Service extends RestObject {
    
 
    public String toString() {
-      return "L4Service [" + "defaultService=" + defaultService + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", ports=" + ports + ", protocol=" + protocol + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "L4Service [" + "ICMPCode=" + ICMPCode + ", ICMPType=" + ICMPType + ", defaultService=" + defaultService + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", ports=" + ports + ", protocol=" + protocol + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

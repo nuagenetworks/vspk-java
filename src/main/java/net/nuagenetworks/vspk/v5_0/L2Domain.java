@@ -36,6 +36,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 import net.nuagenetworks.vspk.v5_0.fetchers.AddressRangesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.ApplicationperformancemanagementbindingsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.BridgeInterfacesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ContainersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ContainerInterfacesFetcher;
@@ -54,6 +55,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.IngressExternalServiceTemplatesFetch
 import net.nuagenetworks.vspk.v5_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NetworkPerformanceBindingsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.NSGatewaySummariesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.OverlayMirrorDestinationsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PGExpressionsFetcher;
@@ -179,6 +181,9 @@ public class L2Domain extends RestObject {
    @JsonProperty(value = "routeTarget")
    protected String routeTarget;
    
+   @JsonProperty(value = "routedVPLSEnabled")
+   protected Boolean routedVPLSEnabled;
+   
    @JsonProperty(value = "serviceID")
    protected Long serviceID;
    
@@ -201,6 +206,9 @@ public class L2Domain extends RestObject {
    
    @JsonIgnore
    private AddressRangesFetcher addressRanges;
+   
+   @JsonIgnore
+   private ApplicationperformancemanagementbindingsFetcher applicationperformancemanagementbindings;
    
    @JsonIgnore
    private BridgeInterfacesFetcher bridgeInterfaces;
@@ -257,6 +265,9 @@ public class L2Domain extends RestObject {
    private NetworkPerformanceBindingsFetcher networkPerformanceBindings;
    
    @JsonIgnore
+   private NSGatewaySummariesFetcher nSGatewaySummaries;
+   
+   @JsonIgnore
    private OverlayMirrorDestinationsFetcher overlayMirrorDestinations;
    
    @JsonIgnore
@@ -307,6 +318,8 @@ public class L2Domain extends RestObject {
       
       addressRanges = new AddressRangesFetcher(this);
       
+      applicationperformancemanagementbindings = new ApplicationperformancemanagementbindingsFetcher(this);
+      
       bridgeInterfaces = new BridgeInterfacesFetcher(this);
       
       containers = new ContainersFetcher(this);
@@ -342,6 +355,8 @@ public class L2Domain extends RestObject {
       metadatas = new MetadatasFetcher(this);
       
       networkPerformanceBindings = new NetworkPerformanceBindingsFetcher(this);
+      
+      nSGatewaySummaries = new NSGatewaySummariesFetcher(this);
       
       overlayMirrorDestinations = new OverlayMirrorDestinationsFetcher(this);
       
@@ -637,6 +652,16 @@ public class L2Domain extends RestObject {
    }
    
    @JsonIgnore
+   public Boolean getRoutedVPLSEnabled() {
+      return routedVPLSEnabled;
+   }
+
+   @JsonIgnore
+   public void setRoutedVPLSEnabled(Boolean value) { 
+      this.routedVPLSEnabled = value;
+   }
+   
+   @JsonIgnore
    public Long getServiceID() {
       return serviceID;
    }
@@ -701,6 +726,11 @@ public class L2Domain extends RestObject {
    @JsonIgnore
    public AddressRangesFetcher getAddressRanges() {
       return addressRanges;
+   }
+   
+   @JsonIgnore
+   public ApplicationperformancemanagementbindingsFetcher getApplicationperformancemanagementbindings() {
+      return applicationperformancemanagementbindings;
    }
    
    @JsonIgnore
@@ -794,6 +824,11 @@ public class L2Domain extends RestObject {
    }
    
    @JsonIgnore
+   public NSGatewaySummariesFetcher getNSGatewaySummaries() {
+      return nSGatewaySummaries;
+   }
+   
+   @JsonIgnore
    public OverlayMirrorDestinationsFetcher getOverlayMirrorDestinations() {
       return overlayMirrorDestinations;
    }
@@ -870,7 +905,7 @@ public class L2Domain extends RestObject {
    
 
    public String toString() {
-      return "L2Domain [" + "DHCPManaged=" + DHCPManaged + ", DPI=" + DPI + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", IPv6Gateway=" + IPv6Gateway + ", address=" + address + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSharedNetworkResourceID=" + associatedSharedNetworkResourceID + ", associatedUnderlayID=" + associatedUnderlayID + ", description=" + description + ", dynamicIpv6Address=" + dynamicIpv6Address + ", encryption=" + encryption + ", entityScope=" + entityScope + ", entityState=" + entityState + ", externalID=" + externalID + ", flowCollectionEnabled=" + flowCollectionEnabled + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", lastUpdatedBy=" + lastUpdatedBy + ", maintenanceMode=" + maintenanceMode + ", multicast=" + multicast + ", name=" + name + ", netmask=" + netmask + ", policyChangeStatus=" + policyChangeStatus + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", serviceID=" + serviceID + ", stretched=" + stretched + ", templateID=" + templateID + ", uplinkPreference=" + uplinkPreference + ", useGlobalMAC=" + useGlobalMAC + ", vnId=" + vnId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "L2Domain [" + "DHCPManaged=" + DHCPManaged + ", DPI=" + DPI + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", IPv6Gateway=" + IPv6Gateway + ", address=" + address + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSharedNetworkResourceID=" + associatedSharedNetworkResourceID + ", associatedUnderlayID=" + associatedUnderlayID + ", description=" + description + ", dynamicIpv6Address=" + dynamicIpv6Address + ", encryption=" + encryption + ", entityScope=" + entityScope + ", entityState=" + entityState + ", externalID=" + externalID + ", flowCollectionEnabled=" + flowCollectionEnabled + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", lastUpdatedBy=" + lastUpdatedBy + ", maintenanceMode=" + maintenanceMode + ", multicast=" + multicast + ", name=" + name + ", netmask=" + netmask + ", policyChangeStatus=" + policyChangeStatus + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", routedVPLSEnabled=" + routedVPLSEnabled + ", serviceID=" + serviceID + ", stretched=" + stretched + ", templateID=" + templateID + ", uplinkPreference=" + uplinkPreference + ", useGlobalMAC=" + useGlobalMAC + ", vnId=" + vnId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

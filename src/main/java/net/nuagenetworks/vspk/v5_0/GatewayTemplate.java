@@ -49,7 +49,7 @@ public class GatewayTemplate extends RestObject {
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    
-   public enum Personality { DC7X50, HARDWARE_VTEP, NSG, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, OTHER, VRSB, VRSG, VSA, VSG };
+   public enum Personality { DC7X50, EVDF, EVDFB, HARDWARE_VTEP, NETCONF_7X50, NSG, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, OTHER, VDFG, VRSB, VRSG, VSA, VSG };
 
    
    @JsonProperty(value = "description")
@@ -63,6 +63,9 @@ public class GatewayTemplate extends RestObject {
    
    @JsonProperty(value = "externalID")
    protected String externalID;
+   
+   @JsonProperty(value = "infrastructureProfileID")
+   protected String infrastructureProfileID;
    
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
@@ -138,6 +141,16 @@ public class GatewayTemplate extends RestObject {
    }
    
    @JsonIgnore
+   public String getInfrastructureProfileID() {
+      return infrastructureProfileID;
+   }
+
+   @JsonIgnore
+   public void setInfrastructureProfileID(String value) { 
+      this.infrastructureProfileID = value;
+   }
+   
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
@@ -186,7 +199,7 @@ public class GatewayTemplate extends RestObject {
    
 
    public String toString() {
-      return "GatewayTemplate [" + "description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", personality=" + personality + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "GatewayTemplate [" + "description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", infrastructureProfileID=" + infrastructureProfileID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", personality=" + personality + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

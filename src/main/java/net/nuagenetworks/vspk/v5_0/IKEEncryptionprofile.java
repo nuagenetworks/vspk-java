@@ -122,6 +122,9 @@ public class IKEEncryptionprofile extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
+   @JsonProperty(value = "ipsecSAReplayWindowSizeValue")
+   protected Long ipsecSAReplayWindowSizeValue;
+   
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
    
@@ -340,6 +343,16 @@ public class IKEEncryptionprofile extends RestObject {
    }
    
    @JsonIgnore
+   public Long getIpsecSAReplayWindowSizeValue() {
+      return ipsecSAReplayWindowSizeValue;
+   }
+
+   @JsonIgnore
+   public void setIpsecSAReplayWindowSizeValue(Long value) { 
+      this.ipsecSAReplayWindowSizeValue = value;
+   }
+   
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
@@ -383,7 +396,7 @@ public class IKEEncryptionprofile extends RestObject {
    
 
    public String toString() {
-      return "IKEEncryptionprofile [" + "DPDInterval=" + DPDInterval + ", DPDMode=" + DPDMode + ", DPDTimeout=" + DPDTimeout + ", IPsecAuthenticationAlgorithm=" + IPsecAuthenticationAlgorithm + ", IPsecDontFragment=" + IPsecDontFragment + ", IPsecEnablePFS=" + IPsecEnablePFS + ", IPsecEncryptionAlgorithm=" + IPsecEncryptionAlgorithm + ", IPsecPreFragment=" + IPsecPreFragment + ", IPsecSALifetime=" + IPsecSALifetime + ", IPsecSAReplayWindowSize=" + IPsecSAReplayWindowSize + ", ISAKMPAuthenticationMode=" + ISAKMPAuthenticationMode + ", ISAKMPDiffieHelmanGroupIdentifier=" + ISAKMPDiffieHelmanGroupIdentifier + ", ISAKMPEncryptionAlgorithm=" + ISAKMPEncryptionAlgorithm + ", ISAKMPEncryptionKeyLifetime=" + ISAKMPEncryptionKeyLifetime + ", ISAKMPHashAlgorithm=" + ISAKMPHashAlgorithm + ", associatedEnterpriseID=" + associatedEnterpriseID + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", sequence=" + sequence + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "IKEEncryptionprofile [" + "DPDInterval=" + DPDInterval + ", DPDMode=" + DPDMode + ", DPDTimeout=" + DPDTimeout + ", IPsecAuthenticationAlgorithm=" + IPsecAuthenticationAlgorithm + ", IPsecDontFragment=" + IPsecDontFragment + ", IPsecEnablePFS=" + IPsecEnablePFS + ", IPsecEncryptionAlgorithm=" + IPsecEncryptionAlgorithm + ", IPsecPreFragment=" + IPsecPreFragment + ", IPsecSALifetime=" + IPsecSALifetime + ", IPsecSAReplayWindowSize=" + IPsecSAReplayWindowSize + ", ISAKMPAuthenticationMode=" + ISAKMPAuthenticationMode + ", ISAKMPDiffieHelmanGroupIdentifier=" + ISAKMPDiffieHelmanGroupIdentifier + ", ISAKMPEncryptionAlgorithm=" + ISAKMPEncryptionAlgorithm + ", ISAKMPEncryptionKeyLifetime=" + ISAKMPEncryptionKeyLifetime + ", ISAKMPHashAlgorithm=" + ISAKMPHashAlgorithm + ", associatedEnterpriseID=" + associatedEnterpriseID + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", ipsecSAReplayWindowSizeValue=" + ipsecSAReplayWindowSizeValue + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", sequence=" + sequence + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

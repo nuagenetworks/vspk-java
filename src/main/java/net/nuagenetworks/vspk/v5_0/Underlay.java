@@ -65,7 +65,7 @@ public class Underlay extends RestObject {
    protected String name;
    
    @JsonProperty(value = "underlayId")
-   protected String underlayId;
+   protected Long underlayId;
    
 
    
@@ -136,12 +136,12 @@ public class Underlay extends RestObject {
    }
    
    @JsonIgnore
-   public String getUnderlayId() {
+   public Long getUnderlayId() {
       return underlayId;
    }
 
    @JsonIgnore
-   public void setUnderlayId(String value) { 
+   public void setUnderlayId(Long value) { 
       this.underlayId = value;
    }
    

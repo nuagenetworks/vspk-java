@@ -49,6 +49,8 @@ public class ZFBRequest extends RestObject {
    
    public enum ZFBApprovalStatus { APPROVED, ASSIGNED, DENIED, UNASSIGNED };
    
+   public enum AssociatedEntityType { GATEWAY, NSGATEWAY };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
@@ -87,6 +89,15 @@ public class ZFBRequest extends RestObject {
    
    @JsonProperty(value = "associatedEnterpriseName")
    protected String associatedEnterpriseName;
+   
+   @JsonProperty(value = "associatedEntityType")
+   protected AssociatedEntityType associatedEntityType;
+   
+   @JsonProperty(value = "associatedGatewayID")
+   protected String associatedGatewayID;
+   
+   @JsonProperty(value = "associatedGatewayName")
+   protected String associatedGatewayName;
    
    @JsonProperty(value = "associatedNSGatewayID")
    protected String associatedNSGatewayID;
@@ -262,6 +273,36 @@ public class ZFBRequest extends RestObject {
    }
    
    @JsonIgnore
+   public AssociatedEntityType getAssociatedEntityType() {
+      return associatedEntityType;
+   }
+
+   @JsonIgnore
+   public void setAssociatedEntityType(AssociatedEntityType value) { 
+      this.associatedEntityType = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedGatewayID() {
+      return associatedGatewayID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedGatewayID(String value) { 
+      this.associatedGatewayID = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedGatewayName() {
+      return associatedGatewayName;
+   }
+
+   @JsonIgnore
+   public void setAssociatedGatewayName(String value) { 
+      this.associatedGatewayName = value;
+   }
+   
+   @JsonIgnore
    public String getAssociatedNSGatewayID() {
       return associatedNSGatewayID;
    }
@@ -380,7 +421,7 @@ public class ZFBRequest extends RestObject {
    
 
    public String toString() {
-      return "ZFBRequest [" + "CPUType=" + CPUType + ", IPAddress=" + IPAddress + ", MACAddress=" + MACAddress + ", NSGVersion=" + NSGVersion + ", SKU=" + SKU + ", UUID=" + UUID + ", ZFBApprovalStatus=" + ZFBApprovalStatus + ", ZFBBootstrapEnabled=" + ZFBBootstrapEnabled + ", ZFBInfo=" + ZFBInfo + ", ZFBRequestRetryTimer=" + ZFBRequestRetryTimer + ", associatedEnterpriseID=" + associatedEnterpriseID + ", associatedEnterpriseName=" + associatedEnterpriseName + ", associatedNSGatewayID=" + associatedNSGatewayID + ", associatedNSGatewayName=" + associatedNSGatewayName + ", entityScope=" + entityScope + ", externalID=" + externalID + ", family=" + family + ", hostname=" + hostname + ", lastConnectedTime=" + lastConnectedTime + ", lastUpdatedBy=" + lastUpdatedBy + ", serialNumber=" + serialNumber + ", statusString=" + statusString + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "ZFBRequest [" + "CPUType=" + CPUType + ", IPAddress=" + IPAddress + ", MACAddress=" + MACAddress + ", NSGVersion=" + NSGVersion + ", SKU=" + SKU + ", UUID=" + UUID + ", ZFBApprovalStatus=" + ZFBApprovalStatus + ", ZFBBootstrapEnabled=" + ZFBBootstrapEnabled + ", ZFBInfo=" + ZFBInfo + ", ZFBRequestRetryTimer=" + ZFBRequestRetryTimer + ", associatedEnterpriseID=" + associatedEnterpriseID + ", associatedEnterpriseName=" + associatedEnterpriseName + ", associatedEntityType=" + associatedEntityType + ", associatedGatewayID=" + associatedGatewayID + ", associatedGatewayName=" + associatedGatewayName + ", associatedNSGatewayID=" + associatedNSGatewayID + ", associatedNSGatewayName=" + associatedNSGatewayName + ", entityScope=" + entityScope + ", externalID=" + externalID + ", family=" + family + ", hostname=" + hostname + ", lastConnectedTime=" + lastConnectedTime + ", lastUpdatedBy=" + lastUpdatedBy + ", serialNumber=" + serialNumber + ", statusString=" + statusString + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

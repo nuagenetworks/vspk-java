@@ -36,14 +36,25 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 import net.nuagenetworks.vspk.v5_0.fetchers.AlarmsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.BootstrapsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.DeploymentFailuresFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.EgressProfilesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EnterprisePermissionsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.IngressProfilesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.IPFilterProfilesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.IPv6FilterProfilesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.JobsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.LocationsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.MACFilterProfilesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.NSGInfosFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PATNATPoolsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PortsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.SAPEgressQoSProfilesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.SAPIngressQoSProfilesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.WANServicesFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -54,15 +65,60 @@ public class Gateway extends RestObject {
 
    
    
+   public enum ZFBMatchAttribute { HOSTNAME, IP_ADDRESS, MAC_ADDRESS, NONE, SERIAL_NUMBER, UUID };
+   
+   public enum BootstrapStatus { ACTIVE, CERTIFICATE_SIGNED, INACTIVE, NOTIFICATION_APP_REQ_ACK, NOTIFICATION_APP_REQ_SENT };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
+   public enum Family { ANY, NSG_AMI, NSG_AZ, NSG_C, NSG_E, NSG_E200, NSG_E300, NSG_V, NSG_X, NSG_X200, VRS };
    
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    
-   public enum Personality { DC7X50, HARDWARE_VTEP, NSG, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, OTHER, VRSB, VRSG, VSA, VSG };
+   public enum Personality { DC7X50, EVDF, EVDFB, HARDWARE_VTEP, NETCONF_7X50, NSG, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, OTHER, VDFG, VRSB, VRSG, VSA, VSG };
 
+   
+   @JsonProperty(value = "BIOSReleaseDate")
+   protected String BIOSReleaseDate;
+   
+   @JsonProperty(value = "BIOSVersion")
+   protected String BIOSVersion;
+   
+   @JsonProperty(value = "CPUType")
+   protected String CPUType;
+   
+   @JsonProperty(value = "MACAddress")
+   protected String MACAddress;
+   
+   @JsonProperty(value = "UUID")
+   protected String UUID;
+   
+   @JsonProperty(value = "ZFBMatchAttribute")
+   protected ZFBMatchAttribute ZFBMatchAttribute;
+   
+   @JsonProperty(value = "ZFBMatchValue")
+   protected String ZFBMatchValue;
+   
+   @JsonProperty(value = "associatedGatewaySecurityID")
+   protected String associatedGatewaySecurityID;
+   
+   @JsonProperty(value = "associatedNSGInfoID")
+   protected String associatedNSGInfoID;
+   
+   @JsonProperty(value = "associatedNetconfProfileID")
+   protected String associatedNetconfProfileID;
    
    @JsonProperty(value = "autoDiscGatewayID")
    protected String autoDiscGatewayID;
+   
+   @JsonProperty(value = "bootstrapID")
+   protected String bootstrapID;
+   
+   @JsonProperty(value = "bootstrapStatus")
+   protected BootstrapStatus bootstrapStatus;
+   
+   @JsonProperty(value = "datapathID")
+   protected String datapathID;
    
    @JsonProperty(value = "description")
    protected String description;
@@ -76,8 +132,26 @@ public class Gateway extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
+   @JsonProperty(value = "family")
+   protected Family family;
+   
+   @JsonProperty(value = "gatewayConnected")
+   protected Boolean gatewayConnected;
+   
+   @JsonProperty(value = "gatewayVersion")
+   protected String gatewayVersion;
+   
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "libraries")
+   protected String libraries;
+   
+   @JsonProperty(value = "locationID")
+   protected String locationID;
+   
+   @JsonProperty(value = "managementID")
+   protected String managementID;
    
    @JsonProperty(value = "name")
    protected String name;
@@ -94,8 +168,14 @@ public class Gateway extends RestObject {
    @JsonProperty(value = "personality")
    protected Personality personality;
    
+   @JsonProperty(value = "productName")
+   protected String productName;
+   
    @JsonProperty(value = "redundancyGroupID")
    protected String redundancyGroupID;
+   
+   @JsonProperty(value = "serialNumber")
+   protected String serialNumber;
    
    @JsonProperty(value = "systemID")
    protected String systemID;
@@ -115,6 +195,15 @@ public class Gateway extends RestObject {
    private AlarmsFetcher alarms;
    
    @JsonIgnore
+   private BootstrapsFetcher bootstraps;
+   
+   @JsonIgnore
+   private DeploymentFailuresFetcher deploymentFailures;
+   
+   @JsonIgnore
+   private EgressProfilesFetcher egressProfiles;
+   
+   @JsonIgnore
    private EnterprisePermissionsFetcher enterprisePermissions;
    
    @JsonIgnore
@@ -124,10 +213,28 @@ public class Gateway extends RestObject {
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
+   private IngressProfilesFetcher ingressProfiles;
+   
+   @JsonIgnore
+   private IPFilterProfilesFetcher iPFilterProfiles;
+   
+   @JsonIgnore
+   private IPv6FilterProfilesFetcher iPv6FilterProfiles;
+   
+   @JsonIgnore
    private JobsFetcher jobs;
    
    @JsonIgnore
+   private LocationsFetcher locations;
+   
+   @JsonIgnore
+   private MACFilterProfilesFetcher mACFilterProfiles;
+   
+   @JsonIgnore
    private MetadatasFetcher metadatas;
+   
+   @JsonIgnore
+   private NSGInfosFetcher nSGInfos;
    
    @JsonIgnore
    private PATNATPoolsFetcher pATNATPools;
@@ -139,6 +246,12 @@ public class Gateway extends RestObject {
    private PortsFetcher ports;
    
    @JsonIgnore
+   private SAPEgressQoSProfilesFetcher sAPEgressQoSProfiles;
+   
+   @JsonIgnore
+   private SAPIngressQoSProfilesFetcher sAPIngressQoSProfiles;
+   
+   @JsonIgnore
    private WANServicesFetcher wANServices;
    
 
@@ -147,15 +260,33 @@ public class Gateway extends RestObject {
       
       alarms = new AlarmsFetcher(this);
       
+      bootstraps = new BootstrapsFetcher(this);
+      
+      deploymentFailures = new DeploymentFailuresFetcher(this);
+      
+      egressProfiles = new EgressProfilesFetcher(this);
+      
       enterprisePermissions = new EnterprisePermissionsFetcher(this);
       
       eventLogs = new EventLogsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      ingressProfiles = new IngressProfilesFetcher(this);
+      
+      iPFilterProfiles = new IPFilterProfilesFetcher(this);
+      
+      iPv6FilterProfiles = new IPv6FilterProfilesFetcher(this);
+      
       jobs = new JobsFetcher(this);
       
+      locations = new LocationsFetcher(this);
+      
+      mACFilterProfiles = new MACFilterProfilesFetcher(this);
+      
       metadatas = new MetadatasFetcher(this);
+      
+      nSGInfos = new NSGInfosFetcher(this);
       
       pATNATPools = new PATNATPoolsFetcher(this);
       
@@ -163,10 +294,114 @@ public class Gateway extends RestObject {
       
       ports = new PortsFetcher(this);
       
+      sAPEgressQoSProfiles = new SAPEgressQoSProfilesFetcher(this);
+      
+      sAPIngressQoSProfiles = new SAPIngressQoSProfilesFetcher(this);
+      
       wANServices = new WANServicesFetcher(this);
       
    }
 
+   
+   @JsonIgnore
+   public String getBIOSReleaseDate() {
+      return BIOSReleaseDate;
+   }
+
+   @JsonIgnore
+   public void setBIOSReleaseDate(String value) { 
+      this.BIOSReleaseDate = value;
+   }
+   
+   @JsonIgnore
+   public String getBIOSVersion() {
+      return BIOSVersion;
+   }
+
+   @JsonIgnore
+   public void setBIOSVersion(String value) { 
+      this.BIOSVersion = value;
+   }
+   
+   @JsonIgnore
+   public String getCPUType() {
+      return CPUType;
+   }
+
+   @JsonIgnore
+   public void setCPUType(String value) { 
+      this.CPUType = value;
+   }
+   
+   @JsonIgnore
+   public String getMACAddress() {
+      return MACAddress;
+   }
+
+   @JsonIgnore
+   public void setMACAddress(String value) { 
+      this.MACAddress = value;
+   }
+   
+   @JsonIgnore
+   public String getUUID() {
+      return UUID;
+   }
+
+   @JsonIgnore
+   public void setUUID(String value) { 
+      this.UUID = value;
+   }
+   
+   @JsonIgnore
+   public ZFBMatchAttribute getZFBMatchAttribute() {
+      return ZFBMatchAttribute;
+   }
+
+   @JsonIgnore
+   public void setZFBMatchAttribute(ZFBMatchAttribute value) { 
+      this.ZFBMatchAttribute = value;
+   }
+   
+   @JsonIgnore
+   public String getZFBMatchValue() {
+      return ZFBMatchValue;
+   }
+
+   @JsonIgnore
+   public void setZFBMatchValue(String value) { 
+      this.ZFBMatchValue = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedGatewaySecurityID() {
+      return associatedGatewaySecurityID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedGatewaySecurityID(String value) { 
+      this.associatedGatewaySecurityID = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedNSGInfoID() {
+      return associatedNSGInfoID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedNSGInfoID(String value) { 
+      this.associatedNSGInfoID = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedNetconfProfileID() {
+      return associatedNetconfProfileID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedNetconfProfileID(String value) { 
+      this.associatedNetconfProfileID = value;
+   }
    
    @JsonIgnore
    public String getAutoDiscGatewayID() {
@@ -176,6 +411,36 @@ public class Gateway extends RestObject {
    @JsonIgnore
    public void setAutoDiscGatewayID(String value) { 
       this.autoDiscGatewayID = value;
+   }
+   
+   @JsonIgnore
+   public String getBootstrapID() {
+      return bootstrapID;
+   }
+
+   @JsonIgnore
+   public void setBootstrapID(String value) { 
+      this.bootstrapID = value;
+   }
+   
+   @JsonIgnore
+   public BootstrapStatus getBootstrapStatus() {
+      return bootstrapStatus;
+   }
+
+   @JsonIgnore
+   public void setBootstrapStatus(BootstrapStatus value) { 
+      this.bootstrapStatus = value;
+   }
+   
+   @JsonIgnore
+   public String getDatapathID() {
+      return datapathID;
+   }
+
+   @JsonIgnore
+   public void setDatapathID(String value) { 
+      this.datapathID = value;
    }
    
    @JsonIgnore
@@ -219,6 +484,36 @@ public class Gateway extends RestObject {
    }
    
    @JsonIgnore
+   public Family getFamily() {
+      return family;
+   }
+
+   @JsonIgnore
+   public void setFamily(Family value) { 
+      this.family = value;
+   }
+   
+   @JsonIgnore
+   public Boolean getGatewayConnected() {
+      return gatewayConnected;
+   }
+
+   @JsonIgnore
+   public void setGatewayConnected(Boolean value) { 
+      this.gatewayConnected = value;
+   }
+   
+   @JsonIgnore
+   public String getGatewayVersion() {
+      return gatewayVersion;
+   }
+
+   @JsonIgnore
+   public void setGatewayVersion(String value) { 
+      this.gatewayVersion = value;
+   }
+   
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
@@ -226,6 +521,36 @@ public class Gateway extends RestObject {
    @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
+   }
+   
+   @JsonIgnore
+   public String getLibraries() {
+      return libraries;
+   }
+
+   @JsonIgnore
+   public void setLibraries(String value) { 
+      this.libraries = value;
+   }
+   
+   @JsonIgnore
+   public String getLocationID() {
+      return locationID;
+   }
+
+   @JsonIgnore
+   public void setLocationID(String value) { 
+      this.locationID = value;
+   }
+   
+   @JsonIgnore
+   public String getManagementID() {
+      return managementID;
+   }
+
+   @JsonIgnore
+   public void setManagementID(String value) { 
+      this.managementID = value;
    }
    
    @JsonIgnore
@@ -279,6 +604,16 @@ public class Gateway extends RestObject {
    }
    
    @JsonIgnore
+   public String getProductName() {
+      return productName;
+   }
+
+   @JsonIgnore
+   public void setProductName(String value) { 
+      this.productName = value;
+   }
+   
+   @JsonIgnore
    public String getRedundancyGroupID() {
       return redundancyGroupID;
    }
@@ -286,6 +621,16 @@ public class Gateway extends RestObject {
    @JsonIgnore
    public void setRedundancyGroupID(String value) { 
       this.redundancyGroupID = value;
+   }
+   
+   @JsonIgnore
+   public String getSerialNumber() {
+      return serialNumber;
+   }
+
+   @JsonIgnore
+   public void setSerialNumber(String value) { 
+      this.serialNumber = value;
    }
    
    @JsonIgnore
@@ -336,6 +681,21 @@ public class Gateway extends RestObject {
    }
    
    @JsonIgnore
+   public BootstrapsFetcher getBootstraps() {
+      return bootstraps;
+   }
+   
+   @JsonIgnore
+   public DeploymentFailuresFetcher getDeploymentFailures() {
+      return deploymentFailures;
+   }
+   
+   @JsonIgnore
+   public EgressProfilesFetcher getEgressProfiles() {
+      return egressProfiles;
+   }
+   
+   @JsonIgnore
    public EnterprisePermissionsFetcher getEnterprisePermissions() {
       return enterprisePermissions;
    }
@@ -351,13 +711,43 @@ public class Gateway extends RestObject {
    }
    
    @JsonIgnore
+   public IngressProfilesFetcher getIngressProfiles() {
+      return ingressProfiles;
+   }
+   
+   @JsonIgnore
+   public IPFilterProfilesFetcher getIPFilterProfiles() {
+      return iPFilterProfiles;
+   }
+   
+   @JsonIgnore
+   public IPv6FilterProfilesFetcher getIPv6FilterProfiles() {
+      return iPv6FilterProfiles;
+   }
+   
+   @JsonIgnore
    public JobsFetcher getJobs() {
       return jobs;
    }
    
    @JsonIgnore
+   public LocationsFetcher getLocations() {
+      return locations;
+   }
+   
+   @JsonIgnore
+   public MACFilterProfilesFetcher getMACFilterProfiles() {
+      return mACFilterProfiles;
+   }
+   
+   @JsonIgnore
    public MetadatasFetcher getMetadatas() {
       return metadatas;
+   }
+   
+   @JsonIgnore
+   public NSGInfosFetcher getNSGInfos() {
+      return nSGInfos;
    }
    
    @JsonIgnore
@@ -376,13 +766,23 @@ public class Gateway extends RestObject {
    }
    
    @JsonIgnore
+   public SAPEgressQoSProfilesFetcher getSAPEgressQoSProfiles() {
+      return sAPEgressQoSProfiles;
+   }
+   
+   @JsonIgnore
+   public SAPIngressQoSProfilesFetcher getSAPIngressQoSProfiles() {
+      return sAPIngressQoSProfiles;
+   }
+   
+   @JsonIgnore
    public WANServicesFetcher getWANServices() {
       return wANServices;
    }
    
 
    public String toString() {
-      return "Gateway [" + "autoDiscGatewayID=" + autoDiscGatewayID + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", peer=" + peer + ", pending=" + pending + ", permittedAction=" + permittedAction + ", personality=" + personality + ", redundancyGroupID=" + redundancyGroupID + ", systemID=" + systemID + ", templateID=" + templateID + ", useGatewayVLANVNID=" + useGatewayVLANVNID + ", vtep=" + vtep + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Gateway [" + "BIOSReleaseDate=" + BIOSReleaseDate + ", BIOSVersion=" + BIOSVersion + ", CPUType=" + CPUType + ", MACAddress=" + MACAddress + ", UUID=" + UUID + ", ZFBMatchAttribute=" + ZFBMatchAttribute + ", ZFBMatchValue=" + ZFBMatchValue + ", associatedGatewaySecurityID=" + associatedGatewaySecurityID + ", associatedNSGInfoID=" + associatedNSGInfoID + ", associatedNetconfProfileID=" + associatedNetconfProfileID + ", autoDiscGatewayID=" + autoDiscGatewayID + ", bootstrapID=" + bootstrapID + ", bootstrapStatus=" + bootstrapStatus + ", datapathID=" + datapathID + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", family=" + family + ", gatewayConnected=" + gatewayConnected + ", gatewayVersion=" + gatewayVersion + ", lastUpdatedBy=" + lastUpdatedBy + ", libraries=" + libraries + ", locationID=" + locationID + ", managementID=" + managementID + ", name=" + name + ", peer=" + peer + ", pending=" + pending + ", permittedAction=" + permittedAction + ", personality=" + personality + ", productName=" + productName + ", redundancyGroupID=" + redundancyGroupID + ", serialNumber=" + serialNumber + ", systemID=" + systemID + ", templateID=" + templateID + ", useGatewayVLANVNID=" + useGatewayVLANVNID + ", vtep=" + vtep + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

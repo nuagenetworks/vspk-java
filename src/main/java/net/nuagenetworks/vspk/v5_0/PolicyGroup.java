@@ -56,6 +56,12 @@ public class PolicyGroup extends RestObject {
    @JsonProperty(value = "EVPNCommunityTag")
    protected String EVPNCommunityTag;
    
+   @JsonProperty(value = "assocPolicyGroupCategoryID")
+   protected String assocPolicyGroupCategoryID;
+   
+   @JsonProperty(value = "assocPolicyGroupCategoryName")
+   protected String assocPolicyGroupCategoryName;
+   
    @JsonProperty(value = "description")
    protected String description;
    
@@ -120,6 +126,26 @@ public class PolicyGroup extends RestObject {
    @JsonIgnore
    public void setEVPNCommunityTag(String value) { 
       this.EVPNCommunityTag = value;
+   }
+   
+   @JsonIgnore
+   public String getAssocPolicyGroupCategoryID() {
+      return assocPolicyGroupCategoryID;
+   }
+
+   @JsonIgnore
+   public void setAssocPolicyGroupCategoryID(String value) { 
+      this.assocPolicyGroupCategoryID = value;
+   }
+   
+   @JsonIgnore
+   public String getAssocPolicyGroupCategoryName() {
+      return assocPolicyGroupCategoryName;
+   }
+
+   @JsonIgnore
+   public void setAssocPolicyGroupCategoryName(String value) { 
+      this.assocPolicyGroupCategoryName = value;
    }
    
    @JsonIgnore
@@ -236,7 +262,7 @@ public class PolicyGroup extends RestObject {
    
 
    public String toString() {
-      return "PolicyGroup [" + "EVPNCommunityTag=" + EVPNCommunityTag + ", description=" + description + ", entityScope=" + entityScope + ", external=" + external + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", policyGroupID=" + policyGroupID + ", templateID=" + templateID + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "PolicyGroup [" + "EVPNCommunityTag=" + EVPNCommunityTag + ", assocPolicyGroupCategoryID=" + assocPolicyGroupCategoryID + ", assocPolicyGroupCategoryName=" + assocPolicyGroupCategoryName + ", description=" + description + ", entityScope=" + entityScope + ", external=" + external + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", policyGroupID=" + policyGroupID + ", templateID=" + templateID + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

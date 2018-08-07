@@ -55,7 +55,7 @@ public class Port extends RestObject {
    
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    
-   public enum PortType { ACCESS, NETWORK };
+   public enum PortType { ACCESS, NETWORK, MANAGEMENT };
    
    public enum Status { INITIALIZED, MISMATCH, ORPHAN, READY };
 

@@ -41,6 +41,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSGatewaysFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.RedundantPortsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.ShuntLinksFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "nsgredundancygroup", resourceName = "nsgredundancygroups")
@@ -54,7 +55,7 @@ public class NSRedundantGatewayGroup extends RestObject {
    
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    
-   public enum Personality { DC7X50, HARDWARE_VTEP, NSG, NSGBR, NSGDUC, OTHER, VRSB, VRSG, VSA, VSG, NUAGE_210_WBX_48_S, NUAGE_210_WBX_32_Q };
+   public enum Personality { DC7X50, HARDWARE_VTEP, NSG, NSGBR, NSGDUC, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, OTHER, VRSB, VRSG, VSA, VSG };
    
    public enum RedundantGatewayStatus { FAILED, SUCCESS };
 
@@ -77,6 +78,9 @@ public class NSRedundantGatewayGroup extends RestObject {
    @JsonProperty(value = "gatewayPeer1AutodiscoveredGatewayID")
    protected String gatewayPeer1AutodiscoveredGatewayID;
    
+   @JsonProperty(value = "gatewayPeer1Connected")
+   protected Boolean gatewayPeer1Connected;
+   
    @JsonProperty(value = "gatewayPeer1ID")
    protected String gatewayPeer1ID;
    
@@ -85,6 +89,9 @@ public class NSRedundantGatewayGroup extends RestObject {
    
    @JsonProperty(value = "gatewayPeer2AutodiscoveredGatewayID")
    protected String gatewayPeer2AutodiscoveredGatewayID;
+   
+   @JsonProperty(value = "gatewayPeer2Connected")
+   protected Boolean gatewayPeer2Connected;
    
    @JsonProperty(value = "gatewayPeer2ID")
    protected String gatewayPeer2ID;
@@ -136,6 +143,9 @@ public class NSRedundantGatewayGroup extends RestObject {
    @JsonIgnore
    private RedundantPortsFetcher redundantPorts;
    
+   @JsonIgnore
+   private ShuntLinksFetcher shuntLinks;
+   
 
    public NSRedundantGatewayGroup() {
       
@@ -150,6 +160,8 @@ public class NSRedundantGatewayGroup extends RestObject {
       nSGateways = new NSGatewaysFetcher(this);
       
       redundantPorts = new RedundantPortsFetcher(this);
+      
+      shuntLinks = new ShuntLinksFetcher(this);
       
    }
 
@@ -215,6 +227,16 @@ public class NSRedundantGatewayGroup extends RestObject {
    }
    
    @JsonIgnore
+   public Boolean getGatewayPeer1Connected() {
+      return gatewayPeer1Connected;
+   }
+
+   @JsonIgnore
+   public void setGatewayPeer1Connected(Boolean value) { 
+      this.gatewayPeer1Connected = value;
+   }
+   
+   @JsonIgnore
    public String getGatewayPeer1ID() {
       return gatewayPeer1ID;
    }
@@ -242,6 +264,16 @@ public class NSRedundantGatewayGroup extends RestObject {
    @JsonIgnore
    public void setGatewayPeer2AutodiscoveredGatewayID(String value) { 
       this.gatewayPeer2AutodiscoveredGatewayID = value;
+   }
+   
+   @JsonIgnore
+   public Boolean getGatewayPeer2Connected() {
+      return gatewayPeer2Connected;
+   }
+
+   @JsonIgnore
+   public void setGatewayPeer2Connected(Boolean value) { 
+      this.gatewayPeer2Connected = value;
    }
    
    @JsonIgnore
@@ -376,9 +408,14 @@ public class NSRedundantGatewayGroup extends RestObject {
       return redundantPorts;
    }
    
+   @JsonIgnore
+   public ShuntLinksFetcher getShuntLinks() {
+      return shuntLinks;
+   }
+   
 
    public String toString() {
-      return "NSRedundantGatewayGroup [" + "consecutiveFailuresCount=" + consecutiveFailuresCount + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayPeer1AutodiscoveredGatewayID=" + gatewayPeer1AutodiscoveredGatewayID + ", gatewayPeer1ID=" + gatewayPeer1ID + ", gatewayPeer1Name=" + gatewayPeer1Name + ", gatewayPeer2AutodiscoveredGatewayID=" + gatewayPeer2AutodiscoveredGatewayID + ", gatewayPeer2ID=" + gatewayPeer2ID + ", gatewayPeer2Name=" + gatewayPeer2Name + ", heartbeatInterval=" + heartbeatInterval + ", heartbeatVLANID=" + heartbeatVLANID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", permittedAction=" + permittedAction + ", personality=" + personality + ", redundancyPortIDs=" + redundancyPortIDs + ", redundantGatewayStatus=" + redundantGatewayStatus + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NSRedundantGatewayGroup [" + "consecutiveFailuresCount=" + consecutiveFailuresCount + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayPeer1AutodiscoveredGatewayID=" + gatewayPeer1AutodiscoveredGatewayID + ", gatewayPeer1Connected=" + gatewayPeer1Connected + ", gatewayPeer1ID=" + gatewayPeer1ID + ", gatewayPeer1Name=" + gatewayPeer1Name + ", gatewayPeer2AutodiscoveredGatewayID=" + gatewayPeer2AutodiscoveredGatewayID + ", gatewayPeer2Connected=" + gatewayPeer2Connected + ", gatewayPeer2ID=" + gatewayPeer2ID + ", gatewayPeer2Name=" + gatewayPeer2Name + ", heartbeatInterval=" + heartbeatInterval + ", heartbeatVLANID=" + heartbeatVLANID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", permittedAction=" + permittedAction + ", personality=" + personality + ", redundancyPortIDs=" + redundancyPortIDs + ", redundantGatewayStatus=" + redundantGatewayStatus + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

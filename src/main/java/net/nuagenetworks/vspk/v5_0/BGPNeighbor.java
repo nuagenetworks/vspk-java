@@ -46,11 +46,19 @@ public class BGPNeighbor extends RestObject {
 
    
    
+   public enum IPType { IPV4, IPV6 };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "BFDEnabled")
    protected Boolean BFDEnabled;
+   
+   @JsonProperty(value = "IPType")
+   protected IPType IPType;
+   
+   @JsonProperty(value = "IPv6Address")
+   protected String IPv6Address;
    
    @JsonProperty(value = "associatedExportRoutingPolicyID")
    protected String associatedExportRoutingPolicyID;
@@ -108,6 +116,26 @@ public class BGPNeighbor extends RestObject {
    @JsonIgnore
    public void setBFDEnabled(Boolean value) { 
       this.BFDEnabled = value;
+   }
+   
+   @JsonIgnore
+   public IPType getIPType() {
+      return IPType;
+   }
+
+   @JsonIgnore
+   public void setIPType(IPType value) { 
+      this.IPType = value;
+   }
+   
+   @JsonIgnore
+   public String getIPv6Address() {
+      return IPv6Address;
+   }
+
+   @JsonIgnore
+   public void setIPv6Address(String value) { 
+      this.IPv6Address = value;
    }
    
    @JsonIgnore
@@ -224,7 +252,7 @@ public class BGPNeighbor extends RestObject {
    
 
    public String toString() {
-      return "BGPNeighbor [" + "BFDEnabled=" + BFDEnabled + ", associatedExportRoutingPolicyID=" + associatedExportRoutingPolicyID + ", associatedImportRoutingPolicyID=" + associatedImportRoutingPolicyID + ", dampeningEnabled=" + dampeningEnabled + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", name=" + name + ", peerAS=" + peerAS + ", peerIP=" + peerIP + ", session=" + session + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "BGPNeighbor [" + "BFDEnabled=" + BFDEnabled + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", associatedExportRoutingPolicyID=" + associatedExportRoutingPolicyID + ", associatedImportRoutingPolicyID=" + associatedImportRoutingPolicyID + ", dampeningEnabled=" + dampeningEnabled + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", name=" + name + ", peerAS=" + peerAS + ", peerIP=" + peerIP + ", session=" + session + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

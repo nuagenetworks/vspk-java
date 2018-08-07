@@ -49,7 +49,7 @@ public class PortTemplate extends RestObject {
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    
-   public enum PortType { ACCESS, NETWORK };
+   public enum PortType { ACCESS, NETWORK, MANAGEMENT };
 
    
    @JsonProperty(value = "VLANRange")

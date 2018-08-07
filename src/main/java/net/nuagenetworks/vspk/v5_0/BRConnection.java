@@ -45,6 +45,8 @@ public class BRConnection extends RestObject {
 
    
    
+   public enum AddressFamily { IPV4, IPV6 };
+   
    public enum AdvertisementCriteria { BFD, LINK_BASED, OPENFLOW, OPERATIONAL_LINK };
    
    public enum Mode { Static };
@@ -53,14 +55,26 @@ public class BRConnection extends RestObject {
    @JsonProperty(value = "DNSAddress")
    protected String DNSAddress;
    
+   @JsonProperty(value = "DNSAddressV6")
+   protected String DNSAddressV6;
+   
    @JsonProperty(value = "address")
    protected String address;
+   
+   @JsonProperty(value = "addressFamily")
+   protected AddressFamily addressFamily;
+   
+   @JsonProperty(value = "addressV6")
+   protected String addressV6;
    
    @JsonProperty(value = "advertisementCriteria")
    protected AdvertisementCriteria advertisementCriteria;
    
    @JsonProperty(value = "gateway")
    protected String gateway;
+   
+   @JsonProperty(value = "gatewayV6")
+   protected String gatewayV6;
    
    @JsonProperty(value = "inherited")
    protected Boolean inherited;
@@ -98,6 +112,16 @@ public class BRConnection extends RestObject {
    }
    
    @JsonIgnore
+   public String getDNSAddressV6() {
+      return DNSAddressV6;
+   }
+
+   @JsonIgnore
+   public void setDNSAddressV6(String value) { 
+      this.DNSAddressV6 = value;
+   }
+   
+   @JsonIgnore
    public String getAddress() {
       return address;
    }
@@ -105,6 +129,26 @@ public class BRConnection extends RestObject {
    @JsonIgnore
    public void setAddress(String value) { 
       this.address = value;
+   }
+   
+   @JsonIgnore
+   public AddressFamily getAddressFamily() {
+      return addressFamily;
+   }
+
+   @JsonIgnore
+   public void setAddressFamily(AddressFamily value) { 
+      this.addressFamily = value;
+   }
+   
+   @JsonIgnore
+   public String getAddressV6() {
+      return addressV6;
+   }
+
+   @JsonIgnore
+   public void setAddressV6(String value) { 
+      this.addressV6 = value;
    }
    
    @JsonIgnore
@@ -125,6 +169,16 @@ public class BRConnection extends RestObject {
    @JsonIgnore
    public void setGateway(String value) { 
       this.gateway = value;
+   }
+   
+   @JsonIgnore
+   public String getGatewayV6() {
+      return gatewayV6;
+   }
+
+   @JsonIgnore
+   public void setGatewayV6(String value) { 
+      this.gatewayV6 = value;
    }
    
    @JsonIgnore
@@ -176,7 +230,7 @@ public class BRConnection extends RestObject {
    
 
    public String toString() {
-      return "BRConnection [" + "DNSAddress=" + DNSAddress + ", address=" + address + ", advertisementCriteria=" + advertisementCriteria + ", gateway=" + gateway + ", inherited=" + inherited + ", mode=" + mode + ", netmask=" + netmask + ", uplinkID=" + uplinkID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "BRConnection [" + "DNSAddress=" + DNSAddress + ", DNSAddressV6=" + DNSAddressV6 + ", address=" + address + ", addressFamily=" + addressFamily + ", addressV6=" + addressV6 + ", advertisementCriteria=" + advertisementCriteria + ", gateway=" + gateway + ", gatewayV6=" + gatewayV6 + ", inherited=" + inherited + ", mode=" + mode + ", netmask=" + netmask + ", uplinkID=" + uplinkID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

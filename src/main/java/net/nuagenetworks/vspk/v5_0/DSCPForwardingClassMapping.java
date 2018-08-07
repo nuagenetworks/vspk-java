@@ -48,7 +48,7 @@ public class DSCPForwardingClassMapping extends RestObject {
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    
-   public enum ForwardingClass { A, B, C, D, E, F, G, H, NONE };
+   public enum ForwardingClass { A, B, C, D, E, F, G, H };
 
    
    @JsonProperty(value = "DSCP")

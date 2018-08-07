@@ -51,11 +51,20 @@ public class UserContext extends RestObject {
    @JsonProperty(value = "AARProbeStatsInterval")
    protected Long AARProbeStatsInterval;
    
+   @JsonProperty(value = "VSSFeatureEnabled")
+   protected Boolean VSSFeatureEnabled;
+   
    @JsonProperty(value = "VSSStatsInterval")
    protected Long VSSStatsInterval;
    
    @JsonProperty(value = "flowCollectionEnabled")
    protected Boolean flowCollectionEnabled;
+   
+   @JsonProperty(value = "googleMapsAPIKey")
+   protected String googleMapsAPIKey;
+   
+   @JsonProperty(value = "pageSize")
+   protected String pageSize;
    
    @JsonProperty(value = "statisticsEnabled")
    protected Boolean statisticsEnabled;
@@ -92,6 +101,16 @@ public class UserContext extends RestObject {
    }
    
    @JsonIgnore
+   public Boolean getVSSFeatureEnabled() {
+      return VSSFeatureEnabled;
+   }
+
+   @JsonIgnore
+   public void setVSSFeatureEnabled(Boolean value) { 
+      this.VSSFeatureEnabled = value;
+   }
+   
+   @JsonIgnore
    public Long getVSSStatsInterval() {
       return VSSStatsInterval;
    }
@@ -109,6 +128,26 @@ public class UserContext extends RestObject {
    @JsonIgnore
    public void setFlowCollectionEnabled(Boolean value) { 
       this.flowCollectionEnabled = value;
+   }
+   
+   @JsonIgnore
+   public String getGoogleMapsAPIKey() {
+      return googleMapsAPIKey;
+   }
+
+   @JsonIgnore
+   public void setGoogleMapsAPIKey(String value) { 
+      this.googleMapsAPIKey = value;
+   }
+   
+   @JsonIgnore
+   public String getPageSize() {
+      return pageSize;
+   }
+
+   @JsonIgnore
+   public void setPageSize(String value) { 
+      this.pageSize = value;
    }
    
    @JsonIgnore
@@ -135,7 +174,7 @@ public class UserContext extends RestObject {
    
 
    public String toString() {
-      return "UserContext [" + "AARFlowStatsInterval=" + AARFlowStatsInterval + ", AARProbeStatsInterval=" + AARProbeStatsInterval + ", VSSStatsInterval=" + VSSStatsInterval + ", flowCollectionEnabled=" + flowCollectionEnabled + ", statisticsEnabled=" + statisticsEnabled + ", statsTSDBServerAddress=" + statsTSDBServerAddress + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "UserContext [" + "AARFlowStatsInterval=" + AARFlowStatsInterval + ", AARProbeStatsInterval=" + AARProbeStatsInterval + ", VSSFeatureEnabled=" + VSSFeatureEnabled + ", VSSStatsInterval=" + VSSStatsInterval + ", flowCollectionEnabled=" + flowCollectionEnabled + ", googleMapsAPIKey=" + googleMapsAPIKey + ", pageSize=" + pageSize + ", statisticsEnabled=" + statisticsEnabled + ", statsTSDBServerAddress=" + statsTSDBServerAddress + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -60,6 +60,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.GatewayTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.HostInterfacesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.InfrastructureAccessProfilesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.InfrastructureEVDFProfilesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.InfrastructureGatewayProfilesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.InfrastructureVscProfilesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.IngressACLEntryTemplatesFetcher;
@@ -75,6 +76,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.LicenseStatusFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MirrorDestinationsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MultiCastChannelMapsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.NetconfProfilesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NetworkLayoutsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSGatewaysFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSGatewayTemplatesFetcher;
@@ -270,6 +272,9 @@ public class Me extends RestRootObject {
    private InfrastructureAccessProfilesFetcher infrastructureAccessProfiles;
    
    @JsonIgnore
+   private InfrastructureEVDFProfilesFetcher infrastructureEVDFProfiles;
+   
+   @JsonIgnore
    private InfrastructureGatewayProfilesFetcher infrastructureGatewayProfiles;
    
    @JsonIgnore
@@ -313,6 +318,9 @@ public class Me extends RestRootObject {
    
    @JsonIgnore
    private MultiCastChannelMapsFetcher multiCastChannelMaps;
+   
+   @JsonIgnore
+   private NetconfProfilesFetcher netconfProfiles;
    
    @JsonIgnore
    private NetworkLayoutsFetcher networkLayouts;
@@ -487,6 +495,8 @@ public class Me extends RestRootObject {
       
       infrastructureAccessProfiles = new InfrastructureAccessProfilesFetcher(this);
       
+      infrastructureEVDFProfiles = new InfrastructureEVDFProfilesFetcher(this);
+      
       infrastructureGatewayProfiles = new InfrastructureGatewayProfilesFetcher(this);
       
       infrastructureVscProfiles = new InfrastructureVscProfilesFetcher(this);
@@ -516,6 +526,8 @@ public class Me extends RestRootObject {
       mirrorDestinations = new MirrorDestinationsFetcher(this);
       
       multiCastChannelMaps = new MultiCastChannelMapsFetcher(this);
+      
+      netconfProfiles = new NetconfProfilesFetcher(this);
       
       networkLayouts = new NetworkLayoutsFetcher(this);
       
@@ -938,6 +950,11 @@ public class Me extends RestRootObject {
    }
    
    @JsonIgnore
+   public InfrastructureEVDFProfilesFetcher getInfrastructureEVDFProfiles() {
+      return infrastructureEVDFProfiles;
+   }
+   
+   @JsonIgnore
    public InfrastructureGatewayProfilesFetcher getInfrastructureGatewayProfiles() {
       return infrastructureGatewayProfiles;
    }
@@ -1010,6 +1027,11 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public MultiCastChannelMapsFetcher getMultiCastChannelMaps() {
       return multiCastChannelMaps;
+   }
+   
+   @JsonIgnore
+   public NetconfProfilesFetcher getNetconfProfiles() {
+      return netconfProfiles;
    }
    
    @JsonIgnore

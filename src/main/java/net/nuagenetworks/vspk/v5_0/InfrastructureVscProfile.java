@@ -46,8 +46,13 @@ public class InfrastructureVscProfile extends RestObject {
 
    
    
+   public enum AddressFamily { DUALSTACK, IPV4, IPV6 };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
+   
+   @JsonProperty(value = "addressFamily")
+   protected AddressFamily addressFamily;
    
    @JsonProperty(value = "description")
    protected String description;
@@ -64,6 +69,9 @@ public class InfrastructureVscProfile extends RestObject {
    @JsonProperty(value = "firstController")
    protected String firstController;
    
+   @JsonProperty(value = "firstControllerV6")
+   protected String firstControllerV6;
+   
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
    
@@ -75,6 +83,9 @@ public class InfrastructureVscProfile extends RestObject {
    
    @JsonProperty(value = "secondController")
    protected String secondController;
+   
+   @JsonProperty(value = "secondControllerV6")
+   protected String secondControllerV6;
    
 
    
@@ -93,6 +104,16 @@ public class InfrastructureVscProfile extends RestObject {
       
    }
 
+   
+   @JsonIgnore
+   public AddressFamily getAddressFamily() {
+      return addressFamily;
+   }
+
+   @JsonIgnore
+   public void setAddressFamily(AddressFamily value) { 
+      this.addressFamily = value;
+   }
    
    @JsonIgnore
    public String getDescription() {
@@ -145,6 +166,16 @@ public class InfrastructureVscProfile extends RestObject {
    }
    
    @JsonIgnore
+   public String getFirstControllerV6() {
+      return firstControllerV6;
+   }
+
+   @JsonIgnore
+   public void setFirstControllerV6(String value) { 
+      this.firstControllerV6 = value;
+   }
+   
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
@@ -184,6 +215,16 @@ public class InfrastructureVscProfile extends RestObject {
       this.secondController = value;
    }
    
+   @JsonIgnore
+   public String getSecondControllerV6() {
+      return secondControllerV6;
+   }
+
+   @JsonIgnore
+   public void setSecondControllerV6(String value) { 
+      this.secondControllerV6 = value;
+   }
+   
 
    
    @JsonIgnore
@@ -198,7 +239,7 @@ public class InfrastructureVscProfile extends RestObject {
    
 
    public String toString() {
-      return "InfrastructureVscProfile [" + "description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", firstController=" + firstController + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", probeInterval=" + probeInterval + ", secondController=" + secondController + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "InfrastructureVscProfile [" + "addressFamily=" + addressFamily + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", firstController=" + firstController + ", firstControllerV6=" + firstControllerV6 + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", probeInterval=" + probeInterval + ", secondController=" + secondController + ", secondControllerV6=" + secondControllerV6 + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

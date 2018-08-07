@@ -76,17 +76,21 @@ public class VPort extends RestObject {
    
    public enum DPI { DISABLED, ENABLED, INHERITED };
    
+   public enum FIPIgnoreDefaultRoute { DISABLED, ENABLED, INHERITED };
+   
    public enum AddressSpoofing { DISABLED, ENABLED, INHERITED };
    
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum AssociatedGatewayPersonality { DC7X50, EVDF, EVDFB, HARDWARE_VTEP, NETCONF_7X50, NSG, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, OTHER, VRSB, VRSG, VSA, VSG };
    
-   public enum FlowCollectionEnabled { DISABLED, ENABLED, INHERITED };
+   public enum EntityScope { ENTERPRISE, GLOBAL };
    
    public enum GatewayMACMoveRole { SECONDARY, TERTIARY };
    
    public enum Multicast { DISABLED, ENABLED, INHERITED };
    
    public enum OperationalState { DOWN, INIT, UP };
+   
+   public enum PeerOperationalState { DOWN, INIT, UP };
    
    public enum SegmentationType { VLAN };
    
@@ -102,6 +106,12 @@ public class VPort extends RestObject {
    @JsonProperty(value = "DPI")
    protected DPI DPI;
    
+   @JsonProperty(value = "FIPIgnoreDefaultRoute")
+   protected FIPIgnoreDefaultRoute FIPIgnoreDefaultRoute;
+   
+   @JsonProperty(value = "VLAN")
+   protected Long VLAN;
+   
    @JsonProperty(value = "VLANID")
    protected String VLANID;
    
@@ -111,8 +121,26 @@ public class VPort extends RestObject {
    @JsonProperty(value = "addressSpoofing")
    protected AddressSpoofing addressSpoofing;
    
+   @JsonProperty(value = "assocEntityID")
+   protected String assocEntityID;
+   
+   @JsonProperty(value = "associatedEgressProfileID")
+   protected String associatedEgressProfileID;
+   
    @JsonProperty(value = "associatedFloatingIPID")
    protected String associatedFloatingIPID;
+   
+   @JsonProperty(value = "associatedGatewayID")
+   protected String associatedGatewayID;
+   
+   @JsonProperty(value = "associatedGatewayPersonality")
+   protected AssociatedGatewayPersonality associatedGatewayPersonality;
+   
+   @JsonProperty(value = "associatedGatewayType")
+   protected String associatedGatewayType;
+   
+   @JsonProperty(value = "associatedIngressProfileID")
+   protected String associatedIngressProfileID;
    
    @JsonProperty(value = "associatedMulticastChannelMapID")
    protected String associatedMulticastChannelMapID;
@@ -138,11 +166,14 @@ public class VPort extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-   @JsonProperty(value = "flowCollectionEnabled")
-   protected FlowCollectionEnabled flowCollectionEnabled;
-   
    @JsonProperty(value = "gatewayMACMoveRole")
    protected GatewayMACMoveRole gatewayMACMoveRole;
+   
+   @JsonProperty(value = "gatewayPortName")
+   protected String gatewayPortName;
+   
+   @JsonProperty(value = "gwEligible")
+   protected Boolean gwEligible;
    
    @JsonProperty(value = "hasAttachedInterfaces")
    protected Boolean hasAttachedInterfaces;
@@ -162,11 +193,17 @@ public class VPort extends RestObject {
    @JsonProperty(value = "operationalState")
    protected OperationalState operationalState;
    
+   @JsonProperty(value = "peerOperationalState")
+   protected PeerOperationalState peerOperationalState;
+   
    @JsonProperty(value = "segmentationID")
    protected Long segmentationID;
    
    @JsonProperty(value = "segmentationType")
    protected SegmentationType segmentationType;
+   
+   @JsonProperty(value = "serviceID")
+   protected String serviceID;
    
    @JsonProperty(value = "subType")
    protected SubType subType;
@@ -356,6 +393,26 @@ public class VPort extends RestObject {
    }
    
    @JsonIgnore
+   public FIPIgnoreDefaultRoute getFIPIgnoreDefaultRoute() {
+      return FIPIgnoreDefaultRoute;
+   }
+
+   @JsonIgnore
+   public void setFIPIgnoreDefaultRoute(FIPIgnoreDefaultRoute value) { 
+      this.FIPIgnoreDefaultRoute = value;
+   }
+   
+   @JsonIgnore
+   public Long getVLAN() {
+      return VLAN;
+   }
+
+   @JsonIgnore
+   public void setVLAN(Long value) { 
+      this.VLAN = value;
+   }
+   
+   @JsonIgnore
    public String getVLANID() {
       return VLANID;
    }
@@ -386,6 +443,26 @@ public class VPort extends RestObject {
    }
    
    @JsonIgnore
+   public String getAssocEntityID() {
+      return assocEntityID;
+   }
+
+   @JsonIgnore
+   public void setAssocEntityID(String value) { 
+      this.assocEntityID = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedEgressProfileID() {
+      return associatedEgressProfileID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedEgressProfileID(String value) { 
+      this.associatedEgressProfileID = value;
+   }
+   
+   @JsonIgnore
    public String getAssociatedFloatingIPID() {
       return associatedFloatingIPID;
    }
@@ -393,6 +470,46 @@ public class VPort extends RestObject {
    @JsonIgnore
    public void setAssociatedFloatingIPID(String value) { 
       this.associatedFloatingIPID = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedGatewayID() {
+      return associatedGatewayID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedGatewayID(String value) { 
+      this.associatedGatewayID = value;
+   }
+   
+   @JsonIgnore
+   public AssociatedGatewayPersonality getAssociatedGatewayPersonality() {
+      return associatedGatewayPersonality;
+   }
+
+   @JsonIgnore
+   public void setAssociatedGatewayPersonality(AssociatedGatewayPersonality value) { 
+      this.associatedGatewayPersonality = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedGatewayType() {
+      return associatedGatewayType;
+   }
+
+   @JsonIgnore
+   public void setAssociatedGatewayType(String value) { 
+      this.associatedGatewayType = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedIngressProfileID() {
+      return associatedIngressProfileID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedIngressProfileID(String value) { 
+      this.associatedIngressProfileID = value;
    }
    
    @JsonIgnore
@@ -476,16 +593,6 @@ public class VPort extends RestObject {
    }
    
    @JsonIgnore
-   public FlowCollectionEnabled getFlowCollectionEnabled() {
-      return flowCollectionEnabled;
-   }
-
-   @JsonIgnore
-   public void setFlowCollectionEnabled(FlowCollectionEnabled value) { 
-      this.flowCollectionEnabled = value;
-   }
-   
-   @JsonIgnore
    public GatewayMACMoveRole getGatewayMACMoveRole() {
       return gatewayMACMoveRole;
    }
@@ -493,6 +600,26 @@ public class VPort extends RestObject {
    @JsonIgnore
    public void setGatewayMACMoveRole(GatewayMACMoveRole value) { 
       this.gatewayMACMoveRole = value;
+   }
+   
+   @JsonIgnore
+   public String getGatewayPortName() {
+      return gatewayPortName;
+   }
+
+   @JsonIgnore
+   public void setGatewayPortName(String value) { 
+      this.gatewayPortName = value;
+   }
+   
+   @JsonIgnore
+   public Boolean getGwEligible() {
+      return gwEligible;
+   }
+
+   @JsonIgnore
+   public void setGwEligible(Boolean value) { 
+      this.gwEligible = value;
    }
    
    @JsonIgnore
@@ -556,6 +683,16 @@ public class VPort extends RestObject {
    }
    
    @JsonIgnore
+   public PeerOperationalState getPeerOperationalState() {
+      return peerOperationalState;
+   }
+
+   @JsonIgnore
+   public void setPeerOperationalState(PeerOperationalState value) { 
+      this.peerOperationalState = value;
+   }
+   
+   @JsonIgnore
    public Long getSegmentationID() {
       return segmentationID;
    }
@@ -573,6 +710,16 @@ public class VPort extends RestObject {
    @JsonIgnore
    public void setSegmentationType(SegmentationType value) { 
       this.segmentationType = value;
+   }
+   
+   @JsonIgnore
+   public String getServiceID() {
+      return serviceID;
+   }
+
+   @JsonIgnore
+   public void setServiceID(String value) { 
+      this.serviceID = value;
    }
    
    @JsonIgnore
@@ -779,7 +926,7 @@ public class VPort extends RestObject {
    
 
    public String toString() {
-      return "VPort [" + "DPI=" + DPI + ", VLANID=" + VLANID + ", active=" + active + ", addressSpoofing=" + addressSpoofing + ", associatedFloatingIPID=" + associatedFloatingIPID + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSSID=" + associatedSSID + ", associatedSendMulticastChannelMapID=" + associatedSendMulticastChannelMapID + ", associatedTrunkID=" + associatedTrunkID + ", description=" + description + ", domainID=" + domainID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", flowCollectionEnabled=" + flowCollectionEnabled + ", gatewayMACMoveRole=" + gatewayMACMoveRole + ", hasAttachedInterfaces=" + hasAttachedInterfaces + ", lastUpdatedBy=" + lastUpdatedBy + ", multiNICVPortID=" + multiNICVPortID + ", multicast=" + multicast + ", name=" + name + ", operationalState=" + operationalState + ", segmentationID=" + segmentationID + ", segmentationType=" + segmentationType + ", subType=" + subType + ", systemType=" + systemType + ", trunkRole=" + trunkRole + ", type=" + type + ", zoneID=" + zoneID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VPort [" + "DPI=" + DPI + ", FIPIgnoreDefaultRoute=" + FIPIgnoreDefaultRoute + ", VLAN=" + VLAN + ", VLANID=" + VLANID + ", active=" + active + ", addressSpoofing=" + addressSpoofing + ", assocEntityID=" + assocEntityID + ", associatedEgressProfileID=" + associatedEgressProfileID + ", associatedFloatingIPID=" + associatedFloatingIPID + ", associatedGatewayID=" + associatedGatewayID + ", associatedGatewayPersonality=" + associatedGatewayPersonality + ", associatedGatewayType=" + associatedGatewayType + ", associatedIngressProfileID=" + associatedIngressProfileID + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSSID=" + associatedSSID + ", associatedSendMulticastChannelMapID=" + associatedSendMulticastChannelMapID + ", associatedTrunkID=" + associatedTrunkID + ", description=" + description + ", domainID=" + domainID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayMACMoveRole=" + gatewayMACMoveRole + ", gatewayPortName=" + gatewayPortName + ", gwEligible=" + gwEligible + ", hasAttachedInterfaces=" + hasAttachedInterfaces + ", lastUpdatedBy=" + lastUpdatedBy + ", multiNICVPortID=" + multiNICVPortID + ", multicast=" + multicast + ", name=" + name + ", operationalState=" + operationalState + ", peerOperationalState=" + peerOperationalState + ", segmentationID=" + segmentationID + ", segmentationType=" + segmentationType + ", serviceID=" + serviceID + ", subType=" + subType + ", systemType=" + systemType + ", trunkRole=" + trunkRole + ", type=" + type + ", zoneID=" + zoneID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

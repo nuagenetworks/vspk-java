@@ -48,7 +48,7 @@ public class TCA extends RestObject {
 
    
    
-   public enum Action { ALERT, ALERT_POLICYGROUPCHANGE };
+   public enum Action { Alert, Alert_PolicyGroupChange };
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    

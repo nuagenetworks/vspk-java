@@ -70,6 +70,9 @@ public class ForwardingPathListEntry extends RestObject {
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "priority")
+   protected Long priority;
+   
    @JsonProperty(value = "uplinkPreference")
    protected UplinkPreference uplinkPreference;
    
@@ -142,6 +145,16 @@ public class ForwardingPathListEntry extends RestObject {
    }
    
    @JsonIgnore
+   public Long getPriority() {
+      return priority;
+   }
+
+   @JsonIgnore
+   public void setPriority(Long value) { 
+      this.priority = value;
+   }
+   
+   @JsonIgnore
    public UplinkPreference getUplinkPreference() {
       return uplinkPreference;
    }
@@ -165,7 +178,7 @@ public class ForwardingPathListEntry extends RestObject {
    
 
    public String toString() {
-      return "ForwardingPathListEntry [" + "FCOverride=" + FCOverride + ", entityScope=" + entityScope + ", externalID=" + externalID + ", forwardingAction=" + forwardingAction + ", lastUpdatedBy=" + lastUpdatedBy + ", uplinkPreference=" + uplinkPreference + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "ForwardingPathListEntry [" + "FCOverride=" + FCOverride + ", entityScope=" + entityScope + ", externalID=" + externalID + ", forwardingAction=" + forwardingAction + ", lastUpdatedBy=" + lastUpdatedBy + ", priority=" + priority + ", uplinkPreference=" + uplinkPreference + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -75,19 +75,24 @@ import net.nuagenetworks.vspk.v5_0.fetchers.L7applicationsignaturesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.LDAPConfigurationsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MultiCastListsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.NetconfProfilesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NetworkMacroGroupsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NetworkPerformanceMeasurementsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSGatewaysFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.NSGatewaySummariesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSGatewayTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSGGroupsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSRedundantGatewayGroupsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PATNATPoolsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PerformanceMonitorsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.PolicyGroupCategoriesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PolicyObjectGroupsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PublicNetworkMacrosFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.RateLimitersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.RedundancyGroupsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.RoutingPoliciesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.SaaSApplicationGroupsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.SaaSApplicationTypesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.SharedNetworkResourcesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.TrunksFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.UsersFetcher;
@@ -335,6 +340,9 @@ public class Enterprise extends RestObject {
    private MultiCastListsFetcher multiCastLists;
    
    @JsonIgnore
+   private NetconfProfilesFetcher netconfProfiles;
+   
+   @JsonIgnore
    private NetworkMacroGroupsFetcher networkMacroGroups;
    
    @JsonIgnore
@@ -342,6 +350,9 @@ public class Enterprise extends RestObject {
    
    @JsonIgnore
    private NSGatewaysFetcher nSGateways;
+   
+   @JsonIgnore
+   private NSGatewaySummariesFetcher nSGatewaySummaries;
    
    @JsonIgnore
    private NSGatewayTemplatesFetcher nSGatewayTemplates;
@@ -359,6 +370,9 @@ public class Enterprise extends RestObject {
    private PerformanceMonitorsFetcher performanceMonitors;
    
    @JsonIgnore
+   private PolicyGroupCategoriesFetcher policyGroupCategories;
+   
+   @JsonIgnore
    private PolicyObjectGroupsFetcher policyObjectGroups;
    
    @JsonIgnore
@@ -372,6 +386,12 @@ public class Enterprise extends RestObject {
    
    @JsonIgnore
    private RoutingPoliciesFetcher routingPolicies;
+   
+   @JsonIgnore
+   private SaaSApplicationGroupsFetcher saaSApplicationGroups;
+   
+   @JsonIgnore
+   private SaaSApplicationTypesFetcher saaSApplicationTypes;
    
    @JsonIgnore
    private SharedNetworkResourcesFetcher sharedNetworkResources;
@@ -480,11 +500,15 @@ public class Enterprise extends RestObject {
       
       multiCastLists = new MultiCastListsFetcher(this);
       
+      netconfProfiles = new NetconfProfilesFetcher(this);
+      
       networkMacroGroups = new NetworkMacroGroupsFetcher(this);
       
       networkPerformanceMeasurements = new NetworkPerformanceMeasurementsFetcher(this);
       
       nSGateways = new NSGatewaysFetcher(this);
+      
+      nSGatewaySummaries = new NSGatewaySummariesFetcher(this);
       
       nSGatewayTemplates = new NSGatewayTemplatesFetcher(this);
       
@@ -496,6 +520,8 @@ public class Enterprise extends RestObject {
       
       performanceMonitors = new PerformanceMonitorsFetcher(this);
       
+      policyGroupCategories = new PolicyGroupCategoriesFetcher(this);
+      
       policyObjectGroups = new PolicyObjectGroupsFetcher(this);
       
       publicNetworkMacros = new PublicNetworkMacrosFetcher(this);
@@ -505,6 +531,10 @@ public class Enterprise extends RestObject {
       redundancyGroups = new RedundancyGroupsFetcher(this);
       
       routingPolicies = new RoutingPoliciesFetcher(this);
+      
+      saaSApplicationGroups = new SaaSApplicationGroupsFetcher(this);
+      
+      saaSApplicationTypes = new SaaSApplicationTypesFetcher(this);
       
       sharedNetworkResources = new SharedNetworkResourcesFetcher(this);
       
@@ -1048,6 +1078,11 @@ public class Enterprise extends RestObject {
    }
    
    @JsonIgnore
+   public NetconfProfilesFetcher getNetconfProfiles() {
+      return netconfProfiles;
+   }
+   
+   @JsonIgnore
    public NetworkMacroGroupsFetcher getNetworkMacroGroups() {
       return networkMacroGroups;
    }
@@ -1060,6 +1095,11 @@ public class Enterprise extends RestObject {
    @JsonIgnore
    public NSGatewaysFetcher getNSGateways() {
       return nSGateways;
+   }
+   
+   @JsonIgnore
+   public NSGatewaySummariesFetcher getNSGatewaySummaries() {
+      return nSGatewaySummaries;
    }
    
    @JsonIgnore
@@ -1088,6 +1128,11 @@ public class Enterprise extends RestObject {
    }
    
    @JsonIgnore
+   public PolicyGroupCategoriesFetcher getPolicyGroupCategories() {
+      return policyGroupCategories;
+   }
+   
+   @JsonIgnore
    public PolicyObjectGroupsFetcher getPolicyObjectGroups() {
       return policyObjectGroups;
    }
@@ -1110,6 +1155,16 @@ public class Enterprise extends RestObject {
    @JsonIgnore
    public RoutingPoliciesFetcher getRoutingPolicies() {
       return routingPolicies;
+   }
+   
+   @JsonIgnore
+   public SaaSApplicationGroupsFetcher getSaaSApplicationGroups() {
+      return saaSApplicationGroups;
+   }
+   
+   @JsonIgnore
+   public SaaSApplicationTypesFetcher getSaaSApplicationTypes() {
+      return saaSApplicationTypes;
    }
    
    @JsonIgnore

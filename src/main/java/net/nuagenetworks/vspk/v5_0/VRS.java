@@ -44,6 +44,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MonitoringPortsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MultiNICVPortsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.StatisticsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VMsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VPortsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VSCsFetcher;
@@ -257,6 +258,9 @@ public class VRS extends RestObject {
    private MultiNICVPortsFetcher multiNICVPorts;
    
    @JsonIgnore
+   private StatisticsFetcher statistics;
+   
+   @JsonIgnore
    private VMsFetcher vMs;
    
    @JsonIgnore
@@ -285,6 +289,8 @@ public class VRS extends RestObject {
       monitoringPorts = new MonitoringPortsFetcher(this);
       
       multiNICVPorts = new MultiNICVPortsFetcher(this);
+      
+      statistics = new StatisticsFetcher(this);
       
       vMs = new VMsFetcher(this);
       
@@ -840,6 +846,11 @@ public class VRS extends RestObject {
    @JsonIgnore
    public MultiNICVPortsFetcher getMultiNICVPorts() {
       return multiNICVPorts;
+   }
+   
+   @JsonIgnore
+   public StatisticsFetcher getStatistics() {
+      return statistics;
    }
    
    @JsonIgnore

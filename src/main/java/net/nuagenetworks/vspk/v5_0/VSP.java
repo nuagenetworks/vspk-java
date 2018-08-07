@@ -39,6 +39,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.HSCsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.NetconfManagersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VSCsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VSDsFetcher;
 
@@ -89,6 +90,9 @@ public class VSP extends RestObject {
    private MetadatasFetcher metadatas;
    
    @JsonIgnore
+   private NetconfManagersFetcher netconfManagers;
+   
+   @JsonIgnore
    private VSCsFetcher vSCs;
    
    @JsonIgnore
@@ -104,6 +108,8 @@ public class VSP extends RestObject {
       hSCs = new HSCsFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
+      
+      netconfManagers = new NetconfManagersFetcher(this);
       
       vSCs = new VSCsFetcher(this);
       
@@ -202,6 +208,11 @@ public class VSP extends RestObject {
    @JsonIgnore
    public MetadatasFetcher getMetadatas() {
       return metadatas;
+   }
+   
+   @JsonIgnore
+   public NetconfManagersFetcher getNetconfManagers() {
+      return netconfManagers;
    }
    
    @JsonIgnore

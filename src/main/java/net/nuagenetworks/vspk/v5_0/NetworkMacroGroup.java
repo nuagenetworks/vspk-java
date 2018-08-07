@@ -59,6 +59,9 @@ public class NetworkMacroGroup extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
+   @JsonProperty(value = "isSaaSType")
+   protected Boolean isSaaSType;
+   
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
    
@@ -122,6 +125,16 @@ public class NetworkMacroGroup extends RestObject {
    }
    
    @JsonIgnore
+   public Boolean getIsSaaSType() {
+      return isSaaSType;
+   }
+
+   @JsonIgnore
+   public void setIsSaaSType(Boolean value) { 
+      this.isSaaSType = value;
+   }
+   
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
@@ -170,7 +183,7 @@ public class NetworkMacroGroup extends RestObject {
    
 
    public String toString() {
-      return "NetworkMacroGroup [" + "description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", networkMacros=" + networkMacros + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NetworkMacroGroup [" + "description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", isSaaSType=" + isSaaSType + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", networkMacros=" + networkMacros + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    
