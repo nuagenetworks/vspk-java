@@ -80,7 +80,7 @@ public class VPort extends RestObject {
    
    public enum AddressSpoofing { DISABLED, ENABLED, INHERITED };
    
-   public enum AssociatedGatewayPersonality { DC7X50, EVDF, EVDFB, HARDWARE_VTEP, NETCONF_7X50, NSG, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, OTHER, VRSB, VRSG, VSA, VSG };
+   public enum AssociatedGatewayPersonality { DC7X50, EVDF, EVDFB, HARDWARE_VTEP, NETCONF_7X50, NSG, NSGBR, NSGDUC, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, OTHER, VDFG, VRSB, VRSG, VSA, VSG };
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    
