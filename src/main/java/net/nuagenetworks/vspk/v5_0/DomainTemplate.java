@@ -39,13 +39,11 @@ import net.nuagenetworks.vspk.v5_0.fetchers.DomainsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EgressACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EgressAdvFwdTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.DomainFIPAclTemplatesFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.FloatingIPACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GroupsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.IngressACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.IngressAdvFwdTemplatesFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.IngressExternalServiceTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PermissionsFetcher;
@@ -127,9 +125,6 @@ public class DomainTemplate extends RestObject {
    private DomainFIPAclTemplatesFetcher domainFIPAclTemplates;
    
    @JsonIgnore
-   private FloatingIPACLTemplatesFetcher floatingIPACLTemplates;
-   
-   @JsonIgnore
    private EventLogsFetcher eventLogs;
    
    @JsonIgnore
@@ -143,9 +138,6 @@ public class DomainTemplate extends RestObject {
    
    @JsonIgnore
    private IngressAdvFwdTemplatesFetcher ingressAdvFwdTemplates;
-   
-   @JsonIgnore
-   private IngressExternalServiceTemplatesFetcher ingressExternalServiceTemplates;
    
    @JsonIgnore
    private JobsFetcher jobs;
@@ -188,8 +180,6 @@ public class DomainTemplate extends RestObject {
       
       domainFIPAclTemplates = new DomainFIPAclTemplatesFetcher(this);
       
-      floatingIPACLTemplates = new FloatingIPACLTemplatesFetcher(this);
-      
       eventLogs = new EventLogsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
@@ -199,8 +189,6 @@ public class DomainTemplate extends RestObject {
       ingressACLTemplates = new IngressACLTemplatesFetcher(this);
       
       ingressAdvFwdTemplates = new IngressAdvFwdTemplatesFetcher(this);
-      
-      ingressExternalServiceTemplates = new IngressExternalServiceTemplatesFetcher(this);
       
       jobs = new JobsFetcher(this);
       
@@ -368,11 +356,6 @@ public class DomainTemplate extends RestObject {
    }
    
    @JsonIgnore
-   public FloatingIPACLTemplatesFetcher getFloatingIPACLTemplates() {
-      return floatingIPACLTemplates;
-   }
-   
-   @JsonIgnore
    public EventLogsFetcher getEventLogs() {
       return eventLogs;
    }
@@ -395,11 +378,6 @@ public class DomainTemplate extends RestObject {
    @JsonIgnore
    public IngressAdvFwdTemplatesFetcher getIngressAdvFwdTemplates() {
       return ingressAdvFwdTemplates;
-   }
-   
-   @JsonIgnore
-   public IngressExternalServiceTemplatesFetcher getIngressExternalServiceTemplates() {
-      return ingressExternalServiceTemplates;
    }
    
    @JsonIgnore

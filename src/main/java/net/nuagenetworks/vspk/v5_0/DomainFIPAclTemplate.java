@@ -60,6 +60,9 @@ public class DomainFIPAclTemplate extends RestObject {
    @JsonProperty(value = "associatedLiveEntityID")
    protected String associatedLiveEntityID;
    
+   @JsonProperty(value = "autoGeneratePriority")
+   protected Boolean autoGeneratePriority;
+   
    @JsonProperty(value = "defaultAllowIP")
    protected Boolean defaultAllowIP;
    
@@ -134,6 +137,16 @@ public class DomainFIPAclTemplate extends RestObject {
    @JsonIgnore
    public void setAssociatedLiveEntityID(String value) { 
       this.associatedLiveEntityID = value;
+   }
+   
+   @JsonIgnore
+   public Boolean getAutoGeneratePriority() {
+      return autoGeneratePriority;
+   }
+
+   @JsonIgnore
+   public void setAutoGeneratePriority(Boolean value) { 
+      this.autoGeneratePriority = value;
    }
    
    @JsonIgnore
@@ -265,7 +278,7 @@ public class DomainFIPAclTemplate extends RestObject {
    
 
    public String toString() {
-      return "DomainFIPAclTemplate [" + "active=" + active + ", associatedLiveEntityID=" + associatedLiveEntityID + ", defaultAllowIP=" + defaultAllowIP + ", defaultAllowNonIP=" + defaultAllowNonIP + ", description=" + description + ", entityScope=" + entityScope + ", entries=" + entries + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", policyState=" + policyState + ", priority=" + priority + ", priorityType=" + priorityType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "DomainFIPAclTemplate [" + "active=" + active + ", associatedLiveEntityID=" + associatedLiveEntityID + ", autoGeneratePriority=" + autoGeneratePriority + ", defaultAllowIP=" + defaultAllowIP + ", defaultAllowNonIP=" + defaultAllowNonIP + ", description=" + description + ", entityScope=" + entityScope + ", entries=" + entries + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", policyState=" + policyState + ", priority=" + priority + ", priorityType=" + priorityType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

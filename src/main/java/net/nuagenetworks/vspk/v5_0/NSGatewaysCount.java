@@ -39,23 +39,21 @@ import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "ptranslationmap", resourceName = "ptranslationmaps")
-public class PTranslationMap extends RestObject {
+@RestEntity(restName = "nsgatewayscount", resourceName = "nsgatewayscounts")
+public class NSGatewaysCount extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum MappingType { NAT, PAT };
 
    
-   @JsonProperty(value = "SPATSourceList")
-   protected java.util.List<String> SPATSourceList;
+   @JsonProperty(value = "activeNSGCount")
+   protected Long activeNSGCount;
    
-   @JsonProperty(value = "associatedDomainID")
-   protected String associatedDomainID;
+   @JsonProperty(value = "alarmedNSGCount")
+   protected Object alarmedNSGCount;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
@@ -63,17 +61,8 @@ public class PTranslationMap extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "mappingType")
-   protected MappingType mappingType;
-   
-   @JsonProperty(value = "providerAliasIP")
-   protected String providerAliasIP;
-   
-   @JsonProperty(value = "providerIP")
-   protected String providerIP;
+   @JsonProperty(value = "inactiveNSGCount")
+   protected Long inactiveNSGCount;
    
 
    
@@ -84,7 +73,7 @@ public class PTranslationMap extends RestObject {
    private MetadatasFetcher metadatas;
    
 
-   public PTranslationMap() {
+   public NSGatewaysCount() {
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
@@ -94,23 +83,23 @@ public class PTranslationMap extends RestObject {
 
    
    @JsonIgnore
-   public java.util.List<String> getSPATSourceList() {
-      return SPATSourceList;
+   public Long getActiveNSGCount() {
+      return activeNSGCount;
    }
 
    @JsonIgnore
-   public void setSPATSourceList(java.util.List<String> value) { 
-      this.SPATSourceList = value;
+   public void setActiveNSGCount(Long value) { 
+      this.activeNSGCount = value;
    }
    
    @JsonIgnore
-   public String getAssociatedDomainID() {
-      return associatedDomainID;
+   public Object getAlarmedNSGCount() {
+      return alarmedNSGCount;
    }
 
    @JsonIgnore
-   public void setAssociatedDomainID(String value) { 
-      this.associatedDomainID = value;
+   public void setAlarmedNSGCount(Object value) { 
+      this.alarmedNSGCount = value;
    }
    
    @JsonIgnore
@@ -134,43 +123,13 @@ public class PTranslationMap extends RestObject {
    }
    
    @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
+   public Long getInactiveNSGCount() {
+      return inactiveNSGCount;
    }
 
    @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   
-   @JsonIgnore
-   public MappingType getMappingType() {
-      return mappingType;
-   }
-
-   @JsonIgnore
-   public void setMappingType(MappingType value) { 
-      this.mappingType = value;
-   }
-   
-   @JsonIgnore
-   public String getProviderAliasIP() {
-      return providerAliasIP;
-   }
-
-   @JsonIgnore
-   public void setProviderAliasIP(String value) { 
-      this.providerAliasIP = value;
-   }
-   
-   @JsonIgnore
-   public String getProviderIP() {
-      return providerIP;
-   }
-
-   @JsonIgnore
-   public void setProviderIP(String value) { 
-      this.providerIP = value;
+   public void setInactiveNSGCount(Long value) { 
+      this.inactiveNSGCount = value;
    }
    
 
@@ -187,7 +146,7 @@ public class PTranslationMap extends RestObject {
    
 
    public String toString() {
-      return "PTranslationMap [" + "SPATSourceList=" + SPATSourceList + ", associatedDomainID=" + associatedDomainID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", mappingType=" + mappingType + ", providerAliasIP=" + providerAliasIP + ", providerIP=" + providerIP + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NSGatewaysCount [" + "activeNSGCount=" + activeNSGCount + ", alarmedNSGCount=" + alarmedNSGCount + ", entityScope=" + entityScope + ", externalID=" + externalID + ", inactiveNSGCount=" + inactiveNSGCount + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

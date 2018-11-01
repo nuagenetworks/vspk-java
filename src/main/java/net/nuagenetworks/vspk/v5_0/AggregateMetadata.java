@@ -47,6 +47,9 @@ public class AggregateMetadata extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
+   @JsonProperty(value = "assocEntityType")
+   protected String assocEntityType;
+   
    @JsonProperty(value = "blob")
    protected String blob;
    
@@ -78,6 +81,16 @@ public class AggregateMetadata extends RestObject {
       
    }
 
+   
+   @JsonIgnore
+   public String getAssocEntityType() {
+      return assocEntityType;
+   }
+
+   @JsonIgnore
+   public void setAssocEntityType(String value) { 
+      this.assocEntityType = value;
+   }
    
    @JsonIgnore
    public String getBlob() {
@@ -163,7 +176,7 @@ public class AggregateMetadata extends RestObject {
    
 
    public String toString() {
-      return "AggregateMetadata [" + "blob=" + blob + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", globalMetadata=" + globalMetadata + ", metadataTagIDs=" + metadataTagIDs + ", name=" + name + ", networkNotificationDisabled=" + networkNotificationDisabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "AggregateMetadata [" + "assocEntityType=" + assocEntityType + ", blob=" + blob + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", globalMetadata=" + globalMetadata + ", metadataTagIDs=" + metadataTagIDs + ", name=" + name + ", networkNotificationDisabled=" + networkNotificationDisabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

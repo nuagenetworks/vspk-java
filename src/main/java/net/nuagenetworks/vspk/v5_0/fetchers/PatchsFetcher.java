@@ -29,14 +29,14 @@ package net.nuagenetworks.vspk.v5_0.fetchers;
 
 import net.nuagenetworks.bambou.RestObject;
 import net.nuagenetworks.bambou.RestFetcher;
-import net.nuagenetworks.vspk.v5_0.IngressExternalServiceTemplate;
+import net.nuagenetworks.vspk.v5_0.Patch;
 
-public class IngressExternalServiceTemplatesFetcher extends RestFetcher<IngressExternalServiceTemplate> {
+public class PatchsFetcher extends RestFetcher<Patch> {
 
    private static final long serialVersionUID = 1L;
    
-   public IngressExternalServiceTemplatesFetcher(RestObject parentRestObj) {
-      super(parentRestObj, IngressExternalServiceTemplate.class);
+   public PatchsFetcher(RestObject parentRestObj) {
+      super(parentRestObj, Patch.class);
    }
    
    

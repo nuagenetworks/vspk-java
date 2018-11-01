@@ -41,6 +41,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSPortsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PortsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.WANServicesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.WirelessPortsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "autodiscoveredgateway", resourceName = "autodiscoveredgateways")
@@ -85,9 +86,6 @@ public class AutoDiscoveredGateway extends RestObject {
    @JsonProperty(value = "systemID")
    protected String systemID;
    
-   @JsonProperty(value = "useGatewayVLANVNID")
-   protected Boolean useGatewayVLANVNID;
-   
    @JsonProperty(value = "vtep")
    protected String vtep;
    
@@ -111,6 +109,9 @@ public class AutoDiscoveredGateway extends RestObject {
    @JsonIgnore
    private WANServicesFetcher wANServices;
    
+   @JsonIgnore
+   private WirelessPortsFetcher wirelessPorts;
+   
 
    public AutoDiscoveredGateway() {
       
@@ -125,6 +126,8 @@ public class AutoDiscoveredGateway extends RestObject {
       ports = new PortsFetcher(this);
       
       wANServices = new WANServicesFetcher(this);
+      
+      wirelessPorts = new WirelessPortsFetcher(this);
       
    }
 
@@ -230,16 +233,6 @@ public class AutoDiscoveredGateway extends RestObject {
    }
    
    @JsonIgnore
-   public Boolean getUseGatewayVLANVNID() {
-      return useGatewayVLANVNID;
-   }
-
-   @JsonIgnore
-   public void setUseGatewayVLANVNID(Boolean value) { 
-      this.useGatewayVLANVNID = value;
-   }
-   
-   @JsonIgnore
    public String getVtep() {
       return vtep;
    }
@@ -281,9 +274,14 @@ public class AutoDiscoveredGateway extends RestObject {
       return wANServices;
    }
    
+   @JsonIgnore
+   public WirelessPortsFetcher getWirelessPorts() {
+      return wirelessPorts;
+   }
+   
 
    public String toString() {
-      return "AutoDiscoveredGateway [" + "controllers=" + controllers + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayID=" + gatewayID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", peer=" + peer + ", personality=" + personality + ", systemID=" + systemID + ", useGatewayVLANVNID=" + useGatewayVLANVNID + ", vtep=" + vtep + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "AutoDiscoveredGateway [" + "controllers=" + controllers + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayID=" + gatewayID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", peer=" + peer + ", personality=" + personality + ", systemID=" + systemID + ", vtep=" + vtep + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

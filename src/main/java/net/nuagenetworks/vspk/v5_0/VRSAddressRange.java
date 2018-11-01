@@ -46,8 +46,13 @@ public class VRSAddressRange extends RestObject {
 
    
    
+   public enum IPType { IPV4, IPV6, DUALSTACK };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
+   
+   @JsonProperty(value = "IPType")
+   protected IPType IPType;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
@@ -81,6 +86,16 @@ public class VRSAddressRange extends RestObject {
       
    }
 
+   
+   @JsonIgnore
+   public IPType getIPType() {
+      return IPType;
+   }
+
+   @JsonIgnore
+   public void setIPType(IPType value) { 
+      this.IPType = value;
+   }
    
    @JsonIgnore
    public EntityScope getEntityScope() {
@@ -146,7 +161,7 @@ public class VRSAddressRange extends RestObject {
    
 
    public String toString() {
-      return "VRSAddressRange [" + "entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", maxAddress=" + maxAddress + ", minAddress=" + minAddress + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VRSAddressRange [" + "IPType=" + IPType + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", maxAddress=" + maxAddress + ", minAddress=" + minAddress + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

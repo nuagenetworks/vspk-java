@@ -51,6 +51,9 @@ public class InfrastructureConfig extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
+   @JsonProperty(value = "associatedEntityType")
+   protected String associatedEntityType;
+   
    @JsonProperty(value = "config")
    protected Object config;
    
@@ -83,6 +86,16 @@ public class InfrastructureConfig extends RestObject {
       
    }
 
+   
+   @JsonIgnore
+   public String getAssociatedEntityType() {
+      return associatedEntityType;
+   }
+
+   @JsonIgnore
+   public void setAssociatedEntityType(String value) { 
+      this.associatedEntityType = value;
+   }
    
    @JsonIgnore
    public Object getConfig() {
@@ -148,7 +161,7 @@ public class InfrastructureConfig extends RestObject {
    
 
    public String toString() {
-      return "InfrastructureConfig [" + "config=" + config + ", configStatus=" + configStatus + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "InfrastructureConfig [" + "associatedEntityType=" + associatedEntityType + ", config=" + config + ", configStatus=" + configStatus + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

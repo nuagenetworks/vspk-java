@@ -55,7 +55,7 @@ public class EgressACLEntryTemplate extends RestObject {
    
    public enum LocationType { ANY, PGEXPRESSION, POLICYGROUP, SUBNET, ZONE };
    
-   public enum NetworkType { ANY, ENDPOINT_DOMAIN, ENDPOINT_SUBNET, ENDPOINT_ZONE, ENTERPRISE_NETWORK, INTERNET_POLICYGROUP, NETWORK_MACRO_GROUP, PGEXPRESSION, POLICYGROUP, PUBLIC_NETWORK, SUBNET, UNDERLAY_INTERNET_POLICYGROUP, ZONE };
+   public enum NetworkType { ANY, ENDPOINT_DOMAIN, ENDPOINT_SUBNET, ENDPOINT_ZONE, ENTERPRISE_NETWORK, INTERNET_POLICYGROUP, NETWORK_MACRO_GROUP, PGEXPRESSION, POLICYGROUP, PUBLIC_NETWORK, SAAS_APPLICATION_GROUP, SUBNET, UNDERLAY_INTERNET_POLICYGROUP, ZONE };
    
    public enum PolicyState { DRAFT, LIVE };
 
@@ -87,11 +87,17 @@ public class EgressACLEntryTemplate extends RestObject {
    @JsonProperty(value = "associatedLiveEntityID")
    protected String associatedLiveEntityID;
    
+   @JsonProperty(value = "associatedLiveTemplateID")
+   protected String associatedLiveTemplateID;
+   
    @JsonProperty(value = "associatedTrafficType")
    protected AssociatedTrafficType associatedTrafficType;
    
    @JsonProperty(value = "associatedTrafficTypeID")
    protected String associatedTrafficTypeID;
+   
+   @JsonProperty(value = "associatedVirtualFirewallRuleID")
+   protected String associatedVirtualFirewallRuleID;
    
    @JsonProperty(value = "description")
    protected String description;
@@ -276,6 +282,16 @@ public class EgressACLEntryTemplate extends RestObject {
    }
    
    @JsonIgnore
+   public String getAssociatedLiveTemplateID() {
+      return associatedLiveTemplateID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedLiveTemplateID(String value) { 
+      this.associatedLiveTemplateID = value;
+   }
+   
+   @JsonIgnore
    public AssociatedTrafficType getAssociatedTrafficType() {
       return associatedTrafficType;
    }
@@ -293,6 +309,16 @@ public class EgressACLEntryTemplate extends RestObject {
    @JsonIgnore
    public void setAssociatedTrafficTypeID(String value) { 
       this.associatedTrafficTypeID = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedVirtualFirewallRuleID() {
+      return associatedVirtualFirewallRuleID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedVirtualFirewallRuleID(String value) { 
+      this.associatedVirtualFirewallRuleID = value;
    }
    
    @JsonIgnore
@@ -524,7 +550,7 @@ public class EgressACLEntryTemplate extends RestObject {
    
 
    public String toString() {
-      return "EgressACLEntryTemplate [" + "ACLTemplateName=" + ACLTemplateName + ", DSCP=" + DSCP + ", ICMPCode=" + ICMPCode + ", ICMPType=" + ICMPType + ", IPv6AddressOverride=" + IPv6AddressOverride + ", action=" + action + ", addressOverride=" + addressOverride + ", associatedL7ApplicationSignatureID=" + associatedL7ApplicationSignatureID + ", associatedLiveEntityID=" + associatedLiveEntityID + ", associatedTrafficType=" + associatedTrafficType + ", associatedTrafficTypeID=" + associatedTrafficTypeID + ", description=" + description + ", destinationPort=" + destinationPort + ", domainName=" + domainName + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", etherType=" + etherType + ", externalID=" + externalID + ", flowLoggingEnabled=" + flowLoggingEnabled + ", lastUpdatedBy=" + lastUpdatedBy + ", locationID=" + locationID + ", locationType=" + locationType + ", mirrorDestinationID=" + mirrorDestinationID + ", networkID=" + networkID + ", networkType=" + networkType + ", policyState=" + policyState + ", priority=" + priority + ", protocol=" + protocol + ", sourcePort=" + sourcePort + ", stateful=" + stateful + ", statsID=" + statsID + ", statsLoggingEnabled=" + statsLoggingEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "EgressACLEntryTemplate [" + "ACLTemplateName=" + ACLTemplateName + ", DSCP=" + DSCP + ", ICMPCode=" + ICMPCode + ", ICMPType=" + ICMPType + ", IPv6AddressOverride=" + IPv6AddressOverride + ", action=" + action + ", addressOverride=" + addressOverride + ", associatedL7ApplicationSignatureID=" + associatedL7ApplicationSignatureID + ", associatedLiveEntityID=" + associatedLiveEntityID + ", associatedLiveTemplateID=" + associatedLiveTemplateID + ", associatedTrafficType=" + associatedTrafficType + ", associatedTrafficTypeID=" + associatedTrafficTypeID + ", associatedVirtualFirewallRuleID=" + associatedVirtualFirewallRuleID + ", description=" + description + ", destinationPort=" + destinationPort + ", domainName=" + domainName + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", etherType=" + etherType + ", externalID=" + externalID + ", flowLoggingEnabled=" + flowLoggingEnabled + ", lastUpdatedBy=" + lastUpdatedBy + ", locationID=" + locationID + ", locationType=" + locationType + ", mirrorDestinationID=" + mirrorDestinationID + ", networkID=" + networkID + ", networkType=" + networkType + ", policyState=" + policyState + ", priority=" + priority + ", protocol=" + protocol + ", sourcePort=" + sourcePort + ", stateful=" + stateful + ", statsID=" + statsID + ", statsLoggingEnabled=" + statsLoggingEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

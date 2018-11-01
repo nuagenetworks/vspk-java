@@ -37,7 +37,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.StatisticsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "egressadvfwdentrytemplate", resourceName = "egressadvfwdentrytemplates")
@@ -50,6 +49,8 @@ public class EgressAdvFwdEntryTemplate extends RestObject {
    public enum FCOverride { A, B, C, D, E, F, G, H, NONE };
    
    public enum Action { DROP, FORWARD, REDIRECT };
+   
+   public enum AssociatedTrafficType { L4_SERVICE, L4_SERVICE_GROUP };
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    
@@ -91,6 +92,15 @@ public class EgressAdvFwdEntryTemplate extends RestObject {
    @JsonProperty(value = "associatedLiveEntityID")
    protected String associatedLiveEntityID;
    
+   @JsonProperty(value = "associatedLiveTemplateID")
+   protected String associatedLiveTemplateID;
+   
+   @JsonProperty(value = "associatedTrafficType")
+   protected AssociatedTrafficType associatedTrafficType;
+   
+   @JsonProperty(value = "associatedTrafficTypeID")
+   protected String associatedTrafficTypeID;
+   
    @JsonProperty(value = "description")
    protected String description;
    
@@ -130,9 +140,6 @@ public class EgressAdvFwdEntryTemplate extends RestObject {
    @JsonProperty(value = "mirrorDestinationID")
    protected String mirrorDestinationID;
    
-   @JsonProperty(value = "name")
-   protected String name;
-   
    @JsonProperty(value = "networkID")
    protected String networkID;
    
@@ -171,17 +178,12 @@ public class EgressAdvFwdEntryTemplate extends RestObject {
    @JsonIgnore
    private MetadatasFetcher metadatas;
    
-   @JsonIgnore
-   private StatisticsFetcher statistics;
-   
 
    public EgressAdvFwdEntryTemplate() {
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
-      
-      statistics = new StatisticsFetcher(this);
       
    }
 
@@ -274,6 +276,36 @@ public class EgressAdvFwdEntryTemplate extends RestObject {
    @JsonIgnore
    public void setAssociatedLiveEntityID(String value) { 
       this.associatedLiveEntityID = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedLiveTemplateID() {
+      return associatedLiveTemplateID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedLiveTemplateID(String value) { 
+      this.associatedLiveTemplateID = value;
+   }
+   
+   @JsonIgnore
+   public AssociatedTrafficType getAssociatedTrafficType() {
+      return associatedTrafficType;
+   }
+
+   @JsonIgnore
+   public void setAssociatedTrafficType(AssociatedTrafficType value) { 
+      this.associatedTrafficType = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedTrafficTypeID() {
+      return associatedTrafficTypeID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedTrafficTypeID(String value) { 
+      this.associatedTrafficTypeID = value;
    }
    
    @JsonIgnore
@@ -407,16 +439,6 @@ public class EgressAdvFwdEntryTemplate extends RestObject {
    }
    
    @JsonIgnore
-   public String getName() {
-      return name;
-   }
-
-   @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
-   }
-   
-   @JsonIgnore
    public String getNetworkID() {
       return networkID;
    }
@@ -528,14 +550,9 @@ public class EgressAdvFwdEntryTemplate extends RestObject {
       return metadatas;
    }
    
-   @JsonIgnore
-   public StatisticsFetcher getStatistics() {
-      return statistics;
-   }
-   
 
    public String toString() {
-      return "EgressAdvFwdEntryTemplate [" + "ACLTemplateName=" + ACLTemplateName + ", DSCP=" + DSCP + ", FCOverride=" + FCOverride + ", ICMPCode=" + ICMPCode + ", ICMPType=" + ICMPType + ", IPv6AddressOverride=" + IPv6AddressOverride + ", action=" + action + ", addressOverride=" + addressOverride + ", associatedLiveEntityID=" + associatedLiveEntityID + ", description=" + description + ", destinationPort=" + destinationPort + ", domainName=" + domainName + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", etherType=" + etherType + ", externalID=" + externalID + ", failsafeDatapath=" + failsafeDatapath + ", flowLoggingEnabled=" + flowLoggingEnabled + ", lastUpdatedBy=" + lastUpdatedBy + ", locationID=" + locationID + ", locationType=" + locationType + ", mirrorDestinationID=" + mirrorDestinationID + ", name=" + name + ", networkID=" + networkID + ", networkType=" + networkType + ", policyState=" + policyState + ", priority=" + priority + ", protocol=" + protocol + ", redirectVPortTagID=" + redirectVPortTagID + ", sourcePort=" + sourcePort + ", statsID=" + statsID + ", statsLoggingEnabled=" + statsLoggingEnabled + ", uplinkPreference=" + uplinkPreference + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "EgressAdvFwdEntryTemplate [" + "ACLTemplateName=" + ACLTemplateName + ", DSCP=" + DSCP + ", FCOverride=" + FCOverride + ", ICMPCode=" + ICMPCode + ", ICMPType=" + ICMPType + ", IPv6AddressOverride=" + IPv6AddressOverride + ", action=" + action + ", addressOverride=" + addressOverride + ", associatedLiveEntityID=" + associatedLiveEntityID + ", associatedLiveTemplateID=" + associatedLiveTemplateID + ", associatedTrafficType=" + associatedTrafficType + ", associatedTrafficTypeID=" + associatedTrafficTypeID + ", description=" + description + ", destinationPort=" + destinationPort + ", domainName=" + domainName + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", etherType=" + etherType + ", externalID=" + externalID + ", failsafeDatapath=" + failsafeDatapath + ", flowLoggingEnabled=" + flowLoggingEnabled + ", lastUpdatedBy=" + lastUpdatedBy + ", locationID=" + locationID + ", locationType=" + locationType + ", mirrorDestinationID=" + mirrorDestinationID + ", networkID=" + networkID + ", networkType=" + networkType + ", policyState=" + policyState + ", priority=" + priority + ", protocol=" + protocol + ", redirectVPortTagID=" + redirectVPortTagID + ", sourcePort=" + sourcePort + ", statsID=" + statsID + ", statsLoggingEnabled=" + statsLoggingEnabled + ", uplinkPreference=" + uplinkPreference + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

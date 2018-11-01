@@ -76,15 +76,11 @@ public class Subnet extends RestObject {
    
    public enum PATEnabled { DISABLED, ENABLED, INHERITED };
    
-   public enum DefaultAction { DROP_TRAFFIC, USE_UNDERLAY };
-   
    public enum Encryption { DISABLED, ENABLED, INHERITED };
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    
    public enum EntityState { MARKED_FOR_DELETION, UNDER_CONSTRUCTION };
-   
-   public enum FlowCollectionEnabled { DISABLED, ENABLED, INHERITED };
    
    public enum MaintenanceMode { DISABLED, ENABLED, ENABLED_INHERITED };
    
@@ -130,9 +126,6 @@ public class Subnet extends RestObject {
    @JsonProperty(value = "associatedSharedNetworkResourceID")
    protected String associatedSharedNetworkResourceID;
    
-   @JsonProperty(value = "defaultAction")
-   protected DefaultAction defaultAction;
-   
    @JsonProperty(value = "description")
    protected String description;
    
@@ -150,9 +143,6 @@ public class Subnet extends RestObject {
    
    @JsonProperty(value = "externalID")
    protected String externalID;
-   
-   @JsonProperty(value = "flowCollectionEnabled")
-   protected FlowCollectionEnabled flowCollectionEnabled;
    
    @JsonProperty(value = "gateway")
    protected String gateway;
@@ -463,16 +453,6 @@ public class Subnet extends RestObject {
    }
    
    @JsonIgnore
-   public DefaultAction getDefaultAction() {
-      return defaultAction;
-   }
-
-   @JsonIgnore
-   public void setDefaultAction(DefaultAction value) { 
-      this.defaultAction = value;
-   }
-   
-   @JsonIgnore
    public String getDescription() {
       return description;
    }
@@ -530,16 +510,6 @@ public class Subnet extends RestObject {
    @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
-   }
-   
-   @JsonIgnore
-   public FlowCollectionEnabled getFlowCollectionEnabled() {
-      return flowCollectionEnabled;
-   }
-
-   @JsonIgnore
-   public void setFlowCollectionEnabled(FlowCollectionEnabled value) { 
-      this.flowCollectionEnabled = value;
    }
    
    @JsonIgnore
@@ -886,7 +856,7 @@ public class Subnet extends RestObject {
    
 
    public String toString() {
-      return "Subnet [" + "DHCPRelayStatus=" + DHCPRelayStatus + ", DPI=" + DPI + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", IPv6Gateway=" + IPv6Gateway + ", PATEnabled=" + PATEnabled + ", accessRestrictionEnabled=" + accessRestrictionEnabled + ", address=" + address + ", advertise=" + advertise + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSharedNetworkResourceID=" + associatedSharedNetworkResourceID + ", defaultAction=" + defaultAction + ", description=" + description + ", dynamicIpv6Address=" + dynamicIpv6Address + ", encryption=" + encryption + ", entityScope=" + entityScope + ", entityState=" + entityState + ", externalID=" + externalID + ", flowCollectionEnabled=" + flowCollectionEnabled + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", lastUpdatedBy=" + lastUpdatedBy + ", maintenanceMode=" + maintenanceMode + ", multiHomeEnabled=" + multiHomeEnabled + ", multicast=" + multicast + ", name=" + name + ", netmask=" + netmask + ", policyGroupID=" + policyGroupID + ", proxyARP=" + proxyARP + ", public_=" + public_ + ", resourceType=" + resourceType + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", serviceID=" + serviceID + ", splitSubnet=" + splitSubnet + ", subnetVLANID=" + subnetVLANID + ", templateID=" + templateID + ", underlay=" + underlay + ", underlayEnabled=" + underlayEnabled + ", useGlobalMAC=" + useGlobalMAC + ", vnId=" + vnId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Subnet [" + "DHCPRelayStatus=" + DHCPRelayStatus + ", DPI=" + DPI + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", IPv6Gateway=" + IPv6Gateway + ", PATEnabled=" + PATEnabled + ", accessRestrictionEnabled=" + accessRestrictionEnabled + ", address=" + address + ", advertise=" + advertise + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSharedNetworkResourceID=" + associatedSharedNetworkResourceID + ", description=" + description + ", dynamicIpv6Address=" + dynamicIpv6Address + ", encryption=" + encryption + ", entityScope=" + entityScope + ", entityState=" + entityState + ", externalID=" + externalID + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", lastUpdatedBy=" + lastUpdatedBy + ", maintenanceMode=" + maintenanceMode + ", multiHomeEnabled=" + multiHomeEnabled + ", multicast=" + multicast + ", name=" + name + ", netmask=" + netmask + ", policyGroupID=" + policyGroupID + ", proxyARP=" + proxyARP + ", public_=" + public_ + ", resourceType=" + resourceType + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", serviceID=" + serviceID + ", splitSubnet=" + splitSubnet + ", subnetVLANID=" + subnetVLANID + ", templateID=" + templateID + ", underlay=" + underlay + ", underlayEnabled=" + underlayEnabled + ", useGlobalMAC=" + useGlobalMAC + ", vnId=" + vnId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

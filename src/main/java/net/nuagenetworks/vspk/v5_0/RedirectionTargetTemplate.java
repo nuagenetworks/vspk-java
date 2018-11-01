@@ -47,6 +47,8 @@ public class RedirectionTargetTemplate extends RestObject {
 
    
    
+   public enum DestinationType { OVERLAY_MIRROR_DESTINATION, REDIRECTION_TARGET };
+   
    public enum EndPointType { L3, NONE, NSG_VNF, VIRTUAL_WIRE };
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
@@ -56,6 +58,9 @@ public class RedirectionTargetTemplate extends RestObject {
    
    @JsonProperty(value = "description")
    protected String description;
+   
+   @JsonProperty(value = "destinationType")
+   protected DestinationType destinationType;
    
    @JsonProperty(value = "endPointType")
    protected EndPointType endPointType;
@@ -110,6 +115,16 @@ public class RedirectionTargetTemplate extends RestObject {
    @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
+   }
+   
+   @JsonIgnore
+   public DestinationType getDestinationType() {
+      return destinationType;
+   }
+
+   @JsonIgnore
+   public void setDestinationType(DestinationType value) { 
+      this.destinationType = value;
    }
    
    @JsonIgnore
@@ -201,7 +216,7 @@ public class RedirectionTargetTemplate extends RestObject {
    
 
    public String toString() {
-      return "RedirectionTargetTemplate [" + "description=" + description + ", endPointType=" + endPointType + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", redundancyEnabled=" + redundancyEnabled + ", triggerType=" + triggerType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "RedirectionTargetTemplate [" + "description=" + description + ", destinationType=" + destinationType + ", endPointType=" + endPointType + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", redundancyEnabled=" + redundancyEnabled + ", triggerType=" + triggerType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

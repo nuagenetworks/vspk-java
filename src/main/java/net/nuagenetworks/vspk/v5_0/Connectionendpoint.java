@@ -35,6 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "connectionendpoint", resourceName = "connectionendpoints")
@@ -44,9 +46,11 @@ public class Connectionendpoint extends RestObject {
 
    
    
-   public enum IPType { IPV4 };
+   public enum IPType { IPV4, IPV6 };
    
    public enum EndPointType { SOURCE };
+   
+   public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "IPAddress")
@@ -55,19 +59,41 @@ public class Connectionendpoint extends RestObject {
    @JsonProperty(value = "IPType")
    protected IPType IPType;
    
+   @JsonProperty(value = "IPv6Address")
+   protected String IPv6Address;
+   
    @JsonProperty(value = "description")
    protected String description;
    
    @JsonProperty(value = "endPointType")
    protected EndPointType endPointType;
    
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
    @JsonProperty(value = "name")
    protected String name;
    
 
    
+   @JsonIgnore
+   private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public Connectionendpoint() {
+      
+      globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
    }
 
@@ -93,6 +119,16 @@ public class Connectionendpoint extends RestObject {
    }
    
    @JsonIgnore
+   public String getIPv6Address() {
+      return IPv6Address;
+   }
+
+   @JsonIgnore
+   public void setIPv6Address(String value) { 
+      this.IPv6Address = value;
+   }
+   
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
@@ -113,6 +149,36 @@ public class Connectionendpoint extends RestObject {
    }
    
    @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   
+   @JsonIgnore
    public String getName() {
       return name;
    }
@@ -124,9 +190,19 @@ public class Connectionendpoint extends RestObject {
    
 
    
+   @JsonIgnore
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "Connectionendpoint [" + "IPAddress=" + IPAddress + ", IPType=" + IPType + ", description=" + description + ", endPointType=" + endPointType + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Connectionendpoint [" + "IPAddress=" + IPAddress + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", description=" + description + ", endPointType=" + endPointType + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

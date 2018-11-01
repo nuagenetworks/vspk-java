@@ -35,6 +35,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v5_0.fetchers.DeploymentFailuresFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.DHCPOptionsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
@@ -58,9 +59,6 @@ public class BridgeInterface extends RestObject {
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
-   
-   @JsonProperty(value = "IPv6Address")
-   protected String IPv6Address;
    
    @JsonProperty(value = "IPv6Gateway")
    protected String IPv6Gateway;
@@ -122,6 +120,9 @@ public class BridgeInterface extends RestObject {
 
    
    @JsonIgnore
+   private DeploymentFailuresFetcher deploymentFailures;
+   
+   @JsonIgnore
    private DHCPOptionsFetcher dHCPOptions;
    
    @JsonIgnore
@@ -154,6 +155,8 @@ public class BridgeInterface extends RestObject {
 
    public BridgeInterface() {
       
+      deploymentFailures = new DeploymentFailuresFetcher(this);
+      
       dHCPOptions = new DHCPOptionsFetcher(this);
       
       eventLogs = new EventLogsFetcher(this);
@@ -176,16 +179,6 @@ public class BridgeInterface extends RestObject {
       
    }
 
-   
-   @JsonIgnore
-   public String getIPv6Address() {
-      return IPv6Address;
-   }
-
-   @JsonIgnore
-   public void setIPv6Address(String value) { 
-      this.IPv6Address = value;
-   }
    
    @JsonIgnore
    public String getIPv6Gateway() {
@@ -380,6 +373,11 @@ public class BridgeInterface extends RestObject {
 
    
    @JsonIgnore
+   public DeploymentFailuresFetcher getDeploymentFailures() {
+      return deploymentFailures;
+   }
+   
+   @JsonIgnore
    public DHCPOptionsFetcher getDHCPOptions() {
       return dHCPOptions;
    }
@@ -431,7 +429,7 @@ public class BridgeInterface extends RestObject {
    
 
    public String toString() {
-      return "BridgeInterface [" + "IPv6Address=" + IPv6Address + ", IPv6Gateway=" + IPv6Gateway + ", VPortID=" + VPortID + ", VPortName=" + VPortName + ", associatedFloatingIPAddress=" + associatedFloatingIPAddress + ", attachedNetworkID=" + attachedNetworkID + ", attachedNetworkType=" + attachedNetworkType + ", domainID=" + domainID + ", domainName=" + domainName + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gateway=" + gateway + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", netmask=" + netmask + ", networkName=" + networkName + ", policyDecisionID=" + policyDecisionID + ", tierID=" + tierID + ", zoneID=" + zoneID + ", zoneName=" + zoneName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "BridgeInterface [" + "IPv6Gateway=" + IPv6Gateway + ", VPortID=" + VPortID + ", VPortName=" + VPortName + ", associatedFloatingIPAddress=" + associatedFloatingIPAddress + ", attachedNetworkID=" + attachedNetworkID + ", attachedNetworkType=" + attachedNetworkType + ", domainID=" + domainID + ", domainName=" + domainName + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gateway=" + gateway + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", netmask=" + netmask + ", networkName=" + networkName + ", policyDecisionID=" + policyDecisionID + ", tierID=" + tierID + ", zoneID=" + zoneID + ", zoneName=" + zoneName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -38,6 +38,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import net.nuagenetworks.vspk.v5_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.PolicyGroupCategoriesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VPortsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -49,6 +50,8 @@ public class PolicyGroup extends RestObject {
    
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
+   public enum EntityState { MARKED_FOR_DELETION, UNDER_CONSTRUCTION };
    
    public enum Type { HARDWARE, SOFTWARE };
 
@@ -67,6 +70,9 @@ public class PolicyGroup extends RestObject {
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
+   
+   @JsonProperty(value = "entityState")
+   protected EntityState entityState;
    
    @JsonProperty(value = "external")
    protected Boolean external;
@@ -101,6 +107,9 @@ public class PolicyGroup extends RestObject {
    private MetadatasFetcher metadatas;
    
    @JsonIgnore
+   private PolicyGroupCategoriesFetcher policyGroupCategories;
+   
+   @JsonIgnore
    private VPortsFetcher vPorts;
    
 
@@ -112,6 +121,8 @@ public class PolicyGroup extends RestObject {
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
+      
+      policyGroupCategories = new PolicyGroupCategoriesFetcher(this);
       
       vPorts = new VPortsFetcher(this);
       
@@ -166,6 +177,16 @@ public class PolicyGroup extends RestObject {
    @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
+   }
+   
+   @JsonIgnore
+   public EntityState getEntityState() {
+      return entityState;
+   }
+
+   @JsonIgnore
+   public void setEntityState(EntityState value) { 
+      this.entityState = value;
    }
    
    @JsonIgnore
@@ -256,13 +277,18 @@ public class PolicyGroup extends RestObject {
    }
    
    @JsonIgnore
+   public PolicyGroupCategoriesFetcher getPolicyGroupCategories() {
+      return policyGroupCategories;
+   }
+   
+   @JsonIgnore
    public VPortsFetcher getVPorts() {
       return vPorts;
    }
    
 
    public String toString() {
-      return "PolicyGroup [" + "EVPNCommunityTag=" + EVPNCommunityTag + ", assocPolicyGroupCategoryID=" + assocPolicyGroupCategoryID + ", assocPolicyGroupCategoryName=" + assocPolicyGroupCategoryName + ", description=" + description + ", entityScope=" + entityScope + ", external=" + external + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", policyGroupID=" + policyGroupID + ", templateID=" + templateID + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "PolicyGroup [" + "EVPNCommunityTag=" + EVPNCommunityTag + ", assocPolicyGroupCategoryID=" + assocPolicyGroupCategoryID + ", assocPolicyGroupCategoryName=" + assocPolicyGroupCategoryName + ", description=" + description + ", entityScope=" + entityScope + ", entityState=" + entityState + ", external=" + external + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", policyGroupID=" + policyGroupID + ", templateID=" + templateID + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -36,29 +36,18 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.IngressExternalServiceTemplateEntriesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "ingressexternalservicetemplate", resourceName = "ingressexternalservicetemplates")
-public class IngressExternalServiceTemplate extends RestObject {
+@RestEntity(restName = "patch", resourceName = "patches")
+public class Patch extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum PolicyState { DRAFT, LIVE };
-   
-   public enum PriorityType { BOTTOM, NONE, TOP };
 
-   
-   @JsonProperty(value = "active")
-   protected Boolean active;
-   
-   @JsonProperty(value = "associatedLiveEntityID")
-   protected String associatedLiveEntityID;
    
    @JsonProperty(value = "description")
    protected String description;
@@ -69,17 +58,29 @@ public class IngressExternalServiceTemplate extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
    @JsonProperty(value = "name")
    protected String name;
    
-   @JsonProperty(value = "policyState")
-   protected PolicyState policyState;
+   @JsonProperty(value = "patchBuildNumber")
+   protected Long patchBuildNumber;
    
-   @JsonProperty(value = "priority")
-   protected Long priority;
+   @JsonProperty(value = "patchSummary")
+   protected String patchSummary;
    
-   @JsonProperty(value = "priorityType")
-   protected PriorityType priorityType;
+   @JsonProperty(value = "patchTag")
+   protected String patchTag;
+   
+   @JsonProperty(value = "patchVersion")
+   protected String patchVersion;
+   
+   @JsonProperty(value = "supportsDeletion")
+   protected Boolean supportsDeletion;
+   
+   @JsonProperty(value = "supportsNetworkAcceleration")
+   protected Boolean supportsNetworkAcceleration;
    
 
    
@@ -87,42 +88,17 @@ public class IngressExternalServiceTemplate extends RestObject {
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
-   private IngressExternalServiceTemplateEntriesFetcher ingressExternalServiceTemplateEntries;
-   
-   @JsonIgnore
    private MetadatasFetcher metadatas;
    
 
-   public IngressExternalServiceTemplate() {
+   public Patch() {
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
-      
-      ingressExternalServiceTemplateEntries = new IngressExternalServiceTemplateEntriesFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
       
    }
 
-   
-   @JsonIgnore
-   public Boolean getActive() {
-      return active;
-   }
-
-   @JsonIgnore
-   public void setActive(Boolean value) { 
-      this.active = value;
-   }
-   
-   @JsonIgnore
-   public String getAssociatedLiveEntityID() {
-      return associatedLiveEntityID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedLiveEntityID(String value) { 
-      this.associatedLiveEntityID = value;
-   }
    
    @JsonIgnore
    public String getDescription() {
@@ -155,6 +131,16 @@ public class IngressExternalServiceTemplate extends RestObject {
    }
    
    @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   
+   @JsonIgnore
    public String getName() {
       return name;
    }
@@ -165,33 +151,63 @@ public class IngressExternalServiceTemplate extends RestObject {
    }
    
    @JsonIgnore
-   public PolicyState getPolicyState() {
-      return policyState;
+   public Long getPatchBuildNumber() {
+      return patchBuildNumber;
    }
 
    @JsonIgnore
-   public void setPolicyState(PolicyState value) { 
-      this.policyState = value;
+   public void setPatchBuildNumber(Long value) { 
+      this.patchBuildNumber = value;
    }
    
    @JsonIgnore
-   public Long getPriority() {
-      return priority;
+   public String getPatchSummary() {
+      return patchSummary;
    }
 
    @JsonIgnore
-   public void setPriority(Long value) { 
-      this.priority = value;
+   public void setPatchSummary(String value) { 
+      this.patchSummary = value;
    }
    
    @JsonIgnore
-   public PriorityType getPriorityType() {
-      return priorityType;
+   public String getPatchTag() {
+      return patchTag;
    }
 
    @JsonIgnore
-   public void setPriorityType(PriorityType value) { 
-      this.priorityType = value;
+   public void setPatchTag(String value) { 
+      this.patchTag = value;
+   }
+   
+   @JsonIgnore
+   public String getPatchVersion() {
+      return patchVersion;
+   }
+
+   @JsonIgnore
+   public void setPatchVersion(String value) { 
+      this.patchVersion = value;
+   }
+   
+   @JsonIgnore
+   public Boolean getSupportsDeletion() {
+      return supportsDeletion;
+   }
+
+   @JsonIgnore
+   public void setSupportsDeletion(Boolean value) { 
+      this.supportsDeletion = value;
+   }
+   
+   @JsonIgnore
+   public Boolean getSupportsNetworkAcceleration() {
+      return supportsNetworkAcceleration;
+   }
+
+   @JsonIgnore
+   public void setSupportsNetworkAcceleration(Boolean value) { 
+      this.supportsNetworkAcceleration = value;
    }
    
 
@@ -202,18 +218,13 @@ public class IngressExternalServiceTemplate extends RestObject {
    }
    
    @JsonIgnore
-   public IngressExternalServiceTemplateEntriesFetcher getIngressExternalServiceTemplateEntries() {
-      return ingressExternalServiceTemplateEntries;
-   }
-   
-   @JsonIgnore
    public MetadatasFetcher getMetadatas() {
       return metadatas;
    }
    
 
    public String toString() {
-      return "IngressExternalServiceTemplate [" + "active=" + active + ", associatedLiveEntityID=" + associatedLiveEntityID + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", name=" + name + ", policyState=" + policyState + ", priority=" + priority + ", priorityType=" + priorityType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Patch [" + "description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", patchBuildNumber=" + patchBuildNumber + ", patchSummary=" + patchSummary + ", patchTag=" + patchTag + ", patchVersion=" + patchVersion + ", supportsDeletion=" + supportsDeletion + ", supportsNetworkAcceleration=" + supportsNetworkAcceleration + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

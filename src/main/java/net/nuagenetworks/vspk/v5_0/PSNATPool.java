@@ -35,6 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PSPATMapsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PTranslationMapsFetcher;
 
@@ -45,10 +47,29 @@ public class PSNATPool extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
+   public enum IPType { IPV4, IPV6, DUALSTACK };
+   
+   public enum EntityScope { ENTERPRISE, GLOBAL };
 
+   
+   @JsonProperty(value = "IPType")
+   protected IPType IPType;
+   
+   @JsonProperty(value = "description")
+   protected String description;
    
    @JsonProperty(value = "endAddress")
    protected String endAddress;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
    protected String name;
@@ -59,6 +80,12 @@ public class PSNATPool extends RestObject {
 
    
    @JsonIgnore
+   private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
+   @JsonIgnore
    private PSPATMapsFetcher pSPATMaps;
    
    @JsonIgnore
@@ -66,6 +93,10 @@ public class PSNATPool extends RestObject {
    
 
    public PSNATPool() {
+      
+      globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
       pSPATMaps = new PSPATMapsFetcher(this);
       
@@ -75,6 +106,26 @@ public class PSNATPool extends RestObject {
 
    
    @JsonIgnore
+   public IPType getIPType() {
+      return IPType;
+   }
+
+   @JsonIgnore
+   public void setIPType(IPType value) { 
+      this.IPType = value;
+   }
+   
+   @JsonIgnore
+   public String getDescription() {
+      return description;
+   }
+
+   @JsonIgnore
+   public void setDescription(String value) { 
+      this.description = value;
+   }
+   
+   @JsonIgnore
    public String getEndAddress() {
       return endAddress;
    }
@@ -82,6 +133,36 @@ public class PSNATPool extends RestObject {
    @JsonIgnore
    public void setEndAddress(String value) { 
       this.endAddress = value;
+   }
+   
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    
    @JsonIgnore
@@ -107,6 +188,16 @@ public class PSNATPool extends RestObject {
 
    
    @JsonIgnore
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
+   @JsonIgnore
    public PSPATMapsFetcher getPSPATMaps() {
       return pSPATMaps;
    }
@@ -118,7 +209,7 @@ public class PSNATPool extends RestObject {
    
 
    public String toString() {
-      return "PSNATPool [" + "endAddress=" + endAddress + ", name=" + name + ", startAddress=" + startAddress + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "PSNATPool [" + "IPType=" + IPType + ", description=" + description + ", endAddress=" + endAddress + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", startAddress=" + startAddress + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

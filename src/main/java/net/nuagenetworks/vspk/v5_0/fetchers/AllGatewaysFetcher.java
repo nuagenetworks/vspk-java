@@ -29,14 +29,14 @@ package net.nuagenetworks.vspk.v5_0.fetchers;
 
 import net.nuagenetworks.bambou.RestObject;
 import net.nuagenetworks.bambou.RestFetcher;
-import net.nuagenetworks.vspk.v5_0.FloatingIPACLTemplate;
+import net.nuagenetworks.vspk.v5_0.AllGateway;
 
-public class FloatingIPACLTemplatesFetcher extends RestFetcher<FloatingIPACLTemplate> {
+public class AllGatewaysFetcher extends RestFetcher<AllGateway> {
 
    private static final long serialVersionUID = 1L;
    
-   public FloatingIPACLTemplatesFetcher(RestObject parentRestObj) {
-      super(parentRestObj, FloatingIPACLTemplate.class);
+   public AllGatewaysFetcher(RestObject parentRestObj) {
+      super(parentRestObj, AllGateway.class);
    }
    
    

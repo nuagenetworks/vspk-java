@@ -46,7 +46,7 @@ public class Bootstrap extends RestObject {
 
    
    
-   public enum ZFBMatchAttribute { HOSTNAME, IP_ADDRESS, MAC_ADDRESS, NONE, NSGATEWAY_ID, SERIAL_NUMBER };
+   public enum ZFBMatchAttribute { HOSTNAME, IP_ADDRESS, MAC_ADDRESS, NONE, NSGATEWAY_ID, SERIAL_NUMBER, UUID };
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    
@@ -61,6 +61,9 @@ public class Bootstrap extends RestObject {
    
    @JsonProperty(value = "ZFBMatchValue")
    protected String ZFBMatchValue;
+   
+   @JsonProperty(value = "associatedEntityType")
+   protected String associatedEntityType;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
@@ -127,6 +130,16 @@ public class Bootstrap extends RestObject {
    }
    
    @JsonIgnore
+   public String getAssociatedEntityType() {
+      return associatedEntityType;
+   }
+
+   @JsonIgnore
+   public void setAssociatedEntityType(String value) { 
+      this.associatedEntityType = value;
+   }
+   
+   @JsonIgnore
    public EntityScope getEntityScope() {
       return entityScope;
    }
@@ -190,7 +203,7 @@ public class Bootstrap extends RestObject {
    
 
    public String toString() {
-      return "Bootstrap [" + "ZFBInfo=" + ZFBInfo + ", ZFBMatchAttribute=" + ZFBMatchAttribute + ", ZFBMatchValue=" + ZFBMatchValue + ", entityScope=" + entityScope + ", externalID=" + externalID + ", installerID=" + installerID + ", lastUpdatedBy=" + lastUpdatedBy + ", status=" + status + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Bootstrap [" + "ZFBInfo=" + ZFBInfo + ", ZFBMatchAttribute=" + ZFBMatchAttribute + ", ZFBMatchValue=" + ZFBMatchValue + ", associatedEntityType=" + associatedEntityType + ", entityScope=" + entityScope + ", externalID=" + externalID + ", installerID=" + installerID + ", lastUpdatedBy=" + lastUpdatedBy + ", status=" + status + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

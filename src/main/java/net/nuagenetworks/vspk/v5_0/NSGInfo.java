@@ -44,12 +44,16 @@ public class NSGInfo extends RestObject {
 
    
    
-   public enum TPMStatus { DISABLED, ENABLED_NOT_OPERATIONAL, ENABLED_OPERATIONAL, UNKNOWN };
-   
    public enum EntityScope { ENTERPRISE, GLOBAL };
    
-   public enum Family { ANY, NSG_AMI, NSG_C, NSG_DOCKER, NSG_E, NSG_E200, NSG_E300, NSG_V, NSG_X, NSG_X200 };
+   public enum Family { ANY, NSG_AMI, NSG_AZ, NSG_C, NSG_DOCKER, NSG_E, NSG_E200, NSG_E300, NSG_V, NSG_X, NSG_X200 };
 
+   
+   @JsonProperty(value = "AARApplicationReleaseDate")
+   protected String AARApplicationReleaseDate;
+   
+   @JsonProperty(value = "AARApplicationVersion")
+   protected String AARApplicationVersion;
    
    @JsonProperty(value = "BIOSReleaseDate")
    protected String BIOSReleaseDate;
@@ -70,13 +74,16 @@ public class NSGInfo extends RestObject {
    protected String SKU;
    
    @JsonProperty(value = "TPMStatus")
-   protected TPMStatus TPMStatus;
+   protected Long TPMStatus;
    
    @JsonProperty(value = "TPMVersion")
    protected String TPMVersion;
    
    @JsonProperty(value = "UUID")
    protected String UUID;
+   
+   @JsonProperty(value = "associatedEntityType")
+   protected String associatedEntityType;
    
    @JsonProperty(value = "associatedNSGatewayID")
    protected String associatedNSGatewayID;
@@ -93,8 +100,8 @@ public class NSGInfo extends RestObject {
    @JsonProperty(value = "libraries")
    protected String libraries;
    
-   @JsonProperty(value = "patches")
-   protected String patches;
+   @JsonProperty(value = "patchesDetail")
+   protected String patchesDetail;
    
    @JsonProperty(value = "productName")
    protected String productName;
@@ -109,6 +116,26 @@ public class NSGInfo extends RestObject {
       
    }
 
+   
+   @JsonIgnore
+   public String getAARApplicationReleaseDate() {
+      return AARApplicationReleaseDate;
+   }
+
+   @JsonIgnore
+   public void setAARApplicationReleaseDate(String value) { 
+      this.AARApplicationReleaseDate = value;
+   }
+   
+   @JsonIgnore
+   public String getAARApplicationVersion() {
+      return AARApplicationVersion;
+   }
+
+   @JsonIgnore
+   public void setAARApplicationVersion(String value) { 
+      this.AARApplicationVersion = value;
+   }
    
    @JsonIgnore
    public String getBIOSReleaseDate() {
@@ -171,12 +198,12 @@ public class NSGInfo extends RestObject {
    }
    
    @JsonIgnore
-   public TPMStatus getTPMStatus() {
+   public Long getTPMStatus() {
       return TPMStatus;
    }
 
    @JsonIgnore
-   public void setTPMStatus(TPMStatus value) { 
+   public void setTPMStatus(Long value) { 
       this.TPMStatus = value;
    }
    
@@ -198,6 +225,16 @@ public class NSGInfo extends RestObject {
    @JsonIgnore
    public void setUUID(String value) { 
       this.UUID = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedEntityType() {
+      return associatedEntityType;
+   }
+
+   @JsonIgnore
+   public void setAssociatedEntityType(String value) { 
+      this.associatedEntityType = value;
    }
    
    @JsonIgnore
@@ -251,13 +288,13 @@ public class NSGInfo extends RestObject {
    }
    
    @JsonIgnore
-   public String getPatches() {
-      return patches;
+   public String getPatchesDetail() {
+      return patchesDetail;
    }
 
    @JsonIgnore
-   public void setPatches(String value) { 
-      this.patches = value;
+   public void setPatchesDetail(String value) { 
+      this.patchesDetail = value;
    }
    
    @JsonIgnore
@@ -284,7 +321,7 @@ public class NSGInfo extends RestObject {
    
 
    public String toString() {
-      return "NSGInfo [" + "BIOSReleaseDate=" + BIOSReleaseDate + ", BIOSVersion=" + BIOSVersion + ", CPUType=" + CPUType + ", MACAddress=" + MACAddress + ", NSGVersion=" + NSGVersion + ", SKU=" + SKU + ", TPMStatus=" + TPMStatus + ", TPMVersion=" + TPMVersion + ", UUID=" + UUID + ", associatedNSGatewayID=" + associatedNSGatewayID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", family=" + family + ", libraries=" + libraries + ", patches=" + patches + ", productName=" + productName + ", serialNumber=" + serialNumber + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NSGInfo [" + "AARApplicationReleaseDate=" + AARApplicationReleaseDate + ", AARApplicationVersion=" + AARApplicationVersion + ", BIOSReleaseDate=" + BIOSReleaseDate + ", BIOSVersion=" + BIOSVersion + ", CPUType=" + CPUType + ", MACAddress=" + MACAddress + ", NSGVersion=" + NSGVersion + ", SKU=" + SKU + ", TPMStatus=" + TPMStatus + ", TPMVersion=" + TPMVersion + ", UUID=" + UUID + ", associatedEntityType=" + associatedEntityType + ", associatedNSGatewayID=" + associatedNSGatewayID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", family=" + family + ", libraries=" + libraries + ", patchesDetail=" + patchesDetail + ", productName=" + productName + ", serialNumber=" + serialNumber + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

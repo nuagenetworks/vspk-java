@@ -37,11 +37,11 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import net.nuagenetworks.vspk.v5_0.fetchers.AggregateMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.AlarmsFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.ApplicationperformancemanagementsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.BGPNeighborsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.BridgeInterfacesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ContainersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ContainerInterfacesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.DeploymentFailuresFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.DHCPOptionsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EgressACLEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EventLogsFetcher;
@@ -80,7 +80,7 @@ public class VPort extends RestObject {
    
    public enum AddressSpoofing { DISABLED, ENABLED, INHERITED };
    
-   public enum AssociatedGatewayPersonality { DC7X50, EVDF, EVDFB, HARDWARE_VTEP, NETCONF_7X50, NSG, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, OTHER, VRSB, VRSG, VSA, VSG };
+   public enum AssociatedGatewayPersonality { DC7X50, EVDF, EVDFB, HARDWARE_VTEP, NETCONF_7X50, NSG, NSGBR, NSGDUC, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, OTHER, VDF, VRSB, VRSG, VSA, VSG };
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    
@@ -114,6 +114,9 @@ public class VPort extends RestObject {
    
    @JsonProperty(value = "VLANID")
    protected String VLANID;
+   
+   @JsonProperty(value = "accessRestrictionEnabled")
+   protected Boolean accessRestrictionEnabled;
    
    @JsonProperty(value = "active")
    protected Boolean active;
@@ -203,7 +206,7 @@ public class VPort extends RestObject {
    protected SegmentationType segmentationType;
    
    @JsonProperty(value = "serviceID")
-   protected String serviceID;
+   protected Long serviceID;
    
    @JsonProperty(value = "subType")
    protected SubType subType;
@@ -229,9 +232,6 @@ public class VPort extends RestObject {
    private AlarmsFetcher alarms;
    
    @JsonIgnore
-   private ApplicationperformancemanagementsFetcher applicationperformancemanagements;
-   
-   @JsonIgnore
    private BGPNeighborsFetcher bGPNeighbors;
    
    @JsonIgnore
@@ -242,6 +242,9 @@ public class VPort extends RestObject {
    
    @JsonIgnore
    private ContainerInterfacesFetcher containerInterfaces;
+   
+   @JsonIgnore
+   private DeploymentFailuresFetcher deploymentFailures;
    
    @JsonIgnore
    private DHCPOptionsFetcher dHCPOptions;
@@ -323,8 +326,6 @@ public class VPort extends RestObject {
       
       alarms = new AlarmsFetcher(this);
       
-      applicationperformancemanagements = new ApplicationperformancemanagementsFetcher(this);
-      
       bGPNeighbors = new BGPNeighborsFetcher(this);
       
       bridgeInterfaces = new BridgeInterfacesFetcher(this);
@@ -332,6 +333,8 @@ public class VPort extends RestObject {
       containers = new ContainersFetcher(this);
       
       containerInterfaces = new ContainerInterfacesFetcher(this);
+      
+      deploymentFailures = new DeploymentFailuresFetcher(this);
       
       dHCPOptions = new DHCPOptionsFetcher(this);
       
@@ -420,6 +423,16 @@ public class VPort extends RestObject {
    @JsonIgnore
    public void setVLANID(String value) { 
       this.VLANID = value;
+   }
+   
+   @JsonIgnore
+   public Boolean getAccessRestrictionEnabled() {
+      return accessRestrictionEnabled;
+   }
+
+   @JsonIgnore
+   public void setAccessRestrictionEnabled(Boolean value) { 
+      this.accessRestrictionEnabled = value;
    }
    
    @JsonIgnore
@@ -713,12 +726,12 @@ public class VPort extends RestObject {
    }
    
    @JsonIgnore
-   public String getServiceID() {
+   public Long getServiceID() {
       return serviceID;
    }
 
    @JsonIgnore
-   public void setServiceID(String value) { 
+   public void setServiceID(Long value) { 
       this.serviceID = value;
    }
    
@@ -785,11 +798,6 @@ public class VPort extends RestObject {
    }
    
    @JsonIgnore
-   public ApplicationperformancemanagementsFetcher getApplicationperformancemanagements() {
-      return applicationperformancemanagements;
-   }
-   
-   @JsonIgnore
    public BGPNeighborsFetcher getBGPNeighbors() {
       return bGPNeighbors;
    }
@@ -807,6 +815,11 @@ public class VPort extends RestObject {
    @JsonIgnore
    public ContainerInterfacesFetcher getContainerInterfaces() {
       return containerInterfaces;
+   }
+   
+   @JsonIgnore
+   public DeploymentFailuresFetcher getDeploymentFailures() {
+      return deploymentFailures;
    }
    
    @JsonIgnore
@@ -926,7 +939,7 @@ public class VPort extends RestObject {
    
 
    public String toString() {
-      return "VPort [" + "DPI=" + DPI + ", FIPIgnoreDefaultRoute=" + FIPIgnoreDefaultRoute + ", VLAN=" + VLAN + ", VLANID=" + VLANID + ", active=" + active + ", addressSpoofing=" + addressSpoofing + ", assocEntityID=" + assocEntityID + ", associatedEgressProfileID=" + associatedEgressProfileID + ", associatedFloatingIPID=" + associatedFloatingIPID + ", associatedGatewayID=" + associatedGatewayID + ", associatedGatewayPersonality=" + associatedGatewayPersonality + ", associatedGatewayType=" + associatedGatewayType + ", associatedIngressProfileID=" + associatedIngressProfileID + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSSID=" + associatedSSID + ", associatedSendMulticastChannelMapID=" + associatedSendMulticastChannelMapID + ", associatedTrunkID=" + associatedTrunkID + ", description=" + description + ", domainID=" + domainID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayMACMoveRole=" + gatewayMACMoveRole + ", gatewayPortName=" + gatewayPortName + ", gwEligible=" + gwEligible + ", hasAttachedInterfaces=" + hasAttachedInterfaces + ", lastUpdatedBy=" + lastUpdatedBy + ", multiNICVPortID=" + multiNICVPortID + ", multicast=" + multicast + ", name=" + name + ", operationalState=" + operationalState + ", peerOperationalState=" + peerOperationalState + ", segmentationID=" + segmentationID + ", segmentationType=" + segmentationType + ", serviceID=" + serviceID + ", subType=" + subType + ", systemType=" + systemType + ", trunkRole=" + trunkRole + ", type=" + type + ", zoneID=" + zoneID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VPort [" + "DPI=" + DPI + ", FIPIgnoreDefaultRoute=" + FIPIgnoreDefaultRoute + ", VLAN=" + VLAN + ", VLANID=" + VLANID + ", accessRestrictionEnabled=" + accessRestrictionEnabled + ", active=" + active + ", addressSpoofing=" + addressSpoofing + ", assocEntityID=" + assocEntityID + ", associatedEgressProfileID=" + associatedEgressProfileID + ", associatedFloatingIPID=" + associatedFloatingIPID + ", associatedGatewayID=" + associatedGatewayID + ", associatedGatewayPersonality=" + associatedGatewayPersonality + ", associatedGatewayType=" + associatedGatewayType + ", associatedIngressProfileID=" + associatedIngressProfileID + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSSID=" + associatedSSID + ", associatedSendMulticastChannelMapID=" + associatedSendMulticastChannelMapID + ", associatedTrunkID=" + associatedTrunkID + ", description=" + description + ", domainID=" + domainID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayMACMoveRole=" + gatewayMACMoveRole + ", gatewayPortName=" + gatewayPortName + ", gwEligible=" + gwEligible + ", hasAttachedInterfaces=" + hasAttachedInterfaces + ", lastUpdatedBy=" + lastUpdatedBy + ", multiNICVPortID=" + multiNICVPortID + ", multicast=" + multicast + ", name=" + name + ", operationalState=" + operationalState + ", peerOperationalState=" + peerOperationalState + ", segmentationID=" + segmentationID + ", segmentationType=" + segmentationType + ", serviceID=" + serviceID + ", subType=" + subType + ", systemType=" + systemType + ", trunkRole=" + trunkRole + ", type=" + type + ", zoneID=" + zoneID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

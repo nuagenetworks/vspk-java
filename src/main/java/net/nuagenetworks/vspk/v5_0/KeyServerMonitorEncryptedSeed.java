@@ -47,6 +47,8 @@ public class KeyServerMonitorEncryptedSeed extends RestObject {
    
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
+   public enum SeedType { STANDARD, DR };
 
    
    @JsonProperty(value = "SEKCreationTime")
@@ -78,6 +80,9 @@ public class KeyServerMonitorEncryptedSeed extends RestObject {
    
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "seedType")
+   protected SeedType seedType;
    
 
    
@@ -197,6 +202,16 @@ public class KeyServerMonitorEncryptedSeed extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   @JsonIgnore
+   public SeedType getSeedType() {
+      return seedType;
+   }
+
+   @JsonIgnore
+   public void setSeedType(SeedType value) { 
+      this.seedType = value;
+   }
+   
 
    
    @JsonIgnore
@@ -211,7 +226,7 @@ public class KeyServerMonitorEncryptedSeed extends RestObject {
    
 
    public String toString() {
-      return "KeyServerMonitorEncryptedSeed [" + "SEKCreationTime=" + SEKCreationTime + ", associatedKeyServerMonitorSEKCreationTime=" + associatedKeyServerMonitorSEKCreationTime + ", associatedKeyServerMonitorSEKID=" + associatedKeyServerMonitorSEKID + ", associatedKeyServerMonitorSeedCreationTime=" + associatedKeyServerMonitorSeedCreationTime + ", associatedKeyServerMonitorSeedID=" + associatedKeyServerMonitorSeedID + ", enterpriseSecuredDataID=" + enterpriseSecuredDataID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", keyServerCertificateSerialNumber=" + keyServerCertificateSerialNumber + ", lastUpdatedBy=" + lastUpdatedBy + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "KeyServerMonitorEncryptedSeed [" + "SEKCreationTime=" + SEKCreationTime + ", associatedKeyServerMonitorSEKCreationTime=" + associatedKeyServerMonitorSEKCreationTime + ", associatedKeyServerMonitorSEKID=" + associatedKeyServerMonitorSEKID + ", associatedKeyServerMonitorSeedCreationTime=" + associatedKeyServerMonitorSeedCreationTime + ", associatedKeyServerMonitorSeedID=" + associatedKeyServerMonitorSeedID + ", enterpriseSecuredDataID=" + enterpriseSecuredDataID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", keyServerCertificateSerialNumber=" + keyServerCertificateSerialNumber + ", lastUpdatedBy=" + lastUpdatedBy + ", seedType=" + seedType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

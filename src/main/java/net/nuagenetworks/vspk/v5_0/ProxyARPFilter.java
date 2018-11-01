@@ -35,7 +35,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v5_0.fetchers.EventLogsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "proxyarpfilter", resourceName = "proxyarpfilters")
@@ -70,13 +69,8 @@ public class ProxyARPFilter extends RestObject {
    
 
    
-   @JsonIgnore
-   private EventLogsFetcher eventLogs;
-   
 
    public ProxyARPFilter() {
-      
-      eventLogs = new EventLogsFetcher(this);
       
    }
 
@@ -142,11 +136,6 @@ public class ProxyARPFilter extends RestObject {
    }
    
 
-   
-   @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
-   }
    
 
    public String toString() {

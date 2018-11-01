@@ -52,12 +52,17 @@ public class PATNATPool extends RestObject {
 
    
    
+   public enum IPType { IPV4, IPV6, DUALSTACK };
+   
    public enum AssociatedGatewayType { AUTO_DISC_GATEWAY, GATEWAY, IKE_GATEWAY, NSGATEWAY };
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
 
+   
+   @JsonProperty(value = "IPType")
+   protected IPType IPType;
    
    @JsonProperty(value = "addressRange")
    protected String addressRange;
@@ -157,6 +162,16 @@ public class PATNATPool extends RestObject {
       
    }
 
+   
+   @JsonIgnore
+   public IPType getIPType() {
+      return IPType;
+   }
+
+   @JsonIgnore
+   public void setIPType(IPType value) { 
+      this.IPType = value;
+   }
    
    @JsonIgnore
    public String getAddressRange() {
@@ -372,7 +387,7 @@ public class PATNATPool extends RestObject {
    
 
    public String toString() {
-      return "PATNATPool [" + "addressRange=" + addressRange + ", associatedGatewayId=" + associatedGatewayId + ", associatedGatewayType=" + associatedGatewayType + ", associatedSubnetId=" + associatedSubnetId + ", associatedVlanId=" + associatedVlanId + ", defaultPATIP=" + defaultPATIP + ", description=" + description + ", dynamicSourceEnabled=" + dynamicSourceEnabled + ", endAddressRange=" + endAddressRange + ", endSourceAddress=" + endSourceAddress + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", permittedAction=" + permittedAction + ", startAddressRange=" + startAddressRange + ", startSourceAddress=" + startSourceAddress + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "PATNATPool [" + "IPType=" + IPType + ", addressRange=" + addressRange + ", associatedGatewayId=" + associatedGatewayId + ", associatedGatewayType=" + associatedGatewayType + ", associatedSubnetId=" + associatedSubnetId + ", associatedVlanId=" + associatedVlanId + ", defaultPATIP=" + defaultPATIP + ", description=" + description + ", dynamicSourceEnabled=" + dynamicSourceEnabled + ", endAddressRange=" + endAddressRange + ", endSourceAddress=" + endSourceAddress + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", permittedAction=" + permittedAction + ", startAddressRange=" + startAddressRange + ", startSourceAddress=" + startSourceAddress + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

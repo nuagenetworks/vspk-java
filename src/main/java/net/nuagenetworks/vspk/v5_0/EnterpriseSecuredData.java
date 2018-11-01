@@ -47,6 +47,8 @@ public class EnterpriseSecuredData extends RestObject {
    
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
+   public enum SeedType { STANDARD, DR };
 
    
    @JsonProperty(value = "data")
@@ -66,6 +68,9 @@ public class EnterpriseSecuredData extends RestObject {
    
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "seedType")
+   protected SeedType seedType;
    
    @JsonProperty(value = "sekId")
    protected Long sekId;
@@ -152,6 +157,16 @@ public class EnterpriseSecuredData extends RestObject {
    }
    
    @JsonIgnore
+   public SeedType getSeedType() {
+      return seedType;
+   }
+
+   @JsonIgnore
+   public void setSeedType(SeedType value) { 
+      this.seedType = value;
+   }
+   
+   @JsonIgnore
    public Long getSekId() {
       return sekId;
    }
@@ -185,7 +200,7 @@ public class EnterpriseSecuredData extends RestObject {
    
 
    public String toString() {
-      return "EnterpriseSecuredData [" + "data=" + data + ", entityScope=" + entityScope + ", externalID=" + externalID + ", hash=" + hash + ", keyserverCertSerialNumber=" + keyserverCertSerialNumber + ", lastUpdatedBy=" + lastUpdatedBy + ", sekId=" + sekId + ", signedHash=" + signedHash + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "EnterpriseSecuredData [" + "data=" + data + ", entityScope=" + entityScope + ", externalID=" + externalID + ", hash=" + hash + ", keyserverCertSerialNumber=" + keyserverCertSerialNumber + ", lastUpdatedBy=" + lastUpdatedBy + ", seedType=" + seedType + ", sekId=" + sekId + ", signedHash=" + signedHash + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -59,6 +59,9 @@ public class MonitoringPort extends RestObject {
    @JsonProperty(value = "description")
    protected String description;
    
+   @JsonProperty(value = "dpdkEnabled")
+   protected Boolean dpdkEnabled;
+   
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
@@ -119,6 +122,16 @@ public class MonitoringPort extends RestObject {
    @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
+   }
+   
+   @JsonIgnore
+   public Boolean getDpdkEnabled() {
+      return dpdkEnabled;
+   }
+
+   @JsonIgnore
+   public void setDpdkEnabled(Boolean value) { 
+      this.dpdkEnabled = value;
    }
    
    @JsonIgnore
@@ -215,7 +228,7 @@ public class MonitoringPort extends RestObject {
    
 
    public String toString() {
-      return "MonitoringPort [" + "access=" + access + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastStateChange=" + lastStateChange + ", name=" + name + ", resiliencyState=" + resiliencyState + ", resilient=" + resilient + ", state=" + state + ", uplink=" + uplink + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "MonitoringPort [" + "access=" + access + ", description=" + description + ", dpdkEnabled=" + dpdkEnabled + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastStateChange=" + lastStateChange + ", name=" + name + ", resiliencyState=" + resiliencyState + ", resilient=" + resilient + ", state=" + state + ", uplink=" + uplink + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

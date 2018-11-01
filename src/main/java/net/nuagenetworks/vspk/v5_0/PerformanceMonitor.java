@@ -36,7 +36,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 import net.nuagenetworks.vspk.v5_0.fetchers.ApplicationperformancemanagementsFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.NSGatewaysFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.TiersFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -56,9 +55,6 @@ public class PerformanceMonitor extends RestObject {
    
    @JsonProperty(value = "description")
    protected String description;
-   
-   @JsonProperty(value = "destinationTargetList")
-   protected java.util.List<String> destinationTargetList;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
@@ -93,16 +89,10 @@ public class PerformanceMonitor extends RestObject {
    @JsonProperty(value = "serviceClass")
    protected ServiceClass serviceClass;
    
-   @JsonProperty(value = "timeout")
-   protected Long timeout;
-   
 
    
    @JsonIgnore
    private ApplicationperformancemanagementsFetcher applicationperformancemanagements;
-   
-   @JsonIgnore
-   private NSGatewaysFetcher nSGateways;
    
    @JsonIgnore
    private TiersFetcher tiers;
@@ -111,8 +101,6 @@ public class PerformanceMonitor extends RestObject {
    public PerformanceMonitor() {
       
       applicationperformancemanagements = new ApplicationperformancemanagementsFetcher(this);
-      
-      nSGateways = new NSGatewaysFetcher(this);
       
       tiers = new TiersFetcher(this);
       
@@ -127,16 +115,6 @@ public class PerformanceMonitor extends RestObject {
    @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
-   }
-   
-   @JsonIgnore
-   public java.util.List<String> getDestinationTargetList() {
-      return destinationTargetList;
-   }
-
-   @JsonIgnore
-   public void setDestinationTargetList(java.util.List<String> value) { 
-      this.destinationTargetList = value;
    }
    
    @JsonIgnore
@@ -249,26 +227,11 @@ public class PerformanceMonitor extends RestObject {
       this.serviceClass = value;
    }
    
-   @JsonIgnore
-   public Long getTimeout() {
-      return timeout;
-   }
-
-   @JsonIgnore
-   public void setTimeout(Long value) { 
-      this.timeout = value;
-   }
-   
 
    
    @JsonIgnore
    public ApplicationperformancemanagementsFetcher getApplicationperformancemanagements() {
       return applicationperformancemanagements;
-   }
-   
-   @JsonIgnore
-   public NSGatewaysFetcher getNSGateways() {
-      return nSGateways;
    }
    
    @JsonIgnore
@@ -278,7 +241,7 @@ public class PerformanceMonitor extends RestObject {
    
 
    public String toString() {
-      return "PerformanceMonitor [" + "description=" + description + ", destinationTargetList=" + destinationTargetList + ", entityScope=" + entityScope + ", externalID=" + externalID + ", holdDownTimer=" + holdDownTimer + ", interval=" + interval + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", numberOfPackets=" + numberOfPackets + ", payloadSize=" + payloadSize + ", probeType=" + probeType + ", readOnly=" + readOnly + ", serviceClass=" + serviceClass + ", timeout=" + timeout + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "PerformanceMonitor [" + "description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", holdDownTimer=" + holdDownTimer + ", interval=" + interval + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", numberOfPackets=" + numberOfPackets + ", payloadSize=" + payloadSize + ", probeType=" + probeType + ", readOnly=" + readOnly + ", serviceClass=" + serviceClass + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

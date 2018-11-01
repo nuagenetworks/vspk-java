@@ -35,6 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "nsgatewayssummary", resourceName = "nsgatewayssummaries")
@@ -44,8 +46,13 @@ public class NSGatewaySummary extends RestObject {
 
    
    
-   public enum BootstrapStatus { ACTIVE, CERTIFICATE_REQUIRED, INACTIVE, NOTIFICATION_APP_REQ_ACK, NOTIFICATION_APP_REQ_SENT };
+   public enum BootstrapStatus { ACTIVE, CERTIFICATE_SIGNED, INACTIVE, NOTIFICATION_APP_REQ_ACK, NOTIFICATION_APP_REQ_SENT };
+   
+   public enum EntityScope { ENTERPRISE, GLOBAL };
 
+   
+   @JsonProperty(value = "NSGVersion")
+   protected String NSGVersion;
    
    @JsonProperty(value = "address")
    protected String address;
@@ -62,14 +69,26 @@ public class NSGatewaySummary extends RestObject {
    @JsonProperty(value = "enterpriseID")
    protected String enterpriseID;
    
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
    @JsonProperty(value = "gatewayID")
    protected String gatewayID;
    
    @JsonProperty(value = "gatewayName")
    protected String gatewayName;
    
+   @JsonProperty(value = "gatewayType")
+   protected String gatewayType;
+   
    @JsonProperty(value = "infoAlarmsCount")
-   protected String infoAlarmsCount;
+   protected Long infoAlarmsCount;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
    @JsonProperty(value = "latitude")
    protected Float latitude;
@@ -86,25 +105,42 @@ public class NSGatewaySummary extends RestObject {
    @JsonProperty(value = "minorAlarmsCount")
    protected Long minorAlarmsCount;
    
-   @JsonProperty(value = "nsgVersion")
-   protected String nsgVersion;
-   
    @JsonProperty(value = "state")
    protected String state;
    
    @JsonProperty(value = "systemID")
    protected String systemID;
    
-   @JsonProperty(value = "timeZoneID")
-   protected String timeZoneID;
+   @JsonProperty(value = "timezoneID")
+   protected String timezoneID;
    
 
+   
+   @JsonIgnore
+   private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
    
 
    public NSGatewaySummary() {
       
+      globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
+      
    }
 
+   
+   @JsonIgnore
+   public String getNSGVersion() {
+      return NSGVersion;
+   }
+
+   @JsonIgnore
+   public void setNSGVersion(String value) { 
+      this.NSGVersion = value;
+   }
    
    @JsonIgnore
    public String getAddress() {
@@ -157,6 +193,26 @@ public class NSGatewaySummary extends RestObject {
    }
    
    @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   
+   @JsonIgnore
    public String getGatewayID() {
       return gatewayID;
    }
@@ -177,13 +233,33 @@ public class NSGatewaySummary extends RestObject {
    }
    
    @JsonIgnore
-   public String getInfoAlarmsCount() {
+   public String getGatewayType() {
+      return gatewayType;
+   }
+
+   @JsonIgnore
+   public void setGatewayType(String value) { 
+      this.gatewayType = value;
+   }
+   
+   @JsonIgnore
+   public Long getInfoAlarmsCount() {
       return infoAlarmsCount;
    }
 
    @JsonIgnore
-   public void setInfoAlarmsCount(String value) { 
+   public void setInfoAlarmsCount(Long value) { 
       this.infoAlarmsCount = value;
+   }
+   
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    
    @JsonIgnore
@@ -237,16 +313,6 @@ public class NSGatewaySummary extends RestObject {
    }
    
    @JsonIgnore
-   public String getNsgVersion() {
-      return nsgVersion;
-   }
-
-   @JsonIgnore
-   public void setNsgVersion(String value) { 
-      this.nsgVersion = value;
-   }
-   
-   @JsonIgnore
    public String getState() {
       return state;
    }
@@ -267,20 +333,30 @@ public class NSGatewaySummary extends RestObject {
    }
    
    @JsonIgnore
-   public String getTimeZoneID() {
-      return timeZoneID;
+   public String getTimezoneID() {
+      return timezoneID;
    }
 
    @JsonIgnore
-   public void setTimeZoneID(String value) { 
-      this.timeZoneID = value;
+   public void setTimezoneID(String value) { 
+      this.timezoneID = value;
    }
    
 
    
+   @JsonIgnore
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "NSGatewaySummary [" + "address=" + address + ", bootstrapStatus=" + bootstrapStatus + ", country=" + country + ", criticalAlarmsCount=" + criticalAlarmsCount + ", enterpriseID=" + enterpriseID + ", gatewayID=" + gatewayID + ", gatewayName=" + gatewayName + ", infoAlarmsCount=" + infoAlarmsCount + ", latitude=" + latitude + ", locality=" + locality + ", longitude=" + longitude + ", majorAlarmsCount=" + majorAlarmsCount + ", minorAlarmsCount=" + minorAlarmsCount + ", nsgVersion=" + nsgVersion + ", state=" + state + ", systemID=" + systemID + ", timeZoneID=" + timeZoneID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NSGatewaySummary [" + "NSGVersion=" + NSGVersion + ", address=" + address + ", bootstrapStatus=" + bootstrapStatus + ", country=" + country + ", criticalAlarmsCount=" + criticalAlarmsCount + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayID=" + gatewayID + ", gatewayName=" + gatewayName + ", gatewayType=" + gatewayType + ", infoAlarmsCount=" + infoAlarmsCount + ", lastUpdatedBy=" + lastUpdatedBy + ", latitude=" + latitude + ", locality=" + locality + ", longitude=" + longitude + ", majorAlarmsCount=" + majorAlarmsCount + ", minorAlarmsCount=" + minorAlarmsCount + ", state=" + state + ", systemID=" + systemID + ", timezoneID=" + timezoneID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

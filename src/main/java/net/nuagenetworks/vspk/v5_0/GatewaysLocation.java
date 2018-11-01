@@ -35,42 +35,31 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v5_0.fetchers.FloatingIPACLTemplateEntriesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "egressfloatingipacltemplate", resourceName = "egressfloatingipacltemplates")
-public class FloatingIPACLTemplate extends RestObject {
+@RestEntity(restName = "gatewayslocation", resourceName = "gatewayslocations")
+public class GatewaysLocation extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum PolicyState { DRAFT, LIVE };
-   
-   public enum PriorityType { BOTTOM, NONE, TOP };
 
    
-   @JsonProperty(value = "active")
-   protected Boolean active;
+   @JsonProperty(value = "address")
+   protected String address;
    
-   @JsonProperty(value = "associatedLiveEntityID")
-   protected String associatedLiveEntityID;
+   @JsonProperty(value = "associatedEntityName")
+   protected String associatedEntityName;
    
-   @JsonProperty(value = "autoGeneratePriority")
-   protected String autoGeneratePriority;
+   @JsonProperty(value = "associatedEntityType")
+   protected String associatedEntityType;
    
-   @JsonProperty(value = "defaultAllowIP")
-   protected Boolean defaultAllowIP;
-   
-   @JsonProperty(value = "defaultAllowNonIP")
-   protected Boolean defaultAllowNonIP;
-   
-   @JsonProperty(value = "description")
-   protected String description;
+   @JsonProperty(value = "country")
+   protected String country;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
@@ -78,25 +67,28 @@ public class FloatingIPACLTemplate extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
+   @JsonProperty(value = "ignoreGeocode")
+   protected Boolean ignoreGeocode;
+   
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
    
-   @JsonProperty(value = "name")
-   protected String name;
+   @JsonProperty(value = "latitude")
+   protected Float latitude;
    
-   @JsonProperty(value = "policyState")
-   protected PolicyState policyState;
+   @JsonProperty(value = "locality")
+   protected String locality;
    
-   @JsonProperty(value = "priority")
-   protected Long priority;
+   @JsonProperty(value = "longitude")
+   protected Float longitude;
    
-   @JsonProperty(value = "priorityType")
-   protected PriorityType priorityType;
+   @JsonProperty(value = "state")
+   protected String state;
+   
+   @JsonProperty(value = "timeZoneID")
+   protected String timeZoneID;
    
 
-   
-   @JsonIgnore
-   private FloatingIPACLTemplateEntriesFetcher floatingIPACLTemplateEntries;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
@@ -105,9 +97,7 @@ public class FloatingIPACLTemplate extends RestObject {
    private MetadatasFetcher metadatas;
    
 
-   public FloatingIPACLTemplate() {
-      
-      floatingIPACLTemplateEntries = new FloatingIPACLTemplateEntriesFetcher(this);
+   public GatewaysLocation() {
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
@@ -117,63 +107,43 @@ public class FloatingIPACLTemplate extends RestObject {
 
    
    @JsonIgnore
-   public Boolean getActive() {
-      return active;
+   public String getAddress() {
+      return address;
    }
 
    @JsonIgnore
-   public void setActive(Boolean value) { 
-      this.active = value;
+   public void setAddress(String value) { 
+      this.address = value;
    }
    
    @JsonIgnore
-   public String getAssociatedLiveEntityID() {
-      return associatedLiveEntityID;
+   public String getAssociatedEntityName() {
+      return associatedEntityName;
    }
 
    @JsonIgnore
-   public void setAssociatedLiveEntityID(String value) { 
-      this.associatedLiveEntityID = value;
+   public void setAssociatedEntityName(String value) { 
+      this.associatedEntityName = value;
    }
    
    @JsonIgnore
-   public String getAutoGeneratePriority() {
-      return autoGeneratePriority;
+   public String getAssociatedEntityType() {
+      return associatedEntityType;
    }
 
    @JsonIgnore
-   public void setAutoGeneratePriority(String value) { 
-      this.autoGeneratePriority = value;
+   public void setAssociatedEntityType(String value) { 
+      this.associatedEntityType = value;
    }
    
    @JsonIgnore
-   public Boolean getDefaultAllowIP() {
-      return defaultAllowIP;
+   public String getCountry() {
+      return country;
    }
 
    @JsonIgnore
-   public void setDefaultAllowIP(Boolean value) { 
-      this.defaultAllowIP = value;
-   }
-   
-   @JsonIgnore
-   public Boolean getDefaultAllowNonIP() {
-      return defaultAllowNonIP;
-   }
-
-   @JsonIgnore
-   public void setDefaultAllowNonIP(Boolean value) { 
-      this.defaultAllowNonIP = value;
-   }
-   
-   @JsonIgnore
-   public String getDescription() {
-      return description;
-   }
-
-   @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
+   public void setCountry(String value) { 
+      this.country = value;
    }
    
    @JsonIgnore
@@ -197,6 +167,16 @@ public class FloatingIPACLTemplate extends RestObject {
    }
    
    @JsonIgnore
+   public Boolean getIgnoreGeocode() {
+      return ignoreGeocode;
+   }
+
+   @JsonIgnore
+   public void setIgnoreGeocode(Boolean value) { 
+      this.ignoreGeocode = value;
+   }
+   
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
@@ -207,51 +187,56 @@ public class FloatingIPACLTemplate extends RestObject {
    }
    
    @JsonIgnore
-   public String getName() {
-      return name;
+   public Float getLatitude() {
+      return latitude;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
+   public void setLatitude(Float value) { 
+      this.latitude = value;
    }
    
    @JsonIgnore
-   public PolicyState getPolicyState() {
-      return policyState;
+   public String getLocality() {
+      return locality;
    }
 
    @JsonIgnore
-   public void setPolicyState(PolicyState value) { 
-      this.policyState = value;
+   public void setLocality(String value) { 
+      this.locality = value;
    }
    
    @JsonIgnore
-   public Long getPriority() {
-      return priority;
+   public Float getLongitude() {
+      return longitude;
    }
 
    @JsonIgnore
-   public void setPriority(Long value) { 
-      this.priority = value;
+   public void setLongitude(Float value) { 
+      this.longitude = value;
    }
    
    @JsonIgnore
-   public PriorityType getPriorityType() {
-      return priorityType;
+   public String getState() {
+      return state;
    }
 
    @JsonIgnore
-   public void setPriorityType(PriorityType value) { 
-      this.priorityType = value;
+   public void setState(String value) { 
+      this.state = value;
+   }
+   
+   @JsonIgnore
+   public String getTimeZoneID() {
+      return timeZoneID;
+   }
+
+   @JsonIgnore
+   public void setTimeZoneID(String value) { 
+      this.timeZoneID = value;
    }
    
 
-   
-   @JsonIgnore
-   public FloatingIPACLTemplateEntriesFetcher getFloatingIPACLTemplateEntries() {
-      return floatingIPACLTemplateEntries;
-   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
@@ -265,7 +250,7 @@ public class FloatingIPACLTemplate extends RestObject {
    
 
    public String toString() {
-      return "FloatingIPACLTemplate [" + "active=" + active + ", associatedLiveEntityID=" + associatedLiveEntityID + ", autoGeneratePriority=" + autoGeneratePriority + ", defaultAllowIP=" + defaultAllowIP + ", defaultAllowNonIP=" + defaultAllowNonIP + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", policyState=" + policyState + ", priority=" + priority + ", priorityType=" + priorityType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "GatewaysLocation [" + "address=" + address + ", associatedEntityName=" + associatedEntityName + ", associatedEntityType=" + associatedEntityType + ", country=" + country + ", entityScope=" + entityScope + ", externalID=" + externalID + ", ignoreGeocode=" + ignoreGeocode + ", lastUpdatedBy=" + lastUpdatedBy + ", latitude=" + latitude + ", locality=" + locality + ", longitude=" + longitude + ", state=" + state + ", timeZoneID=" + timeZoneID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

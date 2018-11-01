@@ -48,14 +48,44 @@ public class VCenterVRSConfig extends RestObject {
 
    
    
+   public enum AvrsProfile { AVRS_25G };
+   
+   public enum CpuCount { DEFAULT_2, MEDIUM_4, LARGE_6, XLARGE_8 };
+   
+   public enum DestinationMirrorPort { no_mirror, ens160, ens161, ens224, ens256 };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
+   public enum MemorySizeInGB { DEFAULT_4, MEDIUM_6, LARGE_8 };
+   
+   public enum Personality { VRS, VDF };
+   
+   public enum RemoteSyslogServerType { NONE, TCP, UDP };
 
+   
+   @JsonProperty(value = "ARPReply")
+   protected Boolean ARPReply;
+   
+   @JsonProperty(value = "VRSConfigurationTimeLimit")
+   protected Long VRSConfigurationTimeLimit;
    
    @JsonProperty(value = "allowDataDHCP")
    protected Boolean allowDataDHCP;
    
    @JsonProperty(value = "allowMgmtDHCP")
    protected Boolean allowMgmtDHCP;
+   
+   @JsonProperty(value = "avrsEnabled")
+   protected Boolean avrsEnabled;
+   
+   @JsonProperty(value = "avrsProfile")
+   protected AvrsProfile avrsProfile;
+   
+   @JsonProperty(value = "configuredMetricsPushInterval")
+   protected Long configuredMetricsPushInterval;
+   
+   @JsonProperty(value = "cpuCount")
+   protected CpuCount cpuCount;
    
    @JsonProperty(value = "customizedScriptURL")
    protected String customizedScriptURL;
@@ -75,8 +105,20 @@ public class VCenterVRSConfig extends RestObject {
    @JsonProperty(value = "datapathSyncTimeout")
    protected Long datapathSyncTimeout;
    
+   @JsonProperty(value = "destinationMirrorPort")
+   protected DestinationMirrorPort destinationMirrorPort;
+   
    @JsonProperty(value = "dhcpRelayServer")
    protected String dhcpRelayServer;
+   
+   @JsonProperty(value = "disableGROOnDatapath")
+   protected Boolean disableGROOnDatapath;
+   
+   @JsonProperty(value = "disableLROOnDatapath")
+   protected Boolean disableLROOnDatapath;
+   
+   @JsonProperty(value = "enableVRSResourceReservation")
+   protected Boolean enableVRSResourceReservation;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
@@ -92,6 +134,12 @@ public class VCenterVRSConfig extends RestObject {
    
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "manageVRSAvailability")
+   protected Boolean manageVRSAvailability;
+   
+   @JsonProperty(value = "memorySizeInGB")
+   protected MemorySizeInGB memorySizeInGB;
    
    @JsonProperty(value = "metadataServerIP")
    protected String metadataServerIP;
@@ -116,6 +164,9 @@ public class VCenterVRSConfig extends RestObject {
    
    @JsonProperty(value = "mgmtNetworkPortgroup")
    protected String mgmtNetworkPortgroup;
+   
+   @JsonProperty(value = "mirrorNetworkPortgroup")
+   protected String mirrorNetworkPortgroup;
    
    @JsonProperty(value = "mtu")
    protected Long mtu;
@@ -168,6 +219,9 @@ public class VCenterVRSConfig extends RestObject {
    @JsonProperty(value = "novaClientVersion")
    protected Long novaClientVersion;
    
+   @JsonProperty(value = "novaIdentityURLVersion")
+   protected String novaIdentityURLVersion;
+   
    @JsonProperty(value = "novaMetadataServiceAuthUrl")
    protected String novaMetadataServiceAuthUrl;
    
@@ -186,8 +240,20 @@ public class VCenterVRSConfig extends RestObject {
    @JsonProperty(value = "novaMetadataSharedSecret")
    protected String novaMetadataSharedSecret;
    
+   @JsonProperty(value = "novaOSKeystoneUsername")
+   protected String novaOSKeystoneUsername;
+   
+   @JsonProperty(value = "novaProjectDomainName")
+   protected String novaProjectDomainName;
+   
+   @JsonProperty(value = "novaProjectName")
+   protected String novaProjectName;
+   
    @JsonProperty(value = "novaRegionName")
    protected String novaRegionName;
+   
+   @JsonProperty(value = "novaUserDomainName")
+   protected String novaUserDomainName;
    
    @JsonProperty(value = "ntpServer1")
    protected String ntpServer1;
@@ -195,14 +261,62 @@ public class VCenterVRSConfig extends RestObject {
    @JsonProperty(value = "ntpServer2")
    protected String ntpServer2;
    
+   @JsonProperty(value = "ovfURL")
+   protected String ovfURL;
+   
    @JsonProperty(value = "personality")
-   protected String personality;
+   protected Personality personality;
    
    @JsonProperty(value = "portgroupMetadata")
    protected Boolean portgroupMetadata;
    
+   @JsonProperty(value = "primaryDataUplinkUnderlayID")
+   protected Long primaryDataUplinkUnderlayID;
+   
+   @JsonProperty(value = "primaryDataUplinkVDFControlVLAN")
+   protected Long primaryDataUplinkVDFControlVLAN;
+   
    @JsonProperty(value = "primaryNuageController")
    protected String primaryNuageController;
+   
+   @JsonProperty(value = "remoteSyslogServerIP")
+   protected String remoteSyslogServerIP;
+   
+   @JsonProperty(value = "remoteSyslogServerPort")
+   protected Long remoteSyslogServerPort;
+   
+   @JsonProperty(value = "remoteSyslogServerType")
+   protected RemoteSyslogServerType remoteSyslogServerType;
+   
+   @JsonProperty(value = "revertiveControllerEnabled")
+   protected Boolean revertiveControllerEnabled;
+   
+   @JsonProperty(value = "revertiveTimer")
+   protected Long revertiveTimer;
+   
+   @JsonProperty(value = "secondaryDataUplinkDHCPEnabled")
+   protected Boolean secondaryDataUplinkDHCPEnabled;
+   
+   @JsonProperty(value = "secondaryDataUplinkEnabled")
+   protected Boolean secondaryDataUplinkEnabled;
+   
+   @JsonProperty(value = "secondaryDataUplinkInterface")
+   protected String secondaryDataUplinkInterface;
+   
+   @JsonProperty(value = "secondaryDataUplinkMTU")
+   protected Long secondaryDataUplinkMTU;
+   
+   @JsonProperty(value = "secondaryDataUplinkPrimaryController")
+   protected String secondaryDataUplinkPrimaryController;
+   
+   @JsonProperty(value = "secondaryDataUplinkSecondaryController")
+   protected String secondaryDataUplinkSecondaryController;
+   
+   @JsonProperty(value = "secondaryDataUplinkUnderlayID")
+   protected Long secondaryDataUplinkUnderlayID;
+   
+   @JsonProperty(value = "secondaryDataUplinkVDFControlVLAN")
+   protected Long secondaryDataUplinkVDFControlVLAN;
    
    @JsonProperty(value = "secondaryNuageController")
    protected String secondaryNuageController;
@@ -221,6 +335,18 @@ public class VCenterVRSConfig extends RestObject {
    
    @JsonProperty(value = "staticRouteNetmask")
    protected String staticRouteNetmask;
+   
+   @JsonProperty(value = "upgradePackagePassword")
+   protected String upgradePackagePassword;
+   
+   @JsonProperty(value = "upgradePackageURL")
+   protected String upgradePackageURL;
+   
+   @JsonProperty(value = "upgradePackageUsername")
+   protected String upgradePackageUsername;
+   
+   @JsonProperty(value = "upgradeScriptTimeLimit")
+   protected Long upgradeScriptTimeLimit;
    
    @JsonProperty(value = "vRequireNuageMetadata")
    protected Boolean vRequireNuageMetadata;
@@ -263,6 +389,26 @@ public class VCenterVRSConfig extends RestObject {
 
    
    @JsonIgnore
+   public Boolean getARPReply() {
+      return ARPReply;
+   }
+
+   @JsonIgnore
+   public void setARPReply(Boolean value) { 
+      this.ARPReply = value;
+   }
+   
+   @JsonIgnore
+   public Long getVRSConfigurationTimeLimit() {
+      return VRSConfigurationTimeLimit;
+   }
+
+   @JsonIgnore
+   public void setVRSConfigurationTimeLimit(Long value) { 
+      this.VRSConfigurationTimeLimit = value;
+   }
+   
+   @JsonIgnore
    public Boolean getAllowDataDHCP() {
       return allowDataDHCP;
    }
@@ -280,6 +426,46 @@ public class VCenterVRSConfig extends RestObject {
    @JsonIgnore
    public void setAllowMgmtDHCP(Boolean value) { 
       this.allowMgmtDHCP = value;
+   }
+   
+   @JsonIgnore
+   public Boolean getAvrsEnabled() {
+      return avrsEnabled;
+   }
+
+   @JsonIgnore
+   public void setAvrsEnabled(Boolean value) { 
+      this.avrsEnabled = value;
+   }
+   
+   @JsonIgnore
+   public AvrsProfile getAvrsProfile() {
+      return avrsProfile;
+   }
+
+   @JsonIgnore
+   public void setAvrsProfile(AvrsProfile value) { 
+      this.avrsProfile = value;
+   }
+   
+   @JsonIgnore
+   public Long getConfiguredMetricsPushInterval() {
+      return configuredMetricsPushInterval;
+   }
+
+   @JsonIgnore
+   public void setConfiguredMetricsPushInterval(Long value) { 
+      this.configuredMetricsPushInterval = value;
+   }
+   
+   @JsonIgnore
+   public CpuCount getCpuCount() {
+      return cpuCount;
+   }
+
+   @JsonIgnore
+   public void setCpuCount(CpuCount value) { 
+      this.cpuCount = value;
    }
    
    @JsonIgnore
@@ -343,6 +529,16 @@ public class VCenterVRSConfig extends RestObject {
    }
    
    @JsonIgnore
+   public DestinationMirrorPort getDestinationMirrorPort() {
+      return destinationMirrorPort;
+   }
+
+   @JsonIgnore
+   public void setDestinationMirrorPort(DestinationMirrorPort value) { 
+      this.destinationMirrorPort = value;
+   }
+   
+   @JsonIgnore
    public String getDhcpRelayServer() {
       return dhcpRelayServer;
    }
@@ -350,6 +546,36 @@ public class VCenterVRSConfig extends RestObject {
    @JsonIgnore
    public void setDhcpRelayServer(String value) { 
       this.dhcpRelayServer = value;
+   }
+   
+   @JsonIgnore
+   public Boolean getDisableGROOnDatapath() {
+      return disableGROOnDatapath;
+   }
+
+   @JsonIgnore
+   public void setDisableGROOnDatapath(Boolean value) { 
+      this.disableGROOnDatapath = value;
+   }
+   
+   @JsonIgnore
+   public Boolean getDisableLROOnDatapath() {
+      return disableLROOnDatapath;
+   }
+
+   @JsonIgnore
+   public void setDisableLROOnDatapath(Boolean value) { 
+      this.disableLROOnDatapath = value;
+   }
+   
+   @JsonIgnore
+   public Boolean getEnableVRSResourceReservation() {
+      return enableVRSResourceReservation;
+   }
+
+   @JsonIgnore
+   public void setEnableVRSResourceReservation(Boolean value) { 
+      this.enableVRSResourceReservation = value;
    }
    
    @JsonIgnore
@@ -400,6 +626,26 @@ public class VCenterVRSConfig extends RestObject {
    @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
+   }
+   
+   @JsonIgnore
+   public Boolean getManageVRSAvailability() {
+      return manageVRSAvailability;
+   }
+
+   @JsonIgnore
+   public void setManageVRSAvailability(Boolean value) { 
+      this.manageVRSAvailability = value;
+   }
+   
+   @JsonIgnore
+   public MemorySizeInGB getMemorySizeInGB() {
+      return memorySizeInGB;
+   }
+
+   @JsonIgnore
+   public void setMemorySizeInGB(MemorySizeInGB value) { 
+      this.memorySizeInGB = value;
    }
    
    @JsonIgnore
@@ -480,6 +726,16 @@ public class VCenterVRSConfig extends RestObject {
    @JsonIgnore
    public void setMgmtNetworkPortgroup(String value) { 
       this.mgmtNetworkPortgroup = value;
+   }
+   
+   @JsonIgnore
+   public String getMirrorNetworkPortgroup() {
+      return mirrorNetworkPortgroup;
+   }
+
+   @JsonIgnore
+   public void setMirrorNetworkPortgroup(String value) { 
+      this.mirrorNetworkPortgroup = value;
    }
    
    @JsonIgnore
@@ -653,6 +909,16 @@ public class VCenterVRSConfig extends RestObject {
    }
    
    @JsonIgnore
+   public String getNovaIdentityURLVersion() {
+      return novaIdentityURLVersion;
+   }
+
+   @JsonIgnore
+   public void setNovaIdentityURLVersion(String value) { 
+      this.novaIdentityURLVersion = value;
+   }
+   
+   @JsonIgnore
    public String getNovaMetadataServiceAuthUrl() {
       return novaMetadataServiceAuthUrl;
    }
@@ -713,6 +979,36 @@ public class VCenterVRSConfig extends RestObject {
    }
    
    @JsonIgnore
+   public String getNovaOSKeystoneUsername() {
+      return novaOSKeystoneUsername;
+   }
+
+   @JsonIgnore
+   public void setNovaOSKeystoneUsername(String value) { 
+      this.novaOSKeystoneUsername = value;
+   }
+   
+   @JsonIgnore
+   public String getNovaProjectDomainName() {
+      return novaProjectDomainName;
+   }
+
+   @JsonIgnore
+   public void setNovaProjectDomainName(String value) { 
+      this.novaProjectDomainName = value;
+   }
+   
+   @JsonIgnore
+   public String getNovaProjectName() {
+      return novaProjectName;
+   }
+
+   @JsonIgnore
+   public void setNovaProjectName(String value) { 
+      this.novaProjectName = value;
+   }
+   
+   @JsonIgnore
    public String getNovaRegionName() {
       return novaRegionName;
    }
@@ -720,6 +1016,16 @@ public class VCenterVRSConfig extends RestObject {
    @JsonIgnore
    public void setNovaRegionName(String value) { 
       this.novaRegionName = value;
+   }
+   
+   @JsonIgnore
+   public String getNovaUserDomainName() {
+      return novaUserDomainName;
+   }
+
+   @JsonIgnore
+   public void setNovaUserDomainName(String value) { 
+      this.novaUserDomainName = value;
    }
    
    @JsonIgnore
@@ -743,12 +1049,22 @@ public class VCenterVRSConfig extends RestObject {
    }
    
    @JsonIgnore
-   public String getPersonality() {
+   public String getOvfURL() {
+      return ovfURL;
+   }
+
+   @JsonIgnore
+   public void setOvfURL(String value) { 
+      this.ovfURL = value;
+   }
+   
+   @JsonIgnore
+   public Personality getPersonality() {
       return personality;
    }
 
    @JsonIgnore
-   public void setPersonality(String value) { 
+   public void setPersonality(Personality value) { 
       this.personality = value;
    }
    
@@ -763,6 +1079,26 @@ public class VCenterVRSConfig extends RestObject {
    }
    
    @JsonIgnore
+   public Long getPrimaryDataUplinkUnderlayID() {
+      return primaryDataUplinkUnderlayID;
+   }
+
+   @JsonIgnore
+   public void setPrimaryDataUplinkUnderlayID(Long value) { 
+      this.primaryDataUplinkUnderlayID = value;
+   }
+   
+   @JsonIgnore
+   public Long getPrimaryDataUplinkVDFControlVLAN() {
+      return primaryDataUplinkVDFControlVLAN;
+   }
+
+   @JsonIgnore
+   public void setPrimaryDataUplinkVDFControlVLAN(Long value) { 
+      this.primaryDataUplinkVDFControlVLAN = value;
+   }
+   
+   @JsonIgnore
    public String getPrimaryNuageController() {
       return primaryNuageController;
    }
@@ -770,6 +1106,136 @@ public class VCenterVRSConfig extends RestObject {
    @JsonIgnore
    public void setPrimaryNuageController(String value) { 
       this.primaryNuageController = value;
+   }
+   
+   @JsonIgnore
+   public String getRemoteSyslogServerIP() {
+      return remoteSyslogServerIP;
+   }
+
+   @JsonIgnore
+   public void setRemoteSyslogServerIP(String value) { 
+      this.remoteSyslogServerIP = value;
+   }
+   
+   @JsonIgnore
+   public Long getRemoteSyslogServerPort() {
+      return remoteSyslogServerPort;
+   }
+
+   @JsonIgnore
+   public void setRemoteSyslogServerPort(Long value) { 
+      this.remoteSyslogServerPort = value;
+   }
+   
+   @JsonIgnore
+   public RemoteSyslogServerType getRemoteSyslogServerType() {
+      return remoteSyslogServerType;
+   }
+
+   @JsonIgnore
+   public void setRemoteSyslogServerType(RemoteSyslogServerType value) { 
+      this.remoteSyslogServerType = value;
+   }
+   
+   @JsonIgnore
+   public Boolean getRevertiveControllerEnabled() {
+      return revertiveControllerEnabled;
+   }
+
+   @JsonIgnore
+   public void setRevertiveControllerEnabled(Boolean value) { 
+      this.revertiveControllerEnabled = value;
+   }
+   
+   @JsonIgnore
+   public Long getRevertiveTimer() {
+      return revertiveTimer;
+   }
+
+   @JsonIgnore
+   public void setRevertiveTimer(Long value) { 
+      this.revertiveTimer = value;
+   }
+   
+   @JsonIgnore
+   public Boolean getSecondaryDataUplinkDHCPEnabled() {
+      return secondaryDataUplinkDHCPEnabled;
+   }
+
+   @JsonIgnore
+   public void setSecondaryDataUplinkDHCPEnabled(Boolean value) { 
+      this.secondaryDataUplinkDHCPEnabled = value;
+   }
+   
+   @JsonIgnore
+   public Boolean getSecondaryDataUplinkEnabled() {
+      return secondaryDataUplinkEnabled;
+   }
+
+   @JsonIgnore
+   public void setSecondaryDataUplinkEnabled(Boolean value) { 
+      this.secondaryDataUplinkEnabled = value;
+   }
+   
+   @JsonIgnore
+   public String getSecondaryDataUplinkInterface() {
+      return secondaryDataUplinkInterface;
+   }
+
+   @JsonIgnore
+   public void setSecondaryDataUplinkInterface(String value) { 
+      this.secondaryDataUplinkInterface = value;
+   }
+   
+   @JsonIgnore
+   public Long getSecondaryDataUplinkMTU() {
+      return secondaryDataUplinkMTU;
+   }
+
+   @JsonIgnore
+   public void setSecondaryDataUplinkMTU(Long value) { 
+      this.secondaryDataUplinkMTU = value;
+   }
+   
+   @JsonIgnore
+   public String getSecondaryDataUplinkPrimaryController() {
+      return secondaryDataUplinkPrimaryController;
+   }
+
+   @JsonIgnore
+   public void setSecondaryDataUplinkPrimaryController(String value) { 
+      this.secondaryDataUplinkPrimaryController = value;
+   }
+   
+   @JsonIgnore
+   public String getSecondaryDataUplinkSecondaryController() {
+      return secondaryDataUplinkSecondaryController;
+   }
+
+   @JsonIgnore
+   public void setSecondaryDataUplinkSecondaryController(String value) { 
+      this.secondaryDataUplinkSecondaryController = value;
+   }
+   
+   @JsonIgnore
+   public Long getSecondaryDataUplinkUnderlayID() {
+      return secondaryDataUplinkUnderlayID;
+   }
+
+   @JsonIgnore
+   public void setSecondaryDataUplinkUnderlayID(Long value) { 
+      this.secondaryDataUplinkUnderlayID = value;
+   }
+   
+   @JsonIgnore
+   public Long getSecondaryDataUplinkVDFControlVLAN() {
+      return secondaryDataUplinkVDFControlVLAN;
+   }
+
+   @JsonIgnore
+   public void setSecondaryDataUplinkVDFControlVLAN(Long value) { 
+      this.secondaryDataUplinkVDFControlVLAN = value;
    }
    
    @JsonIgnore
@@ -830,6 +1296,46 @@ public class VCenterVRSConfig extends RestObject {
    @JsonIgnore
    public void setStaticRouteNetmask(String value) { 
       this.staticRouteNetmask = value;
+   }
+   
+   @JsonIgnore
+   public String getUpgradePackagePassword() {
+      return upgradePackagePassword;
+   }
+
+   @JsonIgnore
+   public void setUpgradePackagePassword(String value) { 
+      this.upgradePackagePassword = value;
+   }
+   
+   @JsonIgnore
+   public String getUpgradePackageURL() {
+      return upgradePackageURL;
+   }
+
+   @JsonIgnore
+   public void setUpgradePackageURL(String value) { 
+      this.upgradePackageURL = value;
+   }
+   
+   @JsonIgnore
+   public String getUpgradePackageUsername() {
+      return upgradePackageUsername;
+   }
+
+   @JsonIgnore
+   public void setUpgradePackageUsername(String value) { 
+      this.upgradePackageUsername = value;
+   }
+   
+   @JsonIgnore
+   public Long getUpgradeScriptTimeLimit() {
+      return upgradeScriptTimeLimit;
+   }
+
+   @JsonIgnore
+   public void setUpgradeScriptTimeLimit(Long value) { 
+      this.upgradeScriptTimeLimit = value;
    }
    
    @JsonIgnore
@@ -896,7 +1402,7 @@ public class VCenterVRSConfig extends RestObject {
    
 
    public String toString() {
-      return "VCenterVRSConfig [" + "allowDataDHCP=" + allowDataDHCP + ", allowMgmtDHCP=" + allowMgmtDHCP + ", customizedScriptURL=" + customizedScriptURL + ", dataDNS1=" + dataDNS1 + ", dataDNS2=" + dataDNS2 + ", dataGateway=" + dataGateway + ", dataNetworkPortgroup=" + dataNetworkPortgroup + ", datapathSyncTimeout=" + datapathSyncTimeout + ", dhcpRelayServer=" + dhcpRelayServer + ", entityScope=" + entityScope + ", externalID=" + externalID + ", flowEvictionThreshold=" + flowEvictionThreshold + ", genericSplitActivation=" + genericSplitActivation + ", lastUpdatedBy=" + lastUpdatedBy + ", metadataServerIP=" + metadataServerIP + ", metadataServerListenPort=" + metadataServerListenPort + ", metadataServerPort=" + metadataServerPort + ", metadataServiceEnabled=" + metadataServiceEnabled + ", mgmtDNS1=" + mgmtDNS1 + ", mgmtDNS2=" + mgmtDNS2 + ", mgmtGateway=" + mgmtGateway + ", mgmtNetworkPortgroup=" + mgmtNetworkPortgroup + ", mtu=" + mtu + ", multiVMSsupport=" + multiVMSsupport + ", multicastReceiveInterface=" + multicastReceiveInterface + ", multicastReceiveInterfaceIP=" + multicastReceiveInterfaceIP + ", multicastReceiveInterfaceNetmask=" + multicastReceiveInterfaceNetmask + ", multicastReceiveRange=" + multicastReceiveRange + ", multicastSendInterface=" + multicastSendInterface + ", multicastSendInterfaceIP=" + multicastSendInterfaceIP + ", multicastSendInterfaceNetmask=" + multicastSendInterfaceNetmask + ", multicastSourcePortgroup=" + multicastSourcePortgroup + ", networkUplinkInterface=" + networkUplinkInterface + ", networkUplinkInterfaceGateway=" + networkUplinkInterfaceGateway + ", networkUplinkInterfaceIp=" + networkUplinkInterfaceIp + ", networkUplinkInterfaceNetmask=" + networkUplinkInterfaceNetmask + ", nfsLogServer=" + nfsLogServer + ", nfsMountPath=" + nfsMountPath + ", novaClientVersion=" + novaClientVersion + ", novaMetadataServiceAuthUrl=" + novaMetadataServiceAuthUrl + ", novaMetadataServiceEndpoint=" + novaMetadataServiceEndpoint + ", novaMetadataServicePassword=" + novaMetadataServicePassword + ", novaMetadataServiceTenant=" + novaMetadataServiceTenant + ", novaMetadataServiceUsername=" + novaMetadataServiceUsername + ", novaMetadataSharedSecret=" + novaMetadataSharedSecret + ", novaRegionName=" + novaRegionName + ", ntpServer1=" + ntpServer1 + ", ntpServer2=" + ntpServer2 + ", personality=" + personality + ", portgroupMetadata=" + portgroupMetadata + ", primaryNuageController=" + primaryNuageController + ", secondaryNuageController=" + secondaryNuageController + ", separateDataNetwork=" + separateDataNetwork + ", siteId=" + siteId + ", staticRoute=" + staticRoute + ", staticRouteGateway=" + staticRouteGateway + ", staticRouteNetmask=" + staticRouteNetmask + ", vRequireNuageMetadata=" + vRequireNuageMetadata + ", vmNetworkPortgroup=" + vmNetworkPortgroup + ", vrsPassword=" + vrsPassword + ", vrsUserName=" + vrsUserName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VCenterVRSConfig [" + "ARPReply=" + ARPReply + ", VRSConfigurationTimeLimit=" + VRSConfigurationTimeLimit + ", allowDataDHCP=" + allowDataDHCP + ", allowMgmtDHCP=" + allowMgmtDHCP + ", avrsEnabled=" + avrsEnabled + ", avrsProfile=" + avrsProfile + ", configuredMetricsPushInterval=" + configuredMetricsPushInterval + ", cpuCount=" + cpuCount + ", customizedScriptURL=" + customizedScriptURL + ", dataDNS1=" + dataDNS1 + ", dataDNS2=" + dataDNS2 + ", dataGateway=" + dataGateway + ", dataNetworkPortgroup=" + dataNetworkPortgroup + ", datapathSyncTimeout=" + datapathSyncTimeout + ", destinationMirrorPort=" + destinationMirrorPort + ", dhcpRelayServer=" + dhcpRelayServer + ", disableGROOnDatapath=" + disableGROOnDatapath + ", disableLROOnDatapath=" + disableLROOnDatapath + ", enableVRSResourceReservation=" + enableVRSResourceReservation + ", entityScope=" + entityScope + ", externalID=" + externalID + ", flowEvictionThreshold=" + flowEvictionThreshold + ", genericSplitActivation=" + genericSplitActivation + ", lastUpdatedBy=" + lastUpdatedBy + ", manageVRSAvailability=" + manageVRSAvailability + ", memorySizeInGB=" + memorySizeInGB + ", metadataServerIP=" + metadataServerIP + ", metadataServerListenPort=" + metadataServerListenPort + ", metadataServerPort=" + metadataServerPort + ", metadataServiceEnabled=" + metadataServiceEnabled + ", mgmtDNS1=" + mgmtDNS1 + ", mgmtDNS2=" + mgmtDNS2 + ", mgmtGateway=" + mgmtGateway + ", mgmtNetworkPortgroup=" + mgmtNetworkPortgroup + ", mirrorNetworkPortgroup=" + mirrorNetworkPortgroup + ", mtu=" + mtu + ", multiVMSsupport=" + multiVMSsupport + ", multicastReceiveInterface=" + multicastReceiveInterface + ", multicastReceiveInterfaceIP=" + multicastReceiveInterfaceIP + ", multicastReceiveInterfaceNetmask=" + multicastReceiveInterfaceNetmask + ", multicastReceiveRange=" + multicastReceiveRange + ", multicastSendInterface=" + multicastSendInterface + ", multicastSendInterfaceIP=" + multicastSendInterfaceIP + ", multicastSendInterfaceNetmask=" + multicastSendInterfaceNetmask + ", multicastSourcePortgroup=" + multicastSourcePortgroup + ", networkUplinkInterface=" + networkUplinkInterface + ", networkUplinkInterfaceGateway=" + networkUplinkInterfaceGateway + ", networkUplinkInterfaceIp=" + networkUplinkInterfaceIp + ", networkUplinkInterfaceNetmask=" + networkUplinkInterfaceNetmask + ", nfsLogServer=" + nfsLogServer + ", nfsMountPath=" + nfsMountPath + ", novaClientVersion=" + novaClientVersion + ", novaIdentityURLVersion=" + novaIdentityURLVersion + ", novaMetadataServiceAuthUrl=" + novaMetadataServiceAuthUrl + ", novaMetadataServiceEndpoint=" + novaMetadataServiceEndpoint + ", novaMetadataServicePassword=" + novaMetadataServicePassword + ", novaMetadataServiceTenant=" + novaMetadataServiceTenant + ", novaMetadataServiceUsername=" + novaMetadataServiceUsername + ", novaMetadataSharedSecret=" + novaMetadataSharedSecret + ", novaOSKeystoneUsername=" + novaOSKeystoneUsername + ", novaProjectDomainName=" + novaProjectDomainName + ", novaProjectName=" + novaProjectName + ", novaRegionName=" + novaRegionName + ", novaUserDomainName=" + novaUserDomainName + ", ntpServer1=" + ntpServer1 + ", ntpServer2=" + ntpServer2 + ", ovfURL=" + ovfURL + ", personality=" + personality + ", portgroupMetadata=" + portgroupMetadata + ", primaryDataUplinkUnderlayID=" + primaryDataUplinkUnderlayID + ", primaryDataUplinkVDFControlVLAN=" + primaryDataUplinkVDFControlVLAN + ", primaryNuageController=" + primaryNuageController + ", remoteSyslogServerIP=" + remoteSyslogServerIP + ", remoteSyslogServerPort=" + remoteSyslogServerPort + ", remoteSyslogServerType=" + remoteSyslogServerType + ", revertiveControllerEnabled=" + revertiveControllerEnabled + ", revertiveTimer=" + revertiveTimer + ", secondaryDataUplinkDHCPEnabled=" + secondaryDataUplinkDHCPEnabled + ", secondaryDataUplinkEnabled=" + secondaryDataUplinkEnabled + ", secondaryDataUplinkInterface=" + secondaryDataUplinkInterface + ", secondaryDataUplinkMTU=" + secondaryDataUplinkMTU + ", secondaryDataUplinkPrimaryController=" + secondaryDataUplinkPrimaryController + ", secondaryDataUplinkSecondaryController=" + secondaryDataUplinkSecondaryController + ", secondaryDataUplinkUnderlayID=" + secondaryDataUplinkUnderlayID + ", secondaryDataUplinkVDFControlVLAN=" + secondaryDataUplinkVDFControlVLAN + ", secondaryNuageController=" + secondaryNuageController + ", separateDataNetwork=" + separateDataNetwork + ", siteId=" + siteId + ", staticRoute=" + staticRoute + ", staticRouteGateway=" + staticRouteGateway + ", staticRouteNetmask=" + staticRouteNetmask + ", upgradePackagePassword=" + upgradePackagePassword + ", upgradePackageURL=" + upgradePackageURL + ", upgradePackageUsername=" + upgradePackageUsername + ", upgradeScriptTimeLimit=" + upgradeScriptTimeLimit + ", vRequireNuageMetadata=" + vRequireNuageMetadata + ", vmNetworkPortgroup=" + vmNetworkPortgroup + ", vrsPassword=" + vrsPassword + ", vrsUserName=" + vrsUserName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

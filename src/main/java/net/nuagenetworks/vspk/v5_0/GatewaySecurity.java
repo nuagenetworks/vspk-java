@@ -50,6 +50,9 @@ public class GatewaySecurity extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
+   @JsonProperty(value = "associatedEntityType")
+   protected String associatedEntityType;
+   
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
@@ -87,6 +90,16 @@ public class GatewaySecurity extends RestObject {
       
    }
 
+   
+   @JsonIgnore
+   public String getAssociatedEntityType() {
+      return associatedEntityType;
+   }
+
+   @JsonIgnore
+   public void setAssociatedEntityType(String value) { 
+      this.associatedEntityType = value;
+   }
    
    @JsonIgnore
    public EntityScope getEntityScope() {
@@ -157,7 +170,7 @@ public class GatewaySecurity extends RestObject {
    
 
    public String toString() {
-      return "GatewaySecurity [" + "entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayID=" + gatewayID + ", lastUpdatedBy=" + lastUpdatedBy + ", revision=" + revision + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "GatewaySecurity [" + "associatedEntityType=" + associatedEntityType + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayID=" + gatewayID + ", lastUpdatedBy=" + lastUpdatedBy + ", revision=" + revision + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -41,7 +41,6 @@ import net.nuagenetworks.vspk.v5_0.fetchers.HSCsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NetconfManagersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VSCsFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.VSDsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "vsp", resourceName = "vsps")
@@ -95,9 +94,6 @@ public class VSP extends RestObject {
    @JsonIgnore
    private VSCsFetcher vSCs;
    
-   @JsonIgnore
-   private VSDsFetcher vSDs;
-   
 
    public VSP() {
       
@@ -112,8 +108,6 @@ public class VSP extends RestObject {
       netconfManagers = new NetconfManagersFetcher(this);
       
       vSCs = new VSCsFetcher(this);
-      
-      vSDs = new VSDsFetcher(this);
       
    }
 
@@ -218,11 +212,6 @@ public class VSP extends RestObject {
    @JsonIgnore
    public VSCsFetcher getVSCs() {
       return vSCs;
-   }
-   
-   @JsonIgnore
-   public VSDsFetcher getVSDs() {
-      return vSDs;
    }
    
 

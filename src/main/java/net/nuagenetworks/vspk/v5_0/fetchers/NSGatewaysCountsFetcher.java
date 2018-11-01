@@ -29,14 +29,14 @@ package net.nuagenetworks.vspk.v5_0.fetchers;
 
 import net.nuagenetworks.bambou.RestObject;
 import net.nuagenetworks.bambou.RestFetcher;
-import net.nuagenetworks.vspk.v5_0.IngressExternalServiceTemplateEntry;
+import net.nuagenetworks.vspk.v5_0.NSGatewaysCount;
 
-public class IngressExternalServiceTemplateEntriesFetcher extends RestFetcher<IngressExternalServiceTemplateEntry> {
+public class NSGatewaysCountsFetcher extends RestFetcher<NSGatewaysCount> {
 
    private static final long serialVersionUID = 1L;
    
-   public IngressExternalServiceTemplateEntriesFetcher(RestObject parentRestObj) {
-      super(parentRestObj, IngressExternalServiceTemplateEntry.class);
+   public NSGatewaysCountsFetcher(RestObject parentRestObj) {
+      super(parentRestObj, NSGatewaysCount.class);
    }
    
    

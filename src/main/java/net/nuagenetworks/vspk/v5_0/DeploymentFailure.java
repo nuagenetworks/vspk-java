@@ -35,6 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "deploymentfailure", resourceName = "deploymentfailures")
@@ -43,6 +45,8 @@ public class DeploymentFailure extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
+   public enum EntityScope { ENTERPRISE, GLOBAL };
    
    public enum EventType { CREATE, DELETE, UPDATE };
 
@@ -53,11 +57,23 @@ public class DeploymentFailure extends RestObject {
    @JsonProperty(value = "affectedEntityType")
    protected String affectedEntityType;
    
+   @JsonProperty(value = "assocEntityId")
+   protected String assocEntityId;
+   
+   @JsonProperty(value = "assocEntityType")
+   protected String assocEntityType;
+   
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
    @JsonProperty(value = "errorCondition")
    protected Long errorCondition;
    
    @JsonProperty(value = "eventType")
    protected EventType eventType;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
    
    @JsonProperty(value = "lastFailureReason")
    protected String lastFailureReason;
@@ -65,13 +81,26 @@ public class DeploymentFailure extends RestObject {
    @JsonProperty(value = "lastKnownError")
    protected String lastKnownError;
    
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
    @JsonProperty(value = "numberOfOccurences")
    protected Long numberOfOccurences;
    
 
    
+   @JsonIgnore
+   private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public DeploymentFailure() {
+      
+      globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
    }
 
@@ -97,6 +126,36 @@ public class DeploymentFailure extends RestObject {
    }
    
    @JsonIgnore
+   public String getAssocEntityId() {
+      return assocEntityId;
+   }
+
+   @JsonIgnore
+   public void setAssocEntityId(String value) { 
+      this.assocEntityId = value;
+   }
+   
+   @JsonIgnore
+   public String getAssocEntityType() {
+      return assocEntityType;
+   }
+
+   @JsonIgnore
+   public void setAssocEntityType(String value) { 
+      this.assocEntityType = value;
+   }
+   
+   @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   
+   @JsonIgnore
    public Long getErrorCondition() {
       return errorCondition;
    }
@@ -114,6 +173,16 @@ public class DeploymentFailure extends RestObject {
    @JsonIgnore
    public void setEventType(EventType value) { 
       this.eventType = value;
+   }
+   
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
    }
    
    @JsonIgnore
@@ -137,6 +206,16 @@ public class DeploymentFailure extends RestObject {
    }
    
    @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   
+   @JsonIgnore
    public Long getNumberOfOccurences() {
       return numberOfOccurences;
    }
@@ -148,9 +227,19 @@ public class DeploymentFailure extends RestObject {
    
 
    
+   @JsonIgnore
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "DeploymentFailure [" + "affectedEntityID=" + affectedEntityID + ", affectedEntityType=" + affectedEntityType + ", errorCondition=" + errorCondition + ", eventType=" + eventType + ", lastFailureReason=" + lastFailureReason + ", lastKnownError=" + lastKnownError + ", numberOfOccurences=" + numberOfOccurences + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "DeploymentFailure [" + "affectedEntityID=" + affectedEntityID + ", affectedEntityType=" + affectedEntityType + ", assocEntityId=" + assocEntityId + ", assocEntityType=" + assocEntityType + ", entityScope=" + entityScope + ", errorCondition=" + errorCondition + ", eventType=" + eventType + ", externalID=" + externalID + ", lastFailureReason=" + lastFailureReason + ", lastKnownError=" + lastKnownError + ", lastUpdatedBy=" + lastUpdatedBy + ", numberOfOccurences=" + numberOfOccurences + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

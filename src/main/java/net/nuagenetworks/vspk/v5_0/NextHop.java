@@ -46,8 +46,15 @@ public class NextHop extends RestObject {
 
    
    
+   public enum IPType { IPV4, IPV6, DUALSTACK };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
+   public enum Type { IP, BR_PORT, GATEWAY };
 
+   
+   @JsonProperty(value = "IPType")
+   protected IPType IPType;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
@@ -63,6 +70,9 @@ public class NextHop extends RestObject {
    
    @JsonProperty(value = "routeDistinguisher")
    protected String routeDistinguisher;
+   
+   @JsonProperty(value = "type")
+   protected Type type;
    
 
    
@@ -81,6 +91,16 @@ public class NextHop extends RestObject {
       
    }
 
+   
+   @JsonIgnore
+   public IPType getIPType() {
+      return IPType;
+   }
+
+   @JsonIgnore
+   public void setIPType(IPType value) { 
+      this.IPType = value;
+   }
    
    @JsonIgnore
    public EntityScope getEntityScope() {
@@ -132,6 +152,16 @@ public class NextHop extends RestObject {
       this.routeDistinguisher = value;
    }
    
+   @JsonIgnore
+   public Type getType() {
+      return type;
+   }
+
+   @JsonIgnore
+   public void setType(Type value) { 
+      this.type = value;
+   }
+   
 
    
    @JsonIgnore
@@ -146,7 +176,7 @@ public class NextHop extends RestObject {
    
 
    public String toString() {
-      return "NextHop [" + "entityScope=" + entityScope + ", externalID=" + externalID + ", ip=" + ip + ", lastUpdatedBy=" + lastUpdatedBy + ", routeDistinguisher=" + routeDistinguisher + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NextHop [" + "IPType=" + IPType + ", entityScope=" + entityScope + ", externalID=" + externalID + ", ip=" + ip + ", lastUpdatedBy=" + lastUpdatedBy + ", routeDistinguisher=" + routeDistinguisher + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -48,6 +48,8 @@ public class ShuntLink extends RestObject {
    
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
+   public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
 
    
    @JsonProperty(value = "VLANPeer1ID")
@@ -77,17 +79,8 @@ public class ShuntLink extends RestObject {
    @JsonProperty(value = "name")
    protected String name;
    
-   @JsonProperty(value = "peer1IPAddress")
-   protected String peer1IPAddress;
-   
-   @JsonProperty(value = "peer1Subnet")
-   protected String peer1Subnet;
-   
-   @JsonProperty(value = "peer2IPAddress")
-   protected String peer2IPAddress;
-   
-   @JsonProperty(value = "peer2Subnet")
-   protected String peer2Subnet;
+   @JsonProperty(value = "permittedAction")
+   protected PermittedAction permittedAction;
    
 
    
@@ -203,43 +196,13 @@ public class ShuntLink extends RestObject {
    }
    
    @JsonIgnore
-   public String getPeer1IPAddress() {
-      return peer1IPAddress;
+   public PermittedAction getPermittedAction() {
+      return permittedAction;
    }
 
    @JsonIgnore
-   public void setPeer1IPAddress(String value) { 
-      this.peer1IPAddress = value;
-   }
-   
-   @JsonIgnore
-   public String getPeer1Subnet() {
-      return peer1Subnet;
-   }
-
-   @JsonIgnore
-   public void setPeer1Subnet(String value) { 
-      this.peer1Subnet = value;
-   }
-   
-   @JsonIgnore
-   public String getPeer2IPAddress() {
-      return peer2IPAddress;
-   }
-
-   @JsonIgnore
-   public void setPeer2IPAddress(String value) { 
-      this.peer2IPAddress = value;
-   }
-   
-   @JsonIgnore
-   public String getPeer2Subnet() {
-      return peer2Subnet;
-   }
-
-   @JsonIgnore
-   public void setPeer2Subnet(String value) { 
-      this.peer2Subnet = value;
+   public void setPermittedAction(PermittedAction value) { 
+      this.permittedAction = value;
    }
    
 
@@ -261,7 +224,7 @@ public class ShuntLink extends RestObject {
    
 
    public String toString() {
-      return "ShuntLink [" + "VLANPeer1ID=" + VLANPeer1ID + ", VLANPeer2ID=" + VLANPeer2ID + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayPeer1ID=" + gatewayPeer1ID + ", gatewayPeer2ID=" + gatewayPeer2ID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", peer1IPAddress=" + peer1IPAddress + ", peer1Subnet=" + peer1Subnet + ", peer2IPAddress=" + peer2IPAddress + ", peer2Subnet=" + peer2Subnet + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "ShuntLink [" + "VLANPeer1ID=" + VLANPeer1ID + ", VLANPeer2ID=" + VLANPeer2ID + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayPeer1ID=" + gatewayPeer1ID + ", gatewayPeer2ID=" + gatewayPeer2ID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", permittedAction=" + permittedAction + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

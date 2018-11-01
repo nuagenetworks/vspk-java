@@ -48,7 +48,7 @@ public class DomainFIPAclTemplateEntry extends RestObject {
    
    public enum Action { DROP, FORWARD, REDIRECT };
    
-   public enum DestinationType { NETWORK, NETWORKPOLICYGROUP, POLICYGROUP };
+   public enum AssociatedTrafficType { L4_SERVICE, L4_SERVICE_GROUP };
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    
@@ -57,8 +57,6 @@ public class DomainFIPAclTemplateEntry extends RestObject {
    public enum NetworkType { ANY, ENDPOINT_DOMAIN, ENDPOINT_SUBNET, ENDPOINT_ZONE, ENTERPRISE_NETWORK, INTERNET_POLICYGROUP, NETWORK_MACRO_GROUP, POLICYGROUP, PUBLIC_NETWORK, SUBNET, ZONE };
    
    public enum PolicyState { DRAFT, LIVE };
-   
-   public enum SourceType { NETWORK, NETWORKPOLICYGROUP, POLICYGROUP };
 
    
    @JsonProperty(value = "ACLTemplateName")
@@ -79,32 +77,26 @@ public class DomainFIPAclTemplateEntry extends RestObject {
    @JsonProperty(value = "action")
    protected Action action;
    
-   @JsonProperty(value = "actionDetails")
-   protected Object actionDetails;
-   
    @JsonProperty(value = "addressOverride")
    protected String addressOverride;
    
    @JsonProperty(value = "associatedLiveEntityID")
    protected String associatedLiveEntityID;
    
+   @JsonProperty(value = "associatedLiveTemplateID")
+   protected String associatedLiveTemplateID;
+   
+   @JsonProperty(value = "associatedTrafficType")
+   protected AssociatedTrafficType associatedTrafficType;
+   
+   @JsonProperty(value = "associatedTrafficTypeID")
+   protected String associatedTrafficTypeID;
+   
    @JsonProperty(value = "description")
    protected String description;
    
-   @JsonProperty(value = "destPgId")
-   protected String destPgId;
-   
-   @JsonProperty(value = "destPgType")
-   protected String destPgType;
-   
    @JsonProperty(value = "destinationPort")
    protected String destinationPort;
-   
-   @JsonProperty(value = "destinationType")
-   protected DestinationType destinationType;
-   
-   @JsonProperty(value = "destinationValue")
-   protected String destinationValue;
    
    @JsonProperty(value = "domainName")
    protected String domainName;
@@ -151,20 +143,8 @@ public class DomainFIPAclTemplateEntry extends RestObject {
    @JsonProperty(value = "protocol")
    protected String protocol;
    
-   @JsonProperty(value = "sourcePgId")
-   protected String sourcePgId;
-   
-   @JsonProperty(value = "sourcePgType")
-   protected String sourcePgType;
-   
    @JsonProperty(value = "sourcePort")
    protected String sourcePort;
-   
-   @JsonProperty(value = "sourceType")
-   protected SourceType sourceType;
-   
-   @JsonProperty(value = "sourceValue")
-   protected String sourceValue;
    
    @JsonProperty(value = "stateful")
    protected Boolean stateful;
@@ -254,16 +234,6 @@ public class DomainFIPAclTemplateEntry extends RestObject {
    }
    
    @JsonIgnore
-   public Object getActionDetails() {
-      return actionDetails;
-   }
-
-   @JsonIgnore
-   public void setActionDetails(Object value) { 
-      this.actionDetails = value;
-   }
-   
-   @JsonIgnore
    public String getAddressOverride() {
       return addressOverride;
    }
@@ -284,6 +254,36 @@ public class DomainFIPAclTemplateEntry extends RestObject {
    }
    
    @JsonIgnore
+   public String getAssociatedLiveTemplateID() {
+      return associatedLiveTemplateID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedLiveTemplateID(String value) { 
+      this.associatedLiveTemplateID = value;
+   }
+   
+   @JsonIgnore
+   public AssociatedTrafficType getAssociatedTrafficType() {
+      return associatedTrafficType;
+   }
+
+   @JsonIgnore
+   public void setAssociatedTrafficType(AssociatedTrafficType value) { 
+      this.associatedTrafficType = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedTrafficTypeID() {
+      return associatedTrafficTypeID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedTrafficTypeID(String value) { 
+      this.associatedTrafficTypeID = value;
+   }
+   
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
@@ -294,26 +294,6 @@ public class DomainFIPAclTemplateEntry extends RestObject {
    }
    
    @JsonIgnore
-   public String getDestPgId() {
-      return destPgId;
-   }
-
-   @JsonIgnore
-   public void setDestPgId(String value) { 
-      this.destPgId = value;
-   }
-   
-   @JsonIgnore
-   public String getDestPgType() {
-      return destPgType;
-   }
-
-   @JsonIgnore
-   public void setDestPgType(String value) { 
-      this.destPgType = value;
-   }
-   
-   @JsonIgnore
    public String getDestinationPort() {
       return destinationPort;
    }
@@ -321,26 +301,6 @@ public class DomainFIPAclTemplateEntry extends RestObject {
    @JsonIgnore
    public void setDestinationPort(String value) { 
       this.destinationPort = value;
-   }
-   
-   @JsonIgnore
-   public DestinationType getDestinationType() {
-      return destinationType;
-   }
-
-   @JsonIgnore
-   public void setDestinationType(DestinationType value) { 
-      this.destinationType = value;
-   }
-   
-   @JsonIgnore
-   public String getDestinationValue() {
-      return destinationValue;
-   }
-
-   @JsonIgnore
-   public void setDestinationValue(String value) { 
-      this.destinationValue = value;
    }
    
    @JsonIgnore
@@ -494,26 +454,6 @@ public class DomainFIPAclTemplateEntry extends RestObject {
    }
    
    @JsonIgnore
-   public String getSourcePgId() {
-      return sourcePgId;
-   }
-
-   @JsonIgnore
-   public void setSourcePgId(String value) { 
-      this.sourcePgId = value;
-   }
-   
-   @JsonIgnore
-   public String getSourcePgType() {
-      return sourcePgType;
-   }
-
-   @JsonIgnore
-   public void setSourcePgType(String value) { 
-      this.sourcePgType = value;
-   }
-   
-   @JsonIgnore
    public String getSourcePort() {
       return sourcePort;
    }
@@ -521,26 +461,6 @@ public class DomainFIPAclTemplateEntry extends RestObject {
    @JsonIgnore
    public void setSourcePort(String value) { 
       this.sourcePort = value;
-   }
-   
-   @JsonIgnore
-   public SourceType getSourceType() {
-      return sourceType;
-   }
-
-   @JsonIgnore
-   public void setSourceType(SourceType value) { 
-      this.sourceType = value;
-   }
-   
-   @JsonIgnore
-   public String getSourceValue() {
-      return sourceValue;
-   }
-
-   @JsonIgnore
-   public void setSourceValue(String value) { 
-      this.sourceValue = value;
    }
    
    @JsonIgnore
@@ -587,7 +507,7 @@ public class DomainFIPAclTemplateEntry extends RestObject {
    
 
    public String toString() {
-      return "DomainFIPAclTemplateEntry [" + "ACLTemplateName=" + ACLTemplateName + ", DSCP=" + DSCP + ", ICMPCode=" + ICMPCode + ", ICMPType=" + ICMPType + ", IPv6AddressOverride=" + IPv6AddressOverride + ", action=" + action + ", actionDetails=" + actionDetails + ", addressOverride=" + addressOverride + ", associatedLiveEntityID=" + associatedLiveEntityID + ", description=" + description + ", destPgId=" + destPgId + ", destPgType=" + destPgType + ", destinationPort=" + destinationPort + ", destinationType=" + destinationType + ", destinationValue=" + destinationValue + ", domainName=" + domainName + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", etherType=" + etherType + ", externalID=" + externalID + ", flowLoggingEnabled=" + flowLoggingEnabled + ", lastUpdatedBy=" + lastUpdatedBy + ", locationID=" + locationID + ", locationType=" + locationType + ", mirrorDestinationID=" + mirrorDestinationID + ", networkID=" + networkID + ", networkType=" + networkType + ", policyState=" + policyState + ", priority=" + priority + ", protocol=" + protocol + ", sourcePgId=" + sourcePgId + ", sourcePgType=" + sourcePgType + ", sourcePort=" + sourcePort + ", sourceType=" + sourceType + ", sourceValue=" + sourceValue + ", stateful=" + stateful + ", statsID=" + statsID + ", statsLoggingEnabled=" + statsLoggingEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "DomainFIPAclTemplateEntry [" + "ACLTemplateName=" + ACLTemplateName + ", DSCP=" + DSCP + ", ICMPCode=" + ICMPCode + ", ICMPType=" + ICMPType + ", IPv6AddressOverride=" + IPv6AddressOverride + ", action=" + action + ", addressOverride=" + addressOverride + ", associatedLiveEntityID=" + associatedLiveEntityID + ", associatedLiveTemplateID=" + associatedLiveTemplateID + ", associatedTrafficType=" + associatedTrafficType + ", associatedTrafficTypeID=" + associatedTrafficTypeID + ", description=" + description + ", destinationPort=" + destinationPort + ", domainName=" + domainName + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", etherType=" + etherType + ", externalID=" + externalID + ", flowLoggingEnabled=" + flowLoggingEnabled + ", lastUpdatedBy=" + lastUpdatedBy + ", locationID=" + locationID + ", locationType=" + locationType + ", mirrorDestinationID=" + mirrorDestinationID + ", networkID=" + networkID + ", networkType=" + networkType + ", policyState=" + policyState + ", priority=" + priority + ", protocol=" + protocol + ", sourcePort=" + sourcePort + ", stateful=" + stateful + ", statsID=" + statsID + ", statsLoggingEnabled=" + statsLoggingEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

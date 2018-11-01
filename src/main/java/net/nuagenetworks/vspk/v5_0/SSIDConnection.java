@@ -36,8 +36,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 import net.nuagenetworks.vspk.v5_0.fetchers.AlarmsFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.CaptivePortalProfilesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "ssidconnection", resourceName = "ssidconnections")
@@ -49,7 +50,13 @@ public class SSIDConnection extends RestObject {
    
    public enum AuthenticationMode { CAPTIVE_PORTAL, OPEN, WEP, WPA, WPA2, WPA_OTP, WPA_WPA2 };
    
+   public enum EntityScope { ENTERPRISE, GLOBAL };
+   
+   public enum PermittedAction { USE, READ, ALL, INSTANTIATE, EXTEND, DEPLOY };
+   
    public enum RedirectOption { CONFIGURED_URL, ORIGINAL_REQUEST };
+   
+   public enum Status { INITIALIZED, ORPHAN, READY, MISMATCH };
 
    
    @JsonProperty(value = "associatedCaptivePortalProfileID")
@@ -70,11 +77,23 @@ public class SSIDConnection extends RestObject {
    @JsonProperty(value = "description")
    protected String description;
    
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "gatewayID")
+   protected String gatewayID;
+   
    @JsonProperty(value = "genericConfig")
    protected String genericConfig;
    
    @JsonProperty(value = "interfaceName")
    protected String interfaceName;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
    protected String name;
@@ -82,11 +101,26 @@ public class SSIDConnection extends RestObject {
    @JsonProperty(value = "passphrase")
    protected String passphrase;
    
+   @JsonProperty(value = "permittedAction")
+   protected PermittedAction permittedAction;
+   
+   @JsonProperty(value = "readonly")
+   protected Boolean readonly;
+   
    @JsonProperty(value = "redirectOption")
    protected RedirectOption redirectOption;
    
    @JsonProperty(value = "redirectURL")
    protected String redirectURL;
+   
+   @JsonProperty(value = "restricted")
+   protected Boolean restricted;
+   
+   @JsonProperty(value = "status")
+   protected Status status;
+   
+   @JsonProperty(value = "vlanID")
+   protected Long vlanID;
    
    @JsonProperty(value = "vportID")
    protected String vportID;
@@ -100,19 +134,24 @@ public class SSIDConnection extends RestObject {
    private AlarmsFetcher alarms;
    
    @JsonIgnore
-   private CaptivePortalProfilesFetcher captivePortalProfiles;
+   private EventLogsFetcher eventLogs;
    
    @JsonIgnore
-   private EventLogsFetcher eventLogs;
+   private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
    
 
    public SSIDConnection() {
       
       alarms = new AlarmsFetcher(this);
       
-      captivePortalProfiles = new CaptivePortalProfilesFetcher(this);
-      
       eventLogs = new EventLogsFetcher(this);
+      
+      globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
    }
 
@@ -178,6 +217,36 @@ public class SSIDConnection extends RestObject {
    }
    
    @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   
+   @JsonIgnore
+   public String getGatewayID() {
+      return gatewayID;
+   }
+
+   @JsonIgnore
+   public void setGatewayID(String value) { 
+      this.gatewayID = value;
+   }
+   
+   @JsonIgnore
    public String getGenericConfig() {
       return genericConfig;
    }
@@ -195,6 +264,16 @@ public class SSIDConnection extends RestObject {
    @JsonIgnore
    public void setInterfaceName(String value) { 
       this.interfaceName = value;
+   }
+   
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    
    @JsonIgnore
@@ -218,6 +297,26 @@ public class SSIDConnection extends RestObject {
    }
    
    @JsonIgnore
+   public PermittedAction getPermittedAction() {
+      return permittedAction;
+   }
+
+   @JsonIgnore
+   public void setPermittedAction(PermittedAction value) { 
+      this.permittedAction = value;
+   }
+   
+   @JsonIgnore
+   public Boolean getReadonly() {
+      return readonly;
+   }
+
+   @JsonIgnore
+   public void setReadonly(Boolean value) { 
+      this.readonly = value;
+   }
+   
+   @JsonIgnore
    public RedirectOption getRedirectOption() {
       return redirectOption;
    }
@@ -235,6 +334,36 @@ public class SSIDConnection extends RestObject {
    @JsonIgnore
    public void setRedirectURL(String value) { 
       this.redirectURL = value;
+   }
+   
+   @JsonIgnore
+   public Boolean getRestricted() {
+      return restricted;
+   }
+
+   @JsonIgnore
+   public void setRestricted(Boolean value) { 
+      this.restricted = value;
+   }
+   
+   @JsonIgnore
+   public Status getStatus() {
+      return status;
+   }
+
+   @JsonIgnore
+   public void setStatus(Status value) { 
+      this.status = value;
+   }
+   
+   @JsonIgnore
+   public Long getVlanID() {
+      return vlanID;
+   }
+
+   @JsonIgnore
+   public void setVlanID(Long value) { 
+      this.vlanID = value;
    }
    
    @JsonIgnore
@@ -265,18 +394,23 @@ public class SSIDConnection extends RestObject {
    }
    
    @JsonIgnore
-   public CaptivePortalProfilesFetcher getCaptivePortalProfiles() {
-      return captivePortalProfiles;
-   }
-   
-   @JsonIgnore
    public EventLogsFetcher getEventLogs() {
       return eventLogs;
    }
    
+   @JsonIgnore
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "SSIDConnection [" + "associatedCaptivePortalProfileID=" + associatedCaptivePortalProfileID + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", authenticationMode=" + authenticationMode + ", blackList=" + blackList + ", broadcastSSID=" + broadcastSSID + ", description=" + description + ", genericConfig=" + genericConfig + ", interfaceName=" + interfaceName + ", name=" + name + ", passphrase=" + passphrase + ", redirectOption=" + redirectOption + ", redirectURL=" + redirectURL + ", vportID=" + vportID + ", whiteList=" + whiteList + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "SSIDConnection [" + "associatedCaptivePortalProfileID=" + associatedCaptivePortalProfileID + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", authenticationMode=" + authenticationMode + ", blackList=" + blackList + ", broadcastSSID=" + broadcastSSID + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayID=" + gatewayID + ", genericConfig=" + genericConfig + ", interfaceName=" + interfaceName + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", passphrase=" + passphrase + ", permittedAction=" + permittedAction + ", readonly=" + readonly + ", redirectOption=" + redirectOption + ", redirectURL=" + redirectURL + ", restricted=" + restricted + ", status=" + status + ", vlanID=" + vlanID + ", vportID=" + vportID + ", whiteList=" + whiteList + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

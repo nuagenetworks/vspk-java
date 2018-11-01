@@ -55,6 +55,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.FirewallAclsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.FirewallRulesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GatewaysFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.GatewaysLocationsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GatewayTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GroupsFetcher;
@@ -79,6 +80,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.NetconfProfilesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NetworkMacroGroupsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NetworkPerformanceMeasurementsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSGatewaysFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.NSGatewaysCountsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSGatewaySummariesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSGatewayTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSGGroupsFetcher;
@@ -111,6 +113,8 @@ public class Enterprise extends RestObject {
    
    
    public enum AllowedForwardingClasses { A, B, C, D, E, F, G, H, NONE };
+   
+   public enum AllowedForwardingMode { DISABLED, LOCAL_ONLY, LOCAL_AND_REMOTE };
    
    public enum AvatarType { BASE64, COMPUTEDURL, URL };
    
@@ -147,6 +151,9 @@ public class Enterprise extends RestObject {
    
    @JsonProperty(value = "allowedForwardingClasses")
    protected java.util.List<AllowedForwardingClasses> allowedForwardingClasses;
+   
+   @JsonProperty(value = "allowedForwardingMode")
+   protected AllowedForwardingMode allowedForwardingMode;
    
    @JsonProperty(value = "associatedEnterpriseSecurityID")
    protected String associatedEnterpriseSecurityID;
@@ -280,6 +287,9 @@ public class Enterprise extends RestObject {
    private GatewaysFetcher gateways;
    
    @JsonIgnore
+   private GatewaysLocationsFetcher gatewaysLocations;
+   
+   @JsonIgnore
    private GatewayTemplatesFetcher gatewayTemplates;
    
    @JsonIgnore
@@ -350,6 +360,9 @@ public class Enterprise extends RestObject {
    
    @JsonIgnore
    private NSGatewaysFetcher nSGateways;
+   
+   @JsonIgnore
+   private NSGatewaysCountsFetcher nSGatewaysCounts;
    
    @JsonIgnore
    private NSGatewaySummariesFetcher nSGatewaySummaries;
@@ -460,6 +473,8 @@ public class Enterprise extends RestObject {
       
       gateways = new GatewaysFetcher(this);
       
+      gatewaysLocations = new GatewaysLocationsFetcher(this);
+      
       gatewayTemplates = new GatewayTemplatesFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
@@ -507,6 +522,8 @@ public class Enterprise extends RestObject {
       networkPerformanceMeasurements = new NetworkPerformanceMeasurementsFetcher(this);
       
       nSGateways = new NSGatewaysFetcher(this);
+      
+      nSGatewaysCounts = new NSGatewaysCountsFetcher(this);
       
       nSGatewaySummaries = new NSGatewaySummariesFetcher(this);
       
@@ -643,6 +660,16 @@ public class Enterprise extends RestObject {
    @JsonIgnore
    public void setAllowedForwardingClasses(java.util.List<AllowedForwardingClasses> value) { 
       this.allowedForwardingClasses = value;
+   }
+   
+   @JsonIgnore
+   public AllowedForwardingMode getAllowedForwardingMode() {
+      return allowedForwardingMode;
+   }
+
+   @JsonIgnore
+   public void setAllowedForwardingMode(AllowedForwardingMode value) { 
+      this.allowedForwardingMode = value;
    }
    
    @JsonIgnore
@@ -978,6 +1005,11 @@ public class Enterprise extends RestObject {
    }
    
    @JsonIgnore
+   public GatewaysLocationsFetcher getGatewaysLocations() {
+      return gatewaysLocations;
+   }
+   
+   @JsonIgnore
    public GatewayTemplatesFetcher getGatewayTemplates() {
       return gatewayTemplates;
    }
@@ -1098,6 +1130,11 @@ public class Enterprise extends RestObject {
    }
    
    @JsonIgnore
+   public NSGatewaysCountsFetcher getNSGatewaysCounts() {
+      return nSGatewaysCounts;
+   }
+   
+   @JsonIgnore
    public NSGatewaySummariesFetcher getNSGatewaySummaries() {
       return nSGatewaySummaries;
    }
@@ -1209,7 +1246,7 @@ public class Enterprise extends RestObject {
    
 
    public String toString() {
-      return "Enterprise [" + "BGPEnabled=" + BGPEnabled + ", DHCPLeaseInterval=" + DHCPLeaseInterval + ", LDAPAuthorizationEnabled=" + LDAPAuthorizationEnabled + ", LDAPEnabled=" + LDAPEnabled + ", VNFManagementEnabled=" + VNFManagementEnabled + ", allowAdvancedQOSConfiguration=" + allowAdvancedQOSConfiguration + ", allowGatewayManagement=" + allowGatewayManagement + ", allowTrustedForwardingClass=" + allowTrustedForwardingClass + ", allowedForwardingClasses=" + allowedForwardingClasses + ", associatedEnterpriseSecurityID=" + associatedEnterpriseSecurityID + ", associatedGroupKeyEncryptionProfileID=" + associatedGroupKeyEncryptionProfileID + ", associatedKeyServerMonitorID=" + associatedKeyServerMonitorID + ", avatarData=" + avatarData + ", avatarType=" + avatarType + ", customerID=" + customerID + ", description=" + description + ", dictionaryVersion=" + dictionaryVersion + ", enableApplicationPerformanceManagement=" + enableApplicationPerformanceManagement + ", encryptionManagementMode=" + encryptionManagementMode + ", enterpriseProfileID=" + enterpriseProfileID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", floatingIPsQuota=" + floatingIPsQuota + ", floatingIPsUsed=" + floatingIPsUsed + ", flowCollectionEnabled=" + flowCollectionEnabled + ", lastUpdatedBy=" + lastUpdatedBy + ", localAS=" + localAS + ", name=" + name + ", receiveMultiCastListID=" + receiveMultiCastListID + ", sendMultiCastListID=" + sendMultiCastListID + ", sharedEnterprise=" + sharedEnterprise + ", virtualFirewallRulesEnabled=" + virtualFirewallRulesEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Enterprise [" + "BGPEnabled=" + BGPEnabled + ", DHCPLeaseInterval=" + DHCPLeaseInterval + ", LDAPAuthorizationEnabled=" + LDAPAuthorizationEnabled + ", LDAPEnabled=" + LDAPEnabled + ", VNFManagementEnabled=" + VNFManagementEnabled + ", allowAdvancedQOSConfiguration=" + allowAdvancedQOSConfiguration + ", allowGatewayManagement=" + allowGatewayManagement + ", allowTrustedForwardingClass=" + allowTrustedForwardingClass + ", allowedForwardingClasses=" + allowedForwardingClasses + ", allowedForwardingMode=" + allowedForwardingMode + ", associatedEnterpriseSecurityID=" + associatedEnterpriseSecurityID + ", associatedGroupKeyEncryptionProfileID=" + associatedGroupKeyEncryptionProfileID + ", associatedKeyServerMonitorID=" + associatedKeyServerMonitorID + ", avatarData=" + avatarData + ", avatarType=" + avatarType + ", customerID=" + customerID + ", description=" + description + ", dictionaryVersion=" + dictionaryVersion + ", enableApplicationPerformanceManagement=" + enableApplicationPerformanceManagement + ", encryptionManagementMode=" + encryptionManagementMode + ", enterpriseProfileID=" + enterpriseProfileID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", floatingIPsQuota=" + floatingIPsQuota + ", floatingIPsUsed=" + floatingIPsUsed + ", flowCollectionEnabled=" + flowCollectionEnabled + ", lastUpdatedBy=" + lastUpdatedBy + ", localAS=" + localAS + ", name=" + name + ", receiveMultiCastListID=" + receiveMultiCastListID + ", sendMultiCastListID=" + sendMultiCastListID + ", sharedEnterprise=" + sharedEnterprise + ", virtualFirewallRulesEnabled=" + virtualFirewallRulesEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

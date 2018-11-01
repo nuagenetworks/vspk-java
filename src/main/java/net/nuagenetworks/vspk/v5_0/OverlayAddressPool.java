@@ -35,6 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.OverlayPATNATEntriesFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -44,7 +46,14 @@ public class OverlayAddressPool extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   
+   public enum IPType { IPV4, IPV6, DUALSTACK };
+   
+   public enum EntityScope { ENTERPRISE, GLOBAL };
 
+   
+   @JsonProperty(value = "IPType")
+   protected IPType IPType;
    
    @JsonProperty(value = "associatedDomainID")
    protected String associatedDomainID;
@@ -55,6 +64,15 @@ public class OverlayAddressPool extends RestObject {
    @JsonProperty(value = "endAddressRange")
    protected String endAddressRange;
    
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
+   
    @JsonProperty(value = "name")
    protected String name;
    
@@ -64,15 +82,35 @@ public class OverlayAddressPool extends RestObject {
 
    
    @JsonIgnore
+   private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
+   @JsonIgnore
    private OverlayPATNATEntriesFetcher overlayPATNATEntries;
    
 
    public OverlayAddressPool() {
       
+      globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
+      
       overlayPATNATEntries = new OverlayPATNATEntriesFetcher(this);
       
    }
 
+   
+   @JsonIgnore
+   public IPType getIPType() {
+      return IPType;
+   }
+
+   @JsonIgnore
+   public void setIPType(IPType value) { 
+      this.IPType = value;
+   }
    
    @JsonIgnore
    public String getAssociatedDomainID() {
@@ -105,6 +143,36 @@ public class OverlayAddressPool extends RestObject {
    }
    
    @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   
+   @JsonIgnore
    public String getName() {
       return name;
    }
@@ -127,13 +195,23 @@ public class OverlayAddressPool extends RestObject {
 
    
    @JsonIgnore
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
+   @JsonIgnore
    public OverlayPATNATEntriesFetcher getOverlayPATNATEntries() {
       return overlayPATNATEntries;
    }
    
 
    public String toString() {
-      return "OverlayAddressPool [" + "associatedDomainID=" + associatedDomainID + ", description=" + description + ", endAddressRange=" + endAddressRange + ", name=" + name + ", startAddressRange=" + startAddressRange + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "OverlayAddressPool [" + "IPType=" + IPType + ", associatedDomainID=" + associatedDomainID + ", description=" + description + ", endAddressRange=" + endAddressRange + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", startAddressRange=" + startAddressRange + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

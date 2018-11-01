@@ -51,9 +51,6 @@ public class VPortMirror extends RestObject {
    public enum MirrorDirection { BOTH, EGRESS, INGRESS };
 
    
-   @JsonProperty(value = "VPortName")
-   protected String VPortName;
-   
    @JsonProperty(value = "attachedNetworkType")
    protected String attachedNetworkType;
    
@@ -87,6 +84,9 @@ public class VPortMirror extends RestObject {
    @JsonProperty(value = "vportId")
    protected String vportId;
    
+   @JsonProperty(value = "vportName")
+   protected String vportName;
+   
 
    
    @JsonIgnore
@@ -105,16 +105,6 @@ public class VPortMirror extends RestObject {
       
    }
 
-   
-   @JsonIgnore
-   public String getVPortName() {
-      return VPortName;
-   }
-
-   @JsonIgnore
-   public void setVPortName(String value) { 
-      this.VPortName = value;
-   }
    
    @JsonIgnore
    public String getAttachedNetworkType() {
@@ -226,6 +216,16 @@ public class VPortMirror extends RestObject {
       this.vportId = value;
    }
    
+   @JsonIgnore
+   public String getVportName() {
+      return vportName;
+   }
+
+   @JsonIgnore
+   public void setVportName(String value) { 
+      this.vportName = value;
+   }
+   
 
    
    @JsonIgnore
@@ -240,7 +240,7 @@ public class VPortMirror extends RestObject {
    
 
    public String toString() {
-      return "VPortMirror [" + "VPortName=" + VPortName + ", attachedNetworkType=" + attachedNetworkType + ", domainName=" + domainName + ", enterpiseName=" + enterpiseName + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", mirrorDestinationID=" + mirrorDestinationID + ", mirrorDestinationName=" + mirrorDestinationName + ", mirrorDirection=" + mirrorDirection + ", networkName=" + networkName + ", vportId=" + vportId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VPortMirror [" + "attachedNetworkType=" + attachedNetworkType + ", domainName=" + domainName + ", enterpiseName=" + enterpiseName + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", mirrorDestinationID=" + mirrorDestinationID + ", mirrorDestinationName=" + mirrorDestinationName + ", mirrorDirection=" + mirrorDirection + ", networkName=" + networkName + ", vportId=" + vportId + ", vportName=" + vportName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

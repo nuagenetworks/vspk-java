@@ -49,6 +49,8 @@ public class RoutingPolicy extends RestObject {
    public enum DefaultAction { ACCEPT, REJECT };
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
+   public enum RoutingProtocol { BGP, OSPFv2, OSPFv3, ISIS, ROUTING };
 
    
    @JsonProperty(value = "defaultAction")
@@ -68,6 +70,9 @@ public class RoutingPolicy extends RestObject {
    
    @JsonProperty(value = "policyDefinition")
    protected String policyDefinition;
+   
+   @JsonProperty(value = "routingProtocol")
+   protected RoutingProtocol routingProtocol;
    
 
    
@@ -147,6 +152,16 @@ public class RoutingPolicy extends RestObject {
       this.policyDefinition = value;
    }
    
+   @JsonIgnore
+   public RoutingProtocol getRoutingProtocol() {
+      return routingProtocol;
+   }
+
+   @JsonIgnore
+   public void setRoutingProtocol(RoutingProtocol value) { 
+      this.routingProtocol = value;
+   }
+   
 
    
    @JsonIgnore
@@ -161,7 +176,7 @@ public class RoutingPolicy extends RestObject {
    
 
    public String toString() {
-      return "RoutingPolicy [" + "defaultAction=" + defaultAction + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", name=" + name + ", policyDefinition=" + policyDefinition + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "RoutingPolicy [" + "defaultAction=" + defaultAction + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", name=" + name + ", policyDefinition=" + policyDefinition + ", routingProtocol=" + routingProtocol + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -59,6 +59,9 @@ public class ForwardingPathList extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
+   @JsonProperty(value = "forwardingPathListID")
+   protected Long forwardingPathListID;
+   
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
    
@@ -119,6 +122,16 @@ public class ForwardingPathList extends RestObject {
    }
    
    @JsonIgnore
+   public Long getForwardingPathListID() {
+      return forwardingPathListID;
+   }
+
+   @JsonIgnore
+   public void setForwardingPathListID(Long value) { 
+      this.forwardingPathListID = value;
+   }
+   
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
@@ -157,7 +170,7 @@ public class ForwardingPathList extends RestObject {
    
 
    public String toString() {
-      return "ForwardingPathList [" + "description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "ForwardingPathList [" + "description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", forwardingPathListID=" + forwardingPathListID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

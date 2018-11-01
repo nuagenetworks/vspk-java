@@ -52,9 +52,6 @@ public class Location extends RestObject {
    @JsonProperty(value = "address")
    protected String address;
    
-   @JsonProperty(value = "associatedEntityID")
-   protected String associatedEntityID;
-   
    @JsonProperty(value = "associatedEntityName")
    protected String associatedEntityName;
    
@@ -118,16 +115,6 @@ public class Location extends RestObject {
    @JsonIgnore
    public void setAddress(String value) { 
       this.address = value;
-   }
-   
-   @JsonIgnore
-   public String getAssociatedEntityID() {
-      return associatedEntityID;
-   }
-
-   @JsonIgnore
-   public void setAssociatedEntityID(String value) { 
-      this.associatedEntityID = value;
    }
    
    @JsonIgnore
@@ -264,7 +251,7 @@ public class Location extends RestObject {
    
 
    public String toString() {
-      return "Location [" + "address=" + address + ", associatedEntityID=" + associatedEntityID + ", associatedEntityName=" + associatedEntityName + ", associatedEntityType=" + associatedEntityType + ", country=" + country + ", entityScope=" + entityScope + ", externalID=" + externalID + ", ignoreGeocode=" + ignoreGeocode + ", lastUpdatedBy=" + lastUpdatedBy + ", latitude=" + latitude + ", locality=" + locality + ", longitude=" + longitude + ", state=" + state + ", timeZoneID=" + timeZoneID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Location [" + "address=" + address + ", associatedEntityName=" + associatedEntityName + ", associatedEntityType=" + associatedEntityType + ", country=" + country + ", entityScope=" + entityScope + ", externalID=" + externalID + ", ignoreGeocode=" + ignoreGeocode + ", lastUpdatedBy=" + lastUpdatedBy + ", latitude=" + latitude + ", locality=" + locality + ", longitude=" + longitude + ", state=" + state + ", timeZoneID=" + timeZoneID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

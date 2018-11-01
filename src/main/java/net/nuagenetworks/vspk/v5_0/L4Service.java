@@ -35,6 +35,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v5_0.fetchers.L4ServiceGroupsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "l4service", resourceName = "l4services")
@@ -79,8 +80,13 @@ public class L4Service extends RestObject {
    
 
    
+   @JsonIgnore
+   private L4ServiceGroupsFetcher l4ServiceGroups;
+   
 
    public L4Service() {
+      
+      l4ServiceGroups = new L4ServiceGroupsFetcher(this);
       
    }
 
@@ -186,6 +192,11 @@ public class L4Service extends RestObject {
    }
    
 
+   
+   @JsonIgnore
+   public L4ServiceGroupsFetcher getL4ServiceGroups() {
+      return l4ServiceGroups;
+   }
    
 
    public String toString() {

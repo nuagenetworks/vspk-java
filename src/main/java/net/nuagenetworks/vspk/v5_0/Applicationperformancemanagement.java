@@ -36,6 +36,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 import net.nuagenetworks.vspk.v5_0.fetchers.ApplicationBindingsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.ApplicationperformancemanagementbindingsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 
@@ -49,6 +50,9 @@ public class Applicationperformancemanagement extends RestObject {
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
+   
+   @JsonProperty(value = "appGroupUniqueId")
+   protected Long appGroupUniqueId;
    
    @JsonProperty(value = "associatedPerformanceMonitorID")
    protected String associatedPerformanceMonitorID;
@@ -77,6 +81,9 @@ public class Applicationperformancemanagement extends RestObject {
    private ApplicationBindingsFetcher applicationBindings;
    
    @JsonIgnore
+   private ApplicationperformancemanagementbindingsFetcher applicationperformancemanagementbindings;
+   
+   @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
@@ -87,12 +94,24 @@ public class Applicationperformancemanagement extends RestObject {
       
       applicationBindings = new ApplicationBindingsFetcher(this);
       
+      applicationperformancemanagementbindings = new ApplicationperformancemanagementbindingsFetcher(this);
+      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
       
    }
 
+   
+   @JsonIgnore
+   public Long getAppGroupUniqueId() {
+      return appGroupUniqueId;
+   }
+
+   @JsonIgnore
+   public void setAppGroupUniqueId(Long value) { 
+      this.appGroupUniqueId = value;
+   }
    
    @JsonIgnore
    public String getAssociatedPerformanceMonitorID() {
@@ -172,6 +191,11 @@ public class Applicationperformancemanagement extends RestObject {
    }
    
    @JsonIgnore
+   public ApplicationperformancemanagementbindingsFetcher getApplicationperformancemanagementbindings() {
+      return applicationperformancemanagementbindings;
+   }
+   
+   @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
@@ -183,7 +207,7 @@ public class Applicationperformancemanagement extends RestObject {
    
 
    public String toString() {
-      return "Applicationperformancemanagement [" + "associatedPerformanceMonitorID=" + associatedPerformanceMonitorID + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", readOnly=" + readOnly + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Applicationperformancemanagement [" + "appGroupUniqueId=" + appGroupUniqueId + ", associatedPerformanceMonitorID=" + associatedPerformanceMonitorID + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", readOnly=" + readOnly + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -35,19 +35,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
-import net.nuagenetworks.vspk.v5_0.fetchers.AlarmsFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.EnterprisePermissionsFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.NSGatewaysFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.RedundantPortsFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.PermissionsFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.ShuntLinksFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "nsgredundancygroup", resourceName = "nsgredundancygroups")
-public class NSRedundantGatewayGroup extends RestObject {
+@RestEntity(restName = "allredundancygroup", resourceName = "allredundancygroups")
+public class AllRedundancyGroup extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
@@ -57,13 +50,10 @@ public class NSRedundantGatewayGroup extends RestObject {
    
    public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    
-   public enum Personality { DC7X50, HARDWARE_VTEP, NSG, NSGBR, NSGDUC, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, OTHER, VRSB, VRSG, VSA, VSG };
+   public enum Personality { DC7X50, EVDF, EVDFB, HARDWARE_VTEP, NETCONF_7X50, NSG, NSGBR, NSGDUC, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, OTHER, VDFG, VRSB, VRSG, VSA, VSG };
    
    public enum RedundantGatewayStatus { FAILED, SUCCESS };
 
-   
-   @JsonProperty(value = "consecutiveFailuresCount")
-   protected Long consecutiveFailuresCount;
    
    @JsonProperty(value = "description")
    protected String description;
@@ -95,17 +85,8 @@ public class NSRedundantGatewayGroup extends RestObject {
    @JsonProperty(value = "gatewayPeer2Connected")
    protected Boolean gatewayPeer2Connected;
    
-   @JsonProperty(value = "gatewayPeer2ID")
-   protected String gatewayPeer2ID;
-   
    @JsonProperty(value = "gatewayPeer2Name")
    protected String gatewayPeer2Name;
-   
-   @JsonProperty(value = "heartbeatInterval")
-   protected Long heartbeatInterval;
-   
-   @JsonProperty(value = "heartbeatVLANID")
-   protected Long heartbeatVLANID;
    
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
@@ -119,22 +100,13 @@ public class NSRedundantGatewayGroup extends RestObject {
    @JsonProperty(value = "personality")
    protected Personality personality;
    
-   @JsonProperty(value = "redundancyPortIDs")
-   protected java.util.List<String> redundancyPortIDs;
-   
    @JsonProperty(value = "redundantGatewayStatus")
    protected RedundantGatewayStatus redundantGatewayStatus;
    
+   @JsonProperty(value = "vtep")
+   protected String vtep;
+   
 
-   
-   @JsonIgnore
-   private AlarmsFetcher alarms;
-   
-   @JsonIgnore
-   private EnterprisePermissionsFetcher enterprisePermissions;
-   
-   @JsonIgnore
-   private EventLogsFetcher eventLogs;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
@@ -142,51 +114,15 @@ public class NSRedundantGatewayGroup extends RestObject {
    @JsonIgnore
    private MetadatasFetcher metadatas;
    
-   @JsonIgnore
-   private NSGatewaysFetcher nSGateways;
-   
-   @JsonIgnore
-   private RedundantPortsFetcher redundantPorts;
-   
-   @JsonIgnore
-   private PermissionsFetcher permissions;
-   
-   @JsonIgnore
-   private ShuntLinksFetcher shuntLinks;
-   
 
-   public NSRedundantGatewayGroup() {
-      
-      alarms = new AlarmsFetcher(this);
-      
-      enterprisePermissions = new EnterprisePermissionsFetcher(this);
-      
-      eventLogs = new EventLogsFetcher(this);
+   public AllRedundancyGroup() {
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
       
-      nSGateways = new NSGatewaysFetcher(this);
-      
-      redundantPorts = new RedundantPortsFetcher(this);
-      
-      permissions = new PermissionsFetcher(this);
-      
-      shuntLinks = new ShuntLinksFetcher(this);
-      
    }
 
-   
-   @JsonIgnore
-   public Long getConsecutiveFailuresCount() {
-      return consecutiveFailuresCount;
-   }
-
-   @JsonIgnore
-   public void setConsecutiveFailuresCount(Long value) { 
-      this.consecutiveFailuresCount = value;
-   }
    
    @JsonIgnore
    public String getDescription() {
@@ -289,16 +225,6 @@ public class NSRedundantGatewayGroup extends RestObject {
    }
    
    @JsonIgnore
-   public String getGatewayPeer2ID() {
-      return gatewayPeer2ID;
-   }
-
-   @JsonIgnore
-   public void setGatewayPeer2ID(String value) { 
-      this.gatewayPeer2ID = value;
-   }
-   
-   @JsonIgnore
    public String getGatewayPeer2Name() {
       return gatewayPeer2Name;
    }
@@ -306,26 +232,6 @@ public class NSRedundantGatewayGroup extends RestObject {
    @JsonIgnore
    public void setGatewayPeer2Name(String value) { 
       this.gatewayPeer2Name = value;
-   }
-   
-   @JsonIgnore
-   public Long getHeartbeatInterval() {
-      return heartbeatInterval;
-   }
-
-   @JsonIgnore
-   public void setHeartbeatInterval(Long value) { 
-      this.heartbeatInterval = value;
-   }
-   
-   @JsonIgnore
-   public Long getHeartbeatVLANID() {
-      return heartbeatVLANID;
-   }
-
-   @JsonIgnore
-   public void setHeartbeatVLANID(Long value) { 
-      this.heartbeatVLANID = value;
    }
    
    @JsonIgnore
@@ -369,16 +275,6 @@ public class NSRedundantGatewayGroup extends RestObject {
    }
    
    @JsonIgnore
-   public java.util.List<String> getRedundancyPortIDs() {
-      return redundancyPortIDs;
-   }
-
-   @JsonIgnore
-   public void setRedundancyPortIDs(java.util.List<String> value) { 
-      this.redundancyPortIDs = value;
-   }
-   
-   @JsonIgnore
    public RedundantGatewayStatus getRedundantGatewayStatus() {
       return redundantGatewayStatus;
    }
@@ -388,22 +284,17 @@ public class NSRedundantGatewayGroup extends RestObject {
       this.redundantGatewayStatus = value;
    }
    
+   @JsonIgnore
+   public String getVtep() {
+      return vtep;
+   }
 
-   
    @JsonIgnore
-   public AlarmsFetcher getAlarms() {
-      return alarms;
+   public void setVtep(String value) { 
+      this.vtep = value;
    }
    
-   @JsonIgnore
-   public EnterprisePermissionsFetcher getEnterprisePermissions() {
-      return enterprisePermissions;
-   }
-   
-   @JsonIgnore
-   public EventLogsFetcher getEventLogs() {
-      return eventLogs;
-   }
+
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
@@ -415,29 +306,9 @@ public class NSRedundantGatewayGroup extends RestObject {
       return metadatas;
    }
    
-   @JsonIgnore
-   public NSGatewaysFetcher getNSGateways() {
-      return nSGateways;
-   }
-   
-   @JsonIgnore
-   public RedundantPortsFetcher getRedundantPorts() {
-      return redundantPorts;
-   }
-   
-   @JsonIgnore
-   public PermissionsFetcher getPermissions() {
-      return permissions;
-   }
-   
-   @JsonIgnore
-   public ShuntLinksFetcher getShuntLinks() {
-      return shuntLinks;
-   }
-   
 
    public String toString() {
-      return "NSRedundantGatewayGroup [" + "consecutiveFailuresCount=" + consecutiveFailuresCount + ", description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayPeer1AutodiscoveredGatewayID=" + gatewayPeer1AutodiscoveredGatewayID + ", gatewayPeer1Connected=" + gatewayPeer1Connected + ", gatewayPeer1ID=" + gatewayPeer1ID + ", gatewayPeer1Name=" + gatewayPeer1Name + ", gatewayPeer2AutodiscoveredGatewayID=" + gatewayPeer2AutodiscoveredGatewayID + ", gatewayPeer2Connected=" + gatewayPeer2Connected + ", gatewayPeer2ID=" + gatewayPeer2ID + ", gatewayPeer2Name=" + gatewayPeer2Name + ", heartbeatInterval=" + heartbeatInterval + ", heartbeatVLANID=" + heartbeatVLANID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", permittedAction=" + permittedAction + ", personality=" + personality + ", redundancyPortIDs=" + redundancyPortIDs + ", redundantGatewayStatus=" + redundantGatewayStatus + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "AllRedundancyGroup [" + "description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayPeer1AutodiscoveredGatewayID=" + gatewayPeer1AutodiscoveredGatewayID + ", gatewayPeer1Connected=" + gatewayPeer1Connected + ", gatewayPeer1ID=" + gatewayPeer1ID + ", gatewayPeer1Name=" + gatewayPeer1Name + ", gatewayPeer2AutodiscoveredGatewayID=" + gatewayPeer2AutodiscoveredGatewayID + ", gatewayPeer2Connected=" + gatewayPeer2Connected + ", gatewayPeer2Name=" + gatewayPeer2Name + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", permittedAction=" + permittedAction + ", personality=" + personality + ", redundantGatewayStatus=" + redundantGatewayStatus + ", vtep=" + vtep + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

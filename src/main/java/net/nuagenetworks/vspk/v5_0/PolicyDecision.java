@@ -71,9 +71,6 @@ public class PolicyDecision extends RestObject {
    @JsonProperty(value = "ingressAdvFwd")
    protected java.util.List<com.fasterxml.jackson.databind.JsonNode> ingressAdvFwd;
    
-   @JsonProperty(value = "ingressExternalServiceACLs")
-   protected java.util.List<com.fasterxml.jackson.databind.JsonNode> ingressExternalServiceACLs;
-   
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
    
@@ -177,16 +174,6 @@ public class PolicyDecision extends RestObject {
    }
    
    @JsonIgnore
-   public java.util.List<com.fasterxml.jackson.databind.JsonNode> getIngressExternalServiceACLs() {
-      return ingressExternalServiceACLs;
-   }
-
-   @JsonIgnore
-   public void setIngressExternalServiceACLs(java.util.List<com.fasterxml.jackson.databind.JsonNode> value) { 
-      this.ingressExternalServiceACLs = value;
-   }
-   
-   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
@@ -235,7 +222,7 @@ public class PolicyDecision extends RestObject {
    
 
    public String toString() {
-      return "PolicyDecision [" + "egressACLs=" + egressACLs + ", egressQos=" + egressQos + ", entityScope=" + entityScope + ", externalID=" + externalID + ", fipACLs=" + fipACLs + ", ingressACLs=" + ingressACLs + ", ingressAdvFwd=" + ingressAdvFwd + ", ingressExternalServiceACLs=" + ingressExternalServiceACLs + ", lastUpdatedBy=" + lastUpdatedBy + ", qos=" + qos + ", stats=" + stats + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "PolicyDecision [" + "egressACLs=" + egressACLs + ", egressQos=" + egressQos + ", entityScope=" + entityScope + ", externalID=" + externalID + ", fipACLs=" + fipACLs + ", ingressACLs=" + ingressACLs + ", ingressAdvFwd=" + ingressAdvFwd + ", lastUpdatedBy=" + lastUpdatedBy + ", qos=" + qos + ", stats=" + stats + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

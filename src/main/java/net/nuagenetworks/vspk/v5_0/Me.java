@@ -35,11 +35,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v5_0.fetchers.AllGatewaysFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.AllRedundancyGroupsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.ApplicationsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.ApplicationperformancemanagementsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.AutoDiscoveredGatewaysFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.BGPNeighborsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.BGPProfilesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.CertificatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.CloudMgmtSystemsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.CommandsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ContainersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ContainerInterfacesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.COSRemarkingPolicyTablesFetcher;
@@ -49,8 +54,8 @@ import net.nuagenetworks.vspk.v5_0.fetchers.DUCGroupsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VCenterEAMConfigsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EgressACLEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EgressACLTemplatesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.EgressAdvFwdEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.DomainFIPAclTemplatesFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.FloatingIPACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EgressQOSPoliciesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EnterprisesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EnterpriseProfilesFetcher;
@@ -71,6 +76,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.KeyServerMembersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.L2DomainsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.L4ServicesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.L7applicationsignaturesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.LicensesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.LicenseStatusFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
@@ -78,21 +84,25 @@ import net.nuagenetworks.vspk.v5_0.fetchers.MirrorDestinationsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MultiCastChannelMapsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NetconfProfilesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NetworkLayoutsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.NetworkPerformanceMeasurementsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSGatewaysFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSGatewayTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSGGroupsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSGPatchProfilesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSRedundantGatewayGroupsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSGUpgradeProfilesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.OverlayMirrorDestinationsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PATMappersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PATNATPoolsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PerformanceMonitorsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PolicyGroupsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.PolicyObjectGroupsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.QosPolicersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.RateLimitersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.RedirectionTargetsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.RedundancyGroupsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.RoutingPoliciesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.SaaSApplicationTypesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.SharedNetworkResourcesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.SiteInfosFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.StaticRoutesFetcher;
@@ -107,11 +117,13 @@ import net.nuagenetworks.vspk.v5_0.fetchers.UserContextsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VCentersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VCenterHypervisorsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VirtualFirewallPoliciesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.VirtualFirewallRulesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VMsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VMInterfacesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VNFCatalogsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VNFMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VNFThresholdPoliciesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.VRSsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VCenterVRSConfigsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VSPsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ZFBAutoAssignmentsFetcher;
@@ -197,6 +209,18 @@ public class Me extends RestRootObject {
 
    
    @JsonIgnore
+   private AllGatewaysFetcher allGateways;
+   
+   @JsonIgnore
+   private AllRedundancyGroupsFetcher allRedundancyGroups;
+   
+   @JsonIgnore
+   private ApplicationsFetcher applications;
+   
+   @JsonIgnore
+   private ApplicationperformancemanagementsFetcher applicationperformancemanagements;
+   
+   @JsonIgnore
    private AutoDiscoveredGatewaysFetcher autoDiscoveredGateways;
    
    @JsonIgnore
@@ -210,6 +234,9 @@ public class Me extends RestRootObject {
    
    @JsonIgnore
    private CloudMgmtSystemsFetcher cloudMgmtSystems;
+   
+   @JsonIgnore
+   private CommandsFetcher commands;
    
    @JsonIgnore
    private ContainersFetcher containers;
@@ -239,10 +266,10 @@ public class Me extends RestRootObject {
    private EgressACLTemplatesFetcher egressACLTemplates;
    
    @JsonIgnore
-   private DomainFIPAclTemplatesFetcher domainFIPAclTemplates;
+   private EgressAdvFwdEntryTemplatesFetcher egressAdvFwdEntryTemplates;
    
    @JsonIgnore
-   private FloatingIPACLTemplatesFetcher floatingIPACLTemplates;
+   private DomainFIPAclTemplatesFetcher domainFIPAclTemplates;
    
    @JsonIgnore
    private EgressQOSPoliciesFetcher egressQOSPolicies;
@@ -305,6 +332,9 @@ public class Me extends RestRootObject {
    private L4ServicesFetcher l4Services;
    
    @JsonIgnore
+   private L7applicationsignaturesFetcher l7applicationsignatures;
+   
+   @JsonIgnore
    private LicensesFetcher licenses;
    
    @JsonIgnore
@@ -326,6 +356,9 @@ public class Me extends RestRootObject {
    private NetworkLayoutsFetcher networkLayouts;
    
    @JsonIgnore
+   private NetworkPerformanceMeasurementsFetcher networkPerformanceMeasurements;
+   
+   @JsonIgnore
    private NSGatewaysFetcher nSGateways;
    
    @JsonIgnore
@@ -344,6 +377,9 @@ public class Me extends RestRootObject {
    private NSGUpgradeProfilesFetcher nSGUpgradeProfiles;
    
    @JsonIgnore
+   private OverlayMirrorDestinationsFetcher overlayMirrorDestinations;
+   
+   @JsonIgnore
    private PATMappersFetcher pATMappers;
    
    @JsonIgnore
@@ -354,6 +390,9 @@ public class Me extends RestRootObject {
    
    @JsonIgnore
    private PolicyGroupsFetcher policyGroups;
+   
+   @JsonIgnore
+   private PolicyObjectGroupsFetcher policyObjectGroups;
    
    @JsonIgnore
    private QosPolicersFetcher qosPolicers;
@@ -369,6 +408,9 @@ public class Me extends RestRootObject {
    
    @JsonIgnore
    private RoutingPoliciesFetcher routingPolicies;
+   
+   @JsonIgnore
+   private SaaSApplicationTypesFetcher saaSApplicationTypes;
    
    @JsonIgnore
    private SharedNetworkResourcesFetcher sharedNetworkResources;
@@ -413,6 +455,9 @@ public class Me extends RestRootObject {
    private VirtualFirewallPoliciesFetcher virtualFirewallPolicies;
    
    @JsonIgnore
+   private VirtualFirewallRulesFetcher virtualFirewallRules;
+   
+   @JsonIgnore
    private VMsFetcher vMs;
    
    @JsonIgnore
@@ -426,6 +471,9 @@ public class Me extends RestRootObject {
    
    @JsonIgnore
    private VNFThresholdPoliciesFetcher vNFThresholdPolicies;
+   
+   @JsonIgnore
+   private VRSsFetcher vRSs;
    
    @JsonIgnore
    private VCenterVRSConfigsFetcher vCenterVRSConfigs;
@@ -445,6 +493,14 @@ public class Me extends RestRootObject {
 
    public Me() {
       
+      allGateways = new AllGatewaysFetcher(this);
+      
+      allRedundancyGroups = new AllRedundancyGroupsFetcher(this);
+      
+      applications = new ApplicationsFetcher(this);
+      
+      applicationperformancemanagements = new ApplicationperformancemanagementsFetcher(this);
+      
       autoDiscoveredGateways = new AutoDiscoveredGatewaysFetcher(this);
       
       bGPNeighbors = new BGPNeighborsFetcher(this);
@@ -454,6 +510,8 @@ public class Me extends RestRootObject {
       certificates = new CertificatesFetcher(this);
       
       cloudMgmtSystems = new CloudMgmtSystemsFetcher(this);
+      
+      commands = new CommandsFetcher(this);
       
       containers = new ContainersFetcher(this);
       
@@ -473,9 +531,9 @@ public class Me extends RestRootObject {
       
       egressACLTemplates = new EgressACLTemplatesFetcher(this);
       
-      domainFIPAclTemplates = new DomainFIPAclTemplatesFetcher(this);
+      egressAdvFwdEntryTemplates = new EgressAdvFwdEntryTemplatesFetcher(this);
       
-      floatingIPACLTemplates = new FloatingIPACLTemplatesFetcher(this);
+      domainFIPAclTemplates = new DomainFIPAclTemplatesFetcher(this);
       
       egressQOSPolicies = new EgressQOSPoliciesFetcher(this);
       
@@ -517,6 +575,8 @@ public class Me extends RestRootObject {
       
       l4Services = new L4ServicesFetcher(this);
       
+      l7applicationsignatures = new L7applicationsignaturesFetcher(this);
+      
       licenses = new LicensesFetcher(this);
       
       licenseStatus = new LicenseStatusFetcher(this);
@@ -531,6 +591,8 @@ public class Me extends RestRootObject {
       
       networkLayouts = new NetworkLayoutsFetcher(this);
       
+      networkPerformanceMeasurements = new NetworkPerformanceMeasurementsFetcher(this);
+      
       nSGateways = new NSGatewaysFetcher(this);
       
       nSGatewayTemplates = new NSGatewayTemplatesFetcher(this);
@@ -543,6 +605,8 @@ public class Me extends RestRootObject {
       
       nSGUpgradeProfiles = new NSGUpgradeProfilesFetcher(this);
       
+      overlayMirrorDestinations = new OverlayMirrorDestinationsFetcher(this);
+      
       pATMappers = new PATMappersFetcher(this);
       
       pATNATPools = new PATNATPoolsFetcher(this);
@@ -550,6 +614,8 @@ public class Me extends RestRootObject {
       performanceMonitors = new PerformanceMonitorsFetcher(this);
       
       policyGroups = new PolicyGroupsFetcher(this);
+      
+      policyObjectGroups = new PolicyObjectGroupsFetcher(this);
       
       qosPolicers = new QosPolicersFetcher(this);
       
@@ -560,6 +626,8 @@ public class Me extends RestRootObject {
       redundancyGroups = new RedundancyGroupsFetcher(this);
       
       routingPolicies = new RoutingPoliciesFetcher(this);
+      
+      saaSApplicationTypes = new SaaSApplicationTypesFetcher(this);
       
       sharedNetworkResources = new SharedNetworkResourcesFetcher(this);
       
@@ -589,6 +657,8 @@ public class Me extends RestRootObject {
       
       virtualFirewallPolicies = new VirtualFirewallPoliciesFetcher(this);
       
+      virtualFirewallRules = new VirtualFirewallRulesFetcher(this);
+      
       vMs = new VMsFetcher(this);
       
       vMInterfaces = new VMInterfacesFetcher(this);
@@ -598,6 +668,8 @@ public class Me extends RestRootObject {
       vNFMetadatas = new VNFMetadatasFetcher(this);
       
       vNFThresholdPolicies = new VNFThresholdPoliciesFetcher(this);
+      
+      vRSs = new VRSsFetcher(this);
       
       vCenterVRSConfigs = new VCenterVRSConfigsFetcher(this);
       
@@ -825,6 +897,26 @@ public class Me extends RestRootObject {
 
    
    @JsonIgnore
+   public AllGatewaysFetcher getAllGateways() {
+      return allGateways;
+   }
+   
+   @JsonIgnore
+   public AllRedundancyGroupsFetcher getAllRedundancyGroups() {
+      return allRedundancyGroups;
+   }
+   
+   @JsonIgnore
+   public ApplicationsFetcher getApplications() {
+      return applications;
+   }
+   
+   @JsonIgnore
+   public ApplicationperformancemanagementsFetcher getApplicationperformancemanagements() {
+      return applicationperformancemanagements;
+   }
+   
+   @JsonIgnore
    public AutoDiscoveredGatewaysFetcher getAutoDiscoveredGateways() {
       return autoDiscoveredGateways;
    }
@@ -847,6 +939,11 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public CloudMgmtSystemsFetcher getCloudMgmtSystems() {
       return cloudMgmtSystems;
+   }
+   
+   @JsonIgnore
+   public CommandsFetcher getCommands() {
+      return commands;
    }
    
    @JsonIgnore
@@ -895,13 +992,13 @@ public class Me extends RestRootObject {
    }
    
    @JsonIgnore
-   public DomainFIPAclTemplatesFetcher getDomainFIPAclTemplates() {
-      return domainFIPAclTemplates;
+   public EgressAdvFwdEntryTemplatesFetcher getEgressAdvFwdEntryTemplates() {
+      return egressAdvFwdEntryTemplates;
    }
    
    @JsonIgnore
-   public FloatingIPACLTemplatesFetcher getFloatingIPACLTemplates() {
-      return floatingIPACLTemplates;
+   public DomainFIPAclTemplatesFetcher getDomainFIPAclTemplates() {
+      return domainFIPAclTemplates;
    }
    
    @JsonIgnore
@@ -1005,6 +1102,11 @@ public class Me extends RestRootObject {
    }
    
    @JsonIgnore
+   public L7applicationsignaturesFetcher getL7applicationsignatures() {
+      return l7applicationsignatures;
+   }
+   
+   @JsonIgnore
    public LicensesFetcher getLicenses() {
       return licenses;
    }
@@ -1040,6 +1142,11 @@ public class Me extends RestRootObject {
    }
    
    @JsonIgnore
+   public NetworkPerformanceMeasurementsFetcher getNetworkPerformanceMeasurements() {
+      return networkPerformanceMeasurements;
+   }
+   
+   @JsonIgnore
    public NSGatewaysFetcher getNSGateways() {
       return nSGateways;
    }
@@ -1070,6 +1177,11 @@ public class Me extends RestRootObject {
    }
    
    @JsonIgnore
+   public OverlayMirrorDestinationsFetcher getOverlayMirrorDestinations() {
+      return overlayMirrorDestinations;
+   }
+   
+   @JsonIgnore
    public PATMappersFetcher getPATMappers() {
       return pATMappers;
    }
@@ -1087,6 +1199,11 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public PolicyGroupsFetcher getPolicyGroups() {
       return policyGroups;
+   }
+   
+   @JsonIgnore
+   public PolicyObjectGroupsFetcher getPolicyObjectGroups() {
+      return policyObjectGroups;
    }
    
    @JsonIgnore
@@ -1112,6 +1229,11 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public RoutingPoliciesFetcher getRoutingPolicies() {
       return routingPolicies;
+   }
+   
+   @JsonIgnore
+   public SaaSApplicationTypesFetcher getSaaSApplicationTypes() {
+      return saaSApplicationTypes;
    }
    
    @JsonIgnore
@@ -1185,6 +1307,11 @@ public class Me extends RestRootObject {
    }
    
    @JsonIgnore
+   public VirtualFirewallRulesFetcher getVirtualFirewallRules() {
+      return virtualFirewallRules;
+   }
+   
+   @JsonIgnore
    public VMsFetcher getVMs() {
       return vMs;
    }
@@ -1207,6 +1334,11 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public VNFThresholdPoliciesFetcher getVNFThresholdPolicies() {
       return vNFThresholdPolicies;
+   }
+   
+   @JsonIgnore
+   public VRSsFetcher getVRSs() {
+      return vRSs;
    }
    
    @JsonIgnore

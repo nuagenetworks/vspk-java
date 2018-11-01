@@ -35,9 +35,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v5_0.fetchers.EnterprisePermissionsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSPortsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VLANsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -54,7 +56,7 @@ public class RedundantPort extends RestObject {
    
    public enum PortType { ACCESS };
    
-   public enum Speed { AUTONEGOTIATE, BASE10, BASET1000, BASETX100, BASEX10G };
+   public enum Speed { AUTONEGOTIATE, BASET10, BASET1000, BASETX100, BASEX10G };
    
    public enum Status { INITIALIZED, MISMATCH, ORPHAN, READY };
 
@@ -119,6 +121,9 @@ public class RedundantPort extends RestObject {
 
    
    @JsonIgnore
+   private EnterprisePermissionsFetcher enterprisePermissions;
+   
+   @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
@@ -128,16 +133,23 @@ public class RedundantPort extends RestObject {
    private NSPortsFetcher nSPorts;
    
    @JsonIgnore
+   private PermissionsFetcher permissions;
+   
+   @JsonIgnore
    private VLANsFetcher vLANs;
    
 
    public RedundantPort() {
+      
+      enterprisePermissions = new EnterprisePermissionsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
       
       nSPorts = new NSPortsFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
       vLANs = new VLANsFetcher(this);
       
@@ -337,6 +349,11 @@ public class RedundantPort extends RestObject {
 
    
    @JsonIgnore
+   public EnterprisePermissionsFetcher getEnterprisePermissions() {
+      return enterprisePermissions;
+   }
+   
+   @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
@@ -349,6 +366,11 @@ public class RedundantPort extends RestObject {
    @JsonIgnore
    public NSPortsFetcher getNSPorts() {
       return nSPorts;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
    @JsonIgnore

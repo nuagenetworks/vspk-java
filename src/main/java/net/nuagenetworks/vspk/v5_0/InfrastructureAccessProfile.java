@@ -38,6 +38,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import net.nuagenetworks.vspk.v5_0.fetchers.ConnectionendpointsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.NSGatewayTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.SSHKeysFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -97,6 +98,9 @@ public class InfrastructureAccessProfile extends RestObject {
    private MetadatasFetcher metadatas;
    
    @JsonIgnore
+   private NSGatewayTemplatesFetcher nSGatewayTemplates;
+   
+   @JsonIgnore
    private SSHKeysFetcher sSHKeys;
    
 
@@ -107,6 +111,8 @@ public class InfrastructureAccessProfile extends RestObject {
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
+      
+      nSGatewayTemplates = new NSGatewayTemplatesFetcher(this);
       
       sSHKeys = new SSHKeysFetcher(this);
       
@@ -228,6 +234,11 @@ public class InfrastructureAccessProfile extends RestObject {
    @JsonIgnore
    public MetadatasFetcher getMetadatas() {
       return metadatas;
+   }
+   
+   @JsonIgnore
+   public NSGatewayTemplatesFetcher getNSGatewayTemplates() {
+      return nSGatewayTemplates;
    }
    
    @JsonIgnore

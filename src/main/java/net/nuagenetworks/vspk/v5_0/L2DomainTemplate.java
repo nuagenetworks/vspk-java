@@ -43,7 +43,6 @@ import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GroupsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.IngressACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.IngressAdvFwdTemplatesFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.IngressExternalServiceTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.L2DomainsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
@@ -167,9 +166,6 @@ public class L2DomainTemplate extends RestObject {
    private IngressAdvFwdTemplatesFetcher ingressAdvFwdTemplates;
    
    @JsonIgnore
-   private IngressExternalServiceTemplatesFetcher ingressExternalServiceTemplates;
-   
-   @JsonIgnore
    private JobsFetcher jobs;
    
    @JsonIgnore
@@ -217,8 +213,6 @@ public class L2DomainTemplate extends RestObject {
       ingressACLTemplates = new IngressACLTemplatesFetcher(this);
       
       ingressAdvFwdTemplates = new IngressAdvFwdTemplatesFetcher(this);
-      
-      ingressExternalServiceTemplates = new IngressExternalServiceTemplatesFetcher(this);
       
       jobs = new JobsFetcher(this);
       
@@ -483,11 +477,6 @@ public class L2DomainTemplate extends RestObject {
    @JsonIgnore
    public IngressAdvFwdTemplatesFetcher getIngressAdvFwdTemplates() {
       return ingressAdvFwdTemplates;
-   }
-   
-   @JsonIgnore
-   public IngressExternalServiceTemplatesFetcher getIngressExternalServiceTemplates() {
-      return ingressExternalServiceTemplates;
    }
    
    @JsonIgnore

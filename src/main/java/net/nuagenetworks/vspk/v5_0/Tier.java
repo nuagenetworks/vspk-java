@@ -52,6 +52,9 @@ public class Tier extends RestObject {
    public enum TierType { TIER1, TIER2 };
 
    
+   @JsonProperty(value = "description")
+   protected String description;
+   
    @JsonProperty(value = "downThresholdCount")
    protected Long downThresholdCount;
    
@@ -98,6 +101,16 @@ public class Tier extends RestObject {
       
    }
 
+   
+   @JsonIgnore
+   public String getDescription() {
+      return description;
+   }
+
+   @JsonIgnore
+   public void setDescription(String value) { 
+      this.description = value;
+   }
    
    @JsonIgnore
    public Long getDownThresholdCount() {
@@ -198,7 +211,7 @@ public class Tier extends RestObject {
    
 
    public String toString() {
-      return "Tier [" + "downThresholdCount=" + downThresholdCount + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", packetCount=" + packetCount + ", probeInterval=" + probeInterval + ", tierType=" + tierType + ", timeout=" + timeout + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Tier [" + "description=" + description + ", downThresholdCount=" + downThresholdCount + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", packetCount=" + packetCount + ", probeInterval=" + probeInterval + ", tierType=" + tierType + ", timeout=" + timeout + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

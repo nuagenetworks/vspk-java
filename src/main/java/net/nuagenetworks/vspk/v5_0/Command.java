@@ -44,14 +44,17 @@ public class Command extends RestObject {
 
    
    
-   public enum ECommand { NSG_APPLY_PATCH, NSG_DOWNLOAD_OS_IMAGE, NSG_UPGRADE_TO_IMAGE, UNKNOWN };
+   public enum ECommand { NSG_APPLY_PATCH, NSG_DELETE_PATCH, NSG_DOWNLOAD_OS_IMAGE, NSG_UPGRADE_TO_IMAGE, UNKNOWN };
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    
    public enum Override { ABANDON, UNSPECIFIED };
    
-   public enum Status { COMPLETE, FAILED, STARTED, UNKNOWN };
+   public enum Status { ABANDONED, COMPLETED, FAILED, RUNNING, STARTED, UNKNOWN };
 
+   
+   @JsonProperty(value = "assocEntityType")
+   protected String assocEntityType;
    
    @JsonProperty(value = "associatedParam")
    protected String associatedParam;
@@ -102,6 +105,16 @@ public class Command extends RestObject {
       
    }
 
+   
+   @JsonIgnore
+   public String getAssocEntityType() {
+      return assocEntityType;
+   }
+
+   @JsonIgnore
+   public void setAssocEntityType(String value) { 
+      this.assocEntityType = value;
+   }
    
    @JsonIgnore
    public String getAssociatedParam() {
@@ -247,7 +260,7 @@ public class Command extends RestObject {
    
 
    public String toString() {
-      return "Command [" + "associatedParam=" + associatedParam + ", associatedParamType=" + associatedParamType + ", command=" + command + ", commandInformation=" + commandInformation + ", detail=" + detail + ", detailedStatus=" + detailedStatus + ", detailedStatusCode=" + detailedStatusCode + ", entityScope=" + entityScope + ", externalID=" + externalID + ", fullCommand=" + fullCommand + ", lastUpdatedBy=" + lastUpdatedBy + ", override=" + override + ", status=" + status + ", summary=" + summary + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Command [" + "assocEntityType=" + assocEntityType + ", associatedParam=" + associatedParam + ", associatedParamType=" + associatedParamType + ", command=" + command + ", commandInformation=" + commandInformation + ", detail=" + detail + ", detailedStatus=" + detailedStatus + ", detailedStatusCode=" + detailedStatusCode + ", entityScope=" + entityScope + ", externalID=" + externalID + ", fullCommand=" + fullCommand + ", lastUpdatedBy=" + lastUpdatedBy + ", override=" + override + ", status=" + status + ", summary=" + summary + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

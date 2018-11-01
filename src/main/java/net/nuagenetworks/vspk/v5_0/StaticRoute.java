@@ -47,7 +47,7 @@ public class StaticRoute extends RestObject {
 
    
    
-   public enum IPType { DUALSTACK, IPV4, IPV6 };
+   public enum IPType { IPV4, IPV6 };
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    

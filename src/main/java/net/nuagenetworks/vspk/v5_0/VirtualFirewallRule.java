@@ -37,7 +37,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.StatisticsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "virtualfirewallrule", resourceName = "virtualfirewallrules")
@@ -53,7 +52,7 @@ public class VirtualFirewallRule extends RestObject {
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    
-   public enum LocationType { ANY, ENTERPRISE_NETWORK, INTERNET_POLICYGROUP, NETWORK_MACRO_GROUP, PGEXPRESSION, POLICYGROUP, SUBNET, ZONE };
+   public enum LocationType { ANY, ENTERPRISE_NETWORK, NETWORK_MACRO_GROUP, PGEXPRESSION, POLICYGROUP, SUBNET, UNDERLAY_INTERNET_POLICYGROUP, ZONE };
    
    public enum NetworkType { ANY, ENTERPRISE_NETWORK, INTERNET_POLICYGROUP, NETWORK_MACRO_GROUP, PGEXPRESSION, POLICYGROUP, SUBNET, ZONE };
    
@@ -72,14 +71,29 @@ public class VirtualFirewallRule extends RestObject {
    @JsonProperty(value = "ICMPType")
    protected String ICMPType;
    
+   @JsonProperty(value = "IPv6AddressOverride")
+   protected String IPv6AddressOverride;
+   
    @JsonProperty(value = "action")
    protected Action action;
+   
+   @JsonProperty(value = "addressOverride")
+   protected String addressOverride;
+   
+   @JsonProperty(value = "associatedEgressEntryID")
+   protected String associatedEgressEntryID;
+   
+   @JsonProperty(value = "associatedIngressEntryID")
+   protected String associatedIngressEntryID;
    
    @JsonProperty(value = "associatedL7ApplicationSignatureID")
    protected String associatedL7ApplicationSignatureID;
    
    @JsonProperty(value = "associatedLiveEntityID")
    protected String associatedLiveEntityID;
+   
+   @JsonProperty(value = "associatedLiveTemplateID")
+   protected String associatedLiveTemplateID;
    
    @JsonProperty(value = "associatedTrafficType")
    protected AssociatedTrafficType associatedTrafficType;
@@ -101,6 +115,9 @@ public class VirtualFirewallRule extends RestObject {
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
+   
+   @JsonProperty(value = "etherType")
+   protected String etherType;
    
    @JsonProperty(value = "externalID")
    protected String externalID;
@@ -158,17 +175,12 @@ public class VirtualFirewallRule extends RestObject {
    @JsonIgnore
    private MetadatasFetcher metadatas;
    
-   @JsonIgnore
-   private StatisticsFetcher statistics;
-   
 
    public VirtualFirewallRule() {
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
-      
-      statistics = new StatisticsFetcher(this);
       
    }
 
@@ -214,6 +226,16 @@ public class VirtualFirewallRule extends RestObject {
    }
    
    @JsonIgnore
+   public String getIPv6AddressOverride() {
+      return IPv6AddressOverride;
+   }
+
+   @JsonIgnore
+   public void setIPv6AddressOverride(String value) { 
+      this.IPv6AddressOverride = value;
+   }
+   
+   @JsonIgnore
    public Action getAction() {
       return action;
    }
@@ -221,6 +243,36 @@ public class VirtualFirewallRule extends RestObject {
    @JsonIgnore
    public void setAction(Action value) { 
       this.action = value;
+   }
+   
+   @JsonIgnore
+   public String getAddressOverride() {
+      return addressOverride;
+   }
+
+   @JsonIgnore
+   public void setAddressOverride(String value) { 
+      this.addressOverride = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedEgressEntryID() {
+      return associatedEgressEntryID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedEgressEntryID(String value) { 
+      this.associatedEgressEntryID = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedIngressEntryID() {
+      return associatedIngressEntryID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedIngressEntryID(String value) { 
+      this.associatedIngressEntryID = value;
    }
    
    @JsonIgnore
@@ -241,6 +293,16 @@ public class VirtualFirewallRule extends RestObject {
    @JsonIgnore
    public void setAssociatedLiveEntityID(String value) { 
       this.associatedLiveEntityID = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedLiveTemplateID() {
+      return associatedLiveTemplateID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedLiveTemplateID(String value) { 
+      this.associatedLiveTemplateID = value;
    }
    
    @JsonIgnore
@@ -311,6 +373,16 @@ public class VirtualFirewallRule extends RestObject {
    @JsonIgnore
    public void setEntityScope(EntityScope value) { 
       this.entityScope = value;
+   }
+   
+   @JsonIgnore
+   public String getEtherType() {
+      return etherType;
+   }
+
+   @JsonIgnore
+   public void setEtherType(String value) { 
+      this.etherType = value;
    }
    
    @JsonIgnore
@@ -485,14 +557,9 @@ public class VirtualFirewallRule extends RestObject {
       return metadatas;
    }
    
-   @JsonIgnore
-   public StatisticsFetcher getStatistics() {
-      return statistics;
-   }
-   
 
    public String toString() {
-      return "VirtualFirewallRule [" + "ACLTemplateName=" + ACLTemplateName + ", DSCP=" + DSCP + ", ICMPCode=" + ICMPCode + ", ICMPType=" + ICMPType + ", action=" + action + ", associatedL7ApplicationSignatureID=" + associatedL7ApplicationSignatureID + ", associatedLiveEntityID=" + associatedLiveEntityID + ", associatedTrafficType=" + associatedTrafficType + ", associatedTrafficTypeID=" + associatedTrafficTypeID + ", description=" + description + ", destinationPort=" + destinationPort + ", domainName=" + domainName + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", externalID=" + externalID + ", flowLoggingEnabled=" + flowLoggingEnabled + ", lastUpdatedBy=" + lastUpdatedBy + ", locationID=" + locationID + ", locationType=" + locationType + ", mirrorDestinationID=" + mirrorDestinationID + ", networkID=" + networkID + ", networkType=" + networkType + ", overlayMirrorDestinationID=" + overlayMirrorDestinationID + ", policyState=" + policyState + ", priority=" + priority + ", protocol=" + protocol + ", sourcePort=" + sourcePort + ", stateful=" + stateful + ", statsID=" + statsID + ", statsLoggingEnabled=" + statsLoggingEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VirtualFirewallRule [" + "ACLTemplateName=" + ACLTemplateName + ", DSCP=" + DSCP + ", ICMPCode=" + ICMPCode + ", ICMPType=" + ICMPType + ", IPv6AddressOverride=" + IPv6AddressOverride + ", action=" + action + ", addressOverride=" + addressOverride + ", associatedEgressEntryID=" + associatedEgressEntryID + ", associatedIngressEntryID=" + associatedIngressEntryID + ", associatedL7ApplicationSignatureID=" + associatedL7ApplicationSignatureID + ", associatedLiveEntityID=" + associatedLiveEntityID + ", associatedLiveTemplateID=" + associatedLiveTemplateID + ", associatedTrafficType=" + associatedTrafficType + ", associatedTrafficTypeID=" + associatedTrafficTypeID + ", description=" + description + ", destinationPort=" + destinationPort + ", domainName=" + domainName + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", etherType=" + etherType + ", externalID=" + externalID + ", flowLoggingEnabled=" + flowLoggingEnabled + ", lastUpdatedBy=" + lastUpdatedBy + ", locationID=" + locationID + ", locationType=" + locationType + ", mirrorDestinationID=" + mirrorDestinationID + ", networkID=" + networkID + ", networkType=" + networkType + ", overlayMirrorDestinationID=" + overlayMirrorDestinationID + ", policyState=" + policyState + ", priority=" + priority + ", protocol=" + protocol + ", sourcePort=" + sourcePort + ", stateful=" + stateful + ", statsID=" + statsID + ", statsLoggingEnabled=" + statsLoggingEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

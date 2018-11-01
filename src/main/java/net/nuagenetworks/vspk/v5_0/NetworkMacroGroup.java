@@ -68,9 +68,6 @@ public class NetworkMacroGroup extends RestObject {
    @JsonProperty(value = "name")
    protected String name;
    
-   @JsonProperty(value = "networkMacros")
-   protected java.util.List<String> networkMacros;
-   
 
    
    @JsonIgnore
@@ -154,16 +151,6 @@ public class NetworkMacroGroup extends RestObject {
       this.name = value;
    }
    
-   @JsonIgnore
-   public java.util.List<String> getNetworkMacros() {
-      return networkMacros;
-   }
-
-   @JsonIgnore
-   public void setNetworkMacros(java.util.List<String> value) { 
-      this.networkMacros = value;
-   }
-   
 
    
    @JsonIgnore
@@ -183,7 +170,7 @@ public class NetworkMacroGroup extends RestObject {
    
 
    public String toString() {
-      return "NetworkMacroGroup [" + "description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", isSaaSType=" + isSaaSType + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", networkMacros=" + networkMacros + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NetworkMacroGroup [" + "description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", isSaaSType=" + isSaaSType + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

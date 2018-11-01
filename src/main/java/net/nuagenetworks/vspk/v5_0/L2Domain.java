@@ -36,22 +36,25 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 import net.nuagenetworks.vspk.v5_0.fetchers.AddressRangesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.AlarmsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.ApplicationsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ApplicationperformancemanagementbindingsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.BridgeInterfacesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ContainersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ContainerInterfacesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.DeploymentFailuresFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.DHCPOptionsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EgressACLEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EgressACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EgressAdvFwdTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.GatewaysFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GroupsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.HostInterfacesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.IngressACLEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.IngressACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.IngressAdvFwdTemplatesFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.IngressExternalServiceTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NetworkPerformanceBindingsFetcher;
@@ -60,13 +63,17 @@ import net.nuagenetworks.vspk.v5_0.fetchers.OverlayMirrorDestinationsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PGExpressionsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.PolicyGroupsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.ProxyARPFiltersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.QOSsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.RedirectionTargetsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.RedundancyGroupsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.StaticRoutesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.StatisticsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.StatisticsPoliciesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.TCAsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.UplinkRDsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VirtualFirewallPoliciesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.VirtualFirewallRulesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VMsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VMInterfacesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VPNConnectionsFetcher;
@@ -100,7 +107,7 @@ public class L2Domain extends RestObject {
    
    public enum UplinkPreference { PRIMARY, PRIMARY_SECONDARY, SECONDARY, SECONDARY_PRIMARY, SYMMETRIC };
    
-   public enum UseGlobalMAC { DISABLED , ENABLED };
+   public enum UseGlobalMAC { DISABLED, ENABLED };
 
    
    @JsonProperty(value = "DHCPManaged")
@@ -208,6 +215,12 @@ public class L2Domain extends RestObject {
    private AddressRangesFetcher addressRanges;
    
    @JsonIgnore
+   private AlarmsFetcher alarms;
+   
+   @JsonIgnore
+   private ApplicationsFetcher applications;
+   
+   @JsonIgnore
    private ApplicationperformancemanagementbindingsFetcher applicationperformancemanagementbindings;
    
    @JsonIgnore
@@ -218,6 +231,9 @@ public class L2Domain extends RestObject {
    
    @JsonIgnore
    private ContainerInterfacesFetcher containerInterfaces;
+   
+   @JsonIgnore
+   private DeploymentFailuresFetcher deploymentFailures;
    
    @JsonIgnore
    private DHCPOptionsFetcher dHCPOptions;
@@ -233,6 +249,9 @@ public class L2Domain extends RestObject {
    
    @JsonIgnore
    private EventLogsFetcher eventLogs;
+   
+   @JsonIgnore
+   private GatewaysFetcher gateways;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
@@ -251,9 +270,6 @@ public class L2Domain extends RestObject {
    
    @JsonIgnore
    private IngressAdvFwdTemplatesFetcher ingressAdvFwdTemplates;
-   
-   @JsonIgnore
-   private IngressExternalServiceTemplatesFetcher ingressExternalServiceTemplates;
    
    @JsonIgnore
    private JobsFetcher jobs;
@@ -280,10 +296,19 @@ public class L2Domain extends RestObject {
    private PolicyGroupsFetcher policyGroups;
    
    @JsonIgnore
+   private ProxyARPFiltersFetcher proxyARPFilters;
+   
+   @JsonIgnore
    private QOSsFetcher qOSs;
    
    @JsonIgnore
    private RedirectionTargetsFetcher redirectionTargets;
+   
+   @JsonIgnore
+   private RedundancyGroupsFetcher redundancyGroups;
+   
+   @JsonIgnore
+   private StaticRoutesFetcher staticRoutes;
    
    @JsonIgnore
    private StatisticsFetcher statistics;
@@ -299,6 +324,9 @@ public class L2Domain extends RestObject {
    
    @JsonIgnore
    private VirtualFirewallPoliciesFetcher virtualFirewallPolicies;
+   
+   @JsonIgnore
+   private VirtualFirewallRulesFetcher virtualFirewallRules;
    
    @JsonIgnore
    private VMsFetcher vMs;
@@ -318,6 +346,10 @@ public class L2Domain extends RestObject {
       
       addressRanges = new AddressRangesFetcher(this);
       
+      alarms = new AlarmsFetcher(this);
+      
+      applications = new ApplicationsFetcher(this);
+      
       applicationperformancemanagementbindings = new ApplicationperformancemanagementbindingsFetcher(this);
       
       bridgeInterfaces = new BridgeInterfacesFetcher(this);
@@ -325,6 +357,8 @@ public class L2Domain extends RestObject {
       containers = new ContainersFetcher(this);
       
       containerInterfaces = new ContainerInterfacesFetcher(this);
+      
+      deploymentFailures = new DeploymentFailuresFetcher(this);
       
       dHCPOptions = new DHCPOptionsFetcher(this);
       
@@ -335,6 +369,8 @@ public class L2Domain extends RestObject {
       egressAdvFwdTemplates = new EgressAdvFwdTemplatesFetcher(this);
       
       eventLogs = new EventLogsFetcher(this);
+      
+      gateways = new GatewaysFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
@@ -347,8 +383,6 @@ public class L2Domain extends RestObject {
       ingressACLTemplates = new IngressACLTemplatesFetcher(this);
       
       ingressAdvFwdTemplates = new IngressAdvFwdTemplatesFetcher(this);
-      
-      ingressExternalServiceTemplates = new IngressExternalServiceTemplatesFetcher(this);
       
       jobs = new JobsFetcher(this);
       
@@ -366,9 +400,15 @@ public class L2Domain extends RestObject {
       
       policyGroups = new PolicyGroupsFetcher(this);
       
+      proxyARPFilters = new ProxyARPFiltersFetcher(this);
+      
       qOSs = new QOSsFetcher(this);
       
       redirectionTargets = new RedirectionTargetsFetcher(this);
+      
+      redundancyGroups = new RedundancyGroupsFetcher(this);
+      
+      staticRoutes = new StaticRoutesFetcher(this);
       
       statistics = new StatisticsFetcher(this);
       
@@ -379,6 +419,8 @@ public class L2Domain extends RestObject {
       uplinkRDs = new UplinkRDsFetcher(this);
       
       virtualFirewallPolicies = new VirtualFirewallPoliciesFetcher(this);
+      
+      virtualFirewallRules = new VirtualFirewallRulesFetcher(this);
       
       vMs = new VMsFetcher(this);
       
@@ -729,6 +771,16 @@ public class L2Domain extends RestObject {
    }
    
    @JsonIgnore
+   public AlarmsFetcher getAlarms() {
+      return alarms;
+   }
+   
+   @JsonIgnore
+   public ApplicationsFetcher getApplications() {
+      return applications;
+   }
+   
+   @JsonIgnore
    public ApplicationperformancemanagementbindingsFetcher getApplicationperformancemanagementbindings() {
       return applicationperformancemanagementbindings;
    }
@@ -746,6 +798,11 @@ public class L2Domain extends RestObject {
    @JsonIgnore
    public ContainerInterfacesFetcher getContainerInterfaces() {
       return containerInterfaces;
+   }
+   
+   @JsonIgnore
+   public DeploymentFailuresFetcher getDeploymentFailures() {
+      return deploymentFailures;
    }
    
    @JsonIgnore
@@ -771,6 +828,11 @@ public class L2Domain extends RestObject {
    @JsonIgnore
    public EventLogsFetcher getEventLogs() {
       return eventLogs;
+   }
+   
+   @JsonIgnore
+   public GatewaysFetcher getGateways() {
+      return gateways;
    }
    
    @JsonIgnore
@@ -801,11 +863,6 @@ public class L2Domain extends RestObject {
    @JsonIgnore
    public IngressAdvFwdTemplatesFetcher getIngressAdvFwdTemplates() {
       return ingressAdvFwdTemplates;
-   }
-   
-   @JsonIgnore
-   public IngressExternalServiceTemplatesFetcher getIngressExternalServiceTemplates() {
-      return ingressExternalServiceTemplates;
    }
    
    @JsonIgnore
@@ -849,6 +906,11 @@ public class L2Domain extends RestObject {
    }
    
    @JsonIgnore
+   public ProxyARPFiltersFetcher getProxyARPFilters() {
+      return proxyARPFilters;
+   }
+   
+   @JsonIgnore
    public QOSsFetcher getQOSs() {
       return qOSs;
    }
@@ -856,6 +918,16 @@ public class L2Domain extends RestObject {
    @JsonIgnore
    public RedirectionTargetsFetcher getRedirectionTargets() {
       return redirectionTargets;
+   }
+   
+   @JsonIgnore
+   public RedundancyGroupsFetcher getRedundancyGroups() {
+      return redundancyGroups;
+   }
+   
+   @JsonIgnore
+   public StaticRoutesFetcher getStaticRoutes() {
+      return staticRoutes;
    }
    
    @JsonIgnore
@@ -881,6 +953,11 @@ public class L2Domain extends RestObject {
    @JsonIgnore
    public VirtualFirewallPoliciesFetcher getVirtualFirewallPolicies() {
       return virtualFirewallPolicies;
+   }
+   
+   @JsonIgnore
+   public VirtualFirewallRulesFetcher getVirtualFirewallRules() {
+      return virtualFirewallRules;
    }
    
    @JsonIgnore

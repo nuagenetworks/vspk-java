@@ -54,6 +54,9 @@ public class BootstrapActivation extends RestObject {
    @JsonProperty(value = "action")
    protected Action action;
    
+   @JsonProperty(value = "associatedEntityType")
+   protected String associatedEntityType;
+   
    @JsonProperty(value = "autoBootstrap")
    protected Boolean autoBootstrap;
    
@@ -125,6 +128,16 @@ public class BootstrapActivation extends RestObject {
    @JsonIgnore
    public void setAction(Action value) { 
       this.action = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedEntityType() {
+      return associatedEntityType;
+   }
+
+   @JsonIgnore
+   public void setAssociatedEntityType(String value) { 
+      this.associatedEntityType = value;
    }
    
    @JsonIgnore
@@ -291,7 +304,7 @@ public class BootstrapActivation extends RestObject {
    
 
    public String toString() {
-      return "BootstrapActivation [" + "action=" + action + ", autoBootstrap=" + autoBootstrap + ", cacert=" + cacert + ", cert=" + cert + ", configURL=" + configURL + ", csr=" + csr + ", entityScope=" + entityScope + ", externalID=" + externalID + ", hash=" + hash + ", lastUpdatedBy=" + lastUpdatedBy + ", seed=" + seed + ", srkPassword=" + srkPassword + ", status=" + status + ", tpmOwnerPassword=" + tpmOwnerPassword + ", tpmState=" + tpmState + ", vsdTime=" + vsdTime + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "BootstrapActivation [" + "action=" + action + ", associatedEntityType=" + associatedEntityType + ", autoBootstrap=" + autoBootstrap + ", cacert=" + cacert + ", cert=" + cert + ", configURL=" + configURL + ", csr=" + csr + ", entityScope=" + entityScope + ", externalID=" + externalID + ", hash=" + hash + ", lastUpdatedBy=" + lastUpdatedBy + ", seed=" + seed + ", srkPassword=" + srkPassword + ", status=" + status + ", tpmOwnerPassword=" + tpmOwnerPassword + ", tpmState=" + tpmState + ", vsdTime=" + vsdTime + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

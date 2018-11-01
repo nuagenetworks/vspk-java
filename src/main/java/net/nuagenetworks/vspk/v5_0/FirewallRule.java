@@ -35,6 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "firewallrule", resourceName = "firewallrules")
@@ -44,15 +46,15 @@ public class FirewallRule extends RestObject {
 
    
    
-   public enum Action { DROP , FORWARD , REDIRECT };
+   public enum Action { DROP, FORWARD, FORWARDING_PATH_LIST, REDIRECT };
    
-   public enum DestinationType { MACROGROUP, NETWORK, NETWORKPOLICYGROUP, POLICYGROUP };
+   public enum AssociatedTrafficType { L4_SERVICE, L4_SERVICE_GROUP };
+   
+   public enum EntityScope { ENTERPRISE, GLOBAL };
    
    public enum LocationType { ANY, POLICYGROUP, REDIRECTIONTARGET, SUBNET, VPORTTAG, ZONE };
    
    public enum NetworkType { ANY, ENDPOINT_DOMAIN, ENDPOINT_SUBNET, ENDPOINT_ZONE, ENTERPRISE_NETWORK, INTERNET_POLICYGROUP, NETWORK, NETWORK_MACRO_GROUP, POLICYGROUP, PUBLIC_NETWORK, SUBNET, ZONE };
-   
-   public enum SourceType { MACROGROUP, NETWORK, NETWORKPOLICYGROUP, POLICYGROUP };
 
    
    @JsonProperty(value = "ACLTemplateName")
@@ -76,11 +78,14 @@ public class FirewallRule extends RestObject {
    @JsonProperty(value = "addressOverride")
    protected String addressOverride;
    
-   @JsonProperty(value = "associatedApplicationID")
-   protected String associatedApplicationID;
+   @JsonProperty(value = "associatedLiveTemplateID")
+   protected String associatedLiveTemplateID;
    
-   @JsonProperty(value = "associatedApplicationObjectID")
-   protected String associatedApplicationObjectID;
+   @JsonProperty(value = "associatedTrafficType")
+   protected AssociatedTrafficType associatedTrafficType;
+   
+   @JsonProperty(value = "associatedTrafficTypeID")
+   protected String associatedTrafficTypeID;
    
    @JsonProperty(value = "associatedfirewallACLID")
    protected String associatedfirewallACLID;
@@ -88,26 +93,8 @@ public class FirewallRule extends RestObject {
    @JsonProperty(value = "description")
    protected String description;
    
-   @JsonProperty(value = "destNetwork")
-   protected String destNetwork;
-   
-   @JsonProperty(value = "destPgId")
-   protected String destPgId;
-   
-   @JsonProperty(value = "destPgType")
-   protected String destPgType;
-   
-   @JsonProperty(value = "destinationIpv6Value")
-   protected String destinationIpv6Value;
-   
    @JsonProperty(value = "destinationPort")
    protected String destinationPort;
-   
-   @JsonProperty(value = "destinationType")
-   protected DestinationType destinationType;
-   
-   @JsonProperty(value = "destinationValue")
-   protected String destinationValue;
    
    @JsonProperty(value = "domainName")
    protected String domainName;
@@ -115,11 +102,20 @@ public class FirewallRule extends RestObject {
    @JsonProperty(value = "enterpriseName")
    protected String enterpriseName;
    
+   @JsonProperty(value = "entityScope")
+   protected EntityScope entityScope;
+   
    @JsonProperty(value = "etherType")
    protected String etherType;
    
+   @JsonProperty(value = "externalID")
+   protected String externalID;
+   
    @JsonProperty(value = "flowLoggingEnabled")
    protected Boolean flowLoggingEnabled;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   protected String lastUpdatedBy;
    
    @JsonProperty(value = "locationID")
    protected String locationID;
@@ -137,28 +133,13 @@ public class FirewallRule extends RestObject {
    protected NetworkType networkType;
    
    @JsonProperty(value = "priority")
-   protected String priority;
+   protected Long priority;
    
-   @JsonProperty(value = "sourceIpv6Value")
-   protected String sourceIpv6Value;
-   
-   @JsonProperty(value = "sourceNetwork")
-   protected String sourceNetwork;
-   
-   @JsonProperty(value = "sourcePgId")
-   protected String sourcePgId;
-   
-   @JsonProperty(value = "sourcePgType")
-   protected String sourcePgType;
+   @JsonProperty(value = "protocol")
+   protected String protocol;
    
    @JsonProperty(value = "sourcePort")
    protected String sourcePort;
-   
-   @JsonProperty(value = "sourceType")
-   protected SourceType sourceType;
-   
-   @JsonProperty(value = "sourceValue")
-   protected String sourceValue;
    
    @JsonProperty(value = "stateful")
    protected Boolean stateful;
@@ -171,8 +152,18 @@ public class FirewallRule extends RestObject {
    
 
    
+   @JsonIgnore
+   private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
 
    public FirewallRule() {
+      
+      globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
    }
 
@@ -248,23 +239,33 @@ public class FirewallRule extends RestObject {
    }
    
    @JsonIgnore
-   public String getAssociatedApplicationID() {
-      return associatedApplicationID;
+   public String getAssociatedLiveTemplateID() {
+      return associatedLiveTemplateID;
    }
 
    @JsonIgnore
-   public void setAssociatedApplicationID(String value) { 
-      this.associatedApplicationID = value;
+   public void setAssociatedLiveTemplateID(String value) { 
+      this.associatedLiveTemplateID = value;
    }
    
    @JsonIgnore
-   public String getAssociatedApplicationObjectID() {
-      return associatedApplicationObjectID;
+   public AssociatedTrafficType getAssociatedTrafficType() {
+      return associatedTrafficType;
    }
 
    @JsonIgnore
-   public void setAssociatedApplicationObjectID(String value) { 
-      this.associatedApplicationObjectID = value;
+   public void setAssociatedTrafficType(AssociatedTrafficType value) { 
+      this.associatedTrafficType = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedTrafficTypeID() {
+      return associatedTrafficTypeID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedTrafficTypeID(String value) { 
+      this.associatedTrafficTypeID = value;
    }
    
    @JsonIgnore
@@ -288,46 +289,6 @@ public class FirewallRule extends RestObject {
    }
    
    @JsonIgnore
-   public String getDestNetwork() {
-      return destNetwork;
-   }
-
-   @JsonIgnore
-   public void setDestNetwork(String value) { 
-      this.destNetwork = value;
-   }
-   
-   @JsonIgnore
-   public String getDestPgId() {
-      return destPgId;
-   }
-
-   @JsonIgnore
-   public void setDestPgId(String value) { 
-      this.destPgId = value;
-   }
-   
-   @JsonIgnore
-   public String getDestPgType() {
-      return destPgType;
-   }
-
-   @JsonIgnore
-   public void setDestPgType(String value) { 
-      this.destPgType = value;
-   }
-   
-   @JsonIgnore
-   public String getDestinationIpv6Value() {
-      return destinationIpv6Value;
-   }
-
-   @JsonIgnore
-   public void setDestinationIpv6Value(String value) { 
-      this.destinationIpv6Value = value;
-   }
-   
-   @JsonIgnore
    public String getDestinationPort() {
       return destinationPort;
    }
@@ -335,26 +296,6 @@ public class FirewallRule extends RestObject {
    @JsonIgnore
    public void setDestinationPort(String value) { 
       this.destinationPort = value;
-   }
-   
-   @JsonIgnore
-   public DestinationType getDestinationType() {
-      return destinationType;
-   }
-
-   @JsonIgnore
-   public void setDestinationType(DestinationType value) { 
-      this.destinationType = value;
-   }
-   
-   @JsonIgnore
-   public String getDestinationValue() {
-      return destinationValue;
-   }
-
-   @JsonIgnore
-   public void setDestinationValue(String value) { 
-      this.destinationValue = value;
    }
    
    @JsonIgnore
@@ -378,6 +319,16 @@ public class FirewallRule extends RestObject {
    }
    
    @JsonIgnore
+   public EntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EntityScope value) { 
+      this.entityScope = value;
+   }
+   
+   @JsonIgnore
    public String getEtherType() {
       return etherType;
    }
@@ -388,6 +339,16 @@ public class FirewallRule extends RestObject {
    }
    
    @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   
+   @JsonIgnore
    public Boolean getFlowLoggingEnabled() {
       return flowLoggingEnabled;
    }
@@ -395,6 +356,16 @@ public class FirewallRule extends RestObject {
    @JsonIgnore
    public void setFlowLoggingEnabled(Boolean value) { 
       this.flowLoggingEnabled = value;
+   }
+   
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
    }
    
    @JsonIgnore
@@ -448,53 +419,23 @@ public class FirewallRule extends RestObject {
    }
    
    @JsonIgnore
-   public String getPriority() {
+   public Long getPriority() {
       return priority;
    }
 
    @JsonIgnore
-   public void setPriority(String value) { 
+   public void setPriority(Long value) { 
       this.priority = value;
    }
    
    @JsonIgnore
-   public String getSourceIpv6Value() {
-      return sourceIpv6Value;
+   public String getProtocol() {
+      return protocol;
    }
 
    @JsonIgnore
-   public void setSourceIpv6Value(String value) { 
-      this.sourceIpv6Value = value;
-   }
-   
-   @JsonIgnore
-   public String getSourceNetwork() {
-      return sourceNetwork;
-   }
-
-   @JsonIgnore
-   public void setSourceNetwork(String value) { 
-      this.sourceNetwork = value;
-   }
-   
-   @JsonIgnore
-   public String getSourcePgId() {
-      return sourcePgId;
-   }
-
-   @JsonIgnore
-   public void setSourcePgId(String value) { 
-      this.sourcePgId = value;
-   }
-   
-   @JsonIgnore
-   public String getSourcePgType() {
-      return sourcePgType;
-   }
-
-   @JsonIgnore
-   public void setSourcePgType(String value) { 
-      this.sourcePgType = value;
+   public void setProtocol(String value) { 
+      this.protocol = value;
    }
    
    @JsonIgnore
@@ -505,26 +446,6 @@ public class FirewallRule extends RestObject {
    @JsonIgnore
    public void setSourcePort(String value) { 
       this.sourcePort = value;
-   }
-   
-   @JsonIgnore
-   public SourceType getSourceType() {
-      return sourceType;
-   }
-
-   @JsonIgnore
-   public void setSourceType(SourceType value) { 
-      this.sourceType = value;
-   }
-   
-   @JsonIgnore
-   public String getSourceValue() {
-      return sourceValue;
-   }
-
-   @JsonIgnore
-   public void setSourceValue(String value) { 
-      this.sourceValue = value;
    }
    
    @JsonIgnore
@@ -559,9 +480,19 @@ public class FirewallRule extends RestObject {
    
 
    
+   @JsonIgnore
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
 
    public String toString() {
-      return "FirewallRule [" + "ACLTemplateName=" + ACLTemplateName + ", DSCP=" + DSCP + ", ICMPCode=" + ICMPCode + ", ICMPType=" + ICMPType + ", IPv6AddressOverride=" + IPv6AddressOverride + ", action=" + action + ", addressOverride=" + addressOverride + ", associatedApplicationID=" + associatedApplicationID + ", associatedApplicationObjectID=" + associatedApplicationObjectID + ", associatedfirewallACLID=" + associatedfirewallACLID + ", description=" + description + ", destNetwork=" + destNetwork + ", destPgId=" + destPgId + ", destPgType=" + destPgType + ", destinationIpv6Value=" + destinationIpv6Value + ", destinationPort=" + destinationPort + ", destinationType=" + destinationType + ", destinationValue=" + destinationValue + ", domainName=" + domainName + ", enterpriseName=" + enterpriseName + ", etherType=" + etherType + ", flowLoggingEnabled=" + flowLoggingEnabled + ", locationID=" + locationID + ", locationType=" + locationType + ", mirrorDestinationID=" + mirrorDestinationID + ", networkID=" + networkID + ", networkType=" + networkType + ", priority=" + priority + ", sourceIpv6Value=" + sourceIpv6Value + ", sourceNetwork=" + sourceNetwork + ", sourcePgId=" + sourcePgId + ", sourcePgType=" + sourcePgType + ", sourcePort=" + sourcePort + ", sourceType=" + sourceType + ", sourceValue=" + sourceValue + ", stateful=" + stateful + ", statsID=" + statsID + ", statsLoggingEnabled=" + statsLoggingEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "FirewallRule [" + "ACLTemplateName=" + ACLTemplateName + ", DSCP=" + DSCP + ", ICMPCode=" + ICMPCode + ", ICMPType=" + ICMPType + ", IPv6AddressOverride=" + IPv6AddressOverride + ", action=" + action + ", addressOverride=" + addressOverride + ", associatedLiveTemplateID=" + associatedLiveTemplateID + ", associatedTrafficType=" + associatedTrafficType + ", associatedTrafficTypeID=" + associatedTrafficTypeID + ", associatedfirewallACLID=" + associatedfirewallACLID + ", description=" + description + ", destinationPort=" + destinationPort + ", domainName=" + domainName + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", etherType=" + etherType + ", externalID=" + externalID + ", flowLoggingEnabled=" + flowLoggingEnabled + ", lastUpdatedBy=" + lastUpdatedBy + ", locationID=" + locationID + ", locationType=" + locationType + ", mirrorDestinationID=" + mirrorDestinationID + ", networkID=" + networkID + ", networkType=" + networkType + ", priority=" + priority + ", protocol=" + protocol + ", sourcePort=" + sourcePort + ", stateful=" + stateful + ", statsID=" + statsID + ", statsLoggingEnabled=" + statsLoggingEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

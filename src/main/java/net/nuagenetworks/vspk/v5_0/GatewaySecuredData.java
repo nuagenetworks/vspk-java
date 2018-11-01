@@ -49,6 +49,9 @@ public class GatewaySecuredData extends RestObject {
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
+   @JsonProperty(value = "associatedEnterpriseID")
+   protected String associatedEnterpriseID;
+   
    @JsonProperty(value = "data")
    protected String data;
    
@@ -87,6 +90,16 @@ public class GatewaySecuredData extends RestObject {
       
    }
 
+   
+   @JsonIgnore
+   public String getAssociatedEnterpriseID() {
+      return associatedEnterpriseID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedEnterpriseID(String value) { 
+      this.associatedEnterpriseID = value;
+   }
    
    @JsonIgnore
    public String getData() {
@@ -172,7 +185,7 @@ public class GatewaySecuredData extends RestObject {
    
 
    public String toString() {
-      return "GatewaySecuredData [" + "data=" + data + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayCertSerialNumber=" + gatewayCertSerialNumber + ", keyserverCertSerialNumber=" + keyserverCertSerialNumber + ", lastUpdatedBy=" + lastUpdatedBy + ", signedData=" + signedData + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "GatewaySecuredData [" + "associatedEnterpriseID=" + associatedEnterpriseID + ", data=" + data + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayCertSerialNumber=" + gatewayCertSerialNumber + ", keyserverCertSerialNumber=" + keyserverCertSerialNumber + ", lastUpdatedBy=" + lastUpdatedBy + ", signedData=" + signedData + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    
