@@ -50,7 +50,7 @@ public class Command extends RestObject {
    
    public enum Override { ABANDON, UNSPECIFIED };
    
-   public enum Status { ABANDONED, COMPLETED, FAILED, RUNNING, STARTED, UNKNOWN };
+   public enum Status { ABANDONED, COMPLETED, FAILED, RUNNING, SKIPPED, STARTED, UNKNOWN };
 
    
    @JsonProperty(value = "assocEntityType")
@@ -91,6 +91,9 @@ public class Command extends RestObject {
    
    @JsonProperty(value = "override")
    protected Override override;
+   
+   @JsonProperty(value = "progress")
+   protected String progress;
    
    @JsonProperty(value = "status")
    protected Status status;
@@ -237,6 +240,16 @@ public class Command extends RestObject {
    }
    
    @JsonIgnore
+   public String getProgress() {
+      return progress;
+   }
+
+   @JsonIgnore
+   public void setProgress(String value) { 
+      this.progress = value;
+   }
+   
+   @JsonIgnore
    public Status getStatus() {
       return status;
    }
@@ -260,7 +273,7 @@ public class Command extends RestObject {
    
 
    public String toString() {
-      return "Command [" + "assocEntityType=" + assocEntityType + ", associatedParam=" + associatedParam + ", associatedParamType=" + associatedParamType + ", command=" + command + ", commandInformation=" + commandInformation + ", detail=" + detail + ", detailedStatus=" + detailedStatus + ", detailedStatusCode=" + detailedStatusCode + ", entityScope=" + entityScope + ", externalID=" + externalID + ", fullCommand=" + fullCommand + ", lastUpdatedBy=" + lastUpdatedBy + ", override=" + override + ", status=" + status + ", summary=" + summary + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Command [" + "assocEntityType=" + assocEntityType + ", associatedParam=" + associatedParam + ", associatedParamType=" + associatedParamType + ", command=" + command + ", commandInformation=" + commandInformation + ", detail=" + detail + ", detailedStatus=" + detailedStatus + ", detailedStatusCode=" + detailedStatusCode + ", entityScope=" + entityScope + ", externalID=" + externalID + ", fullCommand=" + fullCommand + ", lastUpdatedBy=" + lastUpdatedBy + ", override=" + override + ", progress=" + progress + ", status=" + status + ", summary=" + summary + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

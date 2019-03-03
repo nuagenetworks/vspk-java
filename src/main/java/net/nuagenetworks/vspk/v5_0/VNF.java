@@ -54,7 +54,7 @@ public class VNF extends RestObject {
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    
-   public enum LastUserAction { DEPLOY, REDEPLOY, RESTART, START, STOP, UNDEPLOY };
+   public enum LastUserAction { DEPLOY, NONE, REDEPLOY, RESTART, START, STOP, UNDEPLOY };
    
    public enum Status { BLOCKED, CRASHED, DYING, IDLE, INIT, LAST, PAUSED, PMSUSPENDED, RUNNING, SHUTDOWN, SHUTOFF };
    

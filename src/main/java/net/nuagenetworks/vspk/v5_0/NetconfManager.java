@@ -35,6 +35,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v5_0.fetchers.AlarmsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NetconfSessionsFetcher;
@@ -76,6 +77,9 @@ public class NetconfManager extends RestObject {
 
    
    @JsonIgnore
+   private AlarmsFetcher alarms;
+   
+   @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
@@ -86,6 +90,8 @@ public class NetconfManager extends RestObject {
    
 
    public NetconfManager() {
+      
+      alarms = new AlarmsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
@@ -167,6 +173,11 @@ public class NetconfManager extends RestObject {
    }
    
 
+   
+   @JsonIgnore
+   public AlarmsFetcher getAlarms() {
+      return alarms;
+   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {

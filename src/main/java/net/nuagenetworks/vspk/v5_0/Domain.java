@@ -41,6 +41,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.Applicationperformancemanagementbind
 import net.nuagenetworks.vspk.v5_0.fetchers.BridgeInterfacesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ContainersFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.ContainerInterfacesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.DeploymentFailuresFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.DHCPOptionsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.DomainsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.DomainTemplatesFetcher;
@@ -121,7 +122,7 @@ public class Domain extends RestObject {
    
    public enum TunnelType { DC_DEFAULT, GRE, VLAN, VXLAN };
    
-   public enum UnderlayEnabled { DISABLED, ENABLED, INHERITED };
+   public enum UnderlayEnabled { DISABLED, ENABLED };
    
    public enum UplinkPreference { PRIMARY, PRIMARY_SECONDARY, SECONDARY, SECONDARY_PRIMARY, SYMMETRIC };
 
@@ -150,8 +151,14 @@ public class Domain extends RestObject {
    @JsonProperty(value = "PATEnabled")
    protected PATEnabled PATEnabled;
    
+   @JsonProperty(value = "VXLANECMPEnabled")
+   protected Boolean VXLANECMPEnabled;
+   
    @JsonProperty(value = "advertiseCriteria")
    protected AdvertiseCriteria advertiseCriteria;
+   
+   @JsonProperty(value = "aggregateFlowsEnabled")
+   protected Boolean aggregateFlowsEnabled;
    
    @JsonProperty(value = "associatedBGPProfileID")
    protected String associatedBGPProfileID;
@@ -209,6 +216,9 @@ public class Domain extends RestObject {
    
    @JsonProperty(value = "externalID")
    protected String externalID;
+   
+   @JsonProperty(value = "externalLabel")
+   protected String externalLabel;
    
    @JsonProperty(value = "flowCollectionEnabled")
    protected FlowCollectionEnabled flowCollectionEnabled;
@@ -292,6 +302,9 @@ public class Domain extends RestObject {
    
    @JsonIgnore
    private ContainerInterfacesFetcher containerInterfaces;
+   
+   @JsonIgnore
+   private DeploymentFailuresFetcher deploymentFailures;
    
    @JsonIgnore
    private DHCPOptionsFetcher dHCPOptions;
@@ -430,7 +443,6 @@ public class Domain extends RestObject {
    
    @SuppressWarnings("static-access")
    public Domain() {
-      PATEnabled = PATEnabled.INHERITED;
       DHCPBehavior = DHCPBehavior.CONSUME;
       tunnelType = TunnelType.DC_DEFAULT;
       maintenanceMode = MaintenanceMode.DISABLED;
@@ -446,6 +458,8 @@ public class Domain extends RestObject {
       containers = new ContainersFetcher(this);
       
       containerInterfaces = new ContainerInterfacesFetcher(this);
+      
+      deploymentFailures = new DeploymentFailuresFetcher(this);
       
       dHCPOptions = new DHCPOptionsFetcher(this);
       
@@ -621,6 +635,16 @@ public class Domain extends RestObject {
    }
    
    @JsonIgnore
+   public Boolean getVXLANECMPEnabled() {
+      return VXLANECMPEnabled;
+   }
+
+   @JsonIgnore
+   public void setVXLANECMPEnabled(Boolean value) { 
+      this.VXLANECMPEnabled = value;
+   }
+   
+   @JsonIgnore
    public AdvertiseCriteria getAdvertiseCriteria() {
       return advertiseCriteria;
    }
@@ -628,6 +652,16 @@ public class Domain extends RestObject {
    @JsonIgnore
    public void setAdvertiseCriteria(AdvertiseCriteria value) { 
       this.advertiseCriteria = value;
+   }
+   
+   @JsonIgnore
+   public Boolean getAggregateFlowsEnabled() {
+      return aggregateFlowsEnabled;
+   }
+
+   @JsonIgnore
+   public void setAggregateFlowsEnabled(Boolean value) { 
+      this.aggregateFlowsEnabled = value;
    }
    
    @JsonIgnore
@@ -818,6 +852,16 @@ public class Domain extends RestObject {
    @JsonIgnore
    public void setExternalID(String value) { 
       this.externalID = value;
+   }
+   
+   @JsonIgnore
+   public String getExternalLabel() {
+      return externalLabel;
+   }
+
+   @JsonIgnore
+   public void setExternalLabel(String value) { 
+      this.externalLabel = value;
    }
    
    @JsonIgnore
@@ -1063,6 +1107,11 @@ public class Domain extends RestObject {
    }
    
    @JsonIgnore
+   public DeploymentFailuresFetcher getDeploymentFailures() {
+      return deploymentFailures;
+   }
+   
+   @JsonIgnore
    public DHCPOptionsFetcher getDHCPOptions() {
       return dHCPOptions;
    }
@@ -1289,7 +1338,7 @@ public class Domain extends RestObject {
    
 
    public String toString() {
-      return "Domain [" + "BGPEnabled=" + BGPEnabled + ", DHCPBehavior=" + DHCPBehavior + ", DHCPServerAddress=" + DHCPServerAddress + ", DPI=" + DPI + ", ECMPCount=" + ECMPCount + ", FIPIgnoreDefaultRoute=" + FIPIgnoreDefaultRoute + ", FIPUnderlay=" + FIPUnderlay + ", PATEnabled=" + PATEnabled + ", advertiseCriteria=" + advertiseCriteria + ", associatedBGPProfileID=" + associatedBGPProfileID + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedPATMapperID=" + associatedPATMapperID + ", associatedSharedPATMapperID=" + associatedSharedPATMapperID + ", associatedUnderlayID=" + associatedUnderlayID + ", backHaulRouteDistinguisher=" + backHaulRouteDistinguisher + ", backHaulRouteTarget=" + backHaulRouteTarget + ", backHaulServiceID=" + backHaulServiceID + ", backHaulVNID=" + backHaulVNID + ", customerID=" + customerID + ", description=" + description + ", dhcpServerAddresses=" + dhcpServerAddresses + ", domainID=" + domainID + ", domainVLANID=" + domainVLANID + ", encryption=" + encryption + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", exportRouteTarget=" + exportRouteTarget + ", externalID=" + externalID + ", flowCollectionEnabled=" + flowCollectionEnabled + ", globalRoutingEnabled=" + globalRoutingEnabled + ", importRouteTarget=" + importRouteTarget + ", labelID=" + labelID + ", lastUpdatedBy=" + lastUpdatedBy + ", leakingEnabled=" + leakingEnabled + ", localAS=" + localAS + ", maintenanceMode=" + maintenanceMode + ", multicast=" + multicast + ", name=" + name + ", permittedAction=" + permittedAction + ", policyChangeStatus=" + policyChangeStatus + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", secondaryDHCPServerAddress=" + secondaryDHCPServerAddress + ", serviceID=" + serviceID + ", stretched=" + stretched + ", templateID=" + templateID + ", tunnelType=" + tunnelType + ", underlayEnabled=" + underlayEnabled + ", uplinkPreference=" + uplinkPreference + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Domain [" + "BGPEnabled=" + BGPEnabled + ", DHCPBehavior=" + DHCPBehavior + ", DHCPServerAddress=" + DHCPServerAddress + ", DPI=" + DPI + ", ECMPCount=" + ECMPCount + ", FIPIgnoreDefaultRoute=" + FIPIgnoreDefaultRoute + ", FIPUnderlay=" + FIPUnderlay + ", PATEnabled=" + PATEnabled + ", VXLANECMPEnabled=" + VXLANECMPEnabled + ", advertiseCriteria=" + advertiseCriteria + ", aggregateFlowsEnabled=" + aggregateFlowsEnabled + ", associatedBGPProfileID=" + associatedBGPProfileID + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedPATMapperID=" + associatedPATMapperID + ", associatedSharedPATMapperID=" + associatedSharedPATMapperID + ", associatedUnderlayID=" + associatedUnderlayID + ", backHaulRouteDistinguisher=" + backHaulRouteDistinguisher + ", backHaulRouteTarget=" + backHaulRouteTarget + ", backHaulServiceID=" + backHaulServiceID + ", backHaulVNID=" + backHaulVNID + ", customerID=" + customerID + ", description=" + description + ", dhcpServerAddresses=" + dhcpServerAddresses + ", domainID=" + domainID + ", domainVLANID=" + domainVLANID + ", encryption=" + encryption + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", exportRouteTarget=" + exportRouteTarget + ", externalID=" + externalID + ", externalLabel=" + externalLabel + ", flowCollectionEnabled=" + flowCollectionEnabled + ", globalRoutingEnabled=" + globalRoutingEnabled + ", importRouteTarget=" + importRouteTarget + ", labelID=" + labelID + ", lastUpdatedBy=" + lastUpdatedBy + ", leakingEnabled=" + leakingEnabled + ", localAS=" + localAS + ", maintenanceMode=" + maintenanceMode + ", multicast=" + multicast + ", name=" + name + ", permittedAction=" + permittedAction + ", policyChangeStatus=" + policyChangeStatus + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", secondaryDHCPServerAddress=" + secondaryDHCPServerAddress + ", serviceID=" + serviceID + ", stretched=" + stretched + ", templateID=" + templateID + ", tunnelType=" + tunnelType + ", underlayEnabled=" + underlayEnabled + ", uplinkPreference=" + uplinkPreference + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

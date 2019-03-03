@@ -51,7 +51,7 @@ public class VirtualFirewallPolicy extends RestObject {
    
    public enum PolicyState { DRAFT, LIVE };
    
-   public enum PriorityType { BOTTOM, NONE, TOP };
+   public enum PriorityType { BOTTOM, TOP };
 
    
    @JsonProperty(value = "active")

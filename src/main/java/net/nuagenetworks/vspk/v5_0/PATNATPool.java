@@ -52,7 +52,7 @@ public class PATNATPool extends RestObject {
 
    
    
-   public enum IPType { IPV4, IPV6, DUALSTACK };
+   public enum IPType { DUALSTACK, IPV4, IPV6 };
    
    public enum AssociatedGatewayType { AUTO_DISC_GATEWAY, GATEWAY, IKE_GATEWAY, NSGATEWAY };
    

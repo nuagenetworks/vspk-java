@@ -88,6 +88,7 @@ import net.nuagenetworks.vspk.v5_0.fetchers.NetworkPerformanceMeasurementsFetche
 import net.nuagenetworks.vspk.v5_0.fetchers.NSGatewaysFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSGatewayTemplatesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSGGroupsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.NSGInfosFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSGPatchProfilesFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSRedundantGatewayGroupsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.NSGUpgradeProfilesFetcher;
@@ -368,6 +369,9 @@ public class Me extends RestRootObject {
    private NSGGroupsFetcher nSGGroups;
    
    @JsonIgnore
+   private NSGInfosFetcher nSGInfos;
+   
+   @JsonIgnore
    private NSGPatchProfilesFetcher nSGPatchProfiles;
    
    @JsonIgnore
@@ -598,6 +602,8 @@ public class Me extends RestRootObject {
       nSGatewayTemplates = new NSGatewayTemplatesFetcher(this);
       
       nSGGroups = new NSGGroupsFetcher(this);
+      
+      nSGInfos = new NSGInfosFetcher(this);
       
       nSGPatchProfiles = new NSGPatchProfilesFetcher(this);
       
@@ -1159,6 +1165,11 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public NSGGroupsFetcher getNSGGroups() {
       return nSGGroups;
+   }
+   
+   @JsonIgnore
+   public NSGInfosFetcher getNSGInfos() {
+      return nSGInfos;
    }
    
    @JsonIgnore

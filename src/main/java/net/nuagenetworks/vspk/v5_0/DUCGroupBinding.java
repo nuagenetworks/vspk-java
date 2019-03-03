@@ -46,11 +46,19 @@ public class DUCGroupBinding extends RestObject {
 
    
    
+   public enum AssociatedUBRGroupFunction { GATEWAY, UBR };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "associatedDUCGroupID")
    protected String associatedDUCGroupID;
+   
+   @JsonProperty(value = "associatedUBRGroupFunction")
+   protected AssociatedUBRGroupFunction associatedUBRGroupFunction;
+   
+   @JsonProperty(value = "associatedUBRGroupName")
+   protected String associatedUBRGroupName;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
@@ -93,6 +101,26 @@ public class DUCGroupBinding extends RestObject {
    @JsonIgnore
    public void setAssociatedDUCGroupID(String value) { 
       this.associatedDUCGroupID = value;
+   }
+   
+   @JsonIgnore
+   public AssociatedUBRGroupFunction getAssociatedUBRGroupFunction() {
+      return associatedUBRGroupFunction;
+   }
+
+   @JsonIgnore
+   public void setAssociatedUBRGroupFunction(AssociatedUBRGroupFunction value) { 
+      this.associatedUBRGroupFunction = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedUBRGroupName() {
+      return associatedUBRGroupName;
+   }
+
+   @JsonIgnore
+   public void setAssociatedUBRGroupName(String value) { 
+      this.associatedUBRGroupName = value;
    }
    
    @JsonIgnore
@@ -159,7 +187,7 @@ public class DUCGroupBinding extends RestObject {
    
 
    public String toString() {
-      return "DUCGroupBinding [" + "associatedDUCGroupID=" + associatedDUCGroupID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", oneWayDelay=" + oneWayDelay + ", priority=" + priority + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "DUCGroupBinding [" + "associatedDUCGroupID=" + associatedDUCGroupID + ", associatedUBRGroupFunction=" + associatedUBRGroupFunction + ", associatedUBRGroupName=" + associatedUBRGroupName + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", oneWayDelay=" + oneWayDelay + ", priority=" + priority + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

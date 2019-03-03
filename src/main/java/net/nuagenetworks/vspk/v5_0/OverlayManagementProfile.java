@@ -35,46 +35,32 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v5_0.fetchers.OverlayManagementSubnetProfilesFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "nsgupgradeprofile", resourceName = "nsgupgradeprofiles")
-public class NSGUpgradeProfile extends RestObject {
+@RestEntity(restName = "overlaymanagementprofile", resourceName = "overlaymanagementprofiles")
+public class OverlayManagementProfile extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "description")
    protected String description;
-   
-   @JsonProperty(value = "downloadRateLimit")
-   protected Long downloadRateLimit;
-   
-   @JsonProperty(value = "enterpriseID")
-   protected String enterpriseID;
-   
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
-   
-   @JsonProperty(value = "externalID")
-   protected String externalID;
-   
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
-   
-   @JsonProperty(value = "metadataUpgradePath")
-   protected String metadataUpgradePath;
    
    @JsonProperty(value = "name")
    protected String name;
    
 
    
+   @JsonIgnore
+   private OverlayManagementSubnetProfilesFetcher overlayManagementSubnetProfiles;
+   
 
-   public NSGUpgradeProfile() {
+   public OverlayManagementProfile() {
+      
+      overlayManagementSubnetProfiles = new OverlayManagementSubnetProfilesFetcher(this);
       
    }
 
@@ -90,66 +76,6 @@ public class NSGUpgradeProfile extends RestObject {
    }
    
    @JsonIgnore
-   public Long getDownloadRateLimit() {
-      return downloadRateLimit;
-   }
-
-   @JsonIgnore
-   public void setDownloadRateLimit(Long value) { 
-      this.downloadRateLimit = value;
-   }
-   
-   @JsonIgnore
-   public String getEnterpriseID() {
-      return enterpriseID;
-   }
-
-   @JsonIgnore
-   public void setEnterpriseID(String value) { 
-      this.enterpriseID = value;
-   }
-   
-   @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
-   }
-
-   @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
-   }
-   
-   @JsonIgnore
-   public String getExternalID() {
-      return externalID;
-   }
-
-   @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
-   }
-   
-   @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
-   }
-
-   @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
-   }
-   
-   @JsonIgnore
-   public String getMetadataUpgradePath() {
-      return metadataUpgradePath;
-   }
-
-   @JsonIgnore
-   public void setMetadataUpgradePath(String value) { 
-      this.metadataUpgradePath = value;
-   }
-   
-   @JsonIgnore
    public String getName() {
       return name;
    }
@@ -161,9 +87,14 @@ public class NSGUpgradeProfile extends RestObject {
    
 
    
+   @JsonIgnore
+   public OverlayManagementSubnetProfilesFetcher getOverlayManagementSubnetProfiles() {
+      return overlayManagementSubnetProfiles;
+   }
+   
 
    public String toString() {
-      return "NSGUpgradeProfile [" + "description=" + description + ", downloadRateLimit=" + downloadRateLimit + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", metadataUpgradePath=" + metadataUpgradePath + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "OverlayManagementProfile [" + "description=" + description + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

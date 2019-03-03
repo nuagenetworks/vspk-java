@@ -37,29 +37,26 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.WebDomainNamesFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "usercontext", resourceName = "usercontexts")
-public class UserContext extends RestObject {
+@RestEntity(restName = "webcategory", resourceName = "webcategories")
+public class WebCategory extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
+   public enum Type { WEB_DOMAIN_NAME };
 
    
-   @JsonProperty(value = "AARFlowStatsInterval")
-   protected Long AARFlowStatsInterval;
+   @JsonProperty(value = "defaultCategory")
+   protected Boolean defaultCategory;
    
-   @JsonProperty(value = "AARProbeStatsInterval")
-   protected Long AARProbeStatsInterval;
-   
-   @JsonProperty(value = "VSSFeatureEnabled")
-   protected Boolean VSSFeatureEnabled;
-   
-   @JsonProperty(value = "VSSStatsInterval")
-   protected Long VSSStatsInterval;
+   @JsonProperty(value = "description")
+   protected String description;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
@@ -67,26 +64,14 @@ public class UserContext extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-   @JsonProperty(value = "flowCollectionEnabled")
-   protected Boolean flowCollectionEnabled;
-   
-   @JsonProperty(value = "googleMapsAPIKey")
-   protected String googleMapsAPIKey;
-   
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
    
-   @JsonProperty(value = "pageSize")
-   protected Long pageSize;
+   @JsonProperty(value = "name")
+   protected String name;
    
-   @JsonProperty(value = "statisticsEnabled")
-   protected Boolean statisticsEnabled;
-   
-   @JsonProperty(value = "statsDatabaseProxy")
-   protected String statsDatabaseProxy;
-   
-   @JsonProperty(value = "statsTSDBServerAddress")
-   protected String statsTSDBServerAddress;
+   @JsonProperty(value = "type")
+   protected Type type;
    
 
    
@@ -96,54 +81,39 @@ public class UserContext extends RestObject {
    @JsonIgnore
    private MetadatasFetcher metadatas;
    
+   @JsonIgnore
+   private WebDomainNamesFetcher webDomainNames;
+   
 
-   public UserContext() {
+   public WebCategory() {
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
       
+      webDomainNames = new WebDomainNamesFetcher(this);
+      
    }
 
    
    @JsonIgnore
-   public Long getAARFlowStatsInterval() {
-      return AARFlowStatsInterval;
+   public Boolean getDefaultCategory() {
+      return defaultCategory;
    }
 
    @JsonIgnore
-   public void setAARFlowStatsInterval(Long value) { 
-      this.AARFlowStatsInterval = value;
+   public void setDefaultCategory(Boolean value) { 
+      this.defaultCategory = value;
    }
    
    @JsonIgnore
-   public Long getAARProbeStatsInterval() {
-      return AARProbeStatsInterval;
+   public String getDescription() {
+      return description;
    }
 
    @JsonIgnore
-   public void setAARProbeStatsInterval(Long value) { 
-      this.AARProbeStatsInterval = value;
-   }
-   
-   @JsonIgnore
-   public Boolean getVSSFeatureEnabled() {
-      return VSSFeatureEnabled;
-   }
-
-   @JsonIgnore
-   public void setVSSFeatureEnabled(Boolean value) { 
-      this.VSSFeatureEnabled = value;
-   }
-   
-   @JsonIgnore
-   public Long getVSSStatsInterval() {
-      return VSSStatsInterval;
-   }
-
-   @JsonIgnore
-   public void setVSSStatsInterval(Long value) { 
-      this.VSSStatsInterval = value;
+   public void setDescription(String value) { 
+      this.description = value;
    }
    
    @JsonIgnore
@@ -167,26 +137,6 @@ public class UserContext extends RestObject {
    }
    
    @JsonIgnore
-   public Boolean getFlowCollectionEnabled() {
-      return flowCollectionEnabled;
-   }
-
-   @JsonIgnore
-   public void setFlowCollectionEnabled(Boolean value) { 
-      this.flowCollectionEnabled = value;
-   }
-   
-   @JsonIgnore
-   public String getGoogleMapsAPIKey() {
-      return googleMapsAPIKey;
-   }
-
-   @JsonIgnore
-   public void setGoogleMapsAPIKey(String value) { 
-      this.googleMapsAPIKey = value;
-   }
-   
-   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
@@ -197,43 +147,23 @@ public class UserContext extends RestObject {
    }
    
    @JsonIgnore
-   public Long getPageSize() {
-      return pageSize;
+   public String getName() {
+      return name;
    }
 
    @JsonIgnore
-   public void setPageSize(Long value) { 
-      this.pageSize = value;
+   public void setName(String value) { 
+      this.name = value;
    }
    
    @JsonIgnore
-   public Boolean getStatisticsEnabled() {
-      return statisticsEnabled;
+   public Type getType() {
+      return type;
    }
 
    @JsonIgnore
-   public void setStatisticsEnabled(Boolean value) { 
-      this.statisticsEnabled = value;
-   }
-   
-   @JsonIgnore
-   public String getStatsDatabaseProxy() {
-      return statsDatabaseProxy;
-   }
-
-   @JsonIgnore
-   public void setStatsDatabaseProxy(String value) { 
-      this.statsDatabaseProxy = value;
-   }
-   
-   @JsonIgnore
-   public String getStatsTSDBServerAddress() {
-      return statsTSDBServerAddress;
-   }
-
-   @JsonIgnore
-   public void setStatsTSDBServerAddress(String value) { 
-      this.statsTSDBServerAddress = value;
+   public void setType(Type value) { 
+      this.type = value;
    }
    
 
@@ -248,9 +178,14 @@ public class UserContext extends RestObject {
       return metadatas;
    }
    
+   @JsonIgnore
+   public WebDomainNamesFetcher getWebDomainNames() {
+      return webDomainNames;
+   }
+   
 
    public String toString() {
-      return "UserContext [" + "AARFlowStatsInterval=" + AARFlowStatsInterval + ", AARProbeStatsInterval=" + AARProbeStatsInterval + ", VSSFeatureEnabled=" + VSSFeatureEnabled + ", VSSStatsInterval=" + VSSStatsInterval + ", entityScope=" + entityScope + ", externalID=" + externalID + ", flowCollectionEnabled=" + flowCollectionEnabled + ", googleMapsAPIKey=" + googleMapsAPIKey + ", lastUpdatedBy=" + lastUpdatedBy + ", pageSize=" + pageSize + ", statisticsEnabled=" + statisticsEnabled + ", statsDatabaseProxy=" + statsDatabaseProxy + ", statsTSDBServerAddress=" + statsTSDBServerAddress + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "WebCategory [" + "defaultCategory=" + defaultCategory + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -48,7 +48,7 @@ public class NSGRoutingPolicyBinding extends RestObject {
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    
-   public enum ExportToOverlay { INHERITED, DISABLED, ENABLED };
+   public enum ExportToOverlay { DISABLED, ENABLED, INHERITED };
 
    
    @JsonProperty(value = "associatedExportRoutingPolicyID")

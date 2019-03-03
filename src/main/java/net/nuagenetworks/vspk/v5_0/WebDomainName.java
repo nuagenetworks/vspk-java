@@ -37,26 +37,18 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
-import net.nuagenetworks.vspk.v5_0.fetchers.PortTemplatesFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.WebCategoriesFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "gatewaytemplate", resourceName = "gatewaytemplates")
-public class GatewayTemplate extends RestObject {
+@RestEntity(restName = "webdomainname", resourceName = "webdomainnames")
+public class WebDomainName extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Personality { DC7X50, EVDF, EVDFB, HARDWARE_VTEP, NETCONF_7X50, NETCONF_THIRDPARTY_HW_VTEP, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, OTHER, VDFG, VRSB, VRSG, VSA, VSG };
 
-   
-   @JsonProperty(value = "description")
-   protected String description;
-   
-   @JsonProperty(value = "enterpriseID")
-   protected String enterpriseID;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
@@ -64,17 +56,11 @@ public class GatewayTemplate extends RestObject {
    @JsonProperty(value = "externalID")
    protected String externalID;
    
-   @JsonProperty(value = "infrastructureProfileID")
-   protected String infrastructureProfileID;
-   
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
    protected String name;
-   
-   @JsonProperty(value = "personality")
-   protected Personality personality;
    
 
    
@@ -85,40 +71,19 @@ public class GatewayTemplate extends RestObject {
    private MetadatasFetcher metadatas;
    
    @JsonIgnore
-   private PortTemplatesFetcher portTemplates;
+   private WebCategoriesFetcher webCategories;
    
 
-   public GatewayTemplate() {
-      personality = Personality.VRSG;
+   public WebDomainName() {
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
       
-      portTemplates = new PortTemplatesFetcher(this);
+      webCategories = new WebCategoriesFetcher(this);
       
    }
 
-   
-   @JsonIgnore
-   public String getDescription() {
-      return description;
-   }
-
-   @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
-   }
-   
-   @JsonIgnore
-   public String getEnterpriseID() {
-      return enterpriseID;
-   }
-
-   @JsonIgnore
-   public void setEnterpriseID(String value) { 
-      this.enterpriseID = value;
-   }
    
    @JsonIgnore
    public EntityScope getEntityScope() {
@@ -141,16 +106,6 @@ public class GatewayTemplate extends RestObject {
    }
    
    @JsonIgnore
-   public String getInfrastructureProfileID() {
-      return infrastructureProfileID;
-   }
-
-   @JsonIgnore
-   public void setInfrastructureProfileID(String value) { 
-      this.infrastructureProfileID = value;
-   }
-   
-   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
@@ -170,16 +125,6 @@ public class GatewayTemplate extends RestObject {
       this.name = value;
    }
    
-   @JsonIgnore
-   public Personality getPersonality() {
-      return personality;
-   }
-
-   @JsonIgnore
-   public void setPersonality(Personality value) { 
-      this.personality = value;
-   }
-   
 
    
    @JsonIgnore
@@ -193,13 +138,13 @@ public class GatewayTemplate extends RestObject {
    }
    
    @JsonIgnore
-   public PortTemplatesFetcher getPortTemplates() {
-      return portTemplates;
+   public WebCategoriesFetcher getWebCategories() {
+      return webCategories;
    }
    
 
    public String toString() {
-      return "GatewayTemplate [" + "description=" + description + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", infrastructureProfileID=" + infrastructureProfileID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", personality=" + personality + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "WebDomainName [" + "entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

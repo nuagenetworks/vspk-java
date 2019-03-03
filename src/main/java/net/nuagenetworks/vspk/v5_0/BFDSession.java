@@ -46,11 +46,19 @@ public class BFDSession extends RestObject {
 
    
    
+   public enum BFDDestinationIPType { IPV4, IPV6 };
+   
    public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "BFDDestinationIP")
    protected String BFDDestinationIP;
+   
+   @JsonProperty(value = "BFDDestinationIPType")
+   protected BFDDestinationIPType BFDDestinationIPType;
+   
+   @JsonProperty(value = "BFDDestinationIPv6")
+   protected String BFDDestinationIPv6;
    
    @JsonProperty(value = "BFDMultiplier")
    protected Long BFDMultiplier;
@@ -96,6 +104,26 @@ public class BFDSession extends RestObject {
    @JsonIgnore
    public void setBFDDestinationIP(String value) { 
       this.BFDDestinationIP = value;
+   }
+   
+   @JsonIgnore
+   public BFDDestinationIPType getBFDDestinationIPType() {
+      return BFDDestinationIPType;
+   }
+
+   @JsonIgnore
+   public void setBFDDestinationIPType(BFDDestinationIPType value) { 
+      this.BFDDestinationIPType = value;
+   }
+   
+   @JsonIgnore
+   public String getBFDDestinationIPv6() {
+      return BFDDestinationIPv6;
+   }
+
+   @JsonIgnore
+   public void setBFDDestinationIPv6(String value) { 
+      this.BFDDestinationIPv6 = value;
    }
    
    @JsonIgnore
@@ -172,7 +200,7 @@ public class BFDSession extends RestObject {
    
 
    public String toString() {
-      return "BFDSession [" + "BFDDestinationIP=" + BFDDestinationIP + ", BFDMultiplier=" + BFDMultiplier + ", BFDTimer=" + BFDTimer + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", multiHopEnabled=" + multiHopEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "BFDSession [" + "BFDDestinationIP=" + BFDDestinationIP + ", BFDDestinationIPType=" + BFDDestinationIPType + ", BFDDestinationIPv6=" + BFDDestinationIPv6 + ", BFDMultiplier=" + BFDMultiplier + ", BFDTimer=" + BFDTimer + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", multiHopEnabled=" + multiHopEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

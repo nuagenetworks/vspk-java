@@ -35,8 +35,11 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v5_0.fetchers.AlarmsFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.EnterprisePermissionsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v5_0.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.VLANsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -104,10 +107,19 @@ public class GatewayRedundantPort extends RestObject {
 
    
    @JsonIgnore
+   private AlarmsFetcher alarms;
+   
+   @JsonIgnore
+   private EnterprisePermissionsFetcher enterprisePermissions;
+   
+   @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
    private MetadatasFetcher metadatas;
+   
+   @JsonIgnore
+   private PermissionsFetcher permissions;
    
    @JsonIgnore
    private VLANsFetcher vLANs;
@@ -115,9 +127,15 @@ public class GatewayRedundantPort extends RestObject {
 
    public GatewayRedundantPort() {
       
+      alarms = new AlarmsFetcher(this);
+      
+      enterprisePermissions = new EnterprisePermissionsFetcher(this);
+      
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
       vLANs = new VLANsFetcher(this);
       
@@ -277,6 +295,16 @@ public class GatewayRedundantPort extends RestObject {
 
    
    @JsonIgnore
+   public AlarmsFetcher getAlarms() {
+      return alarms;
+   }
+   
+   @JsonIgnore
+   public EnterprisePermissionsFetcher getEnterprisePermissions() {
+      return enterprisePermissions;
+   }
+   
+   @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
       return globalMetadatas;
    }
@@ -284,6 +312,11 @@ public class GatewayRedundantPort extends RestObject {
    @JsonIgnore
    public MetadatasFetcher getMetadatas() {
       return metadatas;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
    @JsonIgnore

@@ -48,6 +48,8 @@ public class DUCGroup extends RestObject {
    
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
+   
+   public enum Function { GATEWAY, UBR };
 
    
    @JsonProperty(value = "associatedPerformanceMonitorID")
@@ -61,6 +63,9 @@ public class DUCGroup extends RestObject {
    
    @JsonProperty(value = "externalID")
    protected String externalID;
+   
+   @JsonProperty(value = "function")
+   protected Function function;
    
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
@@ -132,6 +137,16 @@ public class DUCGroup extends RestObject {
    }
    
    @JsonIgnore
+   public Function getFunction() {
+      return function;
+   }
+
+   @JsonIgnore
+   public void setFunction(Function value) { 
+      this.function = value;
+   }
+   
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
@@ -170,7 +185,7 @@ public class DUCGroup extends RestObject {
    
 
    public String toString() {
-      return "DUCGroup [" + "associatedPerformanceMonitorID=" + associatedPerformanceMonitorID + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "DUCGroup [" + "associatedPerformanceMonitorID=" + associatedPerformanceMonitorID + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", function=" + function + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

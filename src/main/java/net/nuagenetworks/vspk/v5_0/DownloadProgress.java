@@ -37,133 +37,131 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "nsgupgradeprofile", resourceName = "nsgupgradeprofiles")
-public class NSGUpgradeProfile extends RestObject {
+@RestEntity(restName = "None", resourceName = "None")
+public class DownloadProgress extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "description")
-   protected String description;
+   @JsonProperty(value = "averageSpeed")
+   protected Long averageSpeed;
    
-   @JsonProperty(value = "downloadRateLimit")
-   protected Long downloadRateLimit;
+   @JsonProperty(value = "currentSpeed")
+   protected Long currentSpeed;
    
-   @JsonProperty(value = "enterpriseID")
-   protected String enterpriseID;
+   @JsonProperty(value = "imageFileName")
+   protected String imageFileName;
    
-   @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   @JsonProperty(value = "imageVersion")
+   protected String imageVersion;
    
-   @JsonProperty(value = "externalID")
-   protected String externalID;
+   @JsonProperty(value = "percentage")
+   protected Long percentage;
    
-   @JsonProperty(value = "lastUpdatedBy")
-   protected String lastUpdatedBy;
+   @JsonProperty(value = "startTime")
+   protected Long startTime;
    
-   @JsonProperty(value = "metadataUpgradePath")
-   protected String metadataUpgradePath;
+   @JsonProperty(value = "timeLeft")
+   protected String timeLeft;
    
-   @JsonProperty(value = "name")
-   protected String name;
+   @JsonProperty(value = "timeSpent")
+   protected String timeSpent;
    
 
    
 
-   public NSGUpgradeProfile() {
+   public DownloadProgress() {
       
    }
 
    
    @JsonIgnore
-   public String getDescription() {
-      return description;
+   public Long getAverageSpeed() {
+      return averageSpeed;
    }
 
    @JsonIgnore
-   public void setDescription(String value) { 
-      this.description = value;
+   public void setAverageSpeed(Long value) { 
+      this.averageSpeed = value;
    }
    
    @JsonIgnore
-   public Long getDownloadRateLimit() {
-      return downloadRateLimit;
+   public Long getCurrentSpeed() {
+      return currentSpeed;
    }
 
    @JsonIgnore
-   public void setDownloadRateLimit(Long value) { 
-      this.downloadRateLimit = value;
+   public void setCurrentSpeed(Long value) { 
+      this.currentSpeed = value;
    }
    
    @JsonIgnore
-   public String getEnterpriseID() {
-      return enterpriseID;
+   public String getImageFileName() {
+      return imageFileName;
    }
 
    @JsonIgnore
-   public void setEnterpriseID(String value) { 
-      this.enterpriseID = value;
+   public void setImageFileName(String value) { 
+      this.imageFileName = value;
    }
    
    @JsonIgnore
-   public EntityScope getEntityScope() {
-      return entityScope;
+   public String getImageVersion() {
+      return imageVersion;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
-      this.entityScope = value;
+   public void setImageVersion(String value) { 
+      this.imageVersion = value;
    }
    
    @JsonIgnore
-   public String getExternalID() {
-      return externalID;
+   public Long getPercentage() {
+      return percentage;
    }
 
    @JsonIgnore
-   public void setExternalID(String value) { 
-      this.externalID = value;
+   public void setPercentage(Long value) { 
+      this.percentage = value;
    }
    
    @JsonIgnore
-   public String getLastUpdatedBy() {
-      return lastUpdatedBy;
+   public Long getStartTime() {
+      return startTime;
    }
 
    @JsonIgnore
-   public void setLastUpdatedBy(String value) { 
-      this.lastUpdatedBy = value;
+   public void setStartTime(Long value) { 
+      this.startTime = value;
    }
    
    @JsonIgnore
-   public String getMetadataUpgradePath() {
-      return metadataUpgradePath;
+   public String getTimeLeft() {
+      return timeLeft;
    }
 
    @JsonIgnore
-   public void setMetadataUpgradePath(String value) { 
-      this.metadataUpgradePath = value;
+   public void setTimeLeft(String value) { 
+      this.timeLeft = value;
    }
    
    @JsonIgnore
-   public String getName() {
-      return name;
+   public String getTimeSpent() {
+      return timeSpent;
    }
 
    @JsonIgnore
-   public void setName(String value) { 
-      this.name = value;
+   public void setTimeSpent(String value) { 
+      this.timeSpent = value;
    }
    
 
    
 
    public String toString() {
-      return "NSGUpgradeProfile [" + "description=" + description + ", downloadRateLimit=" + downloadRateLimit + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", metadataUpgradePath=" + metadataUpgradePath + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "DownloadProgress [" + "averageSpeed=" + averageSpeed + ", currentSpeed=" + currentSpeed + ", imageFileName=" + imageFileName + ", imageVersion=" + imageVersion + ", percentage=" + percentage + ", startTime=" + startTime + ", timeLeft=" + timeLeft + ", timeSpent=" + timeSpent + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

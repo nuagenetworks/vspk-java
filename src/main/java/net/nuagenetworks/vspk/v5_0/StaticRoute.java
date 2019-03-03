@@ -35,6 +35,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v5_0.fetchers.DeploymentFailuresFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v5_0.fetchers.MetadatasFetcher;
@@ -51,7 +52,7 @@ public class StaticRoute extends RestObject {
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    
-   public enum Type { EXIT_DOMAIN, OVERLAY, OVERLAY_ADDRESS_TRANSLATION };
+   public enum Type { EXIT_DOMAIN, NETCONF, OVERLAY, OVERLAY_ADDRESS_TRANSLATION };
 
    
    @JsonProperty(value = "BFDEnabled")
@@ -66,8 +67,14 @@ public class StaticRoute extends RestObject {
    @JsonProperty(value = "address")
    protected String address;
    
+   @JsonProperty(value = "associatedGatewayIDs")
+   protected java.util.List<String> associatedGatewayIDs;
+   
    @JsonProperty(value = "associatedSubnetID")
    protected String associatedSubnetID;
+   
+   @JsonProperty(value = "blackHoleEnabled")
+   protected Boolean blackHoleEnabled;
    
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
@@ -93,6 +100,9 @@ public class StaticRoute extends RestObject {
 
    
    @JsonIgnore
+   private DeploymentFailuresFetcher deploymentFailures;
+   
+   @JsonIgnore
    private EventLogsFetcher eventLogs;
    
    @JsonIgnore
@@ -103,6 +113,8 @@ public class StaticRoute extends RestObject {
    
 
    public StaticRoute() {
+      
+      deploymentFailures = new DeploymentFailuresFetcher(this);
       
       eventLogs = new EventLogsFetcher(this);
       
@@ -154,6 +166,16 @@ public class StaticRoute extends RestObject {
    }
    
    @JsonIgnore
+   public java.util.List<String> getAssociatedGatewayIDs() {
+      return associatedGatewayIDs;
+   }
+
+   @JsonIgnore
+   public void setAssociatedGatewayIDs(java.util.List<String> value) { 
+      this.associatedGatewayIDs = value;
+   }
+   
+   @JsonIgnore
    public String getAssociatedSubnetID() {
       return associatedSubnetID;
    }
@@ -161,6 +183,16 @@ public class StaticRoute extends RestObject {
    @JsonIgnore
    public void setAssociatedSubnetID(String value) { 
       this.associatedSubnetID = value;
+   }
+   
+   @JsonIgnore
+   public Boolean getBlackHoleEnabled() {
+      return blackHoleEnabled;
+   }
+
+   @JsonIgnore
+   public void setBlackHoleEnabled(Boolean value) { 
+      this.blackHoleEnabled = value;
    }
    
    @JsonIgnore
@@ -236,6 +268,11 @@ public class StaticRoute extends RestObject {
 
    
    @JsonIgnore
+   public DeploymentFailuresFetcher getDeploymentFailures() {
+      return deploymentFailures;
+   }
+   
+   @JsonIgnore
    public EventLogsFetcher getEventLogs() {
       return eventLogs;
    }
@@ -252,7 +289,7 @@ public class StaticRoute extends RestObject {
    
 
    public String toString() {
-      return "StaticRoute [" + "BFDEnabled=" + BFDEnabled + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", address=" + address + ", associatedSubnetID=" + associatedSubnetID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", netmask=" + netmask + ", nextHopIp=" + nextHopIp + ", routeDistinguisher=" + routeDistinguisher + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "StaticRoute [" + "BFDEnabled=" + BFDEnabled + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", address=" + address + ", associatedGatewayIDs=" + associatedGatewayIDs + ", associatedSubnetID=" + associatedSubnetID + ", blackHoleEnabled=" + blackHoleEnabled + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", netmask=" + netmask + ", nextHopIp=" + nextHopIp + ", routeDistinguisher=" + routeDistinguisher + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

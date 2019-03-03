@@ -51,6 +51,8 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    
    public enum Action { DROP, FORWARD, FORWARDING_PATH_LIST, REDIRECT };
    
+   public enum AddressOverrideType { IPV4, IPV6, MACRO_GROUP };
+   
    public enum AppType { ALL, APPLICATION, NONE };
    
    public enum AssociatedTrafficType { L4_SERVICE, L4_SERVICE_GROUP };
@@ -70,6 +72,8 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public enum RemoteUplinkPreference { DEFAULT, PRIMARY, PRIMARY_SECONDARY, SECONDARY, SECONDARY_PRIMARY };
    
    public enum UplinkPreference { DEFAULT, PRIMARY, PRIMARY_SECONDARY, SECONDARY, SECONDARY_PRIMARY, SYMMETRIC };
+   
+   public enum WebFilterType { WEB_CATEGORY, WEB_DOMAIN_NAME };
 
    
    @JsonProperty(value = "ACLTemplateName")
@@ -98,6 +102,9 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    
    @JsonProperty(value = "addressOverride")
    protected String addressOverride;
+   
+   @JsonProperty(value = "addressOverrideType")
+   protected AddressOverrideType addressOverrideType;
    
    @JsonProperty(value = "appType")
    protected AppType appType;
@@ -203,6 +210,12 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    
    @JsonProperty(value = "vlanRange")
    protected String vlanRange;
+   
+   @JsonProperty(value = "webFilterID")
+   protected String webFilterID;
+   
+   @JsonProperty(value = "webFilterType")
+   protected WebFilterType webFilterType;
    
 
    
@@ -321,6 +334,16 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    @JsonIgnore
    public void setAddressOverride(String value) { 
       this.addressOverride = value;
+   }
+   
+   @JsonIgnore
+   public AddressOverrideType getAddressOverrideType() {
+      return addressOverrideType;
+   }
+
+   @JsonIgnore
+   public void setAddressOverrideType(AddressOverrideType value) { 
+      this.addressOverrideType = value;
    }
    
    @JsonIgnore
@@ -673,6 +696,26 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
       this.vlanRange = value;
    }
    
+   @JsonIgnore
+   public String getWebFilterID() {
+      return webFilterID;
+   }
+
+   @JsonIgnore
+   public void setWebFilterID(String value) { 
+      this.webFilterID = value;
+   }
+   
+   @JsonIgnore
+   public WebFilterType getWebFilterType() {
+      return webFilterType;
+   }
+
+   @JsonIgnore
+   public void setWebFilterType(WebFilterType value) { 
+      this.webFilterType = value;
+   }
+   
 
    
    @JsonIgnore
@@ -692,7 +735,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    
 
    public String toString() {
-      return "IngressAdvFwdEntryTemplate [" + "ACLTemplateName=" + ACLTemplateName + ", DSCP=" + DSCP + ", DSCPRemarking=" + DSCPRemarking + ", FCOverride=" + FCOverride + ", ICMPCode=" + ICMPCode + ", ICMPType=" + ICMPType + ", IPv6AddressOverride=" + IPv6AddressOverride + ", action=" + action + ", addressOverride=" + addressOverride + ", appType=" + appType + ", associatedApplicationID=" + associatedApplicationID + ", associatedForwardingPathListID=" + associatedForwardingPathListID + ", associatedLiveEntityID=" + associatedLiveEntityID + ", associatedLiveTemplateID=" + associatedLiveTemplateID + ", associatedTrafficType=" + associatedTrafficType + ", associatedTrafficTypeID=" + associatedTrafficTypeID + ", description=" + description + ", destinationPort=" + destinationPort + ", domainName=" + domainName + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", etherType=" + etherType + ", externalID=" + externalID + ", failsafeDatapath=" + failsafeDatapath + ", flowLoggingEnabled=" + flowLoggingEnabled + ", isSLAAware=" + isSLAAware + ", lastUpdatedBy=" + lastUpdatedBy + ", locationID=" + locationID + ", locationType=" + locationType + ", mirrorDestinationID=" + mirrorDestinationID + ", networkID=" + networkID + ", networkType=" + networkType + ", policyState=" + policyState + ", priority=" + priority + ", protocol=" + protocol + ", redirectRewriteType=" + redirectRewriteType + ", redirectRewriteValue=" + redirectRewriteValue + ", redirectVPortTagID=" + redirectVPortTagID + ", remoteUplinkPreference=" + remoteUplinkPreference + ", sourcePort=" + sourcePort + ", statsID=" + statsID + ", statsLoggingEnabled=" + statsLoggingEnabled + ", uplinkPreference=" + uplinkPreference + ", vlanRange=" + vlanRange + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "IngressAdvFwdEntryTemplate [" + "ACLTemplateName=" + ACLTemplateName + ", DSCP=" + DSCP + ", DSCPRemarking=" + DSCPRemarking + ", FCOverride=" + FCOverride + ", ICMPCode=" + ICMPCode + ", ICMPType=" + ICMPType + ", IPv6AddressOverride=" + IPv6AddressOverride + ", action=" + action + ", addressOverride=" + addressOverride + ", addressOverrideType=" + addressOverrideType + ", appType=" + appType + ", associatedApplicationID=" + associatedApplicationID + ", associatedForwardingPathListID=" + associatedForwardingPathListID + ", associatedLiveEntityID=" + associatedLiveEntityID + ", associatedLiveTemplateID=" + associatedLiveTemplateID + ", associatedTrafficType=" + associatedTrafficType + ", associatedTrafficTypeID=" + associatedTrafficTypeID + ", description=" + description + ", destinationPort=" + destinationPort + ", domainName=" + domainName + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", etherType=" + etherType + ", externalID=" + externalID + ", failsafeDatapath=" + failsafeDatapath + ", flowLoggingEnabled=" + flowLoggingEnabled + ", isSLAAware=" + isSLAAware + ", lastUpdatedBy=" + lastUpdatedBy + ", locationID=" + locationID + ", locationType=" + locationType + ", mirrorDestinationID=" + mirrorDestinationID + ", networkID=" + networkID + ", networkType=" + networkType + ", policyState=" + policyState + ", priority=" + priority + ", protocol=" + protocol + ", redirectRewriteType=" + redirectRewriteType + ", redirectRewriteValue=" + redirectRewriteValue + ", redirectVPortTagID=" + redirectVPortTagID + ", remoteUplinkPreference=" + remoteUplinkPreference + ", sourcePort=" + sourcePort + ", statsID=" + statsID + ", statsLoggingEnabled=" + statsLoggingEnabled + ", uplinkPreference=" + uplinkPreference + ", vlanRange=" + vlanRange + ", webFilterID=" + webFilterID + ", webFilterType=" + webFilterType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

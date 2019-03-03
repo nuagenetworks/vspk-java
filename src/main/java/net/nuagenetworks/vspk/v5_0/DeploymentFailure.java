@@ -63,6 +63,15 @@ public class DeploymentFailure extends RestObject {
    @JsonProperty(value = "assocEntityType")
    protected String assocEntityType;
    
+   @JsonProperty(value = "associatedNetworkEntityID")
+   protected String associatedNetworkEntityID;
+   
+   @JsonProperty(value = "associatedNetworkEntityType")
+   protected String associatedNetworkEntityType;
+   
+   @JsonProperty(value = "diffMap")
+   protected String diffMap;
+   
    @JsonProperty(value = "entityScope")
    protected EntityScope entityScope;
    
@@ -143,6 +152,36 @@ public class DeploymentFailure extends RestObject {
    @JsonIgnore
    public void setAssocEntityType(String value) { 
       this.assocEntityType = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedNetworkEntityID() {
+      return associatedNetworkEntityID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedNetworkEntityID(String value) { 
+      this.associatedNetworkEntityID = value;
+   }
+   
+   @JsonIgnore
+   public String getAssociatedNetworkEntityType() {
+      return associatedNetworkEntityType;
+   }
+
+   @JsonIgnore
+   public void setAssociatedNetworkEntityType(String value) { 
+      this.associatedNetworkEntityType = value;
+   }
+   
+   @JsonIgnore
+   public String getDiffMap() {
+      return diffMap;
+   }
+
+   @JsonIgnore
+   public void setDiffMap(String value) { 
+      this.diffMap = value;
    }
    
    @JsonIgnore
@@ -239,7 +278,7 @@ public class DeploymentFailure extends RestObject {
    
 
    public String toString() {
-      return "DeploymentFailure [" + "affectedEntityID=" + affectedEntityID + ", affectedEntityType=" + affectedEntityType + ", assocEntityId=" + assocEntityId + ", assocEntityType=" + assocEntityType + ", entityScope=" + entityScope + ", errorCondition=" + errorCondition + ", eventType=" + eventType + ", externalID=" + externalID + ", lastFailureReason=" + lastFailureReason + ", lastKnownError=" + lastKnownError + ", lastUpdatedBy=" + lastUpdatedBy + ", numberOfOccurences=" + numberOfOccurences + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "DeploymentFailure [" + "affectedEntityID=" + affectedEntityID + ", affectedEntityType=" + affectedEntityType + ", assocEntityId=" + assocEntityId + ", assocEntityType=" + assocEntityType + ", associatedNetworkEntityID=" + associatedNetworkEntityID + ", associatedNetworkEntityType=" + associatedNetworkEntityType + ", diffMap=" + diffMap + ", entityScope=" + entityScope + ", errorCondition=" + errorCondition + ", eventType=" + eventType + ", externalID=" + externalID + ", lastFailureReason=" + lastFailureReason + ", lastKnownError=" + lastKnownError + ", lastUpdatedBy=" + lastUpdatedBy + ", numberOfOccurences=" + numberOfOccurences + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

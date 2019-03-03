@@ -60,7 +60,7 @@ public class SubnetTemplate extends RestObject {
    
    public enum Multicast { DISABLED, ENABLED, INHERITED };
    
-   public enum UseGlobalMAC { DISABLED, ENABLED };
+   public enum UseGlobalMAC { DISABLED, ENABLED, ENTERPRISE_DEFAULT };
 
    
    @JsonProperty(value = "DPI")

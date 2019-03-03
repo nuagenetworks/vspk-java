@@ -48,7 +48,7 @@ public class PSPATMap extends RestObject {
    
    public enum EntityScope { ENTERPRISE, GLOBAL };
    
-   public enum Family { IPV4, IPV6, DUALSTACK };
+   public enum Family { DUALSTACK, IPV4, IPV6 };
 
    
    @JsonProperty(value = "associatedSPATSourcesPoolID")

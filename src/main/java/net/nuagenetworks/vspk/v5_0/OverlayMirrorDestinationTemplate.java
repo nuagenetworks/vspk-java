@@ -46,7 +46,7 @@ public class OverlayMirrorDestinationTemplate extends RestObject {
 
    
    
-   public enum DestinationType { REDIRECTION_TARGET, OVERLAY_MIRROR_DESTINATION };
+   public enum DestinationType { OVERLAY_MIRROR_DESTINATION, REDIRECTION_TARGET };
    
    public enum EndPointType { NONE, VIRTUAL_WIRE };
    

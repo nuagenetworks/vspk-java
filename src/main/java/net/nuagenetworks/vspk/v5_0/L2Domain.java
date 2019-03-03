@@ -125,6 +125,9 @@ public class L2Domain extends RestObject {
    @JsonProperty(value = "IPv6Gateway")
    protected String IPv6Gateway;
    
+   @JsonProperty(value = "VXLANECMPEnabled")
+   protected Boolean VXLANECMPEnabled;
+   
    @JsonProperty(value = "address")
    protected String address;
    
@@ -136,6 +139,9 @@ public class L2Domain extends RestObject {
    
    @JsonProperty(value = "associatedUnderlayID")
    protected String associatedUnderlayID;
+   
+   @JsonProperty(value = "customerID")
+   protected Long customerID;
    
    @JsonProperty(value = "description")
    protected String description;
@@ -163,6 +169,9 @@ public class L2Domain extends RestObject {
    
    @JsonProperty(value = "gatewayMACAddress")
    protected String gatewayMACAddress;
+   
+   @JsonProperty(value = "ingressReplicationEnabled")
+   protected Boolean ingressReplicationEnabled;
    
    @JsonProperty(value = "lastUpdatedBy")
    protected String lastUpdatedBy;
@@ -484,6 +493,16 @@ public class L2Domain extends RestObject {
    }
    
    @JsonIgnore
+   public Boolean getVXLANECMPEnabled() {
+      return VXLANECMPEnabled;
+   }
+
+   @JsonIgnore
+   public void setVXLANECMPEnabled(Boolean value) { 
+      this.VXLANECMPEnabled = value;
+   }
+   
+   @JsonIgnore
    public String getAddress() {
       return address;
    }
@@ -521,6 +540,16 @@ public class L2Domain extends RestObject {
    @JsonIgnore
    public void setAssociatedUnderlayID(String value) { 
       this.associatedUnderlayID = value;
+   }
+   
+   @JsonIgnore
+   public Long getCustomerID() {
+      return customerID;
+   }
+
+   @JsonIgnore
+   public void setCustomerID(Long value) { 
+      this.customerID = value;
    }
    
    @JsonIgnore
@@ -611,6 +640,16 @@ public class L2Domain extends RestObject {
    @JsonIgnore
    public void setGatewayMACAddress(String value) { 
       this.gatewayMACAddress = value;
+   }
+   
+   @JsonIgnore
+   public Boolean getIngressReplicationEnabled() {
+      return ingressReplicationEnabled;
+   }
+
+   @JsonIgnore
+   public void setIngressReplicationEnabled(Boolean value) { 
+      this.ingressReplicationEnabled = value;
    }
    
    @JsonIgnore
@@ -982,7 +1021,7 @@ public class L2Domain extends RestObject {
    
 
    public String toString() {
-      return "L2Domain [" + "DHCPManaged=" + DHCPManaged + ", DPI=" + DPI + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", IPv6Gateway=" + IPv6Gateway + ", address=" + address + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSharedNetworkResourceID=" + associatedSharedNetworkResourceID + ", associatedUnderlayID=" + associatedUnderlayID + ", description=" + description + ", dynamicIpv6Address=" + dynamicIpv6Address + ", encryption=" + encryption + ", entityScope=" + entityScope + ", entityState=" + entityState + ", externalID=" + externalID + ", flowCollectionEnabled=" + flowCollectionEnabled + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", lastUpdatedBy=" + lastUpdatedBy + ", maintenanceMode=" + maintenanceMode + ", multicast=" + multicast + ", name=" + name + ", netmask=" + netmask + ", policyChangeStatus=" + policyChangeStatus + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", routedVPLSEnabled=" + routedVPLSEnabled + ", serviceID=" + serviceID + ", stretched=" + stretched + ", templateID=" + templateID + ", uplinkPreference=" + uplinkPreference + ", useGlobalMAC=" + useGlobalMAC + ", vnId=" + vnId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "L2Domain [" + "DHCPManaged=" + DHCPManaged + ", DPI=" + DPI + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", IPv6Gateway=" + IPv6Gateway + ", VXLANECMPEnabled=" + VXLANECMPEnabled + ", address=" + address + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSharedNetworkResourceID=" + associatedSharedNetworkResourceID + ", associatedUnderlayID=" + associatedUnderlayID + ", customerID=" + customerID + ", description=" + description + ", dynamicIpv6Address=" + dynamicIpv6Address + ", encryption=" + encryption + ", entityScope=" + entityScope + ", entityState=" + entityState + ", externalID=" + externalID + ", flowCollectionEnabled=" + flowCollectionEnabled + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", ingressReplicationEnabled=" + ingressReplicationEnabled + ", lastUpdatedBy=" + lastUpdatedBy + ", maintenanceMode=" + maintenanceMode + ", multicast=" + multicast + ", name=" + name + ", netmask=" + netmask + ", policyChangeStatus=" + policyChangeStatus + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", routedVPLSEnabled=" + routedVPLSEnabled + ", serviceID=" + serviceID + ", stretched=" + stretched + ", templateID=" + templateID + ", uplinkPreference=" + uplinkPreference + ", useGlobalMAC=" + useGlobalMAC + ", vnId=" + vnId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    
