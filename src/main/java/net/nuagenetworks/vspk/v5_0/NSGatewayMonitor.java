@@ -58,7 +58,7 @@ public class NSGatewayMonitor extends RestObject {
    protected Object vrsinfo;
    
    @JsonProperty(value = "vscs")
-   protected java.util.List<String> vscs;
+   protected java.util.List<VSC> vscs;
    
 
    
@@ -109,12 +109,12 @@ public class NSGatewayMonitor extends RestObject {
    }
    
    @JsonIgnore
-   public java.util.List<String> getVscs() {
+   public java.util.List<VSC> getVscs() {
       return vscs;
    }
 
    @JsonIgnore
-   public void setVscs(java.util.List<String> value) { 
+   public void setVscs(java.util.List<VSC> value) { 
       this.vscs = value;
    }
    

@@ -46,13 +46,13 @@ public class NSPortInfo extends RestObject {
 
    
    @JsonProperty(value = "monitoringPorts")
-   protected java.util.List<String> monitoringPorts;
+   protected java.util.List<MonitoringPort> monitoringPorts;
    
    @JsonProperty(value = "ports")
-   protected java.util.List<String> ports;
+   protected java.util.List<NSPort> ports;
    
    @JsonProperty(value = "wirelessPorts")
-   protected java.util.List<String> wirelessPorts;
+   protected java.util.List<WirelessPort> wirelessPorts;
    
 
    
@@ -63,32 +63,32 @@ public class NSPortInfo extends RestObject {
 
    
    @JsonIgnore
-   public java.util.List<String> getMonitoringPorts() {
+   public java.util.List<MonitoringPort> getMonitoringPorts() {
       return monitoringPorts;
    }
 
    @JsonIgnore
-   public void setMonitoringPorts(java.util.List<String> value) { 
+   public void setMonitoringPorts(java.util.List<MonitoringPort> value) { 
       this.monitoringPorts = value;
    }
    
    @JsonIgnore
-   public java.util.List<String> getPorts() {
+   public java.util.List<NSPort> getPorts() {
       return ports;
    }
 
    @JsonIgnore
-   public void setPorts(java.util.List<String> value) { 
+   public void setPorts(java.util.List<NSPort> value) { 
       this.ports = value;
    }
    
    @JsonIgnore
-   public java.util.List<String> getWirelessPorts() {
+   public java.util.List<WirelessPort> getWirelessPorts() {
       return wirelessPorts;
    }
 
    @JsonIgnore
-   public void setWirelessPorts(java.util.List<String> value) { 
+   public void setWirelessPorts(java.util.List<WirelessPort> value) { 
       this.wirelessPorts = value;
    }
    
