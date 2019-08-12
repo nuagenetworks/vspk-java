@@ -46,93 +46,117 @@ public class ZFBRequest extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum ZFBApprovalStatus { APPROVED, ASSIGNED, DENIED, UNASSIGNED };
-   
-   public enum AssociatedEntityType { GATEWAY, NSGATEWAY };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EZFBApprovalStatus { APPROVED, ASSIGNED, DENIED, UNASSIGNED };
+   public enum EAssociatedEntityType { GATEWAY, NSGATEWAY };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "CPUType")
+   
    protected String CPUType;
    
    @JsonProperty(value = "IPAddress")
+   
    protected String IPAddress;
    
    @JsonProperty(value = "MACAddress")
+   
    protected String MACAddress;
    
    @JsonProperty(value = "NSGVersion")
+   
    protected String NSGVersion;
    
    @JsonProperty(value = "SKU")
+   
    protected String SKU;
    
    @JsonProperty(value = "UUID")
+   
    protected String UUID;
    
    @JsonProperty(value = "ZFBApprovalStatus")
-   protected ZFBApprovalStatus ZFBApprovalStatus;
+   
+   protected EZFBApprovalStatus ZFBApprovalStatus;
    
    @JsonProperty(value = "ZFBBootstrapEnabled")
+   
    protected Boolean ZFBBootstrapEnabled;
    
    @JsonProperty(value = "ZFBInfo")
+   
    protected String ZFBInfo;
    
    @JsonProperty(value = "ZFBRequestRetryTimer")
+   
    protected Long ZFBRequestRetryTimer;
    
    @JsonProperty(value = "associatedEnterpriseID")
+   
    protected String associatedEnterpriseID;
    
    @JsonProperty(value = "associatedEnterpriseName")
+   
    protected String associatedEnterpriseName;
    
    @JsonProperty(value = "associatedEntityType")
-   protected AssociatedEntityType associatedEntityType;
+   
+   protected EAssociatedEntityType associatedEntityType;
    
    @JsonProperty(value = "associatedGatewayID")
+   
    protected String associatedGatewayID;
    
    @JsonProperty(value = "associatedGatewayName")
+   
    protected String associatedGatewayName;
    
    @JsonProperty(value = "associatedNSGatewayID")
+   
    protected String associatedNSGatewayID;
    
    @JsonProperty(value = "associatedNSGatewayName")
+   
    protected String associatedNSGatewayName;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "family")
+   
    protected String family;
    
    @JsonProperty(value = "hostname")
+   
    protected String hostname;
    
    @JsonProperty(value = "lastConnectedTime")
+   
    protected Float lastConnectedTime;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "registrationURL")
+   
    protected String registrationURL;
    
    @JsonProperty(value = "serialNumber")
+   
    protected String serialNumber;
    
    @JsonProperty(value = "statusString")
+   
    protected String statusString;
    
 
@@ -158,6 +182,7 @@ public class ZFBRequest extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getCPUType() {
       return CPUType;
@@ -167,6 +192,7 @@ public class ZFBRequest extends RestObject {
    public void setCPUType(String value) { 
       this.CPUType = value;
    }
+   
    
    @JsonIgnore
    public String getIPAddress() {
@@ -178,6 +204,7 @@ public class ZFBRequest extends RestObject {
       this.IPAddress = value;
    }
    
+   
    @JsonIgnore
    public String getMACAddress() {
       return MACAddress;
@@ -187,6 +214,7 @@ public class ZFBRequest extends RestObject {
    public void setMACAddress(String value) { 
       this.MACAddress = value;
    }
+   
    
    @JsonIgnore
    public String getNSGVersion() {
@@ -198,6 +226,7 @@ public class ZFBRequest extends RestObject {
       this.NSGVersion = value;
    }
    
+   
    @JsonIgnore
    public String getSKU() {
       return SKU;
@@ -207,6 +236,7 @@ public class ZFBRequest extends RestObject {
    public void setSKU(String value) { 
       this.SKU = value;
    }
+   
    
    @JsonIgnore
    public String getUUID() {
@@ -218,15 +248,17 @@ public class ZFBRequest extends RestObject {
       this.UUID = value;
    }
    
+   
    @JsonIgnore
-   public ZFBApprovalStatus getZFBApprovalStatus() {
+   public EZFBApprovalStatus getZFBApprovalStatus() {
       return ZFBApprovalStatus;
    }
 
    @JsonIgnore
-   public void setZFBApprovalStatus(ZFBApprovalStatus value) { 
+   public void setZFBApprovalStatus(EZFBApprovalStatus value) { 
       this.ZFBApprovalStatus = value;
    }
+   
    
    @JsonIgnore
    public Boolean getZFBBootstrapEnabled() {
@@ -238,6 +270,7 @@ public class ZFBRequest extends RestObject {
       this.ZFBBootstrapEnabled = value;
    }
    
+   
    @JsonIgnore
    public String getZFBInfo() {
       return ZFBInfo;
@@ -247,6 +280,7 @@ public class ZFBRequest extends RestObject {
    public void setZFBInfo(String value) { 
       this.ZFBInfo = value;
    }
+   
    
    @JsonIgnore
    public Long getZFBRequestRetryTimer() {
@@ -258,6 +292,7 @@ public class ZFBRequest extends RestObject {
       this.ZFBRequestRetryTimer = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedEnterpriseID() {
       return associatedEnterpriseID;
@@ -267,6 +302,7 @@ public class ZFBRequest extends RestObject {
    public void setAssociatedEnterpriseID(String value) { 
       this.associatedEnterpriseID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedEnterpriseName() {
@@ -278,15 +314,17 @@ public class ZFBRequest extends RestObject {
       this.associatedEnterpriseName = value;
    }
    
+   
    @JsonIgnore
-   public AssociatedEntityType getAssociatedEntityType() {
+   public EAssociatedEntityType getAssociatedEntityType() {
       return associatedEntityType;
    }
 
    @JsonIgnore
-   public void setAssociatedEntityType(AssociatedEntityType value) { 
+   public void setAssociatedEntityType(EAssociatedEntityType value) { 
       this.associatedEntityType = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedGatewayID() {
@@ -298,6 +336,7 @@ public class ZFBRequest extends RestObject {
       this.associatedGatewayID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedGatewayName() {
       return associatedGatewayName;
@@ -307,6 +346,7 @@ public class ZFBRequest extends RestObject {
    public void setAssociatedGatewayName(String value) { 
       this.associatedGatewayName = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedNSGatewayID() {
@@ -318,6 +358,7 @@ public class ZFBRequest extends RestObject {
       this.associatedNSGatewayID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedNSGatewayName() {
       return associatedNSGatewayName;
@@ -327,6 +368,7 @@ public class ZFBRequest extends RestObject {
    public void setAssociatedNSGatewayName(String value) { 
       this.associatedNSGatewayName = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -338,15 +380,17 @@ public class ZFBRequest extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -358,6 +402,7 @@ public class ZFBRequest extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getFamily() {
       return family;
@@ -367,6 +412,7 @@ public class ZFBRequest extends RestObject {
    public void setFamily(String value) { 
       this.family = value;
    }
+   
    
    @JsonIgnore
    public String getHostname() {
@@ -378,6 +424,7 @@ public class ZFBRequest extends RestObject {
       this.hostname = value;
    }
    
+   
    @JsonIgnore
    public Float getLastConnectedTime() {
       return lastConnectedTime;
@@ -387,6 +434,7 @@ public class ZFBRequest extends RestObject {
    public void setLastConnectedTime(Float value) { 
       this.lastConnectedTime = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -398,6 +446,7 @@ public class ZFBRequest extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getRegistrationURL() {
       return registrationURL;
@@ -408,6 +457,7 @@ public class ZFBRequest extends RestObject {
       this.registrationURL = value;
    }
    
+   
    @JsonIgnore
    public String getSerialNumber() {
       return serialNumber;
@@ -417,6 +467,7 @@ public class ZFBRequest extends RestObject {
    public void setSerialNumber(String value) { 
       this.serialNumber = value;
    }
+   
    
    @JsonIgnore
    public String getStatusString() {

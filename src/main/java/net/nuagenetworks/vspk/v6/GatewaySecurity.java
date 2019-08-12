@@ -46,29 +46,35 @@ public class GatewaySecurity extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "associatedEntityType")
+   
    protected String associatedEntityType;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "gatewayID")
+   
    protected String gatewayID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "revision")
+   
    protected Long revision;
    
 
@@ -94,6 +100,7 @@ public class GatewaySecurity extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAssociatedEntityType() {
       return associatedEntityType;
@@ -103,6 +110,7 @@ public class GatewaySecurity extends RestObject {
    public void setAssociatedEntityType(String value) { 
       this.associatedEntityType = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -114,15 +122,17 @@ public class GatewaySecurity extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -134,6 +144,7 @@ public class GatewaySecurity extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getGatewayID() {
       return gatewayID;
@@ -144,6 +155,7 @@ public class GatewaySecurity extends RestObject {
       this.gatewayID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -153,6 +165,7 @@ public class GatewaySecurity extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public Long getRevision() {

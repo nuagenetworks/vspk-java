@@ -45,46 +45,54 @@ public class VSDComponent extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Status { ADMIN_DOWN, DOWN, UP };
-   
-   public enum Type { EJABBERD, JBOSS, MEDIATOR, PERCONA, STATSCOLLECTOR, STATSSERVER, TCA };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EStatus { ADMIN_DOWN, DOWN, UP };
+   public enum EType { EJABBERD, JBOSS, MEDIATOR, PERCONA, STATSCOLLECTOR, STATSSERVER, TCA };
 
    
    @JsonProperty(value = "address")
+   
    protected String address;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "location")
+   
    protected String location;
    
    @JsonProperty(value = "managementIP")
+   
    protected String managementIP;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "productVersion")
+   
    protected String productVersion;
    
    @JsonProperty(value = "status")
-   protected Status status;
+   
+   protected EStatus status;
    
    @JsonProperty(value = "type")
-   protected Type type;
+   
+   protected EType type;
    
 
    
@@ -104,6 +112,7 @@ public class VSDComponent extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAddress() {
       return address;
@@ -113,6 +122,7 @@ public class VSDComponent extends RestObject {
    public void setAddress(String value) { 
       this.address = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -124,6 +134,7 @@ public class VSDComponent extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -134,15 +145,17 @@ public class VSDComponent extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -154,6 +167,7 @@ public class VSDComponent extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLocation() {
       return location;
@@ -163,6 +177,7 @@ public class VSDComponent extends RestObject {
    public void setLocation(String value) { 
       this.location = value;
    }
+   
    
    @JsonIgnore
    public String getManagementIP() {
@@ -174,6 +189,7 @@ public class VSDComponent extends RestObject {
       this.managementIP = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -183,6 +199,7 @@ public class VSDComponent extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public String getProductVersion() {
@@ -194,23 +211,25 @@ public class VSDComponent extends RestObject {
       this.productVersion = value;
    }
    
+   
    @JsonIgnore
-   public Status getStatus() {
+   public EStatus getStatus() {
       return status;
    }
 
    @JsonIgnore
-   public void setStatus(Status value) { 
+   public void setStatus(EStatus value) { 
       this.status = value;
    }
    
+   
    @JsonIgnore
-   public Type getType() {
+   public EType getType() {
       return type;
    }
 
    @JsonIgnore
-   public void setType(Type value) { 
+   public void setType(EType value) { 
       this.type = value;
    }
    

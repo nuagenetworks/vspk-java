@@ -50,344 +50,445 @@ public class VCenterCluster extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum AvrsProfile { AVRS_25G };
-   
-   public enum CpuCount { DEFAULT_2, LARGE_6, MEDIUM_4, XLARGE_8 };
-   
-   public enum DestinationMirrorPort { ens160, ens161, ens224, ens256, no_mirror };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum MemorySizeInGB { DEFAULT_4, LARGE_8, MEDIUM_6 };
-   
-   public enum Personality { VDF, VRS };
-   
-   public enum RemoteSyslogServerType { NONE, TCP, UDP };
+   public enum EAvrsProfile { AVRS_25G };
+   public enum ECpuCount { DEFAULT_2, LARGE_6, MEDIUM_4, XLARGE_8 };
+   public enum EDestinationMirrorPort { ens160, ens161, ens224, ens256, no_mirror };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EMemorySizeInGB { DEFAULT_4, LARGE_8, MEDIUM_6 };
+   public enum EPersonality { VDF, VRS };
+   public enum ERemoteSyslogServerType { NONE, TCP, UDP };
 
    
    @JsonProperty(value = "ARPReply")
+   
    protected Boolean ARPReply;
    
    @JsonProperty(value = "VRSConfigurationTimeLimit")
+   
    protected Long VRSConfigurationTimeLimit;
    
    @JsonProperty(value = "agencyMoid")
+   
    protected String agencyMoid;
    
    @JsonProperty(value = "allowDataDHCP")
+   
    protected Boolean allowDataDHCP;
    
    @JsonProperty(value = "allowMgmtDHCP")
+   
    protected Boolean allowMgmtDHCP;
    
    @JsonProperty(value = "assocVCenterDataCenterID")
+   
    protected String assocVCenterDataCenterID;
    
    @JsonProperty(value = "assocVCenterID")
+   
    protected String assocVCenterID;
    
    @JsonProperty(value = "avrsEnabled")
+   
    protected Boolean avrsEnabled;
    
    @JsonProperty(value = "avrsProfile")
-   protected AvrsProfile avrsProfile;
+   
+   protected EAvrsProfile avrsProfile;
    
    @JsonProperty(value = "configuredMetricsPushInterval")
+   
    protected Long configuredMetricsPushInterval;
    
    @JsonProperty(value = "cpuCount")
-   protected CpuCount cpuCount;
+   
+   protected ECpuCount cpuCount;
    
    @JsonProperty(value = "customizedScriptURL")
+   
    protected String customizedScriptURL;
    
    @JsonProperty(value = "dataDNS1")
+   
    protected String dataDNS1;
    
    @JsonProperty(value = "dataDNS2")
+   
    protected String dataDNS2;
    
    @JsonProperty(value = "dataGateway")
+   
    protected String dataGateway;
    
    @JsonProperty(value = "dataNetworkPortgroup")
+   
    protected String dataNetworkPortgroup;
    
    @JsonProperty(value = "datapathSyncTimeout")
+   
    protected Long datapathSyncTimeout;
    
    @JsonProperty(value = "deletedFromVCenterDataCenter")
+   
    protected Boolean deletedFromVCenterDataCenter;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "destinationMirrorPort")
-   protected DestinationMirrorPort destinationMirrorPort;
+   
+   protected EDestinationMirrorPort destinationMirrorPort;
    
    @JsonProperty(value = "dhcpRelayServer")
+   
    protected String dhcpRelayServer;
    
    @JsonProperty(value = "disableGROOnDatapath")
+   
    protected Boolean disableGROOnDatapath;
    
    @JsonProperty(value = "disableLROOnDatapath")
+   
    protected Boolean disableLROOnDatapath;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "enableVRSResourceReservation")
+   
    protected Boolean enableVRSResourceReservation;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "flowEvictionThreshold")
+   
    protected Long flowEvictionThreshold;
    
    @JsonProperty(value = "genericSplitActivation")
+   
    protected Boolean genericSplitActivation;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "manageVRSAvailability")
+   
    protected Boolean manageVRSAvailability;
    
    @JsonProperty(value = "managedObjectID")
+   
    protected String managedObjectID;
    
    @JsonProperty(value = "memorySizeInGB")
-   protected MemorySizeInGB memorySizeInGB;
+   
+   protected EMemorySizeInGB memorySizeInGB;
    
    @JsonProperty(value = "metadataServerIP")
+   
    protected String metadataServerIP;
    
    @JsonProperty(value = "metadataServerListenPort")
+   
    protected Long metadataServerListenPort;
    
    @JsonProperty(value = "metadataServerPort")
+   
    protected Long metadataServerPort;
    
    @JsonProperty(value = "metadataServiceEnabled")
+   
    protected Boolean metadataServiceEnabled;
    
    @JsonProperty(value = "mgmtDNS1")
+   
    protected String mgmtDNS1;
    
    @JsonProperty(value = "mgmtDNS2")
+   
    protected String mgmtDNS2;
    
    @JsonProperty(value = "mgmtGateway")
+   
    protected String mgmtGateway;
    
    @JsonProperty(value = "mgmtNetworkPortgroup")
+   
    protected String mgmtNetworkPortgroup;
    
    @JsonProperty(value = "mirrorNetworkPortgroup")
+   
    protected String mirrorNetworkPortgroup;
    
    @JsonProperty(value = "mtu")
+   
    protected Long mtu;
    
    @JsonProperty(value = "multiVMSsupport")
+   
    protected Boolean multiVMSsupport;
    
    @JsonProperty(value = "multicastReceiveInterface")
+   
    protected String multicastReceiveInterface;
    
    @JsonProperty(value = "multicastReceiveInterfaceIP")
+   
    protected String multicastReceiveInterfaceIP;
    
    @JsonProperty(value = "multicastReceiveInterfaceNetmask")
+   
    protected String multicastReceiveInterfaceNetmask;
    
    @JsonProperty(value = "multicastReceiveRange")
+   
    protected String multicastReceiveRange;
    
    @JsonProperty(value = "multicastSendInterface")
+   
    protected String multicastSendInterface;
    
    @JsonProperty(value = "multicastSendInterfaceIP")
+   
    protected String multicastSendInterfaceIP;
    
    @JsonProperty(value = "multicastSendInterfaceNetmask")
+   
    protected String multicastSendInterfaceNetmask;
    
    @JsonProperty(value = "multicastSourcePortgroup")
+   
    protected String multicastSourcePortgroup;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "networkUplinkInterface")
+   
    protected String networkUplinkInterface;
    
    @JsonProperty(value = "networkUplinkInterfaceGateway")
+   
    protected String networkUplinkInterfaceGateway;
    
    @JsonProperty(value = "networkUplinkInterfaceIp")
+   
    protected String networkUplinkInterfaceIp;
    
    @JsonProperty(value = "networkUplinkInterfaceNetmask")
+   
    protected String networkUplinkInterfaceNetmask;
    
    @JsonProperty(value = "nfsLogServer")
+   
    protected String nfsLogServer;
    
    @JsonProperty(value = "nfsMountPath")
+   
    protected String nfsMountPath;
    
    @JsonProperty(value = "novaClientVersion")
+   
    protected Long novaClientVersion;
    
    @JsonProperty(value = "novaIdentityURLVersion")
+   
    protected String novaIdentityURLVersion;
    
    @JsonProperty(value = "novaMetadataServiceAuthUrl")
+   
    protected String novaMetadataServiceAuthUrl;
    
    @JsonProperty(value = "novaMetadataServiceEndpoint")
+   
    protected String novaMetadataServiceEndpoint;
    
    @JsonProperty(value = "novaMetadataServicePassword")
+   
    protected String novaMetadataServicePassword;
    
    @JsonProperty(value = "novaMetadataServiceTenant")
+   
    protected String novaMetadataServiceTenant;
    
    @JsonProperty(value = "novaMetadataServiceUsername")
+   
    protected String novaMetadataServiceUsername;
    
    @JsonProperty(value = "novaMetadataSharedSecret")
+   
    protected String novaMetadataSharedSecret;
    
    @JsonProperty(value = "novaOSKeystoneUsername")
+   
    protected String novaOSKeystoneUsername;
    
    @JsonProperty(value = "novaProjectDomainName")
+   
    protected String novaProjectDomainName;
    
    @JsonProperty(value = "novaProjectName")
+   
    protected String novaProjectName;
    
    @JsonProperty(value = "novaRegionName")
+   
    protected String novaRegionName;
    
    @JsonProperty(value = "novaUserDomainName")
+   
    protected String novaUserDomainName;
    
    @JsonProperty(value = "ntpServer1")
+   
    protected String ntpServer1;
    
    @JsonProperty(value = "ntpServer2")
+   
    protected String ntpServer2;
    
    @JsonProperty(value = "ovfURL")
+   
    protected String ovfURL;
    
    @JsonProperty(value = "personality")
-   protected Personality personality;
+   
+   protected EPersonality personality;
    
    @JsonProperty(value = "portgroupMetadata")
+   
    protected Boolean portgroupMetadata;
    
    @JsonProperty(value = "primaryDataUplinkUnderlayID")
+   
    protected Long primaryDataUplinkUnderlayID;
    
    @JsonProperty(value = "primaryDataUplinkVDFControlVLAN")
+   
    protected Long primaryDataUplinkVDFControlVLAN;
    
    @JsonProperty(value = "primaryNuageController")
+   
    protected String primaryNuageController;
    
    @JsonProperty(value = "remoteSyslogServerIP")
+   
    protected String remoteSyslogServerIP;
    
    @JsonProperty(value = "remoteSyslogServerPort")
+   
    protected Long remoteSyslogServerPort;
    
    @JsonProperty(value = "remoteSyslogServerType")
-   protected RemoteSyslogServerType remoteSyslogServerType;
+   
+   protected ERemoteSyslogServerType remoteSyslogServerType;
    
    @JsonProperty(value = "revertiveControllerEnabled")
+   
    protected Boolean revertiveControllerEnabled;
    
    @JsonProperty(value = "revertiveTimer")
+   
    protected Long revertiveTimer;
    
    @JsonProperty(value = "scope")
+   
    protected Boolean scope;
    
    @JsonProperty(value = "secondaryDataUplinkDHCPEnabled")
+   
    protected Boolean secondaryDataUplinkDHCPEnabled;
    
    @JsonProperty(value = "secondaryDataUplinkEnabled")
+   
    protected Boolean secondaryDataUplinkEnabled;
    
    @JsonProperty(value = "secondaryDataUplinkInterface")
+   
    protected String secondaryDataUplinkInterface;
    
    @JsonProperty(value = "secondaryDataUplinkMTU")
+   
    protected Long secondaryDataUplinkMTU;
    
    @JsonProperty(value = "secondaryDataUplinkPrimaryController")
+   
    protected String secondaryDataUplinkPrimaryController;
    
    @JsonProperty(value = "secondaryDataUplinkSecondaryController")
+   
    protected String secondaryDataUplinkSecondaryController;
    
    @JsonProperty(value = "secondaryDataUplinkUnderlayID")
+   
    protected Long secondaryDataUplinkUnderlayID;
    
    @JsonProperty(value = "secondaryDataUplinkVDFControlVLAN")
+   
    protected Long secondaryDataUplinkVDFControlVLAN;
    
    @JsonProperty(value = "secondaryNuageController")
+   
    protected String secondaryNuageController;
    
    @JsonProperty(value = "separateDataNetwork")
+   
    protected Boolean separateDataNetwork;
    
    @JsonProperty(value = "siteId")
+   
    protected String siteId;
    
    @JsonProperty(value = "staticRoute")
+   
    protected String staticRoute;
    
    @JsonProperty(value = "staticRouteGateway")
+   
    protected String staticRouteGateway;
    
    @JsonProperty(value = "staticRouteNetmask")
+   
    protected String staticRouteNetmask;
    
    @JsonProperty(value = "upgradePackagePassword")
+   
    protected String upgradePackagePassword;
    
    @JsonProperty(value = "upgradePackageURL")
+   
    protected String upgradePackageURL;
    
    @JsonProperty(value = "upgradePackageUsername")
+   
    protected String upgradePackageUsername;
    
    @JsonProperty(value = "upgradeScriptTimeLimit")
+   
    protected Long upgradeScriptTimeLimit;
    
    @JsonProperty(value = "vRequireNuageMetadata")
+   
    protected Boolean vRequireNuageMetadata;
    
    @JsonProperty(value = "vmNetworkPortgroup")
+   
    protected String vmNetworkPortgroup;
    
    @JsonProperty(value = "vrsPassword")
+   
    protected String vrsPassword;
    
    @JsonProperty(value = "vrsUserName")
+   
    protected String vrsUserName;
    
 
@@ -433,6 +534,7 @@ public class VCenterCluster extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Boolean getARPReply() {
       return ARPReply;
@@ -442,6 +544,7 @@ public class VCenterCluster extends RestObject {
    public void setARPReply(Boolean value) { 
       this.ARPReply = value;
    }
+   
    
    @JsonIgnore
    public Long getVRSConfigurationTimeLimit() {
@@ -453,6 +556,7 @@ public class VCenterCluster extends RestObject {
       this.VRSConfigurationTimeLimit = value;
    }
    
+   
    @JsonIgnore
    public String getAgencyMoid() {
       return agencyMoid;
@@ -462,6 +566,7 @@ public class VCenterCluster extends RestObject {
    public void setAgencyMoid(String value) { 
       this.agencyMoid = value;
    }
+   
    
    @JsonIgnore
    public Boolean getAllowDataDHCP() {
@@ -473,6 +578,7 @@ public class VCenterCluster extends RestObject {
       this.allowDataDHCP = value;
    }
    
+   
    @JsonIgnore
    public Boolean getAllowMgmtDHCP() {
       return allowMgmtDHCP;
@@ -482,6 +588,7 @@ public class VCenterCluster extends RestObject {
    public void setAllowMgmtDHCP(Boolean value) { 
       this.allowMgmtDHCP = value;
    }
+   
    
    @JsonIgnore
    public String getAssocVCenterDataCenterID() {
@@ -493,6 +600,7 @@ public class VCenterCluster extends RestObject {
       this.assocVCenterDataCenterID = value;
    }
    
+   
    @JsonIgnore
    public String getAssocVCenterID() {
       return assocVCenterID;
@@ -502,6 +610,7 @@ public class VCenterCluster extends RestObject {
    public void setAssocVCenterID(String value) { 
       this.assocVCenterID = value;
    }
+   
    
    @JsonIgnore
    public Boolean getAvrsEnabled() {
@@ -513,15 +622,17 @@ public class VCenterCluster extends RestObject {
       this.avrsEnabled = value;
    }
    
+   
    @JsonIgnore
-   public AvrsProfile getAvrsProfile() {
+   public EAvrsProfile getAvrsProfile() {
       return avrsProfile;
    }
 
    @JsonIgnore
-   public void setAvrsProfile(AvrsProfile value) { 
+   public void setAvrsProfile(EAvrsProfile value) { 
       this.avrsProfile = value;
    }
+   
    
    @JsonIgnore
    public Long getConfiguredMetricsPushInterval() {
@@ -533,15 +644,17 @@ public class VCenterCluster extends RestObject {
       this.configuredMetricsPushInterval = value;
    }
    
+   
    @JsonIgnore
-   public CpuCount getCpuCount() {
+   public ECpuCount getCpuCount() {
       return cpuCount;
    }
 
    @JsonIgnore
-   public void setCpuCount(CpuCount value) { 
+   public void setCpuCount(ECpuCount value) { 
       this.cpuCount = value;
    }
+   
    
    @JsonIgnore
    public String getCustomizedScriptURL() {
@@ -553,6 +666,7 @@ public class VCenterCluster extends RestObject {
       this.customizedScriptURL = value;
    }
    
+   
    @JsonIgnore
    public String getDataDNS1() {
       return dataDNS1;
@@ -562,6 +676,7 @@ public class VCenterCluster extends RestObject {
    public void setDataDNS1(String value) { 
       this.dataDNS1 = value;
    }
+   
    
    @JsonIgnore
    public String getDataDNS2() {
@@ -573,6 +688,7 @@ public class VCenterCluster extends RestObject {
       this.dataDNS2 = value;
    }
    
+   
    @JsonIgnore
    public String getDataGateway() {
       return dataGateway;
@@ -582,6 +698,7 @@ public class VCenterCluster extends RestObject {
    public void setDataGateway(String value) { 
       this.dataGateway = value;
    }
+   
    
    @JsonIgnore
    public String getDataNetworkPortgroup() {
@@ -593,6 +710,7 @@ public class VCenterCluster extends RestObject {
       this.dataNetworkPortgroup = value;
    }
    
+   
    @JsonIgnore
    public Long getDatapathSyncTimeout() {
       return datapathSyncTimeout;
@@ -602,6 +720,7 @@ public class VCenterCluster extends RestObject {
    public void setDatapathSyncTimeout(Long value) { 
       this.datapathSyncTimeout = value;
    }
+   
    
    @JsonIgnore
    public Boolean getDeletedFromVCenterDataCenter() {
@@ -613,6 +732,7 @@ public class VCenterCluster extends RestObject {
       this.deletedFromVCenterDataCenter = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -623,15 +743,17 @@ public class VCenterCluster extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
-   public DestinationMirrorPort getDestinationMirrorPort() {
+   public EDestinationMirrorPort getDestinationMirrorPort() {
       return destinationMirrorPort;
    }
 
    @JsonIgnore
-   public void setDestinationMirrorPort(DestinationMirrorPort value) { 
+   public void setDestinationMirrorPort(EDestinationMirrorPort value) { 
       this.destinationMirrorPort = value;
    }
+   
    
    @JsonIgnore
    public String getDhcpRelayServer() {
@@ -643,6 +765,7 @@ public class VCenterCluster extends RestObject {
       this.dhcpRelayServer = value;
    }
    
+   
    @JsonIgnore
    public Boolean getDisableGROOnDatapath() {
       return disableGROOnDatapath;
@@ -652,6 +775,7 @@ public class VCenterCluster extends RestObject {
    public void setDisableGROOnDatapath(Boolean value) { 
       this.disableGROOnDatapath = value;
    }
+   
    
    @JsonIgnore
    public Boolean getDisableLROOnDatapath() {
@@ -663,6 +787,7 @@ public class VCenterCluster extends RestObject {
       this.disableLROOnDatapath = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -672,6 +797,7 @@ public class VCenterCluster extends RestObject {
    public void setEmbeddedMetadata(java.util.List<Metadata> value) { 
       this.embeddedMetadata = value;
    }
+   
    
    @JsonIgnore
    public Boolean getEnableVRSResourceReservation() {
@@ -683,15 +809,17 @@ public class VCenterCluster extends RestObject {
       this.enableVRSResourceReservation = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -703,6 +831,7 @@ public class VCenterCluster extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public Long getFlowEvictionThreshold() {
       return flowEvictionThreshold;
@@ -712,6 +841,7 @@ public class VCenterCluster extends RestObject {
    public void setFlowEvictionThreshold(Long value) { 
       this.flowEvictionThreshold = value;
    }
+   
    
    @JsonIgnore
    public Boolean getGenericSplitActivation() {
@@ -723,6 +853,7 @@ public class VCenterCluster extends RestObject {
       this.genericSplitActivation = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -732,6 +863,7 @@ public class VCenterCluster extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public Boolean getManageVRSAvailability() {
@@ -743,6 +875,7 @@ public class VCenterCluster extends RestObject {
       this.manageVRSAvailability = value;
    }
    
+   
    @JsonIgnore
    public String getManagedObjectID() {
       return managedObjectID;
@@ -753,15 +886,17 @@ public class VCenterCluster extends RestObject {
       this.managedObjectID = value;
    }
    
+   
    @JsonIgnore
-   public MemorySizeInGB getMemorySizeInGB() {
+   public EMemorySizeInGB getMemorySizeInGB() {
       return memorySizeInGB;
    }
 
    @JsonIgnore
-   public void setMemorySizeInGB(MemorySizeInGB value) { 
+   public void setMemorySizeInGB(EMemorySizeInGB value) { 
       this.memorySizeInGB = value;
    }
+   
    
    @JsonIgnore
    public String getMetadataServerIP() {
@@ -773,6 +908,7 @@ public class VCenterCluster extends RestObject {
       this.metadataServerIP = value;
    }
    
+   
    @JsonIgnore
    public Long getMetadataServerListenPort() {
       return metadataServerListenPort;
@@ -782,6 +918,7 @@ public class VCenterCluster extends RestObject {
    public void setMetadataServerListenPort(Long value) { 
       this.metadataServerListenPort = value;
    }
+   
    
    @JsonIgnore
    public Long getMetadataServerPort() {
@@ -793,6 +930,7 @@ public class VCenterCluster extends RestObject {
       this.metadataServerPort = value;
    }
    
+   
    @JsonIgnore
    public Boolean getMetadataServiceEnabled() {
       return metadataServiceEnabled;
@@ -802,6 +940,7 @@ public class VCenterCluster extends RestObject {
    public void setMetadataServiceEnabled(Boolean value) { 
       this.metadataServiceEnabled = value;
    }
+   
    
    @JsonIgnore
    public String getMgmtDNS1() {
@@ -813,6 +952,7 @@ public class VCenterCluster extends RestObject {
       this.mgmtDNS1 = value;
    }
    
+   
    @JsonIgnore
    public String getMgmtDNS2() {
       return mgmtDNS2;
@@ -822,6 +962,7 @@ public class VCenterCluster extends RestObject {
    public void setMgmtDNS2(String value) { 
       this.mgmtDNS2 = value;
    }
+   
    
    @JsonIgnore
    public String getMgmtGateway() {
@@ -833,6 +974,7 @@ public class VCenterCluster extends RestObject {
       this.mgmtGateway = value;
    }
    
+   
    @JsonIgnore
    public String getMgmtNetworkPortgroup() {
       return mgmtNetworkPortgroup;
@@ -842,6 +984,7 @@ public class VCenterCluster extends RestObject {
    public void setMgmtNetworkPortgroup(String value) { 
       this.mgmtNetworkPortgroup = value;
    }
+   
    
    @JsonIgnore
    public String getMirrorNetworkPortgroup() {
@@ -853,6 +996,7 @@ public class VCenterCluster extends RestObject {
       this.mirrorNetworkPortgroup = value;
    }
    
+   
    @JsonIgnore
    public Long getMtu() {
       return mtu;
@@ -862,6 +1006,7 @@ public class VCenterCluster extends RestObject {
    public void setMtu(Long value) { 
       this.mtu = value;
    }
+   
    
    @JsonIgnore
    public Boolean getMultiVMSsupport() {
@@ -873,6 +1018,7 @@ public class VCenterCluster extends RestObject {
       this.multiVMSsupport = value;
    }
    
+   
    @JsonIgnore
    public String getMulticastReceiveInterface() {
       return multicastReceiveInterface;
@@ -882,6 +1028,7 @@ public class VCenterCluster extends RestObject {
    public void setMulticastReceiveInterface(String value) { 
       this.multicastReceiveInterface = value;
    }
+   
    
    @JsonIgnore
    public String getMulticastReceiveInterfaceIP() {
@@ -893,6 +1040,7 @@ public class VCenterCluster extends RestObject {
       this.multicastReceiveInterfaceIP = value;
    }
    
+   
    @JsonIgnore
    public String getMulticastReceiveInterfaceNetmask() {
       return multicastReceiveInterfaceNetmask;
@@ -902,6 +1050,7 @@ public class VCenterCluster extends RestObject {
    public void setMulticastReceiveInterfaceNetmask(String value) { 
       this.multicastReceiveInterfaceNetmask = value;
    }
+   
    
    @JsonIgnore
    public String getMulticastReceiveRange() {
@@ -913,6 +1062,7 @@ public class VCenterCluster extends RestObject {
       this.multicastReceiveRange = value;
    }
    
+   
    @JsonIgnore
    public String getMulticastSendInterface() {
       return multicastSendInterface;
@@ -922,6 +1072,7 @@ public class VCenterCluster extends RestObject {
    public void setMulticastSendInterface(String value) { 
       this.multicastSendInterface = value;
    }
+   
    
    @JsonIgnore
    public String getMulticastSendInterfaceIP() {
@@ -933,6 +1084,7 @@ public class VCenterCluster extends RestObject {
       this.multicastSendInterfaceIP = value;
    }
    
+   
    @JsonIgnore
    public String getMulticastSendInterfaceNetmask() {
       return multicastSendInterfaceNetmask;
@@ -942,6 +1094,7 @@ public class VCenterCluster extends RestObject {
    public void setMulticastSendInterfaceNetmask(String value) { 
       this.multicastSendInterfaceNetmask = value;
    }
+   
    
    @JsonIgnore
    public String getMulticastSourcePortgroup() {
@@ -953,6 +1106,7 @@ public class VCenterCluster extends RestObject {
       this.multicastSourcePortgroup = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -962,6 +1116,7 @@ public class VCenterCluster extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public String getNetworkUplinkInterface() {
@@ -973,6 +1128,7 @@ public class VCenterCluster extends RestObject {
       this.networkUplinkInterface = value;
    }
    
+   
    @JsonIgnore
    public String getNetworkUplinkInterfaceGateway() {
       return networkUplinkInterfaceGateway;
@@ -982,6 +1138,7 @@ public class VCenterCluster extends RestObject {
    public void setNetworkUplinkInterfaceGateway(String value) { 
       this.networkUplinkInterfaceGateway = value;
    }
+   
    
    @JsonIgnore
    public String getNetworkUplinkInterfaceIp() {
@@ -993,6 +1150,7 @@ public class VCenterCluster extends RestObject {
       this.networkUplinkInterfaceIp = value;
    }
    
+   
    @JsonIgnore
    public String getNetworkUplinkInterfaceNetmask() {
       return networkUplinkInterfaceNetmask;
@@ -1002,6 +1160,7 @@ public class VCenterCluster extends RestObject {
    public void setNetworkUplinkInterfaceNetmask(String value) { 
       this.networkUplinkInterfaceNetmask = value;
    }
+   
    
    @JsonIgnore
    public String getNfsLogServer() {
@@ -1013,6 +1172,7 @@ public class VCenterCluster extends RestObject {
       this.nfsLogServer = value;
    }
    
+   
    @JsonIgnore
    public String getNfsMountPath() {
       return nfsMountPath;
@@ -1022,6 +1182,7 @@ public class VCenterCluster extends RestObject {
    public void setNfsMountPath(String value) { 
       this.nfsMountPath = value;
    }
+   
    
    @JsonIgnore
    public Long getNovaClientVersion() {
@@ -1033,6 +1194,7 @@ public class VCenterCluster extends RestObject {
       this.novaClientVersion = value;
    }
    
+   
    @JsonIgnore
    public String getNovaIdentityURLVersion() {
       return novaIdentityURLVersion;
@@ -1042,6 +1204,7 @@ public class VCenterCluster extends RestObject {
    public void setNovaIdentityURLVersion(String value) { 
       this.novaIdentityURLVersion = value;
    }
+   
    
    @JsonIgnore
    public String getNovaMetadataServiceAuthUrl() {
@@ -1053,6 +1216,7 @@ public class VCenterCluster extends RestObject {
       this.novaMetadataServiceAuthUrl = value;
    }
    
+   
    @JsonIgnore
    public String getNovaMetadataServiceEndpoint() {
       return novaMetadataServiceEndpoint;
@@ -1062,6 +1226,7 @@ public class VCenterCluster extends RestObject {
    public void setNovaMetadataServiceEndpoint(String value) { 
       this.novaMetadataServiceEndpoint = value;
    }
+   
    
    @JsonIgnore
    public String getNovaMetadataServicePassword() {
@@ -1073,6 +1238,7 @@ public class VCenterCluster extends RestObject {
       this.novaMetadataServicePassword = value;
    }
    
+   
    @JsonIgnore
    public String getNovaMetadataServiceTenant() {
       return novaMetadataServiceTenant;
@@ -1082,6 +1248,7 @@ public class VCenterCluster extends RestObject {
    public void setNovaMetadataServiceTenant(String value) { 
       this.novaMetadataServiceTenant = value;
    }
+   
    
    @JsonIgnore
    public String getNovaMetadataServiceUsername() {
@@ -1093,6 +1260,7 @@ public class VCenterCluster extends RestObject {
       this.novaMetadataServiceUsername = value;
    }
    
+   
    @JsonIgnore
    public String getNovaMetadataSharedSecret() {
       return novaMetadataSharedSecret;
@@ -1102,6 +1270,7 @@ public class VCenterCluster extends RestObject {
    public void setNovaMetadataSharedSecret(String value) { 
       this.novaMetadataSharedSecret = value;
    }
+   
    
    @JsonIgnore
    public String getNovaOSKeystoneUsername() {
@@ -1113,6 +1282,7 @@ public class VCenterCluster extends RestObject {
       this.novaOSKeystoneUsername = value;
    }
    
+   
    @JsonIgnore
    public String getNovaProjectDomainName() {
       return novaProjectDomainName;
@@ -1122,6 +1292,7 @@ public class VCenterCluster extends RestObject {
    public void setNovaProjectDomainName(String value) { 
       this.novaProjectDomainName = value;
    }
+   
    
    @JsonIgnore
    public String getNovaProjectName() {
@@ -1133,6 +1304,7 @@ public class VCenterCluster extends RestObject {
       this.novaProjectName = value;
    }
    
+   
    @JsonIgnore
    public String getNovaRegionName() {
       return novaRegionName;
@@ -1142,6 +1314,7 @@ public class VCenterCluster extends RestObject {
    public void setNovaRegionName(String value) { 
       this.novaRegionName = value;
    }
+   
    
    @JsonIgnore
    public String getNovaUserDomainName() {
@@ -1153,6 +1326,7 @@ public class VCenterCluster extends RestObject {
       this.novaUserDomainName = value;
    }
    
+   
    @JsonIgnore
    public String getNtpServer1() {
       return ntpServer1;
@@ -1162,6 +1336,7 @@ public class VCenterCluster extends RestObject {
    public void setNtpServer1(String value) { 
       this.ntpServer1 = value;
    }
+   
    
    @JsonIgnore
    public String getNtpServer2() {
@@ -1173,6 +1348,7 @@ public class VCenterCluster extends RestObject {
       this.ntpServer2 = value;
    }
    
+   
    @JsonIgnore
    public String getOvfURL() {
       return ovfURL;
@@ -1183,15 +1359,17 @@ public class VCenterCluster extends RestObject {
       this.ovfURL = value;
    }
    
+   
    @JsonIgnore
-   public Personality getPersonality() {
+   public EPersonality getPersonality() {
       return personality;
    }
 
    @JsonIgnore
-   public void setPersonality(Personality value) { 
+   public void setPersonality(EPersonality value) { 
       this.personality = value;
    }
+   
    
    @JsonIgnore
    public Boolean getPortgroupMetadata() {
@@ -1203,6 +1381,7 @@ public class VCenterCluster extends RestObject {
       this.portgroupMetadata = value;
    }
    
+   
    @JsonIgnore
    public Long getPrimaryDataUplinkUnderlayID() {
       return primaryDataUplinkUnderlayID;
@@ -1212,6 +1391,7 @@ public class VCenterCluster extends RestObject {
    public void setPrimaryDataUplinkUnderlayID(Long value) { 
       this.primaryDataUplinkUnderlayID = value;
    }
+   
    
    @JsonIgnore
    public Long getPrimaryDataUplinkVDFControlVLAN() {
@@ -1223,6 +1403,7 @@ public class VCenterCluster extends RestObject {
       this.primaryDataUplinkVDFControlVLAN = value;
    }
    
+   
    @JsonIgnore
    public String getPrimaryNuageController() {
       return primaryNuageController;
@@ -1232,6 +1413,7 @@ public class VCenterCluster extends RestObject {
    public void setPrimaryNuageController(String value) { 
       this.primaryNuageController = value;
    }
+   
    
    @JsonIgnore
    public String getRemoteSyslogServerIP() {
@@ -1243,6 +1425,7 @@ public class VCenterCluster extends RestObject {
       this.remoteSyslogServerIP = value;
    }
    
+   
    @JsonIgnore
    public Long getRemoteSyslogServerPort() {
       return remoteSyslogServerPort;
@@ -1253,15 +1436,17 @@ public class VCenterCluster extends RestObject {
       this.remoteSyslogServerPort = value;
    }
    
+   
    @JsonIgnore
-   public RemoteSyslogServerType getRemoteSyslogServerType() {
+   public ERemoteSyslogServerType getRemoteSyslogServerType() {
       return remoteSyslogServerType;
    }
 
    @JsonIgnore
-   public void setRemoteSyslogServerType(RemoteSyslogServerType value) { 
+   public void setRemoteSyslogServerType(ERemoteSyslogServerType value) { 
       this.remoteSyslogServerType = value;
    }
+   
    
    @JsonIgnore
    public Boolean getRevertiveControllerEnabled() {
@@ -1273,6 +1458,7 @@ public class VCenterCluster extends RestObject {
       this.revertiveControllerEnabled = value;
    }
    
+   
    @JsonIgnore
    public Long getRevertiveTimer() {
       return revertiveTimer;
@@ -1282,6 +1468,7 @@ public class VCenterCluster extends RestObject {
    public void setRevertiveTimer(Long value) { 
       this.revertiveTimer = value;
    }
+   
    
    @JsonIgnore
    public Boolean getScope() {
@@ -1293,6 +1480,7 @@ public class VCenterCluster extends RestObject {
       this.scope = value;
    }
    
+   
    @JsonIgnore
    public Boolean getSecondaryDataUplinkDHCPEnabled() {
       return secondaryDataUplinkDHCPEnabled;
@@ -1302,6 +1490,7 @@ public class VCenterCluster extends RestObject {
    public void setSecondaryDataUplinkDHCPEnabled(Boolean value) { 
       this.secondaryDataUplinkDHCPEnabled = value;
    }
+   
    
    @JsonIgnore
    public Boolean getSecondaryDataUplinkEnabled() {
@@ -1313,6 +1502,7 @@ public class VCenterCluster extends RestObject {
       this.secondaryDataUplinkEnabled = value;
    }
    
+   
    @JsonIgnore
    public String getSecondaryDataUplinkInterface() {
       return secondaryDataUplinkInterface;
@@ -1322,6 +1512,7 @@ public class VCenterCluster extends RestObject {
    public void setSecondaryDataUplinkInterface(String value) { 
       this.secondaryDataUplinkInterface = value;
    }
+   
    
    @JsonIgnore
    public Long getSecondaryDataUplinkMTU() {
@@ -1333,6 +1524,7 @@ public class VCenterCluster extends RestObject {
       this.secondaryDataUplinkMTU = value;
    }
    
+   
    @JsonIgnore
    public String getSecondaryDataUplinkPrimaryController() {
       return secondaryDataUplinkPrimaryController;
@@ -1342,6 +1534,7 @@ public class VCenterCluster extends RestObject {
    public void setSecondaryDataUplinkPrimaryController(String value) { 
       this.secondaryDataUplinkPrimaryController = value;
    }
+   
    
    @JsonIgnore
    public String getSecondaryDataUplinkSecondaryController() {
@@ -1353,6 +1546,7 @@ public class VCenterCluster extends RestObject {
       this.secondaryDataUplinkSecondaryController = value;
    }
    
+   
    @JsonIgnore
    public Long getSecondaryDataUplinkUnderlayID() {
       return secondaryDataUplinkUnderlayID;
@@ -1362,6 +1556,7 @@ public class VCenterCluster extends RestObject {
    public void setSecondaryDataUplinkUnderlayID(Long value) { 
       this.secondaryDataUplinkUnderlayID = value;
    }
+   
    
    @JsonIgnore
    public Long getSecondaryDataUplinkVDFControlVLAN() {
@@ -1373,6 +1568,7 @@ public class VCenterCluster extends RestObject {
       this.secondaryDataUplinkVDFControlVLAN = value;
    }
    
+   
    @JsonIgnore
    public String getSecondaryNuageController() {
       return secondaryNuageController;
@@ -1382,6 +1578,7 @@ public class VCenterCluster extends RestObject {
    public void setSecondaryNuageController(String value) { 
       this.secondaryNuageController = value;
    }
+   
    
    @JsonIgnore
    public Boolean getSeparateDataNetwork() {
@@ -1393,6 +1590,7 @@ public class VCenterCluster extends RestObject {
       this.separateDataNetwork = value;
    }
    
+   
    @JsonIgnore
    public String getSiteId() {
       return siteId;
@@ -1402,6 +1600,7 @@ public class VCenterCluster extends RestObject {
    public void setSiteId(String value) { 
       this.siteId = value;
    }
+   
    
    @JsonIgnore
    public String getStaticRoute() {
@@ -1413,6 +1612,7 @@ public class VCenterCluster extends RestObject {
       this.staticRoute = value;
    }
    
+   
    @JsonIgnore
    public String getStaticRouteGateway() {
       return staticRouteGateway;
@@ -1422,6 +1622,7 @@ public class VCenterCluster extends RestObject {
    public void setStaticRouteGateway(String value) { 
       this.staticRouteGateway = value;
    }
+   
    
    @JsonIgnore
    public String getStaticRouteNetmask() {
@@ -1433,6 +1634,7 @@ public class VCenterCluster extends RestObject {
       this.staticRouteNetmask = value;
    }
    
+   
    @JsonIgnore
    public String getUpgradePackagePassword() {
       return upgradePackagePassword;
@@ -1442,6 +1644,7 @@ public class VCenterCluster extends RestObject {
    public void setUpgradePackagePassword(String value) { 
       this.upgradePackagePassword = value;
    }
+   
    
    @JsonIgnore
    public String getUpgradePackageURL() {
@@ -1453,6 +1656,7 @@ public class VCenterCluster extends RestObject {
       this.upgradePackageURL = value;
    }
    
+   
    @JsonIgnore
    public String getUpgradePackageUsername() {
       return upgradePackageUsername;
@@ -1462,6 +1666,7 @@ public class VCenterCluster extends RestObject {
    public void setUpgradePackageUsername(String value) { 
       this.upgradePackageUsername = value;
    }
+   
    
    @JsonIgnore
    public Long getUpgradeScriptTimeLimit() {
@@ -1473,6 +1678,7 @@ public class VCenterCluster extends RestObject {
       this.upgradeScriptTimeLimit = value;
    }
    
+   
    @JsonIgnore
    public Boolean getVRequireNuageMetadata() {
       return vRequireNuageMetadata;
@@ -1482,6 +1688,7 @@ public class VCenterCluster extends RestObject {
    public void setVRequireNuageMetadata(Boolean value) { 
       this.vRequireNuageMetadata = value;
    }
+   
    
    @JsonIgnore
    public String getVmNetworkPortgroup() {
@@ -1493,6 +1700,7 @@ public class VCenterCluster extends RestObject {
       this.vmNetworkPortgroup = value;
    }
    
+   
    @JsonIgnore
    public String getVrsPassword() {
       return vrsPassword;
@@ -1502,6 +1710,7 @@ public class VCenterCluster extends RestObject {
    public void setVrsPassword(String value) { 
       this.vrsPassword = value;
    }
+   
    
    @JsonIgnore
    public String getVrsUserName() {

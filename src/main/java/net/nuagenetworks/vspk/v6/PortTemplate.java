@@ -46,41 +46,49 @@ public class PortTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum PortType { ACCESS, NETWORK, MANAGEMENT };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EPortType { ACCESS, NETWORK, MANAGEMENT };
 
    
    @JsonProperty(value = "VLANRange")
+   
    protected String VLANRange;
    
    @JsonProperty(value = "associatedEgressQOSPolicyID")
+   
    protected String associatedEgressQOSPolicyID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "physicalName")
+   
    protected String physicalName;
    
    @JsonProperty(value = "portType")
-   protected PortType portType;
+   
+   protected EPortType portType;
    
 
    
@@ -105,6 +113,7 @@ public class PortTemplate extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getVLANRange() {
       return VLANRange;
@@ -114,6 +123,7 @@ public class PortTemplate extends RestObject {
    public void setVLANRange(String value) { 
       this.VLANRange = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedEgressQOSPolicyID() {
@@ -125,6 +135,7 @@ public class PortTemplate extends RestObject {
       this.associatedEgressQOSPolicyID = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -134,6 +145,7 @@ public class PortTemplate extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -145,15 +157,17 @@ public class PortTemplate extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -165,6 +179,7 @@ public class PortTemplate extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -174,6 +189,7 @@ public class PortTemplate extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -185,6 +201,7 @@ public class PortTemplate extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public String getPhysicalName() {
       return physicalName;
@@ -195,13 +212,14 @@ public class PortTemplate extends RestObject {
       this.physicalName = value;
    }
    
+   
    @JsonIgnore
-   public PortType getPortType() {
+   public EPortType getPortType() {
       return portType;
    }
 
    @JsonIgnore
-   public void setPortType(PortType value) { 
+   public void setPortType(EPortType value) { 
       this.portType = value;
    }
    

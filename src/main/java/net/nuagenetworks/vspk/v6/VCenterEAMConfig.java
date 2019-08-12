@@ -45,38 +45,47 @@ public class VCenterEAMConfig extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "eamServerIP")
+   
    protected String eamServerIP;
    
    @JsonProperty(value = "eamServerPortNumber")
+   
    protected Long eamServerPortNumber;
    
    @JsonProperty(value = "eamServerPortType")
+   
    protected String eamServerPortType;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "extensionKey")
+   
    protected String extensionKey;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "ovfURL")
+   
    protected String ovfURL;
    
    @JsonProperty(value = "vibURL")
+   
    protected String vibURL;
    
 
@@ -97,6 +106,7 @@ public class VCenterEAMConfig extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getEamServerIP() {
       return eamServerIP;
@@ -106,6 +116,7 @@ public class VCenterEAMConfig extends RestObject {
    public void setEamServerIP(String value) { 
       this.eamServerIP = value;
    }
+   
    
    @JsonIgnore
    public Long getEamServerPortNumber() {
@@ -117,6 +128,7 @@ public class VCenterEAMConfig extends RestObject {
       this.eamServerPortNumber = value;
    }
    
+   
    @JsonIgnore
    public String getEamServerPortType() {
       return eamServerPortType;
@@ -126,6 +138,7 @@ public class VCenterEAMConfig extends RestObject {
    public void setEamServerPortType(String value) { 
       this.eamServerPortType = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -137,15 +150,17 @@ public class VCenterEAMConfig extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExtensionKey() {
@@ -157,6 +172,7 @@ public class VCenterEAMConfig extends RestObject {
       this.extensionKey = value;
    }
    
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -166,6 +182,7 @@ public class VCenterEAMConfig extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -177,6 +194,7 @@ public class VCenterEAMConfig extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getOvfURL() {
       return ovfURL;
@@ -186,6 +204,7 @@ public class VCenterEAMConfig extends RestObject {
    public void setOvfURL(String value) { 
       this.ovfURL = value;
    }
+   
    
    @JsonIgnore
    public String getVibURL() {

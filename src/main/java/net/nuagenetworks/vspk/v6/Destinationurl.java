@@ -45,43 +45,52 @@ public class Destinationurl extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum HTTPMethod { GET, HEAD };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EHTTPMethod { GET, HEAD };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "HTTPMethod")
-   protected HTTPMethod HTTPMethod;
+   
+   protected EHTTPMethod HTTPMethod;
    
    @JsonProperty(value = "URL")
+   
    protected String URL;
    
    @JsonProperty(value = "downThresholdCount")
+   
    protected Long downThresholdCount;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "packetCount")
+   
    protected Long packetCount;
    
    @JsonProperty(value = "percentageWeight")
+   
    protected Long percentageWeight;
    
    @JsonProperty(value = "probeInterval")
+   
    protected Long probeInterval;
    
    @JsonProperty(value = "timeout")
+   
    protected Long timeout;
    
 
@@ -102,15 +111,17 @@ public class Destinationurl extends RestObject {
    }
 
    
+   
    @JsonIgnore
-   public HTTPMethod getHTTPMethod() {
+   public EHTTPMethod getHTTPMethod() {
       return HTTPMethod;
    }
 
    @JsonIgnore
-   public void setHTTPMethod(HTTPMethod value) { 
+   public void setHTTPMethod(EHTTPMethod value) { 
       this.HTTPMethod = value;
    }
+   
    
    @JsonIgnore
    public String getURL() {
@@ -122,6 +133,7 @@ public class Destinationurl extends RestObject {
       this.URL = value;
    }
    
+   
    @JsonIgnore
    public Long getDownThresholdCount() {
       return downThresholdCount;
@@ -131,6 +143,7 @@ public class Destinationurl extends RestObject {
    public void setDownThresholdCount(Long value) { 
       this.downThresholdCount = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -142,15 +155,17 @@ public class Destinationurl extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -162,6 +177,7 @@ public class Destinationurl extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -171,6 +187,7 @@ public class Destinationurl extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public Long getPacketCount() {
@@ -182,6 +199,7 @@ public class Destinationurl extends RestObject {
       this.packetCount = value;
    }
    
+   
    @JsonIgnore
    public Long getPercentageWeight() {
       return percentageWeight;
@@ -192,6 +210,7 @@ public class Destinationurl extends RestObject {
       this.percentageWeight = value;
    }
    
+   
    @JsonIgnore
    public Long getProbeInterval() {
       return probeInterval;
@@ -201,6 +220,7 @@ public class Destinationurl extends RestObject {
    public void setProbeInterval(Long value) { 
       this.probeInterval = value;
    }
+   
    
    @JsonIgnore
    public Long getTimeout() {

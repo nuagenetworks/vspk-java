@@ -46,49 +46,58 @@ public class NSPortTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum PortType { ACCESS, NETWORK };
-   
-   public enum Speed { AUTONEGOTIATE, BASET10, BASET1000, BASETX100, BASEX10G };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EPortType { ACCESS, NETWORK };
+   public enum ESpeed { AUTONEGOTIATE, BASET10, BASET1000, BASETX100, BASEX10G };
 
    
    @JsonProperty(value = "VLANRange")
+   
    protected String VLANRange;
    
    @JsonProperty(value = "associatedEgressQOSPolicyID")
+   
    protected String associatedEgressQOSPolicyID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "mtu")
+   
    protected Long mtu;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "physicalName")
+   
    protected String physicalName;
    
    @JsonProperty(value = "portType")
-   protected PortType portType;
+   
+   protected EPortType portType;
    
    @JsonProperty(value = "speed")
-   protected Speed speed;
+   
+   protected ESpeed speed;
    
 
    
@@ -113,6 +122,7 @@ public class NSPortTemplate extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getVLANRange() {
       return VLANRange;
@@ -122,6 +132,7 @@ public class NSPortTemplate extends RestObject {
    public void setVLANRange(String value) { 
       this.VLANRange = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedEgressQOSPolicyID() {
@@ -133,6 +144,7 @@ public class NSPortTemplate extends RestObject {
       this.associatedEgressQOSPolicyID = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -142,6 +154,7 @@ public class NSPortTemplate extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -153,15 +166,17 @@ public class NSPortTemplate extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -173,6 +188,7 @@ public class NSPortTemplate extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -182,6 +198,7 @@ public class NSPortTemplate extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public Long getMtu() {
@@ -193,6 +210,7 @@ public class NSPortTemplate extends RestObject {
       this.mtu = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -202,6 +220,7 @@ public class NSPortTemplate extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public String getPhysicalName() {
@@ -213,23 +232,25 @@ public class NSPortTemplate extends RestObject {
       this.physicalName = value;
    }
    
+   
    @JsonIgnore
-   public PortType getPortType() {
+   public EPortType getPortType() {
       return portType;
    }
 
    @JsonIgnore
-   public void setPortType(PortType value) { 
+   public void setPortType(EPortType value) { 
       this.portType = value;
    }
    
+   
    @JsonIgnore
-   public Speed getSpeed() {
+   public ESpeed getSpeed() {
       return speed;
    }
 
    @JsonIgnore
-   public void setSpeed(Speed value) { 
+   public void setSpeed(ESpeed value) { 
       this.speed = value;
    }
    

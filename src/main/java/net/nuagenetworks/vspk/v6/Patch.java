@@ -45,44 +45,55 @@ public class Patch extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "patchBuildNumber")
+   
    protected Long patchBuildNumber;
    
    @JsonProperty(value = "patchSummary")
+   
    protected String patchSummary;
    
    @JsonProperty(value = "patchTag")
+   
    protected String patchTag;
    
    @JsonProperty(value = "patchVersion")
+   
    protected String patchVersion;
    
    @JsonProperty(value = "supportsDeletion")
+   
    protected Boolean supportsDeletion;
    
    @JsonProperty(value = "supportsNetworkAcceleration")
+   
    protected Boolean supportsNetworkAcceleration;
    
 
@@ -103,6 +114,7 @@ public class Patch extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -112,6 +124,7 @@ public class Patch extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -123,15 +136,17 @@ public class Patch extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -143,6 +158,7 @@ public class Patch extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -152,6 +168,7 @@ public class Patch extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -163,6 +180,7 @@ public class Patch extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public Long getPatchBuildNumber() {
       return patchBuildNumber;
@@ -172,6 +190,7 @@ public class Patch extends RestObject {
    public void setPatchBuildNumber(Long value) { 
       this.patchBuildNumber = value;
    }
+   
    
    @JsonIgnore
    public String getPatchSummary() {
@@ -183,6 +202,7 @@ public class Patch extends RestObject {
       this.patchSummary = value;
    }
    
+   
    @JsonIgnore
    public String getPatchTag() {
       return patchTag;
@@ -192,6 +212,7 @@ public class Patch extends RestObject {
    public void setPatchTag(String value) { 
       this.patchTag = value;
    }
+   
    
    @JsonIgnore
    public String getPatchVersion() {
@@ -203,6 +224,7 @@ public class Patch extends RestObject {
       this.patchVersion = value;
    }
    
+   
    @JsonIgnore
    public Boolean getSupportsDeletion() {
       return supportsDeletion;
@@ -212,6 +234,7 @@ public class Patch extends RestObject {
    public void setSupportsDeletion(Boolean value) { 
       this.supportsDeletion = value;
    }
+   
    
    @JsonIgnore
    public Boolean getSupportsNetworkAcceleration() {

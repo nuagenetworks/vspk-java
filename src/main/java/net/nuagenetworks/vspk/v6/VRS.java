@@ -57,153 +57,192 @@ public class VRS extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum HypervisorConnectionState { ADMIN_DOWN, DOWN, UP };
-   
-   public enum LicensedState { LICENSED, UNLICENSED };
-   
-   public enum Personality { HARDWARE_VTEP, NONE, NSG, NSGBR, NSGDUC, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, VRS, VRSB, VRSG };
-   
-   public enum Role { MASTER, NONE, SLAVE };
-   
-   public enum Status { ADMIN_DOWN, DOWN, UP };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EHypervisorConnectionState { ADMIN_DOWN, DOWN, UP };
+   public enum ELicensedState { LICENSED, UNLICENSED };
+   public enum EPersonality { HARDWARE_VTEP, NONE, NSG, NSGBR, NSGDUC, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, VRS, VRSB, VRSG };
+   public enum ERole { MASTER, NONE, SLAVE };
+   public enum EStatus { ADMIN_DOWN, DOWN, UP };
 
    
    @JsonProperty(value = "address")
+   
    protected String address;
    
    @JsonProperty(value = "averageCPUUsage")
+   
    protected Float averageCPUUsage;
    
    @JsonProperty(value = "averageMemoryUsage")
+   
    protected Float averageMemoryUsage;
    
    @JsonProperty(value = "currentCPUUsage")
+   
    protected Float currentCPUUsage;
    
    @JsonProperty(value = "currentMemoryUsage")
+   
    protected Float currentMemoryUsage;
    
    @JsonProperty(value = "dbSynced")
+   
    protected Boolean dbSynced;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "disks")
+   
    protected java.util.List<DiskStat> disks;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "gatewayUUID")
+   
    protected String gatewayUUID;
    
    @JsonProperty(value = "hypervisorConnectionState")
-   protected HypervisorConnectionState hypervisorConnectionState;
+   
+   protected EHypervisorConnectionState hypervisorConnectionState;
    
    @JsonProperty(value = "hypervisorIdentifier")
+   
    protected String hypervisorIdentifier;
    
    @JsonProperty(value = "hypervisorName")
+   
    protected String hypervisorName;
    
    @JsonProperty(value = "hypervisorType")
+   
    protected String hypervisorType;
    
    @JsonProperty(value = "isResilient")
+   
    protected Boolean isResilient;
    
    @JsonProperty(value = "lastEventName")
+   
    protected String lastEventName;
    
    @JsonProperty(value = "lastEventObject")
+   
    protected String lastEventObject;
    
    @JsonProperty(value = "lastEventTimestamp")
+   
    protected Long lastEventTimestamp;
    
    @JsonProperty(value = "lastStateChange")
+   
    protected Long lastStateChange;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "licensedState")
-   protected LicensedState licensedState;
+   
+   protected ELicensedState licensedState;
    
    @JsonProperty(value = "location")
+   
    protected String location;
    
    @JsonProperty(value = "managementIP")
+   
    protected String managementIP;
    
    @JsonProperty(value = "messages")
+   
    protected java.util.List<String> messages;
    
    @JsonProperty(value = "multiNICVPortEnabled")
+   
    protected Boolean multiNICVPortEnabled;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "numberOfBridgeInterfaces")
+   
    protected Long numberOfBridgeInterfaces;
    
    @JsonProperty(value = "numberOfContainers")
+   
    protected Long numberOfContainers;
    
    @JsonProperty(value = "numberOfHostInterfaces")
+   
    protected Long numberOfHostInterfaces;
    
    @JsonProperty(value = "numberOfVirtualMachines")
+   
    protected Long numberOfVirtualMachines;
    
    @JsonProperty(value = "parentIDs")
+   
    protected java.util.List<String> parentIDs;
    
    @JsonProperty(value = "peakCPUUsage")
+   
    protected Float peakCPUUsage;
    
    @JsonProperty(value = "peakMemoryUsage")
+   
    protected Float peakMemoryUsage;
    
    @JsonProperty(value = "personality")
-   protected Personality personality;
+   
+   protected EPersonality personality;
    
    @JsonProperty(value = "primaryVSCConnectionLost")
+   
    protected Boolean primaryVSCConnectionLost;
    
    @JsonProperty(value = "productVersion")
+   
    protected String productVersion;
    
    @JsonProperty(value = "revertBehaviorEnabled")
+   
    protected Boolean revertBehaviorEnabled;
    
    @JsonProperty(value = "revertCompleted")
+   
    protected Boolean revertCompleted;
    
    @JsonProperty(value = "revertCount")
+   
    protected Long revertCount;
    
    @JsonProperty(value = "revertFailedCount")
+   
    protected Long revertFailedCount;
    
    @JsonProperty(value = "role")
-   protected Role role;
+   
+   protected ERole role;
    
    @JsonProperty(value = "status")
-   protected Status status;
+   
+   protected EStatus status;
    
    @JsonProperty(value = "uptime")
+   
    protected Long uptime;
    
 
@@ -284,6 +323,7 @@ public class VRS extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAddress() {
       return address;
@@ -293,6 +333,7 @@ public class VRS extends RestObject {
    public void setAddress(String value) { 
       this.address = value;
    }
+   
    
    @JsonIgnore
    public Float getAverageCPUUsage() {
@@ -304,6 +345,7 @@ public class VRS extends RestObject {
       this.averageCPUUsage = value;
    }
    
+   
    @JsonIgnore
    public Float getAverageMemoryUsage() {
       return averageMemoryUsage;
@@ -313,6 +355,7 @@ public class VRS extends RestObject {
    public void setAverageMemoryUsage(Float value) { 
       this.averageMemoryUsage = value;
    }
+   
    
    @JsonIgnore
    public Float getCurrentCPUUsage() {
@@ -324,6 +367,7 @@ public class VRS extends RestObject {
       this.currentCPUUsage = value;
    }
    
+   
    @JsonIgnore
    public Float getCurrentMemoryUsage() {
       return currentMemoryUsage;
@@ -333,6 +377,7 @@ public class VRS extends RestObject {
    public void setCurrentMemoryUsage(Float value) { 
       this.currentMemoryUsage = value;
    }
+   
    
    @JsonIgnore
    public Boolean getDbSynced() {
@@ -344,6 +389,7 @@ public class VRS extends RestObject {
       this.dbSynced = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -353,6 +399,7 @@ public class VRS extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<DiskStat> getDisks() {
@@ -364,6 +411,7 @@ public class VRS extends RestObject {
       this.disks = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -374,15 +422,17 @@ public class VRS extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -394,6 +444,7 @@ public class VRS extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getGatewayUUID() {
       return gatewayUUID;
@@ -404,15 +455,17 @@ public class VRS extends RestObject {
       this.gatewayUUID = value;
    }
    
+   
    @JsonIgnore
-   public HypervisorConnectionState getHypervisorConnectionState() {
+   public EHypervisorConnectionState getHypervisorConnectionState() {
       return hypervisorConnectionState;
    }
 
    @JsonIgnore
-   public void setHypervisorConnectionState(HypervisorConnectionState value) { 
+   public void setHypervisorConnectionState(EHypervisorConnectionState value) { 
       this.hypervisorConnectionState = value;
    }
+   
    
    @JsonIgnore
    public String getHypervisorIdentifier() {
@@ -424,6 +477,7 @@ public class VRS extends RestObject {
       this.hypervisorIdentifier = value;
    }
    
+   
    @JsonIgnore
    public String getHypervisorName() {
       return hypervisorName;
@@ -433,6 +487,7 @@ public class VRS extends RestObject {
    public void setHypervisorName(String value) { 
       this.hypervisorName = value;
    }
+   
    
    @JsonIgnore
    public String getHypervisorType() {
@@ -444,6 +499,7 @@ public class VRS extends RestObject {
       this.hypervisorType = value;
    }
    
+   
    @JsonIgnore
    public Boolean getIsResilient() {
       return isResilient;
@@ -453,6 +509,7 @@ public class VRS extends RestObject {
    public void setIsResilient(Boolean value) { 
       this.isResilient = value;
    }
+   
    
    @JsonIgnore
    public String getLastEventName() {
@@ -464,6 +521,7 @@ public class VRS extends RestObject {
       this.lastEventName = value;
    }
    
+   
    @JsonIgnore
    public String getLastEventObject() {
       return lastEventObject;
@@ -473,6 +531,7 @@ public class VRS extends RestObject {
    public void setLastEventObject(String value) { 
       this.lastEventObject = value;
    }
+   
    
    @JsonIgnore
    public Long getLastEventTimestamp() {
@@ -484,6 +543,7 @@ public class VRS extends RestObject {
       this.lastEventTimestamp = value;
    }
    
+   
    @JsonIgnore
    public Long getLastStateChange() {
       return lastStateChange;
@@ -493,6 +553,7 @@ public class VRS extends RestObject {
    public void setLastStateChange(Long value) { 
       this.lastStateChange = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -504,15 +565,17 @@ public class VRS extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
-   public LicensedState getLicensedState() {
+   public ELicensedState getLicensedState() {
       return licensedState;
    }
 
    @JsonIgnore
-   public void setLicensedState(LicensedState value) { 
+   public void setLicensedState(ELicensedState value) { 
       this.licensedState = value;
    }
+   
    
    @JsonIgnore
    public String getLocation() {
@@ -524,6 +587,7 @@ public class VRS extends RestObject {
       this.location = value;
    }
    
+   
    @JsonIgnore
    public String getManagementIP() {
       return managementIP;
@@ -533,6 +597,7 @@ public class VRS extends RestObject {
    public void setManagementIP(String value) { 
       this.managementIP = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<String> getMessages() {
@@ -544,6 +609,7 @@ public class VRS extends RestObject {
       this.messages = value;
    }
    
+   
    @JsonIgnore
    public Boolean getMultiNICVPortEnabled() {
       return multiNICVPortEnabled;
@@ -553,6 +619,7 @@ public class VRS extends RestObject {
    public void setMultiNICVPortEnabled(Boolean value) { 
       this.multiNICVPortEnabled = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -564,6 +631,7 @@ public class VRS extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public Long getNumberOfBridgeInterfaces() {
       return numberOfBridgeInterfaces;
@@ -573,6 +641,7 @@ public class VRS extends RestObject {
    public void setNumberOfBridgeInterfaces(Long value) { 
       this.numberOfBridgeInterfaces = value;
    }
+   
    
    @JsonIgnore
    public Long getNumberOfContainers() {
@@ -584,6 +653,7 @@ public class VRS extends RestObject {
       this.numberOfContainers = value;
    }
    
+   
    @JsonIgnore
    public Long getNumberOfHostInterfaces() {
       return numberOfHostInterfaces;
@@ -593,6 +663,7 @@ public class VRS extends RestObject {
    public void setNumberOfHostInterfaces(Long value) { 
       this.numberOfHostInterfaces = value;
    }
+   
    
    @JsonIgnore
    public Long getNumberOfVirtualMachines() {
@@ -604,6 +675,7 @@ public class VRS extends RestObject {
       this.numberOfVirtualMachines = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<String> getParentIDs() {
       return parentIDs;
@@ -613,6 +685,7 @@ public class VRS extends RestObject {
    public void setParentIDs(java.util.List<String> value) { 
       this.parentIDs = value;
    }
+   
    
    @JsonIgnore
    public Float getPeakCPUUsage() {
@@ -624,6 +697,7 @@ public class VRS extends RestObject {
       this.peakCPUUsage = value;
    }
    
+   
    @JsonIgnore
    public Float getPeakMemoryUsage() {
       return peakMemoryUsage;
@@ -634,15 +708,17 @@ public class VRS extends RestObject {
       this.peakMemoryUsage = value;
    }
    
+   
    @JsonIgnore
-   public Personality getPersonality() {
+   public EPersonality getPersonality() {
       return personality;
    }
 
    @JsonIgnore
-   public void setPersonality(Personality value) { 
+   public void setPersonality(EPersonality value) { 
       this.personality = value;
    }
+   
    
    @JsonIgnore
    public Boolean getPrimaryVSCConnectionLost() {
@@ -654,6 +730,7 @@ public class VRS extends RestObject {
       this.primaryVSCConnectionLost = value;
    }
    
+   
    @JsonIgnore
    public String getProductVersion() {
       return productVersion;
@@ -663,6 +740,7 @@ public class VRS extends RestObject {
    public void setProductVersion(String value) { 
       this.productVersion = value;
    }
+   
    
    @JsonIgnore
    public Boolean getRevertBehaviorEnabled() {
@@ -674,6 +752,7 @@ public class VRS extends RestObject {
       this.revertBehaviorEnabled = value;
    }
    
+   
    @JsonIgnore
    public Boolean getRevertCompleted() {
       return revertCompleted;
@@ -683,6 +762,7 @@ public class VRS extends RestObject {
    public void setRevertCompleted(Boolean value) { 
       this.revertCompleted = value;
    }
+   
    
    @JsonIgnore
    public Long getRevertCount() {
@@ -694,6 +774,7 @@ public class VRS extends RestObject {
       this.revertCount = value;
    }
    
+   
    @JsonIgnore
    public Long getRevertFailedCount() {
       return revertFailedCount;
@@ -704,25 +785,28 @@ public class VRS extends RestObject {
       this.revertFailedCount = value;
    }
    
+   
    @JsonIgnore
-   public Role getRole() {
+   public ERole getRole() {
       return role;
    }
 
    @JsonIgnore
-   public void setRole(Role value) { 
+   public void setRole(ERole value) { 
       this.role = value;
    }
    
+   
    @JsonIgnore
-   public Status getStatus() {
+   public EStatus getStatus() {
       return status;
    }
 
    @JsonIgnore
-   public void setStatus(Status value) { 
+   public void setStatus(EStatus value) { 
       this.status = value;
    }
+   
    
    @JsonIgnore
    public Long getUptime() {

@@ -67,227 +67,272 @@ public class NSGateway extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum SSHService { DISABLED, ENABLED, INHERITED };
-   
-   public enum TPMStatus { DISABLED, ENABLED_NOT_OPERATIONAL, ENABLED_OPERATIONAL, UNKNOWN };
-   
-   public enum ZFBMatchAttribute { HOSTNAME, IP_ADDRESS, MAC_ADDRESS, NONE, NSGATEWAY_ID, SERIAL_NUMBER, UUID };
-   
-   public enum BootstrapStatus { ACTIVE, CERTIFICATE_SIGNED, INACTIVE, NOTIFICATION_APP_REQ_ACK, NOTIFICATION_APP_REQ_SENT };
-   
-   public enum ConfigurationReloadState { APPLIED, FAILED_TO_APPLY, PENDING, SENT, UNKNOWN };
-   
-   public enum ConfigurationStatus { FAILURE, SUCCESS, UNKNOWN };
-   
-   public enum ConfigureLoadBalancing { DISABLED, INHERITED };
-   
-   public enum DerivedSSHServiceState { INHERITED_DISABLED, INHERITED_ENABLED, INSTANCE_DISABLED, INSTANCE_ENABLED, UNKNOWN };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Family { ANY, NSG_AMI, NSG_AZ, NSG_C, NSG_E, NSG_E200, NSG_E300, NSG_V, NSG_X, NSG_X200 };
-   
-   public enum Functions { GATEWAY, HUB, UBR };
-   
-   public enum InheritedSSHServiceState { DISABLED, ENABLED };
-   
-   public enum NetworkAcceleration { NONE, PERFORMANCE, SESSION_OPTIMIZED, VNF_AWARE };
-   
-   public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
-   
-   public enum Personality { NSG, NSGBR, NSGDUC };
-   
-   public enum SyslogLevel { ALERT, CRITICAL, EMERGENCY, ERROR, INFO, NOTICE, WARNING };
-   
-   public enum TunnelShaping { DISABLED, ENABLED };
+   public enum ESSHService { DISABLED, ENABLED, INHERITED };
+   public enum ETPMStatus { DISABLED, ENABLED_NOT_OPERATIONAL, ENABLED_OPERATIONAL, UNKNOWN };
+   public enum EZFBMatchAttribute { HOSTNAME, IP_ADDRESS, MAC_ADDRESS, NONE, NSGATEWAY_ID, SERIAL_NUMBER, UUID };
+   public enum EBootstrapStatus { ACTIVE, CERTIFICATE_SIGNED, INACTIVE, NOTIFICATION_APP_REQ_ACK, NOTIFICATION_APP_REQ_SENT };
+   public enum EConfigurationReloadState { APPLIED, FAILED_TO_APPLY, PENDING, SENT, UNKNOWN };
+   public enum EConfigurationStatus { FAILURE, SUCCESS, UNKNOWN };
+   public enum EConfigureLoadBalancing { DISABLED, INHERITED };
+   public enum EDerivedSSHServiceState { INHERITED_DISABLED, INHERITED_ENABLED, INSTANCE_DISABLED, INSTANCE_ENABLED, UNKNOWN };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EFamily { ANY, NSG_AMI, NSG_AZ, NSG_C, NSG_E, NSG_E200, NSG_E300, NSG_V, NSG_X, NSG_X200 };
+   public enum EFunctions { GATEWAY, HUB, UBR };
+   public enum EInheritedSSHServiceState { DISABLED, ENABLED };
+   public enum ENetworkAcceleration { NONE, PERFORMANCE, SESSION_OPTIMIZED, VNF_AWARE };
+   public enum EPermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
+   public enum EPersonality { NSG, NSGBR, NSGDUC };
+   public enum ESyslogLevel { ALERT, CRITICAL, EMERGENCY, ERROR, INFO, NOTICE, WARNING };
+   public enum ETunnelShaping { DISABLED, ENABLED };
 
    
    @JsonProperty(value = "AARApplicationReleaseDate")
+   
    protected String AARApplicationReleaseDate;
    
    @JsonProperty(value = "AARApplicationVersion")
+   
    protected String AARApplicationVersion;
    
    @JsonProperty(value = "BIOSReleaseDate")
+   
    protected String BIOSReleaseDate;
    
    @JsonProperty(value = "BIOSVersion")
+   
    protected String BIOSVersion;
    
    @JsonProperty(value = "CPUType")
+   
    protected String CPUType;
    
    @JsonProperty(value = "MACAddress")
+   
    protected String MACAddress;
    
    @JsonProperty(value = "NATTraversalEnabled")
+   
    protected Boolean NATTraversalEnabled;
    
    @JsonProperty(value = "NSGVersion")
+   
    protected String NSGVersion;
    
    @JsonProperty(value = "SKU")
+   
    protected String SKU;
    
    @JsonProperty(value = "SSHService")
-   protected SSHService SSHService;
+   
+   protected ESSHService SSHService;
    
    @JsonProperty(value = "TCPMSSEnabled")
+   
    protected Boolean TCPMSSEnabled;
    
    @JsonProperty(value = "TCPMaximumSegmentSize")
+   
    protected Long TCPMaximumSegmentSize;
    
    @JsonProperty(value = "TPMStatus")
-   protected TPMStatus TPMStatus;
+   
+   protected ETPMStatus TPMStatus;
    
    @JsonProperty(value = "TPMVersion")
+   
    protected String TPMVersion;
    
    @JsonProperty(value = "UUID")
+   
    protected String UUID;
    
    @JsonProperty(value = "VSDAARApplicationVersion")
+   
    protected String VSDAARApplicationVersion;
    
    @JsonProperty(value = "ZFBMatchAttribute")
-   protected ZFBMatchAttribute ZFBMatchAttribute;
+   
+   protected EZFBMatchAttribute ZFBMatchAttribute;
    
    @JsonProperty(value = "ZFBMatchValue")
+   
    protected String ZFBMatchValue;
    
    @JsonProperty(value = "associatedGatewaySecurityID")
+   
    protected String associatedGatewaySecurityID;
    
    @JsonProperty(value = "associatedGatewaySecurityProfileID")
+   
    protected String associatedGatewaySecurityProfileID;
    
    @JsonProperty(value = "associatedNSGInfoID")
+   
    protected String associatedNSGInfoID;
    
    @JsonProperty(value = "associatedNSGUpgradeProfileID")
+   
    protected String associatedNSGUpgradeProfileID;
    
    @JsonProperty(value = "associatedOverlayManagementProfileID")
+   
    protected String associatedOverlayManagementProfileID;
    
    @JsonProperty(value = "autoDiscGatewayID")
+   
    protected String autoDiscGatewayID;
    
    @JsonProperty(value = "bootstrapID")
+   
    protected String bootstrapID;
    
    @JsonProperty(value = "bootstrapStatus")
-   protected BootstrapStatus bootstrapStatus;
+   
+   protected EBootstrapStatus bootstrapStatus;
    
    @JsonProperty(value = "configurationReloadState")
-   protected ConfigurationReloadState configurationReloadState;
+   
+   protected EConfigurationReloadState configurationReloadState;
    
    @JsonProperty(value = "configurationStatus")
-   protected ConfigurationStatus configurationStatus;
+   
+   protected EConfigurationStatus configurationStatus;
    
    @JsonProperty(value = "configureLoadBalancing")
-   protected ConfigureLoadBalancing configureLoadBalancing;
+   
+   protected EConfigureLoadBalancing configureLoadBalancing;
    
    @JsonProperty(value = "controlTrafficCOSValue")
+   
    protected Long controlTrafficCOSValue;
    
    @JsonProperty(value = "controlTrafficDSCPValue")
+   
    protected Long controlTrafficDSCPValue;
    
    @JsonProperty(value = "datapathID")
+   
    protected String datapathID;
    
    @JsonProperty(value = "derivedSSHServiceState")
-   protected DerivedSSHServiceState derivedSSHServiceState;
+   
+   protected EDerivedSSHServiceState derivedSSHServiceState;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "enterpriseID")
+   
    protected String enterpriseID;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "family")
-   protected Family family;
+   
+   protected EFamily family;
    
    @JsonProperty(value = "functions")
-   protected java.util.List<Functions> functions;
+   
+   protected java.util.List<EFunctions> functions;
    
    @JsonProperty(value = "gatewayConfigRawVersion")
+   
    protected String gatewayConfigRawVersion;
    
    @JsonProperty(value = "gatewayConfigVersion")
+   
    protected String gatewayConfigVersion;
    
    @JsonProperty(value = "gatewayConnected")
+   
    protected Boolean gatewayConnected;
    
    @JsonProperty(value = "inheritedSSHServiceState")
-   protected InheritedSSHServiceState inheritedSSHServiceState;
+   
+   protected EInheritedSSHServiceState inheritedSSHServiceState;
    
    @JsonProperty(value = "lastConfigurationReloadTimestamp")
+   
    protected Long lastConfigurationReloadTimestamp;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "libraries")
+   
    protected String libraries;
    
    @JsonProperty(value = "locationID")
+   
    protected String locationID;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "networkAcceleration")
-   protected NetworkAcceleration networkAcceleration;
+   
+   protected ENetworkAcceleration networkAcceleration;
    
    @JsonProperty(value = "operationMode")
+   
    protected String operationMode;
    
    @JsonProperty(value = "operationStatus")
+   
    protected String operationStatus;
    
    @JsonProperty(value = "pending")
+   
    protected Boolean pending;
    
    @JsonProperty(value = "permittedAction")
-   protected PermittedAction permittedAction;
+   
+   protected EPermittedAction permittedAction;
    
    @JsonProperty(value = "personality")
-   protected Personality personality;
+   
+   protected EPersonality personality;
    
    @JsonProperty(value = "productName")
+   
    protected String productName;
    
    @JsonProperty(value = "redundancyGroupID")
+   
    protected String redundancyGroupID;
    
    @JsonProperty(value = "serialNumber")
+   
    protected String serialNumber;
    
    @JsonProperty(value = "syslogLevel")
-   protected SyslogLevel syslogLevel;
+   
+   protected ESyslogLevel syslogLevel;
    
    @JsonProperty(value = "systemID")
+   
    protected String systemID;
    
    @JsonProperty(value = "templateID")
+   
    protected String templateID;
    
    @JsonProperty(value = "tunnelShaping")
-   protected TunnelShaping tunnelShaping;
+   
+   protected ETunnelShaping tunnelShaping;
    
 
    
@@ -417,6 +462,7 @@ public class NSGateway extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAARApplicationReleaseDate() {
       return AARApplicationReleaseDate;
@@ -426,6 +472,7 @@ public class NSGateway extends RestObject {
    public void setAARApplicationReleaseDate(String value) { 
       this.AARApplicationReleaseDate = value;
    }
+   
    
    @JsonIgnore
    public String getAARApplicationVersion() {
@@ -437,6 +484,7 @@ public class NSGateway extends RestObject {
       this.AARApplicationVersion = value;
    }
    
+   
    @JsonIgnore
    public String getBIOSReleaseDate() {
       return BIOSReleaseDate;
@@ -446,6 +494,7 @@ public class NSGateway extends RestObject {
    public void setBIOSReleaseDate(String value) { 
       this.BIOSReleaseDate = value;
    }
+   
    
    @JsonIgnore
    public String getBIOSVersion() {
@@ -457,6 +506,7 @@ public class NSGateway extends RestObject {
       this.BIOSVersion = value;
    }
    
+   
    @JsonIgnore
    public String getCPUType() {
       return CPUType;
@@ -466,6 +516,7 @@ public class NSGateway extends RestObject {
    public void setCPUType(String value) { 
       this.CPUType = value;
    }
+   
    
    @JsonIgnore
    public String getMACAddress() {
@@ -477,6 +528,7 @@ public class NSGateway extends RestObject {
       this.MACAddress = value;
    }
    
+   
    @JsonIgnore
    public Boolean getNATTraversalEnabled() {
       return NATTraversalEnabled;
@@ -486,6 +538,7 @@ public class NSGateway extends RestObject {
    public void setNATTraversalEnabled(Boolean value) { 
       this.NATTraversalEnabled = value;
    }
+   
    
    @JsonIgnore
    public String getNSGVersion() {
@@ -497,6 +550,7 @@ public class NSGateway extends RestObject {
       this.NSGVersion = value;
    }
    
+   
    @JsonIgnore
    public String getSKU() {
       return SKU;
@@ -507,15 +561,17 @@ public class NSGateway extends RestObject {
       this.SKU = value;
    }
    
+   
    @JsonIgnore
-   public SSHService getSSHService() {
+   public ESSHService getSSHService() {
       return SSHService;
    }
 
    @JsonIgnore
-   public void setSSHService(SSHService value) { 
+   public void setSSHService(ESSHService value) { 
       this.SSHService = value;
    }
+   
    
    @JsonIgnore
    public Boolean getTCPMSSEnabled() {
@@ -527,6 +583,7 @@ public class NSGateway extends RestObject {
       this.TCPMSSEnabled = value;
    }
    
+   
    @JsonIgnore
    public Long getTCPMaximumSegmentSize() {
       return TCPMaximumSegmentSize;
@@ -537,15 +594,17 @@ public class NSGateway extends RestObject {
       this.TCPMaximumSegmentSize = value;
    }
    
+   
    @JsonIgnore
-   public TPMStatus getTPMStatus() {
+   public ETPMStatus getTPMStatus() {
       return TPMStatus;
    }
 
    @JsonIgnore
-   public void setTPMStatus(TPMStatus value) { 
+   public void setTPMStatus(ETPMStatus value) { 
       this.TPMStatus = value;
    }
+   
    
    @JsonIgnore
    public String getTPMVersion() {
@@ -557,6 +616,7 @@ public class NSGateway extends RestObject {
       this.TPMVersion = value;
    }
    
+   
    @JsonIgnore
    public String getUUID() {
       return UUID;
@@ -566,6 +626,7 @@ public class NSGateway extends RestObject {
    public void setUUID(String value) { 
       this.UUID = value;
    }
+   
    
    @JsonIgnore
    public String getVSDAARApplicationVersion() {
@@ -577,15 +638,17 @@ public class NSGateway extends RestObject {
       this.VSDAARApplicationVersion = value;
    }
    
+   
    @JsonIgnore
-   public ZFBMatchAttribute getZFBMatchAttribute() {
+   public EZFBMatchAttribute getZFBMatchAttribute() {
       return ZFBMatchAttribute;
    }
 
    @JsonIgnore
-   public void setZFBMatchAttribute(ZFBMatchAttribute value) { 
+   public void setZFBMatchAttribute(EZFBMatchAttribute value) { 
       this.ZFBMatchAttribute = value;
    }
+   
    
    @JsonIgnore
    public String getZFBMatchValue() {
@@ -597,6 +660,7 @@ public class NSGateway extends RestObject {
       this.ZFBMatchValue = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedGatewaySecurityID() {
       return associatedGatewaySecurityID;
@@ -606,6 +670,7 @@ public class NSGateway extends RestObject {
    public void setAssociatedGatewaySecurityID(String value) { 
       this.associatedGatewaySecurityID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedGatewaySecurityProfileID() {
@@ -617,6 +682,7 @@ public class NSGateway extends RestObject {
       this.associatedGatewaySecurityProfileID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedNSGInfoID() {
       return associatedNSGInfoID;
@@ -626,6 +692,7 @@ public class NSGateway extends RestObject {
    public void setAssociatedNSGInfoID(String value) { 
       this.associatedNSGInfoID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedNSGUpgradeProfileID() {
@@ -637,6 +704,7 @@ public class NSGateway extends RestObject {
       this.associatedNSGUpgradeProfileID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedOverlayManagementProfileID() {
       return associatedOverlayManagementProfileID;
@@ -646,6 +714,7 @@ public class NSGateway extends RestObject {
    public void setAssociatedOverlayManagementProfileID(String value) { 
       this.associatedOverlayManagementProfileID = value;
    }
+   
    
    @JsonIgnore
    public String getAutoDiscGatewayID() {
@@ -657,6 +726,7 @@ public class NSGateway extends RestObject {
       this.autoDiscGatewayID = value;
    }
    
+   
    @JsonIgnore
    public String getBootstrapID() {
       return bootstrapID;
@@ -667,45 +737,50 @@ public class NSGateway extends RestObject {
       this.bootstrapID = value;
    }
    
+   
    @JsonIgnore
-   public BootstrapStatus getBootstrapStatus() {
+   public EBootstrapStatus getBootstrapStatus() {
       return bootstrapStatus;
    }
 
    @JsonIgnore
-   public void setBootstrapStatus(BootstrapStatus value) { 
+   public void setBootstrapStatus(EBootstrapStatus value) { 
       this.bootstrapStatus = value;
    }
    
+   
    @JsonIgnore
-   public ConfigurationReloadState getConfigurationReloadState() {
+   public EConfigurationReloadState getConfigurationReloadState() {
       return configurationReloadState;
    }
 
    @JsonIgnore
-   public void setConfigurationReloadState(ConfigurationReloadState value) { 
+   public void setConfigurationReloadState(EConfigurationReloadState value) { 
       this.configurationReloadState = value;
    }
    
+   
    @JsonIgnore
-   public ConfigurationStatus getConfigurationStatus() {
+   public EConfigurationStatus getConfigurationStatus() {
       return configurationStatus;
    }
 
    @JsonIgnore
-   public void setConfigurationStatus(ConfigurationStatus value) { 
+   public void setConfigurationStatus(EConfigurationStatus value) { 
       this.configurationStatus = value;
    }
    
+   
    @JsonIgnore
-   public ConfigureLoadBalancing getConfigureLoadBalancing() {
+   public EConfigureLoadBalancing getConfigureLoadBalancing() {
       return configureLoadBalancing;
    }
 
    @JsonIgnore
-   public void setConfigureLoadBalancing(ConfigureLoadBalancing value) { 
+   public void setConfigureLoadBalancing(EConfigureLoadBalancing value) { 
       this.configureLoadBalancing = value;
    }
+   
    
    @JsonIgnore
    public Long getControlTrafficCOSValue() {
@@ -717,6 +792,7 @@ public class NSGateway extends RestObject {
       this.controlTrafficCOSValue = value;
    }
    
+   
    @JsonIgnore
    public Long getControlTrafficDSCPValue() {
       return controlTrafficDSCPValue;
@@ -726,6 +802,7 @@ public class NSGateway extends RestObject {
    public void setControlTrafficDSCPValue(Long value) { 
       this.controlTrafficDSCPValue = value;
    }
+   
    
    @JsonIgnore
    public String getDatapathID() {
@@ -737,15 +814,17 @@ public class NSGateway extends RestObject {
       this.datapathID = value;
    }
    
+   
    @JsonIgnore
-   public DerivedSSHServiceState getDerivedSSHServiceState() {
+   public EDerivedSSHServiceState getDerivedSSHServiceState() {
       return derivedSSHServiceState;
    }
 
    @JsonIgnore
-   public void setDerivedSSHServiceState(DerivedSSHServiceState value) { 
+   public void setDerivedSSHServiceState(EDerivedSSHServiceState value) { 
       this.derivedSSHServiceState = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -757,6 +836,7 @@ public class NSGateway extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -766,6 +846,7 @@ public class NSGateway extends RestObject {
    public void setEmbeddedMetadata(java.util.List<Metadata> value) { 
       this.embeddedMetadata = value;
    }
+   
    
    @JsonIgnore
    public String getEnterpriseID() {
@@ -777,15 +858,17 @@ public class NSGateway extends RestObject {
       this.enterpriseID = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -797,25 +880,28 @@ public class NSGateway extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
-   public Family getFamily() {
+   public EFamily getFamily() {
       return family;
    }
 
    @JsonIgnore
-   public void setFamily(Family value) { 
+   public void setFamily(EFamily value) { 
       this.family = value;
    }
    
+   
    @JsonIgnore
-   public java.util.List<Functions> getFunctions() {
+   public java.util.List<EFunctions> getFunctions() {
       return functions;
    }
 
    @JsonIgnore
-   public void setFunctions(java.util.List<Functions> value) { 
+   public void setFunctions(java.util.List<EFunctions> value) { 
       this.functions = value;
    }
+   
    
    @JsonIgnore
    public String getGatewayConfigRawVersion() {
@@ -827,6 +913,7 @@ public class NSGateway extends RestObject {
       this.gatewayConfigRawVersion = value;
    }
    
+   
    @JsonIgnore
    public String getGatewayConfigVersion() {
       return gatewayConfigVersion;
@@ -836,6 +923,7 @@ public class NSGateway extends RestObject {
    public void setGatewayConfigVersion(String value) { 
       this.gatewayConfigVersion = value;
    }
+   
    
    @JsonIgnore
    public Boolean getGatewayConnected() {
@@ -847,15 +935,17 @@ public class NSGateway extends RestObject {
       this.gatewayConnected = value;
    }
    
+   
    @JsonIgnore
-   public InheritedSSHServiceState getInheritedSSHServiceState() {
+   public EInheritedSSHServiceState getInheritedSSHServiceState() {
       return inheritedSSHServiceState;
    }
 
    @JsonIgnore
-   public void setInheritedSSHServiceState(InheritedSSHServiceState value) { 
+   public void setInheritedSSHServiceState(EInheritedSSHServiceState value) { 
       this.inheritedSSHServiceState = value;
    }
+   
    
    @JsonIgnore
    public Long getLastConfigurationReloadTimestamp() {
@@ -867,6 +957,7 @@ public class NSGateway extends RestObject {
       this.lastConfigurationReloadTimestamp = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -876,6 +967,7 @@ public class NSGateway extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getLibraries() {
@@ -887,6 +979,7 @@ public class NSGateway extends RestObject {
       this.libraries = value;
    }
    
+   
    @JsonIgnore
    public String getLocationID() {
       return locationID;
@@ -896,6 +989,7 @@ public class NSGateway extends RestObject {
    public void setLocationID(String value) { 
       this.locationID = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -907,15 +1001,17 @@ public class NSGateway extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
-   public NetworkAcceleration getNetworkAcceleration() {
+   public ENetworkAcceleration getNetworkAcceleration() {
       return networkAcceleration;
    }
 
    @JsonIgnore
-   public void setNetworkAcceleration(NetworkAcceleration value) { 
+   public void setNetworkAcceleration(ENetworkAcceleration value) { 
       this.networkAcceleration = value;
    }
+   
    
    @JsonIgnore
    public String getOperationMode() {
@@ -927,6 +1023,7 @@ public class NSGateway extends RestObject {
       this.operationMode = value;
    }
    
+   
    @JsonIgnore
    public String getOperationStatus() {
       return operationStatus;
@@ -936,6 +1033,7 @@ public class NSGateway extends RestObject {
    public void setOperationStatus(String value) { 
       this.operationStatus = value;
    }
+   
    
    @JsonIgnore
    public Boolean getPending() {
@@ -947,25 +1045,28 @@ public class NSGateway extends RestObject {
       this.pending = value;
    }
    
+   
    @JsonIgnore
-   public PermittedAction getPermittedAction() {
+   public EPermittedAction getPermittedAction() {
       return permittedAction;
    }
 
    @JsonIgnore
-   public void setPermittedAction(PermittedAction value) { 
+   public void setPermittedAction(EPermittedAction value) { 
       this.permittedAction = value;
    }
    
+   
    @JsonIgnore
-   public Personality getPersonality() {
+   public EPersonality getPersonality() {
       return personality;
    }
 
    @JsonIgnore
-   public void setPersonality(Personality value) { 
+   public void setPersonality(EPersonality value) { 
       this.personality = value;
    }
+   
    
    @JsonIgnore
    public String getProductName() {
@@ -977,6 +1078,7 @@ public class NSGateway extends RestObject {
       this.productName = value;
    }
    
+   
    @JsonIgnore
    public String getRedundancyGroupID() {
       return redundancyGroupID;
@@ -986,6 +1088,7 @@ public class NSGateway extends RestObject {
    public void setRedundancyGroupID(String value) { 
       this.redundancyGroupID = value;
    }
+   
    
    @JsonIgnore
    public String getSerialNumber() {
@@ -997,15 +1100,17 @@ public class NSGateway extends RestObject {
       this.serialNumber = value;
    }
    
+   
    @JsonIgnore
-   public SyslogLevel getSyslogLevel() {
+   public ESyslogLevel getSyslogLevel() {
       return syslogLevel;
    }
 
    @JsonIgnore
-   public void setSyslogLevel(SyslogLevel value) { 
+   public void setSyslogLevel(ESyslogLevel value) { 
       this.syslogLevel = value;
    }
+   
    
    @JsonIgnore
    public String getSystemID() {
@@ -1017,6 +1122,7 @@ public class NSGateway extends RestObject {
       this.systemID = value;
    }
    
+   
    @JsonIgnore
    public String getTemplateID() {
       return templateID;
@@ -1027,13 +1133,14 @@ public class NSGateway extends RestObject {
       this.templateID = value;
    }
    
+   
    @JsonIgnore
-   public TunnelShaping getTunnelShaping() {
+   public ETunnelShaping getTunnelShaping() {
       return tunnelShaping;
    }
 
    @JsonIgnore
-   public void setTunnelShaping(TunnelShaping value) { 
+   public void setTunnelShaping(ETunnelShaping value) { 
       this.tunnelShaping = value;
    }
    

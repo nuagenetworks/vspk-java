@@ -45,34 +45,40 @@ public class SSHKey extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum KeyType { RSA };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EKeyType { RSA };
 
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "keyType")
-   protected KeyType keyType;
+   
+   protected EKeyType keyType;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "publicKey")
+   
    protected String publicKey;
    
 
@@ -93,6 +99,7 @@ public class SSHKey extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -102,6 +109,7 @@ public class SSHKey extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -113,15 +121,17 @@ public class SSHKey extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -133,15 +143,17 @@ public class SSHKey extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
-   public KeyType getKeyType() {
+   public EKeyType getKeyType() {
       return keyType;
    }
 
    @JsonIgnore
-   public void setKeyType(KeyType value) { 
+   public void setKeyType(EKeyType value) { 
       this.keyType = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -153,6 +165,7 @@ public class SSHKey extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -162,6 +175,7 @@ public class SSHKey extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public String getPublicKey() {

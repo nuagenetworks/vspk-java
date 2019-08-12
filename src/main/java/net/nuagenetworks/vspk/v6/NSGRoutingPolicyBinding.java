@@ -45,40 +45,48 @@ public class NSGRoutingPolicyBinding extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum ExportToOverlay { DISABLED, ENABLED, INHERITED };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EExportToOverlay { DISABLED, ENABLED, INHERITED };
 
    
    @JsonProperty(value = "associatedExportRoutingPolicyID")
+   
    protected String associatedExportRoutingPolicyID;
    
    @JsonProperty(value = "associatedImportRoutingPolicyID")
+   
    protected String associatedImportRoutingPolicyID;
    
    @JsonProperty(value = "associatedPolicyObjectGroupID")
+   
    protected String associatedPolicyObjectGroupID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "exportToOverlay")
-   protected ExportToOverlay exportToOverlay;
+   
+   protected EExportToOverlay exportToOverlay;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
 
@@ -99,6 +107,7 @@ public class NSGRoutingPolicyBinding extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAssociatedExportRoutingPolicyID() {
       return associatedExportRoutingPolicyID;
@@ -108,6 +117,7 @@ public class NSGRoutingPolicyBinding extends RestObject {
    public void setAssociatedExportRoutingPolicyID(String value) { 
       this.associatedExportRoutingPolicyID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedImportRoutingPolicyID() {
@@ -119,6 +129,7 @@ public class NSGRoutingPolicyBinding extends RestObject {
       this.associatedImportRoutingPolicyID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedPolicyObjectGroupID() {
       return associatedPolicyObjectGroupID;
@@ -128,6 +139,7 @@ public class NSGRoutingPolicyBinding extends RestObject {
    public void setAssociatedPolicyObjectGroupID(String value) { 
       this.associatedPolicyObjectGroupID = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -139,6 +151,7 @@ public class NSGRoutingPolicyBinding extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -149,25 +162,28 @@ public class NSGRoutingPolicyBinding extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
    
+   
    @JsonIgnore
-   public ExportToOverlay getExportToOverlay() {
+   public EExportToOverlay getExportToOverlay() {
       return exportToOverlay;
    }
 
    @JsonIgnore
-   public void setExportToOverlay(ExportToOverlay value) { 
+   public void setExportToOverlay(EExportToOverlay value) { 
       this.exportToOverlay = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -179,6 +195,7 @@ public class NSGRoutingPolicyBinding extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -188,6 +205,7 @@ public class NSGRoutingPolicyBinding extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {

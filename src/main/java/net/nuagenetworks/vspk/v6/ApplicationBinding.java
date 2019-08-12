@@ -45,29 +45,35 @@ public class ApplicationBinding extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "associatedApplicationID")
+   
    protected String associatedApplicationID;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "priority")
+   
    protected Long priority;
    
    @JsonProperty(value = "readOnly")
+   
    protected Boolean readOnly;
    
 
@@ -88,6 +94,7 @@ public class ApplicationBinding extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAssociatedApplicationID() {
       return associatedApplicationID;
@@ -97,6 +104,7 @@ public class ApplicationBinding extends RestObject {
    public void setAssociatedApplicationID(String value) { 
       this.associatedApplicationID = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -108,15 +116,17 @@ public class ApplicationBinding extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -128,6 +138,7 @@ public class ApplicationBinding extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -138,6 +149,7 @@ public class ApplicationBinding extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public Long getPriority() {
       return priority;
@@ -147,6 +159,7 @@ public class ApplicationBinding extends RestObject {
    public void setPriority(Long value) { 
       this.priority = value;
    }
+   
    
    @JsonIgnore
    public Boolean getReadOnly() {

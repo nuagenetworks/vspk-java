@@ -43,26 +43,31 @@ public class PGExpressionTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "expression")
+   
    protected String expression;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
 
@@ -72,6 +77,7 @@ public class PGExpressionTemplate extends RestObject {
       
    }
 
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -83,15 +89,17 @@ public class PGExpressionTemplate extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExpression() {
@@ -103,6 +111,7 @@ public class PGExpressionTemplate extends RestObject {
       this.expression = value;
    }
    
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -113,6 +122,7 @@ public class PGExpressionTemplate extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -122,6 +132,7 @@ public class PGExpressionTemplate extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {

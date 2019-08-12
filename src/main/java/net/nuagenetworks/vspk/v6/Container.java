@@ -50,101 +50,126 @@ public class Container extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum DeleteMode { TIMER };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum ReasonType { BLOCKED_LAST, BLOCKED_UNKNOWN, CRASHED_LAST, CRASHED_UNKNOWN, NOSTATE_LAST, NOSTATE_UNKNOWN, PAUSED_DUMP, PAUSED_FROM_SNAPSHOT, PAUSED_IOERROR, PAUSED_LAST, PAUSED_MIGRATION, PAUSED_SAVE, PAUSED_SHUTTING_DOWN, PAUSED_UNKNOWN, PAUSED_USER, PAUSED_WATCHDOG, RUNNING_BOOTED, RUNNING_FROM_SNAPSHOT, RUNNING_LAST, RUNNING_MIGRATED, RUNNING_MIGRATION_CANCELED, RUNNING_RESTORED, RUNNING_SAVE_CANCELED, RUNNING_UNKNOWN, RUNNING_UNPAUSED, SHUTDOWN_LAST, SHUTDOWN_UNKNOWN, SHUTDOWN_USER, SHUTOFF_CRASHED, SHUTOFF_DESTROYED, SHUTOFF_FAILED, SHUTOFF_FROM_SNAPSHOT, SHUTOFF_LAST, SHUTOFF_MIGRATED, SHUTOFF_SAVED, SHUTOFF_SHUTDOWN, SHUTOFF_UNKNOWN, UNKNOWN };
-   
-   public enum Status { BLOCKED, CRASHED, DELETE_PENDING, INIT, LAST, NOSTATE, PAUSED, RUNNING, SHUTDOWN, SHUTOFF, UNKNOWN, UNREACHABLE };
+   public enum EDeleteMode { TIMER };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EReasonType { BLOCKED_LAST, BLOCKED_UNKNOWN, CRASHED_LAST, CRASHED_UNKNOWN, NOSTATE_LAST, NOSTATE_UNKNOWN, PAUSED_DUMP, PAUSED_FROM_SNAPSHOT, PAUSED_IOERROR, PAUSED_LAST, PAUSED_MIGRATION, PAUSED_SAVE, PAUSED_SHUTTING_DOWN, PAUSED_UNKNOWN, PAUSED_USER, PAUSED_WATCHDOG, RUNNING_BOOTED, RUNNING_FROM_SNAPSHOT, RUNNING_LAST, RUNNING_MIGRATED, RUNNING_MIGRATION_CANCELED, RUNNING_RESTORED, RUNNING_SAVE_CANCELED, RUNNING_UNKNOWN, RUNNING_UNPAUSED, SHUTDOWN_LAST, SHUTDOWN_UNKNOWN, SHUTDOWN_USER, SHUTOFF_CRASHED, SHUTOFF_DESTROYED, SHUTOFF_FAILED, SHUTOFF_FROM_SNAPSHOT, SHUTOFF_LAST, SHUTOFF_MIGRATED, SHUTOFF_SAVED, SHUTOFF_SHUTDOWN, SHUTOFF_UNKNOWN, UNKNOWN };
+   public enum EStatus { BLOCKED, CRASHED, DELETE_PENDING, INIT, LAST, NOSTATE, PAUSED, RUNNING, SHUTDOWN, SHUTOFF, UNKNOWN, UNREACHABLE };
 
    
    @JsonProperty(value = "UUID")
+   
    protected String UUID;
    
    @JsonProperty(value = "VRSID")
+   
    protected String VRSID;
    
    @JsonProperty(value = "computeProvisioned")
+   
    protected Boolean computeProvisioned;
    
    @JsonProperty(value = "deleteExpiry")
+   
    protected Long deleteExpiry;
    
    @JsonProperty(value = "deleteMode")
-   protected DeleteMode deleteMode;
+   
+   protected EDeleteMode deleteMode;
    
    @JsonProperty(value = "domainIDs")
+   
    protected java.util.List<String> domainIDs;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "enterpriseID")
+   
    protected String enterpriseID;
    
    @JsonProperty(value = "enterpriseName")
+   
    protected String enterpriseName;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "hypervisorIP")
+   
    protected String hypervisorIP;
    
    @JsonProperty(value = "imageID")
+   
    protected String imageID;
    
    @JsonProperty(value = "imageName")
+   
    protected String imageName;
    
    @JsonProperty(value = "interfaces")
+   
    protected java.util.List<com.fasterxml.jackson.databind.JsonNode> interfaces;
    
    @JsonProperty(value = "l2DomainIDs")
+   
    protected java.util.List<String> l2DomainIDs;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "orchestrationID")
+   
    protected String orchestrationID;
    
    @JsonProperty(value = "reasonType")
-   protected ReasonType reasonType;
+   
+   protected EReasonType reasonType;
    
    @JsonProperty(value = "resyncInfo")
+   
    protected Object resyncInfo;
    
    @JsonProperty(value = "siteIdentifier")
+   
    protected String siteIdentifier;
    
    @JsonProperty(value = "status")
-   protected Status status;
+   
+   protected EStatus status;
    
    @JsonProperty(value = "subnetIDs")
+   
    protected java.util.List<String> subnetIDs;
    
    @JsonProperty(value = "userID")
+   
    protected String userID;
    
    @JsonProperty(value = "userName")
+   
    protected String userName;
    
    @JsonProperty(value = "vrsRawVersion")
+   
    protected String vrsRawVersion;
    
    @JsonProperty(value = "vrsVersion")
+   
    protected String vrsVersion;
    
    @JsonProperty(value = "zoneIDs")
+   
    protected java.util.List<String> zoneIDs;
    
 
@@ -190,6 +215,7 @@ public class Container extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getUUID() {
       return UUID;
@@ -199,6 +225,7 @@ public class Container extends RestObject {
    public void setUUID(String value) { 
       this.UUID = value;
    }
+   
    
    @JsonIgnore
    public String getVRSID() {
@@ -210,6 +237,7 @@ public class Container extends RestObject {
       this.VRSID = value;
    }
    
+   
    @JsonIgnore
    public Boolean getComputeProvisioned() {
       return computeProvisioned;
@@ -219,6 +247,7 @@ public class Container extends RestObject {
    public void setComputeProvisioned(Boolean value) { 
       this.computeProvisioned = value;
    }
+   
    
    @JsonIgnore
    public Long getDeleteExpiry() {
@@ -230,15 +259,17 @@ public class Container extends RestObject {
       this.deleteExpiry = value;
    }
    
+   
    @JsonIgnore
-   public DeleteMode getDeleteMode() {
+   public EDeleteMode getDeleteMode() {
       return deleteMode;
    }
 
    @JsonIgnore
-   public void setDeleteMode(DeleteMode value) { 
+   public void setDeleteMode(EDeleteMode value) { 
       this.deleteMode = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<String> getDomainIDs() {
@@ -250,6 +281,7 @@ public class Container extends RestObject {
       this.domainIDs = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -259,6 +291,7 @@ public class Container extends RestObject {
    public void setEmbeddedMetadata(java.util.List<Metadata> value) { 
       this.embeddedMetadata = value;
    }
+   
    
    @JsonIgnore
    public String getEnterpriseID() {
@@ -270,6 +303,7 @@ public class Container extends RestObject {
       this.enterpriseID = value;
    }
    
+   
    @JsonIgnore
    public String getEnterpriseName() {
       return enterpriseName;
@@ -280,15 +314,17 @@ public class Container extends RestObject {
       this.enterpriseName = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -300,6 +336,7 @@ public class Container extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getHypervisorIP() {
       return hypervisorIP;
@@ -309,6 +346,7 @@ public class Container extends RestObject {
    public void setHypervisorIP(String value) { 
       this.hypervisorIP = value;
    }
+   
    
    @JsonIgnore
    public String getImageID() {
@@ -320,6 +358,7 @@ public class Container extends RestObject {
       this.imageID = value;
    }
    
+   
    @JsonIgnore
    public String getImageName() {
       return imageName;
@@ -329,6 +368,7 @@ public class Container extends RestObject {
    public void setImageName(String value) { 
       this.imageName = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<com.fasterxml.jackson.databind.JsonNode> getInterfaces() {
@@ -340,6 +380,7 @@ public class Container extends RestObject {
       this.interfaces = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<String> getL2DomainIDs() {
       return l2DomainIDs;
@@ -349,6 +390,7 @@ public class Container extends RestObject {
    public void setL2DomainIDs(java.util.List<String> value) { 
       this.l2DomainIDs = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -360,6 +402,7 @@ public class Container extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -369,6 +412,7 @@ public class Container extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public String getOrchestrationID() {
@@ -380,15 +424,17 @@ public class Container extends RestObject {
       this.orchestrationID = value;
    }
    
+   
    @JsonIgnore
-   public ReasonType getReasonType() {
+   public EReasonType getReasonType() {
       return reasonType;
    }
 
    @JsonIgnore
-   public void setReasonType(ReasonType value) { 
+   public void setReasonType(EReasonType value) { 
       this.reasonType = value;
    }
+   
    
    @JsonIgnore
    public Object getResyncInfo() {
@@ -400,6 +446,7 @@ public class Container extends RestObject {
       this.resyncInfo = value;
    }
    
+   
    @JsonIgnore
    public String getSiteIdentifier() {
       return siteIdentifier;
@@ -410,15 +457,17 @@ public class Container extends RestObject {
       this.siteIdentifier = value;
    }
    
+   
    @JsonIgnore
-   public Status getStatus() {
+   public EStatus getStatus() {
       return status;
    }
 
    @JsonIgnore
-   public void setStatus(Status value) { 
+   public void setStatus(EStatus value) { 
       this.status = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<String> getSubnetIDs() {
@@ -430,6 +479,7 @@ public class Container extends RestObject {
       this.subnetIDs = value;
    }
    
+   
    @JsonIgnore
    public String getUserID() {
       return userID;
@@ -439,6 +489,7 @@ public class Container extends RestObject {
    public void setUserID(String value) { 
       this.userID = value;
    }
+   
    
    @JsonIgnore
    public String getUserName() {
@@ -450,6 +501,7 @@ public class Container extends RestObject {
       this.userName = value;
    }
    
+   
    @JsonIgnore
    public String getVrsRawVersion() {
       return vrsRawVersion;
@@ -460,6 +512,7 @@ public class Container extends RestObject {
       this.vrsRawVersion = value;
    }
    
+   
    @JsonIgnore
    public String getVrsVersion() {
       return vrsVersion;
@@ -469,6 +522,7 @@ public class Container extends RestObject {
    public void setVrsVersion(String value) { 
       this.vrsVersion = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<String> getZoneIDs() {

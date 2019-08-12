@@ -48,41 +48,51 @@ public class KeyServerMonitor extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "enterpriseSecuredDataRecordCount")
+   
    protected Long enterpriseSecuredDataRecordCount;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "gatewaySecuredDataRecordCount")
+   
    protected Long gatewaySecuredDataRecordCount;
    
    @JsonProperty(value = "keyserverMonitorEncryptedSEKCount")
+   
    protected Long keyserverMonitorEncryptedSEKCount;
    
    @JsonProperty(value = "keyserverMonitorEncryptedSeedCount")
+   
    protected Long keyserverMonitorEncryptedSeedCount;
    
    @JsonProperty(value = "keyserverMonitorSEKCount")
+   
    protected Long keyserverMonitorSEKCount;
    
    @JsonProperty(value = "keyserverMonitorSeedCount")
+   
    protected Long keyserverMonitorSeedCount;
    
    @JsonProperty(value = "lastUpdateTime")
+   
    protected Long lastUpdateTime;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
 
@@ -118,6 +128,7 @@ public class KeyServerMonitor extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -127,6 +138,7 @@ public class KeyServerMonitor extends RestObject {
    public void setEmbeddedMetadata(java.util.List<Metadata> value) { 
       this.embeddedMetadata = value;
    }
+   
    
    @JsonIgnore
    public Long getEnterpriseSecuredDataRecordCount() {
@@ -138,15 +150,17 @@ public class KeyServerMonitor extends RestObject {
       this.enterpriseSecuredDataRecordCount = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -158,6 +172,7 @@ public class KeyServerMonitor extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public Long getGatewaySecuredDataRecordCount() {
       return gatewaySecuredDataRecordCount;
@@ -167,6 +182,7 @@ public class KeyServerMonitor extends RestObject {
    public void setGatewaySecuredDataRecordCount(Long value) { 
       this.gatewaySecuredDataRecordCount = value;
    }
+   
    
    @JsonIgnore
    public Long getKeyserverMonitorEncryptedSEKCount() {
@@ -178,6 +194,7 @@ public class KeyServerMonitor extends RestObject {
       this.keyserverMonitorEncryptedSEKCount = value;
    }
    
+   
    @JsonIgnore
    public Long getKeyserverMonitorEncryptedSeedCount() {
       return keyserverMonitorEncryptedSeedCount;
@@ -187,6 +204,7 @@ public class KeyServerMonitor extends RestObject {
    public void setKeyserverMonitorEncryptedSeedCount(Long value) { 
       this.keyserverMonitorEncryptedSeedCount = value;
    }
+   
    
    @JsonIgnore
    public Long getKeyserverMonitorSEKCount() {
@@ -198,6 +216,7 @@ public class KeyServerMonitor extends RestObject {
       this.keyserverMonitorSEKCount = value;
    }
    
+   
    @JsonIgnore
    public Long getKeyserverMonitorSeedCount() {
       return keyserverMonitorSeedCount;
@@ -208,6 +227,7 @@ public class KeyServerMonitor extends RestObject {
       this.keyserverMonitorSeedCount = value;
    }
    
+   
    @JsonIgnore
    public Long getLastUpdateTime() {
       return lastUpdateTime;
@@ -217,6 +237,7 @@ public class KeyServerMonitor extends RestObject {
    public void setLastUpdateTime(Long value) { 
       this.lastUpdateTime = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {

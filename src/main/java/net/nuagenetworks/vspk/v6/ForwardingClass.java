@@ -43,14 +43,15 @@ public class ForwardingClass extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum ForwardingClass { A, B, C, D, E, F, G, H };
+   public enum EForwardingClass { A, B, C, D, E, F, G, H };
 
    
    @JsonProperty(value = "forwardingClass")
+   
    protected EForwardingClass forwardingClass;
    
    @JsonProperty(value = "loadBalancing")
+   
    protected Boolean loadBalancing;
    
 
@@ -61,6 +62,7 @@ public class ForwardingClass extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public EForwardingClass getForwardingClass() {
       return forwardingClass;
@@ -70,6 +72,7 @@ public class ForwardingClass extends RestObject {
    public void setForwardingClass(EForwardingClass value) { 
       this.forwardingClass = value;
    }
+   
    
    @JsonIgnore
    public Boolean getLoadBalancing() {

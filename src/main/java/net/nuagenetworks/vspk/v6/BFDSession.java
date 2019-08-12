@@ -45,40 +45,48 @@ public class BFDSession extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum BFDDestinationIPType { IPV4, IPV6 };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EBFDDestinationIPType { IPV4, IPV6 };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "BFDDestinationIP")
+   
    protected String BFDDestinationIP;
    
    @JsonProperty(value = "BFDDestinationIPType")
-   protected BFDDestinationIPType BFDDestinationIPType;
+   
+   protected EBFDDestinationIPType BFDDestinationIPType;
    
    @JsonProperty(value = "BFDDestinationIPv6")
+   
    protected String BFDDestinationIPv6;
    
    @JsonProperty(value = "BFDMultiplier")
+   
    protected Long BFDMultiplier;
    
    @JsonProperty(value = "BFDTimer")
+   
    protected Long BFDTimer;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "multiHopEnabled")
+   
    protected Boolean multiHopEnabled;
    
 
@@ -99,6 +107,7 @@ public class BFDSession extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getBFDDestinationIP() {
       return BFDDestinationIP;
@@ -109,15 +118,17 @@ public class BFDSession extends RestObject {
       this.BFDDestinationIP = value;
    }
    
+   
    @JsonIgnore
-   public BFDDestinationIPType getBFDDestinationIPType() {
+   public EBFDDestinationIPType getBFDDestinationIPType() {
       return BFDDestinationIPType;
    }
 
    @JsonIgnore
-   public void setBFDDestinationIPType(BFDDestinationIPType value) { 
+   public void setBFDDestinationIPType(EBFDDestinationIPType value) { 
       this.BFDDestinationIPType = value;
    }
+   
    
    @JsonIgnore
    public String getBFDDestinationIPv6() {
@@ -129,6 +140,7 @@ public class BFDSession extends RestObject {
       this.BFDDestinationIPv6 = value;
    }
    
+   
    @JsonIgnore
    public Long getBFDMultiplier() {
       return BFDMultiplier;
@@ -138,6 +150,7 @@ public class BFDSession extends RestObject {
    public void setBFDMultiplier(Long value) { 
       this.BFDMultiplier = value;
    }
+   
    
    @JsonIgnore
    public Long getBFDTimer() {
@@ -149,6 +162,7 @@ public class BFDSession extends RestObject {
       this.BFDTimer = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -159,15 +173,17 @@ public class BFDSession extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -179,6 +195,7 @@ public class BFDSession extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -188,6 +205,7 @@ public class BFDSession extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public Boolean getMultiHopEnabled() {

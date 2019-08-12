@@ -47,35 +47,41 @@ public class NetconfManager extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Status { CONNECTED, DISCONNECTED, INIT, JMS_DISCONNECTED };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EStatus { CONNECTED, DISCONNECTED, INIT, JMS_DISCONNECTED };
 
    
    @JsonProperty(value = "assocEntityType")
+   
    protected String assocEntityType;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "release")
+   
    protected String release;
    
    @JsonProperty(value = "status")
-   protected Status status;
+   
+   protected EStatus status;
    
 
    
@@ -105,6 +111,7 @@ public class NetconfManager extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAssocEntityType() {
       return assocEntityType;
@@ -114,6 +121,7 @@ public class NetconfManager extends RestObject {
    public void setAssocEntityType(String value) { 
       this.assocEntityType = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -125,15 +133,17 @@ public class NetconfManager extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -145,6 +155,7 @@ public class NetconfManager extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -154,6 +165,7 @@ public class NetconfManager extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -165,6 +177,7 @@ public class NetconfManager extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public String getRelease() {
       return release;
@@ -175,13 +188,14 @@ public class NetconfManager extends RestObject {
       this.release = value;
    }
    
+   
    @JsonIgnore
-   public Status getStatus() {
+   public EStatus getStatus() {
       return status;
    }
 
    @JsonIgnore
-   public void setStatus(Status value) { 
+   public void setStatus(EStatus value) { 
       this.status = value;
    }
    

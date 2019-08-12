@@ -45,32 +45,39 @@ public class Certificate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "issuerDN")
+   
    protected String issuerDN;
    
    @JsonProperty(value = "pemEncoded")
+   
    protected String pemEncoded;
    
    @JsonProperty(value = "publicKey")
+   
    protected String publicKey;
    
    @JsonProperty(value = "serialNumber")
+   
    protected Long serialNumber;
    
    @JsonProperty(value = "subjectDN")
+   
    protected String subjectDN;
    
 
@@ -91,6 +98,7 @@ public class Certificate extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -101,15 +109,17 @@ public class Certificate extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -121,6 +131,7 @@ public class Certificate extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getIssuerDN() {
       return issuerDN;
@@ -130,6 +141,7 @@ public class Certificate extends RestObject {
    public void setIssuerDN(String value) { 
       this.issuerDN = value;
    }
+   
    
    @JsonIgnore
    public String getPemEncoded() {
@@ -141,6 +153,7 @@ public class Certificate extends RestObject {
       this.pemEncoded = value;
    }
    
+   
    @JsonIgnore
    public String getPublicKey() {
       return publicKey;
@@ -151,6 +164,7 @@ public class Certificate extends RestObject {
       this.publicKey = value;
    }
    
+   
    @JsonIgnore
    public Long getSerialNumber() {
       return serialNumber;
@@ -160,6 +174,7 @@ public class Certificate extends RestObject {
    public void setSerialNumber(Long value) { 
       this.serialNumber = value;
    }
+   
    
    @JsonIgnore
    public String getSubjectDN() {

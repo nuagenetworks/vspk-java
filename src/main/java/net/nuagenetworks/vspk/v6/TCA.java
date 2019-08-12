@@ -47,69 +47,83 @@ public class TCA extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum Action { Alert, Alert_PolicyGroupChange };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Metric { ACL_DENY_EVENT_COUNT, ANTI_SPOOF_EVENT_COUNT, BYTES_IN, BYTES_OUT, FIP_PRE_RATE_LIMIT_BYTES, FIP_PRE_RATE_LIMIT_PACKETS, FIP_RATE_LIMIT_DROPPED_BYTES, FIP_RATE_LIMIT_DROPPED_PACKETS, L7_BYTES_IN, L7_BYTES_OUT, L7_PACKETS_IN, L7_PACKETS_OUT, PACKETS_DROPPED_BY_RATE_LIMIT, PACKETS_IN, PACKETS_IN_DROPPED, PACKETS_IN_ERROR, PACKETS_OUT, PACKETS_OUT_DROPPED, PACKETS_OUT_ERROR, TCP_FLAG_ACK_IN, TCP_FLAG_ACK_OUT, TCP_FLAG_NULL_IN, TCP_FLAG_NULL_OUT, TCP_FLAG_RST_IN, TCP_FLAG_RST_OUT, TCP_FLAG_SYN_IN, TCP_FLAG_SYN_OUT };
-   
-   public enum Type { BREACH, ROLLING_AVERAGE };
+   public enum EAction { Alert, Alert_PolicyGroupChange };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EMetric { ACL_DENY_EVENT_COUNT, ANTI_SPOOF_EVENT_COUNT, BYTES_IN, BYTES_OUT, FIP_PRE_RATE_LIMIT_BYTES, FIP_PRE_RATE_LIMIT_PACKETS, FIP_RATE_LIMIT_DROPPED_BYTES, FIP_RATE_LIMIT_DROPPED_PACKETS, L7_BYTES_IN, L7_BYTES_OUT, L7_PACKETS_IN, L7_PACKETS_OUT, PACKETS_DROPPED_BY_RATE_LIMIT, PACKETS_IN, PACKETS_IN_DROPPED, PACKETS_IN_ERROR, PACKETS_OUT, PACKETS_OUT_DROPPED, PACKETS_OUT_ERROR, TCP_FLAG_ACK_IN, TCP_FLAG_ACK_OUT, TCP_FLAG_NULL_IN, TCP_FLAG_NULL_OUT, TCP_FLAG_RST_IN, TCP_FLAG_RST_OUT, TCP_FLAG_SYN_IN, TCP_FLAG_SYN_OUT };
+   public enum EType { BREACH, ROLLING_AVERAGE };
 
    
    @JsonProperty(value = "URLEndPoint")
+   
    protected String URLEndPoint;
    
    @JsonProperty(value = "action")
-   protected Action action;
+   
+   protected EAction action;
    
    @JsonProperty(value = "count")
+   
    protected Long count;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "disable")
+   
    protected Boolean disable;
    
    @JsonProperty(value = "displayStatus")
+   
    protected String displayStatus;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "metric")
-   protected Metric metric;
+   
+   protected EMetric metric;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "period")
+   
    protected Long period;
    
    @JsonProperty(value = "status")
+   
    protected Boolean status;
    
    @JsonProperty(value = "targetPolicyGroupID")
+   
    protected String targetPolicyGroupID;
    
    @JsonProperty(value = "threshold")
+   
    protected Long threshold;
    
    @JsonProperty(value = "throttleTime")
+   
    protected Long throttleTime;
    
    @JsonProperty(value = "type")
-   protected Type type;
+   
+   protected EType type;
    
 
    
@@ -141,6 +155,7 @@ public class TCA extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getURLEndPoint() {
       return URLEndPoint;
@@ -151,15 +166,17 @@ public class TCA extends RestObject {
       this.URLEndPoint = value;
    }
    
+   
    @JsonIgnore
-   public Action getAction() {
+   public EAction getAction() {
       return action;
    }
 
    @JsonIgnore
-   public void setAction(Action value) { 
+   public void setAction(EAction value) { 
       this.action = value;
    }
+   
    
    @JsonIgnore
    public Long getCount() {
@@ -171,6 +188,7 @@ public class TCA extends RestObject {
       this.count = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -180,6 +198,7 @@ public class TCA extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public Boolean getDisable() {
@@ -191,6 +210,7 @@ public class TCA extends RestObject {
       this.disable = value;
    }
    
+   
    @JsonIgnore
    public String getDisplayStatus() {
       return displayStatus;
@@ -200,6 +220,7 @@ public class TCA extends RestObject {
    public void setDisplayStatus(String value) { 
       this.displayStatus = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -211,15 +232,17 @@ public class TCA extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -231,6 +254,7 @@ public class TCA extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -241,15 +265,17 @@ public class TCA extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
-   public Metric getMetric() {
+   public EMetric getMetric() {
       return metric;
    }
 
    @JsonIgnore
-   public void setMetric(Metric value) { 
+   public void setMetric(EMetric value) { 
       this.metric = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -261,6 +287,7 @@ public class TCA extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public Long getPeriod() {
       return period;
@@ -270,6 +297,7 @@ public class TCA extends RestObject {
    public void setPeriod(Long value) { 
       this.period = value;
    }
+   
    
    @JsonIgnore
    public Boolean getStatus() {
@@ -281,6 +309,7 @@ public class TCA extends RestObject {
       this.status = value;
    }
    
+   
    @JsonIgnore
    public String getTargetPolicyGroupID() {
       return targetPolicyGroupID;
@@ -290,6 +319,7 @@ public class TCA extends RestObject {
    public void setTargetPolicyGroupID(String value) { 
       this.targetPolicyGroupID = value;
    }
+   
    
    @JsonIgnore
    public Long getThreshold() {
@@ -301,6 +331,7 @@ public class TCA extends RestObject {
       this.threshold = value;
    }
    
+   
    @JsonIgnore
    public Long getThrottleTime() {
       return throttleTime;
@@ -311,13 +342,14 @@ public class TCA extends RestObject {
       this.throttleTime = value;
    }
    
+   
    @JsonIgnore
-   public Type getType() {
+   public EType getType() {
       return type;
    }
 
    @JsonIgnore
-   public void setType(Type value) { 
+   public void setType(EType value) { 
       this.type = value;
    }
    

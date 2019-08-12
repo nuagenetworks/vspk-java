@@ -47,41 +47,51 @@ public class FirewallAcl extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "active")
+   
    protected Boolean active;
    
    @JsonProperty(value = "autoGeneratePriority")
+   
    protected Boolean autoGeneratePriority;
    
    @JsonProperty(value = "defaultAllowIP")
+   
    protected Boolean defaultAllowIP;
    
    @JsonProperty(value = "defaultAllowNonIP")
+   
    protected Boolean defaultAllowNonIP;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "ruleIds")
+   
    protected java.util.List<String> ruleIds;
    
 
@@ -112,6 +122,7 @@ public class FirewallAcl extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Boolean getActive() {
       return active;
@@ -121,6 +132,7 @@ public class FirewallAcl extends RestObject {
    public void setActive(Boolean value) { 
       this.active = value;
    }
+   
    
    @JsonIgnore
    public Boolean getAutoGeneratePriority() {
@@ -132,6 +144,7 @@ public class FirewallAcl extends RestObject {
       this.autoGeneratePriority = value;
    }
    
+   
    @JsonIgnore
    public Boolean getDefaultAllowIP() {
       return defaultAllowIP;
@@ -141,6 +154,7 @@ public class FirewallAcl extends RestObject {
    public void setDefaultAllowIP(Boolean value) { 
       this.defaultAllowIP = value;
    }
+   
    
    @JsonIgnore
    public Boolean getDefaultAllowNonIP() {
@@ -152,6 +166,7 @@ public class FirewallAcl extends RestObject {
       this.defaultAllowNonIP = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -161,6 +176,7 @@ public class FirewallAcl extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -172,15 +188,17 @@ public class FirewallAcl extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -192,6 +210,7 @@ public class FirewallAcl extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -202,6 +221,7 @@ public class FirewallAcl extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -211,6 +231,7 @@ public class FirewallAcl extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<String> getRuleIds() {

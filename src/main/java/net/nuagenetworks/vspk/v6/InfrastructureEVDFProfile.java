@@ -45,55 +45,68 @@ public class InfrastructureEVDFProfile extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum NuagePlatform { KVM, KVM_K8S, KVM_LXC };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum ENuagePlatform { KVM, KVM_K8S, KVM_LXC };
 
    
    @JsonProperty(value = "NTPServerKey")
+   
    protected String NTPServerKey;
    
    @JsonProperty(value = "NTPServerKeyID")
+   
    protected Long NTPServerKeyID;
    
    @JsonProperty(value = "activeController")
+   
    protected String activeController;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "enterpriseID")
+   
    protected String enterpriseID;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "nuagePlatform")
-   protected NuagePlatform nuagePlatform;
+   
+   protected ENuagePlatform nuagePlatform;
    
    @JsonProperty(value = "proxyDNSName")
+   
    protected String proxyDNSName;
    
    @JsonProperty(value = "serviceIPv4Subnet")
+   
    protected String serviceIPv4Subnet;
    
    @JsonProperty(value = "standbyController")
+   
    protected String standbyController;
    
    @JsonProperty(value = "useTwoFactor")
+   
    protected Boolean useTwoFactor;
    
 
@@ -114,6 +127,7 @@ public class InfrastructureEVDFProfile extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getNTPServerKey() {
       return NTPServerKey;
@@ -123,6 +137,7 @@ public class InfrastructureEVDFProfile extends RestObject {
    public void setNTPServerKey(String value) { 
       this.NTPServerKey = value;
    }
+   
    
    @JsonIgnore
    public Long getNTPServerKeyID() {
@@ -134,6 +149,7 @@ public class InfrastructureEVDFProfile extends RestObject {
       this.NTPServerKeyID = value;
    }
    
+   
    @JsonIgnore
    public String getActiveController() {
       return activeController;
@@ -143,6 +159,7 @@ public class InfrastructureEVDFProfile extends RestObject {
    public void setActiveController(String value) { 
       this.activeController = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -154,6 +171,7 @@ public class InfrastructureEVDFProfile extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -163,6 +181,7 @@ public class InfrastructureEVDFProfile extends RestObject {
    public void setEmbeddedMetadata(java.util.List<Metadata> value) { 
       this.embeddedMetadata = value;
    }
+   
    
    @JsonIgnore
    public String getEnterpriseID() {
@@ -174,15 +193,17 @@ public class InfrastructureEVDFProfile extends RestObject {
       this.enterpriseID = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -194,6 +215,7 @@ public class InfrastructureEVDFProfile extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -203,6 +225,7 @@ public class InfrastructureEVDFProfile extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -214,15 +237,17 @@ public class InfrastructureEVDFProfile extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
-   public NuagePlatform getNuagePlatform() {
+   public ENuagePlatform getNuagePlatform() {
       return nuagePlatform;
    }
 
    @JsonIgnore
-   public void setNuagePlatform(NuagePlatform value) { 
+   public void setNuagePlatform(ENuagePlatform value) { 
       this.nuagePlatform = value;
    }
+   
    
    @JsonIgnore
    public String getProxyDNSName() {
@@ -234,6 +259,7 @@ public class InfrastructureEVDFProfile extends RestObject {
       this.proxyDNSName = value;
    }
    
+   
    @JsonIgnore
    public String getServiceIPv4Subnet() {
       return serviceIPv4Subnet;
@@ -244,6 +270,7 @@ public class InfrastructureEVDFProfile extends RestObject {
       this.serviceIPv4Subnet = value;
    }
    
+   
    @JsonIgnore
    public String getStandbyController() {
       return standbyController;
@@ -253,6 +280,7 @@ public class InfrastructureEVDFProfile extends RestObject {
    public void setStandbyController(String value) { 
       this.standbyController = value;
    }
+   
    
    @JsonIgnore
    public Boolean getUseTwoFactor() {

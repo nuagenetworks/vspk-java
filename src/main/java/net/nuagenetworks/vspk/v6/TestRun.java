@@ -45,52 +45,64 @@ public class TestRun extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum OperationStatus { COMPLETED, FAILED, STARTED, TIMED_OUT, UNKNOWN };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EOperationStatus { COMPLETED, FAILED, STARTED, TIMED_OUT, UNKNOWN };
 
    
    @JsonProperty(value = "associatedTestID")
+   
    protected String associatedTestID;
    
    @JsonProperty(value = "associatedTestSuiteRunID")
+   
    protected String associatedTestSuiteRunID;
    
    @JsonProperty(value = "command")
+   
    protected String command;
    
    @JsonProperty(value = "commandExitCode")
+   
    protected Long commandExitCode;
    
    @JsonProperty(value = "commandOutput")
+   
    protected String commandOutput;
    
    @JsonProperty(value = "commandOutputSummary")
+   
    protected String commandOutputSummary;
    
    @JsonProperty(value = "duration")
+   
    protected Long duration;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "operationStatus")
-   protected OperationStatus operationStatus;
+   
+   protected EOperationStatus operationStatus;
    
    @JsonProperty(value = "startDateTime")
+   
    protected Long startDateTime;
    
    @JsonProperty(value = "stopDateTime")
+   
    protected Long stopDateTime;
    
 
@@ -111,6 +123,7 @@ public class TestRun extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAssociatedTestID() {
       return associatedTestID;
@@ -120,6 +133,7 @@ public class TestRun extends RestObject {
    public void setAssociatedTestID(String value) { 
       this.associatedTestID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedTestSuiteRunID() {
@@ -131,6 +145,7 @@ public class TestRun extends RestObject {
       this.associatedTestSuiteRunID = value;
    }
    
+   
    @JsonIgnore
    public String getCommand() {
       return command;
@@ -140,6 +155,7 @@ public class TestRun extends RestObject {
    public void setCommand(String value) { 
       this.command = value;
    }
+   
    
    @JsonIgnore
    public Long getCommandExitCode() {
@@ -151,6 +167,7 @@ public class TestRun extends RestObject {
       this.commandExitCode = value;
    }
    
+   
    @JsonIgnore
    public String getCommandOutput() {
       return commandOutput;
@@ -160,6 +177,7 @@ public class TestRun extends RestObject {
    public void setCommandOutput(String value) { 
       this.commandOutput = value;
    }
+   
    
    @JsonIgnore
    public String getCommandOutputSummary() {
@@ -171,6 +189,7 @@ public class TestRun extends RestObject {
       this.commandOutputSummary = value;
    }
    
+   
    @JsonIgnore
    public Long getDuration() {
       return duration;
@@ -180,6 +199,7 @@ public class TestRun extends RestObject {
    public void setDuration(Long value) { 
       this.duration = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -191,15 +211,17 @@ public class TestRun extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -211,6 +233,7 @@ public class TestRun extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -221,15 +244,17 @@ public class TestRun extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
-   public OperationStatus getOperationStatus() {
+   public EOperationStatus getOperationStatus() {
       return operationStatus;
    }
 
    @JsonIgnore
-   public void setOperationStatus(OperationStatus value) { 
+   public void setOperationStatus(EOperationStatus value) { 
       this.operationStatus = value;
    }
+   
    
    @JsonIgnore
    public Long getStartDateTime() {
@@ -240,6 +265,7 @@ public class TestRun extends RestObject {
    public void setStartDateTime(Long value) { 
       this.startDateTime = value;
    }
+   
    
    @JsonIgnore
    public Long getStopDateTime() {

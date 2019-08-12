@@ -46,51 +46,59 @@ public class NSGatewayTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum SSHService { DISABLED, ENABLED };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum InstanceSSHOverride { ALLOWED, DISALLOWED };
-   
-   public enum Personality { NSG, NSGBR, NSGDUC };
+   public enum ESSHService { DISABLED, ENABLED };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EInstanceSSHOverride { ALLOWED, DISALLOWED };
+   public enum EPersonality { NSG, NSGBR, NSGDUC };
 
    
    @JsonProperty(value = "SSHService")
-   protected SSHService SSHService;
+   
+   protected ESSHService SSHService;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "enterpriseID")
+   
    protected String enterpriseID;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "infrastructureAccessProfileID")
+   
    protected String infrastructureAccessProfileID;
    
    @JsonProperty(value = "infrastructureProfileID")
+   
    protected String infrastructureProfileID;
    
    @JsonProperty(value = "instanceSSHOverride")
-   protected InstanceSSHOverride instanceSSHOverride;
+   
+   protected EInstanceSSHOverride instanceSSHOverride;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "personality")
-   protected Personality personality;
+   
+   protected EPersonality personality;
    
 
    
@@ -115,15 +123,17 @@ public class NSGatewayTemplate extends RestObject {
    }
 
    
+   
    @JsonIgnore
-   public SSHService getSSHService() {
+   public ESSHService getSSHService() {
       return SSHService;
    }
 
    @JsonIgnore
-   public void setSSHService(SSHService value) { 
+   public void setSSHService(ESSHService value) { 
       this.SSHService = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -135,6 +145,7 @@ public class NSGatewayTemplate extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -144,6 +155,7 @@ public class NSGatewayTemplate extends RestObject {
    public void setEmbeddedMetadata(java.util.List<Metadata> value) { 
       this.embeddedMetadata = value;
    }
+   
    
    @JsonIgnore
    public String getEnterpriseID() {
@@ -155,15 +167,17 @@ public class NSGatewayTemplate extends RestObject {
       this.enterpriseID = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -175,6 +189,7 @@ public class NSGatewayTemplate extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getInfrastructureAccessProfileID() {
       return infrastructureAccessProfileID;
@@ -184,6 +199,7 @@ public class NSGatewayTemplate extends RestObject {
    public void setInfrastructureAccessProfileID(String value) { 
       this.infrastructureAccessProfileID = value;
    }
+   
    
    @JsonIgnore
    public String getInfrastructureProfileID() {
@@ -195,15 +211,17 @@ public class NSGatewayTemplate extends RestObject {
       this.infrastructureProfileID = value;
    }
    
+   
    @JsonIgnore
-   public InstanceSSHOverride getInstanceSSHOverride() {
+   public EInstanceSSHOverride getInstanceSSHOverride() {
       return instanceSSHOverride;
    }
 
    @JsonIgnore
-   public void setInstanceSSHOverride(InstanceSSHOverride value) { 
+   public void setInstanceSSHOverride(EInstanceSSHOverride value) { 
       this.instanceSSHOverride = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -215,6 +233,7 @@ public class NSGatewayTemplate extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -225,13 +244,14 @@ public class NSGatewayTemplate extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
-   public Personality getPersonality() {
+   public EPersonality getPersonality() {
       return personality;
    }
 
    @JsonIgnore
-   public void setPersonality(Personality value) { 
+   public void setPersonality(EPersonality value) { 
       this.personality = value;
    }
    

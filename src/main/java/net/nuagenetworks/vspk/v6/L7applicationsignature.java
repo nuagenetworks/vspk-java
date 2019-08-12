@@ -46,65 +46,83 @@ public class L7applicationsignature extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "category")
+   
    protected String category;
    
    @JsonProperty(value = "deprecated")
+   
    protected Boolean deprecated;
    
    @JsonProperty(value = "deprecatedVersion")
+   
    protected String deprecatedVersion;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "dictionaryVersion")
+   
    protected Long dictionaryVersion;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "guidstring")
+   
    protected String guidstring;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "pluginName")
+   
    protected String pluginName;
    
    @JsonProperty(value = "productivity")
+   
    protected Long productivity;
    
    @JsonProperty(value = "readonly")
+   
    protected Boolean readonly;
    
    @JsonProperty(value = "reference")
+   
    protected String reference;
    
    @JsonProperty(value = "risk")
+   
    protected Long risk;
    
    @JsonProperty(value = "signatureIndex")
+   
    protected Long signatureIndex;
    
    @JsonProperty(value = "signatureVersion")
+   
    protected String signatureVersion;
    
    @JsonProperty(value = "softwareFlags")
+   
    protected String softwareFlags;
    
 
@@ -130,6 +148,7 @@ public class L7applicationsignature extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getCategory() {
       return category;
@@ -139,6 +158,7 @@ public class L7applicationsignature extends RestObject {
    public void setCategory(String value) { 
       this.category = value;
    }
+   
    
    @JsonIgnore
    public Boolean getDeprecated() {
@@ -150,6 +170,7 @@ public class L7applicationsignature extends RestObject {
       this.deprecated = value;
    }
    
+   
    @JsonIgnore
    public String getDeprecatedVersion() {
       return deprecatedVersion;
@@ -159,6 +180,7 @@ public class L7applicationsignature extends RestObject {
    public void setDeprecatedVersion(String value) { 
       this.deprecatedVersion = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -170,6 +192,7 @@ public class L7applicationsignature extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public Long getDictionaryVersion() {
       return dictionaryVersion;
@@ -179,6 +202,7 @@ public class L7applicationsignature extends RestObject {
    public void setDictionaryVersion(Long value) { 
       this.dictionaryVersion = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -190,15 +214,17 @@ public class L7applicationsignature extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -210,6 +236,7 @@ public class L7applicationsignature extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getGuidstring() {
       return guidstring;
@@ -219,6 +246,7 @@ public class L7applicationsignature extends RestObject {
    public void setGuidstring(String value) { 
       this.guidstring = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -230,6 +258,7 @@ public class L7applicationsignature extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -239,6 +268,7 @@ public class L7applicationsignature extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public String getPluginName() {
@@ -250,6 +280,7 @@ public class L7applicationsignature extends RestObject {
       this.pluginName = value;
    }
    
+   
    @JsonIgnore
    public Long getProductivity() {
       return productivity;
@@ -259,6 +290,7 @@ public class L7applicationsignature extends RestObject {
    public void setProductivity(Long value) { 
       this.productivity = value;
    }
+   
    
    @JsonIgnore
    public Boolean getReadonly() {
@@ -270,6 +302,7 @@ public class L7applicationsignature extends RestObject {
       this.readonly = value;
    }
    
+   
    @JsonIgnore
    public String getReference() {
       return reference;
@@ -279,6 +312,7 @@ public class L7applicationsignature extends RestObject {
    public void setReference(String value) { 
       this.reference = value;
    }
+   
    
    @JsonIgnore
    public Long getRisk() {
@@ -290,6 +324,7 @@ public class L7applicationsignature extends RestObject {
       this.risk = value;
    }
    
+   
    @JsonIgnore
    public Long getSignatureIndex() {
       return signatureIndex;
@@ -300,6 +335,7 @@ public class L7applicationsignature extends RestObject {
       this.signatureIndex = value;
    }
    
+   
    @JsonIgnore
    public String getSignatureVersion() {
       return signatureVersion;
@@ -309,6 +345,7 @@ public class L7applicationsignature extends RestObject {
    public void setSignatureVersion(String value) { 
       this.signatureVersion = value;
    }
+   
    
    @JsonIgnore
    public String getSoftwareFlags() {

@@ -45,35 +45,43 @@ public class SiteInfo extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "address")
+   
    protected String address;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "siteIdentifier")
+   
    protected String siteIdentifier;
    
    @JsonProperty(value = "xmppDomain")
+   
    protected String xmppDomain;
    
 
@@ -94,6 +102,7 @@ public class SiteInfo extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAddress() {
       return address;
@@ -103,6 +112,7 @@ public class SiteInfo extends RestObject {
    public void setAddress(String value) { 
       this.address = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -114,6 +124,7 @@ public class SiteInfo extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -124,15 +135,17 @@ public class SiteInfo extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -144,6 +157,7 @@ public class SiteInfo extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -153,6 +167,7 @@ public class SiteInfo extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -164,6 +179,7 @@ public class SiteInfo extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public String getSiteIdentifier() {
       return siteIdentifier;
@@ -173,6 +189,7 @@ public class SiteInfo extends RestObject {
    public void setSiteIdentifier(String value) { 
       this.siteIdentifier = value;
    }
+   
    
    @JsonIgnore
    public String getXmppDomain() {

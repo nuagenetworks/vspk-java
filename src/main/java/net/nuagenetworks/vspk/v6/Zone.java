@@ -60,78 +60,92 @@ public class Zone extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum DPI { DISABLED, ENABLED, INHERITED };
-   
-   public enum IPType { IPV4, IPV6 };
-   
-   public enum Encryption { DISABLED, ENABLED, INHERITED };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum MaintenanceMode { DISABLED, ENABLED, ENABLED_INHERITED };
-   
-   public enum Multicast { DISABLED, ENABLED, INHERITED };
+   public enum EDPI { DISABLED, ENABLED, INHERITED };
+   public enum EIPType { IPV4, IPV6 };
+   public enum EEncryption { DISABLED, ENABLED, INHERITED };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EMaintenanceMode { DISABLED, ENABLED, ENABLED_INHERITED };
+   public enum EMulticast { DISABLED, ENABLED, INHERITED };
 
    
    @JsonProperty(value = "DPI")
-   protected DPI DPI;
+   
+   protected EDPI DPI;
    
    @JsonProperty(value = "IPType")
-   protected IPType IPType;
+   
+   protected EIPType IPType;
    
    @JsonProperty(value = "IPv6Address")
+   
    protected String IPv6Address;
    
    @JsonProperty(value = "address")
+   
    protected String address;
    
    @JsonProperty(value = "associatedMulticastChannelMapID")
+   
    protected String associatedMulticastChannelMapID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "dynamicIpv6Address")
+   
    protected Boolean dynamicIpv6Address;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "encryption")
-   protected Encryption encryption;
+   
+   protected EEncryption encryption;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "maintenanceMode")
-   protected MaintenanceMode maintenanceMode;
+   
+   protected EMaintenanceMode maintenanceMode;
    
    @JsonProperty(value = "multicast")
-   protected Multicast multicast;
+   
+   protected EMulticast multicast;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "netmask")
+   
    protected String netmask;
    
    @JsonProperty(value = "numberOfHostsInSubnets")
+   
    protected Long numberOfHostsInSubnets;
    
    @JsonProperty(value = "policyGroupID")
+   
    protected Long policyGroupID;
    
    @JsonProperty(value = "publicZone")
+   
    protected Boolean publicZone;
    
    @JsonProperty(value = "templateID")
+   
    protected String templateID;
    
 
@@ -229,25 +243,28 @@ public class Zone extends RestObject {
    }
 
    
+   
    @JsonIgnore
-   public DPI getDPI() {
+   public EDPI getDPI() {
       return DPI;
    }
 
    @JsonIgnore
-   public void setDPI(DPI value) { 
+   public void setDPI(EDPI value) { 
       this.DPI = value;
    }
    
+   
    @JsonIgnore
-   public IPType getIPType() {
+   public EIPType getIPType() {
       return IPType;
    }
 
    @JsonIgnore
-   public void setIPType(IPType value) { 
+   public void setIPType(EIPType value) { 
       this.IPType = value;
    }
+   
    
    @JsonIgnore
    public String getIPv6Address() {
@@ -259,6 +276,7 @@ public class Zone extends RestObject {
       this.IPv6Address = value;
    }
    
+   
    @JsonIgnore
    public String getAddress() {
       return address;
@@ -268,6 +286,7 @@ public class Zone extends RestObject {
    public void setAddress(String value) { 
       this.address = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedMulticastChannelMapID() {
@@ -279,6 +298,7 @@ public class Zone extends RestObject {
       this.associatedMulticastChannelMapID = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -288,6 +308,7 @@ public class Zone extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public Boolean getDynamicIpv6Address() {
@@ -299,6 +320,7 @@ public class Zone extends RestObject {
       this.dynamicIpv6Address = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -309,25 +331,28 @@ public class Zone extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public Encryption getEncryption() {
+   public EEncryption getEncryption() {
       return encryption;
    }
 
    @JsonIgnore
-   public void setEncryption(Encryption value) { 
+   public void setEncryption(EEncryption value) { 
       this.encryption = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -339,6 +364,7 @@ public class Zone extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -349,25 +375,28 @@ public class Zone extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
-   public MaintenanceMode getMaintenanceMode() {
+   public EMaintenanceMode getMaintenanceMode() {
       return maintenanceMode;
    }
 
    @JsonIgnore
-   public void setMaintenanceMode(MaintenanceMode value) { 
+   public void setMaintenanceMode(EMaintenanceMode value) { 
       this.maintenanceMode = value;
    }
    
+   
    @JsonIgnore
-   public Multicast getMulticast() {
+   public EMulticast getMulticast() {
       return multicast;
    }
 
    @JsonIgnore
-   public void setMulticast(Multicast value) { 
+   public void setMulticast(EMulticast value) { 
       this.multicast = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -379,6 +408,7 @@ public class Zone extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public String getNetmask() {
       return netmask;
@@ -388,6 +418,7 @@ public class Zone extends RestObject {
    public void setNetmask(String value) { 
       this.netmask = value;
    }
+   
    
    @JsonIgnore
    public Long getNumberOfHostsInSubnets() {
@@ -399,6 +430,7 @@ public class Zone extends RestObject {
       this.numberOfHostsInSubnets = value;
    }
    
+   
    @JsonIgnore
    public Long getPolicyGroupID() {
       return policyGroupID;
@@ -409,6 +441,7 @@ public class Zone extends RestObject {
       this.policyGroupID = value;
    }
    
+   
    @JsonIgnore
    public Boolean getPublicZone() {
       return publicZone;
@@ -418,6 +451,7 @@ public class Zone extends RestObject {
    public void setPublicZone(Boolean value) { 
       this.publicZone = value;
    }
+   
    
    @JsonIgnore
    public String getTemplateID() {

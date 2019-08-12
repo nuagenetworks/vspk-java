@@ -45,48 +45,57 @@ public class MonitoringPort extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum ResiliencyState { backup, master, none };
-   
-   public enum State { ADMIN_DOWN, DOWN, UP };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EResiliencyState { backup, master, none };
+   public enum EState { ADMIN_DOWN, DOWN, UP };
 
    
    @JsonProperty(value = "access")
+   
    protected Boolean access;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "dpdkEnabled")
+   
    protected Boolean dpdkEnabled;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastStateChange")
+   
    protected Long lastStateChange;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "resiliencyState")
-   protected ResiliencyState resiliencyState;
+   
+   protected EResiliencyState resiliencyState;
    
    @JsonProperty(value = "resilient")
+   
    protected Boolean resilient;
    
    @JsonProperty(value = "state")
-   protected State state;
+   
+   protected EState state;
    
    @JsonProperty(value = "uplink")
+   
    protected Boolean uplink;
    
 
@@ -107,6 +116,7 @@ public class MonitoringPort extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Boolean getAccess() {
       return access;
@@ -116,6 +126,7 @@ public class MonitoringPort extends RestObject {
    public void setAccess(Boolean value) { 
       this.access = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -127,6 +138,7 @@ public class MonitoringPort extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public Boolean getDpdkEnabled() {
       return dpdkEnabled;
@@ -136,6 +148,7 @@ public class MonitoringPort extends RestObject {
    public void setDpdkEnabled(Boolean value) { 
       this.dpdkEnabled = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -147,15 +160,17 @@ public class MonitoringPort extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -167,6 +182,7 @@ public class MonitoringPort extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public Long getLastStateChange() {
       return lastStateChange;
@@ -176,6 +192,7 @@ public class MonitoringPort extends RestObject {
    public void setLastStateChange(Long value) { 
       this.lastStateChange = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -187,15 +204,17 @@ public class MonitoringPort extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
-   public ResiliencyState getResiliencyState() {
+   public EResiliencyState getResiliencyState() {
       return resiliencyState;
    }
 
    @JsonIgnore
-   public void setResiliencyState(ResiliencyState value) { 
+   public void setResiliencyState(EResiliencyState value) { 
       this.resiliencyState = value;
    }
+   
    
    @JsonIgnore
    public Boolean getResilient() {
@@ -207,15 +226,17 @@ public class MonitoringPort extends RestObject {
       this.resilient = value;
    }
    
+   
    @JsonIgnore
-   public State getState() {
+   public EState getState() {
       return state;
    }
 
    @JsonIgnore
-   public void setState(State value) { 
+   public void setState(EState value) { 
       this.state = value;
    }
+   
    
    @JsonIgnore
    public Boolean getUplink() {

@@ -46,62 +46,74 @@ public class BRConnection extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum AddressFamily { IPV4, IPV6 };
-   
-   public enum AdvertisementCriteria { BFD, OPERATIONAL_LINK };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Mode { Static };
+   public enum EAddressFamily { IPV4, IPV6 };
+   public enum EAdvertisementCriteria { BFD, OPERATIONAL_LINK };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EMode { Static };
 
    
    @JsonProperty(value = "DNSAddress")
+   
    protected String DNSAddress;
    
    @JsonProperty(value = "DNSAddressV6")
+   
    protected String DNSAddressV6;
    
    @JsonProperty(value = "address")
+   
    protected String address;
    
    @JsonProperty(value = "addressFamily")
-   protected AddressFamily addressFamily;
+   
+   protected EAddressFamily addressFamily;
    
    @JsonProperty(value = "addressV6")
+   
    protected String addressV6;
    
    @JsonProperty(value = "advertisementCriteria")
-   protected AdvertisementCriteria advertisementCriteria;
+   
+   protected EAdvertisementCriteria advertisementCriteria;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "gateway")
+   
    protected String gateway;
    
    @JsonProperty(value = "gatewayV6")
+   
    protected String gatewayV6;
    
    @JsonProperty(value = "inherited")
+   
    protected Boolean inherited;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "mode")
-   protected Mode mode;
+   
+   protected EMode mode;
    
    @JsonProperty(value = "netmask")
+   
    protected String netmask;
    
    @JsonProperty(value = "uplinkID")
+   
    protected Long uplinkID;
    
 
@@ -127,6 +139,7 @@ public class BRConnection extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getDNSAddress() {
       return DNSAddress;
@@ -136,6 +149,7 @@ public class BRConnection extends RestObject {
    public void setDNSAddress(String value) { 
       this.DNSAddress = value;
    }
+   
    
    @JsonIgnore
    public String getDNSAddressV6() {
@@ -147,6 +161,7 @@ public class BRConnection extends RestObject {
       this.DNSAddressV6 = value;
    }
    
+   
    @JsonIgnore
    public String getAddress() {
       return address;
@@ -157,15 +172,17 @@ public class BRConnection extends RestObject {
       this.address = value;
    }
    
+   
    @JsonIgnore
-   public AddressFamily getAddressFamily() {
+   public EAddressFamily getAddressFamily() {
       return addressFamily;
    }
 
    @JsonIgnore
-   public void setAddressFamily(AddressFamily value) { 
+   public void setAddressFamily(EAddressFamily value) { 
       this.addressFamily = value;
    }
+   
    
    @JsonIgnore
    public String getAddressV6() {
@@ -177,15 +194,17 @@ public class BRConnection extends RestObject {
       this.addressV6 = value;
    }
    
+   
    @JsonIgnore
-   public AdvertisementCriteria getAdvertisementCriteria() {
+   public EAdvertisementCriteria getAdvertisementCriteria() {
       return advertisementCriteria;
    }
 
    @JsonIgnore
-   public void setAdvertisementCriteria(AdvertisementCriteria value) { 
+   public void setAdvertisementCriteria(EAdvertisementCriteria value) { 
       this.advertisementCriteria = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -197,15 +216,17 @@ public class BRConnection extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -217,6 +238,7 @@ public class BRConnection extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getGateway() {
       return gateway;
@@ -226,6 +248,7 @@ public class BRConnection extends RestObject {
    public void setGateway(String value) { 
       this.gateway = value;
    }
+   
    
    @JsonIgnore
    public String getGatewayV6() {
@@ -237,6 +260,7 @@ public class BRConnection extends RestObject {
       this.gatewayV6 = value;
    }
    
+   
    @JsonIgnore
    public Boolean getInherited() {
       return inherited;
@@ -246,6 +270,7 @@ public class BRConnection extends RestObject {
    public void setInherited(Boolean value) { 
       this.inherited = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -257,15 +282,17 @@ public class BRConnection extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
-   public Mode getMode() {
+   public EMode getMode() {
       return mode;
    }
 
    @JsonIgnore
-   public void setMode(Mode value) { 
+   public void setMode(EMode value) { 
       this.mode = value;
    }
+   
    
    @JsonIgnore
    public String getNetmask() {
@@ -276,6 +303,7 @@ public class BRConnection extends RestObject {
    public void setNetmask(String value) { 
       this.netmask = value;
    }
+   
    
    @JsonIgnore
    public Long getUplinkID() {

@@ -43,26 +43,31 @@ public class AutoDiscoverCluster extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "assocVCenterDataCenterID")
+   
    protected String assocVCenterDataCenterID;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "managedObjectID")
+   
    protected String managedObjectID;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
 
@@ -72,6 +77,7 @@ public class AutoDiscoverCluster extends RestObject {
       
    }
 
+   
    
    @JsonIgnore
    public String getAssocVCenterDataCenterID() {
@@ -83,15 +89,17 @@ public class AutoDiscoverCluster extends RestObject {
       this.assocVCenterDataCenterID = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -103,6 +111,7 @@ public class AutoDiscoverCluster extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -113,6 +122,7 @@ public class AutoDiscoverCluster extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getManagedObjectID() {
       return managedObjectID;
@@ -122,6 +132,7 @@ public class AutoDiscoverCluster extends RestObject {
    public void setManagedObjectID(String value) { 
       this.managedObjectID = value;
    }
+   
    
    @JsonIgnore
    public String getName() {

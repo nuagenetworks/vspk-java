@@ -55,70 +55,88 @@ public class BridgeInterface extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum AttachedNetworkType { L2DOMAIN, SUBNET };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EAttachedNetworkType { L2DOMAIN, SUBNET };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "IPv6Gateway")
+   
    protected String IPv6Gateway;
    
    @JsonProperty(value = "VPortID")
+   
    protected String VPortID;
    
    @JsonProperty(value = "VPortName")
+   
    protected String VPortName;
    
    @JsonProperty(value = "associatedFloatingIPAddress")
+   
    protected String associatedFloatingIPAddress;
    
    @JsonProperty(value = "attachedNetworkID")
+   
    protected String attachedNetworkID;
    
    @JsonProperty(value = "attachedNetworkType")
-   protected AttachedNetworkType attachedNetworkType;
+   
+   protected EAttachedNetworkType attachedNetworkType;
    
    @JsonProperty(value = "domainID")
+   
    protected String domainID;
    
    @JsonProperty(value = "domainName")
+   
    protected String domainName;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "gateway")
+   
    protected String gateway;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "netmask")
+   
    protected String netmask;
    
    @JsonProperty(value = "networkName")
+   
    protected String networkName;
    
    @JsonProperty(value = "policyDecisionID")
+   
    protected String policyDecisionID;
    
    @JsonProperty(value = "tierID")
+   
    protected String tierID;
    
    @JsonProperty(value = "zoneID")
+   
    protected String zoneID;
    
    @JsonProperty(value = "zoneName")
+   
    protected String zoneName;
    
 
@@ -189,6 +207,7 @@ public class BridgeInterface extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getIPv6Gateway() {
       return IPv6Gateway;
@@ -198,6 +217,7 @@ public class BridgeInterface extends RestObject {
    public void setIPv6Gateway(String value) { 
       this.IPv6Gateway = value;
    }
+   
    
    @JsonIgnore
    public String getVPortID() {
@@ -209,6 +229,7 @@ public class BridgeInterface extends RestObject {
       this.VPortID = value;
    }
    
+   
    @JsonIgnore
    public String getVPortName() {
       return VPortName;
@@ -218,6 +239,7 @@ public class BridgeInterface extends RestObject {
    public void setVPortName(String value) { 
       this.VPortName = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedFloatingIPAddress() {
@@ -229,6 +251,7 @@ public class BridgeInterface extends RestObject {
       this.associatedFloatingIPAddress = value;
    }
    
+   
    @JsonIgnore
    public String getAttachedNetworkID() {
       return attachedNetworkID;
@@ -239,15 +262,17 @@ public class BridgeInterface extends RestObject {
       this.attachedNetworkID = value;
    }
    
+   
    @JsonIgnore
-   public AttachedNetworkType getAttachedNetworkType() {
+   public EAttachedNetworkType getAttachedNetworkType() {
       return attachedNetworkType;
    }
 
    @JsonIgnore
-   public void setAttachedNetworkType(AttachedNetworkType value) { 
+   public void setAttachedNetworkType(EAttachedNetworkType value) { 
       this.attachedNetworkType = value;
    }
+   
    
    @JsonIgnore
    public String getDomainID() {
@@ -259,6 +284,7 @@ public class BridgeInterface extends RestObject {
       this.domainID = value;
    }
    
+   
    @JsonIgnore
    public String getDomainName() {
       return domainName;
@@ -268,6 +294,7 @@ public class BridgeInterface extends RestObject {
    public void setDomainName(String value) { 
       this.domainName = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -279,15 +306,17 @@ public class BridgeInterface extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -299,6 +328,7 @@ public class BridgeInterface extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getGateway() {
       return gateway;
@@ -308,6 +338,7 @@ public class BridgeInterface extends RestObject {
    public void setGateway(String value) { 
       this.gateway = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -319,6 +350,7 @@ public class BridgeInterface extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -328,6 +360,7 @@ public class BridgeInterface extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public String getNetmask() {
@@ -339,6 +372,7 @@ public class BridgeInterface extends RestObject {
       this.netmask = value;
    }
    
+   
    @JsonIgnore
    public String getNetworkName() {
       return networkName;
@@ -348,6 +382,7 @@ public class BridgeInterface extends RestObject {
    public void setNetworkName(String value) { 
       this.networkName = value;
    }
+   
    
    @JsonIgnore
    public String getPolicyDecisionID() {
@@ -359,6 +394,7 @@ public class BridgeInterface extends RestObject {
       this.policyDecisionID = value;
    }
    
+   
    @JsonIgnore
    public String getTierID() {
       return tierID;
@@ -369,6 +405,7 @@ public class BridgeInterface extends RestObject {
       this.tierID = value;
    }
    
+   
    @JsonIgnore
    public String getZoneID() {
       return zoneID;
@@ -378,6 +415,7 @@ public class BridgeInterface extends RestObject {
    public void setZoneID(String value) { 
       this.zoneID = value;
    }
+   
    
    @JsonIgnore
    public String getZoneName() {

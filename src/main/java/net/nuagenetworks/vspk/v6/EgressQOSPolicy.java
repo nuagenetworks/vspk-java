@@ -45,82 +45,97 @@ public class EgressQOSPolicy extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum DefaultServiceClass { A, B, C, D, E, F, G, H };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Queue1ForwardingClasses { A, B, C, D, E, F, G, H, NONE };
-   
-   public enum Queue2ForwardingClasses { A, B, C, D, E, F, G, H, NONE };
-   
-   public enum Queue3ForwardingClasses { A, B, C, D, E, F, G, H, NONE };
-   
-   public enum Queue4ForwardingClasses { A, B, C, D, E, F, G, H, NONE };
+   public enum EDefaultServiceClass { A, B, C, D, E, F, G, H };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EQueue1ForwardingClasses { A, B, C, D, E, F, G, H, NONE };
+   public enum EQueue2ForwardingClasses { A, B, C, D, E, F, G, H, NONE };
+   public enum EQueue3ForwardingClasses { A, B, C, D, E, F, G, H, NONE };
+   public enum EQueue4ForwardingClasses { A, B, C, D, E, F, G, H, NONE };
 
    
    @JsonProperty(value = "assocEgressQosId")
+   
    protected String assocEgressQosId;
    
    @JsonProperty(value = "associatedCOSRemarkingPolicyTableID")
+   
    protected String associatedCOSRemarkingPolicyTableID;
    
    @JsonProperty(value = "associatedDSCPRemarkingPolicyTableID")
+   
    protected String associatedDSCPRemarkingPolicyTableID;
    
    @JsonProperty(value = "defaultServiceClass")
-   protected DefaultServiceClass defaultServiceClass;
+   
+   protected EDefaultServiceClass defaultServiceClass;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "mgmtQueueAssociatedRateLimiterID")
+   
    protected String mgmtQueueAssociatedRateLimiterID;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "networkCtrlQueueAssociatedRateLimiterID")
+   
    protected String networkCtrlQueueAssociatedRateLimiterID;
    
    @JsonProperty(value = "parentQueueAssociatedRateLimiterID")
+   
    protected String parentQueueAssociatedRateLimiterID;
    
    @JsonProperty(value = "queue1AssociatedRateLimiterID")
+   
    protected String queue1AssociatedRateLimiterID;
    
    @JsonProperty(value = "queue1ForwardingClasses")
-   protected java.util.List<Queue1ForwardingClasses> queue1ForwardingClasses;
+   
+   protected java.util.List<EQueue1ForwardingClasses> queue1ForwardingClasses;
    
    @JsonProperty(value = "queue2AssociatedRateLimiterID")
+   
    protected String queue2AssociatedRateLimiterID;
    
    @JsonProperty(value = "queue2ForwardingClasses")
-   protected java.util.List<Queue2ForwardingClasses> queue2ForwardingClasses;
+   
+   protected java.util.List<EQueue2ForwardingClasses> queue2ForwardingClasses;
    
    @JsonProperty(value = "queue3AssociatedRateLimiterID")
+   
    protected String queue3AssociatedRateLimiterID;
    
    @JsonProperty(value = "queue3ForwardingClasses")
-   protected java.util.List<Queue3ForwardingClasses> queue3ForwardingClasses;
+   
+   protected java.util.List<EQueue3ForwardingClasses> queue3ForwardingClasses;
    
    @JsonProperty(value = "queue4AssociatedRateLimiterID")
+   
    protected String queue4AssociatedRateLimiterID;
    
    @JsonProperty(value = "queue4ForwardingClasses")
-   protected java.util.List<Queue4ForwardingClasses> queue4ForwardingClasses;
+   
+   protected java.util.List<EQueue4ForwardingClasses> queue4ForwardingClasses;
    
 
    
@@ -140,6 +155,7 @@ public class EgressQOSPolicy extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAssocEgressQosId() {
       return assocEgressQosId;
@@ -149,6 +165,7 @@ public class EgressQOSPolicy extends RestObject {
    public void setAssocEgressQosId(String value) { 
       this.assocEgressQosId = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedCOSRemarkingPolicyTableID() {
@@ -160,6 +177,7 @@ public class EgressQOSPolicy extends RestObject {
       this.associatedCOSRemarkingPolicyTableID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedDSCPRemarkingPolicyTableID() {
       return associatedDSCPRemarkingPolicyTableID;
@@ -170,15 +188,17 @@ public class EgressQOSPolicy extends RestObject {
       this.associatedDSCPRemarkingPolicyTableID = value;
    }
    
+   
    @JsonIgnore
-   public DefaultServiceClass getDefaultServiceClass() {
+   public EDefaultServiceClass getDefaultServiceClass() {
       return defaultServiceClass;
    }
 
    @JsonIgnore
-   public void setDefaultServiceClass(DefaultServiceClass value) { 
+   public void setDefaultServiceClass(EDefaultServiceClass value) { 
       this.defaultServiceClass = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -190,6 +210,7 @@ public class EgressQOSPolicy extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -200,15 +221,17 @@ public class EgressQOSPolicy extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -220,6 +243,7 @@ public class EgressQOSPolicy extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -229,6 +253,7 @@ public class EgressQOSPolicy extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getMgmtQueueAssociatedRateLimiterID() {
@@ -240,6 +265,7 @@ public class EgressQOSPolicy extends RestObject {
       this.mgmtQueueAssociatedRateLimiterID = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -249,6 +275,7 @@ public class EgressQOSPolicy extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public String getNetworkCtrlQueueAssociatedRateLimiterID() {
@@ -260,6 +287,7 @@ public class EgressQOSPolicy extends RestObject {
       this.networkCtrlQueueAssociatedRateLimiterID = value;
    }
    
+   
    @JsonIgnore
    public String getParentQueueAssociatedRateLimiterID() {
       return parentQueueAssociatedRateLimiterID;
@@ -269,6 +297,7 @@ public class EgressQOSPolicy extends RestObject {
    public void setParentQueueAssociatedRateLimiterID(String value) { 
       this.parentQueueAssociatedRateLimiterID = value;
    }
+   
    
    @JsonIgnore
    public String getQueue1AssociatedRateLimiterID() {
@@ -280,15 +309,17 @@ public class EgressQOSPolicy extends RestObject {
       this.queue1AssociatedRateLimiterID = value;
    }
    
+   
    @JsonIgnore
-   public java.util.List<Queue1ForwardingClasses> getQueue1ForwardingClasses() {
+   public java.util.List<EQueue1ForwardingClasses> getQueue1ForwardingClasses() {
       return queue1ForwardingClasses;
    }
 
    @JsonIgnore
-   public void setQueue1ForwardingClasses(java.util.List<Queue1ForwardingClasses> value) { 
+   public void setQueue1ForwardingClasses(java.util.List<EQueue1ForwardingClasses> value) { 
       this.queue1ForwardingClasses = value;
    }
+   
    
    @JsonIgnore
    public String getQueue2AssociatedRateLimiterID() {
@@ -300,15 +331,17 @@ public class EgressQOSPolicy extends RestObject {
       this.queue2AssociatedRateLimiterID = value;
    }
    
+   
    @JsonIgnore
-   public java.util.List<Queue2ForwardingClasses> getQueue2ForwardingClasses() {
+   public java.util.List<EQueue2ForwardingClasses> getQueue2ForwardingClasses() {
       return queue2ForwardingClasses;
    }
 
    @JsonIgnore
-   public void setQueue2ForwardingClasses(java.util.List<Queue2ForwardingClasses> value) { 
+   public void setQueue2ForwardingClasses(java.util.List<EQueue2ForwardingClasses> value) { 
       this.queue2ForwardingClasses = value;
    }
+   
    
    @JsonIgnore
    public String getQueue3AssociatedRateLimiterID() {
@@ -320,15 +353,17 @@ public class EgressQOSPolicy extends RestObject {
       this.queue3AssociatedRateLimiterID = value;
    }
    
+   
    @JsonIgnore
-   public java.util.List<Queue3ForwardingClasses> getQueue3ForwardingClasses() {
+   public java.util.List<EQueue3ForwardingClasses> getQueue3ForwardingClasses() {
       return queue3ForwardingClasses;
    }
 
    @JsonIgnore
-   public void setQueue3ForwardingClasses(java.util.List<Queue3ForwardingClasses> value) { 
+   public void setQueue3ForwardingClasses(java.util.List<EQueue3ForwardingClasses> value) { 
       this.queue3ForwardingClasses = value;
    }
+   
    
    @JsonIgnore
    public String getQueue4AssociatedRateLimiterID() {
@@ -340,13 +375,14 @@ public class EgressQOSPolicy extends RestObject {
       this.queue4AssociatedRateLimiterID = value;
    }
    
+   
    @JsonIgnore
-   public java.util.List<Queue4ForwardingClasses> getQueue4ForwardingClasses() {
+   public java.util.List<EQueue4ForwardingClasses> getQueue4ForwardingClasses() {
       return queue4ForwardingClasses;
    }
 
    @JsonIgnore
-   public void setQueue4ForwardingClasses(java.util.List<Queue4ForwardingClasses> value) { 
+   public void setQueue4ForwardingClasses(java.util.List<EQueue4ForwardingClasses> value) { 
       this.queue4ForwardingClasses = value;
    }
    

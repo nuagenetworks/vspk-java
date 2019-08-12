@@ -45,38 +45,47 @@ public class KeyServerMember extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "certificateSerialNumber")
+   
    protected Long certificateSerialNumber;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "fqdn")
+   
    protected String fqdn;
    
    @JsonProperty(value = "issuerDN")
+   
    protected String issuerDN;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "pemEncoded")
+   
    protected String pemEncoded;
    
    @JsonProperty(value = "publicKey")
+   
    protected String publicKey;
    
    @JsonProperty(value = "subjectDN")
+   
    protected String subjectDN;
    
 
@@ -97,6 +106,7 @@ public class KeyServerMember extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Long getCertificateSerialNumber() {
       return certificateSerialNumber;
@@ -106,6 +116,7 @@ public class KeyServerMember extends RestObject {
    public void setCertificateSerialNumber(Long value) { 
       this.certificateSerialNumber = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -117,15 +128,17 @@ public class KeyServerMember extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -137,6 +150,7 @@ public class KeyServerMember extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getFqdn() {
       return fqdn;
@@ -146,6 +160,7 @@ public class KeyServerMember extends RestObject {
    public void setFqdn(String value) { 
       this.fqdn = value;
    }
+   
    
    @JsonIgnore
    public String getIssuerDN() {
@@ -157,6 +172,7 @@ public class KeyServerMember extends RestObject {
       this.issuerDN = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -166,6 +182,7 @@ public class KeyServerMember extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getPemEncoded() {
@@ -177,6 +194,7 @@ public class KeyServerMember extends RestObject {
       this.pemEncoded = value;
    }
    
+   
    @JsonIgnore
    public String getPublicKey() {
       return publicKey;
@@ -186,6 +204,7 @@ public class KeyServerMember extends RestObject {
    public void setPublicKey(String value) { 
       this.publicKey = value;
    }
+   
    
    @JsonIgnore
    public String getSubjectDN() {

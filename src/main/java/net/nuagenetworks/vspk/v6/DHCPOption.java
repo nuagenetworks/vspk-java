@@ -46,35 +46,43 @@ public class DHCPOption extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "actualType")
+   
    protected Long actualType;
    
    @JsonProperty(value = "actualValues")
+   
    protected java.util.List<String> actualValues;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "length")
+   
    protected String length;
    
    @JsonProperty(value = "type")
+   
    protected String type;
    
    @JsonProperty(value = "value")
+   
    protected String value;
    
 
@@ -100,6 +108,7 @@ public class DHCPOption extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Long getActualType() {
       return actualType;
@@ -109,6 +118,7 @@ public class DHCPOption extends RestObject {
    public void setActualType(Long value) { 
       this.actualType = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<String> getActualValues() {
@@ -120,6 +130,7 @@ public class DHCPOption extends RestObject {
       this.actualValues = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -130,15 +141,17 @@ public class DHCPOption extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -150,6 +163,7 @@ public class DHCPOption extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -159,6 +173,7 @@ public class DHCPOption extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getLength() {
@@ -170,6 +185,7 @@ public class DHCPOption extends RestObject {
       this.length = value;
    }
    
+   
    @JsonIgnore
    public String getType() {
       return type;
@@ -179,6 +195,7 @@ public class DHCPOption extends RestObject {
    public void setType(String value) { 
       this.type = value;
    }
+   
    
    @JsonIgnore
    public String getValue() {

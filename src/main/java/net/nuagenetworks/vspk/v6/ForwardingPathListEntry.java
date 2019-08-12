@@ -45,50 +45,56 @@ public class ForwardingPathListEntry extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum FCOverride { A, B, C, D, E, F, G, H, NONE };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum ForwardingAction { IKE, OVERLAY, UNDERLAY_PAT, UNDERLAY_ROUTE };
-   
-   public enum RemoteUplinkPreference { DEFAULT, PRIMARY, PRIMARY_SECONDARY, SECONDARY, SECONDARY_PRIMARY };
-   
-   public enum UplinkPreference { DEFAULT, PRIMARY, PRIMARY_SECONDARY, SECONDARY, SECONDARY_PRIMARY };
+   public enum EFCOverride { A, B, C, D, E, F, G, H, NONE };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EForwardingAction { IKE, OVERLAY, UNDERLAY_PAT, UNDERLAY_ROUTE };
+   public enum ERemoteUplinkPreference { DEFAULT, PRIMARY, PRIMARY_SECONDARY, SECONDARY, SECONDARY_PRIMARY };
+   public enum EUplinkPreference { DEFAULT, PRIMARY, PRIMARY_SECONDARY, SECONDARY, SECONDARY_PRIMARY };
 
    
    @JsonProperty(value = "DSCPRemarking")
+   
    protected String DSCPRemarking;
    
    @JsonProperty(value = "FCOverride")
-   protected FCOverride FCOverride;
+   
+   protected EFCOverride FCOverride;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "forwardingAction")
-   protected ForwardingAction forwardingAction;
+   
+   protected EForwardingAction forwardingAction;
    
    @JsonProperty(value = "isSLAAware")
+   
    protected Boolean isSLAAware;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "priority")
+   
    protected Long priority;
    
    @JsonProperty(value = "remoteUplinkPreference")
-   protected RemoteUplinkPreference remoteUplinkPreference;
+   
+   protected ERemoteUplinkPreference remoteUplinkPreference;
    
    @JsonProperty(value = "uplinkPreference")
-   protected UplinkPreference uplinkPreference;
+   
+   protected EUplinkPreference uplinkPreference;
    
 
    
@@ -108,6 +114,7 @@ public class ForwardingPathListEntry extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getDSCPRemarking() {
       return DSCPRemarking;
@@ -118,15 +125,17 @@ public class ForwardingPathListEntry extends RestObject {
       this.DSCPRemarking = value;
    }
    
+   
    @JsonIgnore
-   public FCOverride getFCOverride() {
+   public EFCOverride getFCOverride() {
       return FCOverride;
    }
 
    @JsonIgnore
-   public void setFCOverride(FCOverride value) { 
+   public void setFCOverride(EFCOverride value) { 
       this.FCOverride = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -138,15 +147,17 @@ public class ForwardingPathListEntry extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -158,15 +169,17 @@ public class ForwardingPathListEntry extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
-   public ForwardingAction getForwardingAction() {
+   public EForwardingAction getForwardingAction() {
       return forwardingAction;
    }
 
    @JsonIgnore
-   public void setForwardingAction(ForwardingAction value) { 
+   public void setForwardingAction(EForwardingAction value) { 
       this.forwardingAction = value;
    }
+   
    
    @JsonIgnore
    public Boolean getIsSLAAware() {
@@ -178,6 +191,7 @@ public class ForwardingPathListEntry extends RestObject {
       this.isSLAAware = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -187,6 +201,7 @@ public class ForwardingPathListEntry extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public Long getPriority() {
@@ -198,23 +213,25 @@ public class ForwardingPathListEntry extends RestObject {
       this.priority = value;
    }
    
+   
    @JsonIgnore
-   public RemoteUplinkPreference getRemoteUplinkPreference() {
+   public ERemoteUplinkPreference getRemoteUplinkPreference() {
       return remoteUplinkPreference;
    }
 
    @JsonIgnore
-   public void setRemoteUplinkPreference(RemoteUplinkPreference value) { 
+   public void setRemoteUplinkPreference(ERemoteUplinkPreference value) { 
       this.remoteUplinkPreference = value;
    }
    
+   
    @JsonIgnore
-   public UplinkPreference getUplinkPreference() {
+   public EUplinkPreference getUplinkPreference() {
       return uplinkPreference;
    }
 
    @JsonIgnore
-   public void setUplinkPreference(UplinkPreference value) { 
+   public void setUplinkPreference(EUplinkPreference value) { 
       this.uplinkPreference = value;
    }
    

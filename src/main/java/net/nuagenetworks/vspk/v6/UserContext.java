@@ -45,50 +45,63 @@ public class UserContext extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "AARFlowStatsInterval")
+   
    protected Long AARFlowStatsInterval;
    
    @JsonProperty(value = "AARProbeStatsInterval")
+   
    protected Long AARProbeStatsInterval;
    
    @JsonProperty(value = "VSSFeatureEnabled")
+   
    protected Boolean VSSFeatureEnabled;
    
    @JsonProperty(value = "VSSStatsInterval")
+   
    protected Long VSSStatsInterval;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "flowCollectionEnabled")
+   
    protected Boolean flowCollectionEnabled;
    
    @JsonProperty(value = "googleMapsAPIKey")
+   
    protected String googleMapsAPIKey;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "pageSize")
+   
    protected Long pageSize;
    
    @JsonProperty(value = "statisticsEnabled")
+   
    protected Boolean statisticsEnabled;
    
    @JsonProperty(value = "statsDatabaseProxy")
+   
    protected String statsDatabaseProxy;
    
    @JsonProperty(value = "statsTSDBServerAddress")
+   
    protected String statsTSDBServerAddress;
    
 
@@ -109,6 +122,7 @@ public class UserContext extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Long getAARFlowStatsInterval() {
       return AARFlowStatsInterval;
@@ -118,6 +132,7 @@ public class UserContext extends RestObject {
    public void setAARFlowStatsInterval(Long value) { 
       this.AARFlowStatsInterval = value;
    }
+   
    
    @JsonIgnore
    public Long getAARProbeStatsInterval() {
@@ -129,6 +144,7 @@ public class UserContext extends RestObject {
       this.AARProbeStatsInterval = value;
    }
    
+   
    @JsonIgnore
    public Boolean getVSSFeatureEnabled() {
       return VSSFeatureEnabled;
@@ -138,6 +154,7 @@ public class UserContext extends RestObject {
    public void setVSSFeatureEnabled(Boolean value) { 
       this.VSSFeatureEnabled = value;
    }
+   
    
    @JsonIgnore
    public Long getVSSStatsInterval() {
@@ -149,6 +166,7 @@ public class UserContext extends RestObject {
       this.VSSStatsInterval = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -159,15 +177,17 @@ public class UserContext extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -179,6 +199,7 @@ public class UserContext extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public Boolean getFlowCollectionEnabled() {
       return flowCollectionEnabled;
@@ -188,6 +209,7 @@ public class UserContext extends RestObject {
    public void setFlowCollectionEnabled(Boolean value) { 
       this.flowCollectionEnabled = value;
    }
+   
    
    @JsonIgnore
    public String getGoogleMapsAPIKey() {
@@ -199,6 +221,7 @@ public class UserContext extends RestObject {
       this.googleMapsAPIKey = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -208,6 +231,7 @@ public class UserContext extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public Long getPageSize() {
@@ -219,6 +243,7 @@ public class UserContext extends RestObject {
       this.pageSize = value;
    }
    
+   
    @JsonIgnore
    public Boolean getStatisticsEnabled() {
       return statisticsEnabled;
@@ -229,6 +254,7 @@ public class UserContext extends RestObject {
       this.statisticsEnabled = value;
    }
    
+   
    @JsonIgnore
    public String getStatsDatabaseProxy() {
       return statsDatabaseProxy;
@@ -238,6 +264,7 @@ public class UserContext extends RestObject {
    public void setStatsDatabaseProxy(String value) { 
       this.statsDatabaseProxy = value;
    }
+   
    
    @JsonIgnore
    public String getStatsTSDBServerAddress() {

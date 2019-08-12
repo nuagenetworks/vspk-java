@@ -45,49 +45,60 @@ public class VNFThresholdPolicy extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum Action { NONE, SHUTOFF };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EAction { NONE, SHUTOFF };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "CPUThreshold")
+   
    protected Long CPUThreshold;
    
    @JsonProperty(value = "action")
-   protected Action action;
+   
+   protected EAction action;
    
    @JsonProperty(value = "assocEntityType")
+   
    protected String assocEntityType;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "memoryThreshold")
+   
    protected Long memoryThreshold;
    
    @JsonProperty(value = "minOccurrence")
+   
    protected Long minOccurrence;
    
    @JsonProperty(value = "monitInterval")
+   
    protected Long monitInterval;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "storageThreshold")
+   
    protected Long storageThreshold;
    
 
@@ -108,6 +119,7 @@ public class VNFThresholdPolicy extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Long getCPUThreshold() {
       return CPUThreshold;
@@ -118,15 +130,17 @@ public class VNFThresholdPolicy extends RestObject {
       this.CPUThreshold = value;
    }
    
+   
    @JsonIgnore
-   public Action getAction() {
+   public EAction getAction() {
       return action;
    }
 
    @JsonIgnore
-   public void setAction(Action value) { 
+   public void setAction(EAction value) { 
       this.action = value;
    }
+   
    
    @JsonIgnore
    public String getAssocEntityType() {
@@ -138,6 +152,7 @@ public class VNFThresholdPolicy extends RestObject {
       this.assocEntityType = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -147,6 +162,7 @@ public class VNFThresholdPolicy extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -158,15 +174,17 @@ public class VNFThresholdPolicy extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -178,6 +196,7 @@ public class VNFThresholdPolicy extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -187,6 +206,7 @@ public class VNFThresholdPolicy extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public Long getMemoryThreshold() {
@@ -198,6 +218,7 @@ public class VNFThresholdPolicy extends RestObject {
       this.memoryThreshold = value;
    }
    
+   
    @JsonIgnore
    public Long getMinOccurrence() {
       return minOccurrence;
@@ -207,6 +228,7 @@ public class VNFThresholdPolicy extends RestObject {
    public void setMinOccurrence(Long value) { 
       this.minOccurrence = value;
    }
+   
    
    @JsonIgnore
    public Long getMonitInterval() {
@@ -218,6 +240,7 @@ public class VNFThresholdPolicy extends RestObject {
       this.monitInterval = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -227,6 +250,7 @@ public class VNFThresholdPolicy extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public Long getStorageThreshold() {

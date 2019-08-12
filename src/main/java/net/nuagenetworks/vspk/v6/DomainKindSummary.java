@@ -45,56 +45,71 @@ public class DomainKindSummary extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "criticalAlarmsCount")
+   
    protected Long criticalAlarmsCount;
    
    @JsonProperty(value = "domainKindDescription")
+   
    protected String domainKindDescription;
    
    @JsonProperty(value = "domainKindName")
+   
    protected String domainKindName;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "gatewayCount")
+   
    protected Long gatewayCount;
    
    @JsonProperty(value = "infoAlarmsCount")
+   
    protected Long infoAlarmsCount;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "majorAlarmsCount")
+   
    protected Long majorAlarmsCount;
    
    @JsonProperty(value = "meshGroupCount")
+   
    protected Long meshGroupCount;
    
    @JsonProperty(value = "minorAlarmsCount")
+   
    protected Long minorAlarmsCount;
    
    @JsonProperty(value = "nsgCount")
+   
    protected Long nsgCount;
    
    @JsonProperty(value = "subNetworkCount")
+   
    protected Long subNetworkCount;
    
    @JsonProperty(value = "trafficVolume")
+   
    protected Long trafficVolume;
    
    @JsonProperty(value = "zoneCount")
+   
    protected Long zoneCount;
    
 
@@ -115,6 +130,7 @@ public class DomainKindSummary extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Long getCriticalAlarmsCount() {
       return criticalAlarmsCount;
@@ -124,6 +140,7 @@ public class DomainKindSummary extends RestObject {
    public void setCriticalAlarmsCount(Long value) { 
       this.criticalAlarmsCount = value;
    }
+   
    
    @JsonIgnore
    public String getDomainKindDescription() {
@@ -135,6 +152,7 @@ public class DomainKindSummary extends RestObject {
       this.domainKindDescription = value;
    }
    
+   
    @JsonIgnore
    public String getDomainKindName() {
       return domainKindName;
@@ -144,6 +162,7 @@ public class DomainKindSummary extends RestObject {
    public void setDomainKindName(String value) { 
       this.domainKindName = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -155,15 +174,17 @@ public class DomainKindSummary extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -175,6 +196,7 @@ public class DomainKindSummary extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public Long getGatewayCount() {
       return gatewayCount;
@@ -184,6 +206,7 @@ public class DomainKindSummary extends RestObject {
    public void setGatewayCount(Long value) { 
       this.gatewayCount = value;
    }
+   
    
    @JsonIgnore
    public Long getInfoAlarmsCount() {
@@ -195,6 +218,7 @@ public class DomainKindSummary extends RestObject {
       this.infoAlarmsCount = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -204,6 +228,7 @@ public class DomainKindSummary extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public Long getMajorAlarmsCount() {
@@ -215,6 +240,7 @@ public class DomainKindSummary extends RestObject {
       this.majorAlarmsCount = value;
    }
    
+   
    @JsonIgnore
    public Long getMeshGroupCount() {
       return meshGroupCount;
@@ -224,6 +250,7 @@ public class DomainKindSummary extends RestObject {
    public void setMeshGroupCount(Long value) { 
       this.meshGroupCount = value;
    }
+   
    
    @JsonIgnore
    public Long getMinorAlarmsCount() {
@@ -235,6 +262,7 @@ public class DomainKindSummary extends RestObject {
       this.minorAlarmsCount = value;
    }
    
+   
    @JsonIgnore
    public Long getNsgCount() {
       return nsgCount;
@@ -244,6 +272,7 @@ public class DomainKindSummary extends RestObject {
    public void setNsgCount(Long value) { 
       this.nsgCount = value;
    }
+   
    
    @JsonIgnore
    public Long getSubNetworkCount() {
@@ -255,6 +284,7 @@ public class DomainKindSummary extends RestObject {
       this.subNetworkCount = value;
    }
    
+   
    @JsonIgnore
    public Long getTrafficVolume() {
       return trafficVolume;
@@ -264,6 +294,7 @@ public class DomainKindSummary extends RestObject {
    public void setTrafficVolume(Long value) { 
       this.trafficVolume = value;
    }
+   
    
    @JsonIgnore
    public Long getZoneCount() {

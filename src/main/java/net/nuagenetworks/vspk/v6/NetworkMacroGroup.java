@@ -46,34 +46,40 @@ public class NetworkMacroGroup extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum MacroGroupType { GATEWAY_AGGREGATE };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EMacroGroupType { GATEWAY_AGGREGATE };
 
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "isSaaSType")
+   
    protected Boolean isSaaSType;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "macroGroupType")
-   protected MacroGroupType macroGroupType;
+   
+   protected EMacroGroupType macroGroupType;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
 
@@ -99,6 +105,7 @@ public class NetworkMacroGroup extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -108,6 +115,7 @@ public class NetworkMacroGroup extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -119,15 +127,17 @@ public class NetworkMacroGroup extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -139,6 +149,7 @@ public class NetworkMacroGroup extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public Boolean getIsSaaSType() {
       return isSaaSType;
@@ -148,6 +159,7 @@ public class NetworkMacroGroup extends RestObject {
    public void setIsSaaSType(Boolean value) { 
       this.isSaaSType = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -159,15 +171,17 @@ public class NetworkMacroGroup extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
-   public MacroGroupType getMacroGroupType() {
+   public EMacroGroupType getMacroGroupType() {
       return macroGroupType;
    }
 
    @JsonIgnore
-   public void setMacroGroupType(MacroGroupType value) { 
+   public void setMacroGroupType(EMacroGroupType value) { 
       this.macroGroupType = value;
    }
+   
    
    @JsonIgnore
    public String getName() {

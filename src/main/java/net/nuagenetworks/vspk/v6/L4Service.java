@@ -44,38 +44,47 @@ public class L4Service extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "ICMPCode")
+   
    protected String ICMPCode;
    
    @JsonProperty(value = "ICMPType")
+   
    protected String ICMPType;
    
    @JsonProperty(value = "defaultService")
+   
    protected Boolean defaultService;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "ports")
+   
    protected String ports;
    
    @JsonProperty(value = "protocol")
+   
    protected String protocol;
    
 
@@ -91,6 +100,7 @@ public class L4Service extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getICMPCode() {
       return ICMPCode;
@@ -100,6 +110,7 @@ public class L4Service extends RestObject {
    public void setICMPCode(String value) { 
       this.ICMPCode = value;
    }
+   
    
    @JsonIgnore
    public String getICMPType() {
@@ -111,6 +122,7 @@ public class L4Service extends RestObject {
       this.ICMPType = value;
    }
    
+   
    @JsonIgnore
    public Boolean getDefaultService() {
       return defaultService;
@@ -120,6 +132,7 @@ public class L4Service extends RestObject {
    public void setDefaultService(Boolean value) { 
       this.defaultService = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -131,15 +144,17 @@ public class L4Service extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -151,6 +166,7 @@ public class L4Service extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -160,6 +176,7 @@ public class L4Service extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -171,6 +188,7 @@ public class L4Service extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public String getPorts() {
       return ports;
@@ -180,6 +198,7 @@ public class L4Service extends RestObject {
    public void setPorts(String value) { 
       this.ports = value;
    }
+   
    
    @JsonIgnore
    public String getProtocol() {

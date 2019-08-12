@@ -45,37 +45,42 @@ public class NextHop extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum IPType { DUALSTACK, IPV4, IPV6 };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Type { BR_PORT, GATEWAY, IP };
+   public enum EIPType { DUALSTACK, IPV4, IPV6 };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EType { BR_PORT, GATEWAY, IP };
 
    
    @JsonProperty(value = "IPType")
-   protected IPType IPType;
+   
+   protected EIPType IPType;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "ip")
+   
    protected String ip;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "routeDistinguisher")
+   
    protected String routeDistinguisher;
    
    @JsonProperty(value = "type")
-   protected Type type;
+   
+   protected EType type;
    
 
    
@@ -95,15 +100,17 @@ public class NextHop extends RestObject {
    }
 
    
+   
    @JsonIgnore
-   public IPType getIPType() {
+   public EIPType getIPType() {
       return IPType;
    }
 
    @JsonIgnore
-   public void setIPType(IPType value) { 
+   public void setIPType(EIPType value) { 
       this.IPType = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -115,15 +122,17 @@ public class NextHop extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -135,6 +144,7 @@ public class NextHop extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getIp() {
       return ip;
@@ -144,6 +154,7 @@ public class NextHop extends RestObject {
    public void setIp(String value) { 
       this.ip = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -155,6 +166,7 @@ public class NextHop extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getRouteDistinguisher() {
       return routeDistinguisher;
@@ -165,13 +177,14 @@ public class NextHop extends RestObject {
       this.routeDistinguisher = value;
    }
    
+   
    @JsonIgnore
-   public Type getType() {
+   public EType getType() {
       return type;
    }
 
    @JsonIgnore
-   public void setType(Type value) { 
+   public void setType(EType value) { 
       this.type = value;
    }
    

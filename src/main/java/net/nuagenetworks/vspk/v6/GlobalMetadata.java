@@ -45,41 +45,51 @@ public class GlobalMetadata extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "assocEntityType")
+   
    protected String assocEntityType;
    
    @JsonProperty(value = "blob")
+   
    protected String blob;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "global")
+   
    protected Boolean globalMetadata;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "metadataTagIDs")
+   
    protected java.util.List<String> metadataTagIDs;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "networkNotificationDisabled")
+   
    protected Boolean networkNotificationDisabled;
    
 
@@ -100,6 +110,7 @@ public class GlobalMetadata extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAssocEntityType() {
       return assocEntityType;
@@ -109,6 +120,7 @@ public class GlobalMetadata extends RestObject {
    public void setAssocEntityType(String value) { 
       this.assocEntityType = value;
    }
+   
    
    @JsonIgnore
    public String getBlob() {
@@ -120,6 +132,7 @@ public class GlobalMetadata extends RestObject {
       this.blob = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -129,6 +142,7 @@ public class GlobalMetadata extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -140,15 +154,17 @@ public class GlobalMetadata extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -160,6 +176,7 @@ public class GlobalMetadata extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public Boolean getGlobalMetadata() {
       return globalMetadata;
@@ -169,6 +186,7 @@ public class GlobalMetadata extends RestObject {
    public void setGlobalMetadata(Boolean value) { 
       this.globalMetadata = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -180,6 +198,7 @@ public class GlobalMetadata extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<String> getMetadataTagIDs() {
       return metadataTagIDs;
@@ -190,6 +209,7 @@ public class GlobalMetadata extends RestObject {
       this.metadataTagIDs = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -199,6 +219,7 @@ public class GlobalMetadata extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public Boolean getNetworkNotificationDisabled() {

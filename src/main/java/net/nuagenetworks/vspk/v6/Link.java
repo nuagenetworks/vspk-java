@@ -51,54 +51,63 @@ public class Link extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum AcceptanceCriteria { ALL, SUBNETS_ONLY };
-   
-   public enum AssociatedDestinationType { DOMAIN };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Type { BIDIR, BORDER_ROUTER, HUB_AND_SPOKE, OVERLAY_ADDRESS_TRANSLATION, SERVICE_CHAINING };
+   public enum EAcceptanceCriteria { ALL, SUBNETS_ONLY };
+   public enum EAssociatedDestinationType { DOMAIN };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EType { BIDIR, BORDER_ROUTER, HUB_AND_SPOKE, OVERLAY_ADDRESS_TRANSLATION, SERVICE_CHAINING };
 
    
    @JsonProperty(value = "acceptanceCriteria")
-   protected AcceptanceCriteria acceptanceCriteria;
+   
+   protected EAcceptanceCriteria acceptanceCriteria;
    
    @JsonProperty(value = "associatedDestinationID")
+   
    protected String associatedDestinationID;
    
    @JsonProperty(value = "associatedDestinationName")
+   
    protected String associatedDestinationName;
    
    @JsonProperty(value = "associatedDestinationType")
-   protected AssociatedDestinationType associatedDestinationType;
+   
+   protected EAssociatedDestinationType associatedDestinationType;
    
    @JsonProperty(value = "associatedSourceID")
+   
    protected String associatedSourceID;
    
    @JsonProperty(value = "associatedSourceName")
+   
    protected String associatedSourceName;
    
    @JsonProperty(value = "associatedSourceType")
+   
    protected String associatedSourceType;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "readOnly")
+   
    protected Boolean readOnly;
    
    @JsonProperty(value = "type")
-   protected Type type;
+   
+   protected EType type;
    
 
    
@@ -148,15 +157,17 @@ public class Link extends RestObject {
    }
 
    
+   
    @JsonIgnore
-   public AcceptanceCriteria getAcceptanceCriteria() {
+   public EAcceptanceCriteria getAcceptanceCriteria() {
       return acceptanceCriteria;
    }
 
    @JsonIgnore
-   public void setAcceptanceCriteria(AcceptanceCriteria value) { 
+   public void setAcceptanceCriteria(EAcceptanceCriteria value) { 
       this.acceptanceCriteria = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedDestinationID() {
@@ -168,6 +179,7 @@ public class Link extends RestObject {
       this.associatedDestinationID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedDestinationName() {
       return associatedDestinationName;
@@ -178,15 +190,17 @@ public class Link extends RestObject {
       this.associatedDestinationName = value;
    }
    
+   
    @JsonIgnore
-   public AssociatedDestinationType getAssociatedDestinationType() {
+   public EAssociatedDestinationType getAssociatedDestinationType() {
       return associatedDestinationType;
    }
 
    @JsonIgnore
-   public void setAssociatedDestinationType(AssociatedDestinationType value) { 
+   public void setAssociatedDestinationType(EAssociatedDestinationType value) { 
       this.associatedDestinationType = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedSourceID() {
@@ -198,6 +212,7 @@ public class Link extends RestObject {
       this.associatedSourceID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedSourceName() {
       return associatedSourceName;
@@ -207,6 +222,7 @@ public class Link extends RestObject {
    public void setAssociatedSourceName(String value) { 
       this.associatedSourceName = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedSourceType() {
@@ -218,6 +234,7 @@ public class Link extends RestObject {
       this.associatedSourceType = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -228,15 +245,17 @@ public class Link extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -248,6 +267,7 @@ public class Link extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -257,6 +277,7 @@ public class Link extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public Boolean getReadOnly() {
@@ -268,13 +289,14 @@ public class Link extends RestObject {
       this.readOnly = value;
    }
    
+   
    @JsonIgnore
-   public Type getType() {
+   public EType getType() {
       return type;
    }
 
    @JsonIgnore
-   public void setType(Type value) { 
+   public void setType(EType value) { 
       this.type = value;
    }
    

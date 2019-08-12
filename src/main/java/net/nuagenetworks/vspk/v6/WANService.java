@@ -49,82 +49,99 @@ public class WANService extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum ConfigType { DYNAMIC, STATIC };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
-   
-   public enum ServiceType { L2, L3 };
-   
-   public enum TunnelType { DC_DEFAULT, GRE, VXLAN };
+   public enum EConfigType { DYNAMIC, STATIC };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EPermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
+   public enum EServiceType { L2, L3 };
+   public enum ETunnelType { DC_DEFAULT, GRE, VXLAN };
 
    
    @JsonProperty(value = "IRBEnabled")
+   
    protected Boolean IRBEnabled;
    
    @JsonProperty(value = "WANServiceIdentifier")
+   
    protected String WANServiceIdentifier;
    
    @JsonProperty(value = "associatedDomainID")
+   
    protected String associatedDomainID;
    
    @JsonProperty(value = "associatedVPNConnectID")
+   
    protected String associatedVPNConnectID;
    
    @JsonProperty(value = "configType")
-   protected ConfigType configType;
+   
+   protected EConfigType configType;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "domainName")
+   
    protected String domainName;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "enterpriseName")
+   
    protected String enterpriseName;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "externalRouteTarget")
+   
    protected String externalRouteTarget;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "orphan")
+   
    protected Boolean orphan;
    
    @JsonProperty(value = "permittedAction")
-   protected PermittedAction permittedAction;
+   
+   protected EPermittedAction permittedAction;
    
    @JsonProperty(value = "servicePolicy")
+   
    protected String servicePolicy;
    
    @JsonProperty(value = "serviceType")
-   protected ServiceType serviceType;
+   
+   protected EServiceType serviceType;
    
    @JsonProperty(value = "tunnelType")
-   protected TunnelType tunnelType;
+   
+   protected ETunnelType tunnelType;
    
    @JsonProperty(value = "useUserMnemonic")
+   
    protected Boolean useUserMnemonic;
    
    @JsonProperty(value = "userMnemonic")
+   
    protected String userMnemonic;
    
    @JsonProperty(value = "vnId")
+   
    protected Long vnId;
    
 
@@ -167,6 +184,7 @@ public class WANService extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Boolean getIRBEnabled() {
       return IRBEnabled;
@@ -176,6 +194,7 @@ public class WANService extends RestObject {
    public void setIRBEnabled(Boolean value) { 
       this.IRBEnabled = value;
    }
+   
    
    @JsonIgnore
    public String getWANServiceIdentifier() {
@@ -187,6 +206,7 @@ public class WANService extends RestObject {
       this.WANServiceIdentifier = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedDomainID() {
       return associatedDomainID;
@@ -196,6 +216,7 @@ public class WANService extends RestObject {
    public void setAssociatedDomainID(String value) { 
       this.associatedDomainID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedVPNConnectID() {
@@ -207,15 +228,17 @@ public class WANService extends RestObject {
       this.associatedVPNConnectID = value;
    }
    
+   
    @JsonIgnore
-   public ConfigType getConfigType() {
+   public EConfigType getConfigType() {
       return configType;
    }
 
    @JsonIgnore
-   public void setConfigType(ConfigType value) { 
+   public void setConfigType(EConfigType value) { 
       this.configType = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -227,6 +250,7 @@ public class WANService extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public String getDomainName() {
       return domainName;
@@ -236,6 +260,7 @@ public class WANService extends RestObject {
    public void setDomainName(String value) { 
       this.domainName = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -247,6 +272,7 @@ public class WANService extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
    public String getEnterpriseName() {
       return enterpriseName;
@@ -257,15 +283,17 @@ public class WANService extends RestObject {
       this.enterpriseName = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -277,6 +305,7 @@ public class WANService extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getExternalRouteTarget() {
       return externalRouteTarget;
@@ -286,6 +315,7 @@ public class WANService extends RestObject {
    public void setExternalRouteTarget(String value) { 
       this.externalRouteTarget = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -297,6 +327,7 @@ public class WANService extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -306,6 +337,7 @@ public class WANService extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public Boolean getOrphan() {
@@ -317,15 +349,17 @@ public class WANService extends RestObject {
       this.orphan = value;
    }
    
+   
    @JsonIgnore
-   public PermittedAction getPermittedAction() {
+   public EPermittedAction getPermittedAction() {
       return permittedAction;
    }
 
    @JsonIgnore
-   public void setPermittedAction(PermittedAction value) { 
+   public void setPermittedAction(EPermittedAction value) { 
       this.permittedAction = value;
    }
+   
    
    @JsonIgnore
    public String getServicePolicy() {
@@ -337,25 +371,28 @@ public class WANService extends RestObject {
       this.servicePolicy = value;
    }
    
+   
    @JsonIgnore
-   public ServiceType getServiceType() {
+   public EServiceType getServiceType() {
       return serviceType;
    }
 
    @JsonIgnore
-   public void setServiceType(ServiceType value) { 
+   public void setServiceType(EServiceType value) { 
       this.serviceType = value;
    }
    
+   
    @JsonIgnore
-   public TunnelType getTunnelType() {
+   public ETunnelType getTunnelType() {
       return tunnelType;
    }
 
    @JsonIgnore
-   public void setTunnelType(TunnelType value) { 
+   public void setTunnelType(ETunnelType value) { 
       this.tunnelType = value;
    }
+   
    
    @JsonIgnore
    public Boolean getUseUserMnemonic() {
@@ -367,6 +404,7 @@ public class WANService extends RestObject {
       this.useUserMnemonic = value;
    }
    
+   
    @JsonIgnore
    public String getUserMnemonic() {
       return userMnemonic;
@@ -376,6 +414,7 @@ public class WANService extends RestObject {
    public void setUserMnemonic(String value) { 
       this.userMnemonic = value;
    }
+   
    
    @JsonIgnore
    public Long getVnId() {

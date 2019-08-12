@@ -48,77 +48,87 @@ public class ControllerVRSLink extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum JSONRPCConnectionState { ADMIN_DOWN, DOWN, NONE, UP };
-   
-   public enum VRSPersonality { HARDWARE_VTEP, NONE, NSG, NSGBR, NSGDUC, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, VRS, VRSB, VRSG };
-   
-   public enum VSCConfigState { PRIMARY, SECONDARY };
-   
-   public enum VSCCurrentState { PRIMARY, SECONDARY };
-   
-   public enum ClusterNodeRole { NONE, PRIMARY, SECONDARY };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Role { MASTER, NONE, SLAVE };
-   
-   public enum Status { ADMIN_DOWN, DOWN, UP };
+   public enum EJSONRPCConnectionState { ADMIN_DOWN, DOWN, NONE, UP };
+   public enum EVRSPersonality { HARDWARE_VTEP, NONE, NSG, NSGBR, NSGDUC, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, VRS, VRSB, VRSG };
+   public enum EVSCConfigState { PRIMARY, SECONDARY };
+   public enum EVSCCurrentState { PRIMARY, SECONDARY };
+   public enum EClusterNodeRole { NONE, PRIMARY, SECONDARY };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum ERole { MASTER, NONE, SLAVE };
+   public enum EStatus { ADMIN_DOWN, DOWN, UP };
 
    
    @JsonProperty(value = "JSONRPCConnectionState")
-   protected JSONRPCConnectionState JSONRPCConnectionState;
+   
+   protected EJSONRPCConnectionState JSONRPCConnectionState;
    
    @JsonProperty(value = "VRSID")
+   
    protected String VRSID;
    
    @JsonProperty(value = "VRSPersonality")
-   protected VRSPersonality VRSPersonality;
+   
+   protected EVRSPersonality VRSPersonality;
    
    @JsonProperty(value = "VSCConfigState")
-   protected VSCConfigState VSCConfigState;
+   
+   protected EVSCConfigState VSCConfigState;
    
    @JsonProperty(value = "VSCCurrentState")
-   protected VSCCurrentState VSCCurrentState;
+   
+   protected EVSCCurrentState VSCCurrentState;
    
    @JsonProperty(value = "clusterNodeRole")
-   protected ClusterNodeRole clusterNodeRole;
+   
+   protected EClusterNodeRole clusterNodeRole;
    
    @JsonProperty(value = "connections")
+   
    protected java.util.List<SysmonUplinkConnection> connections;
    
    @JsonProperty(value = "controllerID")
+   
    protected String controllerID;
    
    @JsonProperty(value = "controllerType")
+   
    protected String controllerType;
    
    @JsonProperty(value = "dynamic")
+   
    protected Boolean dynamic;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "peer")
+   
    protected String peer;
    
    @JsonProperty(value = "role")
-   protected Role role;
+   
+   protected ERole role;
    
    @JsonProperty(value = "status")
-   protected Status status;
+   
+   protected EStatus status;
    
 
    
@@ -153,15 +163,17 @@ public class ControllerVRSLink extends RestObject {
    }
 
    
+   
    @JsonIgnore
-   public JSONRPCConnectionState getJSONRPCConnectionState() {
+   public EJSONRPCConnectionState getJSONRPCConnectionState() {
       return JSONRPCConnectionState;
    }
 
    @JsonIgnore
-   public void setJSONRPCConnectionState(JSONRPCConnectionState value) { 
+   public void setJSONRPCConnectionState(EJSONRPCConnectionState value) { 
       this.JSONRPCConnectionState = value;
    }
+   
    
    @JsonIgnore
    public String getVRSID() {
@@ -173,45 +185,50 @@ public class ControllerVRSLink extends RestObject {
       this.VRSID = value;
    }
    
+   
    @JsonIgnore
-   public VRSPersonality getVRSPersonality() {
+   public EVRSPersonality getVRSPersonality() {
       return VRSPersonality;
    }
 
    @JsonIgnore
-   public void setVRSPersonality(VRSPersonality value) { 
+   public void setVRSPersonality(EVRSPersonality value) { 
       this.VRSPersonality = value;
    }
    
+   
    @JsonIgnore
-   public VSCConfigState getVSCConfigState() {
+   public EVSCConfigState getVSCConfigState() {
       return VSCConfigState;
    }
 
    @JsonIgnore
-   public void setVSCConfigState(VSCConfigState value) { 
+   public void setVSCConfigState(EVSCConfigState value) { 
       this.VSCConfigState = value;
    }
    
+   
    @JsonIgnore
-   public VSCCurrentState getVSCCurrentState() {
+   public EVSCCurrentState getVSCCurrentState() {
       return VSCCurrentState;
    }
 
    @JsonIgnore
-   public void setVSCCurrentState(VSCCurrentState value) { 
+   public void setVSCCurrentState(EVSCCurrentState value) { 
       this.VSCCurrentState = value;
    }
    
+   
    @JsonIgnore
-   public ClusterNodeRole getClusterNodeRole() {
+   public EClusterNodeRole getClusterNodeRole() {
       return clusterNodeRole;
    }
 
    @JsonIgnore
-   public void setClusterNodeRole(ClusterNodeRole value) { 
+   public void setClusterNodeRole(EClusterNodeRole value) { 
       this.clusterNodeRole = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<SysmonUplinkConnection> getConnections() {
@@ -223,6 +240,7 @@ public class ControllerVRSLink extends RestObject {
       this.connections = value;
    }
    
+   
    @JsonIgnore
    public String getControllerID() {
       return controllerID;
@@ -232,6 +250,7 @@ public class ControllerVRSLink extends RestObject {
    public void setControllerID(String value) { 
       this.controllerID = value;
    }
+   
    
    @JsonIgnore
    public String getControllerType() {
@@ -243,6 +262,7 @@ public class ControllerVRSLink extends RestObject {
       this.controllerType = value;
    }
    
+   
    @JsonIgnore
    public Boolean getDynamic() {
       return dynamic;
@@ -252,6 +272,7 @@ public class ControllerVRSLink extends RestObject {
    public void setDynamic(Boolean value) { 
       this.dynamic = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -263,15 +284,17 @@ public class ControllerVRSLink extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -283,6 +306,7 @@ public class ControllerVRSLink extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -292,6 +316,7 @@ public class ControllerVRSLink extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -303,6 +328,7 @@ public class ControllerVRSLink extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public String getPeer() {
       return peer;
@@ -313,23 +339,25 @@ public class ControllerVRSLink extends RestObject {
       this.peer = value;
    }
    
+   
    @JsonIgnore
-   public Role getRole() {
+   public ERole getRole() {
       return role;
    }
 
    @JsonIgnore
-   public void setRole(Role value) { 
+   public void setRole(ERole value) { 
       this.role = value;
    }
    
+   
    @JsonIgnore
-   public Status getStatus() {
+   public EStatus getStatus() {
       return status;
    }
 
    @JsonIgnore
-   public void setStatus(Status value) { 
+   public void setStatus(EStatus value) { 
       this.status = value;
    }
    

@@ -62,56 +62,64 @@ public class DomainTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum DPI { DISABLED, ENABLED };
-   
-   public enum Encryption { DISABLED, ENABLED };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Multicast { DISABLED, ENABLED, INHERITED };
-   
-   public enum PolicyChangeStatus { APPLIED, DISCARDED, STARTED };
+   public enum EDPI { DISABLED, ENABLED };
+   public enum EEncryption { DISABLED, ENABLED };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EMulticast { DISABLED, ENABLED, INHERITED };
+   public enum EPolicyChangeStatus { APPLIED, DISCARDED, STARTED };
 
    
    @JsonProperty(value = "DPI")
-   protected DPI DPI;
+   
+   protected EDPI DPI;
    
    @JsonProperty(value = "associatedBGPProfileID")
+   
    protected String associatedBGPProfileID;
    
    @JsonProperty(value = "associatedMulticastChannelMapID")
+   
    protected String associatedMulticastChannelMapID;
    
    @JsonProperty(value = "associatedPATMapperID")
+   
    protected String associatedPATMapperID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "encryption")
-   protected Encryption encryption;
+   
+   protected EEncryption encryption;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "multicast")
-   protected Multicast multicast;
+   
+   protected EMulticast multicast;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "policyChangeStatus")
-   protected PolicyChangeStatus policyChangeStatus;
+   
+   protected EPolicyChangeStatus policyChangeStatus;
    
 
    
@@ -216,15 +224,17 @@ public class DomainTemplate extends RestObject {
    }
 
    
+   
    @JsonIgnore
-   public DPI getDPI() {
+   public EDPI getDPI() {
       return DPI;
    }
 
    @JsonIgnore
-   public void setDPI(DPI value) { 
+   public void setDPI(EDPI value) { 
       this.DPI = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedBGPProfileID() {
@@ -236,6 +246,7 @@ public class DomainTemplate extends RestObject {
       this.associatedBGPProfileID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedMulticastChannelMapID() {
       return associatedMulticastChannelMapID;
@@ -245,6 +256,7 @@ public class DomainTemplate extends RestObject {
    public void setAssociatedMulticastChannelMapID(String value) { 
       this.associatedMulticastChannelMapID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedPATMapperID() {
@@ -256,6 +268,7 @@ public class DomainTemplate extends RestObject {
       this.associatedPATMapperID = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -265,6 +278,7 @@ public class DomainTemplate extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -276,25 +290,28 @@ public class DomainTemplate extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public Encryption getEncryption() {
+   public EEncryption getEncryption() {
       return encryption;
    }
 
    @JsonIgnore
-   public void setEncryption(Encryption value) { 
+   public void setEncryption(EEncryption value) { 
       this.encryption = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -306,6 +323,7 @@ public class DomainTemplate extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -316,15 +334,17 @@ public class DomainTemplate extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
-   public Multicast getMulticast() {
+   public EMulticast getMulticast() {
       return multicast;
    }
 
    @JsonIgnore
-   public void setMulticast(Multicast value) { 
+   public void setMulticast(EMulticast value) { 
       this.multicast = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -336,13 +356,14 @@ public class DomainTemplate extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
-   public PolicyChangeStatus getPolicyChangeStatus() {
+   public EPolicyChangeStatus getPolicyChangeStatus() {
       return policyChangeStatus;
    }
 
    @JsonIgnore
-   public void setPolicyChangeStatus(PolicyChangeStatus value) { 
+   public void setPolicyChangeStatus(EPolicyChangeStatus value) { 
       this.policyChangeStatus = value;
    }
    

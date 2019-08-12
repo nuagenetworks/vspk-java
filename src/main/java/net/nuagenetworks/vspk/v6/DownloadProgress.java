@@ -46,27 +46,35 @@ public class DownloadProgress extends RestObject {
 
    
    @JsonProperty(value = "averageSpeed")
+   
    protected Long averageSpeed;
    
    @JsonProperty(value = "currentSpeed")
+   
    protected Long currentSpeed;
    
    @JsonProperty(value = "imageFileName")
+   
    protected String imageFileName;
    
    @JsonProperty(value = "imageVersion")
+   
    protected String imageVersion;
    
    @JsonProperty(value = "percentage")
+   
    protected Long percentage;
    
    @JsonProperty(value = "startTime")
+   
    protected Long startTime;
    
    @JsonProperty(value = "timeLeft")
+   
    protected String timeLeft;
    
    @JsonProperty(value = "timeSpent")
+   
    protected String timeSpent;
    
 
@@ -76,6 +84,7 @@ public class DownloadProgress extends RestObject {
       
    }
 
+   
    
    @JsonIgnore
    public Long getAverageSpeed() {
@@ -87,6 +96,7 @@ public class DownloadProgress extends RestObject {
       this.averageSpeed = value;
    }
    
+   
    @JsonIgnore
    public Long getCurrentSpeed() {
       return currentSpeed;
@@ -96,6 +106,7 @@ public class DownloadProgress extends RestObject {
    public void setCurrentSpeed(Long value) { 
       this.currentSpeed = value;
    }
+   
    
    @JsonIgnore
    public String getImageFileName() {
@@ -107,6 +118,7 @@ public class DownloadProgress extends RestObject {
       this.imageFileName = value;
    }
    
+   
    @JsonIgnore
    public String getImageVersion() {
       return imageVersion;
@@ -116,6 +128,7 @@ public class DownloadProgress extends RestObject {
    public void setImageVersion(String value) { 
       this.imageVersion = value;
    }
+   
    
    @JsonIgnore
    public Long getPercentage() {
@@ -127,6 +140,7 @@ public class DownloadProgress extends RestObject {
       this.percentage = value;
    }
    
+   
    @JsonIgnore
    public Long getStartTime() {
       return startTime;
@@ -137,6 +151,7 @@ public class DownloadProgress extends RestObject {
       this.startTime = value;
    }
    
+   
    @JsonIgnore
    public String getTimeLeft() {
       return timeLeft;
@@ -146,6 +161,7 @@ public class DownloadProgress extends RestObject {
    public void setTimeLeft(String value) { 
       this.timeLeft = value;
    }
+   
    
    @JsonIgnore
    public String getTimeSpent() {

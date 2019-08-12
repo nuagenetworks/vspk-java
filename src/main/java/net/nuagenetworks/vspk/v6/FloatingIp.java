@@ -47,35 +47,43 @@ public class FloatingIp extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "accessControl")
+   
    protected Boolean accessControl;
    
    @JsonProperty(value = "address")
+   
    protected String address;
    
    @JsonProperty(value = "assigned")
+   
    protected Boolean assigned;
    
    @JsonProperty(value = "assignedToObjectType")
+   
    protected String assignedToObjectType;
    
    @JsonProperty(value = "associatedSharedNetworkResourceID")
+   
    protected String associatedSharedNetworkResourceID;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
 
@@ -106,6 +114,7 @@ public class FloatingIp extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Boolean getAccessControl() {
       return accessControl;
@@ -115,6 +124,7 @@ public class FloatingIp extends RestObject {
    public void setAccessControl(Boolean value) { 
       this.accessControl = value;
    }
+   
    
    @JsonIgnore
    public String getAddress() {
@@ -126,6 +136,7 @@ public class FloatingIp extends RestObject {
       this.address = value;
    }
    
+   
    @JsonIgnore
    public Boolean getAssigned() {
       return assigned;
@@ -135,6 +146,7 @@ public class FloatingIp extends RestObject {
    public void setAssigned(Boolean value) { 
       this.assigned = value;
    }
+   
    
    @JsonIgnore
    public String getAssignedToObjectType() {
@@ -146,6 +158,7 @@ public class FloatingIp extends RestObject {
       this.assignedToObjectType = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedSharedNetworkResourceID() {
       return associatedSharedNetworkResourceID;
@@ -155,6 +168,7 @@ public class FloatingIp extends RestObject {
    public void setAssociatedSharedNetworkResourceID(String value) { 
       this.associatedSharedNetworkResourceID = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -166,15 +180,17 @@ public class FloatingIp extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -185,6 +201,7 @@ public class FloatingIp extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {

@@ -61,92 +61,107 @@ public class L2DomainTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum DPI { DISABLED, ENABLED, INHERITED };
-   
-   public enum IPType { DUALSTACK, IPV4, IPV6 };
-   
-   public enum Encryption { DISABLED, ENABLED };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum EntityState { MARKED_FOR_DELETION, UNDER_CONSTRUCTION };
-   
-   public enum Multicast { DISABLED, ENABLED, INHERITED };
-   
-   public enum PolicyChangeStatus { APPLIED, DISCARDED, STARTED };
-   
-   public enum UseGlobalMAC { DISABLED, ENABLED };
+   public enum EDPI { DISABLED, ENABLED, INHERITED };
+   public enum EIPType { DUALSTACK, IPV4, IPV6 };
+   public enum EEncryption { DISABLED, ENABLED };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityState { MARKED_FOR_DELETION, UNDER_CONSTRUCTION };
+   public enum EMulticast { DISABLED, ENABLED, INHERITED };
+   public enum EPolicyChangeStatus { APPLIED, DISCARDED, STARTED };
+   public enum EUseGlobalMAC { DISABLED, ENABLED };
 
    
    @JsonProperty(value = "DHCPManaged")
+   
    protected Boolean DHCPManaged;
    
    @JsonProperty(value = "DPI")
-   protected DPI DPI;
+   
+   protected EDPI DPI;
    
    @JsonProperty(value = "IPType")
-   protected IPType IPType;
+   
+   protected EIPType IPType;
    
    @JsonProperty(value = "IPv6Address")
+   
    protected String IPv6Address;
    
    @JsonProperty(value = "IPv6Gateway")
+   
    protected String IPv6Gateway;
    
    @JsonProperty(value = "address")
+   
    protected String address;
    
    @JsonProperty(value = "associatedMulticastChannelMapID")
+   
    protected String associatedMulticastChannelMapID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "dualStackDynamicIPAllocation")
+   
    protected Boolean dualStackDynamicIPAllocation;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "enableDHCPv4")
+   
    protected Boolean enableDHCPv4;
    
    @JsonProperty(value = "enableDHCPv6")
+   
    protected Boolean enableDHCPv6;
    
    @JsonProperty(value = "encryption")
-   protected Encryption encryption;
+   
+   protected EEncryption encryption;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "entityState")
-   protected EntityState entityState;
+   
+   protected EEntityState entityState;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "gateway")
+   
    protected String gateway;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "multicast")
-   protected Multicast multicast;
+   
+   protected EMulticast multicast;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "netmask")
+   
    protected String netmask;
    
    @JsonProperty(value = "policyChangeStatus")
-   protected PolicyChangeStatus policyChangeStatus;
+   
+   protected EPolicyChangeStatus policyChangeStatus;
    
    @JsonProperty(value = "useGlobalMAC")
-   protected UseGlobalMAC useGlobalMAC;
+   
+   protected EUseGlobalMAC useGlobalMAC;
    
 
    
@@ -246,6 +261,7 @@ public class L2DomainTemplate extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Boolean getDHCPManaged() {
       return DHCPManaged;
@@ -256,25 +272,28 @@ public class L2DomainTemplate extends RestObject {
       this.DHCPManaged = value;
    }
    
+   
    @JsonIgnore
-   public DPI getDPI() {
+   public EDPI getDPI() {
       return DPI;
    }
 
    @JsonIgnore
-   public void setDPI(DPI value) { 
+   public void setDPI(EDPI value) { 
       this.DPI = value;
    }
    
+   
    @JsonIgnore
-   public IPType getIPType() {
+   public EIPType getIPType() {
       return IPType;
    }
 
    @JsonIgnore
-   public void setIPType(IPType value) { 
+   public void setIPType(EIPType value) { 
       this.IPType = value;
    }
+   
    
    @JsonIgnore
    public String getIPv6Address() {
@@ -286,6 +305,7 @@ public class L2DomainTemplate extends RestObject {
       this.IPv6Address = value;
    }
    
+   
    @JsonIgnore
    public String getIPv6Gateway() {
       return IPv6Gateway;
@@ -295,6 +315,7 @@ public class L2DomainTemplate extends RestObject {
    public void setIPv6Gateway(String value) { 
       this.IPv6Gateway = value;
    }
+   
    
    @JsonIgnore
    public String getAddress() {
@@ -306,6 +327,7 @@ public class L2DomainTemplate extends RestObject {
       this.address = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedMulticastChannelMapID() {
       return associatedMulticastChannelMapID;
@@ -315,6 +337,7 @@ public class L2DomainTemplate extends RestObject {
    public void setAssociatedMulticastChannelMapID(String value) { 
       this.associatedMulticastChannelMapID = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -326,6 +349,7 @@ public class L2DomainTemplate extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public Boolean getDualStackDynamicIPAllocation() {
       return dualStackDynamicIPAllocation;
@@ -335,6 +359,7 @@ public class L2DomainTemplate extends RestObject {
    public void setDualStackDynamicIPAllocation(Boolean value) { 
       this.dualStackDynamicIPAllocation = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -346,6 +371,7 @@ public class L2DomainTemplate extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
    public Boolean getEnableDHCPv4() {
       return enableDHCPv4;
@@ -355,6 +381,7 @@ public class L2DomainTemplate extends RestObject {
    public void setEnableDHCPv4(Boolean value) { 
       this.enableDHCPv4 = value;
    }
+   
    
    @JsonIgnore
    public Boolean getEnableDHCPv6() {
@@ -366,35 +393,39 @@ public class L2DomainTemplate extends RestObject {
       this.enableDHCPv6 = value;
    }
    
+   
    @JsonIgnore
-   public Encryption getEncryption() {
+   public EEncryption getEncryption() {
       return encryption;
    }
 
    @JsonIgnore
-   public void setEncryption(Encryption value) { 
+   public void setEncryption(EEncryption value) { 
       this.encryption = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
    
+   
    @JsonIgnore
-   public EntityState getEntityState() {
+   public EEntityState getEntityState() {
       return entityState;
    }
 
    @JsonIgnore
-   public void setEntityState(EntityState value) { 
+   public void setEntityState(EEntityState value) { 
       this.entityState = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -406,6 +437,7 @@ public class L2DomainTemplate extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getGateway() {
       return gateway;
@@ -415,6 +447,7 @@ public class L2DomainTemplate extends RestObject {
    public void setGateway(String value) { 
       this.gateway = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -426,15 +459,17 @@ public class L2DomainTemplate extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
-   public Multicast getMulticast() {
+   public EMulticast getMulticast() {
       return multicast;
    }
 
    @JsonIgnore
-   public void setMulticast(Multicast value) { 
+   public void setMulticast(EMulticast value) { 
       this.multicast = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -446,6 +481,7 @@ public class L2DomainTemplate extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public String getNetmask() {
       return netmask;
@@ -456,23 +492,25 @@ public class L2DomainTemplate extends RestObject {
       this.netmask = value;
    }
    
+   
    @JsonIgnore
-   public PolicyChangeStatus getPolicyChangeStatus() {
+   public EPolicyChangeStatus getPolicyChangeStatus() {
       return policyChangeStatus;
    }
 
    @JsonIgnore
-   public void setPolicyChangeStatus(PolicyChangeStatus value) { 
+   public void setPolicyChangeStatus(EPolicyChangeStatus value) { 
       this.policyChangeStatus = value;
    }
    
+   
    @JsonIgnore
-   public UseGlobalMAC getUseGlobalMAC() {
+   public EUseGlobalMAC getUseGlobalMAC() {
       return useGlobalMAC;
    }
 
    @JsonIgnore
-   public void setUseGlobalMAC(UseGlobalMAC value) { 
+   public void setUseGlobalMAC(EUseGlobalMAC value) { 
       this.useGlobalMAC = value;
    }
    

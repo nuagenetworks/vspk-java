@@ -45,37 +45,44 @@ public class PTranslationMap extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum MappingType { NAT, PAT };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EMappingType { NAT, PAT };
 
    
    @JsonProperty(value = "SPATSourceList")
+   
    protected java.util.List<String> SPATSourceList;
    
    @JsonProperty(value = "associatedDomainID")
+   
    protected String associatedDomainID;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "mappingType")
-   protected MappingType mappingType;
+   
+   protected EMappingType mappingType;
    
    @JsonProperty(value = "providerAliasIP")
+   
    protected String providerAliasIP;
    
    @JsonProperty(value = "providerIP")
+   
    protected String providerIP;
    
 
@@ -96,6 +103,7 @@ public class PTranslationMap extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public java.util.List<String> getSPATSourceList() {
       return SPATSourceList;
@@ -105,6 +113,7 @@ public class PTranslationMap extends RestObject {
    public void setSPATSourceList(java.util.List<String> value) { 
       this.SPATSourceList = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedDomainID() {
@@ -116,6 +125,7 @@ public class PTranslationMap extends RestObject {
       this.associatedDomainID = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -126,15 +136,17 @@ public class PTranslationMap extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -146,6 +158,7 @@ public class PTranslationMap extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -156,15 +169,17 @@ public class PTranslationMap extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
-   public MappingType getMappingType() {
+   public EMappingType getMappingType() {
       return mappingType;
    }
 
    @JsonIgnore
-   public void setMappingType(MappingType value) { 
+   public void setMappingType(EMappingType value) { 
       this.mappingType = value;
    }
+   
    
    @JsonIgnore
    public String getProviderAliasIP() {
@@ -175,6 +190,7 @@ public class PTranslationMap extends RestObject {
    public void setProviderAliasIP(String value) { 
       this.providerAliasIP = value;
    }
+   
    
    @JsonIgnore
    public String getProviderIP() {

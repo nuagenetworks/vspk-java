@@ -46,37 +46,44 @@ public class VirtualIP extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum IPType { IPV4, IPV6 };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EIPType { IPV4, IPV6 };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "IPType")
-   protected IPType IPType;
+   
+   protected EIPType IPType;
    
    @JsonProperty(value = "MAC")
+   
    protected String MAC;
    
    @JsonProperty(value = "associatedFloatingIPID")
+   
    protected String associatedFloatingIPID;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "subnetID")
+   
    protected String subnetID;
    
    @JsonProperty(value = "virtualIP")
+   
    protected String virtualIP;
    
 
@@ -102,15 +109,17 @@ public class VirtualIP extends RestObject {
    }
 
    
+   
    @JsonIgnore
-   public IPType getIPType() {
+   public EIPType getIPType() {
       return IPType;
    }
 
    @JsonIgnore
-   public void setIPType(IPType value) { 
+   public void setIPType(EIPType value) { 
       this.IPType = value;
    }
+   
    
    @JsonIgnore
    public String getMAC() {
@@ -122,6 +131,7 @@ public class VirtualIP extends RestObject {
       this.MAC = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedFloatingIPID() {
       return associatedFloatingIPID;
@@ -131,6 +141,7 @@ public class VirtualIP extends RestObject {
    public void setAssociatedFloatingIPID(String value) { 
       this.associatedFloatingIPID = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -142,15 +153,17 @@ public class VirtualIP extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -162,6 +175,7 @@ public class VirtualIP extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -172,6 +186,7 @@ public class VirtualIP extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getSubnetID() {
       return subnetID;
@@ -181,6 +196,7 @@ public class VirtualIP extends RestObject {
    public void setSubnetID(String value) { 
       this.subnetID = value;
    }
+   
    
    @JsonIgnore
    public String getVirtualIP() {

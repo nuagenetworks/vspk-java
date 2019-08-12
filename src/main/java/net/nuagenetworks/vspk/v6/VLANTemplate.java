@@ -47,60 +47,73 @@ public class VLANTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum AssociatedConnectionType { BR_CONNECTION, UPLINK_CONNECTION };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Type { ACCESS, BR, DUC, UPLINK };
+   public enum EAssociatedConnectionType { BR_CONNECTION, UPLINK_CONNECTION };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EType { ACCESS, BR, DUC, UPLINK };
 
    
    @JsonProperty(value = "associatedConnectionType")
-   protected AssociatedConnectionType associatedConnectionType;
+   
+   protected EAssociatedConnectionType associatedConnectionType;
    
    @JsonProperty(value = "associatedEgressQOSPolicyID")
+   
    protected String associatedEgressQOSPolicyID;
    
    @JsonProperty(value = "associatedIngressOverlayQoSPolicerID")
+   
    protected String associatedIngressOverlayQoSPolicerID;
    
    @JsonProperty(value = "associatedIngressQOSPolicyID")
+   
    protected String associatedIngressQOSPolicyID;
    
    @JsonProperty(value = "associatedIngressUnderlayQoSPolicerID")
+   
    protected String associatedIngressUnderlayQoSPolicerID;
    
    @JsonProperty(value = "associatedUplinkConnectionID")
+   
    protected String associatedUplinkConnectionID;
    
    @JsonProperty(value = "associatedVSCProfileID")
+   
    protected String associatedVSCProfileID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "ducVlan")
+   
    protected Boolean ducVlan;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "isUplink")
+   
    protected Boolean isUplink;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "type")
-   protected Type type;
+   
+   protected EType type;
    
    @JsonProperty(value = "value")
+   
    protected Long value;
    
 
@@ -131,15 +144,17 @@ public class VLANTemplate extends RestObject {
    }
 
    
+   
    @JsonIgnore
-   public AssociatedConnectionType getAssociatedConnectionType() {
+   public EAssociatedConnectionType getAssociatedConnectionType() {
       return associatedConnectionType;
    }
 
    @JsonIgnore
-   public void setAssociatedConnectionType(AssociatedConnectionType value) { 
+   public void setAssociatedConnectionType(EAssociatedConnectionType value) { 
       this.associatedConnectionType = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedEgressQOSPolicyID() {
@@ -151,6 +166,7 @@ public class VLANTemplate extends RestObject {
       this.associatedEgressQOSPolicyID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedIngressOverlayQoSPolicerID() {
       return associatedIngressOverlayQoSPolicerID;
@@ -160,6 +176,7 @@ public class VLANTemplate extends RestObject {
    public void setAssociatedIngressOverlayQoSPolicerID(String value) { 
       this.associatedIngressOverlayQoSPolicerID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedIngressQOSPolicyID() {
@@ -171,6 +188,7 @@ public class VLANTemplate extends RestObject {
       this.associatedIngressQOSPolicyID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedIngressUnderlayQoSPolicerID() {
       return associatedIngressUnderlayQoSPolicerID;
@@ -180,6 +198,7 @@ public class VLANTemplate extends RestObject {
    public void setAssociatedIngressUnderlayQoSPolicerID(String value) { 
       this.associatedIngressUnderlayQoSPolicerID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedUplinkConnectionID() {
@@ -191,6 +210,7 @@ public class VLANTemplate extends RestObject {
       this.associatedUplinkConnectionID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedVSCProfileID() {
       return associatedVSCProfileID;
@@ -200,6 +220,7 @@ public class VLANTemplate extends RestObject {
    public void setAssociatedVSCProfileID(String value) { 
       this.associatedVSCProfileID = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -211,6 +232,7 @@ public class VLANTemplate extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public Boolean getDucVlan() {
       return ducVlan;
@@ -220,6 +242,7 @@ public class VLANTemplate extends RestObject {
    public void setDucVlan(Boolean value) { 
       this.ducVlan = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -231,15 +254,17 @@ public class VLANTemplate extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -251,6 +276,7 @@ public class VLANTemplate extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public Boolean getIsUplink() {
       return isUplink;
@@ -260,6 +286,7 @@ public class VLANTemplate extends RestObject {
    public void setIsUplink(Boolean value) { 
       this.isUplink = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -271,15 +298,17 @@ public class VLANTemplate extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
-   public Type getType() {
+   public EType getType() {
       return type;
    }
 
    @JsonIgnore
-   public void setType(Type value) { 
+   public void setType(EType value) { 
       this.type = value;
    }
+   
    
    @JsonIgnore
    public Long getValue() {

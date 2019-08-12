@@ -45,41 +45,49 @@ public class NATMapEntry extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Type { MANY_TO_ONE_PAT, ONE_TO_MANY_PAT, ONE_TO_ONE_NAT, UNKNOWN };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EType { MANY_TO_ONE_PAT, ONE_TO_MANY_PAT, ONE_TO_ONE_NAT, UNKNOWN };
 
    
    @JsonProperty(value = "associatedPATNATPoolID")
+   
    protected String associatedPATNATPoolID;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "privateIP")
+   
    protected String privateIP;
    
    @JsonProperty(value = "privatePort")
+   
    protected Long privatePort;
    
    @JsonProperty(value = "publicIP")
+   
    protected String publicIP;
    
    @JsonProperty(value = "publicPort")
+   
    protected Long publicPort;
    
    @JsonProperty(value = "type")
-   protected Type type;
+   
+   protected EType type;
    
 
    
@@ -99,6 +107,7 @@ public class NATMapEntry extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAssociatedPATNATPoolID() {
       return associatedPATNATPoolID;
@@ -108,6 +117,7 @@ public class NATMapEntry extends RestObject {
    public void setAssociatedPATNATPoolID(String value) { 
       this.associatedPATNATPoolID = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -119,15 +129,17 @@ public class NATMapEntry extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -139,6 +151,7 @@ public class NATMapEntry extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -148,6 +161,7 @@ public class NATMapEntry extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getPrivateIP() {
@@ -159,6 +173,7 @@ public class NATMapEntry extends RestObject {
       this.privateIP = value;
    }
    
+   
    @JsonIgnore
    public Long getPrivatePort() {
       return privatePort;
@@ -168,6 +183,7 @@ public class NATMapEntry extends RestObject {
    public void setPrivatePort(Long value) { 
       this.privatePort = value;
    }
+   
    
    @JsonIgnore
    public String getPublicIP() {
@@ -179,6 +195,7 @@ public class NATMapEntry extends RestObject {
       this.publicIP = value;
    }
    
+   
    @JsonIgnore
    public Long getPublicPort() {
       return publicPort;
@@ -189,13 +206,14 @@ public class NATMapEntry extends RestObject {
       this.publicPort = value;
    }
    
+   
    @JsonIgnore
-   public Type getType() {
+   public EType getType() {
       return type;
    }
 
    @JsonIgnore
-   public void setType(Type value) { 
+   public void setType(EType value) { 
       this.type = value;
    }
    

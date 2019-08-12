@@ -96,211 +96,254 @@ public class AggregatedDomain extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum DHCPBehavior { CONSUME, FLOOD, OVERLAY_RELAY, UNDERLAY_RELAY };
-   
-   public enum DPI { DISABLED, ENABLED };
-   
-   public enum FIPIgnoreDefaultRoute { DISABLED, ENABLED };
-   
-   public enum PATEnabled { DISABLED, ENABLED, INHERITED };
-   
-   public enum AdvertiseCriteria { HUB_ROUTES };
-   
-   public enum Encryption { DISABLED, ENABLED };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum FlowCollectionEnabled { DISABLED, ENABLED, INHERITED };
-   
-   public enum MaintenanceMode { DISABLED, ENABLED };
-   
-   public enum Multicast { DISABLED, ENABLED, INHERITED };
-   
-   public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
-   
-   public enum PolicyChangeStatus { APPLIED, DISCARDED, STARTED };
-   
-   public enum TunnelType { DC_DEFAULT, GRE, VLAN, VXLAN };
-   
-   public enum UnderlayEnabled { DISABLED, ENABLED };
-   
-   public enum UplinkPreference { PRIMARY, PRIMARY_SECONDARY, SECONDARY, SECONDARY_PRIMARY, SYMMETRIC };
+   public enum EDHCPBehavior { CONSUME, FLOOD, OVERLAY_RELAY, UNDERLAY_RELAY };
+   public enum EDPI { DISABLED, ENABLED };
+   public enum EFIPIgnoreDefaultRoute { DISABLED, ENABLED };
+   public enum EPATEnabled { DISABLED, ENABLED, INHERITED };
+   public enum EAdvertiseCriteria { HUB_ROUTES };
+   public enum EEncryption { DISABLED, ENABLED };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EFlowCollectionEnabled { DISABLED, ENABLED, INHERITED };
+   public enum EMaintenanceMode { DISABLED, ENABLED };
+   public enum EMulticast { DISABLED, ENABLED, INHERITED };
+   public enum EPermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
+   public enum EPolicyChangeStatus { APPLIED, DISCARDED, STARTED };
+   public enum ETunnelType { DC_DEFAULT, GRE, VLAN, VXLAN };
+   public enum EUnderlayEnabled { DISABLED, ENABLED };
+   public enum EUplinkPreference { PRIMARY, PRIMARY_SECONDARY, SECONDARY, SECONDARY_PRIMARY, SYMMETRIC };
 
    
    @JsonProperty(value = "BGPEnabled")
+   
    protected Boolean BGPEnabled;
    
    @JsonProperty(value = "DHCPBehavior")
-   protected DHCPBehavior DHCPBehavior;
+   
+   protected EDHCPBehavior DHCPBehavior;
    
    @JsonProperty(value = "DHCPServerAddress")
+   
    protected String DHCPServerAddress;
    
    @JsonProperty(value = "DPI")
-   protected DPI DPI;
+   
+   protected EDPI DPI;
    
    @JsonProperty(value = "ECMPCount")
+   
    protected Long ECMPCount;
    
    @JsonProperty(value = "EVPNRT5Enabled")
+   
    protected Boolean EVPNRT5Enabled;
    
    @JsonProperty(value = "FIPIgnoreDefaultRoute")
-   protected FIPIgnoreDefaultRoute FIPIgnoreDefaultRoute;
+   
+   protected EFIPIgnoreDefaultRoute FIPIgnoreDefaultRoute;
    
    @JsonProperty(value = "FIPUnderlay")
+   
    protected Boolean FIPUnderlay;
    
    @JsonProperty(value = "GRTEnabled")
+   
    protected Boolean GRTEnabled;
    
    @JsonProperty(value = "PATEnabled")
-   protected PATEnabled PATEnabled;
+   
+   protected EPATEnabled PATEnabled;
    
    @JsonProperty(value = "VXLANECMPEnabled")
+   
    protected Boolean VXLANECMPEnabled;
    
    @JsonProperty(value = "advertiseCriteria")
-   protected AdvertiseCriteria advertiseCriteria;
+   
+   protected EAdvertiseCriteria advertiseCriteria;
    
    @JsonProperty(value = "aggregateFlowsEnabled")
+   
    protected Boolean aggregateFlowsEnabled;
    
    @JsonProperty(value = "associatedBGPProfileID")
+   
    protected String associatedBGPProfileID;
    
    @JsonProperty(value = "associatedMulticastChannelMapID")
+   
    protected String associatedMulticastChannelMapID;
    
    @JsonProperty(value = "associatedPATMapperID")
+   
    protected String associatedPATMapperID;
    
    @JsonProperty(value = "associatedSharedPATMapperID")
+   
    protected String associatedSharedPATMapperID;
    
    @JsonProperty(value = "associatedUnderlayID")
+   
    protected String associatedUnderlayID;
    
    @JsonProperty(value = "backHaulRouteDistinguisher")
+   
    protected String backHaulRouteDistinguisher;
    
    @JsonProperty(value = "backHaulRouteTarget")
+   
    protected String backHaulRouteTarget;
    
    @JsonProperty(value = "backHaulServiceID")
+   
    protected Long backHaulServiceID;
    
    @JsonProperty(value = "backHaulVNID")
+   
    protected Long backHaulVNID;
    
    @JsonProperty(value = "createBackHaulSubnet")
+   
    protected Boolean createBackHaulSubnet;
    
    @JsonProperty(value = "customerID")
+   
    protected Long customerID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "dhcpServerAddresses")
+   
    protected java.util.List<String> dhcpServerAddresses;
    
    @JsonProperty(value = "domainAggregationEnabled")
+   
    protected Boolean domainAggregationEnabled;
    
    @JsonProperty(value = "domainID")
+   
    protected Long domainID;
    
    @JsonProperty(value = "domainVLANID")
+   
    protected Long domainVLANID;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "encryption")
-   protected Encryption encryption;
+   
+   protected EEncryption encryption;
    
    @JsonProperty(value = "enterpriseID")
+   
    protected String enterpriseID;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "exportRouteTarget")
+   
    protected String exportRouteTarget;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "externalLabel")
+   
    protected String externalLabel;
    
    @JsonProperty(value = "flowCollectionEnabled")
-   protected FlowCollectionEnabled flowCollectionEnabled;
+   
+   protected EFlowCollectionEnabled flowCollectionEnabled;
    
    @JsonProperty(value = "globalRoutingEnabled")
+   
    protected Boolean globalRoutingEnabled;
    
    @JsonProperty(value = "importRouteTarget")
+   
    protected String importRouteTarget;
    
    @JsonProperty(value = "ipv6AggregationEnabled")
+   
    protected Boolean ipv6AggregationEnabled;
    
    @JsonProperty(value = "labelID")
+   
    protected Long labelID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "leakingEnabled")
+   
    protected Boolean leakingEnabled;
    
    @JsonProperty(value = "localAS")
+   
    protected Long localAS;
    
    @JsonProperty(value = "maintenanceMode")
-   protected MaintenanceMode maintenanceMode;
+   
+   protected EMaintenanceMode maintenanceMode;
    
    @JsonProperty(value = "multicast")
-   protected Multicast multicast;
+   
+   protected EMulticast multicast;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "permittedAction")
-   protected PermittedAction permittedAction;
+   
+   protected EPermittedAction permittedAction;
    
    @JsonProperty(value = "policyChangeStatus")
-   protected PolicyChangeStatus policyChangeStatus;
+   
+   protected EPolicyChangeStatus policyChangeStatus;
    
    @JsonProperty(value = "routeDistinguisher")
+   
    protected String routeDistinguisher;
    
    @JsonProperty(value = "routeTarget")
+   
    protected String routeTarget;
    
    @JsonProperty(value = "secondaryDHCPServerAddress")
+   
    protected String secondaryDHCPServerAddress;
    
    @JsonProperty(value = "serviceID")
+   
    protected Long serviceID;
    
    @JsonProperty(value = "stretched")
+   
    protected Boolean stretched;
    
    @JsonProperty(value = "templateID")
+   
    protected String templateID;
    
    @JsonProperty(value = "tunnelType")
-   protected TunnelType tunnelType;
+   
+   protected ETunnelType tunnelType;
    
    @JsonProperty(value = "underlayEnabled")
-   protected UnderlayEnabled underlayEnabled;
+   
+   protected EUnderlayEnabled underlayEnabled;
    
    @JsonProperty(value = "uplinkPreference")
-   protected UplinkPreference uplinkPreference;
+   
+   protected EUplinkPreference uplinkPreference;
    
 
    
@@ -575,6 +618,7 @@ public class AggregatedDomain extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Boolean getBGPEnabled() {
       return BGPEnabled;
@@ -585,15 +629,17 @@ public class AggregatedDomain extends RestObject {
       this.BGPEnabled = value;
    }
    
+   
    @JsonIgnore
-   public DHCPBehavior getDHCPBehavior() {
+   public EDHCPBehavior getDHCPBehavior() {
       return DHCPBehavior;
    }
 
    @JsonIgnore
-   public void setDHCPBehavior(DHCPBehavior value) { 
+   public void setDHCPBehavior(EDHCPBehavior value) { 
       this.DHCPBehavior = value;
    }
+   
    
    @JsonIgnore
    public String getDHCPServerAddress() {
@@ -605,15 +651,17 @@ public class AggregatedDomain extends RestObject {
       this.DHCPServerAddress = value;
    }
    
+   
    @JsonIgnore
-   public DPI getDPI() {
+   public EDPI getDPI() {
       return DPI;
    }
 
    @JsonIgnore
-   public void setDPI(DPI value) { 
+   public void setDPI(EDPI value) { 
       this.DPI = value;
    }
+   
    
    @JsonIgnore
    public Long getECMPCount() {
@@ -625,6 +673,7 @@ public class AggregatedDomain extends RestObject {
       this.ECMPCount = value;
    }
    
+   
    @JsonIgnore
    public Boolean getEVPNRT5Enabled() {
       return EVPNRT5Enabled;
@@ -635,15 +684,17 @@ public class AggregatedDomain extends RestObject {
       this.EVPNRT5Enabled = value;
    }
    
+   
    @JsonIgnore
-   public FIPIgnoreDefaultRoute getFIPIgnoreDefaultRoute() {
+   public EFIPIgnoreDefaultRoute getFIPIgnoreDefaultRoute() {
       return FIPIgnoreDefaultRoute;
    }
 
    @JsonIgnore
-   public void setFIPIgnoreDefaultRoute(FIPIgnoreDefaultRoute value) { 
+   public void setFIPIgnoreDefaultRoute(EFIPIgnoreDefaultRoute value) { 
       this.FIPIgnoreDefaultRoute = value;
    }
+   
    
    @JsonIgnore
    public Boolean getFIPUnderlay() {
@@ -655,6 +706,7 @@ public class AggregatedDomain extends RestObject {
       this.FIPUnderlay = value;
    }
    
+   
    @JsonIgnore
    public Boolean getGRTEnabled() {
       return GRTEnabled;
@@ -665,15 +717,17 @@ public class AggregatedDomain extends RestObject {
       this.GRTEnabled = value;
    }
    
+   
    @JsonIgnore
-   public PATEnabled getPATEnabled() {
+   public EPATEnabled getPATEnabled() {
       return PATEnabled;
    }
 
    @JsonIgnore
-   public void setPATEnabled(PATEnabled value) { 
+   public void setPATEnabled(EPATEnabled value) { 
       this.PATEnabled = value;
    }
+   
    
    @JsonIgnore
    public Boolean getVXLANECMPEnabled() {
@@ -685,15 +739,17 @@ public class AggregatedDomain extends RestObject {
       this.VXLANECMPEnabled = value;
    }
    
+   
    @JsonIgnore
-   public AdvertiseCriteria getAdvertiseCriteria() {
+   public EAdvertiseCriteria getAdvertiseCriteria() {
       return advertiseCriteria;
    }
 
    @JsonIgnore
-   public void setAdvertiseCriteria(AdvertiseCriteria value) { 
+   public void setAdvertiseCriteria(EAdvertiseCriteria value) { 
       this.advertiseCriteria = value;
    }
+   
    
    @JsonIgnore
    public Boolean getAggregateFlowsEnabled() {
@@ -705,6 +761,7 @@ public class AggregatedDomain extends RestObject {
       this.aggregateFlowsEnabled = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedBGPProfileID() {
       return associatedBGPProfileID;
@@ -714,6 +771,7 @@ public class AggregatedDomain extends RestObject {
    public void setAssociatedBGPProfileID(String value) { 
       this.associatedBGPProfileID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedMulticastChannelMapID() {
@@ -725,6 +783,7 @@ public class AggregatedDomain extends RestObject {
       this.associatedMulticastChannelMapID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedPATMapperID() {
       return associatedPATMapperID;
@@ -734,6 +793,7 @@ public class AggregatedDomain extends RestObject {
    public void setAssociatedPATMapperID(String value) { 
       this.associatedPATMapperID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedSharedPATMapperID() {
@@ -745,6 +805,7 @@ public class AggregatedDomain extends RestObject {
       this.associatedSharedPATMapperID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedUnderlayID() {
       return associatedUnderlayID;
@@ -754,6 +815,7 @@ public class AggregatedDomain extends RestObject {
    public void setAssociatedUnderlayID(String value) { 
       this.associatedUnderlayID = value;
    }
+   
    
    @JsonIgnore
    public String getBackHaulRouteDistinguisher() {
@@ -765,6 +827,7 @@ public class AggregatedDomain extends RestObject {
       this.backHaulRouteDistinguisher = value;
    }
    
+   
    @JsonIgnore
    public String getBackHaulRouteTarget() {
       return backHaulRouteTarget;
@@ -774,6 +837,7 @@ public class AggregatedDomain extends RestObject {
    public void setBackHaulRouteTarget(String value) { 
       this.backHaulRouteTarget = value;
    }
+   
    
    @JsonIgnore
    public Long getBackHaulServiceID() {
@@ -785,6 +849,7 @@ public class AggregatedDomain extends RestObject {
       this.backHaulServiceID = value;
    }
    
+   
    @JsonIgnore
    public Long getBackHaulVNID() {
       return backHaulVNID;
@@ -794,6 +859,7 @@ public class AggregatedDomain extends RestObject {
    public void setBackHaulVNID(Long value) { 
       this.backHaulVNID = value;
    }
+   
    
    @JsonIgnore
    public Boolean getCreateBackHaulSubnet() {
@@ -805,6 +871,7 @@ public class AggregatedDomain extends RestObject {
       this.createBackHaulSubnet = value;
    }
    
+   
    @JsonIgnore
    public Long getCustomerID() {
       return customerID;
@@ -814,6 +881,7 @@ public class AggregatedDomain extends RestObject {
    public void setCustomerID(Long value) { 
       this.customerID = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -825,6 +893,7 @@ public class AggregatedDomain extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<String> getDhcpServerAddresses() {
       return dhcpServerAddresses;
@@ -834,6 +903,7 @@ public class AggregatedDomain extends RestObject {
    public void setDhcpServerAddresses(java.util.List<String> value) { 
       this.dhcpServerAddresses = value;
    }
+   
    
    @JsonIgnore
    public Boolean getDomainAggregationEnabled() {
@@ -845,6 +915,7 @@ public class AggregatedDomain extends RestObject {
       this.domainAggregationEnabled = value;
    }
    
+   
    @JsonIgnore
    public Long getDomainID() {
       return domainID;
@@ -854,6 +925,7 @@ public class AggregatedDomain extends RestObject {
    public void setDomainID(Long value) { 
       this.domainID = value;
    }
+   
    
    @JsonIgnore
    public Long getDomainVLANID() {
@@ -865,6 +937,7 @@ public class AggregatedDomain extends RestObject {
       this.domainVLANID = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -875,15 +948,17 @@ public class AggregatedDomain extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public Encryption getEncryption() {
+   public EEncryption getEncryption() {
       return encryption;
    }
 
    @JsonIgnore
-   public void setEncryption(Encryption value) { 
+   public void setEncryption(EEncryption value) { 
       this.encryption = value;
    }
+   
    
    @JsonIgnore
    public String getEnterpriseID() {
@@ -895,15 +970,17 @@ public class AggregatedDomain extends RestObject {
       this.enterpriseID = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExportRouteTarget() {
@@ -915,6 +992,7 @@ public class AggregatedDomain extends RestObject {
       this.exportRouteTarget = value;
    }
    
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -924,6 +1002,7 @@ public class AggregatedDomain extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    
    @JsonIgnore
    public String getExternalLabel() {
@@ -935,15 +1014,17 @@ public class AggregatedDomain extends RestObject {
       this.externalLabel = value;
    }
    
+   
    @JsonIgnore
-   public FlowCollectionEnabled getFlowCollectionEnabled() {
+   public EFlowCollectionEnabled getFlowCollectionEnabled() {
       return flowCollectionEnabled;
    }
 
    @JsonIgnore
-   public void setFlowCollectionEnabled(FlowCollectionEnabled value) { 
+   public void setFlowCollectionEnabled(EFlowCollectionEnabled value) { 
       this.flowCollectionEnabled = value;
    }
+   
    
    @JsonIgnore
    public Boolean getGlobalRoutingEnabled() {
@@ -955,6 +1036,7 @@ public class AggregatedDomain extends RestObject {
       this.globalRoutingEnabled = value;
    }
    
+   
    @JsonIgnore
    public String getImportRouteTarget() {
       return importRouteTarget;
@@ -964,6 +1046,7 @@ public class AggregatedDomain extends RestObject {
    public void setImportRouteTarget(String value) { 
       this.importRouteTarget = value;
    }
+   
    
    @JsonIgnore
    public Boolean getIpv6AggregationEnabled() {
@@ -975,6 +1058,7 @@ public class AggregatedDomain extends RestObject {
       this.ipv6AggregationEnabled = value;
    }
    
+   
    @JsonIgnore
    public Long getLabelID() {
       return labelID;
@@ -984,6 +1068,7 @@ public class AggregatedDomain extends RestObject {
    public void setLabelID(Long value) { 
       this.labelID = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -995,6 +1080,7 @@ public class AggregatedDomain extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public Boolean getLeakingEnabled() {
       return leakingEnabled;
@@ -1004,6 +1090,7 @@ public class AggregatedDomain extends RestObject {
    public void setLeakingEnabled(Boolean value) { 
       this.leakingEnabled = value;
    }
+   
    
    @JsonIgnore
    public Long getLocalAS() {
@@ -1015,25 +1102,28 @@ public class AggregatedDomain extends RestObject {
       this.localAS = value;
    }
    
+   
    @JsonIgnore
-   public MaintenanceMode getMaintenanceMode() {
+   public EMaintenanceMode getMaintenanceMode() {
       return maintenanceMode;
    }
 
    @JsonIgnore
-   public void setMaintenanceMode(MaintenanceMode value) { 
+   public void setMaintenanceMode(EMaintenanceMode value) { 
       this.maintenanceMode = value;
    }
    
+   
    @JsonIgnore
-   public Multicast getMulticast() {
+   public EMulticast getMulticast() {
       return multicast;
    }
 
    @JsonIgnore
-   public void setMulticast(Multicast value) { 
+   public void setMulticast(EMulticast value) { 
       this.multicast = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -1045,25 +1135,28 @@ public class AggregatedDomain extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
-   public PermittedAction getPermittedAction() {
+   public EPermittedAction getPermittedAction() {
       return permittedAction;
    }
 
    @JsonIgnore
-   public void setPermittedAction(PermittedAction value) { 
+   public void setPermittedAction(EPermittedAction value) { 
       this.permittedAction = value;
    }
    
+   
    @JsonIgnore
-   public PolicyChangeStatus getPolicyChangeStatus() {
+   public EPolicyChangeStatus getPolicyChangeStatus() {
       return policyChangeStatus;
    }
 
    @JsonIgnore
-   public void setPolicyChangeStatus(PolicyChangeStatus value) { 
+   public void setPolicyChangeStatus(EPolicyChangeStatus value) { 
       this.policyChangeStatus = value;
    }
+   
    
    @JsonIgnore
    public String getRouteDistinguisher() {
@@ -1075,6 +1168,7 @@ public class AggregatedDomain extends RestObject {
       this.routeDistinguisher = value;
    }
    
+   
    @JsonIgnore
    public String getRouteTarget() {
       return routeTarget;
@@ -1084,6 +1178,7 @@ public class AggregatedDomain extends RestObject {
    public void setRouteTarget(String value) { 
       this.routeTarget = value;
    }
+   
    
    @JsonIgnore
    public String getSecondaryDHCPServerAddress() {
@@ -1095,6 +1190,7 @@ public class AggregatedDomain extends RestObject {
       this.secondaryDHCPServerAddress = value;
    }
    
+   
    @JsonIgnore
    public Long getServiceID() {
       return serviceID;
@@ -1104,6 +1200,7 @@ public class AggregatedDomain extends RestObject {
    public void setServiceID(Long value) { 
       this.serviceID = value;
    }
+   
    
    @JsonIgnore
    public Boolean getStretched() {
@@ -1115,6 +1212,7 @@ public class AggregatedDomain extends RestObject {
       this.stretched = value;
    }
    
+   
    @JsonIgnore
    public String getTemplateID() {
       return templateID;
@@ -1125,33 +1223,36 @@ public class AggregatedDomain extends RestObject {
       this.templateID = value;
    }
    
+   
    @JsonIgnore
-   public TunnelType getTunnelType() {
+   public ETunnelType getTunnelType() {
       return tunnelType;
    }
 
    @JsonIgnore
-   public void setTunnelType(TunnelType value) { 
+   public void setTunnelType(ETunnelType value) { 
       this.tunnelType = value;
    }
    
+   
    @JsonIgnore
-   public UnderlayEnabled getUnderlayEnabled() {
+   public EUnderlayEnabled getUnderlayEnabled() {
       return underlayEnabled;
    }
 
    @JsonIgnore
-   public void setUnderlayEnabled(UnderlayEnabled value) { 
+   public void setUnderlayEnabled(EUnderlayEnabled value) { 
       this.underlayEnabled = value;
    }
    
+   
    @JsonIgnore
-   public UplinkPreference getUplinkPreference() {
+   public EUplinkPreference getUplinkPreference() {
       return uplinkPreference;
    }
 
    @JsonIgnore
-   public void setUplinkPreference(UplinkPreference value) { 
+   public void setUplinkPreference(EUplinkPreference value) { 
       this.uplinkPreference = value;
    }
    

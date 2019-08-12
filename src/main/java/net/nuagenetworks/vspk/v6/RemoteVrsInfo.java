@@ -45,32 +45,39 @@ public class RemoteVrsInfo extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "color")
+   
    protected Long color;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "labelStack")
+   
    protected String labelStack;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "nextHop")
+   
    protected String nextHop;
    
    @JsonProperty(value = "vrsIP")
+   
    protected String vrsIP;
    
 
@@ -91,6 +98,7 @@ public class RemoteVrsInfo extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Long getColor() {
       return color;
@@ -100,6 +108,7 @@ public class RemoteVrsInfo extends RestObject {
    public void setColor(Long value) { 
       this.color = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -111,15 +120,17 @@ public class RemoteVrsInfo extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -131,6 +142,7 @@ public class RemoteVrsInfo extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLabelStack() {
       return labelStack;
@@ -140,6 +152,7 @@ public class RemoteVrsInfo extends RestObject {
    public void setLabelStack(String value) { 
       this.labelStack = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -151,6 +164,7 @@ public class RemoteVrsInfo extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getNextHop() {
       return nextHop;
@@ -160,6 +174,7 @@ public class RemoteVrsInfo extends RestObject {
    public void setNextHop(String value) { 
       this.nextHop = value;
    }
+   
    
    @JsonIgnore
    public String getVrsIP() {

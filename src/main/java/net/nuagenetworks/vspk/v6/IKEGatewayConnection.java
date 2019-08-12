@@ -49,84 +49,100 @@ public class IKEGatewayConnection extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum NSGIdentifierType { ID_DER_ASN1_DN, ID_FQDN, ID_IPV4_ADDR, ID_KEY_ID, ID_RFC822_ADDR };
-   
-   public enum NSGRole { INITIATOR, RESPONDER };
-   
-   public enum AssociatedCloudType { AZURECLOUD };
-   
-   public enum AssociatedIKEAuthenticationType { IKE_CERTIFICATE, IKE_PSK };
-   
-   public enum ConfigurationStatus { CANCELING, CANCELLED, CLOUD_CONFIGURATION_REMOVED, FAILED, IN_PROGRESS, NOT_APPLICABLE, PAUSING, SUCCESS, SYNCED_FROM_CLOUD, UNKNOWN, WAITING, WAITING_FOR_RESOURCES };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum ENSGIdentifierType { ID_DER_ASN1_DN, ID_FQDN, ID_IPV4_ADDR, ID_KEY_ID, ID_RFC822_ADDR };
+   public enum ENSGRole { INITIATOR, RESPONDER };
+   public enum EAssociatedCloudType { AZURECLOUD };
+   public enum EAssociatedIKEAuthenticationType { IKE_CERTIFICATE, IKE_PSK };
+   public enum EConfigurationStatus { CANCELING, CANCELLED, CLOUD_CONFIGURATION_REMOVED, FAILED, IN_PROGRESS, NOT_APPLICABLE, PAUSING, SUCCESS, SYNCED_FROM_CLOUD, UNKNOWN, WAITING, WAITING_FOR_RESOURCES };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "NSGIdentifier")
+   
    protected String NSGIdentifier;
    
    @JsonProperty(value = "NSGIdentifierType")
-   protected NSGIdentifierType NSGIdentifierType;
+   
+   protected ENSGIdentifierType NSGIdentifierType;
    
    @JsonProperty(value = "NSGRole")
-   protected NSGRole NSGRole;
+   
+   protected ENSGRole NSGRole;
    
    @JsonProperty(value = "allowAnySubnet")
+   
    protected Boolean allowAnySubnet;
    
    @JsonProperty(value = "associatedCloudID")
+   
    protected String associatedCloudID;
    
    @JsonProperty(value = "associatedCloudType")
-   protected AssociatedCloudType associatedCloudType;
+   
+   protected EAssociatedCloudType associatedCloudType;
    
    @JsonProperty(value = "associatedIKEAuthenticationID")
+   
    protected String associatedIKEAuthenticationID;
    
    @JsonProperty(value = "associatedIKEAuthenticationType")
-   protected AssociatedIKEAuthenticationType associatedIKEAuthenticationType;
+   
+   protected EAssociatedIKEAuthenticationType associatedIKEAuthenticationType;
    
    @JsonProperty(value = "associatedIKEEncryptionProfileID")
+   
    protected String associatedIKEEncryptionProfileID;
    
    @JsonProperty(value = "associatedIKEGatewayProfileID")
+   
    protected String associatedIKEGatewayProfileID;
    
    @JsonProperty(value = "associatedVLANID")
+   
    protected String associatedVLANID;
    
    @JsonProperty(value = "configurationStatus")
-   protected ConfigurationStatus configurationStatus;
+   
+   protected EConfigurationStatus configurationStatus;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "mark")
+   
    protected Long mark;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "portVLANName")
+   
    protected String portVLANName;
    
    @JsonProperty(value = "priority")
+   
    protected Long priority;
    
    @JsonProperty(value = "sequence")
+   
    protected Long sequence;
    
    @JsonProperty(value = "unencryptedPSK")
+   
    protected String unencryptedPSK;
    
 
@@ -167,6 +183,7 @@ public class IKEGatewayConnection extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getNSGIdentifier() {
       return NSGIdentifier;
@@ -177,25 +194,28 @@ public class IKEGatewayConnection extends RestObject {
       this.NSGIdentifier = value;
    }
    
+   
    @JsonIgnore
-   public NSGIdentifierType getNSGIdentifierType() {
+   public ENSGIdentifierType getNSGIdentifierType() {
       return NSGIdentifierType;
    }
 
    @JsonIgnore
-   public void setNSGIdentifierType(NSGIdentifierType value) { 
+   public void setNSGIdentifierType(ENSGIdentifierType value) { 
       this.NSGIdentifierType = value;
    }
    
+   
    @JsonIgnore
-   public NSGRole getNSGRole() {
+   public ENSGRole getNSGRole() {
       return NSGRole;
    }
 
    @JsonIgnore
-   public void setNSGRole(NSGRole value) { 
+   public void setNSGRole(ENSGRole value) { 
       this.NSGRole = value;
    }
+   
    
    @JsonIgnore
    public Boolean getAllowAnySubnet() {
@@ -207,6 +227,7 @@ public class IKEGatewayConnection extends RestObject {
       this.allowAnySubnet = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedCloudID() {
       return associatedCloudID;
@@ -217,15 +238,17 @@ public class IKEGatewayConnection extends RestObject {
       this.associatedCloudID = value;
    }
    
+   
    @JsonIgnore
-   public AssociatedCloudType getAssociatedCloudType() {
+   public EAssociatedCloudType getAssociatedCloudType() {
       return associatedCloudType;
    }
 
    @JsonIgnore
-   public void setAssociatedCloudType(AssociatedCloudType value) { 
+   public void setAssociatedCloudType(EAssociatedCloudType value) { 
       this.associatedCloudType = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedIKEAuthenticationID() {
@@ -237,15 +260,17 @@ public class IKEGatewayConnection extends RestObject {
       this.associatedIKEAuthenticationID = value;
    }
    
+   
    @JsonIgnore
-   public AssociatedIKEAuthenticationType getAssociatedIKEAuthenticationType() {
+   public EAssociatedIKEAuthenticationType getAssociatedIKEAuthenticationType() {
       return associatedIKEAuthenticationType;
    }
 
    @JsonIgnore
-   public void setAssociatedIKEAuthenticationType(AssociatedIKEAuthenticationType value) { 
+   public void setAssociatedIKEAuthenticationType(EAssociatedIKEAuthenticationType value) { 
       this.associatedIKEAuthenticationType = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedIKEEncryptionProfileID() {
@@ -257,6 +282,7 @@ public class IKEGatewayConnection extends RestObject {
       this.associatedIKEEncryptionProfileID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedIKEGatewayProfileID() {
       return associatedIKEGatewayProfileID;
@@ -266,6 +292,7 @@ public class IKEGatewayConnection extends RestObject {
    public void setAssociatedIKEGatewayProfileID(String value) { 
       this.associatedIKEGatewayProfileID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedVLANID() {
@@ -277,15 +304,17 @@ public class IKEGatewayConnection extends RestObject {
       this.associatedVLANID = value;
    }
    
+   
    @JsonIgnore
-   public ConfigurationStatus getConfigurationStatus() {
+   public EConfigurationStatus getConfigurationStatus() {
       return configurationStatus;
    }
 
    @JsonIgnore
-   public void setConfigurationStatus(ConfigurationStatus value) { 
+   public void setConfigurationStatus(EConfigurationStatus value) { 
       this.configurationStatus = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -297,15 +326,17 @@ public class IKEGatewayConnection extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -317,6 +348,7 @@ public class IKEGatewayConnection extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -326,6 +358,7 @@ public class IKEGatewayConnection extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public Long getMark() {
@@ -337,6 +370,7 @@ public class IKEGatewayConnection extends RestObject {
       this.mark = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -346,6 +380,7 @@ public class IKEGatewayConnection extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public String getPortVLANName() {
@@ -357,6 +392,7 @@ public class IKEGatewayConnection extends RestObject {
       this.portVLANName = value;
    }
    
+   
    @JsonIgnore
    public Long getPriority() {
       return priority;
@@ -367,6 +403,7 @@ public class IKEGatewayConnection extends RestObject {
       this.priority = value;
    }
    
+   
    @JsonIgnore
    public Long getSequence() {
       return sequence;
@@ -376,6 +413,7 @@ public class IKEGatewayConnection extends RestObject {
    public void setSequence(Long value) { 
       this.sequence = value;
    }
+   
    
    @JsonIgnore
    public String getUnencryptedPSK() {

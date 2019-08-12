@@ -45,32 +45,37 @@ public class VMResync extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Status { IN_PROGRESS, SUCCESS };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EStatus { IN_PROGRESS, SUCCESS };
 
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastRequestTimestamp")
+   
    protected Long lastRequestTimestamp;
    
    @JsonProperty(value = "lastTimeResyncInitiated")
+   
    protected Long lastTimeResyncInitiated;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "status")
-   protected Status status;
+   
+   protected EStatus status;
    
 
    
@@ -90,6 +95,7 @@ public class VMResync extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -100,15 +106,17 @@ public class VMResync extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -120,6 +128,7 @@ public class VMResync extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public Long getLastRequestTimestamp() {
       return lastRequestTimestamp;
@@ -129,6 +138,7 @@ public class VMResync extends RestObject {
    public void setLastRequestTimestamp(Long value) { 
       this.lastRequestTimestamp = value;
    }
+   
    
    @JsonIgnore
    public Long getLastTimeResyncInitiated() {
@@ -140,6 +150,7 @@ public class VMResync extends RestObject {
       this.lastTimeResyncInitiated = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -150,13 +161,14 @@ public class VMResync extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
-   public Status getStatus() {
+   public EStatus getStatus() {
       return status;
    }
 
    @JsonIgnore
-   public void setStatus(Status value) { 
+   public void setStatus(EStatus value) { 
       this.status = value;
    }
    

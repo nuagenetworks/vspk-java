@@ -45,35 +45,43 @@ public class OverlayPATNATEntry extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "NATEnabled")
+   
    protected Boolean NATEnabled;
    
    @JsonProperty(value = "associatedDomainID")
+   
    protected String associatedDomainID;
    
    @JsonProperty(value = "associatedLinkID")
+   
    protected String associatedLinkID;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "privateIP")
+   
    protected String privateIP;
    
    @JsonProperty(value = "publicIP")
+   
    protected String publicIP;
    
 
@@ -94,6 +102,7 @@ public class OverlayPATNATEntry extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Boolean getNATEnabled() {
       return NATEnabled;
@@ -103,6 +112,7 @@ public class OverlayPATNATEntry extends RestObject {
    public void setNATEnabled(Boolean value) { 
       this.NATEnabled = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedDomainID() {
@@ -114,6 +124,7 @@ public class OverlayPATNATEntry extends RestObject {
       this.associatedDomainID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedLinkID() {
       return associatedLinkID;
@@ -123,6 +134,7 @@ public class OverlayPATNATEntry extends RestObject {
    public void setAssociatedLinkID(String value) { 
       this.associatedLinkID = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -134,15 +146,17 @@ public class OverlayPATNATEntry extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -154,6 +168,7 @@ public class OverlayPATNATEntry extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -164,6 +179,7 @@ public class OverlayPATNATEntry extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getPrivateIP() {
       return privateIP;
@@ -173,6 +189,7 @@ public class OverlayPATNATEntry extends RestObject {
    public void setPrivateIP(String value) { 
       this.privateIP = value;
    }
+   
    
    @JsonIgnore
    public String getPublicIP() {

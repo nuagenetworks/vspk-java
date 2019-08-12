@@ -46,49 +46,60 @@ public class VNFDescriptor extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Type { FIREWALL, WAN_OPT };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EType { FIREWALL, WAN_OPT };
 
    
    @JsonProperty(value = "CPUCount")
+   
    protected Long CPUCount;
    
    @JsonProperty(value = "associatedVNFThresholdPolicyID")
+   
    protected String associatedVNFThresholdPolicyID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "memoryMB")
+   
    protected Long memoryMB;
    
    @JsonProperty(value = "metadataID")
+   
    protected String metadataID;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "storageGB")
+   
    protected Long storageGB;
    
    @JsonProperty(value = "type")
-   protected Type type;
+   
+   protected EType type;
    
    @JsonProperty(value = "vendor")
+   
    protected String vendor;
    
    @JsonProperty(value = "visible")
+   
    protected Boolean visible;
    
 
@@ -114,6 +125,7 @@ public class VNFDescriptor extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Long getCPUCount() {
       return CPUCount;
@@ -123,6 +135,7 @@ public class VNFDescriptor extends RestObject {
    public void setCPUCount(Long value) { 
       this.CPUCount = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedVNFThresholdPolicyID() {
@@ -134,6 +147,7 @@ public class VNFDescriptor extends RestObject {
       this.associatedVNFThresholdPolicyID = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -143,6 +157,7 @@ public class VNFDescriptor extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -154,15 +169,17 @@ public class VNFDescriptor extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -174,6 +191,7 @@ public class VNFDescriptor extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public Long getMemoryMB() {
       return memoryMB;
@@ -183,6 +201,7 @@ public class VNFDescriptor extends RestObject {
    public void setMemoryMB(Long value) { 
       this.memoryMB = value;
    }
+   
    
    @JsonIgnore
    public String getMetadataID() {
@@ -194,6 +213,7 @@ public class VNFDescriptor extends RestObject {
       this.metadataID = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -203,6 +223,7 @@ public class VNFDescriptor extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public Long getStorageGB() {
@@ -214,15 +235,17 @@ public class VNFDescriptor extends RestObject {
       this.storageGB = value;
    }
    
+   
    @JsonIgnore
-   public Type getType() {
+   public EType getType() {
       return type;
    }
 
    @JsonIgnore
-   public void setType(Type value) { 
+   public void setType(EType value) { 
       this.type = value;
    }
+   
    
    @JsonIgnore
    public String getVendor() {
@@ -233,6 +256,7 @@ public class VNFDescriptor extends RestObject {
    public void setVendor(String value) { 
       this.vendor = value;
    }
+   
    
    @JsonIgnore
    public Boolean getVisible() {

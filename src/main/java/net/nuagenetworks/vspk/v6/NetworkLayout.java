@@ -45,32 +45,37 @@ public class NetworkLayout extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum ServiceType { ROUTER_ONLY, ROUTER_SWITCH, SUBNET_ONLY };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EServiceType { ROUTER_ONLY, ROUTER_SWITCH, SUBNET_ONLY };
 
    
    @JsonProperty(value = "autonomousSystemNum")
+   
    protected Long autonomousSystemNum;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "routeReflectorIP")
+   
    protected String routeReflectorIP;
    
    @JsonProperty(value = "serviceType")
-   protected ServiceType serviceType;
+   
+   protected EServiceType serviceType;
    
 
    
@@ -90,6 +95,7 @@ public class NetworkLayout extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Long getAutonomousSystemNum() {
       return autonomousSystemNum;
@@ -99,6 +105,7 @@ public class NetworkLayout extends RestObject {
    public void setAutonomousSystemNum(Long value) { 
       this.autonomousSystemNum = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -110,15 +117,17 @@ public class NetworkLayout extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -130,6 +139,7 @@ public class NetworkLayout extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -139,6 +149,7 @@ public class NetworkLayout extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getRouteReflectorIP() {
@@ -150,13 +161,14 @@ public class NetworkLayout extends RestObject {
       this.routeReflectorIP = value;
    }
    
+   
    @JsonIgnore
-   public ServiceType getServiceType() {
+   public EServiceType getServiceType() {
       return serviceType;
    }
 
    @JsonIgnore
-   public void setServiceType(ServiceType value) { 
+   public void setServiceType(EServiceType value) { 
       this.serviceType = value;
    }
    

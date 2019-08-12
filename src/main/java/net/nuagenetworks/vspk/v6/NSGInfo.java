@@ -43,115 +43,143 @@ public class NSGInfo extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum CmdStatus { ABANDONED, COMPLETED, FAILED, RUNNING, SKIPPED, STARTED, UNKNOWN };
-   
-   public enum CmdType { NSG_DOWNLOAD_OS_IMAGE, NSG_UPGRADE_TO_IMAGE };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Family { ANY, NSG_AMI, NSG_AZ, NSG_C, NSG_DOCKER, NSG_E, NSG_E200, NSG_E300, NSG_V, NSG_X, NSG_X200 };
-   
-   public enum Personality { NSG, NSGBR, NSGDUC };
+   public enum ECmdStatus { ABANDONED, COMPLETED, FAILED, RUNNING, SKIPPED, STARTED, UNKNOWN };
+   public enum ECmdType { NSG_DOWNLOAD_OS_IMAGE, NSG_UPGRADE_TO_IMAGE };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EFamily { ANY, NSG_AMI, NSG_AZ, NSG_C, NSG_DOCKER, NSG_E, NSG_E200, NSG_E300, NSG_V, NSG_X, NSG_X200 };
+   public enum EPersonality { NSG, NSGBR, NSGDUC };
 
    
    @JsonProperty(value = "AARApplicationReleaseDate")
+   
    protected String AARApplicationReleaseDate;
    
    @JsonProperty(value = "AARApplicationVersion")
+   
    protected String AARApplicationVersion;
    
    @JsonProperty(value = "BIOSReleaseDate")
+   
    protected String BIOSReleaseDate;
    
    @JsonProperty(value = "BIOSVersion")
+   
    protected String BIOSVersion;
    
    @JsonProperty(value = "CPUType")
+   
    protected String CPUType;
    
    @JsonProperty(value = "MACAddress")
+   
    protected String MACAddress;
    
    @JsonProperty(value = "NSGVersion")
+   
    protected String NSGVersion;
    
    @JsonProperty(value = "SKU")
+   
    protected String SKU;
    
    @JsonProperty(value = "TPMStatus")
+   
    protected Long TPMStatus;
    
    @JsonProperty(value = "TPMVersion")
+   
    protected String TPMVersion;
    
    @JsonProperty(value = "UUID")
+   
    protected String UUID;
    
    @JsonProperty(value = "associatedEntityType")
+   
    protected String associatedEntityType;
    
    @JsonProperty(value = "associatedNSGatewayID")
+   
    protected String associatedNSGatewayID;
    
    @JsonProperty(value = "bootstrapStatus")
+   
    protected String bootstrapStatus;
    
    @JsonProperty(value = "cmdDetailedStatus")
+   
    protected String cmdDetailedStatus;
    
    @JsonProperty(value = "cmdDetailedStatusCode")
+   
    protected Long cmdDetailedStatusCode;
    
    @JsonProperty(value = "cmdDownloadProgress")
+   
    protected Object cmdDownloadProgress;
    
    @JsonProperty(value = "cmdID")
+   
    protected String cmdID;
    
    @JsonProperty(value = "cmdLastUpdatedDate")
+   
    protected String cmdLastUpdatedDate;
    
    @JsonProperty(value = "cmdStatus")
-   protected CmdStatus cmdStatus;
+   
+   protected ECmdStatus cmdStatus;
    
    @JsonProperty(value = "cmdType")
-   protected CmdType cmdType;
+   
+   protected ECmdType cmdType;
    
    @JsonProperty(value = "enterpriseID")
+   
    protected String enterpriseID;
    
    @JsonProperty(value = "enterpriseName")
+   
    protected String enterpriseName;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "family")
-   protected Family family;
+   
+   protected EFamily family;
    
    @JsonProperty(value = "libraries")
+   
    protected String libraries;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "patchesDetail")
+   
    protected String patchesDetail;
    
    @JsonProperty(value = "personality")
-   protected Personality personality;
+   
+   protected EPersonality personality;
    
    @JsonProperty(value = "productName")
+   
    protected String productName;
    
    @JsonProperty(value = "serialNumber")
+   
    protected String serialNumber;
    
    @JsonProperty(value = "systemID")
+   
    protected String systemID;
    
 
@@ -161,6 +189,7 @@ public class NSGInfo extends RestObject {
       
    }
 
+   
    
    @JsonIgnore
    public String getAARApplicationReleaseDate() {
@@ -172,6 +201,7 @@ public class NSGInfo extends RestObject {
       this.AARApplicationReleaseDate = value;
    }
    
+   
    @JsonIgnore
    public String getAARApplicationVersion() {
       return AARApplicationVersion;
@@ -181,6 +211,7 @@ public class NSGInfo extends RestObject {
    public void setAARApplicationVersion(String value) { 
       this.AARApplicationVersion = value;
    }
+   
    
    @JsonIgnore
    public String getBIOSReleaseDate() {
@@ -192,6 +223,7 @@ public class NSGInfo extends RestObject {
       this.BIOSReleaseDate = value;
    }
    
+   
    @JsonIgnore
    public String getBIOSVersion() {
       return BIOSVersion;
@@ -201,6 +233,7 @@ public class NSGInfo extends RestObject {
    public void setBIOSVersion(String value) { 
       this.BIOSVersion = value;
    }
+   
    
    @JsonIgnore
    public String getCPUType() {
@@ -212,6 +245,7 @@ public class NSGInfo extends RestObject {
       this.CPUType = value;
    }
    
+   
    @JsonIgnore
    public String getMACAddress() {
       return MACAddress;
@@ -221,6 +255,7 @@ public class NSGInfo extends RestObject {
    public void setMACAddress(String value) { 
       this.MACAddress = value;
    }
+   
    
    @JsonIgnore
    public String getNSGVersion() {
@@ -232,6 +267,7 @@ public class NSGInfo extends RestObject {
       this.NSGVersion = value;
    }
    
+   
    @JsonIgnore
    public String getSKU() {
       return SKU;
@@ -241,6 +277,7 @@ public class NSGInfo extends RestObject {
    public void setSKU(String value) { 
       this.SKU = value;
    }
+   
    
    @JsonIgnore
    public Long getTPMStatus() {
@@ -252,6 +289,7 @@ public class NSGInfo extends RestObject {
       this.TPMStatus = value;
    }
    
+   
    @JsonIgnore
    public String getTPMVersion() {
       return TPMVersion;
@@ -261,6 +299,7 @@ public class NSGInfo extends RestObject {
    public void setTPMVersion(String value) { 
       this.TPMVersion = value;
    }
+   
    
    @JsonIgnore
    public String getUUID() {
@@ -272,6 +311,7 @@ public class NSGInfo extends RestObject {
       this.UUID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedEntityType() {
       return associatedEntityType;
@@ -281,6 +321,7 @@ public class NSGInfo extends RestObject {
    public void setAssociatedEntityType(String value) { 
       this.associatedEntityType = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedNSGatewayID() {
@@ -292,6 +333,7 @@ public class NSGInfo extends RestObject {
       this.associatedNSGatewayID = value;
    }
    
+   
    @JsonIgnore
    public String getBootstrapStatus() {
       return bootstrapStatus;
@@ -301,6 +343,7 @@ public class NSGInfo extends RestObject {
    public void setBootstrapStatus(String value) { 
       this.bootstrapStatus = value;
    }
+   
    
    @JsonIgnore
    public String getCmdDetailedStatus() {
@@ -312,6 +355,7 @@ public class NSGInfo extends RestObject {
       this.cmdDetailedStatus = value;
    }
    
+   
    @JsonIgnore
    public Long getCmdDetailedStatusCode() {
       return cmdDetailedStatusCode;
@@ -321,6 +365,7 @@ public class NSGInfo extends RestObject {
    public void setCmdDetailedStatusCode(Long value) { 
       this.cmdDetailedStatusCode = value;
    }
+   
    
    @JsonIgnore
    public Object getCmdDownloadProgress() {
@@ -332,6 +377,7 @@ public class NSGInfo extends RestObject {
       this.cmdDownloadProgress = value;
    }
    
+   
    @JsonIgnore
    public String getCmdID() {
       return cmdID;
@@ -341,6 +387,7 @@ public class NSGInfo extends RestObject {
    public void setCmdID(String value) { 
       this.cmdID = value;
    }
+   
    
    @JsonIgnore
    public String getCmdLastUpdatedDate() {
@@ -352,25 +399,28 @@ public class NSGInfo extends RestObject {
       this.cmdLastUpdatedDate = value;
    }
    
+   
    @JsonIgnore
-   public CmdStatus getCmdStatus() {
+   public ECmdStatus getCmdStatus() {
       return cmdStatus;
    }
 
    @JsonIgnore
-   public void setCmdStatus(CmdStatus value) { 
+   public void setCmdStatus(ECmdStatus value) { 
       this.cmdStatus = value;
    }
    
+   
    @JsonIgnore
-   public CmdType getCmdType() {
+   public ECmdType getCmdType() {
       return cmdType;
    }
 
    @JsonIgnore
-   public void setCmdType(CmdType value) { 
+   public void setCmdType(ECmdType value) { 
       this.cmdType = value;
    }
+   
    
    @JsonIgnore
    public String getEnterpriseID() {
@@ -382,6 +432,7 @@ public class NSGInfo extends RestObject {
       this.enterpriseID = value;
    }
    
+   
    @JsonIgnore
    public String getEnterpriseName() {
       return enterpriseName;
@@ -392,15 +443,17 @@ public class NSGInfo extends RestObject {
       this.enterpriseName = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -412,15 +465,17 @@ public class NSGInfo extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
-   public Family getFamily() {
+   public EFamily getFamily() {
       return family;
    }
 
    @JsonIgnore
-   public void setFamily(Family value) { 
+   public void setFamily(EFamily value) { 
       this.family = value;
    }
+   
    
    @JsonIgnore
    public String getLibraries() {
@@ -432,6 +487,7 @@ public class NSGInfo extends RestObject {
       this.libraries = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -441,6 +497,7 @@ public class NSGInfo extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public String getPatchesDetail() {
@@ -452,15 +509,17 @@ public class NSGInfo extends RestObject {
       this.patchesDetail = value;
    }
    
+   
    @JsonIgnore
-   public Personality getPersonality() {
+   public EPersonality getPersonality() {
       return personality;
    }
 
    @JsonIgnore
-   public void setPersonality(Personality value) { 
+   public void setPersonality(EPersonality value) { 
       this.personality = value;
    }
+   
    
    @JsonIgnore
    public String getProductName() {
@@ -472,6 +531,7 @@ public class NSGInfo extends RestObject {
       this.productName = value;
    }
    
+   
    @JsonIgnore
    public String getSerialNumber() {
       return serialNumber;
@@ -481,6 +541,7 @@ public class NSGInfo extends RestObject {
    public void setSerialNumber(String value) { 
       this.serialNumber = value;
    }
+   
    
    @JsonIgnore
    public String getSystemID() {

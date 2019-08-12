@@ -45,26 +45,31 @@ public class IKESubnet extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "associatedIKEGatewayID")
+   
    protected String associatedIKEGatewayID;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "prefix")
+   
    protected String prefix;
    
 
@@ -85,6 +90,7 @@ public class IKESubnet extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAssociatedIKEGatewayID() {
       return associatedIKEGatewayID;
@@ -94,6 +100,7 @@ public class IKESubnet extends RestObject {
    public void setAssociatedIKEGatewayID(String value) { 
       this.associatedIKEGatewayID = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -105,15 +112,17 @@ public class IKESubnet extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -125,6 +134,7 @@ public class IKESubnet extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -134,6 +144,7 @@ public class IKESubnet extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getPrefix() {

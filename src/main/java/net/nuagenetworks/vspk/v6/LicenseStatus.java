@@ -45,80 +45,103 @@ public class LicenseStatus extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "accumulateLicensesEnabled")
+   
    protected Boolean accumulateLicensesEnabled;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "totalLicensedAVRSGsCount")
+   
    protected Long totalLicensedAVRSGsCount;
    
    @JsonProperty(value = "totalLicensedAVRSsCount")
+   
    protected Long totalLicensedAVRSsCount;
    
    @JsonProperty(value = "totalLicensedGatewaysCount")
+   
    protected Long totalLicensedGatewaysCount;
    
    @JsonProperty(value = "totalLicensedNICsCount")
+   
    protected Long totalLicensedNICsCount;
    
    @JsonProperty(value = "totalLicensedNSGsCount")
+   
    protected Long totalLicensedNSGsCount;
    
    @JsonProperty(value = "totalLicensedUsedAVRSGsCount")
+   
    protected Long totalLicensedUsedAVRSGsCount;
    
    @JsonProperty(value = "totalLicensedUsedAVRSsCount")
+   
    protected Long totalLicensedUsedAVRSsCount;
    
    @JsonProperty(value = "totalLicensedUsedNICsCount")
+   
    protected Long totalLicensedUsedNICsCount;
    
    @JsonProperty(value = "totalLicensedUsedNSGsCount")
+   
    protected Long totalLicensedUsedNSGsCount;
    
    @JsonProperty(value = "totalLicensedUsedVDFGsCount")
+   
    protected Long totalLicensedUsedVDFGsCount;
    
    @JsonProperty(value = "totalLicensedUsedVDFsCount")
+   
    protected Long totalLicensedUsedVDFsCount;
    
    @JsonProperty(value = "totalLicensedUsedVMsCount")
+   
    protected Long totalLicensedUsedVMsCount;
    
    @JsonProperty(value = "totalLicensedUsedVRSGsCount")
+   
    protected Long totalLicensedUsedVRSGsCount;
    
    @JsonProperty(value = "totalLicensedUsedVRSsCount")
+   
    protected Long totalLicensedUsedVRSsCount;
    
    @JsonProperty(value = "totalLicensedVDFGsCount")
+   
    protected Long totalLicensedVDFGsCount;
    
    @JsonProperty(value = "totalLicensedVDFsCount")
+   
    protected Long totalLicensedVDFsCount;
    
    @JsonProperty(value = "totalLicensedVMsCount")
+   
    protected Long totalLicensedVMsCount;
    
    @JsonProperty(value = "totalLicensedVRSGsCount")
+   
    protected Long totalLicensedVRSGsCount;
    
    @JsonProperty(value = "totalLicensedVRSsCount")
+   
    protected Long totalLicensedVRSsCount;
    
    @JsonProperty(value = "totalUsedGatewaysCount")
+   
    protected Long totalUsedGatewaysCount;
    
 
@@ -139,6 +162,7 @@ public class LicenseStatus extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Boolean getAccumulateLicensesEnabled() {
       return accumulateLicensesEnabled;
@@ -148,6 +172,7 @@ public class LicenseStatus extends RestObject {
    public void setAccumulateLicensesEnabled(Boolean value) { 
       this.accumulateLicensesEnabled = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -159,15 +184,17 @@ public class LicenseStatus extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -179,6 +206,7 @@ public class LicenseStatus extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public Long getTotalLicensedAVRSGsCount() {
       return totalLicensedAVRSGsCount;
@@ -188,6 +216,7 @@ public class LicenseStatus extends RestObject {
    public void setTotalLicensedAVRSGsCount(Long value) { 
       this.totalLicensedAVRSGsCount = value;
    }
+   
    
    @JsonIgnore
    public Long getTotalLicensedAVRSsCount() {
@@ -199,6 +228,7 @@ public class LicenseStatus extends RestObject {
       this.totalLicensedAVRSsCount = value;
    }
    
+   
    @JsonIgnore
    public Long getTotalLicensedGatewaysCount() {
       return totalLicensedGatewaysCount;
@@ -208,6 +238,7 @@ public class LicenseStatus extends RestObject {
    public void setTotalLicensedGatewaysCount(Long value) { 
       this.totalLicensedGatewaysCount = value;
    }
+   
    
    @JsonIgnore
    public Long getTotalLicensedNICsCount() {
@@ -219,6 +250,7 @@ public class LicenseStatus extends RestObject {
       this.totalLicensedNICsCount = value;
    }
    
+   
    @JsonIgnore
    public Long getTotalLicensedNSGsCount() {
       return totalLicensedNSGsCount;
@@ -228,6 +260,7 @@ public class LicenseStatus extends RestObject {
    public void setTotalLicensedNSGsCount(Long value) { 
       this.totalLicensedNSGsCount = value;
    }
+   
    
    @JsonIgnore
    public Long getTotalLicensedUsedAVRSGsCount() {
@@ -239,6 +272,7 @@ public class LicenseStatus extends RestObject {
       this.totalLicensedUsedAVRSGsCount = value;
    }
    
+   
    @JsonIgnore
    public Long getTotalLicensedUsedAVRSsCount() {
       return totalLicensedUsedAVRSsCount;
@@ -248,6 +282,7 @@ public class LicenseStatus extends RestObject {
    public void setTotalLicensedUsedAVRSsCount(Long value) { 
       this.totalLicensedUsedAVRSsCount = value;
    }
+   
    
    @JsonIgnore
    public Long getTotalLicensedUsedNICsCount() {
@@ -259,6 +294,7 @@ public class LicenseStatus extends RestObject {
       this.totalLicensedUsedNICsCount = value;
    }
    
+   
    @JsonIgnore
    public Long getTotalLicensedUsedNSGsCount() {
       return totalLicensedUsedNSGsCount;
@@ -268,6 +304,7 @@ public class LicenseStatus extends RestObject {
    public void setTotalLicensedUsedNSGsCount(Long value) { 
       this.totalLicensedUsedNSGsCount = value;
    }
+   
    
    @JsonIgnore
    public Long getTotalLicensedUsedVDFGsCount() {
@@ -279,6 +316,7 @@ public class LicenseStatus extends RestObject {
       this.totalLicensedUsedVDFGsCount = value;
    }
    
+   
    @JsonIgnore
    public Long getTotalLicensedUsedVDFsCount() {
       return totalLicensedUsedVDFsCount;
@@ -288,6 +326,7 @@ public class LicenseStatus extends RestObject {
    public void setTotalLicensedUsedVDFsCount(Long value) { 
       this.totalLicensedUsedVDFsCount = value;
    }
+   
    
    @JsonIgnore
    public Long getTotalLicensedUsedVMsCount() {
@@ -299,6 +338,7 @@ public class LicenseStatus extends RestObject {
       this.totalLicensedUsedVMsCount = value;
    }
    
+   
    @JsonIgnore
    public Long getTotalLicensedUsedVRSGsCount() {
       return totalLicensedUsedVRSGsCount;
@@ -308,6 +348,7 @@ public class LicenseStatus extends RestObject {
    public void setTotalLicensedUsedVRSGsCount(Long value) { 
       this.totalLicensedUsedVRSGsCount = value;
    }
+   
    
    @JsonIgnore
    public Long getTotalLicensedUsedVRSsCount() {
@@ -319,6 +360,7 @@ public class LicenseStatus extends RestObject {
       this.totalLicensedUsedVRSsCount = value;
    }
    
+   
    @JsonIgnore
    public Long getTotalLicensedVDFGsCount() {
       return totalLicensedVDFGsCount;
@@ -328,6 +370,7 @@ public class LicenseStatus extends RestObject {
    public void setTotalLicensedVDFGsCount(Long value) { 
       this.totalLicensedVDFGsCount = value;
    }
+   
    
    @JsonIgnore
    public Long getTotalLicensedVDFsCount() {
@@ -339,6 +382,7 @@ public class LicenseStatus extends RestObject {
       this.totalLicensedVDFsCount = value;
    }
    
+   
    @JsonIgnore
    public Long getTotalLicensedVMsCount() {
       return totalLicensedVMsCount;
@@ -348,6 +392,7 @@ public class LicenseStatus extends RestObject {
    public void setTotalLicensedVMsCount(Long value) { 
       this.totalLicensedVMsCount = value;
    }
+   
    
    @JsonIgnore
    public Long getTotalLicensedVRSGsCount() {
@@ -359,6 +404,7 @@ public class LicenseStatus extends RestObject {
       this.totalLicensedVRSGsCount = value;
    }
    
+   
    @JsonIgnore
    public Long getTotalLicensedVRSsCount() {
       return totalLicensedVRSsCount;
@@ -368,6 +414,7 @@ public class LicenseStatus extends RestObject {
    public void setTotalLicensedVRSsCount(Long value) { 
       this.totalLicensedVRSsCount = value;
    }
+   
    
    @JsonIgnore
    public Long getTotalUsedGatewaysCount() {

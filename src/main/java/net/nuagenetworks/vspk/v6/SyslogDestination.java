@@ -43,29 +43,33 @@ public class SyslogDestination extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum IPType { IPV4 };
-   
-   public enum Type { UDP };
+   public enum EIPType { IPV4 };
+   public enum EType { UDP };
 
    
    @JsonProperty(value = "IPAddress")
+   
    protected String IPAddress;
    
    @JsonProperty(value = "IPType")
-   protected IPType IPType;
+   
+   protected EIPType IPType;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "port")
+   
    protected Long port;
    
    @JsonProperty(value = "type")
-   protected Type type;
+   
+   protected EType type;
    
 
    
@@ -74,6 +78,7 @@ public class SyslogDestination extends RestObject {
       
    }
 
+   
    
    @JsonIgnore
    public String getIPAddress() {
@@ -85,15 +90,17 @@ public class SyslogDestination extends RestObject {
       this.IPAddress = value;
    }
    
+   
    @JsonIgnore
-   public IPType getIPType() {
+   public EIPType getIPType() {
       return IPType;
    }
 
    @JsonIgnore
-   public void setIPType(IPType value) { 
+   public void setIPType(EIPType value) { 
       this.IPType = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -105,6 +112,7 @@ public class SyslogDestination extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -114,6 +122,7 @@ public class SyslogDestination extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public Long getPort() {
@@ -125,13 +134,14 @@ public class SyslogDestination extends RestObject {
       this.port = value;
    }
    
+   
    @JsonIgnore
-   public Type getType() {
+   public EType getType() {
       return type;
    }
 
    @JsonIgnore
-   public void setType(Type value) { 
+   public void setType(EType value) { 
       this.type = value;
    }
    

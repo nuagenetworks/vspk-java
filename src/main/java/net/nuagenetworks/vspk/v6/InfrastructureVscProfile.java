@@ -45,49 +45,60 @@ public class InfrastructureVscProfile extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum AddressFamily { DUALSTACK, IPV4, IPV6 };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EAddressFamily { DUALSTACK, IPV4, IPV6 };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "addressFamily")
-   protected AddressFamily addressFamily;
+   
+   protected EAddressFamily addressFamily;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "enterpriseID")
+   
    protected String enterpriseID;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "firstController")
+   
    protected String firstController;
    
    @JsonProperty(value = "firstControllerV6")
+   
    protected String firstControllerV6;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "probeInterval")
+   
    protected Long probeInterval;
    
    @JsonProperty(value = "secondController")
+   
    protected String secondController;
    
    @JsonProperty(value = "secondControllerV6")
+   
    protected String secondControllerV6;
    
 
@@ -108,15 +119,17 @@ public class InfrastructureVscProfile extends RestObject {
    }
 
    
+   
    @JsonIgnore
-   public AddressFamily getAddressFamily() {
+   public EAddressFamily getAddressFamily() {
       return addressFamily;
    }
 
    @JsonIgnore
-   public void setAddressFamily(AddressFamily value) { 
+   public void setAddressFamily(EAddressFamily value) { 
       this.addressFamily = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -128,6 +141,7 @@ public class InfrastructureVscProfile extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -137,6 +151,7 @@ public class InfrastructureVscProfile extends RestObject {
    public void setEmbeddedMetadata(java.util.List<Metadata> value) { 
       this.embeddedMetadata = value;
    }
+   
    
    @JsonIgnore
    public String getEnterpriseID() {
@@ -148,15 +163,17 @@ public class InfrastructureVscProfile extends RestObject {
       this.enterpriseID = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -168,6 +185,7 @@ public class InfrastructureVscProfile extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getFirstController() {
       return firstController;
@@ -177,6 +195,7 @@ public class InfrastructureVscProfile extends RestObject {
    public void setFirstController(String value) { 
       this.firstController = value;
    }
+   
    
    @JsonIgnore
    public String getFirstControllerV6() {
@@ -188,6 +207,7 @@ public class InfrastructureVscProfile extends RestObject {
       this.firstControllerV6 = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -197,6 +217,7 @@ public class InfrastructureVscProfile extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -208,6 +229,7 @@ public class InfrastructureVscProfile extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public Long getProbeInterval() {
       return probeInterval;
@@ -218,6 +240,7 @@ public class InfrastructureVscProfile extends RestObject {
       this.probeInterval = value;
    }
    
+   
    @JsonIgnore
    public String getSecondController() {
       return secondController;
@@ -227,6 +250,7 @@ public class InfrastructureVscProfile extends RestObject {
    public void setSecondController(String value) { 
       this.secondController = value;
    }
+   
    
    @JsonIgnore
    public String getSecondControllerV6() {

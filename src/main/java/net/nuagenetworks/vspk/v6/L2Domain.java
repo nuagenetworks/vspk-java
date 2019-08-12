@@ -88,153 +88,182 @@ public class L2Domain extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum DPI { DISABLED, ENABLED };
-   
-   public enum IPType { DUALSTACK, IPV4, IPV6 };
-   
-   public enum Encryption { DISABLED, ENABLED };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum EntityState { MARKED_FOR_DELETION, UNDER_CONSTRUCTION };
-   
-   public enum FlowCollectionEnabled { DISABLED, ENABLED, INHERITED };
-   
-   public enum L2EncapType { MPLSoUDP, VXLAN };
-   
-   public enum MaintenanceMode { DISABLED, ENABLED, ENABLED_INHERITED };
-   
-   public enum Multicast { DISABLED, ENABLED, INHERITED };
-   
-   public enum PolicyChangeStatus { APPLIED, DISCARDED, STARTED };
-   
-   public enum UplinkPreference { PRIMARY, PRIMARY_SECONDARY, SECONDARY, SECONDARY_PRIMARY, SYMMETRIC };
-   
-   public enum UseGlobalMAC { DISABLED, ENABLED };
+   public enum EDPI { DISABLED, ENABLED };
+   public enum EIPType { DUALSTACK, IPV4, IPV6 };
+   public enum EEncryption { DISABLED, ENABLED };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityState { MARKED_FOR_DELETION, UNDER_CONSTRUCTION };
+   public enum EFlowCollectionEnabled { DISABLED, ENABLED, INHERITED };
+   public enum EL2EncapType { MPLSoUDP, VXLAN };
+   public enum EMaintenanceMode { DISABLED, ENABLED, ENABLED_INHERITED };
+   public enum EMulticast { DISABLED, ENABLED, INHERITED };
+   public enum EPolicyChangeStatus { APPLIED, DISCARDED, STARTED };
+   public enum EUplinkPreference { PRIMARY, PRIMARY_SECONDARY, SECONDARY, SECONDARY_PRIMARY, SYMMETRIC };
+   public enum EUseGlobalMAC { DISABLED, ENABLED };
 
    
    @JsonProperty(value = "DHCPManaged")
+   
    protected Boolean DHCPManaged;
    
    @JsonProperty(value = "DPI")
-   protected DPI DPI;
+   
+   protected EDPI DPI;
    
    @JsonProperty(value = "IPType")
-   protected IPType IPType;
+   
+   protected EIPType IPType;
    
    @JsonProperty(value = "IPv6Address")
+   
    protected String IPv6Address;
    
    @JsonProperty(value = "IPv6Gateway")
+   
    protected String IPv6Gateway;
    
    @JsonProperty(value = "VXLANECMPEnabled")
+   
    protected Boolean VXLANECMPEnabled;
    
    @JsonProperty(value = "address")
+   
    protected String address;
    
    @JsonProperty(value = "associatedMulticastChannelMapID")
+   
    protected String associatedMulticastChannelMapID;
    
    @JsonProperty(value = "associatedSharedNetworkResourceID")
+   
    protected String associatedSharedNetworkResourceID;
    
    @JsonProperty(value = "associatedUnderlayID")
+   
    protected String associatedUnderlayID;
    
    @JsonProperty(value = "color")
+   
    protected Long color;
    
    @JsonProperty(value = "customerID")
+   
    protected Long customerID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "dualStackDynamicIPAllocation")
+   
    protected Boolean dualStackDynamicIPAllocation;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "enableDHCPv4")
+   
    protected Boolean enableDHCPv4;
    
    @JsonProperty(value = "enableDHCPv6")
+   
    protected Boolean enableDHCPv6;
    
    @JsonProperty(value = "encryption")
-   protected Encryption encryption;
+   
+   protected EEncryption encryption;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "entityState")
-   protected EntityState entityState;
+   
+   protected EEntityState entityState;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "flowCollectionEnabled")
-   protected FlowCollectionEnabled flowCollectionEnabled;
+   
+   protected EFlowCollectionEnabled flowCollectionEnabled;
    
    @JsonProperty(value = "gateway")
+   
    protected String gateway;
    
    @JsonProperty(value = "gatewayMACAddress")
+   
    protected String gatewayMACAddress;
    
    @JsonProperty(value = "ingressReplicationEnabled")
+   
    protected Boolean ingressReplicationEnabled;
    
    @JsonProperty(value = "l2EncapType")
-   protected L2EncapType l2EncapType;
+   
+   protected EL2EncapType l2EncapType;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "maintenanceMode")
-   protected MaintenanceMode maintenanceMode;
+   
+   protected EMaintenanceMode maintenanceMode;
    
    @JsonProperty(value = "multicast")
-   protected Multicast multicast;
+   
+   protected EMulticast multicast;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "netmask")
+   
    protected String netmask;
    
    @JsonProperty(value = "policyChangeStatus")
-   protected PolicyChangeStatus policyChangeStatus;
+   
+   protected EPolicyChangeStatus policyChangeStatus;
    
    @JsonProperty(value = "routeDistinguisher")
+   
    protected String routeDistinguisher;
    
    @JsonProperty(value = "routeTarget")
+   
    protected String routeTarget;
    
    @JsonProperty(value = "routedVPLSEnabled")
+   
    protected Boolean routedVPLSEnabled;
    
    @JsonProperty(value = "serviceID")
+   
    protected Long serviceID;
    
    @JsonProperty(value = "stretched")
+   
    protected Boolean stretched;
    
    @JsonProperty(value = "templateID")
+   
    protected String templateID;
    
    @JsonProperty(value = "uplinkPreference")
-   protected UplinkPreference uplinkPreference;
+   
+   protected EUplinkPreference uplinkPreference;
    
    @JsonProperty(value = "useGlobalMAC")
-   protected UseGlobalMAC useGlobalMAC;
+   
+   protected EUseGlobalMAC useGlobalMAC;
    
    @JsonProperty(value = "vnId")
+   
    protected Long vnId;
    
 
@@ -471,6 +500,7 @@ public class L2Domain extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Boolean getDHCPManaged() {
       return DHCPManaged;
@@ -481,25 +511,28 @@ public class L2Domain extends RestObject {
       this.DHCPManaged = value;
    }
    
+   
    @JsonIgnore
-   public DPI getDPI() {
+   public EDPI getDPI() {
       return DPI;
    }
 
    @JsonIgnore
-   public void setDPI(DPI value) { 
+   public void setDPI(EDPI value) { 
       this.DPI = value;
    }
    
+   
    @JsonIgnore
-   public IPType getIPType() {
+   public EIPType getIPType() {
       return IPType;
    }
 
    @JsonIgnore
-   public void setIPType(IPType value) { 
+   public void setIPType(EIPType value) { 
       this.IPType = value;
    }
+   
    
    @JsonIgnore
    public String getIPv6Address() {
@@ -511,6 +544,7 @@ public class L2Domain extends RestObject {
       this.IPv6Address = value;
    }
    
+   
    @JsonIgnore
    public String getIPv6Gateway() {
       return IPv6Gateway;
@@ -520,6 +554,7 @@ public class L2Domain extends RestObject {
    public void setIPv6Gateway(String value) { 
       this.IPv6Gateway = value;
    }
+   
    
    @JsonIgnore
    public Boolean getVXLANECMPEnabled() {
@@ -531,6 +566,7 @@ public class L2Domain extends RestObject {
       this.VXLANECMPEnabled = value;
    }
    
+   
    @JsonIgnore
    public String getAddress() {
       return address;
@@ -540,6 +576,7 @@ public class L2Domain extends RestObject {
    public void setAddress(String value) { 
       this.address = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedMulticastChannelMapID() {
@@ -551,6 +588,7 @@ public class L2Domain extends RestObject {
       this.associatedMulticastChannelMapID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedSharedNetworkResourceID() {
       return associatedSharedNetworkResourceID;
@@ -560,6 +598,7 @@ public class L2Domain extends RestObject {
    public void setAssociatedSharedNetworkResourceID(String value) { 
       this.associatedSharedNetworkResourceID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedUnderlayID() {
@@ -571,6 +610,7 @@ public class L2Domain extends RestObject {
       this.associatedUnderlayID = value;
    }
    
+   
    @JsonIgnore
    public Long getColor() {
       return color;
@@ -580,6 +620,7 @@ public class L2Domain extends RestObject {
    public void setColor(Long value) { 
       this.color = value;
    }
+   
    
    @JsonIgnore
    public Long getCustomerID() {
@@ -591,6 +632,7 @@ public class L2Domain extends RestObject {
       this.customerID = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -600,6 +642,7 @@ public class L2Domain extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public Boolean getDualStackDynamicIPAllocation() {
@@ -611,6 +654,7 @@ public class L2Domain extends RestObject {
       this.dualStackDynamicIPAllocation = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -620,6 +664,7 @@ public class L2Domain extends RestObject {
    public void setEmbeddedMetadata(java.util.List<Metadata> value) { 
       this.embeddedMetadata = value;
    }
+   
    
    @JsonIgnore
    public Boolean getEnableDHCPv4() {
@@ -631,6 +676,7 @@ public class L2Domain extends RestObject {
       this.enableDHCPv4 = value;
    }
    
+   
    @JsonIgnore
    public Boolean getEnableDHCPv6() {
       return enableDHCPv6;
@@ -641,35 +687,39 @@ public class L2Domain extends RestObject {
       this.enableDHCPv6 = value;
    }
    
+   
    @JsonIgnore
-   public Encryption getEncryption() {
+   public EEncryption getEncryption() {
       return encryption;
    }
 
    @JsonIgnore
-   public void setEncryption(Encryption value) { 
+   public void setEncryption(EEncryption value) { 
       this.encryption = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
    
+   
    @JsonIgnore
-   public EntityState getEntityState() {
+   public EEntityState getEntityState() {
       return entityState;
    }
 
    @JsonIgnore
-   public void setEntityState(EntityState value) { 
+   public void setEntityState(EEntityState value) { 
       this.entityState = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -681,15 +731,17 @@ public class L2Domain extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
-   public FlowCollectionEnabled getFlowCollectionEnabled() {
+   public EFlowCollectionEnabled getFlowCollectionEnabled() {
       return flowCollectionEnabled;
    }
 
    @JsonIgnore
-   public void setFlowCollectionEnabled(FlowCollectionEnabled value) { 
+   public void setFlowCollectionEnabled(EFlowCollectionEnabled value) { 
       this.flowCollectionEnabled = value;
    }
+   
    
    @JsonIgnore
    public String getGateway() {
@@ -701,6 +753,7 @@ public class L2Domain extends RestObject {
       this.gateway = value;
    }
    
+   
    @JsonIgnore
    public String getGatewayMACAddress() {
       return gatewayMACAddress;
@@ -710,6 +763,7 @@ public class L2Domain extends RestObject {
    public void setGatewayMACAddress(String value) { 
       this.gatewayMACAddress = value;
    }
+   
    
    @JsonIgnore
    public Boolean getIngressReplicationEnabled() {
@@ -721,15 +775,17 @@ public class L2Domain extends RestObject {
       this.ingressReplicationEnabled = value;
    }
    
+   
    @JsonIgnore
-   public L2EncapType getL2EncapType() {
+   public EL2EncapType getL2EncapType() {
       return l2EncapType;
    }
 
    @JsonIgnore
-   public void setL2EncapType(L2EncapType value) { 
+   public void setL2EncapType(EL2EncapType value) { 
       this.l2EncapType = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -741,25 +797,28 @@ public class L2Domain extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
-   public MaintenanceMode getMaintenanceMode() {
+   public EMaintenanceMode getMaintenanceMode() {
       return maintenanceMode;
    }
 
    @JsonIgnore
-   public void setMaintenanceMode(MaintenanceMode value) { 
+   public void setMaintenanceMode(EMaintenanceMode value) { 
       this.maintenanceMode = value;
    }
    
+   
    @JsonIgnore
-   public Multicast getMulticast() {
+   public EMulticast getMulticast() {
       return multicast;
    }
 
    @JsonIgnore
-   public void setMulticast(Multicast value) { 
+   public void setMulticast(EMulticast value) { 
       this.multicast = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -771,6 +830,7 @@ public class L2Domain extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public String getNetmask() {
       return netmask;
@@ -781,15 +841,17 @@ public class L2Domain extends RestObject {
       this.netmask = value;
    }
    
+   
    @JsonIgnore
-   public PolicyChangeStatus getPolicyChangeStatus() {
+   public EPolicyChangeStatus getPolicyChangeStatus() {
       return policyChangeStatus;
    }
 
    @JsonIgnore
-   public void setPolicyChangeStatus(PolicyChangeStatus value) { 
+   public void setPolicyChangeStatus(EPolicyChangeStatus value) { 
       this.policyChangeStatus = value;
    }
+   
    
    @JsonIgnore
    public String getRouteDistinguisher() {
@@ -801,6 +863,7 @@ public class L2Domain extends RestObject {
       this.routeDistinguisher = value;
    }
    
+   
    @JsonIgnore
    public String getRouteTarget() {
       return routeTarget;
@@ -810,6 +873,7 @@ public class L2Domain extends RestObject {
    public void setRouteTarget(String value) { 
       this.routeTarget = value;
    }
+   
    
    @JsonIgnore
    public Boolean getRoutedVPLSEnabled() {
@@ -821,6 +885,7 @@ public class L2Domain extends RestObject {
       this.routedVPLSEnabled = value;
    }
    
+   
    @JsonIgnore
    public Long getServiceID() {
       return serviceID;
@@ -830,6 +895,7 @@ public class L2Domain extends RestObject {
    public void setServiceID(Long value) { 
       this.serviceID = value;
    }
+   
    
    @JsonIgnore
    public Boolean getStretched() {
@@ -841,6 +907,7 @@ public class L2Domain extends RestObject {
       this.stretched = value;
    }
    
+   
    @JsonIgnore
    public String getTemplateID() {
       return templateID;
@@ -851,25 +918,28 @@ public class L2Domain extends RestObject {
       this.templateID = value;
    }
    
+   
    @JsonIgnore
-   public UplinkPreference getUplinkPreference() {
+   public EUplinkPreference getUplinkPreference() {
       return uplinkPreference;
    }
 
    @JsonIgnore
-   public void setUplinkPreference(UplinkPreference value) { 
+   public void setUplinkPreference(EUplinkPreference value) { 
       this.uplinkPreference = value;
    }
    
+   
    @JsonIgnore
-   public UseGlobalMAC getUseGlobalMAC() {
+   public EUseGlobalMAC getUseGlobalMAC() {
       return useGlobalMAC;
    }
 
    @JsonIgnore
-   public void setUseGlobalMAC(UseGlobalMAC value) { 
+   public void setUseGlobalMAC(EUseGlobalMAC value) { 
       this.useGlobalMAC = value;
    }
+   
    
    @JsonIgnore
    public Long getVnId() {

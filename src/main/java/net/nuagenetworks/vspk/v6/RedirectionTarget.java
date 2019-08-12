@@ -48,53 +48,62 @@ public class RedirectionTarget extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum DestinationType { OVERLAY_MIRROR_DESTINATION, REDIRECTION_TARGET };
-   
-   public enum EndPointType { L3, NSG_VNF, VIRTUAL_WIRE };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum TriggerType { GARP, NONE };
+   public enum EDestinationType { OVERLAY_MIRROR_DESTINATION, REDIRECTION_TARGET };
+   public enum EEndPointType { L3, NSG_VNF, VIRTUAL_WIRE };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum ETriggerType { GARP, NONE };
 
    
    @JsonProperty(value = "ESI")
+   
    protected String ESI;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "destinationType")
-   protected DestinationType destinationType;
+   
+   protected EDestinationType destinationType;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "endPointType")
-   protected EndPointType endPointType;
+   
+   protected EEndPointType endPointType;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "redundancyEnabled")
+   
    protected Boolean redundancyEnabled;
    
    @JsonProperty(value = "templateID")
+   
    protected String templateID;
    
    @JsonProperty(value = "triggerType")
-   protected TriggerType triggerType;
+   
+   protected ETriggerType triggerType;
    
    @JsonProperty(value = "virtualNetworkID")
+   
    protected String virtualNetworkID;
    
 
@@ -131,6 +140,7 @@ public class RedirectionTarget extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getESI() {
       return ESI;
@@ -140,6 +150,7 @@ public class RedirectionTarget extends RestObject {
    public void setESI(String value) { 
       this.ESI = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -151,15 +162,17 @@ public class RedirectionTarget extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
-   public DestinationType getDestinationType() {
+   public EDestinationType getDestinationType() {
       return destinationType;
    }
 
    @JsonIgnore
-   public void setDestinationType(DestinationType value) { 
+   public void setDestinationType(EDestinationType value) { 
       this.destinationType = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -171,25 +184,28 @@ public class RedirectionTarget extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EndPointType getEndPointType() {
+   public EEndPointType getEndPointType() {
       return endPointType;
    }
 
    @JsonIgnore
-   public void setEndPointType(EndPointType value) { 
+   public void setEndPointType(EEndPointType value) { 
       this.endPointType = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -201,6 +217,7 @@ public class RedirectionTarget extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -210,6 +227,7 @@ public class RedirectionTarget extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -221,6 +239,7 @@ public class RedirectionTarget extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public Boolean getRedundancyEnabled() {
       return redundancyEnabled;
@@ -230,6 +249,7 @@ public class RedirectionTarget extends RestObject {
    public void setRedundancyEnabled(Boolean value) { 
       this.redundancyEnabled = value;
    }
+   
    
    @JsonIgnore
    public String getTemplateID() {
@@ -241,15 +261,17 @@ public class RedirectionTarget extends RestObject {
       this.templateID = value;
    }
    
+   
    @JsonIgnore
-   public TriggerType getTriggerType() {
+   public ETriggerType getTriggerType() {
       return triggerType;
    }
 
    @JsonIgnore
-   public void setTriggerType(TriggerType value) { 
+   public void setTriggerType(ETriggerType value) { 
       this.triggerType = value;
    }
+   
    
    @JsonIgnore
    public String getVirtualNetworkID() {

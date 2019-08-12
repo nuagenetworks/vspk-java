@@ -46,57 +46,69 @@ public class OSPFArea extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum AreaType { NORMAL, NSSA, STUB };
-   
-   public enum DefaultOriginateOption { NONE, TYPE3, TYPE7 };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EAreaType { NORMAL, NSSA, STUB };
+   public enum EDefaultOriginateOption { NONE, TYPE3, TYPE7 };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "aggregateAreaRange")
+   
    protected java.util.List<String> aggregateAreaRange;
    
    @JsonProperty(value = "aggregateAreaRangeNSSA")
+   
    protected java.util.List<String> aggregateAreaRangeNSSA;
    
    @JsonProperty(value = "areaID")
+   
    protected Long areaID;
    
    @JsonProperty(value = "areaType")
-   protected AreaType areaType;
+   
+   protected EAreaType areaType;
    
    @JsonProperty(value = "defaultMetric")
+   
    protected Long defaultMetric;
    
    @JsonProperty(value = "defaultOriginateOption")
-   protected DefaultOriginateOption defaultOriginateOption;
+   
+   protected EDefaultOriginateOption defaultOriginateOption;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "redistributeExternalEnabled")
+   
    protected Boolean redistributeExternalEnabled;
    
    @JsonProperty(value = "summariesEnabled")
+   
    protected Boolean summariesEnabled;
    
    @JsonProperty(value = "suppressAreaRange")
+   
    protected java.util.List<String> suppressAreaRange;
    
    @JsonProperty(value = "suppressAreaRangeNSSA")
+   
    protected java.util.List<String> suppressAreaRangeNSSA;
    
 
@@ -122,6 +134,7 @@ public class OSPFArea extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public java.util.List<String> getAggregateAreaRange() {
       return aggregateAreaRange;
@@ -131,6 +144,7 @@ public class OSPFArea extends RestObject {
    public void setAggregateAreaRange(java.util.List<String> value) { 
       this.aggregateAreaRange = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<String> getAggregateAreaRangeNSSA() {
@@ -142,6 +156,7 @@ public class OSPFArea extends RestObject {
       this.aggregateAreaRangeNSSA = value;
    }
    
+   
    @JsonIgnore
    public Long getAreaID() {
       return areaID;
@@ -152,15 +167,17 @@ public class OSPFArea extends RestObject {
       this.areaID = value;
    }
    
+   
    @JsonIgnore
-   public AreaType getAreaType() {
+   public EAreaType getAreaType() {
       return areaType;
    }
 
    @JsonIgnore
-   public void setAreaType(AreaType value) { 
+   public void setAreaType(EAreaType value) { 
       this.areaType = value;
    }
+   
    
    @JsonIgnore
    public Long getDefaultMetric() {
@@ -172,15 +189,17 @@ public class OSPFArea extends RestObject {
       this.defaultMetric = value;
    }
    
+   
    @JsonIgnore
-   public DefaultOriginateOption getDefaultOriginateOption() {
+   public EDefaultOriginateOption getDefaultOriginateOption() {
       return defaultOriginateOption;
    }
 
    @JsonIgnore
-   public void setDefaultOriginateOption(DefaultOriginateOption value) { 
+   public void setDefaultOriginateOption(EDefaultOriginateOption value) { 
       this.defaultOriginateOption = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -192,6 +211,7 @@ public class OSPFArea extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -202,15 +222,17 @@ public class OSPFArea extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -222,6 +244,7 @@ public class OSPFArea extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -231,6 +254,7 @@ public class OSPFArea extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public Boolean getRedistributeExternalEnabled() {
@@ -242,6 +266,7 @@ public class OSPFArea extends RestObject {
       this.redistributeExternalEnabled = value;
    }
    
+   
    @JsonIgnore
    public Boolean getSummariesEnabled() {
       return summariesEnabled;
@@ -252,6 +277,7 @@ public class OSPFArea extends RestObject {
       this.summariesEnabled = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<String> getSuppressAreaRange() {
       return suppressAreaRange;
@@ -261,6 +287,7 @@ public class OSPFArea extends RestObject {
    public void setSuppressAreaRange(java.util.List<String> value) { 
       this.suppressAreaRange = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<String> getSuppressAreaRangeNSSA() {

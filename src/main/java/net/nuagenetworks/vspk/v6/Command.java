@@ -43,62 +43,74 @@ public class Command extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
    public enum ECommand { NSG_APPLY_PATCH, NSG_DELETE_PATCH, NSG_DOWNLOAD_OS_IMAGE, NSG_UPGRADE_TO_IMAGE, UNKNOWN };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Override { ABANDON, UNSPECIFIED };
-   
-   public enum Status { ABANDONED, COMPLETED, FAILED, RUNNING, SKIPPED, STARTED, UNKNOWN };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EOverride { ABANDON, UNSPECIFIED };
+   public enum EStatus { ABANDONED, COMPLETED, FAILED, RUNNING, SKIPPED, STARTED, UNKNOWN };
 
    
    @JsonProperty(value = "assocEntityType")
+   
    protected String assocEntityType;
    
    @JsonProperty(value = "associatedParam")
+   
    protected String associatedParam;
    
    @JsonProperty(value = "associatedParamType")
+   
    protected String associatedParamType;
    
    @JsonProperty(value = "command")
+   
    protected ECommand command;
    
    @JsonProperty(value = "commandInformation")
+   
    protected String commandInformation;
    
    @JsonProperty(value = "detail")
+   
    protected String detail;
    
    @JsonProperty(value = "detailedStatus")
+   
    protected String detailedStatus;
    
    @JsonProperty(value = "detailedStatusCode")
+   
    protected Long detailedStatusCode;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "fullCommand")
+   
    protected String fullCommand;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "override")
-   protected Override override;
+   
+   protected EOverride override;
    
    @JsonProperty(value = "progress")
+   
    protected String progress;
    
    @JsonProperty(value = "status")
-   protected Status status;
+   
+   protected EStatus status;
    
    @JsonProperty(value = "summary")
+   
    protected String summary;
    
 
@@ -108,6 +120,7 @@ public class Command extends RestObject {
       
    }
 
+   
    
    @JsonIgnore
    public String getAssocEntityType() {
@@ -119,6 +132,7 @@ public class Command extends RestObject {
       this.assocEntityType = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedParam() {
       return associatedParam;
@@ -128,6 +142,7 @@ public class Command extends RestObject {
    public void setAssociatedParam(String value) { 
       this.associatedParam = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedParamType() {
@@ -139,6 +154,7 @@ public class Command extends RestObject {
       this.associatedParamType = value;
    }
    
+   
    @JsonIgnore
    public ECommand getCommand() {
       return command;
@@ -148,6 +164,7 @@ public class Command extends RestObject {
    public void setCommand(ECommand value) { 
       this.command = value;
    }
+   
    
    @JsonIgnore
    public String getCommandInformation() {
@@ -159,6 +176,7 @@ public class Command extends RestObject {
       this.commandInformation = value;
    }
    
+   
    @JsonIgnore
    public String getDetail() {
       return detail;
@@ -168,6 +186,7 @@ public class Command extends RestObject {
    public void setDetail(String value) { 
       this.detail = value;
    }
+   
    
    @JsonIgnore
    public String getDetailedStatus() {
@@ -179,6 +198,7 @@ public class Command extends RestObject {
       this.detailedStatus = value;
    }
    
+   
    @JsonIgnore
    public Long getDetailedStatusCode() {
       return detailedStatusCode;
@@ -189,15 +209,17 @@ public class Command extends RestObject {
       this.detailedStatusCode = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -209,6 +231,7 @@ public class Command extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getFullCommand() {
       return fullCommand;
@@ -218,6 +241,7 @@ public class Command extends RestObject {
    public void setFullCommand(String value) { 
       this.fullCommand = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -229,15 +253,17 @@ public class Command extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
-   public Override getOverride() {
+   public EOverride getOverride() {
       return override;
    }
 
    @JsonIgnore
-   public void setOverride(Override value) { 
+   public void setOverride(EOverride value) { 
       this.override = value;
    }
+   
    
    @JsonIgnore
    public String getProgress() {
@@ -249,15 +275,17 @@ public class Command extends RestObject {
       this.progress = value;
    }
    
+   
    @JsonIgnore
-   public Status getStatus() {
+   public EStatus getStatus() {
       return status;
    }
 
    @JsonIgnore
-   public void setStatus(Status value) { 
+   public void setStatus(EStatus value) { 
       this.status = value;
    }
+   
    
    @JsonIgnore
    public String getSummary() {

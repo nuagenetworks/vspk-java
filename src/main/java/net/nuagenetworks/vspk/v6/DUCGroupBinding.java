@@ -45,37 +45,44 @@ public class DUCGroupBinding extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum AssociatedUBRGroupFunction { GATEWAY, UBR };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EAssociatedUBRGroupFunction { GATEWAY, UBR };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "associatedDUCGroupID")
+   
    protected String associatedDUCGroupID;
    
    @JsonProperty(value = "associatedUBRGroupFunction")
-   protected AssociatedUBRGroupFunction associatedUBRGroupFunction;
+   
+   protected EAssociatedUBRGroupFunction associatedUBRGroupFunction;
    
    @JsonProperty(value = "associatedUBRGroupName")
+   
    protected String associatedUBRGroupName;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "oneWayDelay")
+   
    protected Long oneWayDelay;
    
    @JsonProperty(value = "priority")
+   
    protected Long priority;
    
 
@@ -96,6 +103,7 @@ public class DUCGroupBinding extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAssociatedDUCGroupID() {
       return associatedDUCGroupID;
@@ -106,15 +114,17 @@ public class DUCGroupBinding extends RestObject {
       this.associatedDUCGroupID = value;
    }
    
+   
    @JsonIgnore
-   public AssociatedUBRGroupFunction getAssociatedUBRGroupFunction() {
+   public EAssociatedUBRGroupFunction getAssociatedUBRGroupFunction() {
       return associatedUBRGroupFunction;
    }
 
    @JsonIgnore
-   public void setAssociatedUBRGroupFunction(AssociatedUBRGroupFunction value) { 
+   public void setAssociatedUBRGroupFunction(EAssociatedUBRGroupFunction value) { 
       this.associatedUBRGroupFunction = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedUBRGroupName() {
@@ -126,6 +136,7 @@ public class DUCGroupBinding extends RestObject {
       this.associatedUBRGroupName = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -136,15 +147,17 @@ public class DUCGroupBinding extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -156,6 +169,7 @@ public class DUCGroupBinding extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -166,6 +180,7 @@ public class DUCGroupBinding extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public Long getOneWayDelay() {
       return oneWayDelay;
@@ -175,6 +190,7 @@ public class DUCGroupBinding extends RestObject {
    public void setOneWayDelay(Long value) { 
       this.oneWayDelay = value;
    }
+   
    
    @JsonIgnore
    public Long getPriority() {

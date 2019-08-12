@@ -50,63 +50,77 @@ public class User extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum AvatarType { BASE64, COMPUTEDURL, URL };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum ManagementMode { CMS, DEFAULT };
+   public enum EAvatarType { BASE64, COMPUTEDURL, URL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EManagementMode { CMS, DEFAULT };
 
    
    @JsonProperty(value = "LDAPUserDN")
+   
    protected String LDAPUserDN;
    
    @JsonProperty(value = "avatarData")
+   
    protected String avatarData;
    
    @JsonProperty(value = "avatarType")
-   protected AvatarType avatarType;
+   
+   protected EAvatarType avatarType;
    
    @JsonProperty(value = "disableCertificateAuth")
+   
    protected Boolean disableCertificateAuth;
    
    @JsonProperty(value = "disablePasswordAuth")
+   
    protected Boolean disablePasswordAuth;
    
    @JsonProperty(value = "disabled")
+   
    protected Boolean disabled;
    
    @JsonProperty(value = "email")
+   
    protected String email;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "firstName")
+   
    protected String firstName;
    
    @JsonProperty(value = "lastName")
+   
    protected String lastName;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "managementMode")
-   protected ManagementMode managementMode;
+   
+   protected EManagementMode managementMode;
    
    @JsonProperty(value = "mobileNumber")
+   
    protected String mobileNumber;
    
    @JsonProperty(value = "password")
+   
    protected String password;
    
    @JsonProperty(value = "userName")
+   
    protected String userName;
    
 
@@ -152,6 +166,7 @@ public class User extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getLDAPUserDN() {
       return LDAPUserDN;
@@ -161,6 +176,7 @@ public class User extends RestObject {
    public void setLDAPUserDN(String value) { 
       this.LDAPUserDN = value;
    }
+   
    
    @JsonIgnore
    public String getAvatarData() {
@@ -172,15 +188,17 @@ public class User extends RestObject {
       this.avatarData = value;
    }
    
+   
    @JsonIgnore
-   public AvatarType getAvatarType() {
+   public EAvatarType getAvatarType() {
       return avatarType;
    }
 
    @JsonIgnore
-   public void setAvatarType(AvatarType value) { 
+   public void setAvatarType(EAvatarType value) { 
       this.avatarType = value;
    }
+   
    
    @JsonIgnore
    public Boolean getDisableCertificateAuth() {
@@ -192,6 +210,7 @@ public class User extends RestObject {
       this.disableCertificateAuth = value;
    }
    
+   
    @JsonIgnore
    public Boolean getDisablePasswordAuth() {
       return disablePasswordAuth;
@@ -201,6 +220,7 @@ public class User extends RestObject {
    public void setDisablePasswordAuth(Boolean value) { 
       this.disablePasswordAuth = value;
    }
+   
    
    @JsonIgnore
    public Boolean getDisabled() {
@@ -212,6 +232,7 @@ public class User extends RestObject {
       this.disabled = value;
    }
    
+   
    @JsonIgnore
    public String getEmail() {
       return email;
@@ -221,6 +242,7 @@ public class User extends RestObject {
    public void setEmail(String value) { 
       this.email = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -232,15 +254,17 @@ public class User extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -252,6 +276,7 @@ public class User extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getFirstName() {
       return firstName;
@@ -261,6 +286,7 @@ public class User extends RestObject {
    public void setFirstName(String value) { 
       this.firstName = value;
    }
+   
    
    @JsonIgnore
    public String getLastName() {
@@ -272,6 +298,7 @@ public class User extends RestObject {
       this.lastName = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -282,15 +309,17 @@ public class User extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
-   public ManagementMode getManagementMode() {
+   public EManagementMode getManagementMode() {
       return managementMode;
    }
 
    @JsonIgnore
-   public void setManagementMode(ManagementMode value) { 
+   public void setManagementMode(EManagementMode value) { 
       this.managementMode = value;
    }
+   
    
    @JsonIgnore
    public String getMobileNumber() {
@@ -302,6 +331,7 @@ public class User extends RestObject {
       this.mobileNumber = value;
    }
    
+   
    @JsonIgnore
    public String getPassword() {
       return password;
@@ -311,6 +341,7 @@ public class User extends RestObject {
    public void setPassword(String value) { 
       this.password = value;
    }
+   
    
    @JsonIgnore
    public String getUserName() {

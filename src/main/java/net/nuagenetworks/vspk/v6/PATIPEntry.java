@@ -43,34 +43,40 @@ public class PATIPEntry extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum IPType { IPV4, IPV6 };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EIPType { IPV4, IPV6 };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "IPAddress")
+   
    protected String IPAddress;
    
    @JsonProperty(value = "IPType")
-   protected IPType IPType;
+   
+   protected EIPType IPType;
    
    @JsonProperty(value = "PATCentralized")
+   
    protected Boolean PATCentralized;
    
    @JsonProperty(value = "associatedDomainID")
+   
    protected String associatedDomainID;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "hypervisorID")
+   
    protected String hypervisorID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
 
@@ -80,6 +86,7 @@ public class PATIPEntry extends RestObject {
       
    }
 
+   
    
    @JsonIgnore
    public String getIPAddress() {
@@ -91,15 +98,17 @@ public class PATIPEntry extends RestObject {
       this.IPAddress = value;
    }
    
+   
    @JsonIgnore
-   public IPType getIPType() {
+   public EIPType getIPType() {
       return IPType;
    }
 
    @JsonIgnore
-   public void setIPType(IPType value) { 
+   public void setIPType(EIPType value) { 
       this.IPType = value;
    }
+   
    
    @JsonIgnore
    public Boolean getPATCentralized() {
@@ -111,6 +120,7 @@ public class PATIPEntry extends RestObject {
       this.PATCentralized = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedDomainID() {
       return associatedDomainID;
@@ -121,15 +131,17 @@ public class PATIPEntry extends RestObject {
       this.associatedDomainID = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -141,6 +153,7 @@ public class PATIPEntry extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getHypervisorID() {
       return hypervisorID;
@@ -150,6 +163,7 @@ public class PATIPEntry extends RestObject {
    public void setHypervisorID(String value) { 
       this.hypervisorID = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {

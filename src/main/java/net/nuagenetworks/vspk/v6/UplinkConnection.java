@@ -47,122 +47,149 @@ public class UplinkConnection extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum AddressFamily { IPV4, IPV6 };
-   
-   public enum AdvertisementCriteria { BFD, CONTROL_SESSION, OPERATIONAL_LINK };
-   
-   public enum AuxMode { COLD, HOT, NONE };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum InterfaceConnectionType { AUTOMATIC, EMBEDDED, PCI_EXPRESS, USB_ETHERNET, USB_MODEM };
-   
-   public enum Mode { Any, Dynamic, LTE, PPPoE, Static };
-   
-   public enum Role { NONE, PRIMARY, SECONDARY, TERTIARY, UNKNOWN };
+   public enum EAddressFamily { IPV4, IPV6 };
+   public enum EAdvertisementCriteria { BFD, CONTROL_SESSION, OPERATIONAL_LINK };
+   public enum EAuxMode { COLD, HOT, NONE };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EInterfaceConnectionType { AUTOMATIC, EMBEDDED, PCI_EXPRESS, USB_ETHERNET, USB_MODEM };
+   public enum EMode { Any, Dynamic, LTE, PPPoE, Static };
+   public enum ERole { NONE, PRIMARY, SECONDARY, TERTIARY, UNKNOWN };
 
    
    @JsonProperty(value = "DNSAddress")
+   
    protected String DNSAddress;
    
    @JsonProperty(value = "DNSAddressV6")
+   
    protected String DNSAddressV6;
    
    @JsonProperty(value = "PATEnabled")
+   
    protected Boolean PATEnabled;
    
    @JsonProperty(value = "address")
+   
    protected String address;
    
    @JsonProperty(value = "addressFamily")
-   protected AddressFamily addressFamily;
+   
+   protected EAddressFamily addressFamily;
    
    @JsonProperty(value = "addressV6")
+   
    protected String addressV6;
    
    @JsonProperty(value = "advertisementCriteria")
-   protected AdvertisementCriteria advertisementCriteria;
+   
+   protected EAdvertisementCriteria advertisementCriteria;
    
    @JsonProperty(value = "assocUnderlayID")
+   
    protected String assocUnderlayID;
    
    @JsonProperty(value = "associatedBGPNeighborID")
+   
    protected String associatedBGPNeighborID;
    
    @JsonProperty(value = "associatedUnderlayName")
+   
    protected String associatedUnderlayName;
    
    @JsonProperty(value = "auxMode")
-   protected AuxMode auxMode;
+   
+   protected EAuxMode auxMode;
    
    @JsonProperty(value = "auxiliaryLink")
+   
    protected Boolean auxiliaryLink;
    
    @JsonProperty(value = "downloadRateLimit")
+   
    protected Float downloadRateLimit;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "gateway")
+   
    protected String gateway;
    
    @JsonProperty(value = "gatewayV6")
+   
    protected String gatewayV6;
    
    @JsonProperty(value = "inherited")
+   
    protected Boolean inherited;
    
    @JsonProperty(value = "installerManaged")
+   
    protected Boolean installerManaged;
    
    @JsonProperty(value = "interfaceConnectionType")
-   protected InterfaceConnectionType interfaceConnectionType;
+   
+   protected EInterfaceConnectionType interfaceConnectionType;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "mode")
-   protected Mode mode;
+   
+   protected EMode mode;
    
    @JsonProperty(value = "netmask")
+   
    protected String netmask;
    
    @JsonProperty(value = "password")
+   
    protected String password;
    
    @JsonProperty(value = "portName")
+   
    protected String portName;
    
    @JsonProperty(value = "role")
-   protected Role role;
+   
+   protected ERole role;
    
    @JsonProperty(value = "roleOrder")
+   
    protected Long roleOrder;
    
    @JsonProperty(value = "secondaryAddress")
+   
    protected String secondaryAddress;
    
    @JsonProperty(value = "underlayEnabled")
+   
    protected Boolean underlayEnabled;
    
    @JsonProperty(value = "underlayID")
+   
    protected Long underlayID;
    
    @JsonProperty(value = "uplinkID")
+   
    protected Long uplinkID;
    
    @JsonProperty(value = "username")
+   
    protected String username;
    
    @JsonProperty(value = "vlan")
+   
    protected Long vlan;
    
 
@@ -193,6 +220,7 @@ public class UplinkConnection extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getDNSAddress() {
       return DNSAddress;
@@ -202,6 +230,7 @@ public class UplinkConnection extends RestObject {
    public void setDNSAddress(String value) { 
       this.DNSAddress = value;
    }
+   
    
    @JsonIgnore
    public String getDNSAddressV6() {
@@ -213,6 +242,7 @@ public class UplinkConnection extends RestObject {
       this.DNSAddressV6 = value;
    }
    
+   
    @JsonIgnore
    public Boolean getPATEnabled() {
       return PATEnabled;
@@ -222,6 +252,7 @@ public class UplinkConnection extends RestObject {
    public void setPATEnabled(Boolean value) { 
       this.PATEnabled = value;
    }
+   
    
    @JsonIgnore
    public String getAddress() {
@@ -233,15 +264,17 @@ public class UplinkConnection extends RestObject {
       this.address = value;
    }
    
+   
    @JsonIgnore
-   public AddressFamily getAddressFamily() {
+   public EAddressFamily getAddressFamily() {
       return addressFamily;
    }
 
    @JsonIgnore
-   public void setAddressFamily(AddressFamily value) { 
+   public void setAddressFamily(EAddressFamily value) { 
       this.addressFamily = value;
    }
+   
    
    @JsonIgnore
    public String getAddressV6() {
@@ -253,15 +286,17 @@ public class UplinkConnection extends RestObject {
       this.addressV6 = value;
    }
    
+   
    @JsonIgnore
-   public AdvertisementCriteria getAdvertisementCriteria() {
+   public EAdvertisementCriteria getAdvertisementCriteria() {
       return advertisementCriteria;
    }
 
    @JsonIgnore
-   public void setAdvertisementCriteria(AdvertisementCriteria value) { 
+   public void setAdvertisementCriteria(EAdvertisementCriteria value) { 
       this.advertisementCriteria = value;
    }
+   
    
    @JsonIgnore
    public String getAssocUnderlayID() {
@@ -273,6 +308,7 @@ public class UplinkConnection extends RestObject {
       this.assocUnderlayID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedBGPNeighborID() {
       return associatedBGPNeighborID;
@@ -282,6 +318,7 @@ public class UplinkConnection extends RestObject {
    public void setAssociatedBGPNeighborID(String value) { 
       this.associatedBGPNeighborID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedUnderlayName() {
@@ -293,15 +330,17 @@ public class UplinkConnection extends RestObject {
       this.associatedUnderlayName = value;
    }
    
+   
    @JsonIgnore
-   public AuxMode getAuxMode() {
+   public EAuxMode getAuxMode() {
       return auxMode;
    }
 
    @JsonIgnore
-   public void setAuxMode(AuxMode value) { 
+   public void setAuxMode(EAuxMode value) { 
       this.auxMode = value;
    }
+   
    
    @JsonIgnore
    public Boolean getAuxiliaryLink() {
@@ -313,6 +352,7 @@ public class UplinkConnection extends RestObject {
       this.auxiliaryLink = value;
    }
    
+   
    @JsonIgnore
    public Float getDownloadRateLimit() {
       return downloadRateLimit;
@@ -322,6 +362,7 @@ public class UplinkConnection extends RestObject {
    public void setDownloadRateLimit(Float value) { 
       this.downloadRateLimit = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -333,15 +374,17 @@ public class UplinkConnection extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -353,6 +396,7 @@ public class UplinkConnection extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getGateway() {
       return gateway;
@@ -362,6 +406,7 @@ public class UplinkConnection extends RestObject {
    public void setGateway(String value) { 
       this.gateway = value;
    }
+   
    
    @JsonIgnore
    public String getGatewayV6() {
@@ -373,6 +418,7 @@ public class UplinkConnection extends RestObject {
       this.gatewayV6 = value;
    }
    
+   
    @JsonIgnore
    public Boolean getInherited() {
       return inherited;
@@ -382,6 +428,7 @@ public class UplinkConnection extends RestObject {
    public void setInherited(Boolean value) { 
       this.inherited = value;
    }
+   
    
    @JsonIgnore
    public Boolean getInstallerManaged() {
@@ -393,15 +440,17 @@ public class UplinkConnection extends RestObject {
       this.installerManaged = value;
    }
    
+   
    @JsonIgnore
-   public InterfaceConnectionType getInterfaceConnectionType() {
+   public EInterfaceConnectionType getInterfaceConnectionType() {
       return interfaceConnectionType;
    }
 
    @JsonIgnore
-   public void setInterfaceConnectionType(InterfaceConnectionType value) { 
+   public void setInterfaceConnectionType(EInterfaceConnectionType value) { 
       this.interfaceConnectionType = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -413,15 +462,17 @@ public class UplinkConnection extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
-   public Mode getMode() {
+   public EMode getMode() {
       return mode;
    }
 
    @JsonIgnore
-   public void setMode(Mode value) { 
+   public void setMode(EMode value) { 
       this.mode = value;
    }
+   
    
    @JsonIgnore
    public String getNetmask() {
@@ -433,6 +484,7 @@ public class UplinkConnection extends RestObject {
       this.netmask = value;
    }
    
+   
    @JsonIgnore
    public String getPassword() {
       return password;
@@ -442,6 +494,7 @@ public class UplinkConnection extends RestObject {
    public void setPassword(String value) { 
       this.password = value;
    }
+   
    
    @JsonIgnore
    public String getPortName() {
@@ -453,15 +506,17 @@ public class UplinkConnection extends RestObject {
       this.portName = value;
    }
    
+   
    @JsonIgnore
-   public Role getRole() {
+   public ERole getRole() {
       return role;
    }
 
    @JsonIgnore
-   public void setRole(Role value) { 
+   public void setRole(ERole value) { 
       this.role = value;
    }
+   
    
    @JsonIgnore
    public Long getRoleOrder() {
@@ -473,6 +528,7 @@ public class UplinkConnection extends RestObject {
       this.roleOrder = value;
    }
    
+   
    @JsonIgnore
    public String getSecondaryAddress() {
       return secondaryAddress;
@@ -482,6 +538,7 @@ public class UplinkConnection extends RestObject {
    public void setSecondaryAddress(String value) { 
       this.secondaryAddress = value;
    }
+   
    
    @JsonIgnore
    public Boolean getUnderlayEnabled() {
@@ -493,6 +550,7 @@ public class UplinkConnection extends RestObject {
       this.underlayEnabled = value;
    }
    
+   
    @JsonIgnore
    public Long getUnderlayID() {
       return underlayID;
@@ -502,6 +560,7 @@ public class UplinkConnection extends RestObject {
    public void setUnderlayID(Long value) { 
       this.underlayID = value;
    }
+   
    
    @JsonIgnore
    public Long getUplinkID() {
@@ -513,6 +572,7 @@ public class UplinkConnection extends RestObject {
       this.uplinkID = value;
    }
    
+   
    @JsonIgnore
    public String getUsername() {
       return username;
@@ -522,6 +582,7 @@ public class UplinkConnection extends RestObject {
    public void setUsername(String value) { 
       this.username = value;
    }
+   
    
    @JsonIgnore
    public Long getVlan() {

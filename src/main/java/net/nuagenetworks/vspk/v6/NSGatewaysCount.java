@@ -45,26 +45,31 @@ public class NSGatewaysCount extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "activeNSGCount")
+   
    protected Long activeNSGCount;
    
    @JsonProperty(value = "alarmedNSGCount")
+   
    protected Object alarmedNSGCount;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "inactiveNSGCount")
+   
    protected Long inactiveNSGCount;
    
 
@@ -85,6 +90,7 @@ public class NSGatewaysCount extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Long getActiveNSGCount() {
       return activeNSGCount;
@@ -94,6 +100,7 @@ public class NSGatewaysCount extends RestObject {
    public void setActiveNSGCount(Long value) { 
       this.activeNSGCount = value;
    }
+   
    
    @JsonIgnore
    public Object getAlarmedNSGCount() {
@@ -105,6 +112,7 @@ public class NSGatewaysCount extends RestObject {
       this.alarmedNSGCount = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -115,15 +123,17 @@ public class NSGatewaysCount extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -134,6 +144,7 @@ public class NSGatewaysCount extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    
    @JsonIgnore
    public Long getInactiveNSGCount() {

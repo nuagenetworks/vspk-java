@@ -46,55 +46,68 @@ public class TestSuiteRun extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum OperationStatus { COMPLETED, CONTAINER_IP_FAILURE, STARTED, UNKNOWN };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EOperationStatus { COMPLETED, CONTAINER_IP_FAILURE, STARTED, UNKNOWN };
 
    
    @JsonProperty(value = "NSGatewayName")
+   
    protected String NSGatewayName;
    
    @JsonProperty(value = "VPortName")
+   
    protected String VPortName;
    
    @JsonProperty(value = "associatedEntityType")
+   
    protected String associatedEntityType;
    
    @JsonProperty(value = "associatedTestSuiteID")
+   
    protected String associatedTestSuiteID;
    
    @JsonProperty(value = "associatedTestSuiteName")
+   
    protected String associatedTestSuiteName;
    
    @JsonProperty(value = "datapathID")
+   
    protected String datapathID;
    
    @JsonProperty(value = "destination")
+   
    protected String destination;
    
    @JsonProperty(value = "domainName")
+   
    protected String domainName;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "operationStatus")
-   protected OperationStatus operationStatus;
+   
+   protected EOperationStatus operationStatus;
    
    @JsonProperty(value = "subnetName")
+   
    protected String subnetName;
    
    @JsonProperty(value = "zoneName")
+   
    protected String zoneName;
    
 
@@ -120,6 +133,7 @@ public class TestSuiteRun extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getNSGatewayName() {
       return NSGatewayName;
@@ -129,6 +143,7 @@ public class TestSuiteRun extends RestObject {
    public void setNSGatewayName(String value) { 
       this.NSGatewayName = value;
    }
+   
    
    @JsonIgnore
    public String getVPortName() {
@@ -140,6 +155,7 @@ public class TestSuiteRun extends RestObject {
       this.VPortName = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedEntityType() {
       return associatedEntityType;
@@ -149,6 +165,7 @@ public class TestSuiteRun extends RestObject {
    public void setAssociatedEntityType(String value) { 
       this.associatedEntityType = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedTestSuiteID() {
@@ -160,6 +177,7 @@ public class TestSuiteRun extends RestObject {
       this.associatedTestSuiteID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedTestSuiteName() {
       return associatedTestSuiteName;
@@ -169,6 +187,7 @@ public class TestSuiteRun extends RestObject {
    public void setAssociatedTestSuiteName(String value) { 
       this.associatedTestSuiteName = value;
    }
+   
    
    @JsonIgnore
    public String getDatapathID() {
@@ -180,6 +199,7 @@ public class TestSuiteRun extends RestObject {
       this.datapathID = value;
    }
    
+   
    @JsonIgnore
    public String getDestination() {
       return destination;
@@ -189,6 +209,7 @@ public class TestSuiteRun extends RestObject {
    public void setDestination(String value) { 
       this.destination = value;
    }
+   
    
    @JsonIgnore
    public String getDomainName() {
@@ -200,6 +221,7 @@ public class TestSuiteRun extends RestObject {
       this.domainName = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -210,15 +232,17 @@ public class TestSuiteRun extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -230,6 +254,7 @@ public class TestSuiteRun extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -240,15 +265,17 @@ public class TestSuiteRun extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
-   public OperationStatus getOperationStatus() {
+   public EOperationStatus getOperationStatus() {
       return operationStatus;
    }
 
    @JsonIgnore
-   public void setOperationStatus(OperationStatus value) { 
+   public void setOperationStatus(EOperationStatus value) { 
       this.operationStatus = value;
    }
+   
    
    @JsonIgnore
    public String getSubnetName() {
@@ -259,6 +286,7 @@ public class TestSuiteRun extends RestObject {
    public void setSubnetName(String value) { 
       this.subnetName = value;
    }
+   
    
    @JsonIgnore
    public String getZoneName() {

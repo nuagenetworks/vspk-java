@@ -49,93 +49,112 @@ public class VNF extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum AllowedActions { DEPLOY, REDEPLOY, RESTART, START, STOP, UNDEPLOY };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum LastUserAction { DEPLOY, NONE, REDEPLOY, RESTART, START, STOP, UNDEPLOY };
-   
-   public enum Status { BLOCKED, CRASHED, DYING, IDLE, INIT, LAST, PAUSED, PMSUSPENDED, RUNNING, SHUTDOWN, SHUTOFF };
-   
-   public enum TaskState { DEPLOYING, NONE, STARTING, STOPPING, UNDEPLOYING };
-   
-   public enum Type { FIREWALL, WAN_OPT };
+   public enum EAllowedActions { DEPLOY, REDEPLOY, RESTART, START, STOP, UNDEPLOY };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum ELastUserAction { DEPLOY, NONE, REDEPLOY, RESTART, START, STOP, UNDEPLOY };
+   public enum EStatus { BLOCKED, CRASHED, DYING, IDLE, INIT, LAST, PAUSED, PMSUSPENDED, RUNNING, SHUTDOWN, SHUTOFF };
+   public enum ETaskState { DEPLOYING, NONE, STARTING, STOPPING, UNDEPLOYING };
+   public enum EType { FIREWALL, WAN_OPT };
 
    
    @JsonProperty(value = "CPUCount")
+   
    protected Long CPUCount;
    
    @JsonProperty(value = "NSGName")
+   
    protected String NSGName;
    
    @JsonProperty(value = "NSGSystemID")
+   
    protected String NSGSystemID;
    
    @JsonProperty(value = "NSGatewayID")
+   
    protected String NSGatewayID;
    
    @JsonProperty(value = "VNFDescriptorID")
+   
    protected String VNFDescriptorID;
    
    @JsonProperty(value = "VNFDescriptorName")
+   
    protected String VNFDescriptorName;
    
    @JsonProperty(value = "allowedActions")
-   protected java.util.List<AllowedActions> allowedActions;
+   
+   protected java.util.List<EAllowedActions> allowedActions;
    
    @JsonProperty(value = "associatedVNFMetadataID")
+   
    protected String associatedVNFMetadataID;
    
    @JsonProperty(value = "associatedVNFThresholdPolicyID")
+   
    protected String associatedVNFThresholdPolicyID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "enterpriseID")
+   
    protected String enterpriseID;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "isAttachedToDescriptor")
+   
    protected Boolean isAttachedToDescriptor;
    
    @JsonProperty(value = "lastKnownError")
+   
    protected String lastKnownError;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "lastUserAction")
-   protected LastUserAction lastUserAction;
+   
+   protected ELastUserAction lastUserAction;
    
    @JsonProperty(value = "memoryMB")
+   
    protected Long memoryMB;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "status")
-   protected Status status;
+   
+   protected EStatus status;
    
    @JsonProperty(value = "storageGB")
+   
    protected Long storageGB;
    
    @JsonProperty(value = "taskState")
-   protected TaskState taskState;
+   
+   protected ETaskState taskState;
    
    @JsonProperty(value = "type")
-   protected Type type;
+   
+   protected EType type;
    
    @JsonProperty(value = "vendor")
+   
    protected String vendor;
    
 
@@ -176,6 +195,7 @@ public class VNF extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Long getCPUCount() {
       return CPUCount;
@@ -185,6 +205,7 @@ public class VNF extends RestObject {
    public void setCPUCount(Long value) { 
       this.CPUCount = value;
    }
+   
    
    @JsonIgnore
    public String getNSGName() {
@@ -196,6 +217,7 @@ public class VNF extends RestObject {
       this.NSGName = value;
    }
    
+   
    @JsonIgnore
    public String getNSGSystemID() {
       return NSGSystemID;
@@ -205,6 +227,7 @@ public class VNF extends RestObject {
    public void setNSGSystemID(String value) { 
       this.NSGSystemID = value;
    }
+   
    
    @JsonIgnore
    public String getNSGatewayID() {
@@ -216,6 +239,7 @@ public class VNF extends RestObject {
       this.NSGatewayID = value;
    }
    
+   
    @JsonIgnore
    public String getVNFDescriptorID() {
       return VNFDescriptorID;
@@ -225,6 +249,7 @@ public class VNF extends RestObject {
    public void setVNFDescriptorID(String value) { 
       this.VNFDescriptorID = value;
    }
+   
    
    @JsonIgnore
    public String getVNFDescriptorName() {
@@ -236,15 +261,17 @@ public class VNF extends RestObject {
       this.VNFDescriptorName = value;
    }
    
+   
    @JsonIgnore
-   public java.util.List<AllowedActions> getAllowedActions() {
+   public java.util.List<EAllowedActions> getAllowedActions() {
       return allowedActions;
    }
 
    @JsonIgnore
-   public void setAllowedActions(java.util.List<AllowedActions> value) { 
+   public void setAllowedActions(java.util.List<EAllowedActions> value) { 
       this.allowedActions = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedVNFMetadataID() {
@@ -256,6 +283,7 @@ public class VNF extends RestObject {
       this.associatedVNFMetadataID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedVNFThresholdPolicyID() {
       return associatedVNFThresholdPolicyID;
@@ -265,6 +293,7 @@ public class VNF extends RestObject {
    public void setAssociatedVNFThresholdPolicyID(String value) { 
       this.associatedVNFThresholdPolicyID = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -276,6 +305,7 @@ public class VNF extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -285,6 +315,7 @@ public class VNF extends RestObject {
    public void setEmbeddedMetadata(java.util.List<Metadata> value) { 
       this.embeddedMetadata = value;
    }
+   
    
    @JsonIgnore
    public String getEnterpriseID() {
@@ -296,15 +327,17 @@ public class VNF extends RestObject {
       this.enterpriseID = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -316,6 +349,7 @@ public class VNF extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public Boolean getIsAttachedToDescriptor() {
       return isAttachedToDescriptor;
@@ -325,6 +359,7 @@ public class VNF extends RestObject {
    public void setIsAttachedToDescriptor(Boolean value) { 
       this.isAttachedToDescriptor = value;
    }
+   
    
    @JsonIgnore
    public String getLastKnownError() {
@@ -336,6 +371,7 @@ public class VNF extends RestObject {
       this.lastKnownError = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -346,15 +382,17 @@ public class VNF extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
-   public LastUserAction getLastUserAction() {
+   public ELastUserAction getLastUserAction() {
       return lastUserAction;
    }
 
    @JsonIgnore
-   public void setLastUserAction(LastUserAction value) { 
+   public void setLastUserAction(ELastUserAction value) { 
       this.lastUserAction = value;
    }
+   
    
    @JsonIgnore
    public Long getMemoryMB() {
@@ -366,6 +404,7 @@ public class VNF extends RestObject {
       this.memoryMB = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -376,15 +415,17 @@ public class VNF extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
-   public Status getStatus() {
+   public EStatus getStatus() {
       return status;
    }
 
    @JsonIgnore
-   public void setStatus(Status value) { 
+   public void setStatus(EStatus value) { 
       this.status = value;
    }
+   
    
    @JsonIgnore
    public Long getStorageGB() {
@@ -396,25 +437,28 @@ public class VNF extends RestObject {
       this.storageGB = value;
    }
    
+   
    @JsonIgnore
-   public TaskState getTaskState() {
+   public ETaskState getTaskState() {
       return taskState;
    }
 
    @JsonIgnore
-   public void setTaskState(TaskState value) { 
+   public void setTaskState(ETaskState value) { 
       this.taskState = value;
    }
    
+   
    @JsonIgnore
-   public Type getType() {
+   public EType getType() {
       return type;
    }
 
    @JsonIgnore
-   public void setType(Type value) { 
+   public void setType(EType value) { 
       this.type = value;
    }
+   
    
    @JsonIgnore
    public String getVendor() {

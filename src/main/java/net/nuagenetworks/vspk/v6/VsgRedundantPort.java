@@ -49,65 +49,78 @@ public class VsgRedundantPort extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
-   
-   public enum PortType { ACCESS, NETWORK };
-   
-   public enum Status { INITIALIZED, MISMATCH, ORPHAN, READY };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EPermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
+   public enum EPortType { ACCESS, NETWORK };
+   public enum EStatus { INITIALIZED, MISMATCH, ORPHAN, READY };
 
    
    @JsonProperty(value = "VLANRange")
+   
    protected String VLANRange;
    
    @JsonProperty(value = "associatedEgressQOSPolicyID")
+   
    protected String associatedEgressQOSPolicyID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "peerLink")
+   
    protected Boolean peerLink;
    
    @JsonProperty(value = "permittedAction")
-   protected PermittedAction permittedAction;
+   
+   protected EPermittedAction permittedAction;
    
    @JsonProperty(value = "physicalName")
+   
    protected String physicalName;
    
    @JsonProperty(value = "portPeer1ID")
+   
    protected String portPeer1ID;
    
    @JsonProperty(value = "portPeer2ID")
+   
    protected String portPeer2ID;
    
    @JsonProperty(value = "portType")
-   protected PortType portType;
+   
+   protected EPortType portType;
    
    @JsonProperty(value = "status")
-   protected Status status;
+   
+   protected EStatus status;
    
    @JsonProperty(value = "useUserMnemonic")
+   
    protected Boolean useUserMnemonic;
    
    @JsonProperty(value = "userMnemonic")
+   
    protected String userMnemonic;
    
 
@@ -148,6 +161,7 @@ public class VsgRedundantPort extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getVLANRange() {
       return VLANRange;
@@ -157,6 +171,7 @@ public class VsgRedundantPort extends RestObject {
    public void setVLANRange(String value) { 
       this.VLANRange = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedEgressQOSPolicyID() {
@@ -168,6 +183,7 @@ public class VsgRedundantPort extends RestObject {
       this.associatedEgressQOSPolicyID = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -177,6 +193,7 @@ public class VsgRedundantPort extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -188,15 +205,17 @@ public class VsgRedundantPort extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -208,6 +227,7 @@ public class VsgRedundantPort extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -217,6 +237,7 @@ public class VsgRedundantPort extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -228,6 +249,7 @@ public class VsgRedundantPort extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public Boolean getPeerLink() {
       return peerLink;
@@ -238,15 +260,17 @@ public class VsgRedundantPort extends RestObject {
       this.peerLink = value;
    }
    
+   
    @JsonIgnore
-   public PermittedAction getPermittedAction() {
+   public EPermittedAction getPermittedAction() {
       return permittedAction;
    }
 
    @JsonIgnore
-   public void setPermittedAction(PermittedAction value) { 
+   public void setPermittedAction(EPermittedAction value) { 
       this.permittedAction = value;
    }
+   
    
    @JsonIgnore
    public String getPhysicalName() {
@@ -258,6 +282,7 @@ public class VsgRedundantPort extends RestObject {
       this.physicalName = value;
    }
    
+   
    @JsonIgnore
    public String getPortPeer1ID() {
       return portPeer1ID;
@@ -267,6 +292,7 @@ public class VsgRedundantPort extends RestObject {
    public void setPortPeer1ID(String value) { 
       this.portPeer1ID = value;
    }
+   
    
    @JsonIgnore
    public String getPortPeer2ID() {
@@ -278,25 +304,28 @@ public class VsgRedundantPort extends RestObject {
       this.portPeer2ID = value;
    }
    
+   
    @JsonIgnore
-   public PortType getPortType() {
+   public EPortType getPortType() {
       return portType;
    }
 
    @JsonIgnore
-   public void setPortType(PortType value) { 
+   public void setPortType(EPortType value) { 
       this.portType = value;
    }
    
+   
    @JsonIgnore
-   public Status getStatus() {
+   public EStatus getStatus() {
       return status;
    }
 
    @JsonIgnore
-   public void setStatus(Status value) { 
+   public void setStatus(EStatus value) { 
       this.status = value;
    }
+   
    
    @JsonIgnore
    public Boolean getUseUserMnemonic() {
@@ -307,6 +336,7 @@ public class VsgRedundantPort extends RestObject {
    public void setUseUserMnemonic(Boolean value) { 
       this.useUserMnemonic = value;
    }
+   
    
    @JsonIgnore
    public String getUserMnemonic() {

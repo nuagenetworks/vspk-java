@@ -46,40 +46,48 @@ public class Tier extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum TierType { TIER1, TIER2 };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum ETierType { TIER1, TIER2 };
 
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "downThresholdCount")
+   
    protected Long downThresholdCount;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "packetCount")
+   
    protected Long packetCount;
    
    @JsonProperty(value = "probeInterval")
+   
    protected Long probeInterval;
    
    @JsonProperty(value = "tierType")
-   protected TierType tierType;
+   
+   protected ETierType tierType;
    
    @JsonProperty(value = "timeout")
+   
    protected Long timeout;
    
 
@@ -105,6 +113,7 @@ public class Tier extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -114,6 +123,7 @@ public class Tier extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public Long getDownThresholdCount() {
@@ -125,6 +135,7 @@ public class Tier extends RestObject {
       this.downThresholdCount = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -135,15 +146,17 @@ public class Tier extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -155,6 +168,7 @@ public class Tier extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -164,6 +178,7 @@ public class Tier extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public Long getPacketCount() {
@@ -175,6 +190,7 @@ public class Tier extends RestObject {
       this.packetCount = value;
    }
    
+   
    @JsonIgnore
    public Long getProbeInterval() {
       return probeInterval;
@@ -185,15 +201,17 @@ public class Tier extends RestObject {
       this.probeInterval = value;
    }
    
+   
    @JsonIgnore
-   public TierType getTierType() {
+   public ETierType getTierType() {
       return tierType;
    }
 
    @JsonIgnore
-   public void setTierType(TierType value) { 
+   public void setTierType(ETierType value) { 
       this.tierType = value;
    }
+   
    
    @JsonIgnore
    public Long getTimeout() {

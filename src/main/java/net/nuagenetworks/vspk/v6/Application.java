@@ -47,102 +47,124 @@ public class Application extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum OptimizePathSelection { JITTER, LATENCY, PACKETLOSS };
-   
-   public enum PerformanceMonitorType { CONTINUOUS, FIRST_PACKET, FIRST_PACKET_AND_CONTINUOUS };
-   
-   public enum PostClassificationPath { ANY, PRIMARY, SECONDARY };
-   
-   public enum PreClassificationPath { DEFAULT, PRIMARY, SECONDARY };
-   
-   public enum Protocol { NONE, TCP, UDP };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EOptimizePathSelection { JITTER, LATENCY, PACKETLOSS };
+   public enum EPerformanceMonitorType { CONTINUOUS, FIRST_PACKET, FIRST_PACKET_AND_CONTINUOUS };
+   public enum EPostClassificationPath { ANY, PRIMARY, SECONDARY };
+   public enum EPreClassificationPath { DEFAULT, PRIMARY, SECONDARY };
+   public enum EProtocol { NONE, TCP, UDP };
 
    
    @JsonProperty(value = "DSCP")
+   
    protected String DSCP;
    
    @JsonProperty(value = "appId")
+   
    protected Long appId;
    
    @JsonProperty(value = "associatedL7ApplicationSignatureID")
+   
    protected String associatedL7ApplicationSignatureID;
    
    @JsonProperty(value = "bandwidth")
+   
    protected Long bandwidth;
    
    @JsonProperty(value = "certificateCommonName")
+   
    protected String certificateCommonName;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "destinationIP")
+   
    protected String destinationIP;
    
    @JsonProperty(value = "destinationPort")
+   
    protected String destinationPort;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "enablePPS")
+   
    protected Boolean enablePPS;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "etherType")
+   
    protected String etherType;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "networkSymmetry")
+   
    protected Boolean networkSymmetry;
    
    @JsonProperty(value = "oneWayDelay")
+   
    protected Long oneWayDelay;
    
    @JsonProperty(value = "oneWayJitter")
+   
    protected Long oneWayJitter;
    
    @JsonProperty(value = "oneWayLoss")
+   
    protected Float oneWayLoss;
    
    @JsonProperty(value = "optimizePathSelection")
-   protected OptimizePathSelection optimizePathSelection;
+   
+   protected EOptimizePathSelection optimizePathSelection;
    
    @JsonProperty(value = "performanceMonitorType")
-   protected PerformanceMonitorType performanceMonitorType;
+   
+   protected EPerformanceMonitorType performanceMonitorType;
    
    @JsonProperty(value = "postClassificationPath")
-   protected PostClassificationPath postClassificationPath;
+   
+   protected EPostClassificationPath postClassificationPath;
    
    @JsonProperty(value = "preClassificationPath")
-   protected PreClassificationPath preClassificationPath;
+   
+   protected EPreClassificationPath preClassificationPath;
    
    @JsonProperty(value = "protocol")
-   protected Protocol protocol;
+   
+   protected EProtocol protocol;
    
    @JsonProperty(value = "readOnly")
+   
    protected Boolean readOnly;
    
    @JsonProperty(value = "sourceIP")
+   
    protected String sourceIP;
    
    @JsonProperty(value = "sourcePort")
+   
    protected String sourcePort;
    
    @JsonProperty(value = "symmetry")
+   
    protected Boolean symmetry;
    
 
@@ -173,6 +195,7 @@ public class Application extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getDSCP() {
       return DSCP;
@@ -182,6 +205,7 @@ public class Application extends RestObject {
    public void setDSCP(String value) { 
       this.DSCP = value;
    }
+   
    
    @JsonIgnore
    public Long getAppId() {
@@ -193,6 +217,7 @@ public class Application extends RestObject {
       this.appId = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedL7ApplicationSignatureID() {
       return associatedL7ApplicationSignatureID;
@@ -202,6 +227,7 @@ public class Application extends RestObject {
    public void setAssociatedL7ApplicationSignatureID(String value) { 
       this.associatedL7ApplicationSignatureID = value;
    }
+   
    
    @JsonIgnore
    public Long getBandwidth() {
@@ -213,6 +239,7 @@ public class Application extends RestObject {
       this.bandwidth = value;
    }
    
+   
    @JsonIgnore
    public String getCertificateCommonName() {
       return certificateCommonName;
@@ -222,6 +249,7 @@ public class Application extends RestObject {
    public void setCertificateCommonName(String value) { 
       this.certificateCommonName = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -233,6 +261,7 @@ public class Application extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public String getDestinationIP() {
       return destinationIP;
@@ -242,6 +271,7 @@ public class Application extends RestObject {
    public void setDestinationIP(String value) { 
       this.destinationIP = value;
    }
+   
    
    @JsonIgnore
    public String getDestinationPort() {
@@ -253,6 +283,7 @@ public class Application extends RestObject {
       this.destinationPort = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -262,6 +293,7 @@ public class Application extends RestObject {
    public void setEmbeddedMetadata(java.util.List<Metadata> value) { 
       this.embeddedMetadata = value;
    }
+   
    
    @JsonIgnore
    public Boolean getEnablePPS() {
@@ -273,15 +305,17 @@ public class Application extends RestObject {
       this.enablePPS = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getEtherType() {
@@ -293,6 +327,7 @@ public class Application extends RestObject {
       this.etherType = value;
    }
    
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -302,6 +337,7 @@ public class Application extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -313,6 +349,7 @@ public class Application extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -322,6 +359,7 @@ public class Application extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public Boolean getNetworkSymmetry() {
@@ -333,6 +371,7 @@ public class Application extends RestObject {
       this.networkSymmetry = value;
    }
    
+   
    @JsonIgnore
    public Long getOneWayDelay() {
       return oneWayDelay;
@@ -342,6 +381,7 @@ public class Application extends RestObject {
    public void setOneWayDelay(Long value) { 
       this.oneWayDelay = value;
    }
+   
    
    @JsonIgnore
    public Long getOneWayJitter() {
@@ -353,6 +393,7 @@ public class Application extends RestObject {
       this.oneWayJitter = value;
    }
    
+   
    @JsonIgnore
    public Float getOneWayLoss() {
       return oneWayLoss;
@@ -363,55 +404,61 @@ public class Application extends RestObject {
       this.oneWayLoss = value;
    }
    
+   
    @JsonIgnore
-   public OptimizePathSelection getOptimizePathSelection() {
+   public EOptimizePathSelection getOptimizePathSelection() {
       return optimizePathSelection;
    }
 
    @JsonIgnore
-   public void setOptimizePathSelection(OptimizePathSelection value) { 
+   public void setOptimizePathSelection(EOptimizePathSelection value) { 
       this.optimizePathSelection = value;
    }
    
+   
    @JsonIgnore
-   public PerformanceMonitorType getPerformanceMonitorType() {
+   public EPerformanceMonitorType getPerformanceMonitorType() {
       return performanceMonitorType;
    }
 
    @JsonIgnore
-   public void setPerformanceMonitorType(PerformanceMonitorType value) { 
+   public void setPerformanceMonitorType(EPerformanceMonitorType value) { 
       this.performanceMonitorType = value;
    }
    
+   
    @JsonIgnore
-   public PostClassificationPath getPostClassificationPath() {
+   public EPostClassificationPath getPostClassificationPath() {
       return postClassificationPath;
    }
 
    @JsonIgnore
-   public void setPostClassificationPath(PostClassificationPath value) { 
+   public void setPostClassificationPath(EPostClassificationPath value) { 
       this.postClassificationPath = value;
    }
    
+   
    @JsonIgnore
-   public PreClassificationPath getPreClassificationPath() {
+   public EPreClassificationPath getPreClassificationPath() {
       return preClassificationPath;
    }
 
    @JsonIgnore
-   public void setPreClassificationPath(PreClassificationPath value) { 
+   public void setPreClassificationPath(EPreClassificationPath value) { 
       this.preClassificationPath = value;
    }
    
+   
    @JsonIgnore
-   public Protocol getProtocol() {
+   public EProtocol getProtocol() {
       return protocol;
    }
 
    @JsonIgnore
-   public void setProtocol(Protocol value) { 
+   public void setProtocol(EProtocol value) { 
       this.protocol = value;
    }
+   
    
    @JsonIgnore
    public Boolean getReadOnly() {
@@ -423,6 +470,7 @@ public class Application extends RestObject {
       this.readOnly = value;
    }
    
+   
    @JsonIgnore
    public String getSourceIP() {
       return sourceIP;
@@ -433,6 +481,7 @@ public class Application extends RestObject {
       this.sourceIP = value;
    }
    
+   
    @JsonIgnore
    public String getSourcePort() {
       return sourcePort;
@@ -442,6 +491,7 @@ public class Application extends RestObject {
    public void setSourcePort(String value) { 
       this.sourcePort = value;
    }
+   
    
    @JsonIgnore
    public Boolean getSymmetry() {
