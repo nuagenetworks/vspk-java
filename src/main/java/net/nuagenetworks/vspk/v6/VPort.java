@@ -379,10 +379,10 @@ public class VPort extends RestObject {
    
 
    public VPort() {
-      multicast = Multicast.INHERITED;
-      type = Type.VM;
-      addressSpoofing = AddressSpoofing.INHERITED;
-      operationalState = OperationalState.INIT;
+      multicast = EMulticast.INHERITED;
+      type = EType.VM;
+      addressSpoofing = EAddressSpoofing.INHERITED;
+      operationalState = EOperationalState.INIT;
       
       aggregateMetadatas = new AggregateMetadatasFetcher(this);
       

@@ -359,12 +359,12 @@ public class Subnet extends RestObject {
    @JsonIgnore
    private VPortsFetcher vPorts;
    
-   @SuppressWarnings("static-access")
+
    public Subnet() {
-      PATEnabled = PATEnabled.INHERITED;
-      multicast = Multicast.INHERITED;
-      IPType = IPType.IPV4;
-      maintenanceMode = MaintenanceMode.DISABLED;
+      PATEnabled = EPATEnabled.INHERITED;
+      multicast = EMulticast.INHERITED;
+      IPType = EIPType.IPV4;
+      maintenanceMode = EMaintenanceMode.DISABLED;
       
       addressRanges = new AddressRangesFetcher(this);
       

@@ -104,7 +104,7 @@ public class Bootstrap extends RestObject {
    
 
    public Bootstrap() {
-      status = Status.INACTIVE;
+      status = EStatus.INACTIVE;
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       

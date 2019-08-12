@@ -94,9 +94,9 @@ public class AddressRange extends RestObject {
    @JsonIgnore
    private MetadatasFetcher metadatas;
    
-   @SuppressWarnings("static-access")
+
    public AddressRange() {
-      DHCPPoolType = DHCPPoolType.BRIDGE;
+      DHCPPoolType = EDHCPPoolType.BRIDGE;
       
       eventLogs = new EventLogsFetcher(this);
       

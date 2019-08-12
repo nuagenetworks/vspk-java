@@ -165,10 +165,10 @@ public class SubnetTemplate extends RestObject {
    @JsonIgnore
    private SubnetsFetcher subnets;
    
-   @SuppressWarnings("static-access")
+
    public SubnetTemplate() {
-      multicast = Multicast.INHERITED;
-      IPType = IPType.IPV4;
+      multicast = EMulticast.INHERITED;
+      IPType = EIPType.IPV4;
       
       addressRanges = new AddressRangesFetcher(this);
       

@@ -231,9 +231,9 @@ public class IngressACLEntryTemplate extends RestObject {
       protocol = "6";
       etherType = "0x0800";
       DSCP = "*";
-      locationType = LocationType.ANY;
-      action = Action.FORWARD;
-      networkType = NetworkType.ANY;
+      locationType = ELocationType.ANY;
+      action = EAction.FORWARD;
+      networkType = ENetworkType.ANY;
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       

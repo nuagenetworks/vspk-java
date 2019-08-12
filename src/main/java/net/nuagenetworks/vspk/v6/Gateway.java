@@ -336,7 +336,7 @@ public class Gateway extends RestObject {
    
 
    public Gateway() {
-      personality = Personality.VRSG;
+      personality = EPersonality.VRSG;
       
       alarms = new AlarmsFetcher(this);
       

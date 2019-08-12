@@ -405,7 +405,7 @@ public class L2Domain extends RestObject {
    
 
    public L2Domain() {
-      maintenanceMode = MaintenanceMode.DISABLED;
+      maintenanceMode = EMaintenanceMode.DISABLED;
       
       addressRanges = new AddressRangesFetcher(this);
       

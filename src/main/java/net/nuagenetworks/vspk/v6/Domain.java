@@ -536,11 +536,11 @@ public class Domain extends RestObject {
    @JsonIgnore
    private ZonesFetcher zones;
    
-   @SuppressWarnings("static-access")
+
    public Domain() {
-      DHCPBehavior = DHCPBehavior.CONSUME;
-      tunnelType = TunnelType.DC_DEFAULT;
-      maintenanceMode = MaintenanceMode.DISABLED;
+      DHCPBehavior = EDHCPBehavior.CONSUME;
+      tunnelType = ETunnelType.DC_DEFAULT;
+      maintenanceMode = EMaintenanceMode.DISABLED;
       
       aggregatedDomains = new AggregatedDomainsFetcher(this);
       

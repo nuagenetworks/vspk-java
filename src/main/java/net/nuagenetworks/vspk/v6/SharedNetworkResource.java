@@ -217,7 +217,7 @@ public class SharedNetworkResource extends RestObject {
    
 
    public SharedNetworkResource() {
-      type = Type.PUBLIC;
+      type = EType.PUBLIC;
       DHCPManaged = true;
       
       addressRanges = new AddressRangesFetcher(this);

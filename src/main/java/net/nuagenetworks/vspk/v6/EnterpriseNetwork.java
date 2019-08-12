@@ -101,9 +101,9 @@ public class EnterpriseNetwork extends RestObject {
    @JsonIgnore
    private NetworkMacroGroupsFetcher networkMacroGroups;
    
-   @SuppressWarnings("static-access")
+
    public EnterpriseNetwork() {
-      IPType = IPType.IPV4;
+      IPType = EIPType.IPV4;
       
       eventLogs = new EventLogsFetcher(this);
       

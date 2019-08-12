@@ -166,8 +166,8 @@ public class WANService extends RestObject {
    
 
    public WANService() {
-      configType = ConfigType.STATIC;
-      serviceType = ServiceType.L3;
+      configType = EConfigType.STATIC;
+      serviceType = EServiceType.L3;
       
       alarms = new AlarmsFetcher(this);
       

@@ -142,7 +142,7 @@ public class ZoneTemplate extends RestObject {
    
 
    public ZoneTemplate() {
-      multicast = Multicast.INHERITED;
+      multicast = EMulticast.INHERITED;
       
       eventLogs = new EventLogsFetcher(this);
       

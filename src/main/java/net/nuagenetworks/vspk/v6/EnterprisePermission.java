@@ -99,7 +99,7 @@ public class EnterprisePermission extends RestObject {
    
 
    public EnterprisePermission() {
-      permittedAction = PermittedAction.USE;
+      permittedAction = EPermittedAction.USE;
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       

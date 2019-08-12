@@ -99,7 +99,7 @@ public class PolicyGroupTemplate extends RestObject {
    
 
    public PolicyGroupTemplate() {
-      type = Type.SOFTWARE;
+      type = EType.SOFTWARE;
       
       eventLogs = new EventLogsFetcher(this);
       

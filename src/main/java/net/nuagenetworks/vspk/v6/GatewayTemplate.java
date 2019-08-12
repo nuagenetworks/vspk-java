@@ -99,7 +99,7 @@ public class GatewayTemplate extends RestObject {
    
 
    public GatewayTemplate() {
-      personality = Personality.VRSG;
+      personality = EPersonality.VRSG;
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       

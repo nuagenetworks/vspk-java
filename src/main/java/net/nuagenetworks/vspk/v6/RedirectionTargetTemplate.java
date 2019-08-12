@@ -105,7 +105,7 @@ public class RedirectionTargetTemplate extends RestObject {
    
 
    public RedirectionTargetTemplate() {
-      endPointType = EndPointType.L3;
+      endPointType = EEndPointType.L3;
       
       eventLogs = new EventLogsFetcher(this);
       

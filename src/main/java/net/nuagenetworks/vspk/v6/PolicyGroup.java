@@ -128,7 +128,7 @@ public class PolicyGroup extends RestObject {
    
 
    public PolicyGroup() {
-      type = Type.SOFTWARE;
+      type = EType.SOFTWARE;
       
       eventLogs = new EventLogsFetcher(this);
       

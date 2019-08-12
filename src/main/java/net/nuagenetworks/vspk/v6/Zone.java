@@ -203,8 +203,8 @@ public class Zone extends RestObject {
    
 
    public Zone() {
-      multicast = Multicast.INHERITED;
-      maintenanceMode = MaintenanceMode.DISABLED;
+      multicast = EMulticast.INHERITED;
+      maintenanceMode = EMaintenanceMode.DISABLED;
       
       containers = new ContainersFetcher(this);
       

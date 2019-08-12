@@ -76,10 +76,6 @@ public class ForwardingPathListEntry extends RestObject {
    
    protected EForwardingAction forwardingAction;
    
-   @JsonProperty(value = "isSLAAware")
-   
-   protected Boolean isSLAAware;
-   
    @JsonProperty(value = "lastUpdatedBy")
    
    protected String lastUpdatedBy;
@@ -91,6 +87,10 @@ public class ForwardingPathListEntry extends RestObject {
    @JsonProperty(value = "remoteUplinkPreference")
    
    protected ERemoteUplinkPreference remoteUplinkPreference;
+   
+   @JsonProperty(value = "slaAware")
+   
+   protected Boolean slaAware;
    
    @JsonProperty(value = "uplinkPreference")
    
@@ -182,17 +182,6 @@ public class ForwardingPathListEntry extends RestObject {
    
    
    @JsonIgnore
-   public Boolean getIsSLAAware() {
-      return isSLAAware;
-   }
-
-   @JsonIgnore
-   public void setIsSLAAware(Boolean value) { 
-      this.isSLAAware = value;
-   }
-   
-   
-   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
@@ -226,6 +215,17 @@ public class ForwardingPathListEntry extends RestObject {
    
    
    @JsonIgnore
+   public Boolean getSlaAware() {
+      return slaAware;
+   }
+
+   @JsonIgnore
+   public void setSlaAware(Boolean value) { 
+      this.slaAware = value;
+   }
+   
+   
+   @JsonIgnore
    public EUplinkPreference getUplinkPreference() {
       return uplinkPreference;
    }
@@ -249,7 +249,7 @@ public class ForwardingPathListEntry extends RestObject {
    
 
    public String toString() {
-      return "ForwardingPathListEntry [" + "DSCPRemarking=" + DSCPRemarking + ", FCOverride=" + FCOverride + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", forwardingAction=" + forwardingAction + ", isSLAAware=" + isSLAAware + ", lastUpdatedBy=" + lastUpdatedBy + ", priority=" + priority + ", remoteUplinkPreference=" + remoteUplinkPreference + ", uplinkPreference=" + uplinkPreference + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "ForwardingPathListEntry [" + "DSCPRemarking=" + DSCPRemarking + ", FCOverride=" + FCOverride + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", forwardingAction=" + forwardingAction + ", lastUpdatedBy=" + lastUpdatedBy + ", priority=" + priority + ", remoteUplinkPreference=" + remoteUplinkPreference + ", slaAware=" + slaAware + ", uplinkPreference=" + uplinkPreference + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

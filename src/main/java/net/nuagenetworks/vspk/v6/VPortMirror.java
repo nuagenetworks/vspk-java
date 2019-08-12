@@ -111,7 +111,7 @@ public class VPortMirror extends RestObject {
    
 
    public VPortMirror() {
-      mirrorDirection = MirrorDirection.BOTH;
+      mirrorDirection = EMirrorDirection.BOTH;
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       

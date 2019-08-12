@@ -141,8 +141,8 @@ public class TCA extends RestObject {
    
 
    public TCA() {
-      metric = Metric.BYTES_IN;
-      type = Type.ROLLING_AVERAGE;
+      metric = EMetric.BYTES_IN;
+      type = EType.ROLLING_AVERAGE;
       
       alarms = new AlarmsFetcher(this);
       

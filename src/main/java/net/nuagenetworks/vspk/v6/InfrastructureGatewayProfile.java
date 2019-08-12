@@ -181,11 +181,11 @@ public class InfrastructureGatewayProfile extends RestObject {
    
 
    public InfrastructureGatewayProfile() {
-      upgradeAction = UpgradeAction.NONE;
+      upgradeAction = EUpgradeAction.NONE;
       statsCollectorPort = 29090L;
       systemSyncScheduler = "0 0 * * *";
       useTwoFactor = true;
-      remoteLogMode = RemoteLogMode.DISABLED;
+      remoteLogMode = ERemoteLogMode.DISABLED;
       datapathSyncTimeout = 1000L;
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
