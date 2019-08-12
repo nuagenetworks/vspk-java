@@ -45,55 +45,68 @@ public class AllAlarm extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Severity { CRITICAL, INFO, MAJOR, MINOR, WARNING };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum ESeverity { CRITICAL, INFO, MAJOR, MINOR, WARNING };
 
    
    @JsonProperty(value = "acknowledged")
+   
    protected Boolean acknowledged;
    
    @JsonProperty(value = "alarmedObjectID")
+   
    protected String alarmedObjectID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "enterpriseID")
+   
    protected String enterpriseID;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "errorCondition")
+   
    protected Long errorCondition;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "numberOfOccurances")
+   
    protected Long numberOfOccurances;
    
    @JsonProperty(value = "remedy")
+   
    protected String remedy;
    
    @JsonProperty(value = "severity")
-   protected Severity severity;
+   
+   protected ESeverity severity;
    
    @JsonProperty(value = "targetObject")
+   
    protected String targetObject;
    
    @JsonProperty(value = "timestamp")
+   
    protected Long timestamp;
    
    @JsonProperty(value = "title")
+   
    protected String title;
    
 
@@ -114,6 +127,7 @@ public class AllAlarm extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Boolean getAcknowledged() {
       return acknowledged;
@@ -123,6 +137,7 @@ public class AllAlarm extends RestObject {
    public void setAcknowledged(Boolean value) { 
       this.acknowledged = value;
    }
+   
    
    @JsonIgnore
    public String getAlarmedObjectID() {
@@ -134,6 +149,7 @@ public class AllAlarm extends RestObject {
       this.alarmedObjectID = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -143,6 +159,7 @@ public class AllAlarm extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -154,6 +171,7 @@ public class AllAlarm extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
    public String getEnterpriseID() {
       return enterpriseID;
@@ -164,15 +182,17 @@ public class AllAlarm extends RestObject {
       this.enterpriseID = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public Long getErrorCondition() {
@@ -184,6 +204,7 @@ public class AllAlarm extends RestObject {
       this.errorCondition = value;
    }
    
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -193,6 +214,7 @@ public class AllAlarm extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -204,6 +226,7 @@ public class AllAlarm extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public Long getNumberOfOccurances() {
       return numberOfOccurances;
@@ -213,6 +236,7 @@ public class AllAlarm extends RestObject {
    public void setNumberOfOccurances(Long value) { 
       this.numberOfOccurances = value;
    }
+   
    
    @JsonIgnore
    public String getRemedy() {
@@ -224,15 +248,17 @@ public class AllAlarm extends RestObject {
       this.remedy = value;
    }
    
+   
    @JsonIgnore
-   public Severity getSeverity() {
+   public ESeverity getSeverity() {
       return severity;
    }
 
    @JsonIgnore
-   public void setSeverity(Severity value) { 
+   public void setSeverity(ESeverity value) { 
       this.severity = value;
    }
+   
    
    @JsonIgnore
    public String getTargetObject() {
@@ -244,6 +270,7 @@ public class AllAlarm extends RestObject {
       this.targetObject = value;
    }
    
+   
    @JsonIgnore
    public Long getTimestamp() {
       return timestamp;
@@ -253,6 +280,7 @@ public class AllAlarm extends RestObject {
    public void setTimestamp(Long value) { 
       this.timestamp = value;
    }
+   
    
    @JsonIgnore
    public String getTitle() {

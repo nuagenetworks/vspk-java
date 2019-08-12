@@ -53,84 +53,100 @@ public class NSPort extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum NATTraversal { FULL_NAT, NONE, ONE_TO_ONE_NAT };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
-   
-   public enum PortType { ACCESS, NETWORK };
-   
-   public enum Speed { AUTONEGOTIATE, BASET10, BASET1000, BASETX100, BASEX10G };
-   
-   public enum Status { INITIALIZED, MISMATCH, ORPHAN, READY };
+   public enum ENATTraversal { FULL_NAT, NONE, ONE_TO_ONE_NAT };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EPermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
+   public enum EPortType { ACCESS, NETWORK };
+   public enum ESpeed { AUTONEGOTIATE, BASET10, BASET1000, BASETX100, BASEX10G };
+   public enum EStatus { INITIALIZED, MISMATCH, ORPHAN, READY };
 
    
    @JsonProperty(value = "NATTraversal")
-   protected NATTraversal NATTraversal;
+   
+   protected ENATTraversal NATTraversal;
    
    @JsonProperty(value = "TrafficThroughUBROnly")
+   
    protected Boolean TrafficThroughUBROnly;
    
    @JsonProperty(value = "VLANRange")
+   
    protected String VLANRange;
    
    @JsonProperty(value = "associatedEgressQOSPolicyID")
+   
    protected String associatedEgressQOSPolicyID;
    
    @JsonProperty(value = "associatedRedundantPortID")
+   
    protected String associatedRedundantPortID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "enableNATProbes")
+   
    protected Boolean enableNATProbes;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "mtu")
+   
    protected Long mtu;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "permittedAction")
-   protected PermittedAction permittedAction;
+   
+   protected EPermittedAction permittedAction;
    
    @JsonProperty(value = "physicalName")
+   
    protected String physicalName;
    
    @JsonProperty(value = "portType")
-   protected PortType portType;
+   
+   protected EPortType portType;
    
    @JsonProperty(value = "shuntPort")
+   
    protected Boolean shuntPort;
    
    @JsonProperty(value = "speed")
-   protected Speed speed;
+   
+   protected ESpeed speed;
    
    @JsonProperty(value = "status")
-   protected Status status;
+   
+   protected EStatus status;
    
    @JsonProperty(value = "templateID")
+   
    protected String templateID;
    
    @JsonProperty(value = "useUserMnemonic")
+   
    protected Boolean useUserMnemonic;
    
    @JsonProperty(value = "userMnemonic")
+   
    protected String userMnemonic;
    
 
@@ -191,15 +207,17 @@ public class NSPort extends RestObject {
    }
 
    
+   
    @JsonIgnore
-   public NATTraversal getNATTraversal() {
+   public ENATTraversal getNATTraversal() {
       return NATTraversal;
    }
 
    @JsonIgnore
-   public void setNATTraversal(NATTraversal value) { 
+   public void setNATTraversal(ENATTraversal value) { 
       this.NATTraversal = value;
    }
+   
    
    @JsonIgnore
    public Boolean getTrafficThroughUBROnly() {
@@ -211,6 +229,7 @@ public class NSPort extends RestObject {
       this.TrafficThroughUBROnly = value;
    }
    
+   
    @JsonIgnore
    public String getVLANRange() {
       return VLANRange;
@@ -220,6 +239,7 @@ public class NSPort extends RestObject {
    public void setVLANRange(String value) { 
       this.VLANRange = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedEgressQOSPolicyID() {
@@ -231,6 +251,7 @@ public class NSPort extends RestObject {
       this.associatedEgressQOSPolicyID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedRedundantPortID() {
       return associatedRedundantPortID;
@@ -240,6 +261,7 @@ public class NSPort extends RestObject {
    public void setAssociatedRedundantPortID(String value) { 
       this.associatedRedundantPortID = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -251,6 +273,7 @@ public class NSPort extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -260,6 +283,7 @@ public class NSPort extends RestObject {
    public void setEmbeddedMetadata(java.util.List<Metadata> value) { 
       this.embeddedMetadata = value;
    }
+   
    
    @JsonIgnore
    public Boolean getEnableNATProbes() {
@@ -271,15 +295,17 @@ public class NSPort extends RestObject {
       this.enableNATProbes = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -291,6 +317,7 @@ public class NSPort extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -300,6 +327,7 @@ public class NSPort extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public Long getMtu() {
@@ -311,6 +339,7 @@ public class NSPort extends RestObject {
       this.mtu = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -321,15 +350,17 @@ public class NSPort extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
-   public PermittedAction getPermittedAction() {
+   public EPermittedAction getPermittedAction() {
       return permittedAction;
    }
 
    @JsonIgnore
-   public void setPermittedAction(PermittedAction value) { 
+   public void setPermittedAction(EPermittedAction value) { 
       this.permittedAction = value;
    }
+   
    
    @JsonIgnore
    public String getPhysicalName() {
@@ -341,15 +372,17 @@ public class NSPort extends RestObject {
       this.physicalName = value;
    }
    
+   
    @JsonIgnore
-   public PortType getPortType() {
+   public EPortType getPortType() {
       return portType;
    }
 
    @JsonIgnore
-   public void setPortType(PortType value) { 
+   public void setPortType(EPortType value) { 
       this.portType = value;
    }
+   
    
    @JsonIgnore
    public Boolean getShuntPort() {
@@ -361,25 +394,28 @@ public class NSPort extends RestObject {
       this.shuntPort = value;
    }
    
+   
    @JsonIgnore
-   public Speed getSpeed() {
+   public ESpeed getSpeed() {
       return speed;
    }
 
    @JsonIgnore
-   public void setSpeed(Speed value) { 
+   public void setSpeed(ESpeed value) { 
       this.speed = value;
    }
    
+   
    @JsonIgnore
-   public Status getStatus() {
+   public EStatus getStatus() {
       return status;
    }
 
    @JsonIgnore
-   public void setStatus(Status value) { 
+   public void setStatus(EStatus value) { 
       this.status = value;
    }
+   
    
    @JsonIgnore
    public String getTemplateID() {
@@ -391,6 +427,7 @@ public class NSPort extends RestObject {
       this.templateID = value;
    }
    
+   
    @JsonIgnore
    public Boolean getUseUserMnemonic() {
       return useUserMnemonic;
@@ -400,6 +437,7 @@ public class NSPort extends RestObject {
    public void setUseUserMnemonic(Boolean value) { 
       this.useUserMnemonic = value;
    }
+   
    
    @JsonIgnore
    public String getUserMnemonic() {

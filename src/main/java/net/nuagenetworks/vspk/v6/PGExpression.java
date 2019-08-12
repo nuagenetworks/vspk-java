@@ -43,29 +43,35 @@ public class PGExpression extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "expression")
+   
    protected String expression;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "templateID")
+   
    protected String templateID;
    
 
@@ -75,6 +81,7 @@ public class PGExpression extends RestObject {
       
    }
 
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -86,15 +93,17 @@ public class PGExpression extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExpression() {
@@ -106,6 +115,7 @@ public class PGExpression extends RestObject {
       this.expression = value;
    }
    
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -115,6 +125,7 @@ public class PGExpression extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -126,6 +137,7 @@ public class PGExpression extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -135,6 +147,7 @@ public class PGExpression extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public String getTemplateID() {

@@ -48,21 +48,27 @@ public class Statistics extends RestObject {
 
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "endTime")
+   
    protected Long endTime;
    
    @JsonProperty(value = "numberOfDataPoints")
+   
    protected Long numberOfDataPoints;
    
    @JsonProperty(value = "startTime")
+   
    protected Long startTime;
    
    @JsonProperty(value = "statsData")
+   
    protected java.util.Map<String, Long[]> statsData;
    
    @JsonProperty(value = "version")
+   
    protected Long version;
    
 
@@ -83,6 +89,7 @@ public class Statistics extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -92,6 +99,7 @@ public class Statistics extends RestObject {
    public void setEmbeddedMetadata(java.util.List<Metadata> value) { 
       this.embeddedMetadata = value;
    }
+   
    
    @JsonIgnore
    public Long getEndTime() {
@@ -103,6 +111,7 @@ public class Statistics extends RestObject {
       this.endTime = value;
    }
    
+   
    @JsonIgnore
    public Long getNumberOfDataPoints() {
       return numberOfDataPoints;
@@ -112,6 +121,7 @@ public class Statistics extends RestObject {
    public void setNumberOfDataPoints(Long value) { 
       this.numberOfDataPoints = value;
    }
+   
    
    @JsonIgnore
    public Long getStartTime() {
@@ -123,6 +133,7 @@ public class Statistics extends RestObject {
       this.startTime = value;
    }
    
+   
    @JsonIgnore
    public java.util.Map<String, Long[]> getStatsData() {
       return statsData;
@@ -132,6 +143,7 @@ public class Statistics extends RestObject {
    public void setStatsData(java.util.Map<String, Long[]> value) { 
       this.statsData = value;
    }
+   
    
    @JsonIgnore
    public Long getVersion() {

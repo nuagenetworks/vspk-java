@@ -46,15 +46,19 @@ public class OverlayManagementSubnetProfile extends RestObject {
 
    
    @JsonProperty(value = "associatedDNASubnetID")
+   
    protected String associatedDNASubnetID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "syslogDestinationIDs")
+   
    protected java.util.List<String> syslogDestinationIDs;
    
 
@@ -64,6 +68,7 @@ public class OverlayManagementSubnetProfile extends RestObject {
       
    }
 
+   
    
    @JsonIgnore
    public String getAssociatedDNASubnetID() {
@@ -75,6 +80,7 @@ public class OverlayManagementSubnetProfile extends RestObject {
       this.associatedDNASubnetID = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -85,6 +91,7 @@ public class OverlayManagementSubnetProfile extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -94,6 +101,7 @@ public class OverlayManagementSubnetProfile extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<String> getSyslogDestinationIDs() {

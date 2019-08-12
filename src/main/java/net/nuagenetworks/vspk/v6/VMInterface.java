@@ -55,82 +55,104 @@ public class VMInterface extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum AttachedNetworkType { L2DOMAIN, SUBNET };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EAttachedNetworkType { L2DOMAIN, SUBNET };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "IPAddress")
+   
    protected String IPAddress;
    
    @JsonProperty(value = "IPv6Address")
+   
    protected String IPv6Address;
    
    @JsonProperty(value = "IPv6Gateway")
+   
    protected String IPv6Gateway;
    
    @JsonProperty(value = "MAC")
+   
    protected String MAC;
    
    @JsonProperty(value = "VMUUID")
+   
    protected String VMUUID;
    
    @JsonProperty(value = "VPortID")
+   
    protected String VPortID;
    
    @JsonProperty(value = "VPortName")
+   
    protected String VPortName;
    
    @JsonProperty(value = "attachedNetworkID")
+   
    protected String attachedNetworkID;
    
    @JsonProperty(value = "attachedNetworkType")
-   protected AttachedNetworkType attachedNetworkType;
+   
+   protected EAttachedNetworkType attachedNetworkType;
    
    @JsonProperty(value = "domainID")
+   
    protected String domainID;
    
    @JsonProperty(value = "domainName")
+   
    protected String domainName;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "gateway")
+   
    protected String gateway;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "multiNICVPortName")
+   
    protected String multiNICVPortName;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "netmask")
+   
    protected String netmask;
    
    @JsonProperty(value = "networkName")
+   
    protected String networkName;
    
    @JsonProperty(value = "policyDecisionID")
+   
    protected String policyDecisionID;
    
    @JsonProperty(value = "tierID")
+   
    protected String tierID;
    
    @JsonProperty(value = "zoneID")
+   
    protected String zoneID;
    
    @JsonProperty(value = "zoneName")
+   
    protected String zoneName;
    
 
@@ -201,6 +223,7 @@ public class VMInterface extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getIPAddress() {
       return IPAddress;
@@ -210,6 +233,7 @@ public class VMInterface extends RestObject {
    public void setIPAddress(String value) { 
       this.IPAddress = value;
    }
+   
    
    @JsonIgnore
    public String getIPv6Address() {
@@ -221,6 +245,7 @@ public class VMInterface extends RestObject {
       this.IPv6Address = value;
    }
    
+   
    @JsonIgnore
    public String getIPv6Gateway() {
       return IPv6Gateway;
@@ -230,6 +255,7 @@ public class VMInterface extends RestObject {
    public void setIPv6Gateway(String value) { 
       this.IPv6Gateway = value;
    }
+   
    
    @JsonIgnore
    public String getMAC() {
@@ -241,6 +267,7 @@ public class VMInterface extends RestObject {
       this.MAC = value;
    }
    
+   
    @JsonIgnore
    public String getVMUUID() {
       return VMUUID;
@@ -250,6 +277,7 @@ public class VMInterface extends RestObject {
    public void setVMUUID(String value) { 
       this.VMUUID = value;
    }
+   
    
    @JsonIgnore
    public String getVPortID() {
@@ -261,6 +289,7 @@ public class VMInterface extends RestObject {
       this.VPortID = value;
    }
    
+   
    @JsonIgnore
    public String getVPortName() {
       return VPortName;
@@ -270,6 +299,7 @@ public class VMInterface extends RestObject {
    public void setVPortName(String value) { 
       this.VPortName = value;
    }
+   
    
    @JsonIgnore
    public String getAttachedNetworkID() {
@@ -281,15 +311,17 @@ public class VMInterface extends RestObject {
       this.attachedNetworkID = value;
    }
    
+   
    @JsonIgnore
-   public AttachedNetworkType getAttachedNetworkType() {
+   public EAttachedNetworkType getAttachedNetworkType() {
       return attachedNetworkType;
    }
 
    @JsonIgnore
-   public void setAttachedNetworkType(AttachedNetworkType value) { 
+   public void setAttachedNetworkType(EAttachedNetworkType value) { 
       this.attachedNetworkType = value;
    }
+   
    
    @JsonIgnore
    public String getDomainID() {
@@ -301,6 +333,7 @@ public class VMInterface extends RestObject {
       this.domainID = value;
    }
    
+   
    @JsonIgnore
    public String getDomainName() {
       return domainName;
@@ -310,6 +343,7 @@ public class VMInterface extends RestObject {
    public void setDomainName(String value) { 
       this.domainName = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -321,15 +355,17 @@ public class VMInterface extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -341,6 +377,7 @@ public class VMInterface extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getGateway() {
       return gateway;
@@ -350,6 +387,7 @@ public class VMInterface extends RestObject {
    public void setGateway(String value) { 
       this.gateway = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -361,6 +399,7 @@ public class VMInterface extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getMultiNICVPortName() {
       return multiNICVPortName;
@@ -370,6 +409,7 @@ public class VMInterface extends RestObject {
    public void setMultiNICVPortName(String value) { 
       this.multiNICVPortName = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -381,6 +421,7 @@ public class VMInterface extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public String getNetmask() {
       return netmask;
@@ -390,6 +431,7 @@ public class VMInterface extends RestObject {
    public void setNetmask(String value) { 
       this.netmask = value;
    }
+   
    
    @JsonIgnore
    public String getNetworkName() {
@@ -401,6 +443,7 @@ public class VMInterface extends RestObject {
       this.networkName = value;
    }
    
+   
    @JsonIgnore
    public String getPolicyDecisionID() {
       return policyDecisionID;
@@ -410,6 +453,7 @@ public class VMInterface extends RestObject {
    public void setPolicyDecisionID(String value) { 
       this.policyDecisionID = value;
    }
+   
    
    @JsonIgnore
    public String getTierID() {
@@ -421,6 +465,7 @@ public class VMInterface extends RestObject {
       this.tierID = value;
    }
    
+   
    @JsonIgnore
    public String getZoneID() {
       return zoneID;
@@ -430,6 +475,7 @@ public class VMInterface extends RestObject {
    public void setZoneID(String value) { 
       this.zoneID = value;
    }
+   
    
    @JsonIgnore
    public String getZoneName() {

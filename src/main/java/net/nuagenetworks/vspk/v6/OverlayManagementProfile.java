@@ -47,9 +47,11 @@ public class OverlayManagementProfile extends RestObject {
 
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
 
@@ -65,6 +67,7 @@ public class OverlayManagementProfile extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -74,6 +77,7 @@ public class OverlayManagementProfile extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public String getName() {

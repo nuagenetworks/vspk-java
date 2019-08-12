@@ -75,175 +75,208 @@ public class VPort extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum DPI { DISABLED, ENABLED, INHERITED };
-   
-   public enum FIPIgnoreDefaultRoute { DISABLED, ENABLED, INHERITED };
-   
-   public enum AddressSpoofing { DISABLED, ENABLED, INHERITED };
-   
-   public enum AssociatedGatewayPersonality { DC7X50, EVDF, EVDFB, HARDWARE_VTEP, NETCONF_7X50, NETCONF_THIRDPARTY_HW_VTEP, NSG, NSGBR, NSGDUC, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, OTHER, VDF, VDFG, VRSB, VRSG, VSA, VSG };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum GatewayMACMoveRole { SECONDARY, TERTIARY };
-   
-   public enum Multicast { DISABLED, ENABLED, INHERITED };
-   
-   public enum OperationalState { DOWN, INIT, UP };
-   
-   public enum PeerOperationalState { DOWN, INIT, UP };
-   
-   public enum SegmentationType { VLAN };
-   
-   public enum SubType { NONE, VNF };
-   
-   public enum SystemType { HARDWARE, HARDWARE_VTEP, NUAGE_1, NUAGE_2, NUAGE_VRSG, SOFTWARE };
-   
-   public enum TrunkRole { PARENT_PORT, SUB_PORT };
-   
-   public enum Type { BRIDGE, CONTAINER, HOST, VM };
+   public enum EDPI { DISABLED, ENABLED, INHERITED };
+   public enum EFIPIgnoreDefaultRoute { DISABLED, ENABLED, INHERITED };
+   public enum EAddressSpoofing { DISABLED, ENABLED, INHERITED };
+   public enum EAssociatedGatewayPersonality { DC7X50, EVDF, EVDFB, HARDWARE_VTEP, NETCONF_7X50, NETCONF_THIRDPARTY_HW_VTEP, NSG, NSGBR, NSGDUC, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, OTHER, VDF, VDFG, VRSB, VRSG, VSA, VSG };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EGatewayMACMoveRole { SECONDARY, TERTIARY };
+   public enum EMulticast { DISABLED, ENABLED, INHERITED };
+   public enum EOperationalState { DOWN, INIT, UP };
+   public enum EPeerOperationalState { DOWN, INIT, UP };
+   public enum ESegmentationType { VLAN };
+   public enum ESubType { NONE, VNF };
+   public enum ESystemType { HARDWARE, HARDWARE_VTEP, NUAGE_1, NUAGE_2, NUAGE_VRSG, SOFTWARE };
+   public enum ETrunkRole { PARENT_PORT, SUB_PORT };
+   public enum EType { BRIDGE, CONTAINER, HOST, VM };
 
    
    @JsonProperty(value = "DPI")
-   protected DPI DPI;
+   
+   protected EDPI DPI;
    
    @JsonProperty(value = "FIPIgnoreDefaultRoute")
-   protected FIPIgnoreDefaultRoute FIPIgnoreDefaultRoute;
+   
+   protected EFIPIgnoreDefaultRoute FIPIgnoreDefaultRoute;
    
    @JsonProperty(value = "VLAN")
+   
    protected Long VLAN;
    
    @JsonProperty(value = "VLANID")
+   
    protected String VLANID;
    
    @JsonProperty(value = "accessRestrictionEnabled")
+   
    protected Boolean accessRestrictionEnabled;
    
    @JsonProperty(value = "active")
+   
    protected Boolean active;
    
    @JsonProperty(value = "addressSpoofing")
-   protected AddressSpoofing addressSpoofing;
+   
+   protected EAddressSpoofing addressSpoofing;
    
    @JsonProperty(value = "assocEntityID")
+   
    protected String assocEntityID;
    
    @JsonProperty(value = "associatedEgressProfileID")
+   
    protected String associatedEgressProfileID;
    
    @JsonProperty(value = "associatedFloatingIPID")
+   
    protected String associatedFloatingIPID;
    
    @JsonProperty(value = "associatedGatewayID")
+   
    protected String associatedGatewayID;
    
    @JsonProperty(value = "associatedGatewayPersonality")
-   protected AssociatedGatewayPersonality associatedGatewayPersonality;
+   
+   protected EAssociatedGatewayPersonality associatedGatewayPersonality;
    
    @JsonProperty(value = "associatedGatewayType")
+   
    protected String associatedGatewayType;
    
    @JsonProperty(value = "associatedIngressProfileID")
+   
    protected String associatedIngressProfileID;
    
    @JsonProperty(value = "associatedMulticastChannelMapID")
+   
    protected String associatedMulticastChannelMapID;
    
    @JsonProperty(value = "associatedSSID")
+   
    protected String associatedSSID;
    
    @JsonProperty(value = "associatedSendMulticastChannelMapID")
+   
    protected String associatedSendMulticastChannelMapID;
    
    @JsonProperty(value = "associatedTrunkID")
+   
    protected String associatedTrunkID;
    
    @JsonProperty(value = "backhaulSubnetVNID")
+   
    protected Long backhaulSubnetVNID;
    
    @JsonProperty(value = "color")
+   
    protected Long color;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "domainID")
+   
    protected String domainID;
    
    @JsonProperty(value = "domainName")
+   
    protected String domainName;
    
    @JsonProperty(value = "domainServiceLabel")
+   
    protected String domainServiceLabel;
    
    @JsonProperty(value = "domainVLANID")
+   
    protected Long domainVLANID;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "gatewayMACMoveRole")
-   protected GatewayMACMoveRole gatewayMACMoveRole;
+   
+   protected EGatewayMACMoveRole gatewayMACMoveRole;
    
    @JsonProperty(value = "gatewayPortName")
+   
    protected String gatewayPortName;
    
    @JsonProperty(value = "gwEligible")
+   
    protected Boolean gwEligible;
    
    @JsonProperty(value = "hasAttachedInterfaces")
+   
    protected Boolean hasAttachedInterfaces;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "multiNICVPortID")
+   
    protected String multiNICVPortID;
    
    @JsonProperty(value = "multicast")
-   protected Multicast multicast;
+   
+   protected EMulticast multicast;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "operationalState")
-   protected OperationalState operationalState;
+   
+   protected EOperationalState operationalState;
    
    @JsonProperty(value = "peerOperationalState")
-   protected PeerOperationalState peerOperationalState;
+   
+   protected EPeerOperationalState peerOperationalState;
    
    @JsonProperty(value = "segmentationID")
+   
    protected Long segmentationID;
    
    @JsonProperty(value = "segmentationType")
-   protected SegmentationType segmentationType;
+   
+   protected ESegmentationType segmentationType;
    
    @JsonProperty(value = "serviceID")
+   
    protected Long serviceID;
    
    @JsonProperty(value = "subType")
-   protected SubType subType;
+   
+   protected ESubType subType;
    
    @JsonProperty(value = "subnetVNID")
+   
    protected Long subnetVNID;
    
    @JsonProperty(value = "systemType")
-   protected SystemType systemType;
+   
+   protected ESystemType systemType;
    
    @JsonProperty(value = "trunkRole")
-   protected TrunkRole trunkRole;
+   
+   protected ETrunkRole trunkRole;
    
    @JsonProperty(value = "type")
-   protected Type type;
+   
+   protected EType type;
    
    @JsonProperty(value = "zoneID")
+   
    protected String zoneID;
    
 
@@ -418,25 +451,28 @@ public class VPort extends RestObject {
    }
 
    
+   
    @JsonIgnore
-   public DPI getDPI() {
+   public EDPI getDPI() {
       return DPI;
    }
 
    @JsonIgnore
-   public void setDPI(DPI value) { 
+   public void setDPI(EDPI value) { 
       this.DPI = value;
    }
    
+   
    @JsonIgnore
-   public FIPIgnoreDefaultRoute getFIPIgnoreDefaultRoute() {
+   public EFIPIgnoreDefaultRoute getFIPIgnoreDefaultRoute() {
       return FIPIgnoreDefaultRoute;
    }
 
    @JsonIgnore
-   public void setFIPIgnoreDefaultRoute(FIPIgnoreDefaultRoute value) { 
+   public void setFIPIgnoreDefaultRoute(EFIPIgnoreDefaultRoute value) { 
       this.FIPIgnoreDefaultRoute = value;
    }
+   
    
    @JsonIgnore
    public Long getVLAN() {
@@ -448,6 +484,7 @@ public class VPort extends RestObject {
       this.VLAN = value;
    }
    
+   
    @JsonIgnore
    public String getVLANID() {
       return VLANID;
@@ -457,6 +494,7 @@ public class VPort extends RestObject {
    public void setVLANID(String value) { 
       this.VLANID = value;
    }
+   
    
    @JsonIgnore
    public Boolean getAccessRestrictionEnabled() {
@@ -468,6 +506,7 @@ public class VPort extends RestObject {
       this.accessRestrictionEnabled = value;
    }
    
+   
    @JsonIgnore
    public Boolean getActive() {
       return active;
@@ -478,15 +517,17 @@ public class VPort extends RestObject {
       this.active = value;
    }
    
+   
    @JsonIgnore
-   public AddressSpoofing getAddressSpoofing() {
+   public EAddressSpoofing getAddressSpoofing() {
       return addressSpoofing;
    }
 
    @JsonIgnore
-   public void setAddressSpoofing(AddressSpoofing value) { 
+   public void setAddressSpoofing(EAddressSpoofing value) { 
       this.addressSpoofing = value;
    }
+   
    
    @JsonIgnore
    public String getAssocEntityID() {
@@ -498,6 +539,7 @@ public class VPort extends RestObject {
       this.assocEntityID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedEgressProfileID() {
       return associatedEgressProfileID;
@@ -507,6 +549,7 @@ public class VPort extends RestObject {
    public void setAssociatedEgressProfileID(String value) { 
       this.associatedEgressProfileID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedFloatingIPID() {
@@ -518,6 +561,7 @@ public class VPort extends RestObject {
       this.associatedFloatingIPID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedGatewayID() {
       return associatedGatewayID;
@@ -528,15 +572,17 @@ public class VPort extends RestObject {
       this.associatedGatewayID = value;
    }
    
+   
    @JsonIgnore
-   public AssociatedGatewayPersonality getAssociatedGatewayPersonality() {
+   public EAssociatedGatewayPersonality getAssociatedGatewayPersonality() {
       return associatedGatewayPersonality;
    }
 
    @JsonIgnore
-   public void setAssociatedGatewayPersonality(AssociatedGatewayPersonality value) { 
+   public void setAssociatedGatewayPersonality(EAssociatedGatewayPersonality value) { 
       this.associatedGatewayPersonality = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedGatewayType() {
@@ -548,6 +594,7 @@ public class VPort extends RestObject {
       this.associatedGatewayType = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedIngressProfileID() {
       return associatedIngressProfileID;
@@ -557,6 +604,7 @@ public class VPort extends RestObject {
    public void setAssociatedIngressProfileID(String value) { 
       this.associatedIngressProfileID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedMulticastChannelMapID() {
@@ -568,6 +616,7 @@ public class VPort extends RestObject {
       this.associatedMulticastChannelMapID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedSSID() {
       return associatedSSID;
@@ -577,6 +626,7 @@ public class VPort extends RestObject {
    public void setAssociatedSSID(String value) { 
       this.associatedSSID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedSendMulticastChannelMapID() {
@@ -588,6 +638,7 @@ public class VPort extends RestObject {
       this.associatedSendMulticastChannelMapID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedTrunkID() {
       return associatedTrunkID;
@@ -597,6 +648,7 @@ public class VPort extends RestObject {
    public void setAssociatedTrunkID(String value) { 
       this.associatedTrunkID = value;
    }
+   
    
    @JsonIgnore
    public Long getBackhaulSubnetVNID() {
@@ -608,6 +660,7 @@ public class VPort extends RestObject {
       this.backhaulSubnetVNID = value;
    }
    
+   
    @JsonIgnore
    public Long getColor() {
       return color;
@@ -617,6 +670,7 @@ public class VPort extends RestObject {
    public void setColor(Long value) { 
       this.color = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -628,6 +682,7 @@ public class VPort extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public String getDomainID() {
       return domainID;
@@ -637,6 +692,7 @@ public class VPort extends RestObject {
    public void setDomainID(String value) { 
       this.domainID = value;
    }
+   
    
    @JsonIgnore
    public String getDomainName() {
@@ -648,6 +704,7 @@ public class VPort extends RestObject {
       this.domainName = value;
    }
    
+   
    @JsonIgnore
    public String getDomainServiceLabel() {
       return domainServiceLabel;
@@ -657,6 +714,7 @@ public class VPort extends RestObject {
    public void setDomainServiceLabel(String value) { 
       this.domainServiceLabel = value;
    }
+   
    
    @JsonIgnore
    public Long getDomainVLANID() {
@@ -668,6 +726,7 @@ public class VPort extends RestObject {
       this.domainVLANID = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -678,15 +737,17 @@ public class VPort extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -698,15 +759,17 @@ public class VPort extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
-   public GatewayMACMoveRole getGatewayMACMoveRole() {
+   public EGatewayMACMoveRole getGatewayMACMoveRole() {
       return gatewayMACMoveRole;
    }
 
    @JsonIgnore
-   public void setGatewayMACMoveRole(GatewayMACMoveRole value) { 
+   public void setGatewayMACMoveRole(EGatewayMACMoveRole value) { 
       this.gatewayMACMoveRole = value;
    }
+   
    
    @JsonIgnore
    public String getGatewayPortName() {
@@ -718,6 +781,7 @@ public class VPort extends RestObject {
       this.gatewayPortName = value;
    }
    
+   
    @JsonIgnore
    public Boolean getGwEligible() {
       return gwEligible;
@@ -727,6 +791,7 @@ public class VPort extends RestObject {
    public void setGwEligible(Boolean value) { 
       this.gwEligible = value;
    }
+   
    
    @JsonIgnore
    public Boolean getHasAttachedInterfaces() {
@@ -738,6 +803,7 @@ public class VPort extends RestObject {
       this.hasAttachedInterfaces = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -747,6 +813,7 @@ public class VPort extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getMultiNICVPortID() {
@@ -758,15 +825,17 @@ public class VPort extends RestObject {
       this.multiNICVPortID = value;
    }
    
+   
    @JsonIgnore
-   public Multicast getMulticast() {
+   public EMulticast getMulticast() {
       return multicast;
    }
 
    @JsonIgnore
-   public void setMulticast(Multicast value) { 
+   public void setMulticast(EMulticast value) { 
       this.multicast = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -778,25 +847,28 @@ public class VPort extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
-   public OperationalState getOperationalState() {
+   public EOperationalState getOperationalState() {
       return operationalState;
    }
 
    @JsonIgnore
-   public void setOperationalState(OperationalState value) { 
+   public void setOperationalState(EOperationalState value) { 
       this.operationalState = value;
    }
    
+   
    @JsonIgnore
-   public PeerOperationalState getPeerOperationalState() {
+   public EPeerOperationalState getPeerOperationalState() {
       return peerOperationalState;
    }
 
    @JsonIgnore
-   public void setPeerOperationalState(PeerOperationalState value) { 
+   public void setPeerOperationalState(EPeerOperationalState value) { 
       this.peerOperationalState = value;
    }
+   
    
    @JsonIgnore
    public Long getSegmentationID() {
@@ -808,15 +880,17 @@ public class VPort extends RestObject {
       this.segmentationID = value;
    }
    
+   
    @JsonIgnore
-   public SegmentationType getSegmentationType() {
+   public ESegmentationType getSegmentationType() {
       return segmentationType;
    }
 
    @JsonIgnore
-   public void setSegmentationType(SegmentationType value) { 
+   public void setSegmentationType(ESegmentationType value) { 
       this.segmentationType = value;
    }
+   
    
    @JsonIgnore
    public Long getServiceID() {
@@ -828,15 +902,17 @@ public class VPort extends RestObject {
       this.serviceID = value;
    }
    
+   
    @JsonIgnore
-   public SubType getSubType() {
+   public ESubType getSubType() {
       return subType;
    }
 
    @JsonIgnore
-   public void setSubType(SubType value) { 
+   public void setSubType(ESubType value) { 
       this.subType = value;
    }
+   
    
    @JsonIgnore
    public Long getSubnetVNID() {
@@ -848,35 +924,39 @@ public class VPort extends RestObject {
       this.subnetVNID = value;
    }
    
+   
    @JsonIgnore
-   public SystemType getSystemType() {
+   public ESystemType getSystemType() {
       return systemType;
    }
 
    @JsonIgnore
-   public void setSystemType(SystemType value) { 
+   public void setSystemType(ESystemType value) { 
       this.systemType = value;
    }
    
+   
    @JsonIgnore
-   public TrunkRole getTrunkRole() {
+   public ETrunkRole getTrunkRole() {
       return trunkRole;
    }
 
    @JsonIgnore
-   public void setTrunkRole(TrunkRole value) { 
+   public void setTrunkRole(ETrunkRole value) { 
       this.trunkRole = value;
    }
    
+   
    @JsonIgnore
-   public Type getType() {
+   public EType getType() {
       return type;
    }
 
    @JsonIgnore
-   public void setType(Type value) { 
+   public void setType(EType value) { 
       this.type = value;
    }
+   
    
    @JsonIgnore
    public String getZoneID() {

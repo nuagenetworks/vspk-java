@@ -45,35 +45,41 @@ public class CTranslationMap extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum MappingType { NAT, PAT };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EMappingType { NAT, PAT };
 
    
    @JsonProperty(value = "associatedDomainID")
+   
    protected String associatedDomainID;
    
    @JsonProperty(value = "customerAliasIP")
+   
    protected String customerAliasIP;
    
    @JsonProperty(value = "customerIP")
+   
    protected String customerIP;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "mappingType")
-   protected MappingType mappingType;
+   
+   protected EMappingType mappingType;
    
 
    
@@ -93,6 +99,7 @@ public class CTranslationMap extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAssociatedDomainID() {
       return associatedDomainID;
@@ -102,6 +109,7 @@ public class CTranslationMap extends RestObject {
    public void setAssociatedDomainID(String value) { 
       this.associatedDomainID = value;
    }
+   
    
    @JsonIgnore
    public String getCustomerAliasIP() {
@@ -113,6 +121,7 @@ public class CTranslationMap extends RestObject {
       this.customerAliasIP = value;
    }
    
+   
    @JsonIgnore
    public String getCustomerIP() {
       return customerIP;
@@ -122,6 +131,7 @@ public class CTranslationMap extends RestObject {
    public void setCustomerIP(String value) { 
       this.customerIP = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -133,15 +143,17 @@ public class CTranslationMap extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -153,6 +165,7 @@ public class CTranslationMap extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -163,13 +176,14 @@ public class CTranslationMap extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
-   public MappingType getMappingType() {
+   public EMappingType getMappingType() {
       return mappingType;
    }
 
    @JsonIgnore
-   public void setMappingType(MappingType value) { 
+   public void setMappingType(EMappingType value) { 
       this.mappingType = value;
    }
    

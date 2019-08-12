@@ -43,56 +43,71 @@ public class VRSMetrics extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "ALUbr0Status")
+   
    protected Boolean ALUbr0Status;
    
    @JsonProperty(value = "CPUUtilization")
+   
    protected Float CPUUtilization;
    
    @JsonProperty(value = "VRSProcess")
+   
    protected Boolean VRSProcess;
    
    @JsonProperty(value = "VRSVSCStatus")
+   
    protected Boolean VRSVSCStatus;
    
    @JsonProperty(value = "appliedMetricsPushInterval")
+   
    protected Long appliedMetricsPushInterval;
    
    @JsonProperty(value = "associatedVCenterHypervisorID")
+   
    protected String associatedVCenterHypervisorID;
    
    @JsonProperty(value = "currentVersion")
+   
    protected String currentVersion;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "jesxmonProcess")
+   
    protected Boolean jesxmonProcess;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "logDiskPartitionUtilization")
+   
    protected Float logDiskPartitionUtilization;
    
    @JsonProperty(value = "memoryUtilization")
+   
    protected Float memoryUtilization;
    
    @JsonProperty(value = "reDeploy")
+   
    protected Boolean reDeploy;
    
    @JsonProperty(value = "receivingMetrics")
+   
    protected Boolean receivingMetrics;
    
    @JsonProperty(value = "rootDiskPartitionUtilization")
+   
    protected Float rootDiskPartitionUtilization;
    
 
@@ -102,6 +117,7 @@ public class VRSMetrics extends RestObject {
       
    }
 
+   
    
    @JsonIgnore
    public Boolean getALUbr0Status() {
@@ -113,6 +129,7 @@ public class VRSMetrics extends RestObject {
       this.ALUbr0Status = value;
    }
    
+   
    @JsonIgnore
    public Float getCPUUtilization() {
       return CPUUtilization;
@@ -122,6 +139,7 @@ public class VRSMetrics extends RestObject {
    public void setCPUUtilization(Float value) { 
       this.CPUUtilization = value;
    }
+   
    
    @JsonIgnore
    public Boolean getVRSProcess() {
@@ -133,6 +151,7 @@ public class VRSMetrics extends RestObject {
       this.VRSProcess = value;
    }
    
+   
    @JsonIgnore
    public Boolean getVRSVSCStatus() {
       return VRSVSCStatus;
@@ -142,6 +161,7 @@ public class VRSMetrics extends RestObject {
    public void setVRSVSCStatus(Boolean value) { 
       this.VRSVSCStatus = value;
    }
+   
    
    @JsonIgnore
    public Long getAppliedMetricsPushInterval() {
@@ -153,6 +173,7 @@ public class VRSMetrics extends RestObject {
       this.appliedMetricsPushInterval = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedVCenterHypervisorID() {
       return associatedVCenterHypervisorID;
@@ -162,6 +183,7 @@ public class VRSMetrics extends RestObject {
    public void setAssociatedVCenterHypervisorID(String value) { 
       this.associatedVCenterHypervisorID = value;
    }
+   
    
    @JsonIgnore
    public String getCurrentVersion() {
@@ -173,15 +195,17 @@ public class VRSMetrics extends RestObject {
       this.currentVersion = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -193,6 +217,7 @@ public class VRSMetrics extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public Boolean getJesxmonProcess() {
       return jesxmonProcess;
@@ -202,6 +227,7 @@ public class VRSMetrics extends RestObject {
    public void setJesxmonProcess(Boolean value) { 
       this.jesxmonProcess = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -213,6 +239,7 @@ public class VRSMetrics extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public Float getLogDiskPartitionUtilization() {
       return logDiskPartitionUtilization;
@@ -222,6 +249,7 @@ public class VRSMetrics extends RestObject {
    public void setLogDiskPartitionUtilization(Float value) { 
       this.logDiskPartitionUtilization = value;
    }
+   
    
    @JsonIgnore
    public Float getMemoryUtilization() {
@@ -233,6 +261,7 @@ public class VRSMetrics extends RestObject {
       this.memoryUtilization = value;
    }
    
+   
    @JsonIgnore
    public Boolean getReDeploy() {
       return reDeploy;
@@ -243,6 +272,7 @@ public class VRSMetrics extends RestObject {
       this.reDeploy = value;
    }
    
+   
    @JsonIgnore
    public Boolean getReceivingMetrics() {
       return receivingMetrics;
@@ -252,6 +282,7 @@ public class VRSMetrics extends RestObject {
    public void setReceivingMetrics(Boolean value) { 
       this.receivingMetrics = value;
    }
+   
    
    @JsonIgnore
    public Float getRootDiskPartitionUtilization() {

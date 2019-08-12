@@ -45,44 +45,55 @@ public class BGPProfile extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "associatedExportRoutingPolicyID")
+   
    protected String associatedExportRoutingPolicyID;
    
    @JsonProperty(value = "associatedImportRoutingPolicyID")
+   
    protected String associatedImportRoutingPolicyID;
    
    @JsonProperty(value = "dampeningHalfLife")
+   
    protected Long dampeningHalfLife;
    
    @JsonProperty(value = "dampeningMaxSuppress")
+   
    protected Long dampeningMaxSuppress;
    
    @JsonProperty(value = "dampeningName")
+   
    protected String dampeningName;
    
    @JsonProperty(value = "dampeningReuse")
+   
    protected Long dampeningReuse;
    
    @JsonProperty(value = "dampeningSuppress")
+   
    protected Long dampeningSuppress;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
 
@@ -103,6 +114,7 @@ public class BGPProfile extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAssociatedExportRoutingPolicyID() {
       return associatedExportRoutingPolicyID;
@@ -112,6 +124,7 @@ public class BGPProfile extends RestObject {
    public void setAssociatedExportRoutingPolicyID(String value) { 
       this.associatedExportRoutingPolicyID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedImportRoutingPolicyID() {
@@ -123,6 +136,7 @@ public class BGPProfile extends RestObject {
       this.associatedImportRoutingPolicyID = value;
    }
    
+   
    @JsonIgnore
    public Long getDampeningHalfLife() {
       return dampeningHalfLife;
@@ -132,6 +146,7 @@ public class BGPProfile extends RestObject {
    public void setDampeningHalfLife(Long value) { 
       this.dampeningHalfLife = value;
    }
+   
    
    @JsonIgnore
    public Long getDampeningMaxSuppress() {
@@ -143,6 +158,7 @@ public class BGPProfile extends RestObject {
       this.dampeningMaxSuppress = value;
    }
    
+   
    @JsonIgnore
    public String getDampeningName() {
       return dampeningName;
@@ -152,6 +168,7 @@ public class BGPProfile extends RestObject {
    public void setDampeningName(String value) { 
       this.dampeningName = value;
    }
+   
    
    @JsonIgnore
    public Long getDampeningReuse() {
@@ -163,6 +180,7 @@ public class BGPProfile extends RestObject {
       this.dampeningReuse = value;
    }
    
+   
    @JsonIgnore
    public Long getDampeningSuppress() {
       return dampeningSuppress;
@@ -172,6 +190,7 @@ public class BGPProfile extends RestObject {
    public void setDampeningSuppress(Long value) { 
       this.dampeningSuppress = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -183,6 +202,7 @@ public class BGPProfile extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -193,15 +213,17 @@ public class BGPProfile extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -212,6 +234,7 @@ public class BGPProfile extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    
    @JsonIgnore
    public String getName() {

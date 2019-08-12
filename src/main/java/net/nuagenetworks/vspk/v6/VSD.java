@@ -49,87 +49,109 @@ public class VSD extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Mode { CLUSTER, STANDALONE };
-   
-   public enum Status { ADMIN_DOWN, DOWN, UP };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EMode { CLUSTER, STANDALONE };
+   public enum EStatus { ADMIN_DOWN, DOWN, UP };
 
    
    @JsonProperty(value = "URL")
+   
    protected String URL;
    
    @JsonProperty(value = "address")
+   
    protected String address;
    
    @JsonProperty(value = "alreadyMarkedForUnavailable")
+   
    protected Boolean alreadyMarkedForUnavailable;
    
    @JsonProperty(value = "averageCPUUsage")
+   
    protected Float averageCPUUsage;
    
    @JsonProperty(value = "averageMemoryUsage")
+   
    protected Float averageMemoryUsage;
    
    @JsonProperty(value = "currentCPUUsage")
+   
    protected Float currentCPUUsage;
    
    @JsonProperty(value = "currentMemoryUsage")
+   
    protected Float currentMemoryUsage;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "disks")
+   
    protected java.util.List<DiskStat> disks;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastStateChange")
+   
    protected Long lastStateChange;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "location")
+   
    protected String location;
    
    @JsonProperty(value = "managementIP")
+   
    protected String managementIP;
    
    @JsonProperty(value = "messages")
+   
    protected java.util.List<String> messages;
    
    @JsonProperty(value = "mode")
-   protected Mode mode;
+   
+   protected EMode mode;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "peakCPUUsage")
+   
    protected Float peakCPUUsage;
    
    @JsonProperty(value = "peakMemoryUsage")
+   
    protected Float peakMemoryUsage;
    
    @JsonProperty(value = "peerAddresses")
+   
    protected String peerAddresses;
    
    @JsonProperty(value = "productVersion")
+   
    protected String productVersion;
    
    @JsonProperty(value = "status")
-   protected Status status;
+   
+   protected EStatus status;
    
    @JsonProperty(value = "unavailableTimestamp")
+   
    protected Long unavailableTimestamp;
    
 
@@ -170,6 +192,7 @@ public class VSD extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getURL() {
       return URL;
@@ -179,6 +202,7 @@ public class VSD extends RestObject {
    public void setURL(String value) { 
       this.URL = value;
    }
+   
    
    @JsonIgnore
    public String getAddress() {
@@ -190,6 +214,7 @@ public class VSD extends RestObject {
       this.address = value;
    }
    
+   
    @JsonIgnore
    public Boolean getAlreadyMarkedForUnavailable() {
       return alreadyMarkedForUnavailable;
@@ -199,6 +224,7 @@ public class VSD extends RestObject {
    public void setAlreadyMarkedForUnavailable(Boolean value) { 
       this.alreadyMarkedForUnavailable = value;
    }
+   
    
    @JsonIgnore
    public Float getAverageCPUUsage() {
@@ -210,6 +236,7 @@ public class VSD extends RestObject {
       this.averageCPUUsage = value;
    }
    
+   
    @JsonIgnore
    public Float getAverageMemoryUsage() {
       return averageMemoryUsage;
@@ -219,6 +246,7 @@ public class VSD extends RestObject {
    public void setAverageMemoryUsage(Float value) { 
       this.averageMemoryUsage = value;
    }
+   
    
    @JsonIgnore
    public Float getCurrentCPUUsage() {
@@ -230,6 +258,7 @@ public class VSD extends RestObject {
       this.currentCPUUsage = value;
    }
    
+   
    @JsonIgnore
    public Float getCurrentMemoryUsage() {
       return currentMemoryUsage;
@@ -239,6 +268,7 @@ public class VSD extends RestObject {
    public void setCurrentMemoryUsage(Float value) { 
       this.currentMemoryUsage = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -250,6 +280,7 @@ public class VSD extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<DiskStat> getDisks() {
       return disks;
@@ -259,6 +290,7 @@ public class VSD extends RestObject {
    public void setDisks(java.util.List<DiskStat> value) { 
       this.disks = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -270,15 +302,17 @@ public class VSD extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -290,6 +324,7 @@ public class VSD extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public Long getLastStateChange() {
       return lastStateChange;
@@ -299,6 +334,7 @@ public class VSD extends RestObject {
    public void setLastStateChange(Long value) { 
       this.lastStateChange = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -310,6 +346,7 @@ public class VSD extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getLocation() {
       return location;
@@ -319,6 +356,7 @@ public class VSD extends RestObject {
    public void setLocation(String value) { 
       this.location = value;
    }
+   
    
    @JsonIgnore
    public String getManagementIP() {
@@ -330,6 +368,7 @@ public class VSD extends RestObject {
       this.managementIP = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<String> getMessages() {
       return messages;
@@ -340,15 +379,17 @@ public class VSD extends RestObject {
       this.messages = value;
    }
    
+   
    @JsonIgnore
-   public Mode getMode() {
+   public EMode getMode() {
       return mode;
    }
 
    @JsonIgnore
-   public void setMode(Mode value) { 
+   public void setMode(EMode value) { 
       this.mode = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -360,6 +401,7 @@ public class VSD extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public Float getPeakCPUUsage() {
       return peakCPUUsage;
@@ -369,6 +411,7 @@ public class VSD extends RestObject {
    public void setPeakCPUUsage(Float value) { 
       this.peakCPUUsage = value;
    }
+   
    
    @JsonIgnore
    public Float getPeakMemoryUsage() {
@@ -380,6 +423,7 @@ public class VSD extends RestObject {
       this.peakMemoryUsage = value;
    }
    
+   
    @JsonIgnore
    public String getPeerAddresses() {
       return peerAddresses;
@@ -389,6 +433,7 @@ public class VSD extends RestObject {
    public void setPeerAddresses(String value) { 
       this.peerAddresses = value;
    }
+   
    
    @JsonIgnore
    public String getProductVersion() {
@@ -400,15 +445,17 @@ public class VSD extends RestObject {
       this.productVersion = value;
    }
    
+   
    @JsonIgnore
-   public Status getStatus() {
+   public EStatus getStatus() {
       return status;
    }
 
    @JsonIgnore
-   public void setStatus(Status value) { 
+   public void setStatus(EStatus value) { 
       this.status = value;
    }
+   
    
    @JsonIgnore
    public Long getUnavailableTimestamp() {

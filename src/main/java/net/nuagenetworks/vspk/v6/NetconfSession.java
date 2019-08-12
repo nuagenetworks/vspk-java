@@ -45,43 +45,50 @@ public class NetconfSession extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum GatewayVendor { CISCO };
-   
-   public enum Status { CONNECTED, DISCONNECTED };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EGatewayVendor { CISCO };
+   public enum EStatus { CONNECTED, DISCONNECTED };
 
    
    @JsonProperty(value = "associatedGatewayID")
+   
    protected String associatedGatewayID;
    
    @JsonProperty(value = "associatedGatewayName")
+   
    protected String associatedGatewayName;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "gatewayModel")
+   
    protected String gatewayModel;
    
    @JsonProperty(value = "gatewayVendor")
-   protected GatewayVendor gatewayVendor;
+   
+   protected EGatewayVendor gatewayVendor;
    
    @JsonProperty(value = "gatewayVersion")
+   
    protected String gatewayVersion;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "status")
-   protected Status status;
+   
+   protected EStatus status;
    
 
    
@@ -101,6 +108,7 @@ public class NetconfSession extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAssociatedGatewayID() {
       return associatedGatewayID;
@@ -110,6 +118,7 @@ public class NetconfSession extends RestObject {
    public void setAssociatedGatewayID(String value) { 
       this.associatedGatewayID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedGatewayName() {
@@ -121,6 +130,7 @@ public class NetconfSession extends RestObject {
       this.associatedGatewayName = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -131,15 +141,17 @@ public class NetconfSession extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -151,6 +163,7 @@ public class NetconfSession extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getGatewayModel() {
       return gatewayModel;
@@ -161,15 +174,17 @@ public class NetconfSession extends RestObject {
       this.gatewayModel = value;
    }
    
+   
    @JsonIgnore
-   public GatewayVendor getGatewayVendor() {
+   public EGatewayVendor getGatewayVendor() {
       return gatewayVendor;
    }
 
    @JsonIgnore
-   public void setGatewayVendor(GatewayVendor value) { 
+   public void setGatewayVendor(EGatewayVendor value) { 
       this.gatewayVendor = value;
    }
+   
    
    @JsonIgnore
    public String getGatewayVersion() {
@@ -181,6 +196,7 @@ public class NetconfSession extends RestObject {
       this.gatewayVersion = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -191,13 +207,14 @@ public class NetconfSession extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
-   public Status getStatus() {
+   public EStatus getStatus() {
       return status;
    }
 
    @JsonIgnore
-   public void setStatus(Status value) { 
+   public void setStatus(EStatus value) { 
       this.status = value;
    }
    

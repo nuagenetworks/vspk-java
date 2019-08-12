@@ -45,81 +45,101 @@ public class VNFInterface extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum AttachedNetworkType { L2DOMAIN, SUBNET };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Type { LAN, MANAGEMENT, WAN };
+   public enum EAttachedNetworkType { L2DOMAIN, SUBNET };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EType { LAN, MANAGEMENT, WAN };
 
    
    @JsonProperty(value = "IPAddress")
+   
    protected String IPAddress;
    
    @JsonProperty(value = "IPv6Address")
+   
    protected String IPv6Address;
    
    @JsonProperty(value = "IPv6Gateway")
+   
    protected String IPv6Gateway;
    
    @JsonProperty(value = "MAC")
+   
    protected String MAC;
    
    @JsonProperty(value = "VNFUUID")
+   
    protected String VNFUUID;
    
    @JsonProperty(value = "VPortID")
+   
    protected String VPortID;
    
    @JsonProperty(value = "VPortName")
+   
    protected String VPortName;
    
    @JsonProperty(value = "attachedNetworkID")
+   
    protected String attachedNetworkID;
    
    @JsonProperty(value = "attachedNetworkType")
-   protected AttachedNetworkType attachedNetworkType;
+   
+   protected EAttachedNetworkType attachedNetworkType;
    
    @JsonProperty(value = "domainID")
+   
    protected String domainID;
    
    @JsonProperty(value = "domainName")
+   
    protected String domainName;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "gateway")
+   
    protected String gateway;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "netmask")
+   
    protected String netmask;
    
    @JsonProperty(value = "networkName")
+   
    protected String networkName;
    
    @JsonProperty(value = "policyDecisionID")
+   
    protected String policyDecisionID;
    
    @JsonProperty(value = "type")
-   protected Type type;
+   
+   protected EType type;
    
    @JsonProperty(value = "zoneID")
+   
    protected String zoneID;
    
    @JsonProperty(value = "zoneName")
+   
    protected String zoneName;
    
 
@@ -140,6 +160,7 @@ public class VNFInterface extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getIPAddress() {
       return IPAddress;
@@ -149,6 +170,7 @@ public class VNFInterface extends RestObject {
    public void setIPAddress(String value) { 
       this.IPAddress = value;
    }
+   
    
    @JsonIgnore
    public String getIPv6Address() {
@@ -160,6 +182,7 @@ public class VNFInterface extends RestObject {
       this.IPv6Address = value;
    }
    
+   
    @JsonIgnore
    public String getIPv6Gateway() {
       return IPv6Gateway;
@@ -169,6 +192,7 @@ public class VNFInterface extends RestObject {
    public void setIPv6Gateway(String value) { 
       this.IPv6Gateway = value;
    }
+   
    
    @JsonIgnore
    public String getMAC() {
@@ -180,6 +204,7 @@ public class VNFInterface extends RestObject {
       this.MAC = value;
    }
    
+   
    @JsonIgnore
    public String getVNFUUID() {
       return VNFUUID;
@@ -189,6 +214,7 @@ public class VNFInterface extends RestObject {
    public void setVNFUUID(String value) { 
       this.VNFUUID = value;
    }
+   
    
    @JsonIgnore
    public String getVPortID() {
@@ -200,6 +226,7 @@ public class VNFInterface extends RestObject {
       this.VPortID = value;
    }
    
+   
    @JsonIgnore
    public String getVPortName() {
       return VPortName;
@@ -209,6 +236,7 @@ public class VNFInterface extends RestObject {
    public void setVPortName(String value) { 
       this.VPortName = value;
    }
+   
    
    @JsonIgnore
    public String getAttachedNetworkID() {
@@ -220,15 +248,17 @@ public class VNFInterface extends RestObject {
       this.attachedNetworkID = value;
    }
    
+   
    @JsonIgnore
-   public AttachedNetworkType getAttachedNetworkType() {
+   public EAttachedNetworkType getAttachedNetworkType() {
       return attachedNetworkType;
    }
 
    @JsonIgnore
-   public void setAttachedNetworkType(AttachedNetworkType value) { 
+   public void setAttachedNetworkType(EAttachedNetworkType value) { 
       this.attachedNetworkType = value;
    }
+   
    
    @JsonIgnore
    public String getDomainID() {
@@ -240,6 +270,7 @@ public class VNFInterface extends RestObject {
       this.domainID = value;
    }
    
+   
    @JsonIgnore
    public String getDomainName() {
       return domainName;
@@ -249,6 +280,7 @@ public class VNFInterface extends RestObject {
    public void setDomainName(String value) { 
       this.domainName = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -260,15 +292,17 @@ public class VNFInterface extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -280,6 +314,7 @@ public class VNFInterface extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getGateway() {
       return gateway;
@@ -289,6 +324,7 @@ public class VNFInterface extends RestObject {
    public void setGateway(String value) { 
       this.gateway = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -300,6 +336,7 @@ public class VNFInterface extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -309,6 +346,7 @@ public class VNFInterface extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public String getNetmask() {
@@ -320,6 +358,7 @@ public class VNFInterface extends RestObject {
       this.netmask = value;
    }
    
+   
    @JsonIgnore
    public String getNetworkName() {
       return networkName;
@@ -329,6 +368,7 @@ public class VNFInterface extends RestObject {
    public void setNetworkName(String value) { 
       this.networkName = value;
    }
+   
    
    @JsonIgnore
    public String getPolicyDecisionID() {
@@ -340,15 +380,17 @@ public class VNFInterface extends RestObject {
       this.policyDecisionID = value;
    }
    
+   
    @JsonIgnore
-   public Type getType() {
+   public EType getType() {
       return type;
    }
 
    @JsonIgnore
-   public void setType(Type value) { 
+   public void setType(EType value) { 
       this.type = value;
    }
+   
    
    @JsonIgnore
    public String getZoneID() {
@@ -359,6 +401,7 @@ public class VNFInterface extends RestObject {
    public void setZoneID(String value) { 
       this.zoneID = value;
    }
+   
    
    @JsonIgnore
    public String getZoneName() {

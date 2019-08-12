@@ -46,37 +46,44 @@ public class DUCGroup extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Function { GATEWAY, HUB, UBR };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EFunction { GATEWAY, HUB, UBR };
 
    
    @JsonProperty(value = "associatedPerformanceMonitorID")
+   
    protected String associatedPerformanceMonitorID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "ducMeshGroupID")
+   
    protected Long ducMeshGroupID;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "function")
-   protected Function function;
+   
+   protected EFunction function;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
 
@@ -102,6 +109,7 @@ public class DUCGroup extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAssociatedPerformanceMonitorID() {
       return associatedPerformanceMonitorID;
@@ -111,6 +119,7 @@ public class DUCGroup extends RestObject {
    public void setAssociatedPerformanceMonitorID(String value) { 
       this.associatedPerformanceMonitorID = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -122,6 +131,7 @@ public class DUCGroup extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public Long getDucMeshGroupID() {
       return ducMeshGroupID;
@@ -131,6 +141,7 @@ public class DUCGroup extends RestObject {
    public void setDucMeshGroupID(Long value) { 
       this.ducMeshGroupID = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -142,15 +153,17 @@ public class DUCGroup extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -162,15 +175,17 @@ public class DUCGroup extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
-   public Function getFunction() {
+   public EFunction getFunction() {
       return function;
    }
 
    @JsonIgnore
-   public void setFunction(Function value) { 
+   public void setFunction(EFunction value) { 
       this.function = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -181,6 +196,7 @@ public class DUCGroup extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {

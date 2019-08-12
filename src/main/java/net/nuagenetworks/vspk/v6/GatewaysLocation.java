@@ -45,50 +45,63 @@ public class GatewaysLocation extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "address")
+   
    protected String address;
    
    @JsonProperty(value = "associatedEntityName")
+   
    protected String associatedEntityName;
    
    @JsonProperty(value = "associatedEntityType")
+   
    protected String associatedEntityType;
    
    @JsonProperty(value = "country")
+   
    protected String country;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "ignoreGeocode")
+   
    protected Boolean ignoreGeocode;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "latitude")
+   
    protected Float latitude;
    
    @JsonProperty(value = "locality")
+   
    protected String locality;
    
    @JsonProperty(value = "longitude")
+   
    protected Float longitude;
    
    @JsonProperty(value = "state")
+   
    protected String state;
    
    @JsonProperty(value = "timeZoneID")
+   
    protected String timeZoneID;
    
 
@@ -109,6 +122,7 @@ public class GatewaysLocation extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAddress() {
       return address;
@@ -118,6 +132,7 @@ public class GatewaysLocation extends RestObject {
    public void setAddress(String value) { 
       this.address = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedEntityName() {
@@ -129,6 +144,7 @@ public class GatewaysLocation extends RestObject {
       this.associatedEntityName = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedEntityType() {
       return associatedEntityType;
@@ -138,6 +154,7 @@ public class GatewaysLocation extends RestObject {
    public void setAssociatedEntityType(String value) { 
       this.associatedEntityType = value;
    }
+   
    
    @JsonIgnore
    public String getCountry() {
@@ -149,6 +166,7 @@ public class GatewaysLocation extends RestObject {
       this.country = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -159,15 +177,17 @@ public class GatewaysLocation extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -179,6 +199,7 @@ public class GatewaysLocation extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public Boolean getIgnoreGeocode() {
       return ignoreGeocode;
@@ -188,6 +209,7 @@ public class GatewaysLocation extends RestObject {
    public void setIgnoreGeocode(Boolean value) { 
       this.ignoreGeocode = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -199,6 +221,7 @@ public class GatewaysLocation extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public Float getLatitude() {
       return latitude;
@@ -208,6 +231,7 @@ public class GatewaysLocation extends RestObject {
    public void setLatitude(Float value) { 
       this.latitude = value;
    }
+   
    
    @JsonIgnore
    public String getLocality() {
@@ -219,6 +243,7 @@ public class GatewaysLocation extends RestObject {
       this.locality = value;
    }
    
+   
    @JsonIgnore
    public Float getLongitude() {
       return longitude;
@@ -229,6 +254,7 @@ public class GatewaysLocation extends RestObject {
       this.longitude = value;
    }
    
+   
    @JsonIgnore
    public String getState() {
       return state;
@@ -238,6 +264,7 @@ public class GatewaysLocation extends RestObject {
    public void setState(String value) { 
       this.state = value;
    }
+   
    
    @JsonIgnore
    public String getTimeZoneID() {

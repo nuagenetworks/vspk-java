@@ -46,44 +46,53 @@ public class ShuntLink extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EPermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
 
    
    @JsonProperty(value = "VLANPeer1ID")
+   
    protected String VLANPeer1ID;
    
    @JsonProperty(value = "VLANPeer2ID")
+   
    protected String VLANPeer2ID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "gatewayPeer1ID")
+   
    protected String gatewayPeer1ID;
    
    @JsonProperty(value = "gatewayPeer2ID")
+   
    protected String gatewayPeer2ID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "permittedAction")
-   protected PermittedAction permittedAction;
+   
+   protected EPermittedAction permittedAction;
    
 
    
@@ -108,6 +117,7 @@ public class ShuntLink extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getVLANPeer1ID() {
       return VLANPeer1ID;
@@ -117,6 +127,7 @@ public class ShuntLink extends RestObject {
    public void setVLANPeer1ID(String value) { 
       this.VLANPeer1ID = value;
    }
+   
    
    @JsonIgnore
    public String getVLANPeer2ID() {
@@ -128,6 +139,7 @@ public class ShuntLink extends RestObject {
       this.VLANPeer2ID = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -137,6 +149,7 @@ public class ShuntLink extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -148,15 +161,17 @@ public class ShuntLink extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -168,6 +183,7 @@ public class ShuntLink extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getGatewayPeer1ID() {
       return gatewayPeer1ID;
@@ -177,6 +193,7 @@ public class ShuntLink extends RestObject {
    public void setGatewayPeer1ID(String value) { 
       this.gatewayPeer1ID = value;
    }
+   
    
    @JsonIgnore
    public String getGatewayPeer2ID() {
@@ -188,6 +205,7 @@ public class ShuntLink extends RestObject {
       this.gatewayPeer2ID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -197,6 +215,7 @@ public class ShuntLink extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -208,13 +227,14 @@ public class ShuntLink extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
-   public PermittedAction getPermittedAction() {
+   public EPermittedAction getPermittedAction() {
       return permittedAction;
    }
 
    @JsonIgnore
-   public void setPermittedAction(PermittedAction value) { 
+   public void setPermittedAction(EPermittedAction value) { 
       this.permittedAction = value;
    }
    

@@ -45,26 +45,31 @@ public class vrsInfo extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "nodeSegmentID")
+   
    protected Long nodeSegmentID;
    
    @JsonProperty(value = "vrsIP")
+   
    protected String vrsIP;
    
 
@@ -85,6 +90,7 @@ public class vrsInfo extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -95,15 +101,17 @@ public class vrsInfo extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -115,6 +123,7 @@ public class vrsInfo extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -125,6 +134,7 @@ public class vrsInfo extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public Long getNodeSegmentID() {
       return nodeSegmentID;
@@ -134,6 +144,7 @@ public class vrsInfo extends RestObject {
    public void setNodeSegmentID(Long value) { 
       this.nodeSegmentID = value;
    }
+   
    
    @JsonIgnore
    public String getVrsIP() {

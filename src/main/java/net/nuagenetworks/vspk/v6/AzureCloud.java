@@ -47,41 +47,51 @@ public class AzureCloud extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "associatedIKEEncryptionProfileID")
+   
    protected String associatedIKEEncryptionProfileID;
    
    @JsonProperty(value = "associatedIKEPSKID")
+   
    protected String associatedIKEPSKID;
    
    @JsonProperty(value = "clientID")
+   
    protected String clientID;
    
    @JsonProperty(value = "clientSecret")
+   
    protected String clientSecret;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "subscriptionID")
+   
    protected String subscriptionID;
    
    @JsonProperty(value = "tenantID")
+   
    protected String tenantID;
    
 
@@ -112,6 +122,7 @@ public class AzureCloud extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAssociatedIKEEncryptionProfileID() {
       return associatedIKEEncryptionProfileID;
@@ -121,6 +132,7 @@ public class AzureCloud extends RestObject {
    public void setAssociatedIKEEncryptionProfileID(String value) { 
       this.associatedIKEEncryptionProfileID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedIKEPSKID() {
@@ -132,6 +144,7 @@ public class AzureCloud extends RestObject {
       this.associatedIKEPSKID = value;
    }
    
+   
    @JsonIgnore
    public String getClientID() {
       return clientID;
@@ -141,6 +154,7 @@ public class AzureCloud extends RestObject {
    public void setClientID(String value) { 
       this.clientID = value;
    }
+   
    
    @JsonIgnore
    public String getClientSecret() {
@@ -152,6 +166,7 @@ public class AzureCloud extends RestObject {
       this.clientSecret = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -162,15 +177,17 @@ public class AzureCloud extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -182,6 +199,7 @@ public class AzureCloud extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -191,6 +209,7 @@ public class AzureCloud extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -202,6 +221,7 @@ public class AzureCloud extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public String getSubscriptionID() {
       return subscriptionID;
@@ -211,6 +231,7 @@ public class AzureCloud extends RestObject {
    public void setSubscriptionID(String value) { 
       this.subscriptionID = value;
    }
+   
    
    @JsonIgnore
    public String getTenantID() {

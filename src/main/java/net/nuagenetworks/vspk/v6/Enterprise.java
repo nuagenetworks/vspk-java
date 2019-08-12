@@ -119,129 +119,160 @@ public class Enterprise extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum AllowedForwardingClasses { A, B, C, D, E, F, G, H, NONE };
-   
-   public enum AllowedForwardingMode { DISABLED, LOCAL_AND_REMOTE, LOCAL_ONLY };
-   
-   public enum AvatarType { BASE64, COMPUTEDURL, URL };
-   
-   public enum EncryptionManagementMode { DISABLED, MANAGED };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum FlowCollectionEnabled { DISABLED, ENABLED };
+   public enum EAllowedForwardingClasses { A, B, C, D, E, F, G, H, NONE };
+   public enum EAllowedForwardingMode { DISABLED, LOCAL_AND_REMOTE, LOCAL_ONLY };
+   public enum EAvatarType { BASE64, COMPUTEDURL, URL };
+   public enum EEncryptionManagementMode { DISABLED, MANAGED };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EFlowCollectionEnabled { DISABLED, ENABLED };
 
    
    @JsonProperty(value = "BGPEnabled")
+   
    protected Boolean BGPEnabled;
    
    @JsonProperty(value = "DHCPLeaseInterval")
+   
    protected Long DHCPLeaseInterval;
    
    @JsonProperty(value = "LDAPAuthorizationEnabled")
+   
    protected Boolean LDAPAuthorizationEnabled;
    
    @JsonProperty(value = "LDAPEnabled")
+   
    protected Boolean LDAPEnabled;
    
    @JsonProperty(value = "VNFManagementEnabled")
+   
    protected Boolean VNFManagementEnabled;
    
    @JsonProperty(value = "allowAdvancedQOSConfiguration")
+   
    protected Boolean allowAdvancedQOSConfiguration;
    
    @JsonProperty(value = "allowGatewayManagement")
+   
    protected Boolean allowGatewayManagement;
    
    @JsonProperty(value = "allowTrustedForwardingClass")
+   
    protected Boolean allowTrustedForwardingClass;
    
    @JsonProperty(value = "allowedForwardingClasses")
-   protected java.util.List<AllowedForwardingClasses> allowedForwardingClasses;
+   
+   protected java.util.List<EAllowedForwardingClasses> allowedForwardingClasses;
    
    @JsonProperty(value = "allowedForwardingMode")
-   protected AllowedForwardingMode allowedForwardingMode;
+   
+   protected EAllowedForwardingMode allowedForwardingMode;
    
    @JsonProperty(value = "associatedEnterpriseSecurityID")
+   
    protected String associatedEnterpriseSecurityID;
    
    @JsonProperty(value = "associatedGroupKeyEncryptionProfileID")
+   
    protected String associatedGroupKeyEncryptionProfileID;
    
    @JsonProperty(value = "associatedKeyServerMonitorID")
+   
    protected String associatedKeyServerMonitorID;
    
    @JsonProperty(value = "avatarData")
+   
    protected String avatarData;
    
    @JsonProperty(value = "avatarType")
-   protected AvatarType avatarType;
+   
+   protected EAvatarType avatarType;
    
    @JsonProperty(value = "customerID")
+   
    protected Long customerID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "dictionaryVersion")
+   
    protected Long dictionaryVersion;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "enableApplicationPerformanceManagement")
+   
    protected Boolean enableApplicationPerformanceManagement;
    
    @JsonProperty(value = "encryptionManagementMode")
-   protected EncryptionManagementMode encryptionManagementMode;
+   
+   protected EEncryptionManagementMode encryptionManagementMode;
    
    @JsonProperty(value = "enterpriseProfileID")
+   
    protected String enterpriseProfileID;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "floatingIPsQuota")
+   
    protected Long floatingIPsQuota;
    
    @JsonProperty(value = "floatingIPsUsed")
+   
    protected Long floatingIPsUsed;
    
    @JsonProperty(value = "flowCollectionEnabled")
-   protected FlowCollectionEnabled flowCollectionEnabled;
+   
+   protected EFlowCollectionEnabled flowCollectionEnabled;
    
    @JsonProperty(value = "forwardingClass")
+   
    protected java.util.List<ForwardingClass> forwardingClass;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "localAS")
+   
    protected Long localAS;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "receiveMultiCastListID")
+   
    protected String receiveMultiCastListID;
    
    @JsonProperty(value = "sendMultiCastListID")
+   
    protected String sendMultiCastListID;
    
    @JsonProperty(value = "sharedEnterprise")
+   
    protected Boolean sharedEnterprise;
    
    @JsonProperty(value = "useGlobalMAC")
+   
    protected Boolean useGlobalMAC;
    
    @JsonProperty(value = "virtualFirewallRulesEnabled")
+   
    protected Boolean virtualFirewallRulesEnabled;
    
    @JsonProperty(value = "webFilterEnabled")
+   
    protected Boolean webFilterEnabled;
    
 
@@ -632,6 +663,7 @@ public class Enterprise extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Boolean getBGPEnabled() {
       return BGPEnabled;
@@ -641,6 +673,7 @@ public class Enterprise extends RestObject {
    public void setBGPEnabled(Boolean value) { 
       this.BGPEnabled = value;
    }
+   
    
    @JsonIgnore
    public Long getDHCPLeaseInterval() {
@@ -652,6 +685,7 @@ public class Enterprise extends RestObject {
       this.DHCPLeaseInterval = value;
    }
    
+   
    @JsonIgnore
    public Boolean getLDAPAuthorizationEnabled() {
       return LDAPAuthorizationEnabled;
@@ -661,6 +695,7 @@ public class Enterprise extends RestObject {
    public void setLDAPAuthorizationEnabled(Boolean value) { 
       this.LDAPAuthorizationEnabled = value;
    }
+   
    
    @JsonIgnore
    public Boolean getLDAPEnabled() {
@@ -672,6 +707,7 @@ public class Enterprise extends RestObject {
       this.LDAPEnabled = value;
    }
    
+   
    @JsonIgnore
    public Boolean getVNFManagementEnabled() {
       return VNFManagementEnabled;
@@ -681,6 +717,7 @@ public class Enterprise extends RestObject {
    public void setVNFManagementEnabled(Boolean value) { 
       this.VNFManagementEnabled = value;
    }
+   
    
    @JsonIgnore
    public Boolean getAllowAdvancedQOSConfiguration() {
@@ -692,6 +729,7 @@ public class Enterprise extends RestObject {
       this.allowAdvancedQOSConfiguration = value;
    }
    
+   
    @JsonIgnore
    public Boolean getAllowGatewayManagement() {
       return allowGatewayManagement;
@@ -701,6 +739,7 @@ public class Enterprise extends RestObject {
    public void setAllowGatewayManagement(Boolean value) { 
       this.allowGatewayManagement = value;
    }
+   
    
    @JsonIgnore
    public Boolean getAllowTrustedForwardingClass() {
@@ -712,25 +751,28 @@ public class Enterprise extends RestObject {
       this.allowTrustedForwardingClass = value;
    }
    
+   
    @JsonIgnore
-   public java.util.List<AllowedForwardingClasses> getAllowedForwardingClasses() {
+   public java.util.List<EAllowedForwardingClasses> getAllowedForwardingClasses() {
       return allowedForwardingClasses;
    }
 
    @JsonIgnore
-   public void setAllowedForwardingClasses(java.util.List<AllowedForwardingClasses> value) { 
+   public void setAllowedForwardingClasses(java.util.List<EAllowedForwardingClasses> value) { 
       this.allowedForwardingClasses = value;
    }
    
+   
    @JsonIgnore
-   public AllowedForwardingMode getAllowedForwardingMode() {
+   public EAllowedForwardingMode getAllowedForwardingMode() {
       return allowedForwardingMode;
    }
 
    @JsonIgnore
-   public void setAllowedForwardingMode(AllowedForwardingMode value) { 
+   public void setAllowedForwardingMode(EAllowedForwardingMode value) { 
       this.allowedForwardingMode = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedEnterpriseSecurityID() {
@@ -742,6 +784,7 @@ public class Enterprise extends RestObject {
       this.associatedEnterpriseSecurityID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedGroupKeyEncryptionProfileID() {
       return associatedGroupKeyEncryptionProfileID;
@@ -751,6 +794,7 @@ public class Enterprise extends RestObject {
    public void setAssociatedGroupKeyEncryptionProfileID(String value) { 
       this.associatedGroupKeyEncryptionProfileID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedKeyServerMonitorID() {
@@ -762,6 +806,7 @@ public class Enterprise extends RestObject {
       this.associatedKeyServerMonitorID = value;
    }
    
+   
    @JsonIgnore
    public String getAvatarData() {
       return avatarData;
@@ -772,15 +817,17 @@ public class Enterprise extends RestObject {
       this.avatarData = value;
    }
    
+   
    @JsonIgnore
-   public AvatarType getAvatarType() {
+   public EAvatarType getAvatarType() {
       return avatarType;
    }
 
    @JsonIgnore
-   public void setAvatarType(AvatarType value) { 
+   public void setAvatarType(EAvatarType value) { 
       this.avatarType = value;
    }
+   
    
    @JsonIgnore
    public Long getCustomerID() {
@@ -792,6 +839,7 @@ public class Enterprise extends RestObject {
       this.customerID = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -801,6 +849,7 @@ public class Enterprise extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public Long getDictionaryVersion() {
@@ -812,6 +861,7 @@ public class Enterprise extends RestObject {
       this.dictionaryVersion = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -821,6 +871,7 @@ public class Enterprise extends RestObject {
    public void setEmbeddedMetadata(java.util.List<Metadata> value) { 
       this.embeddedMetadata = value;
    }
+   
    
    @JsonIgnore
    public Boolean getEnableApplicationPerformanceManagement() {
@@ -832,15 +883,17 @@ public class Enterprise extends RestObject {
       this.enableApplicationPerformanceManagement = value;
    }
    
+   
    @JsonIgnore
-   public EncryptionManagementMode getEncryptionManagementMode() {
+   public EEncryptionManagementMode getEncryptionManagementMode() {
       return encryptionManagementMode;
    }
 
    @JsonIgnore
-   public void setEncryptionManagementMode(EncryptionManagementMode value) { 
+   public void setEncryptionManagementMode(EEncryptionManagementMode value) { 
       this.encryptionManagementMode = value;
    }
+   
    
    @JsonIgnore
    public String getEnterpriseProfileID() {
@@ -852,15 +905,17 @@ public class Enterprise extends RestObject {
       this.enterpriseProfileID = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -872,6 +927,7 @@ public class Enterprise extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public Long getFloatingIPsQuota() {
       return floatingIPsQuota;
@@ -881,6 +937,7 @@ public class Enterprise extends RestObject {
    public void setFloatingIPsQuota(Long value) { 
       this.floatingIPsQuota = value;
    }
+   
    
    @JsonIgnore
    public Long getFloatingIPsUsed() {
@@ -892,15 +949,17 @@ public class Enterprise extends RestObject {
       this.floatingIPsUsed = value;
    }
    
+   
    @JsonIgnore
-   public FlowCollectionEnabled getFlowCollectionEnabled() {
+   public EFlowCollectionEnabled getFlowCollectionEnabled() {
       return flowCollectionEnabled;
    }
 
    @JsonIgnore
-   public void setFlowCollectionEnabled(FlowCollectionEnabled value) { 
+   public void setFlowCollectionEnabled(EFlowCollectionEnabled value) { 
       this.flowCollectionEnabled = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<ForwardingClass> getForwardingClass() {
@@ -912,6 +971,7 @@ public class Enterprise extends RestObject {
       this.forwardingClass = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -921,6 +981,7 @@ public class Enterprise extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public Long getLocalAS() {
@@ -932,6 +993,7 @@ public class Enterprise extends RestObject {
       this.localAS = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -941,6 +1003,7 @@ public class Enterprise extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public String getReceiveMultiCastListID() {
@@ -952,6 +1015,7 @@ public class Enterprise extends RestObject {
       this.receiveMultiCastListID = value;
    }
    
+   
    @JsonIgnore
    public String getSendMultiCastListID() {
       return sendMultiCastListID;
@@ -961,6 +1025,7 @@ public class Enterprise extends RestObject {
    public void setSendMultiCastListID(String value) { 
       this.sendMultiCastListID = value;
    }
+   
    
    @JsonIgnore
    public Boolean getSharedEnterprise() {
@@ -972,6 +1037,7 @@ public class Enterprise extends RestObject {
       this.sharedEnterprise = value;
    }
    
+   
    @JsonIgnore
    public Boolean getUseGlobalMAC() {
       return useGlobalMAC;
@@ -982,6 +1048,7 @@ public class Enterprise extends RestObject {
       this.useGlobalMAC = value;
    }
    
+   
    @JsonIgnore
    public Boolean getVirtualFirewallRulesEnabled() {
       return virtualFirewallRulesEnabled;
@@ -991,6 +1058,7 @@ public class Enterprise extends RestObject {
    public void setVirtualFirewallRulesEnabled(Boolean value) { 
       this.virtualFirewallRulesEnabled = value;
    }
+   
    
    @JsonIgnore
    public Boolean getWebFilterEnabled() {

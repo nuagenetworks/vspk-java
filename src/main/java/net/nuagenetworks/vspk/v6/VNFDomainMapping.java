@@ -45,35 +45,41 @@ public class VNFDomainMapping extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum SegmentationType { VLAN };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum ESegmentationType { VLAN };
 
    
    @JsonProperty(value = "associatedNSGatewayID")
+   
    protected String associatedNSGatewayID;
    
    @JsonProperty(value = "associatedNSGatewayName")
+   
    protected String associatedNSGatewayName;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "segmentationID")
+   
    protected Long segmentationID;
    
    @JsonProperty(value = "segmentationType")
-   protected SegmentationType segmentationType;
+   
+   protected ESegmentationType segmentationType;
    
 
    
@@ -93,6 +99,7 @@ public class VNFDomainMapping extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAssociatedNSGatewayID() {
       return associatedNSGatewayID;
@@ -102,6 +109,7 @@ public class VNFDomainMapping extends RestObject {
    public void setAssociatedNSGatewayID(String value) { 
       this.associatedNSGatewayID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedNSGatewayName() {
@@ -113,6 +121,7 @@ public class VNFDomainMapping extends RestObject {
       this.associatedNSGatewayName = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -123,15 +132,17 @@ public class VNFDomainMapping extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -143,6 +154,7 @@ public class VNFDomainMapping extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -152,6 +164,7 @@ public class VNFDomainMapping extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public Long getSegmentationID() {
@@ -163,13 +176,14 @@ public class VNFDomainMapping extends RestObject {
       this.segmentationID = value;
    }
    
+   
    @JsonIgnore
-   public SegmentationType getSegmentationType() {
+   public ESegmentationType getSegmentationType() {
       return segmentationType;
    }
 
    @JsonIgnore
-   public void setSegmentationType(SegmentationType value) { 
+   public void setSegmentationType(ESegmentationType value) { 
       this.segmentationType = value;
    }
    

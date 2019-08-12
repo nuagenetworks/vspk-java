@@ -141,76 +141,96 @@ public class Me extends RestRootObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum AvatarType { BASE64, COMPUTEDURL, URL };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EAvatarType { BASE64, COMPUTEDURL, URL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "AARFlowStatsInterval")
+   
    protected Long AARFlowStatsInterval;
    
    @JsonProperty(value = "AARProbeStatsInterval")
+   
    protected Long AARProbeStatsInterval;
    
    @JsonProperty(value = "VSSStatsInterval")
+   
    protected Long VSSStatsInterval;
    
    @JsonProperty(value = "avatarData")
+   
    protected String avatarData;
    
    @JsonProperty(value = "avatarType")
-   protected AvatarType avatarType;
+   
+   protected EAvatarType avatarType;
    
    @JsonProperty(value = "disabled")
+   
    protected Boolean disabled;
    
    @JsonProperty(value = "elasticSearchAddress")
+   
    protected String elasticSearchAddress;
    
    @JsonProperty(value = "email")
+   
    protected String email;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "enterpriseID")
+   
    protected String enterpriseID;
    
    @JsonProperty(value = "enterpriseName")
+   
    protected String enterpriseName;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "firstName")
+   
    protected String firstName;
    
    @JsonProperty(value = "flowCollectionEnabled")
+   
    protected Boolean flowCollectionEnabled;
    
    @JsonProperty(value = "lastName")
+   
    protected String lastName;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "mobileNumber")
+   
    protected String mobileNumber;
    
    @JsonProperty(value = "password")
+   
    protected String password;
    
    @JsonProperty(value = "role")
+   
    protected String role;
    
    @JsonProperty(value = "statisticsEnabled")
+   
    protected Boolean statisticsEnabled;
    
    @JsonProperty(value = "userName")
+   
    protected String userName;
    
 
@@ -711,6 +731,7 @@ public class Me extends RestRootObject {
    }
 
    
+   
    @JsonIgnore
    public Long getAARFlowStatsInterval() {
       return AARFlowStatsInterval;
@@ -720,6 +741,7 @@ public class Me extends RestRootObject {
    public void setAARFlowStatsInterval(Long value) { 
       this.AARFlowStatsInterval = value;
    }
+   
    
    @JsonIgnore
    public Long getAARProbeStatsInterval() {
@@ -731,6 +753,7 @@ public class Me extends RestRootObject {
       this.AARProbeStatsInterval = value;
    }
    
+   
    @JsonIgnore
    public Long getVSSStatsInterval() {
       return VSSStatsInterval;
@@ -740,6 +763,7 @@ public class Me extends RestRootObject {
    public void setVSSStatsInterval(Long value) { 
       this.VSSStatsInterval = value;
    }
+   
    
    @JsonIgnore
    public String getAvatarData() {
@@ -751,15 +775,17 @@ public class Me extends RestRootObject {
       this.avatarData = value;
    }
    
+   
    @JsonIgnore
-   public AvatarType getAvatarType() {
+   public EAvatarType getAvatarType() {
       return avatarType;
    }
 
    @JsonIgnore
-   public void setAvatarType(AvatarType value) { 
+   public void setAvatarType(EAvatarType value) { 
       this.avatarType = value;
    }
+   
    
    @JsonIgnore
    public Boolean getDisabled() {
@@ -771,6 +797,7 @@ public class Me extends RestRootObject {
       this.disabled = value;
    }
    
+   
    @JsonIgnore
    public String getElasticSearchAddress() {
       return elasticSearchAddress;
@@ -780,6 +807,7 @@ public class Me extends RestRootObject {
    public void setElasticSearchAddress(String value) { 
       this.elasticSearchAddress = value;
    }
+   
    
    @JsonIgnore
    public String getEmail() {
@@ -791,6 +819,7 @@ public class Me extends RestRootObject {
       this.email = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -800,6 +829,7 @@ public class Me extends RestRootObject {
    public void setEmbeddedMetadata(java.util.List<Metadata> value) { 
       this.embeddedMetadata = value;
    }
+   
    
    @JsonIgnore
    public String getEnterpriseID() {
@@ -811,6 +841,7 @@ public class Me extends RestRootObject {
       this.enterpriseID = value;
    }
    
+   
    @JsonIgnore
    public String getEnterpriseName() {
       return enterpriseName;
@@ -821,15 +852,17 @@ public class Me extends RestRootObject {
       this.enterpriseName = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -841,6 +874,7 @@ public class Me extends RestRootObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getFirstName() {
       return firstName;
@@ -850,6 +884,7 @@ public class Me extends RestRootObject {
    public void setFirstName(String value) { 
       this.firstName = value;
    }
+   
    
    @JsonIgnore
    public Boolean getFlowCollectionEnabled() {
@@ -861,6 +896,7 @@ public class Me extends RestRootObject {
       this.flowCollectionEnabled = value;
    }
    
+   
    @JsonIgnore
    public String getLastName() {
       return lastName;
@@ -870,6 +906,7 @@ public class Me extends RestRootObject {
    public void setLastName(String value) { 
       this.lastName = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -881,6 +918,7 @@ public class Me extends RestRootObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getMobileNumber() {
       return mobileNumber;
@@ -890,6 +928,7 @@ public class Me extends RestRootObject {
    public void setMobileNumber(String value) { 
       this.mobileNumber = value;
    }
+   
    
    @JsonIgnore
    public String getPassword() {
@@ -901,6 +940,7 @@ public class Me extends RestRootObject {
       this.password = value;
    }
    
+   
    @JsonIgnore
    public String getRole() {
       return role;
@@ -911,6 +951,7 @@ public class Me extends RestRootObject {
       this.role = value;
    }
    
+   
    @JsonIgnore
    public Boolean getStatisticsEnabled() {
       return statisticsEnabled;
@@ -920,6 +961,7 @@ public class Me extends RestRootObject {
    public void setStatisticsEnabled(Boolean value) { 
       this.statisticsEnabled = value;
    }
+   
    
    @JsonIgnore
    public String getUserName() {

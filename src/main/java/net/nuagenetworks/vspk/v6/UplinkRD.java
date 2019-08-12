@@ -45,29 +45,33 @@ public class UplinkRD extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum UplinkType { RD_PRIMARY1, RD_PRIMARY2, RD_PRIMARY3, RD_SECONDARY1, RD_SECONDARY2, RD_SECONDARY3 };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EUplinkType { RD_PRIMARY1, RD_PRIMARY2, RD_PRIMARY3, RD_SECONDARY1, RD_SECONDARY2, RD_SECONDARY3 };
 
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "routeDistinguisher")
+   
    protected String routeDistinguisher;
    
    @JsonProperty(value = "uplinkType")
-   protected UplinkType uplinkType;
+   
+   protected EUplinkType uplinkType;
    
 
    
@@ -87,6 +91,7 @@ public class UplinkRD extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -97,15 +102,17 @@ public class UplinkRD extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -117,6 +124,7 @@ public class UplinkRD extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -126,6 +134,7 @@ public class UplinkRD extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getRouteDistinguisher() {
@@ -137,13 +146,14 @@ public class UplinkRD extends RestObject {
       this.routeDistinguisher = value;
    }
    
+   
    @JsonIgnore
-   public UplinkType getUplinkType() {
+   public EUplinkType getUplinkType() {
       return uplinkType;
    }
 
    @JsonIgnore
-   public void setUplinkType(UplinkType value) { 
+   public void setUplinkType(EUplinkType value) { 
       this.uplinkType = value;
    }
    

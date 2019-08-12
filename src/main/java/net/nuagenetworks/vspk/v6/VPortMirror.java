@@ -45,49 +45,60 @@ public class VPortMirror extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum MirrorDirection { BOTH, EGRESS, INGRESS };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EMirrorDirection { BOTH, EGRESS, INGRESS };
 
    
    @JsonProperty(value = "attachedNetworkType")
+   
    protected String attachedNetworkType;
    
    @JsonProperty(value = "domainName")
+   
    protected String domainName;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "enterpiseName")
+   
    protected String enterpiseName;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "mirrorDestinationID")
+   
    protected String mirrorDestinationID;
    
    @JsonProperty(value = "mirrorDestinationName")
+   
    protected String mirrorDestinationName;
    
    @JsonProperty(value = "mirrorDirection")
-   protected MirrorDirection mirrorDirection;
+   
+   protected EMirrorDirection mirrorDirection;
    
    @JsonProperty(value = "networkName")
+   
    protected String networkName;
    
    @JsonProperty(value = "vportId")
+   
    protected String vportId;
    
    @JsonProperty(value = "vportName")
+   
    protected String vportName;
    
 
@@ -109,6 +120,7 @@ public class VPortMirror extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAttachedNetworkType() {
       return attachedNetworkType;
@@ -118,6 +130,7 @@ public class VPortMirror extends RestObject {
    public void setAttachedNetworkType(String value) { 
       this.attachedNetworkType = value;
    }
+   
    
    @JsonIgnore
    public String getDomainName() {
@@ -129,6 +142,7 @@ public class VPortMirror extends RestObject {
       this.domainName = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -138,6 +152,7 @@ public class VPortMirror extends RestObject {
    public void setEmbeddedMetadata(java.util.List<Metadata> value) { 
       this.embeddedMetadata = value;
    }
+   
    
    @JsonIgnore
    public String getEnterpiseName() {
@@ -149,15 +164,17 @@ public class VPortMirror extends RestObject {
       this.enterpiseName = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -169,6 +186,7 @@ public class VPortMirror extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -178,6 +196,7 @@ public class VPortMirror extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getMirrorDestinationID() {
@@ -189,6 +208,7 @@ public class VPortMirror extends RestObject {
       this.mirrorDestinationID = value;
    }
    
+   
    @JsonIgnore
    public String getMirrorDestinationName() {
       return mirrorDestinationName;
@@ -199,15 +219,17 @@ public class VPortMirror extends RestObject {
       this.mirrorDestinationName = value;
    }
    
+   
    @JsonIgnore
-   public MirrorDirection getMirrorDirection() {
+   public EMirrorDirection getMirrorDirection() {
       return mirrorDirection;
    }
 
    @JsonIgnore
-   public void setMirrorDirection(MirrorDirection value) { 
+   public void setMirrorDirection(EMirrorDirection value) { 
       this.mirrorDirection = value;
    }
+   
    
    @JsonIgnore
    public String getNetworkName() {
@@ -219,6 +241,7 @@ public class VPortMirror extends RestObject {
       this.networkName = value;
    }
    
+   
    @JsonIgnore
    public String getVportId() {
       return vportId;
@@ -228,6 +251,7 @@ public class VPortMirror extends RestObject {
    public void setVportId(String value) { 
       this.vportId = value;
    }
+   
    
    @JsonIgnore
    public String getVportName() {

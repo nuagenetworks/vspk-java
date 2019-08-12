@@ -45,76 +45,96 @@ public class NSGatewaySummary extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum BootstrapStatus { ACTIVE, CERTIFICATE_SIGNED, INACTIVE, NOTIFICATION_APP_REQ_ACK, NOTIFICATION_APP_REQ_SENT };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EBootstrapStatus { ACTIVE, CERTIFICATE_SIGNED, INACTIVE, NOTIFICATION_APP_REQ_ACK, NOTIFICATION_APP_REQ_SENT };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "NSGVersion")
+   
    protected String NSGVersion;
    
    @JsonProperty(value = "address")
+   
    protected String address;
    
    @JsonProperty(value = "bootstrapStatus")
-   protected BootstrapStatus bootstrapStatus;
+   
+   protected EBootstrapStatus bootstrapStatus;
    
    @JsonProperty(value = "country")
+   
    protected String country;
    
    @JsonProperty(value = "criticalAlarmsCount")
+   
    protected Long criticalAlarmsCount;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "enterpriseID")
+   
    protected String enterpriseID;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "gatewayID")
+   
    protected String gatewayID;
    
    @JsonProperty(value = "gatewayName")
+   
    protected String gatewayName;
    
    @JsonProperty(value = "gatewayType")
+   
    protected String gatewayType;
    
    @JsonProperty(value = "infoAlarmsCount")
+   
    protected Long infoAlarmsCount;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "latitude")
+   
    protected Float latitude;
    
    @JsonProperty(value = "locality")
+   
    protected String locality;
    
    @JsonProperty(value = "longitude")
+   
    protected Float longitude;
    
    @JsonProperty(value = "majorAlarmsCount")
+   
    protected Long majorAlarmsCount;
    
    @JsonProperty(value = "minorAlarmsCount")
+   
    protected Long minorAlarmsCount;
    
    @JsonProperty(value = "state")
+   
    protected String state;
    
    @JsonProperty(value = "systemID")
+   
    protected String systemID;
    
    @JsonProperty(value = "timezoneID")
+   
    protected String timezoneID;
    
 
@@ -135,6 +155,7 @@ public class NSGatewaySummary extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getNSGVersion() {
       return NSGVersion;
@@ -144,6 +165,7 @@ public class NSGatewaySummary extends RestObject {
    public void setNSGVersion(String value) { 
       this.NSGVersion = value;
    }
+   
    
    @JsonIgnore
    public String getAddress() {
@@ -155,15 +177,17 @@ public class NSGatewaySummary extends RestObject {
       this.address = value;
    }
    
+   
    @JsonIgnore
-   public BootstrapStatus getBootstrapStatus() {
+   public EBootstrapStatus getBootstrapStatus() {
       return bootstrapStatus;
    }
 
    @JsonIgnore
-   public void setBootstrapStatus(BootstrapStatus value) { 
+   public void setBootstrapStatus(EBootstrapStatus value) { 
       this.bootstrapStatus = value;
    }
+   
    
    @JsonIgnore
    public String getCountry() {
@@ -175,6 +199,7 @@ public class NSGatewaySummary extends RestObject {
       this.country = value;
    }
    
+   
    @JsonIgnore
    public Long getCriticalAlarmsCount() {
       return criticalAlarmsCount;
@@ -184,6 +209,7 @@ public class NSGatewaySummary extends RestObject {
    public void setCriticalAlarmsCount(Long value) { 
       this.criticalAlarmsCount = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -195,6 +221,7 @@ public class NSGatewaySummary extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
    public String getEnterpriseID() {
       return enterpriseID;
@@ -205,15 +232,17 @@ public class NSGatewaySummary extends RestObject {
       this.enterpriseID = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -225,6 +254,7 @@ public class NSGatewaySummary extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getGatewayID() {
       return gatewayID;
@@ -234,6 +264,7 @@ public class NSGatewaySummary extends RestObject {
    public void setGatewayID(String value) { 
       this.gatewayID = value;
    }
+   
    
    @JsonIgnore
    public String getGatewayName() {
@@ -245,6 +276,7 @@ public class NSGatewaySummary extends RestObject {
       this.gatewayName = value;
    }
    
+   
    @JsonIgnore
    public String getGatewayType() {
       return gatewayType;
@@ -254,6 +286,7 @@ public class NSGatewaySummary extends RestObject {
    public void setGatewayType(String value) { 
       this.gatewayType = value;
    }
+   
    
    @JsonIgnore
    public Long getInfoAlarmsCount() {
@@ -265,6 +298,7 @@ public class NSGatewaySummary extends RestObject {
       this.infoAlarmsCount = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -274,6 +308,7 @@ public class NSGatewaySummary extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public Float getLatitude() {
@@ -285,6 +320,7 @@ public class NSGatewaySummary extends RestObject {
       this.latitude = value;
    }
    
+   
    @JsonIgnore
    public String getLocality() {
       return locality;
@@ -294,6 +330,7 @@ public class NSGatewaySummary extends RestObject {
    public void setLocality(String value) { 
       this.locality = value;
    }
+   
    
    @JsonIgnore
    public Float getLongitude() {
@@ -305,6 +342,7 @@ public class NSGatewaySummary extends RestObject {
       this.longitude = value;
    }
    
+   
    @JsonIgnore
    public Long getMajorAlarmsCount() {
       return majorAlarmsCount;
@@ -314,6 +352,7 @@ public class NSGatewaySummary extends RestObject {
    public void setMajorAlarmsCount(Long value) { 
       this.majorAlarmsCount = value;
    }
+   
    
    @JsonIgnore
    public Long getMinorAlarmsCount() {
@@ -325,6 +364,7 @@ public class NSGatewaySummary extends RestObject {
       this.minorAlarmsCount = value;
    }
    
+   
    @JsonIgnore
    public String getState() {
       return state;
@@ -335,6 +375,7 @@ public class NSGatewaySummary extends RestObject {
       this.state = value;
    }
    
+   
    @JsonIgnore
    public String getSystemID() {
       return systemID;
@@ -344,6 +385,7 @@ public class NSGatewaySummary extends RestObject {
    public void setSystemID(String value) { 
       this.systemID = value;
    }
+   
    
    @JsonIgnore
    public String getTimezoneID() {

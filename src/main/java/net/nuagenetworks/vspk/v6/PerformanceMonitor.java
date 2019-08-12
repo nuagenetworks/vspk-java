@@ -45,49 +45,58 @@ public class PerformanceMonitor extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum ProbeType { HTTP, IPSEC_AND_VXLAN, ONEWAY };
-   
-   public enum ServiceClass { A, B, C, D, E, F, G, H };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EProbeType { HTTP, IPSEC_AND_VXLAN, ONEWAY };
+   public enum EServiceClass { A, B, C, D, E, F, G, H };
 
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "holdDownTimer")
+   
    protected Long holdDownTimer;
    
    @JsonProperty(value = "interval")
+   
    protected Long interval;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "numberOfPackets")
+   
    protected Long numberOfPackets;
    
    @JsonProperty(value = "payloadSize")
+   
    protected Long payloadSize;
    
    @JsonProperty(value = "probeType")
-   protected ProbeType probeType;
+   
+   protected EProbeType probeType;
    
    @JsonProperty(value = "readOnly")
+   
    protected Boolean readOnly;
    
    @JsonProperty(value = "serviceClass")
-   protected ServiceClass serviceClass;
+   
+   protected EServiceClass serviceClass;
    
 
    
@@ -107,6 +116,7 @@ public class PerformanceMonitor extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -117,15 +127,17 @@ public class PerformanceMonitor extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -137,6 +149,7 @@ public class PerformanceMonitor extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public Long getHoldDownTimer() {
       return holdDownTimer;
@@ -146,6 +159,7 @@ public class PerformanceMonitor extends RestObject {
    public void setHoldDownTimer(Long value) { 
       this.holdDownTimer = value;
    }
+   
    
    @JsonIgnore
    public Long getInterval() {
@@ -157,6 +171,7 @@ public class PerformanceMonitor extends RestObject {
       this.interval = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -166,6 +181,7 @@ public class PerformanceMonitor extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -177,6 +193,7 @@ public class PerformanceMonitor extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public Long getNumberOfPackets() {
       return numberOfPackets;
@@ -186,6 +203,7 @@ public class PerformanceMonitor extends RestObject {
    public void setNumberOfPackets(Long value) { 
       this.numberOfPackets = value;
    }
+   
    
    @JsonIgnore
    public Long getPayloadSize() {
@@ -197,15 +215,17 @@ public class PerformanceMonitor extends RestObject {
       this.payloadSize = value;
    }
    
+   
    @JsonIgnore
-   public ProbeType getProbeType() {
+   public EProbeType getProbeType() {
       return probeType;
    }
 
    @JsonIgnore
-   public void setProbeType(ProbeType value) { 
+   public void setProbeType(EProbeType value) { 
       this.probeType = value;
    }
+   
    
    @JsonIgnore
    public Boolean getReadOnly() {
@@ -217,13 +237,14 @@ public class PerformanceMonitor extends RestObject {
       this.readOnly = value;
    }
    
+   
    @JsonIgnore
-   public ServiceClass getServiceClass() {
+   public EServiceClass getServiceClass() {
       return serviceClass;
    }
 
    @JsonIgnore
-   public void setServiceClass(ServiceClass value) { 
+   public void setServiceClass(EServiceClass value) { 
       this.serviceClass = value;
    }
    

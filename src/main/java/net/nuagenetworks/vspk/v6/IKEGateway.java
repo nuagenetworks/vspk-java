@@ -47,55 +47,63 @@ public class IKEGateway extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum IKEVersion { V1, V2 };
-   
-   public enum IKEv1Mode { AGGRESSIVE, MAIN, NONE };
-   
-   public enum AssociatedCloudType { AZURECLOUD };
-   
-   public enum ConfigurationStatus { CANCELING, CANCELLED, CLOUD_CONFIGURATION_REMOVED, FAILED, IN_PROGRESS, NOT_APPLICABLE, PAUSING, SUCCESS, SYNCED_FROM_CLOUD, UNKNOWN, WAITING, WAITING_FOR_RESOURCES };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EIKEVersion { V1, V2 };
+   public enum EIKEv1Mode { AGGRESSIVE, MAIN, NONE };
+   public enum EAssociatedCloudType { AZURECLOUD };
+   public enum EConfigurationStatus { CANCELING, CANCELLED, CLOUD_CONFIGURATION_REMOVED, FAILED, IN_PROGRESS, NOT_APPLICABLE, PAUSING, SUCCESS, SYNCED_FROM_CLOUD, UNKNOWN, WAITING, WAITING_FOR_RESOURCES };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "IKEVersion")
-   protected IKEVersion IKEVersion;
+   
+   protected EIKEVersion IKEVersion;
    
    @JsonProperty(value = "IKEv1Mode")
-   protected IKEv1Mode IKEv1Mode;
+   
+   protected EIKEv1Mode IKEv1Mode;
    
    @JsonProperty(value = "IPAddress")
+   
    protected String IPAddress;
    
    @JsonProperty(value = "associatedCloudID")
+   
    protected String associatedCloudID;
    
    @JsonProperty(value = "associatedCloudType")
-   protected AssociatedCloudType associatedCloudType;
+   
+   protected EAssociatedCloudType associatedCloudType;
    
    @JsonProperty(value = "associatedEnterpriseID")
+   
    protected String associatedEnterpriseID;
    
    @JsonProperty(value = "configurationStatus")
-   protected ConfigurationStatus configurationStatus;
+   
+   protected EConfigurationStatus configurationStatus;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
 
@@ -126,25 +134,28 @@ public class IKEGateway extends RestObject {
    }
 
    
+   
    @JsonIgnore
-   public IKEVersion getIKEVersion() {
+   public EIKEVersion getIKEVersion() {
       return IKEVersion;
    }
 
    @JsonIgnore
-   public void setIKEVersion(IKEVersion value) { 
+   public void setIKEVersion(EIKEVersion value) { 
       this.IKEVersion = value;
    }
    
+   
    @JsonIgnore
-   public IKEv1Mode getIKEv1Mode() {
+   public EIKEv1Mode getIKEv1Mode() {
       return IKEv1Mode;
    }
 
    @JsonIgnore
-   public void setIKEv1Mode(IKEv1Mode value) { 
+   public void setIKEv1Mode(EIKEv1Mode value) { 
       this.IKEv1Mode = value;
    }
+   
    
    @JsonIgnore
    public String getIPAddress() {
@@ -156,6 +167,7 @@ public class IKEGateway extends RestObject {
       this.IPAddress = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedCloudID() {
       return associatedCloudID;
@@ -166,15 +178,17 @@ public class IKEGateway extends RestObject {
       this.associatedCloudID = value;
    }
    
+   
    @JsonIgnore
-   public AssociatedCloudType getAssociatedCloudType() {
+   public EAssociatedCloudType getAssociatedCloudType() {
       return associatedCloudType;
    }
 
    @JsonIgnore
-   public void setAssociatedCloudType(AssociatedCloudType value) { 
+   public void setAssociatedCloudType(EAssociatedCloudType value) { 
       this.associatedCloudType = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedEnterpriseID() {
@@ -186,15 +200,17 @@ public class IKEGateway extends RestObject {
       this.associatedEnterpriseID = value;
    }
    
+   
    @JsonIgnore
-   public ConfigurationStatus getConfigurationStatus() {
+   public EConfigurationStatus getConfigurationStatus() {
       return configurationStatus;
    }
 
    @JsonIgnore
-   public void setConfigurationStatus(ConfigurationStatus value) { 
+   public void setConfigurationStatus(EConfigurationStatus value) { 
       this.configurationStatus = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -206,6 +222,7 @@ public class IKEGateway extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -216,15 +233,17 @@ public class IKEGateway extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -236,6 +255,7 @@ public class IKEGateway extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -245,6 +265,7 @@ public class IKEGateway extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {

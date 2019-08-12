@@ -50,46 +50,56 @@ public class AutoDiscoveredGateway extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Personality { DC7X50, HARDWARE_VTEP, NSG, OTHER, VRSB, VRSG, VSA, VSG };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EPersonality { DC7X50, HARDWARE_VTEP, NSG, OTHER, VRSB, VRSG, VSA, VSG };
 
    
    @JsonProperty(value = "controllers")
+   
    protected java.util.List<String> controllers;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "gatewayID")
+   
    protected String gatewayID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "peer")
+   
    protected String peer;
    
    @JsonProperty(value = "personality")
-   protected Personality personality;
+   
+   protected EPersonality personality;
    
    @JsonProperty(value = "systemID")
+   
    protected String systemID;
    
    @JsonProperty(value = "vtep")
+   
    protected String vtep;
    
 
@@ -135,6 +145,7 @@ public class AutoDiscoveredGateway extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public java.util.List<String> getControllers() {
       return controllers;
@@ -144,6 +155,7 @@ public class AutoDiscoveredGateway extends RestObject {
    public void setControllers(java.util.List<String> value) { 
       this.controllers = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -155,6 +167,7 @@ public class AutoDiscoveredGateway extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -165,15 +178,17 @@ public class AutoDiscoveredGateway extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -185,6 +200,7 @@ public class AutoDiscoveredGateway extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getGatewayID() {
       return gatewayID;
@@ -194,6 +210,7 @@ public class AutoDiscoveredGateway extends RestObject {
    public void setGatewayID(String value) { 
       this.gatewayID = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -205,6 +222,7 @@ public class AutoDiscoveredGateway extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -214,6 +232,7 @@ public class AutoDiscoveredGateway extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public String getPeer() {
@@ -225,15 +244,17 @@ public class AutoDiscoveredGateway extends RestObject {
       this.peer = value;
    }
    
+   
    @JsonIgnore
-   public Personality getPersonality() {
+   public EPersonality getPersonality() {
       return personality;
    }
 
    @JsonIgnore
-   public void setPersonality(Personality value) { 
+   public void setPersonality(EPersonality value) { 
       this.personality = value;
    }
+   
    
    @JsonIgnore
    public String getSystemID() {
@@ -244,6 +265,7 @@ public class AutoDiscoveredGateway extends RestObject {
    public void setSystemID(String value) { 
       this.systemID = value;
    }
+   
    
    @JsonIgnore
    public String getVtep() {

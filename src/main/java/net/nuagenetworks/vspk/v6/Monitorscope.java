@@ -45,38 +45,47 @@ public class Monitorscope extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "allowAllDestinationNSGs")
+   
    protected Boolean allowAllDestinationNSGs;
    
    @JsonProperty(value = "allowAllSourceNSGs")
+   
    protected Boolean allowAllSourceNSGs;
    
    @JsonProperty(value = "destinationNSGs")
+   
    protected java.util.List<String> destinationNSGs;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "readOnly")
+   
    protected Boolean readOnly;
    
    @JsonProperty(value = "sourceNSGs")
+   
    protected java.util.List<String> sourceNSGs;
    
 
@@ -97,6 +106,7 @@ public class Monitorscope extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Boolean getAllowAllDestinationNSGs() {
       return allowAllDestinationNSGs;
@@ -106,6 +116,7 @@ public class Monitorscope extends RestObject {
    public void setAllowAllDestinationNSGs(Boolean value) { 
       this.allowAllDestinationNSGs = value;
    }
+   
    
    @JsonIgnore
    public Boolean getAllowAllSourceNSGs() {
@@ -117,6 +128,7 @@ public class Monitorscope extends RestObject {
       this.allowAllSourceNSGs = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<String> getDestinationNSGs() {
       return destinationNSGs;
@@ -126,6 +138,7 @@ public class Monitorscope extends RestObject {
    public void setDestinationNSGs(java.util.List<String> value) { 
       this.destinationNSGs = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -137,15 +150,17 @@ public class Monitorscope extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -157,6 +172,7 @@ public class Monitorscope extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -166,6 +182,7 @@ public class Monitorscope extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -177,6 +194,7 @@ public class Monitorscope extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public Boolean getReadOnly() {
       return readOnly;
@@ -186,6 +204,7 @@ public class Monitorscope extends RestObject {
    public void setReadOnly(Boolean value) { 
       this.readOnly = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<String> getSourceNSGs() {

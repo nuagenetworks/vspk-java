@@ -48,85 +48,96 @@ public class WirelessPort extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum ChannelWidth { WIDTH_20_MHZ, WIDTH_80_MHZ, WIDTH_LESS_40_MHZ, WIDTH_PLUS_40_MHZ };
-   
-   public enum CountryCode { AD, AE, AF, AG, AI, AL, AM, AN, AO, AQ, AR, AS, AT, AU, AW, AZ, BA, BB, BD, BE, BF, BG, BH, BI, BJ, BM, BN, BO, BR, BS, BT, BV, BW, BY, BZ, CA, CC, CD, CF, CG, CH, CI, CK, CL, CM, CN, CO, CR, CS, CU, CV, CX, CY, CZ, DE, DJ, DK, DM, DO, DZ, EC, EE, EG, EH, ER, ES, ET, FI, FJ, FK, FM, FO, FR, GA, GB, GD, GE, GF, GH, GI, GL, GM, GN, GP, GQ, GR, GS, GT, GU, GW, GY, HK, HM, HN, HR, HT, HU, ID, IE, IL, IN, IO, IQ, IR, IS, IT, JM, JO, JP, KE, KG, KH, KI, KM, KN, KP, KR, KW, KY, KZ, LA, LB, LC, LI, LK, LR, LS, LT, LU, LV, LY, MA, MC, MD, MG, MH, MK, ML, MM, MN, MO, MP, MQ, MR, MS, MT, MU, MV, MW, MX, MY, MZ, NA, NC, NE, NF, NG, NI, NL, NO, NP, NR, NU, NZ, OM, PA, PE, PF, PG, PH, PK, PL, PM, PN, PR, PS, PT, PW, PY, QA, RE, RO, RU, RW, SA, SB, SC, SD, SE, SG, SH, SI, SJ, SK, SL, SM, SN, SO, SR, ST, SV, SY, SZ, TC, TD, TF, TG, TH, TJ, TK, TL, TM, TN, TO, TR, TT, TV, TW, TZ, UA, UG, UM, US, UY, UZ, VA, VC, VE, VG, VI, VN, VU, WF, WS, YE, YT, ZA, ZM, ZW };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum FrequencyChannel { CH_0, CH_1, CH_10, CH_100, CH_104, CH_108, CH_11, CH_112, CH_116, CH_12, CH_120, CH_124, CH_128, CH_13, CH_132, CH_136, CH_14, CH_140, CH_144, CH_149, CH_153, CH_157, CH_161, CH_165, CH_2, CH_3, CH_36, CH_4, CH_40, CH_44, CH_48, CH_5, CH_52, CH_56, CH_6, CH_60, CH_64, CH_7, CH_8, CH_9 };
-   
-   public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
-   
-   public enum PortType { ACCESS };
-   
-   public enum Status { INITIALIZED, MISMATCH, ORPHAN, READY };
-   
-   public enum WifiFrequencyBand { FREQ_2_4_GHZ, FREQ_5_0_GHZ };
-   
-   public enum WifiMode { WIFI_A, WIFI_A_AC, WIFI_A_N, WIFI_A_N_AC, WIFI_B_G, WIFI_B_G_N };
+   public enum EChannelWidth { WIDTH_20_MHZ, WIDTH_80_MHZ, WIDTH_LESS_40_MHZ, WIDTH_PLUS_40_MHZ };
+   public enum ECountryCode { AD, AE, AF, AG, AI, AL, AM, AN, AO, AQ, AR, AS, AT, AU, AW, AZ, BA, BB, BD, BE, BF, BG, BH, BI, BJ, BM, BN, BO, BR, BS, BT, BV, BW, BY, BZ, CA, CC, CD, CF, CG, CH, CI, CK, CL, CM, CN, CO, CR, CS, CU, CV, CX, CY, CZ, DE, DJ, DK, DM, DO, DZ, EC, EE, EG, EH, ER, ES, ET, FI, FJ, FK, FM, FO, FR, GA, GB, GD, GE, GF, GH, GI, GL, GM, GN, GP, GQ, GR, GS, GT, GU, GW, GY, HK, HM, HN, HR, HT, HU, ID, IE, IL, IN, IO, IQ, IR, IS, IT, JM, JO, JP, KE, KG, KH, KI, KM, KN, KP, KR, KW, KY, KZ, LA, LB, LC, LI, LK, LR, LS, LT, LU, LV, LY, MA, MC, MD, MG, MH, MK, ML, MM, MN, MO, MP, MQ, MR, MS, MT, MU, MV, MW, MX, MY, MZ, NA, NC, NE, NF, NG, NI, NL, NO, NP, NR, NU, NZ, OM, PA, PE, PF, PG, PH, PK, PL, PM, PN, PR, PS, PT, PW, PY, QA, RE, RO, RU, RW, SA, SB, SC, SD, SE, SG, SH, SI, SJ, SK, SL, SM, SN, SO, SR, ST, SV, SY, SZ, TC, TD, TF, TG, TH, TJ, TK, TL, TM, TN, TO, TR, TT, TV, TW, TZ, UA, UG, UM, US, UY, UZ, VA, VC, VE, VG, VI, VN, VU, WF, WS, YE, YT, ZA, ZM, ZW };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EFrequencyChannel { CH_0, CH_1, CH_10, CH_100, CH_104, CH_108, CH_11, CH_112, CH_116, CH_12, CH_120, CH_124, CH_128, CH_13, CH_132, CH_136, CH_14, CH_140, CH_144, CH_149, CH_153, CH_157, CH_161, CH_165, CH_2, CH_3, CH_36, CH_4, CH_40, CH_44, CH_48, CH_5, CH_52, CH_56, CH_6, CH_60, CH_64, CH_7, CH_8, CH_9 };
+   public enum EPermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
+   public enum EPortType { ACCESS };
+   public enum EStatus { INITIALIZED, MISMATCH, ORPHAN, READY };
+   public enum EWifiFrequencyBand { FREQ_2_4_GHZ, FREQ_5_0_GHZ };
+   public enum EWifiMode { WIFI_A, WIFI_A_AC, WIFI_A_N, WIFI_A_N_AC, WIFI_B_G, WIFI_B_G_N };
 
    
    @JsonProperty(value = "VLANRange")
+   
    protected String VLANRange;
    
    @JsonProperty(value = "associatedEgressQOSPolicyID")
+   
    protected String associatedEgressQOSPolicyID;
    
    @JsonProperty(value = "channelWidth")
-   protected ChannelWidth channelWidth;
+   
+   protected EChannelWidth channelWidth;
    
    @JsonProperty(value = "countryCode")
-   protected CountryCode countryCode;
+   
+   protected ECountryCode countryCode;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "frequencyChannel")
-   protected FrequencyChannel frequencyChannel;
+   
+   protected EFrequencyChannel frequencyChannel;
    
    @JsonProperty(value = "genericConfig")
+   
    protected String genericConfig;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "permittedAction")
-   protected PermittedAction permittedAction;
+   
+   protected EPermittedAction permittedAction;
    
    @JsonProperty(value = "physicalName")
+   
    protected String physicalName;
    
    @JsonProperty(value = "portType")
-   protected PortType portType;
+   
+   protected EPortType portType;
    
    @JsonProperty(value = "status")
-   protected Status status;
+   
+   protected EStatus status;
    
    @JsonProperty(value = "useUserMnemonic")
+   
    protected Boolean useUserMnemonic;
    
    @JsonProperty(value = "userMnemonic")
+   
    protected String userMnemonic;
    
    @JsonProperty(value = "wifiFrequencyBand")
-   protected WifiFrequencyBand wifiFrequencyBand;
+   
+   protected EWifiFrequencyBand wifiFrequencyBand;
    
    @JsonProperty(value = "wifiMode")
-   protected WifiMode wifiMode;
+   
+   protected EWifiMode wifiMode;
    
 
    
@@ -161,6 +172,7 @@ public class WirelessPort extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getVLANRange() {
       return VLANRange;
@@ -170,6 +182,7 @@ public class WirelessPort extends RestObject {
    public void setVLANRange(String value) { 
       this.VLANRange = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedEgressQOSPolicyID() {
@@ -181,25 +194,28 @@ public class WirelessPort extends RestObject {
       this.associatedEgressQOSPolicyID = value;
    }
    
+   
    @JsonIgnore
-   public ChannelWidth getChannelWidth() {
+   public EChannelWidth getChannelWidth() {
       return channelWidth;
    }
 
    @JsonIgnore
-   public void setChannelWidth(ChannelWidth value) { 
+   public void setChannelWidth(EChannelWidth value) { 
       this.channelWidth = value;
    }
    
+   
    @JsonIgnore
-   public CountryCode getCountryCode() {
+   public ECountryCode getCountryCode() {
       return countryCode;
    }
 
    @JsonIgnore
-   public void setCountryCode(CountryCode value) { 
+   public void setCountryCode(ECountryCode value) { 
       this.countryCode = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -211,6 +227,7 @@ public class WirelessPort extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -221,15 +238,17 @@ public class WirelessPort extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -241,15 +260,17 @@ public class WirelessPort extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
-   public FrequencyChannel getFrequencyChannel() {
+   public EFrequencyChannel getFrequencyChannel() {
       return frequencyChannel;
    }
 
    @JsonIgnore
-   public void setFrequencyChannel(FrequencyChannel value) { 
+   public void setFrequencyChannel(EFrequencyChannel value) { 
       this.frequencyChannel = value;
    }
+   
    
    @JsonIgnore
    public String getGenericConfig() {
@@ -261,6 +282,7 @@ public class WirelessPort extends RestObject {
       this.genericConfig = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -270,6 +292,7 @@ public class WirelessPort extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -281,15 +304,17 @@ public class WirelessPort extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
-   public PermittedAction getPermittedAction() {
+   public EPermittedAction getPermittedAction() {
       return permittedAction;
    }
 
    @JsonIgnore
-   public void setPermittedAction(PermittedAction value) { 
+   public void setPermittedAction(EPermittedAction value) { 
       this.permittedAction = value;
    }
+   
    
    @JsonIgnore
    public String getPhysicalName() {
@@ -301,25 +326,28 @@ public class WirelessPort extends RestObject {
       this.physicalName = value;
    }
    
+   
    @JsonIgnore
-   public PortType getPortType() {
+   public EPortType getPortType() {
       return portType;
    }
 
    @JsonIgnore
-   public void setPortType(PortType value) { 
+   public void setPortType(EPortType value) { 
       this.portType = value;
    }
    
+   
    @JsonIgnore
-   public Status getStatus() {
+   public EStatus getStatus() {
       return status;
    }
 
    @JsonIgnore
-   public void setStatus(Status value) { 
+   public void setStatus(EStatus value) { 
       this.status = value;
    }
+   
    
    @JsonIgnore
    public Boolean getUseUserMnemonic() {
@@ -331,6 +359,7 @@ public class WirelessPort extends RestObject {
       this.useUserMnemonic = value;
    }
    
+   
    @JsonIgnore
    public String getUserMnemonic() {
       return userMnemonic;
@@ -341,23 +370,25 @@ public class WirelessPort extends RestObject {
       this.userMnemonic = value;
    }
    
+   
    @JsonIgnore
-   public WifiFrequencyBand getWifiFrequencyBand() {
+   public EWifiFrequencyBand getWifiFrequencyBand() {
       return wifiFrequencyBand;
    }
 
    @JsonIgnore
-   public void setWifiFrequencyBand(WifiFrequencyBand value) { 
+   public void setWifiFrequencyBand(EWifiFrequencyBand value) { 
       this.wifiFrequencyBand = value;
    }
    
+   
    @JsonIgnore
-   public WifiMode getWifiMode() {
+   public EWifiMode getWifiMode() {
       return wifiMode;
    }
 
    @JsonIgnore
-   public void setWifiMode(WifiMode value) { 
+   public void setWifiMode(EWifiMode value) { 
       this.wifiMode = value;
    }
    

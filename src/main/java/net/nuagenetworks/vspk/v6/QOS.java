@@ -48,106 +48,136 @@ public class QOS extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum ServiceClass { A, B, C, D, E, F, G, H, NONE };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EServiceClass { A, B, C, D, E, F, G, H, NONE };
 
    
    @JsonProperty(value = "BUMCommittedBurstSize")
+   
    protected String BUMCommittedBurstSize;
    
    @JsonProperty(value = "BUMCommittedInformationRate")
+   
    protected String BUMCommittedInformationRate;
    
    @JsonProperty(value = "BUMPeakBurstSize")
+   
    protected String BUMPeakBurstSize;
    
    @JsonProperty(value = "BUMPeakInformationRate")
+   
    protected String BUMPeakInformationRate;
    
    @JsonProperty(value = "BUMRateLimitingActive")
+   
    protected Boolean BUMRateLimitingActive;
    
    @JsonProperty(value = "EgressFIPCommittedBurstSize")
+   
    protected String EgressFIPCommittedBurstSize;
    
    @JsonProperty(value = "EgressFIPCommittedInformationRate")
+   
    protected String EgressFIPCommittedInformationRate;
    
    @JsonProperty(value = "EgressFIPPeakBurstSize")
+   
    protected String EgressFIPPeakBurstSize;
    
    @JsonProperty(value = "EgressFIPPeakInformationRate")
+   
    protected String EgressFIPPeakInformationRate;
    
    @JsonProperty(value = "FIPCommittedBurstSize")
+   
    protected String FIPCommittedBurstSize;
    
    @JsonProperty(value = "FIPCommittedInformationRate")
+   
    protected String FIPCommittedInformationRate;
    
    @JsonProperty(value = "FIPPeakBurstSize")
+   
    protected String FIPPeakBurstSize;
    
    @JsonProperty(value = "FIPPeakInformationRate")
+   
    protected String FIPPeakInformationRate;
    
    @JsonProperty(value = "FIPRateLimitingActive")
+   
    protected Boolean FIPRateLimitingActive;
    
    @JsonProperty(value = "active")
+   
    protected Boolean active;
    
    @JsonProperty(value = "assocQosId")
+   
    protected String assocQosId;
    
    @JsonProperty(value = "associatedDSCPForwardingClassTableID")
+   
    protected String associatedDSCPForwardingClassTableID;
    
    @JsonProperty(value = "associatedDSCPForwardingClassTableName")
+   
    protected String associatedDSCPForwardingClassTableName;
    
    @JsonProperty(value = "burst")
+   
    protected String burst;
    
    @JsonProperty(value = "committedBurstSize")
+   
    protected String committedBurstSize;
    
    @JsonProperty(value = "committedInformationRate")
+   
    protected String committedInformationRate;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "peak")
+   
    protected String peak;
    
    @JsonProperty(value = "rateLimitingActive")
+   
    protected Boolean rateLimitingActive;
    
    @JsonProperty(value = "rewriteForwardingClass")
+   
    protected Boolean rewriteForwardingClass;
    
    @JsonProperty(value = "serviceClass")
-   protected ServiceClass serviceClass;
+   
+   protected EServiceClass serviceClass;
    
    @JsonProperty(value = "trustedForwardingClass")
+   
    protected Boolean trustedForwardingClass;
    
 
@@ -183,6 +213,7 @@ public class QOS extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getBUMCommittedBurstSize() {
       return BUMCommittedBurstSize;
@@ -192,6 +223,7 @@ public class QOS extends RestObject {
    public void setBUMCommittedBurstSize(String value) { 
       this.BUMCommittedBurstSize = value;
    }
+   
    
    @JsonIgnore
    public String getBUMCommittedInformationRate() {
@@ -203,6 +235,7 @@ public class QOS extends RestObject {
       this.BUMCommittedInformationRate = value;
    }
    
+   
    @JsonIgnore
    public String getBUMPeakBurstSize() {
       return BUMPeakBurstSize;
@@ -212,6 +245,7 @@ public class QOS extends RestObject {
    public void setBUMPeakBurstSize(String value) { 
       this.BUMPeakBurstSize = value;
    }
+   
    
    @JsonIgnore
    public String getBUMPeakInformationRate() {
@@ -223,6 +257,7 @@ public class QOS extends RestObject {
       this.BUMPeakInformationRate = value;
    }
    
+   
    @JsonIgnore
    public Boolean getBUMRateLimitingActive() {
       return BUMRateLimitingActive;
@@ -232,6 +267,7 @@ public class QOS extends RestObject {
    public void setBUMRateLimitingActive(Boolean value) { 
       this.BUMRateLimitingActive = value;
    }
+   
    
    @JsonIgnore
    public String getEgressFIPCommittedBurstSize() {
@@ -243,6 +279,7 @@ public class QOS extends RestObject {
       this.EgressFIPCommittedBurstSize = value;
    }
    
+   
    @JsonIgnore
    public String getEgressFIPCommittedInformationRate() {
       return EgressFIPCommittedInformationRate;
@@ -252,6 +289,7 @@ public class QOS extends RestObject {
    public void setEgressFIPCommittedInformationRate(String value) { 
       this.EgressFIPCommittedInformationRate = value;
    }
+   
    
    @JsonIgnore
    public String getEgressFIPPeakBurstSize() {
@@ -263,6 +301,7 @@ public class QOS extends RestObject {
       this.EgressFIPPeakBurstSize = value;
    }
    
+   
    @JsonIgnore
    public String getEgressFIPPeakInformationRate() {
       return EgressFIPPeakInformationRate;
@@ -272,6 +311,7 @@ public class QOS extends RestObject {
    public void setEgressFIPPeakInformationRate(String value) { 
       this.EgressFIPPeakInformationRate = value;
    }
+   
    
    @JsonIgnore
    public String getFIPCommittedBurstSize() {
@@ -283,6 +323,7 @@ public class QOS extends RestObject {
       this.FIPCommittedBurstSize = value;
    }
    
+   
    @JsonIgnore
    public String getFIPCommittedInformationRate() {
       return FIPCommittedInformationRate;
@@ -292,6 +333,7 @@ public class QOS extends RestObject {
    public void setFIPCommittedInformationRate(String value) { 
       this.FIPCommittedInformationRate = value;
    }
+   
    
    @JsonIgnore
    public String getFIPPeakBurstSize() {
@@ -303,6 +345,7 @@ public class QOS extends RestObject {
       this.FIPPeakBurstSize = value;
    }
    
+   
    @JsonIgnore
    public String getFIPPeakInformationRate() {
       return FIPPeakInformationRate;
@@ -312,6 +355,7 @@ public class QOS extends RestObject {
    public void setFIPPeakInformationRate(String value) { 
       this.FIPPeakInformationRate = value;
    }
+   
    
    @JsonIgnore
    public Boolean getFIPRateLimitingActive() {
@@ -323,6 +367,7 @@ public class QOS extends RestObject {
       this.FIPRateLimitingActive = value;
    }
    
+   
    @JsonIgnore
    public Boolean getActive() {
       return active;
@@ -332,6 +377,7 @@ public class QOS extends RestObject {
    public void setActive(Boolean value) { 
       this.active = value;
    }
+   
    
    @JsonIgnore
    public String getAssocQosId() {
@@ -343,6 +389,7 @@ public class QOS extends RestObject {
       this.assocQosId = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedDSCPForwardingClassTableID() {
       return associatedDSCPForwardingClassTableID;
@@ -352,6 +399,7 @@ public class QOS extends RestObject {
    public void setAssociatedDSCPForwardingClassTableID(String value) { 
       this.associatedDSCPForwardingClassTableID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedDSCPForwardingClassTableName() {
@@ -363,6 +411,7 @@ public class QOS extends RestObject {
       this.associatedDSCPForwardingClassTableName = value;
    }
    
+   
    @JsonIgnore
    public String getBurst() {
       return burst;
@@ -372,6 +421,7 @@ public class QOS extends RestObject {
    public void setBurst(String value) { 
       this.burst = value;
    }
+   
    
    @JsonIgnore
    public String getCommittedBurstSize() {
@@ -383,6 +433,7 @@ public class QOS extends RestObject {
       this.committedBurstSize = value;
    }
    
+   
    @JsonIgnore
    public String getCommittedInformationRate() {
       return committedInformationRate;
@@ -392,6 +443,7 @@ public class QOS extends RestObject {
    public void setCommittedInformationRate(String value) { 
       this.committedInformationRate = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -403,6 +455,7 @@ public class QOS extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -413,15 +466,17 @@ public class QOS extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -433,6 +488,7 @@ public class QOS extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -442,6 +498,7 @@ public class QOS extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -453,6 +510,7 @@ public class QOS extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public String getPeak() {
       return peak;
@@ -462,6 +520,7 @@ public class QOS extends RestObject {
    public void setPeak(String value) { 
       this.peak = value;
    }
+   
    
    @JsonIgnore
    public Boolean getRateLimitingActive() {
@@ -473,6 +532,7 @@ public class QOS extends RestObject {
       this.rateLimitingActive = value;
    }
    
+   
    @JsonIgnore
    public Boolean getRewriteForwardingClass() {
       return rewriteForwardingClass;
@@ -483,15 +543,17 @@ public class QOS extends RestObject {
       this.rewriteForwardingClass = value;
    }
    
+   
    @JsonIgnore
-   public ServiceClass getServiceClass() {
+   public EServiceClass getServiceClass() {
       return serviceClass;
    }
 
    @JsonIgnore
-   public void setServiceClass(ServiceClass value) { 
+   public void setServiceClass(EServiceClass value) { 
       this.serviceClass = value;
    }
+   
    
    @JsonIgnore
    public Boolean getTrustedForwardingClass() {

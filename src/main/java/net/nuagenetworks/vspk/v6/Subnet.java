@@ -69,177 +69,214 @@ public class Subnet extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum DHCPRelayStatus { DISABLED, ENABLED };
-   
-   public enum DPI { DISABLED, ENABLED, INHERITED };
-   
-   public enum IPType { DUALSTACK, IPV4, IPV6 };
-   
-   public enum PATEnabled { DISABLED, ENABLED, INHERITED };
-   
-   public enum Encryption { DISABLED, ENABLED, INHERITED };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum EntityState { MARKED_FOR_DELETION, UNDER_CONSTRUCTION };
-   
-   public enum MaintenanceMode { DISABLED, ENABLED, ENABLED_INHERITED };
-   
-   public enum Multicast { DISABLED, ENABLED, INHERITED };
-   
-   public enum ResourceType { FLOATING, NSG_VNF, PUBLIC, STANDARD };
-   
-   public enum UnderlayEnabled { DISABLED, ENABLED, INHERITED };
-   
-   public enum UseGlobalMAC { DISABLED, ENABLED, ENTERPRISE_DEFAULT };
+   public enum EDHCPRelayStatus { DISABLED, ENABLED };
+   public enum EDPI { DISABLED, ENABLED, INHERITED };
+   public enum EIPType { DUALSTACK, IPV4, IPV6 };
+   public enum EPATEnabled { DISABLED, ENABLED, INHERITED };
+   public enum EEncryption { DISABLED, ENABLED, INHERITED };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityState { MARKED_FOR_DELETION, UNDER_CONSTRUCTION };
+   public enum EMaintenanceMode { DISABLED, ENABLED, ENABLED_INHERITED };
+   public enum EMulticast { DISABLED, ENABLED, INHERITED };
+   public enum EResourceType { FLOATING, NSG_VNF, PUBLIC, STANDARD };
+   public enum EUnderlayEnabled { DISABLED, ENABLED, INHERITED };
+   public enum EUseGlobalMAC { DISABLED, ENABLED, ENTERPRISE_DEFAULT };
 
    
    @JsonProperty(value = "DHCPRelayStatus")
-   protected DHCPRelayStatus DHCPRelayStatus;
+   
+   protected EDHCPRelayStatus DHCPRelayStatus;
    
    @JsonProperty(value = "DPI")
-   protected DPI DPI;
+   
+   protected EDPI DPI;
    
    @JsonProperty(value = "EVPNEnabled")
+   
    protected Boolean EVPNEnabled;
    
    @JsonProperty(value = "IPType")
-   protected IPType IPType;
+   
+   protected EIPType IPType;
    
    @JsonProperty(value = "IPv6Address")
+   
    protected String IPv6Address;
    
    @JsonProperty(value = "IPv6Gateway")
+   
    protected String IPv6Gateway;
    
    @JsonProperty(value = "PATEnabled")
-   protected PATEnabled PATEnabled;
+   
+   protected EPATEnabled PATEnabled;
    
    @JsonProperty(value = "accessRestrictionEnabled")
+   
    protected Boolean accessRestrictionEnabled;
    
    @JsonProperty(value = "address")
+   
    protected String address;
    
    @JsonProperty(value = "advertise")
+   
    protected Boolean advertise;
    
    @JsonProperty(value = "associatedMulticastChannelMapID")
+   
    protected String associatedMulticastChannelMapID;
    
    @JsonProperty(value = "associatedSharedNetworkResourceID")
+   
    protected String associatedSharedNetworkResourceID;
    
    @JsonProperty(value = "color")
+   
    protected Long color;
    
    @JsonProperty(value = "customerID")
+   
    protected Long customerID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "domainServiceLabel")
+   
    protected String domainServiceLabel;
    
    @JsonProperty(value = "dualStackDynamicIPAllocation")
+   
    protected Boolean dualStackDynamicIPAllocation;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "enableDHCPv4")
+   
    protected Boolean enableDHCPv4;
    
    @JsonProperty(value = "enableDHCPv6")
+   
    protected Boolean enableDHCPv6;
    
    @JsonProperty(value = "encryption")
-   protected Encryption encryption;
+   
+   protected EEncryption encryption;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "entityState")
-   protected EntityState entityState;
+   
+   protected EEntityState entityState;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "gateway")
+   
    protected String gateway;
    
    @JsonProperty(value = "gatewayMACAddress")
+   
    protected String gatewayMACAddress;
    
    @JsonProperty(value = "ingressReplicationEnabled")
+   
    protected Boolean ingressReplicationEnabled;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "linkLocalAddress")
+   
    protected String linkLocalAddress;
    
    @JsonProperty(value = "maintenanceMode")
-   protected MaintenanceMode maintenanceMode;
+   
+   protected EMaintenanceMode maintenanceMode;
    
    @JsonProperty(value = "multiHomeEnabled")
+   
    protected Boolean multiHomeEnabled;
    
    @JsonProperty(value = "multicast")
-   protected Multicast multicast;
+   
+   protected EMulticast multicast;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "netmask")
+   
    protected String netmask;
    
    @JsonProperty(value = "policyGroupID")
+   
    protected Long policyGroupID;
    
    @JsonProperty(value = "proxyARP")
+   
    protected Boolean proxyARP;
    
    @JsonProperty(value = "public")
+   
    protected Boolean public_;
    
    @JsonProperty(value = "resourceType")
-   protected ResourceType resourceType;
+   
+   protected EResourceType resourceType;
    
    @JsonProperty(value = "routeDistinguisher")
+   
    protected String routeDistinguisher;
    
    @JsonProperty(value = "routeTarget")
+   
    protected String routeTarget;
    
    @JsonProperty(value = "serviceID")
+   
    protected Long serviceID;
    
    @JsonProperty(value = "splitSubnet")
+   
    protected Boolean splitSubnet;
    
    @JsonProperty(value = "subnetVLANID")
+   
    protected Long subnetVLANID;
    
    @JsonProperty(value = "templateID")
+   
    protected String templateID;
    
    @JsonProperty(value = "underlay")
+   
    protected Boolean underlay;
    
    @JsonProperty(value = "underlayEnabled")
-   protected UnderlayEnabled underlayEnabled;
+   
+   protected EUnderlayEnabled underlayEnabled;
    
    @JsonProperty(value = "useGlobalMAC")
-   protected UseGlobalMAC useGlobalMAC;
+   
+   protected EUseGlobalMAC useGlobalMAC;
    
    @JsonProperty(value = "vnId")
+   
    protected Long vnId;
    
    @JsonProperty(value = "vrrpIPv6BackupAddress")
+   
    protected String vrrpIPv6BackupAddress;
    
 
@@ -384,25 +421,28 @@ public class Subnet extends RestObject {
    }
 
    
+   
    @JsonIgnore
-   public DHCPRelayStatus getDHCPRelayStatus() {
+   public EDHCPRelayStatus getDHCPRelayStatus() {
       return DHCPRelayStatus;
    }
 
    @JsonIgnore
-   public void setDHCPRelayStatus(DHCPRelayStatus value) { 
+   public void setDHCPRelayStatus(EDHCPRelayStatus value) { 
       this.DHCPRelayStatus = value;
    }
    
+   
    @JsonIgnore
-   public DPI getDPI() {
+   public EDPI getDPI() {
       return DPI;
    }
 
    @JsonIgnore
-   public void setDPI(DPI value) { 
+   public void setDPI(EDPI value) { 
       this.DPI = value;
    }
+   
    
    @JsonIgnore
    public Boolean getEVPNEnabled() {
@@ -414,15 +454,17 @@ public class Subnet extends RestObject {
       this.EVPNEnabled = value;
    }
    
+   
    @JsonIgnore
-   public IPType getIPType() {
+   public EIPType getIPType() {
       return IPType;
    }
 
    @JsonIgnore
-   public void setIPType(IPType value) { 
+   public void setIPType(EIPType value) { 
       this.IPType = value;
    }
+   
    
    @JsonIgnore
    public String getIPv6Address() {
@@ -434,6 +476,7 @@ public class Subnet extends RestObject {
       this.IPv6Address = value;
    }
    
+   
    @JsonIgnore
    public String getIPv6Gateway() {
       return IPv6Gateway;
@@ -444,15 +487,17 @@ public class Subnet extends RestObject {
       this.IPv6Gateway = value;
    }
    
+   
    @JsonIgnore
-   public PATEnabled getPATEnabled() {
+   public EPATEnabled getPATEnabled() {
       return PATEnabled;
    }
 
    @JsonIgnore
-   public void setPATEnabled(PATEnabled value) { 
+   public void setPATEnabled(EPATEnabled value) { 
       this.PATEnabled = value;
    }
+   
    
    @JsonIgnore
    public Boolean getAccessRestrictionEnabled() {
@@ -464,6 +509,7 @@ public class Subnet extends RestObject {
       this.accessRestrictionEnabled = value;
    }
    
+   
    @JsonIgnore
    public String getAddress() {
       return address;
@@ -473,6 +519,7 @@ public class Subnet extends RestObject {
    public void setAddress(String value) { 
       this.address = value;
    }
+   
    
    @JsonIgnore
    public Boolean getAdvertise() {
@@ -484,6 +531,7 @@ public class Subnet extends RestObject {
       this.advertise = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedMulticastChannelMapID() {
       return associatedMulticastChannelMapID;
@@ -493,6 +541,7 @@ public class Subnet extends RestObject {
    public void setAssociatedMulticastChannelMapID(String value) { 
       this.associatedMulticastChannelMapID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedSharedNetworkResourceID() {
@@ -504,6 +553,7 @@ public class Subnet extends RestObject {
       this.associatedSharedNetworkResourceID = value;
    }
    
+   
    @JsonIgnore
    public Long getColor() {
       return color;
@@ -513,6 +563,7 @@ public class Subnet extends RestObject {
    public void setColor(Long value) { 
       this.color = value;
    }
+   
    
    @JsonIgnore
    public Long getCustomerID() {
@@ -524,6 +575,7 @@ public class Subnet extends RestObject {
       this.customerID = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -533,6 +585,7 @@ public class Subnet extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public String getDomainServiceLabel() {
@@ -544,6 +597,7 @@ public class Subnet extends RestObject {
       this.domainServiceLabel = value;
    }
    
+   
    @JsonIgnore
    public Boolean getDualStackDynamicIPAllocation() {
       return dualStackDynamicIPAllocation;
@@ -553,6 +607,7 @@ public class Subnet extends RestObject {
    public void setDualStackDynamicIPAllocation(Boolean value) { 
       this.dualStackDynamicIPAllocation = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -564,6 +619,7 @@ public class Subnet extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
    public Boolean getEnableDHCPv4() {
       return enableDHCPv4;
@@ -573,6 +629,7 @@ public class Subnet extends RestObject {
    public void setEnableDHCPv4(Boolean value) { 
       this.enableDHCPv4 = value;
    }
+   
    
    @JsonIgnore
    public Boolean getEnableDHCPv6() {
@@ -584,35 +641,39 @@ public class Subnet extends RestObject {
       this.enableDHCPv6 = value;
    }
    
+   
    @JsonIgnore
-   public Encryption getEncryption() {
+   public EEncryption getEncryption() {
       return encryption;
    }
 
    @JsonIgnore
-   public void setEncryption(Encryption value) { 
+   public void setEncryption(EEncryption value) { 
       this.encryption = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
    
+   
    @JsonIgnore
-   public EntityState getEntityState() {
+   public EEntityState getEntityState() {
       return entityState;
    }
 
    @JsonIgnore
-   public void setEntityState(EntityState value) { 
+   public void setEntityState(EEntityState value) { 
       this.entityState = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -624,6 +685,7 @@ public class Subnet extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getGateway() {
       return gateway;
@@ -633,6 +695,7 @@ public class Subnet extends RestObject {
    public void setGateway(String value) { 
       this.gateway = value;
    }
+   
    
    @JsonIgnore
    public String getGatewayMACAddress() {
@@ -644,6 +707,7 @@ public class Subnet extends RestObject {
       this.gatewayMACAddress = value;
    }
    
+   
    @JsonIgnore
    public Boolean getIngressReplicationEnabled() {
       return ingressReplicationEnabled;
@@ -653,6 +717,7 @@ public class Subnet extends RestObject {
    public void setIngressReplicationEnabled(Boolean value) { 
       this.ingressReplicationEnabled = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -664,6 +729,7 @@ public class Subnet extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getLinkLocalAddress() {
       return linkLocalAddress;
@@ -674,15 +740,17 @@ public class Subnet extends RestObject {
       this.linkLocalAddress = value;
    }
    
+   
    @JsonIgnore
-   public MaintenanceMode getMaintenanceMode() {
+   public EMaintenanceMode getMaintenanceMode() {
       return maintenanceMode;
    }
 
    @JsonIgnore
-   public void setMaintenanceMode(MaintenanceMode value) { 
+   public void setMaintenanceMode(EMaintenanceMode value) { 
       this.maintenanceMode = value;
    }
+   
    
    @JsonIgnore
    public Boolean getMultiHomeEnabled() {
@@ -694,15 +762,17 @@ public class Subnet extends RestObject {
       this.multiHomeEnabled = value;
    }
    
+   
    @JsonIgnore
-   public Multicast getMulticast() {
+   public EMulticast getMulticast() {
       return multicast;
    }
 
    @JsonIgnore
-   public void setMulticast(Multicast value) { 
+   public void setMulticast(EMulticast value) { 
       this.multicast = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -714,6 +784,7 @@ public class Subnet extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public String getNetmask() {
       return netmask;
@@ -723,6 +794,7 @@ public class Subnet extends RestObject {
    public void setNetmask(String value) { 
       this.netmask = value;
    }
+   
    
    @JsonIgnore
    public Long getPolicyGroupID() {
@@ -734,6 +806,7 @@ public class Subnet extends RestObject {
       this.policyGroupID = value;
    }
    
+   
    @JsonIgnore
    public Boolean getProxyARP() {
       return proxyARP;
@@ -743,6 +816,7 @@ public class Subnet extends RestObject {
    public void setProxyARP(Boolean value) { 
       this.proxyARP = value;
    }
+   
    
    @JsonIgnore
    public Boolean getPublic_() {
@@ -754,15 +828,17 @@ public class Subnet extends RestObject {
       this.public_ = value;
    }
    
+   
    @JsonIgnore
-   public ResourceType getResourceType() {
+   public EResourceType getResourceType() {
       return resourceType;
    }
 
    @JsonIgnore
-   public void setResourceType(ResourceType value) { 
+   public void setResourceType(EResourceType value) { 
       this.resourceType = value;
    }
+   
    
    @JsonIgnore
    public String getRouteDistinguisher() {
@@ -774,6 +850,7 @@ public class Subnet extends RestObject {
       this.routeDistinguisher = value;
    }
    
+   
    @JsonIgnore
    public String getRouteTarget() {
       return routeTarget;
@@ -783,6 +860,7 @@ public class Subnet extends RestObject {
    public void setRouteTarget(String value) { 
       this.routeTarget = value;
    }
+   
    
    @JsonIgnore
    public Long getServiceID() {
@@ -794,6 +872,7 @@ public class Subnet extends RestObject {
       this.serviceID = value;
    }
    
+   
    @JsonIgnore
    public Boolean getSplitSubnet() {
       return splitSubnet;
@@ -803,6 +882,7 @@ public class Subnet extends RestObject {
    public void setSplitSubnet(Boolean value) { 
       this.splitSubnet = value;
    }
+   
    
    @JsonIgnore
    public Long getSubnetVLANID() {
@@ -814,6 +894,7 @@ public class Subnet extends RestObject {
       this.subnetVLANID = value;
    }
    
+   
    @JsonIgnore
    public String getTemplateID() {
       return templateID;
@@ -823,6 +904,7 @@ public class Subnet extends RestObject {
    public void setTemplateID(String value) { 
       this.templateID = value;
    }
+   
    
    @JsonIgnore
    public Boolean getUnderlay() {
@@ -834,25 +916,28 @@ public class Subnet extends RestObject {
       this.underlay = value;
    }
    
+   
    @JsonIgnore
-   public UnderlayEnabled getUnderlayEnabled() {
+   public EUnderlayEnabled getUnderlayEnabled() {
       return underlayEnabled;
    }
 
    @JsonIgnore
-   public void setUnderlayEnabled(UnderlayEnabled value) { 
+   public void setUnderlayEnabled(EUnderlayEnabled value) { 
       this.underlayEnabled = value;
    }
    
+   
    @JsonIgnore
-   public UseGlobalMAC getUseGlobalMAC() {
+   public EUseGlobalMAC getUseGlobalMAC() {
       return useGlobalMAC;
    }
 
    @JsonIgnore
-   public void setUseGlobalMAC(UseGlobalMAC value) { 
+   public void setUseGlobalMAC(EUseGlobalMAC value) { 
       this.useGlobalMAC = value;
    }
+   
    
    @JsonIgnore
    public Long getVnId() {
@@ -863,6 +948,7 @@ public class Subnet extends RestObject {
    public void setVnId(Long value) { 
       this.vnId = value;
    }
+   
    
    @JsonIgnore
    public String getVrrpIPv6BackupAddress() {

@@ -43,62 +43,79 @@ public class VRSRedeploymentpolicy extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "ALUbr0StatusRedeploymentEnabled")
+   
    protected Boolean ALUbr0StatusRedeploymentEnabled;
    
    @JsonProperty(value = "CPUUtilizationRedeploymentEnabled")
+   
    protected Boolean CPUUtilizationRedeploymentEnabled;
    
    @JsonProperty(value = "CPUUtilizationThreshold")
+   
    protected Float CPUUtilizationThreshold;
    
    @JsonProperty(value = "VRSCorrectiveActionDelay")
+   
    protected Long VRSCorrectiveActionDelay;
    
    @JsonProperty(value = "VRSProcessRedeploymentEnabled")
+   
    protected Boolean VRSProcessRedeploymentEnabled;
    
    @JsonProperty(value = "VRSVSCStatusRedeploymentEnabled")
+   
    protected Boolean VRSVSCStatusRedeploymentEnabled;
    
    @JsonProperty(value = "deploymentCountThreshold")
+   
    protected Long deploymentCountThreshold;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "jesxmonProcessRedeploymentEnabled")
+   
    protected Boolean jesxmonProcessRedeploymentEnabled;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "logDiskUtilizationRedeploymentEnabled")
+   
    protected Boolean logDiskUtilizationRedeploymentEnabled;
    
    @JsonProperty(value = "logDiskUtilizationThreshold")
+   
    protected Float logDiskUtilizationThreshold;
    
    @JsonProperty(value = "memoryUtilizationRedeploymentEnabled")
+   
    protected Boolean memoryUtilizationRedeploymentEnabled;
    
    @JsonProperty(value = "memoryUtilizationThreshold")
+   
    protected Float memoryUtilizationThreshold;
    
    @JsonProperty(value = "redeploymentDelay")
+   
    protected Long redeploymentDelay;
    
    @JsonProperty(value = "rootDiskUtilizationRedeploymentEnabled")
+   
    protected Boolean rootDiskUtilizationRedeploymentEnabled;
    
    @JsonProperty(value = "rootDiskUtilizationThreshold")
+   
    protected Float rootDiskUtilizationThreshold;
    
 
@@ -108,6 +125,7 @@ public class VRSRedeploymentpolicy extends RestObject {
       
    }
 
+   
    
    @JsonIgnore
    public Boolean getALUbr0StatusRedeploymentEnabled() {
@@ -119,6 +137,7 @@ public class VRSRedeploymentpolicy extends RestObject {
       this.ALUbr0StatusRedeploymentEnabled = value;
    }
    
+   
    @JsonIgnore
    public Boolean getCPUUtilizationRedeploymentEnabled() {
       return CPUUtilizationRedeploymentEnabled;
@@ -128,6 +147,7 @@ public class VRSRedeploymentpolicy extends RestObject {
    public void setCPUUtilizationRedeploymentEnabled(Boolean value) { 
       this.CPUUtilizationRedeploymentEnabled = value;
    }
+   
    
    @JsonIgnore
    public Float getCPUUtilizationThreshold() {
@@ -139,6 +159,7 @@ public class VRSRedeploymentpolicy extends RestObject {
       this.CPUUtilizationThreshold = value;
    }
    
+   
    @JsonIgnore
    public Long getVRSCorrectiveActionDelay() {
       return VRSCorrectiveActionDelay;
@@ -148,6 +169,7 @@ public class VRSRedeploymentpolicy extends RestObject {
    public void setVRSCorrectiveActionDelay(Long value) { 
       this.VRSCorrectiveActionDelay = value;
    }
+   
    
    @JsonIgnore
    public Boolean getVRSProcessRedeploymentEnabled() {
@@ -159,6 +181,7 @@ public class VRSRedeploymentpolicy extends RestObject {
       this.VRSProcessRedeploymentEnabled = value;
    }
    
+   
    @JsonIgnore
    public Boolean getVRSVSCStatusRedeploymentEnabled() {
       return VRSVSCStatusRedeploymentEnabled;
@@ -168,6 +191,7 @@ public class VRSRedeploymentpolicy extends RestObject {
    public void setVRSVSCStatusRedeploymentEnabled(Boolean value) { 
       this.VRSVSCStatusRedeploymentEnabled = value;
    }
+   
    
    @JsonIgnore
    public Long getDeploymentCountThreshold() {
@@ -179,15 +203,17 @@ public class VRSRedeploymentpolicy extends RestObject {
       this.deploymentCountThreshold = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -199,6 +225,7 @@ public class VRSRedeploymentpolicy extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public Boolean getJesxmonProcessRedeploymentEnabled() {
       return jesxmonProcessRedeploymentEnabled;
@@ -208,6 +235,7 @@ public class VRSRedeploymentpolicy extends RestObject {
    public void setJesxmonProcessRedeploymentEnabled(Boolean value) { 
       this.jesxmonProcessRedeploymentEnabled = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -219,6 +247,7 @@ public class VRSRedeploymentpolicy extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public Boolean getLogDiskUtilizationRedeploymentEnabled() {
       return logDiskUtilizationRedeploymentEnabled;
@@ -228,6 +257,7 @@ public class VRSRedeploymentpolicy extends RestObject {
    public void setLogDiskUtilizationRedeploymentEnabled(Boolean value) { 
       this.logDiskUtilizationRedeploymentEnabled = value;
    }
+   
    
    @JsonIgnore
    public Float getLogDiskUtilizationThreshold() {
@@ -239,6 +269,7 @@ public class VRSRedeploymentpolicy extends RestObject {
       this.logDiskUtilizationThreshold = value;
    }
    
+   
    @JsonIgnore
    public Boolean getMemoryUtilizationRedeploymentEnabled() {
       return memoryUtilizationRedeploymentEnabled;
@@ -248,6 +279,7 @@ public class VRSRedeploymentpolicy extends RestObject {
    public void setMemoryUtilizationRedeploymentEnabled(Boolean value) { 
       this.memoryUtilizationRedeploymentEnabled = value;
    }
+   
    
    @JsonIgnore
    public Float getMemoryUtilizationThreshold() {
@@ -259,6 +291,7 @@ public class VRSRedeploymentpolicy extends RestObject {
       this.memoryUtilizationThreshold = value;
    }
    
+   
    @JsonIgnore
    public Long getRedeploymentDelay() {
       return redeploymentDelay;
@@ -269,6 +302,7 @@ public class VRSRedeploymentpolicy extends RestObject {
       this.redeploymentDelay = value;
    }
    
+   
    @JsonIgnore
    public Boolean getRootDiskUtilizationRedeploymentEnabled() {
       return rootDiskUtilizationRedeploymentEnabled;
@@ -278,6 +312,7 @@ public class VRSRedeploymentpolicy extends RestObject {
    public void setRootDiskUtilizationRedeploymentEnabled(Boolean value) { 
       this.rootDiskUtilizationRedeploymentEnabled = value;
    }
+   
    
    @JsonIgnore
    public Float getRootDiskUtilizationThreshold() {

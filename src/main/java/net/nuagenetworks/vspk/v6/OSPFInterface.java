@@ -45,68 +45,82 @@ public class OSPFInterface extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum AdminState { DOWN, UP };
-   
-   public enum AuthenticationType { MESSAGE_DIGEST, NONE, PASSWORD };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum InterfaceType { BROADCAST, POINT_TO_POINT };
+   public enum EAdminState { DOWN, UP };
+   public enum EAuthenticationType { MESSAGE_DIGEST, NONE, PASSWORD };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EInterfaceType { BROADCAST, POINT_TO_POINT };
 
    
    @JsonProperty(value = "adminState")
-   protected AdminState adminState;
+   
+   protected EAdminState adminState;
    
    @JsonProperty(value = "associatedSubnetID")
+   
    protected String associatedSubnetID;
    
    @JsonProperty(value = "authenticationKey")
+   
    protected String authenticationKey;
    
    @JsonProperty(value = "authenticationType")
-   protected AuthenticationType authenticationType;
+   
+   protected EAuthenticationType authenticationType;
    
    @JsonProperty(value = "deadInterval")
+   
    protected Long deadInterval;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "helloInterval")
+   
    protected Long helloInterval;
    
    @JsonProperty(value = "interfaceType")
-   protected InterfaceType interfaceType;
+   
+   protected EInterfaceType interfaceType;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "messageDigestKeys")
+   
    protected java.util.List<String> messageDigestKeys;
    
    @JsonProperty(value = "metric")
+   
    protected Long metric;
    
    @JsonProperty(value = "mtu")
+   
    protected Long mtu;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "passiveEnabled")
+   
    protected Boolean passiveEnabled;
    
    @JsonProperty(value = "priority")
+   
    protected Long priority;
    
 
@@ -127,15 +141,17 @@ public class OSPFInterface extends RestObject {
    }
 
    
+   
    @JsonIgnore
-   public AdminState getAdminState() {
+   public EAdminState getAdminState() {
       return adminState;
    }
 
    @JsonIgnore
-   public void setAdminState(AdminState value) { 
+   public void setAdminState(EAdminState value) { 
       this.adminState = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedSubnetID() {
@@ -147,6 +163,7 @@ public class OSPFInterface extends RestObject {
       this.associatedSubnetID = value;
    }
    
+   
    @JsonIgnore
    public String getAuthenticationKey() {
       return authenticationKey;
@@ -157,15 +174,17 @@ public class OSPFInterface extends RestObject {
       this.authenticationKey = value;
    }
    
+   
    @JsonIgnore
-   public AuthenticationType getAuthenticationType() {
+   public EAuthenticationType getAuthenticationType() {
       return authenticationType;
    }
 
    @JsonIgnore
-   public void setAuthenticationType(AuthenticationType value) { 
+   public void setAuthenticationType(EAuthenticationType value) { 
       this.authenticationType = value;
    }
+   
    
    @JsonIgnore
    public Long getDeadInterval() {
@@ -177,6 +196,7 @@ public class OSPFInterface extends RestObject {
       this.deadInterval = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -186,6 +206,7 @@ public class OSPFInterface extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -197,15 +218,17 @@ public class OSPFInterface extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -217,6 +240,7 @@ public class OSPFInterface extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public Long getHelloInterval() {
       return helloInterval;
@@ -227,15 +251,17 @@ public class OSPFInterface extends RestObject {
       this.helloInterval = value;
    }
    
+   
    @JsonIgnore
-   public InterfaceType getInterfaceType() {
+   public EInterfaceType getInterfaceType() {
       return interfaceType;
    }
 
    @JsonIgnore
-   public void setInterfaceType(InterfaceType value) { 
+   public void setInterfaceType(EInterfaceType value) { 
       this.interfaceType = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -247,6 +273,7 @@ public class OSPFInterface extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<String> getMessageDigestKeys() {
       return messageDigestKeys;
@@ -256,6 +283,7 @@ public class OSPFInterface extends RestObject {
    public void setMessageDigestKeys(java.util.List<String> value) { 
       this.messageDigestKeys = value;
    }
+   
    
    @JsonIgnore
    public Long getMetric() {
@@ -267,6 +295,7 @@ public class OSPFInterface extends RestObject {
       this.metric = value;
    }
    
+   
    @JsonIgnore
    public Long getMtu() {
       return mtu;
@@ -276,6 +305,7 @@ public class OSPFInterface extends RestObject {
    public void setMtu(Long value) { 
       this.mtu = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -287,6 +317,7 @@ public class OSPFInterface extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public Boolean getPassiveEnabled() {
       return passiveEnabled;
@@ -296,6 +327,7 @@ public class OSPFInterface extends RestObject {
    public void setPassiveEnabled(Boolean value) { 
       this.passiveEnabled = value;
    }
+   
    
    @JsonIgnore
    public Long getPriority() {

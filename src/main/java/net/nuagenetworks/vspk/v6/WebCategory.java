@@ -46,37 +46,44 @@ public class WebCategory extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Type { WEB_DOMAIN_NAME };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EType { WEB_DOMAIN_NAME };
 
    
    @JsonProperty(value = "defaultCategory")
+   
    protected Boolean defaultCategory;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "type")
-   protected Type type;
+   
+   protected EType type;
    
    @JsonProperty(value = "webCategoryIdentifier")
+   
    protected Long webCategoryIdentifier;
    
 
@@ -102,6 +109,7 @@ public class WebCategory extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Boolean getDefaultCategory() {
       return defaultCategory;
@@ -111,6 +119,7 @@ public class WebCategory extends RestObject {
    public void setDefaultCategory(Boolean value) { 
       this.defaultCategory = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -122,6 +131,7 @@ public class WebCategory extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -132,15 +142,17 @@ public class WebCategory extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -152,6 +164,7 @@ public class WebCategory extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -161,6 +174,7 @@ public class WebCategory extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -172,15 +186,17 @@ public class WebCategory extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
-   public Type getType() {
+   public EType getType() {
       return type;
    }
 
    @JsonIgnore
-   public void setType(Type value) { 
+   public void setType(EType value) { 
       this.type = value;
    }
+   
    
    @JsonIgnore
    public Long getWebCategoryIdentifier() {

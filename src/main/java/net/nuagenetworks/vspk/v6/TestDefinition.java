@@ -45,35 +45,43 @@ public class TestDefinition extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "arguments")
+   
    protected String arguments;
    
    @JsonProperty(value = "command")
+   
    protected String command;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "timeout")
+   
    protected Long timeout;
    
 
@@ -94,6 +102,7 @@ public class TestDefinition extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getArguments() {
       return arguments;
@@ -103,6 +112,7 @@ public class TestDefinition extends RestObject {
    public void setArguments(String value) { 
       this.arguments = value;
    }
+   
    
    @JsonIgnore
    public String getCommand() {
@@ -114,6 +124,7 @@ public class TestDefinition extends RestObject {
       this.command = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -123,6 +134,7 @@ public class TestDefinition extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -134,15 +146,17 @@ public class TestDefinition extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -154,6 +168,7 @@ public class TestDefinition extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -164,6 +179,7 @@ public class TestDefinition extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -173,6 +189,7 @@ public class TestDefinition extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public Long getTimeout() {

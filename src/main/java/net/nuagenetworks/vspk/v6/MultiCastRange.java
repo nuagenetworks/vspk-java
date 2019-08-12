@@ -46,31 +46,36 @@ public class MultiCastRange extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum IPType { DUALSTACK, IPV4, IPV6 };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EIPType { DUALSTACK, IPV4, IPV6 };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "IPType")
-   protected IPType IPType;
+   
+   protected EIPType IPType;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "maxAddress")
+   
    protected String maxAddress;
    
    @JsonProperty(value = "minAddress")
+   
    protected String minAddress;
    
 
@@ -96,15 +101,17 @@ public class MultiCastRange extends RestObject {
    }
 
    
+   
    @JsonIgnore
-   public IPType getIPType() {
+   public EIPType getIPType() {
       return IPType;
    }
 
    @JsonIgnore
-   public void setIPType(IPType value) { 
+   public void setIPType(EIPType value) { 
       this.IPType = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -116,15 +123,17 @@ public class MultiCastRange extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -136,6 +145,7 @@ public class MultiCastRange extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -146,6 +156,7 @@ public class MultiCastRange extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getMaxAddress() {
       return maxAddress;
@@ -155,6 +166,7 @@ public class MultiCastRange extends RestObject {
    public void setMaxAddress(String value) { 
       this.maxAddress = value;
    }
+   
    
    @JsonIgnore
    public String getMinAddress() {

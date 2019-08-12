@@ -45,38 +45,45 @@ public class DemarcationService extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Type { BR_PORT, GATEWAY };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EType { BR_PORT, GATEWAY };
 
    
    @JsonProperty(value = "associatedGatewayID")
+   
    protected String associatedGatewayID;
    
    @JsonProperty(value = "associatedVLANID")
+   
    protected String associatedVLANID;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "priority")
+   
    protected Long priority;
    
    @JsonProperty(value = "routeDistinguisher")
+   
    protected String routeDistinguisher;
    
    @JsonProperty(value = "type")
-   protected Type type;
+   
+   protected EType type;
    
 
    
@@ -96,6 +103,7 @@ public class DemarcationService extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAssociatedGatewayID() {
       return associatedGatewayID;
@@ -105,6 +113,7 @@ public class DemarcationService extends RestObject {
    public void setAssociatedGatewayID(String value) { 
       this.associatedGatewayID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedVLANID() {
@@ -116,6 +125,7 @@ public class DemarcationService extends RestObject {
       this.associatedVLANID = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -126,15 +136,17 @@ public class DemarcationService extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -146,6 +158,7 @@ public class DemarcationService extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -155,6 +168,7 @@ public class DemarcationService extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public Long getPriority() {
@@ -166,6 +180,7 @@ public class DemarcationService extends RestObject {
       this.priority = value;
    }
    
+   
    @JsonIgnore
    public String getRouteDistinguisher() {
       return routeDistinguisher;
@@ -176,13 +191,14 @@ public class DemarcationService extends RestObject {
       this.routeDistinguisher = value;
    }
    
+   
    @JsonIgnore
-   public Type getType() {
+   public EType getType() {
       return type;
    }
 
    @JsonIgnore
-   public void setType(Type value) { 
+   public void setType(EType value) { 
       this.type = value;
    }
    

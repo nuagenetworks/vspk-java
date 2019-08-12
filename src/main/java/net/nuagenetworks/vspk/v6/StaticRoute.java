@@ -47,58 +47,70 @@ public class StaticRoute extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum IPType { IPV4, IPV6 };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Type { EXIT_DOMAIN, NETCONF, OVERLAY, OVERLAY_ADDRESS_TRANSLATION };
+   public enum EIPType { IPV4, IPV6 };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EType { EXIT_DOMAIN, NETCONF, OVERLAY, OVERLAY_ADDRESS_TRANSLATION };
 
    
    @JsonProperty(value = "BFDEnabled")
+   
    protected Boolean BFDEnabled;
    
    @JsonProperty(value = "IPType")
-   protected IPType IPType;
+   
+   protected EIPType IPType;
    
    @JsonProperty(value = "IPv6Address")
+   
    protected String IPv6Address;
    
    @JsonProperty(value = "address")
+   
    protected String address;
    
    @JsonProperty(value = "associatedGatewayIDs")
+   
    protected java.util.List<String> associatedGatewayIDs;
    
    @JsonProperty(value = "associatedSubnetID")
+   
    protected String associatedSubnetID;
    
    @JsonProperty(value = "blackHoleEnabled")
+   
    protected Boolean blackHoleEnabled;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "netmask")
+   
    protected String netmask;
    
    @JsonProperty(value = "nextHopIp")
+   
    protected String nextHopIp;
    
    @JsonProperty(value = "routeDistinguisher")
+   
    protected String routeDistinguisher;
    
    @JsonProperty(value = "type")
-   protected Type type;
+   
+   protected EType type;
    
 
    
@@ -128,6 +140,7 @@ public class StaticRoute extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Boolean getBFDEnabled() {
       return BFDEnabled;
@@ -138,15 +151,17 @@ public class StaticRoute extends RestObject {
       this.BFDEnabled = value;
    }
    
+   
    @JsonIgnore
-   public IPType getIPType() {
+   public EIPType getIPType() {
       return IPType;
    }
 
    @JsonIgnore
-   public void setIPType(IPType value) { 
+   public void setIPType(EIPType value) { 
       this.IPType = value;
    }
+   
    
    @JsonIgnore
    public String getIPv6Address() {
@@ -158,6 +173,7 @@ public class StaticRoute extends RestObject {
       this.IPv6Address = value;
    }
    
+   
    @JsonIgnore
    public String getAddress() {
       return address;
@@ -167,6 +183,7 @@ public class StaticRoute extends RestObject {
    public void setAddress(String value) { 
       this.address = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<String> getAssociatedGatewayIDs() {
@@ -178,6 +195,7 @@ public class StaticRoute extends RestObject {
       this.associatedGatewayIDs = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedSubnetID() {
       return associatedSubnetID;
@@ -187,6 +205,7 @@ public class StaticRoute extends RestObject {
    public void setAssociatedSubnetID(String value) { 
       this.associatedSubnetID = value;
    }
+   
    
    @JsonIgnore
    public Boolean getBlackHoleEnabled() {
@@ -198,6 +217,7 @@ public class StaticRoute extends RestObject {
       this.blackHoleEnabled = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -208,15 +228,17 @@ public class StaticRoute extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -228,6 +250,7 @@ public class StaticRoute extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -237,6 +260,7 @@ public class StaticRoute extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getNetmask() {
@@ -248,6 +272,7 @@ public class StaticRoute extends RestObject {
       this.netmask = value;
    }
    
+   
    @JsonIgnore
    public String getNextHopIp() {
       return nextHopIp;
@@ -257,6 +282,7 @@ public class StaticRoute extends RestObject {
    public void setNextHopIp(String value) { 
       this.nextHopIp = value;
    }
+   
    
    @JsonIgnore
    public String getRouteDistinguisher() {
@@ -268,13 +294,14 @@ public class StaticRoute extends RestObject {
       this.routeDistinguisher = value;
    }
    
+   
    @JsonIgnore
-   public Type getType() {
+   public EType getType() {
       return type;
    }
 
    @JsonIgnore
-   public void setType(Type value) { 
+   public void setType(EType value) { 
       this.type = value;
    }
    

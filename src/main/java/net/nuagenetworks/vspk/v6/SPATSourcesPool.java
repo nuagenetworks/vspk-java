@@ -45,31 +45,36 @@ public class SPATSourcesPool extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Family { IPV4 };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EFamily { IPV4 };
 
    
    @JsonProperty(value = "addressList")
+   
    protected java.util.List<String> addressList;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "family")
-   protected Family family;
+   
+   protected EFamily family;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
 
@@ -90,6 +95,7 @@ public class SPATSourcesPool extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public java.util.List<String> getAddressList() {
       return addressList;
@@ -99,6 +105,7 @@ public class SPATSourcesPool extends RestObject {
    public void setAddressList(java.util.List<String> value) { 
       this.addressList = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -110,15 +117,17 @@ public class SPATSourcesPool extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -130,15 +139,17 @@ public class SPATSourcesPool extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
-   public Family getFamily() {
+   public EFamily getFamily() {
       return family;
    }
 
    @JsonIgnore
-   public void setFamily(Family value) { 
+   public void setFamily(EFamily value) { 
       this.family = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -149,6 +160,7 @@ public class SPATSourcesPool extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {

@@ -46,67 +46,82 @@ public class VirtualFirewallPolicy extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum PolicyState { DRAFT, LIVE };
-   
-   public enum PriorityType { BOTTOM, TOP };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EPolicyState { DRAFT, LIVE };
+   public enum EPriorityType { BOTTOM, TOP };
 
    
    @JsonProperty(value = "active")
+   
    protected Boolean active;
    
    @JsonProperty(value = "allowAddressSpoof")
+   
    protected Boolean allowAddressSpoof;
    
    @JsonProperty(value = "associatedEgressTemplateID")
+   
    protected String associatedEgressTemplateID;
    
    @JsonProperty(value = "associatedIngressTemplateID")
+   
    protected String associatedIngressTemplateID;
    
    @JsonProperty(value = "associatedLiveEntityID")
+   
    protected String associatedLiveEntityID;
    
    @JsonProperty(value = "autoGeneratePriority")
+   
    protected Boolean autoGeneratePriority;
    
    @JsonProperty(value = "defaultAllowIP")
+   
    protected Boolean defaultAllowIP;
    
    @JsonProperty(value = "defaultAllowNonIP")
+   
    protected Boolean defaultAllowNonIP;
    
    @JsonProperty(value = "defaultInstallACLImplicitRules")
+   
    protected Boolean defaultInstallACLImplicitRules;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "policyState")
-   protected PolicyState policyState;
+   
+   protected EPolicyState policyState;
    
    @JsonProperty(value = "priority")
+   
    protected Long priority;
    
    @JsonProperty(value = "priorityType")
-   protected PriorityType priorityType;
+   
+   protected EPriorityType priorityType;
    
 
    
@@ -131,6 +146,7 @@ public class VirtualFirewallPolicy extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Boolean getActive() {
       return active;
@@ -140,6 +156,7 @@ public class VirtualFirewallPolicy extends RestObject {
    public void setActive(Boolean value) { 
       this.active = value;
    }
+   
    
    @JsonIgnore
    public Boolean getAllowAddressSpoof() {
@@ -151,6 +168,7 @@ public class VirtualFirewallPolicy extends RestObject {
       this.allowAddressSpoof = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedEgressTemplateID() {
       return associatedEgressTemplateID;
@@ -160,6 +178,7 @@ public class VirtualFirewallPolicy extends RestObject {
    public void setAssociatedEgressTemplateID(String value) { 
       this.associatedEgressTemplateID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedIngressTemplateID() {
@@ -171,6 +190,7 @@ public class VirtualFirewallPolicy extends RestObject {
       this.associatedIngressTemplateID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedLiveEntityID() {
       return associatedLiveEntityID;
@@ -180,6 +200,7 @@ public class VirtualFirewallPolicy extends RestObject {
    public void setAssociatedLiveEntityID(String value) { 
       this.associatedLiveEntityID = value;
    }
+   
    
    @JsonIgnore
    public Boolean getAutoGeneratePriority() {
@@ -191,6 +212,7 @@ public class VirtualFirewallPolicy extends RestObject {
       this.autoGeneratePriority = value;
    }
    
+   
    @JsonIgnore
    public Boolean getDefaultAllowIP() {
       return defaultAllowIP;
@@ -200,6 +222,7 @@ public class VirtualFirewallPolicy extends RestObject {
    public void setDefaultAllowIP(Boolean value) { 
       this.defaultAllowIP = value;
    }
+   
    
    @JsonIgnore
    public Boolean getDefaultAllowNonIP() {
@@ -211,6 +234,7 @@ public class VirtualFirewallPolicy extends RestObject {
       this.defaultAllowNonIP = value;
    }
    
+   
    @JsonIgnore
    public Boolean getDefaultInstallACLImplicitRules() {
       return defaultInstallACLImplicitRules;
@@ -220,6 +244,7 @@ public class VirtualFirewallPolicy extends RestObject {
    public void setDefaultInstallACLImplicitRules(Boolean value) { 
       this.defaultInstallACLImplicitRules = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -231,6 +256,7 @@ public class VirtualFirewallPolicy extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -241,15 +267,17 @@ public class VirtualFirewallPolicy extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -261,6 +289,7 @@ public class VirtualFirewallPolicy extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -270,6 +299,7 @@ public class VirtualFirewallPolicy extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -281,15 +311,17 @@ public class VirtualFirewallPolicy extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
-   public PolicyState getPolicyState() {
+   public EPolicyState getPolicyState() {
       return policyState;
    }
 
    @JsonIgnore
-   public void setPolicyState(PolicyState value) { 
+   public void setPolicyState(EPolicyState value) { 
       this.policyState = value;
    }
+   
    
    @JsonIgnore
    public Long getPriority() {
@@ -301,13 +333,14 @@ public class VirtualFirewallPolicy extends RestObject {
       this.priority = value;
    }
    
+   
    @JsonIgnore
-   public PriorityType getPriorityType() {
+   public EPriorityType getPriorityType() {
       return priorityType;
    }
 
    @JsonIgnore
-   public void setPriorityType(PriorityType value) { 
+   public void setPriorityType(EPriorityType value) { 
       this.priorityType = value;
    }
    

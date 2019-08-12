@@ -46,40 +46,48 @@ public class OverlayAddressPool extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum IPType { IPV4, IPV6, DUALSTACK };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EIPType { IPV4, IPV6, DUALSTACK };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "IPType")
-   protected IPType IPType;
+   
+   protected EIPType IPType;
    
    @JsonProperty(value = "associatedDomainID")
+   
    protected String associatedDomainID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "endAddressRange")
+   
    protected String endAddressRange;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "startAddressRange")
+   
    protected String startAddressRange;
    
 
@@ -105,15 +113,17 @@ public class OverlayAddressPool extends RestObject {
    }
 
    
+   
    @JsonIgnore
-   public IPType getIPType() {
+   public EIPType getIPType() {
       return IPType;
    }
 
    @JsonIgnore
-   public void setIPType(IPType value) { 
+   public void setIPType(EIPType value) { 
       this.IPType = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedDomainID() {
@@ -125,6 +135,7 @@ public class OverlayAddressPool extends RestObject {
       this.associatedDomainID = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -134,6 +145,7 @@ public class OverlayAddressPool extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -145,6 +157,7 @@ public class OverlayAddressPool extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
    public String getEndAddressRange() {
       return endAddressRange;
@@ -155,15 +168,17 @@ public class OverlayAddressPool extends RestObject {
       this.endAddressRange = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -175,6 +190,7 @@ public class OverlayAddressPool extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -185,6 +201,7 @@ public class OverlayAddressPool extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -194,6 +211,7 @@ public class OverlayAddressPool extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public String getStartAddressRange() {

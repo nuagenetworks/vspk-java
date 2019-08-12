@@ -45,34 +45,40 @@ public class StatsCollectorInfo extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum AddressType { fqdn, ip };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EAddressType { fqdn, ip };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "addressType")
-   protected AddressType addressType;
+   
+   protected EAddressType addressType;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "ipAddress")
+   
    protected String ipAddress;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "port")
+   
    protected String port;
    
    @JsonProperty(value = "protoBufPort")
+   
    protected String protoBufPort;
    
 
@@ -93,15 +99,17 @@ public class StatsCollectorInfo extends RestObject {
    }
 
    
+   
    @JsonIgnore
-   public AddressType getAddressType() {
+   public EAddressType getAddressType() {
       return addressType;
    }
 
    @JsonIgnore
-   public void setAddressType(AddressType value) { 
+   public void setAddressType(EAddressType value) { 
       this.addressType = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -113,15 +121,17 @@ public class StatsCollectorInfo extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -133,6 +143,7 @@ public class StatsCollectorInfo extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getIpAddress() {
       return ipAddress;
@@ -142,6 +153,7 @@ public class StatsCollectorInfo extends RestObject {
    public void setIpAddress(String value) { 
       this.ipAddress = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -153,6 +165,7 @@ public class StatsCollectorInfo extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getPort() {
       return port;
@@ -162,6 +175,7 @@ public class StatsCollectorInfo extends RestObject {
    public void setPort(String value) { 
       this.port = value;
    }
+   
    
    @JsonIgnore
    public String getProtoBufPort() {

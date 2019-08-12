@@ -56,97 +56,119 @@ public class VLAN extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum AssociatedConnectionType { BR_CONNECTION, UPLINK_CONNECTION };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
-   
-   public enum Status { INITIALIZED, MISMATCH, ORPHAN, READY };
-   
-   public enum Type { ACCESS, BR, DUC, UPLINK };
+   public enum EAssociatedConnectionType { BR_CONNECTION, UPLINK_CONNECTION };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EPermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
+   public enum EStatus { INITIALIZED, MISMATCH, ORPHAN, READY };
+   public enum EType { ACCESS, BR, DUC, UPLINK };
 
    
    @JsonProperty(value = "associatedBGPProfileID")
+   
    protected String associatedBGPProfileID;
    
    @JsonProperty(value = "associatedConnectionType")
-   protected AssociatedConnectionType associatedConnectionType;
+   
+   protected EAssociatedConnectionType associatedConnectionType;
    
    @JsonProperty(value = "associatedEgressQOSPolicyID")
+   
    protected String associatedEgressQOSPolicyID;
    
    @JsonProperty(value = "associatedIngressOverlayQoSPolicerID")
+   
    protected String associatedIngressOverlayQoSPolicerID;
    
    @JsonProperty(value = "associatedIngressQOSPolicyID")
+   
    protected String associatedIngressQOSPolicyID;
    
    @JsonProperty(value = "associatedIngressUnderlayQoSPolicerID")
+   
    protected String associatedIngressUnderlayQoSPolicerID;
    
    @JsonProperty(value = "associatedUplinkConnectionID")
+   
    protected String associatedUplinkConnectionID;
    
    @JsonProperty(value = "associatedVSCProfileID")
+   
    protected String associatedVSCProfileID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "ducVlan")
+   
    protected Boolean ducVlan;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "gatewayID")
+   
    protected String gatewayID;
    
    @JsonProperty(value = "isUplink")
+   
    protected Boolean isUplink;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "permittedAction")
-   protected PermittedAction permittedAction;
+   
+   protected EPermittedAction permittedAction;
    
    @JsonProperty(value = "readonly")
+   
    protected Boolean readonly;
    
    @JsonProperty(value = "restricted")
+   
    protected Boolean restricted;
    
    @JsonProperty(value = "shuntVLAN")
+   
    protected Boolean shuntVLAN;
    
    @JsonProperty(value = "status")
-   protected Status status;
+   
+   protected EStatus status;
    
    @JsonProperty(value = "templateID")
+   
    protected String templateID;
    
    @JsonProperty(value = "type")
-   protected Type type;
+   
+   protected EType type;
    
    @JsonProperty(value = "useUserMnemonic")
+   
    protected Boolean useUserMnemonic;
    
    @JsonProperty(value = "userMnemonic")
+   
    protected String userMnemonic;
    
    @JsonProperty(value = "value")
+   
    protected Long value;
    
    @JsonProperty(value = "vportID")
+   
    protected String vportID;
    
 
@@ -222,6 +244,7 @@ public class VLAN extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAssociatedBGPProfileID() {
       return associatedBGPProfileID;
@@ -232,15 +255,17 @@ public class VLAN extends RestObject {
       this.associatedBGPProfileID = value;
    }
    
+   
    @JsonIgnore
-   public AssociatedConnectionType getAssociatedConnectionType() {
+   public EAssociatedConnectionType getAssociatedConnectionType() {
       return associatedConnectionType;
    }
 
    @JsonIgnore
-   public void setAssociatedConnectionType(AssociatedConnectionType value) { 
+   public void setAssociatedConnectionType(EAssociatedConnectionType value) { 
       this.associatedConnectionType = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedEgressQOSPolicyID() {
@@ -252,6 +277,7 @@ public class VLAN extends RestObject {
       this.associatedEgressQOSPolicyID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedIngressOverlayQoSPolicerID() {
       return associatedIngressOverlayQoSPolicerID;
@@ -261,6 +287,7 @@ public class VLAN extends RestObject {
    public void setAssociatedIngressOverlayQoSPolicerID(String value) { 
       this.associatedIngressOverlayQoSPolicerID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedIngressQOSPolicyID() {
@@ -272,6 +299,7 @@ public class VLAN extends RestObject {
       this.associatedIngressQOSPolicyID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedIngressUnderlayQoSPolicerID() {
       return associatedIngressUnderlayQoSPolicerID;
@@ -281,6 +309,7 @@ public class VLAN extends RestObject {
    public void setAssociatedIngressUnderlayQoSPolicerID(String value) { 
       this.associatedIngressUnderlayQoSPolicerID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedUplinkConnectionID() {
@@ -292,6 +321,7 @@ public class VLAN extends RestObject {
       this.associatedUplinkConnectionID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedVSCProfileID() {
       return associatedVSCProfileID;
@@ -301,6 +331,7 @@ public class VLAN extends RestObject {
    public void setAssociatedVSCProfileID(String value) { 
       this.associatedVSCProfileID = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -312,6 +343,7 @@ public class VLAN extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public Boolean getDucVlan() {
       return ducVlan;
@@ -321,6 +353,7 @@ public class VLAN extends RestObject {
    public void setDucVlan(Boolean value) { 
       this.ducVlan = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -332,15 +365,17 @@ public class VLAN extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -352,6 +387,7 @@ public class VLAN extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getGatewayID() {
       return gatewayID;
@@ -361,6 +397,7 @@ public class VLAN extends RestObject {
    public void setGatewayID(String value) { 
       this.gatewayID = value;
    }
+   
    
    @JsonIgnore
    public Boolean getIsUplink() {
@@ -372,6 +409,7 @@ public class VLAN extends RestObject {
       this.isUplink = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -382,15 +420,17 @@ public class VLAN extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
-   public PermittedAction getPermittedAction() {
+   public EPermittedAction getPermittedAction() {
       return permittedAction;
    }
 
    @JsonIgnore
-   public void setPermittedAction(PermittedAction value) { 
+   public void setPermittedAction(EPermittedAction value) { 
       this.permittedAction = value;
    }
+   
    
    @JsonIgnore
    public Boolean getReadonly() {
@@ -402,6 +442,7 @@ public class VLAN extends RestObject {
       this.readonly = value;
    }
    
+   
    @JsonIgnore
    public Boolean getRestricted() {
       return restricted;
@@ -411,6 +452,7 @@ public class VLAN extends RestObject {
    public void setRestricted(Boolean value) { 
       this.restricted = value;
    }
+   
    
    @JsonIgnore
    public Boolean getShuntVLAN() {
@@ -422,15 +464,17 @@ public class VLAN extends RestObject {
       this.shuntVLAN = value;
    }
    
+   
    @JsonIgnore
-   public Status getStatus() {
+   public EStatus getStatus() {
       return status;
    }
 
    @JsonIgnore
-   public void setStatus(Status value) { 
+   public void setStatus(EStatus value) { 
       this.status = value;
    }
+   
    
    @JsonIgnore
    public String getTemplateID() {
@@ -442,15 +486,17 @@ public class VLAN extends RestObject {
       this.templateID = value;
    }
    
+   
    @JsonIgnore
-   public Type getType() {
+   public EType getType() {
       return type;
    }
 
    @JsonIgnore
-   public void setType(Type value) { 
+   public void setType(EType value) { 
       this.type = value;
    }
+   
    
    @JsonIgnore
    public Boolean getUseUserMnemonic() {
@@ -462,6 +508,7 @@ public class VLAN extends RestObject {
       this.useUserMnemonic = value;
    }
    
+   
    @JsonIgnore
    public String getUserMnemonic() {
       return userMnemonic;
@@ -472,6 +519,7 @@ public class VLAN extends RestObject {
       this.userMnemonic = value;
    }
    
+   
    @JsonIgnore
    public Long getValue() {
       return value;
@@ -481,6 +529,7 @@ public class VLAN extends RestObject {
    public void setValue(Long value) { 
       this.value = value;
    }
+   
    
    @JsonIgnore
    public String getVportID() {

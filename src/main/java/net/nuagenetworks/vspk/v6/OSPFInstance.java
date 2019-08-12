@@ -46,47 +46,59 @@ public class OSPFInstance extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "associatedExportRoutingPolicyID")
+   
    protected String associatedExportRoutingPolicyID;
    
    @JsonProperty(value = "associatedImportRoutingPolicyID")
+   
    protected String associatedImportRoutingPolicyID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "exportLimit")
+   
    protected Long exportLimit;
    
    @JsonProperty(value = "exportToOverlay")
+   
    protected Boolean exportToOverlay;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "externalPreference")
+   
    protected Long externalPreference;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "preference")
+   
    protected Long preference;
    
    @JsonProperty(value = "superBackboneEnabled")
+   
    protected Boolean superBackboneEnabled;
    
 
@@ -112,6 +124,7 @@ public class OSPFInstance extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAssociatedExportRoutingPolicyID() {
       return associatedExportRoutingPolicyID;
@@ -121,6 +134,7 @@ public class OSPFInstance extends RestObject {
    public void setAssociatedExportRoutingPolicyID(String value) { 
       this.associatedExportRoutingPolicyID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedImportRoutingPolicyID() {
@@ -132,6 +146,7 @@ public class OSPFInstance extends RestObject {
       this.associatedImportRoutingPolicyID = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -141,6 +156,7 @@ public class OSPFInstance extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -152,15 +168,17 @@ public class OSPFInstance extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public Long getExportLimit() {
@@ -172,6 +190,7 @@ public class OSPFInstance extends RestObject {
       this.exportLimit = value;
    }
    
+   
    @JsonIgnore
    public Boolean getExportToOverlay() {
       return exportToOverlay;
@@ -181,6 +200,7 @@ public class OSPFInstance extends RestObject {
    public void setExportToOverlay(Boolean value) { 
       this.exportToOverlay = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -192,6 +212,7 @@ public class OSPFInstance extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public Long getExternalPreference() {
       return externalPreference;
@@ -201,6 +222,7 @@ public class OSPFInstance extends RestObject {
    public void setExternalPreference(Long value) { 
       this.externalPreference = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -212,6 +234,7 @@ public class OSPFInstance extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -222,6 +245,7 @@ public class OSPFInstance extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public Long getPreference() {
       return preference;
@@ -231,6 +255,7 @@ public class OSPFInstance extends RestObject {
    public void setPreference(Long value) { 
       this.preference = value;
    }
+   
    
    @JsonIgnore
    public Boolean getSuperBackboneEnabled() {

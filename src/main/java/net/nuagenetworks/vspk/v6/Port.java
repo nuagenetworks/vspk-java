@@ -50,65 +50,78 @@ public class Port extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
-   
-   public enum PortType { ACCESS, MANAGEMENT, NETWORK };
-   
-   public enum Status { INITIALIZED, MISMATCH, ORPHAN, READY };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EPermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
+   public enum EPortType { ACCESS, MANAGEMENT, NETWORK };
+   public enum EStatus { INITIALIZED, MISMATCH, ORPHAN, READY };
 
    
    @JsonProperty(value = "VLANRange")
+   
    protected String VLANRange;
    
    @JsonProperty(value = "associatedEgressQOSPolicyID")
+   
    protected String associatedEgressQOSPolicyID;
    
    @JsonProperty(value = "associatedRedundantPortID")
+   
    protected String associatedRedundantPortID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "isResilient")
+   
    protected Boolean isResilient;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "permittedAction")
-   protected PermittedAction permittedAction;
+   
+   protected EPermittedAction permittedAction;
    
    @JsonProperty(value = "physicalName")
+   
    protected String physicalName;
    
    @JsonProperty(value = "portType")
-   protected PortType portType;
+   
+   protected EPortType portType;
    
    @JsonProperty(value = "status")
-   protected Status status;
+   
+   protected EStatus status;
    
    @JsonProperty(value = "templateID")
+   
    protected String templateID;
    
    @JsonProperty(value = "useUserMnemonic")
+   
    protected Boolean useUserMnemonic;
    
    @JsonProperty(value = "userMnemonic")
+   
    protected String userMnemonic;
    
 
@@ -154,6 +167,7 @@ public class Port extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getVLANRange() {
       return VLANRange;
@@ -163,6 +177,7 @@ public class Port extends RestObject {
    public void setVLANRange(String value) { 
       this.VLANRange = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedEgressQOSPolicyID() {
@@ -174,6 +189,7 @@ public class Port extends RestObject {
       this.associatedEgressQOSPolicyID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedRedundantPortID() {
       return associatedRedundantPortID;
@@ -183,6 +199,7 @@ public class Port extends RestObject {
    public void setAssociatedRedundantPortID(String value) { 
       this.associatedRedundantPortID = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -194,6 +211,7 @@ public class Port extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -204,15 +222,17 @@ public class Port extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -224,6 +244,7 @@ public class Port extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public Boolean getIsResilient() {
       return isResilient;
@@ -233,6 +254,7 @@ public class Port extends RestObject {
    public void setIsResilient(Boolean value) { 
       this.isResilient = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -244,6 +266,7 @@ public class Port extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -254,15 +277,17 @@ public class Port extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
-   public PermittedAction getPermittedAction() {
+   public EPermittedAction getPermittedAction() {
       return permittedAction;
    }
 
    @JsonIgnore
-   public void setPermittedAction(PermittedAction value) { 
+   public void setPermittedAction(EPermittedAction value) { 
       this.permittedAction = value;
    }
+   
    
    @JsonIgnore
    public String getPhysicalName() {
@@ -274,25 +299,28 @@ public class Port extends RestObject {
       this.physicalName = value;
    }
    
+   
    @JsonIgnore
-   public PortType getPortType() {
+   public EPortType getPortType() {
       return portType;
    }
 
    @JsonIgnore
-   public void setPortType(PortType value) { 
+   public void setPortType(EPortType value) { 
       this.portType = value;
    }
    
+   
    @JsonIgnore
-   public Status getStatus() {
+   public EStatus getStatus() {
       return status;
    }
 
    @JsonIgnore
-   public void setStatus(Status value) { 
+   public void setStatus(EStatus value) { 
       this.status = value;
    }
+   
    
    @JsonIgnore
    public String getTemplateID() {
@@ -304,6 +332,7 @@ public class Port extends RestObject {
       this.templateID = value;
    }
    
+   
    @JsonIgnore
    public Boolean getUseUserMnemonic() {
       return useUserMnemonic;
@@ -313,6 +342,7 @@ public class Port extends RestObject {
    public void setUseUserMnemonic(Boolean value) { 
       this.useUserMnemonic = value;
    }
+   
    
    @JsonIgnore
    public String getUserMnemonic() {

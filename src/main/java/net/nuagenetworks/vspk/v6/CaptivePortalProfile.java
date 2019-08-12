@@ -43,32 +43,37 @@ public class CaptivePortalProfile extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum PortalType { CLICK_THROUGH };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EPortalType { CLICK_THROUGH };
 
    
    @JsonProperty(value = "captivePage")
+   
    protected String captivePage;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "portalType")
-   protected PortalType portalType;
+   
+   protected EPortalType portalType;
    
 
    
@@ -77,6 +82,7 @@ public class CaptivePortalProfile extends RestObject {
       
    }
 
+   
    
    @JsonIgnore
    public String getCaptivePage() {
@@ -88,6 +94,7 @@ public class CaptivePortalProfile extends RestObject {
       this.captivePage = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -98,15 +105,17 @@ public class CaptivePortalProfile extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -118,6 +127,7 @@ public class CaptivePortalProfile extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -127,6 +137,7 @@ public class CaptivePortalProfile extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -138,13 +149,14 @@ public class CaptivePortalProfile extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
-   public PortalType getPortalType() {
+   public EPortalType getPortalType() {
       return portalType;
    }
 
    @JsonIgnore
-   public void setPortalType(PortalType value) { 
+   public void setPortalType(EPortalType value) { 
       this.portalType = value;
    }
    

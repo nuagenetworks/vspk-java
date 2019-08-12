@@ -45,40 +45,48 @@ public class EnterpriseSecuredData extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum SeedType { STANDARD, DR };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum ESeedType { STANDARD, DR };
 
    
    @JsonProperty(value = "data")
+   
    protected String data;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "hash")
+   
    protected String hash;
    
    @JsonProperty(value = "keyserverCertSerialNumber")
+   
    protected String keyserverCertSerialNumber;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "seedType")
-   protected SeedType seedType;
+   
+   protected ESeedType seedType;
    
    @JsonProperty(value = "sekId")
+   
    protected Long sekId;
    
    @JsonProperty(value = "signedHash")
+   
    protected String signedHash;
    
 
@@ -99,6 +107,7 @@ public class EnterpriseSecuredData extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getData() {
       return data;
@@ -108,6 +117,7 @@ public class EnterpriseSecuredData extends RestObject {
    public void setData(String value) { 
       this.data = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -119,15 +129,17 @@ public class EnterpriseSecuredData extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -139,6 +151,7 @@ public class EnterpriseSecuredData extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getHash() {
       return hash;
@@ -148,6 +161,7 @@ public class EnterpriseSecuredData extends RestObject {
    public void setHash(String value) { 
       this.hash = value;
    }
+   
    
    @JsonIgnore
    public String getKeyserverCertSerialNumber() {
@@ -159,6 +173,7 @@ public class EnterpriseSecuredData extends RestObject {
       this.keyserverCertSerialNumber = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -169,15 +184,17 @@ public class EnterpriseSecuredData extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
-   public SeedType getSeedType() {
+   public ESeedType getSeedType() {
       return seedType;
    }
 
    @JsonIgnore
-   public void setSeedType(SeedType value) { 
+   public void setSeedType(ESeedType value) { 
       this.seedType = value;
    }
+   
    
    @JsonIgnore
    public Long getSekId() {
@@ -188,6 +205,7 @@ public class EnterpriseSecuredData extends RestObject {
    public void setSekId(Long value) { 
       this.sekId = value;
    }
+   
    
    @JsonIgnore
    public String getSignedHash() {

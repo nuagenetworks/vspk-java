@@ -45,62 +45,79 @@ public class LDAPConfiguration extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "SSLEnabled")
+   
    protected Boolean SSLEnabled;
    
    @JsonProperty(value = "acceptAllCertificates")
+   
    protected Boolean acceptAllCertificates;
    
    @JsonProperty(value = "authorizationEnabled")
+   
    protected Boolean authorizationEnabled;
    
    @JsonProperty(value = "authorizingUserDN")
+   
    protected String authorizingUserDN;
    
    @JsonProperty(value = "certificate")
+   
    protected String certificate;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "enabled")
+   
    protected Boolean enabled;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "groupDN")
+   
    protected String groupDN;
    
    @JsonProperty(value = "groupNamePrefix")
+   
    protected String groupNamePrefix;
    
    @JsonProperty(value = "groupNameSuffix")
+   
    protected String groupNameSuffix;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "password")
+   
    protected String password;
    
    @JsonProperty(value = "port")
+   
    protected String port;
    
    @JsonProperty(value = "server")
+   
    protected String server;
    
    @JsonProperty(value = "userDNTemplate")
+   
    protected String userDNTemplate;
    
    @JsonProperty(value = "userNameAttribute")
+   
    protected String userNameAttribute;
    
 
@@ -121,6 +138,7 @@ public class LDAPConfiguration extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Boolean getSSLEnabled() {
       return SSLEnabled;
@@ -130,6 +148,7 @@ public class LDAPConfiguration extends RestObject {
    public void setSSLEnabled(Boolean value) { 
       this.SSLEnabled = value;
    }
+   
    
    @JsonIgnore
    public Boolean getAcceptAllCertificates() {
@@ -141,6 +160,7 @@ public class LDAPConfiguration extends RestObject {
       this.acceptAllCertificates = value;
    }
    
+   
    @JsonIgnore
    public Boolean getAuthorizationEnabled() {
       return authorizationEnabled;
@@ -150,6 +170,7 @@ public class LDAPConfiguration extends RestObject {
    public void setAuthorizationEnabled(Boolean value) { 
       this.authorizationEnabled = value;
    }
+   
    
    @JsonIgnore
    public String getAuthorizingUserDN() {
@@ -161,6 +182,7 @@ public class LDAPConfiguration extends RestObject {
       this.authorizingUserDN = value;
    }
    
+   
    @JsonIgnore
    public String getCertificate() {
       return certificate;
@@ -170,6 +192,7 @@ public class LDAPConfiguration extends RestObject {
    public void setCertificate(String value) { 
       this.certificate = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -181,6 +204,7 @@ public class LDAPConfiguration extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
    public Boolean getEnabled() {
       return enabled;
@@ -191,15 +215,17 @@ public class LDAPConfiguration extends RestObject {
       this.enabled = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -211,6 +237,7 @@ public class LDAPConfiguration extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getGroupDN() {
       return groupDN;
@@ -220,6 +247,7 @@ public class LDAPConfiguration extends RestObject {
    public void setGroupDN(String value) { 
       this.groupDN = value;
    }
+   
    
    @JsonIgnore
    public String getGroupNamePrefix() {
@@ -231,6 +259,7 @@ public class LDAPConfiguration extends RestObject {
       this.groupNamePrefix = value;
    }
    
+   
    @JsonIgnore
    public String getGroupNameSuffix() {
       return groupNameSuffix;
@@ -240,6 +269,7 @@ public class LDAPConfiguration extends RestObject {
    public void setGroupNameSuffix(String value) { 
       this.groupNameSuffix = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -251,6 +281,7 @@ public class LDAPConfiguration extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getPassword() {
       return password;
@@ -260,6 +291,7 @@ public class LDAPConfiguration extends RestObject {
    public void setPassword(String value) { 
       this.password = value;
    }
+   
    
    @JsonIgnore
    public String getPort() {
@@ -271,6 +303,7 @@ public class LDAPConfiguration extends RestObject {
       this.port = value;
    }
    
+   
    @JsonIgnore
    public String getServer() {
       return server;
@@ -281,6 +314,7 @@ public class LDAPConfiguration extends RestObject {
       this.server = value;
    }
    
+   
    @JsonIgnore
    public String getUserDNTemplate() {
       return userDNTemplate;
@@ -290,6 +324,7 @@ public class LDAPConfiguration extends RestObject {
    public void setUserDNTemplate(String value) { 
       this.userDNTemplate = value;
    }
+   
    
    @JsonIgnore
    public String getUserNameAttribute() {

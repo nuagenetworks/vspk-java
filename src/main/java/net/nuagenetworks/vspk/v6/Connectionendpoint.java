@@ -45,42 +45,49 @@ public class Connectionendpoint extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum IPType { IPV4, IPV6 };
-   
-   public enum EndPointType { SOURCE };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EIPType { IPV4, IPV6 };
+   public enum EEndPointType { SOURCE };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "IPAddress")
+   
    protected String IPAddress;
    
    @JsonProperty(value = "IPType")
-   protected IPType IPType;
+   
+   protected EIPType IPType;
    
    @JsonProperty(value = "IPv6Address")
+   
    protected String IPv6Address;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "endPointType")
-   protected EndPointType endPointType;
+   
+   protected EEndPointType endPointType;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
 
@@ -101,6 +108,7 @@ public class Connectionendpoint extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getIPAddress() {
       return IPAddress;
@@ -111,15 +119,17 @@ public class Connectionendpoint extends RestObject {
       this.IPAddress = value;
    }
    
+   
    @JsonIgnore
-   public IPType getIPType() {
+   public EIPType getIPType() {
       return IPType;
    }
 
    @JsonIgnore
-   public void setIPType(IPType value) { 
+   public void setIPType(EIPType value) { 
       this.IPType = value;
    }
+   
    
    @JsonIgnore
    public String getIPv6Address() {
@@ -131,6 +141,7 @@ public class Connectionendpoint extends RestObject {
       this.IPv6Address = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -140,6 +151,7 @@ public class Connectionendpoint extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -151,25 +163,28 @@ public class Connectionendpoint extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EndPointType getEndPointType() {
+   public EEndPointType getEndPointType() {
       return endPointType;
    }
 
    @JsonIgnore
-   public void setEndPointType(EndPointType value) { 
+   public void setEndPointType(EEndPointType value) { 
       this.endPointType = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -181,6 +196,7 @@ public class Connectionendpoint extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -190,6 +206,7 @@ public class Connectionendpoint extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {

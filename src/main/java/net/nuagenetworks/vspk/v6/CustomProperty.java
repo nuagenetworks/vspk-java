@@ -45,26 +45,31 @@ public class CustomProperty extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "attributeName")
+   
    protected String attributeName;
    
    @JsonProperty(value = "attributeValue")
+   
    protected String attributeValue;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
 
@@ -85,6 +90,7 @@ public class CustomProperty extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAttributeName() {
       return attributeName;
@@ -94,6 +100,7 @@ public class CustomProperty extends RestObject {
    public void setAttributeName(String value) { 
       this.attributeName = value;
    }
+   
    
    @JsonIgnore
    public String getAttributeValue() {
@@ -105,6 +112,7 @@ public class CustomProperty extends RestObject {
       this.attributeValue = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -115,15 +123,17 @@ public class CustomProperty extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -134,6 +144,7 @@ public class CustomProperty extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {

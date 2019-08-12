@@ -45,104 +45,130 @@ public class InfrastructureGatewayProfile extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum ControllerLessForwardingMode { DISABLED, LOCAL_AND_REMOTE, LOCAL_ONLY };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum RemoteLogMode { DISABLED, RSYSLOG };
-   
-   public enum UpgradeAction { DOWNLOAD_AND_UPGRADE_AT_WINDOW, DOWNLOAD_AND_UPGRADE_NOW, DOWNLOAD_ONLY, NONE, UPGRADE_AT_BOOTSTRAPPING, UPGRADE_NOW };
+   public enum EControllerLessForwardingMode { DISABLED, LOCAL_AND_REMOTE, LOCAL_ONLY };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum ERemoteLogMode { DISABLED, RSYSLOG };
+   public enum EUpgradeAction { DOWNLOAD_AND_UPGRADE_AT_WINDOW, DOWNLOAD_AND_UPGRADE_NOW, DOWNLOAD_ONLY, NONE, UPGRADE_AT_BOOTSTRAPPING, UPGRADE_NOW };
 
    
    @JsonProperty(value = "NTPServerKey")
+   
    protected String NTPServerKey;
    
    @JsonProperty(value = "NTPServerKeyID")
+   
    protected Long NTPServerKeyID;
    
    @JsonProperty(value = "controllerLessDuration")
+   
    protected String controllerLessDuration;
    
    @JsonProperty(value = "controllerLessEnabled")
+   
    protected Boolean controllerLessEnabled;
    
    @JsonProperty(value = "controllerLessForwardingMode")
-   protected ControllerLessForwardingMode controllerLessForwardingMode;
+   
+   protected EControllerLessForwardingMode controllerLessForwardingMode;
    
    @JsonProperty(value = "controllerLessRemoteDuration")
+   
    protected String controllerLessRemoteDuration;
    
    @JsonProperty(value = "datapathSyncTimeout")
+   
    protected Long datapathSyncTimeout;
    
    @JsonProperty(value = "deadTimer")
+   
    protected String deadTimer;
    
    @JsonProperty(value = "deadTimerEnabled")
+   
    protected Boolean deadTimerEnabled;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "enterpriseID")
+   
    protected String enterpriseID;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "flowEvictionThreshold")
+   
    protected Long flowEvictionThreshold;
    
    @JsonProperty(value = "forceImmediateSystemSync")
+   
    protected Boolean forceImmediateSystemSync;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "metadataUpgradePath")
+   
    protected String metadataUpgradePath;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "openFlowAuditTimer")
+   
    protected Long openFlowAuditTimer;
    
    @JsonProperty(value = "proxyDNSName")
+   
    protected String proxyDNSName;
    
    @JsonProperty(value = "remoteLogMode")
-   protected RemoteLogMode remoteLogMode;
+   
+   protected ERemoteLogMode remoteLogMode;
    
    @JsonProperty(value = "remoteLogServerAddress")
+   
    protected String remoteLogServerAddress;
    
    @JsonProperty(value = "remoteLogServerPort")
+   
    protected Long remoteLogServerPort;
    
    @JsonProperty(value = "statsCollectorPort")
+   
    protected Long statsCollectorPort;
    
    @JsonProperty(value = "systemSyncScheduler")
+   
    protected String systemSyncScheduler;
    
    @JsonProperty(value = "upgradeAction")
-   protected UpgradeAction upgradeAction;
+   
+   protected EUpgradeAction upgradeAction;
    
    @JsonProperty(value = "useTwoFactor")
+   
    protected Boolean useTwoFactor;
    
    @JsonProperty(value = "webFilterDownloadPort")
+   
    protected Long webFilterDownloadPort;
    
    @JsonProperty(value = "webFilterQueryPort")
+   
    protected Long webFilterQueryPort;
    
 
@@ -169,6 +195,7 @@ public class InfrastructureGatewayProfile extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getNTPServerKey() {
       return NTPServerKey;
@@ -178,6 +205,7 @@ public class InfrastructureGatewayProfile extends RestObject {
    public void setNTPServerKey(String value) { 
       this.NTPServerKey = value;
    }
+   
    
    @JsonIgnore
    public Long getNTPServerKeyID() {
@@ -189,6 +217,7 @@ public class InfrastructureGatewayProfile extends RestObject {
       this.NTPServerKeyID = value;
    }
    
+   
    @JsonIgnore
    public String getControllerLessDuration() {
       return controllerLessDuration;
@@ -198,6 +227,7 @@ public class InfrastructureGatewayProfile extends RestObject {
    public void setControllerLessDuration(String value) { 
       this.controllerLessDuration = value;
    }
+   
    
    @JsonIgnore
    public Boolean getControllerLessEnabled() {
@@ -209,15 +239,17 @@ public class InfrastructureGatewayProfile extends RestObject {
       this.controllerLessEnabled = value;
    }
    
+   
    @JsonIgnore
-   public ControllerLessForwardingMode getControllerLessForwardingMode() {
+   public EControllerLessForwardingMode getControllerLessForwardingMode() {
       return controllerLessForwardingMode;
    }
 
    @JsonIgnore
-   public void setControllerLessForwardingMode(ControllerLessForwardingMode value) { 
+   public void setControllerLessForwardingMode(EControllerLessForwardingMode value) { 
       this.controllerLessForwardingMode = value;
    }
+   
    
    @JsonIgnore
    public String getControllerLessRemoteDuration() {
@@ -229,6 +261,7 @@ public class InfrastructureGatewayProfile extends RestObject {
       this.controllerLessRemoteDuration = value;
    }
    
+   
    @JsonIgnore
    public Long getDatapathSyncTimeout() {
       return datapathSyncTimeout;
@@ -238,6 +271,7 @@ public class InfrastructureGatewayProfile extends RestObject {
    public void setDatapathSyncTimeout(Long value) { 
       this.datapathSyncTimeout = value;
    }
+   
    
    @JsonIgnore
    public String getDeadTimer() {
@@ -249,6 +283,7 @@ public class InfrastructureGatewayProfile extends RestObject {
       this.deadTimer = value;
    }
    
+   
    @JsonIgnore
    public Boolean getDeadTimerEnabled() {
       return deadTimerEnabled;
@@ -258,6 +293,7 @@ public class InfrastructureGatewayProfile extends RestObject {
    public void setDeadTimerEnabled(Boolean value) { 
       this.deadTimerEnabled = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -269,6 +305,7 @@ public class InfrastructureGatewayProfile extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -278,6 +315,7 @@ public class InfrastructureGatewayProfile extends RestObject {
    public void setEmbeddedMetadata(java.util.List<Metadata> value) { 
       this.embeddedMetadata = value;
    }
+   
    
    @JsonIgnore
    public String getEnterpriseID() {
@@ -289,15 +327,17 @@ public class InfrastructureGatewayProfile extends RestObject {
       this.enterpriseID = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -309,6 +349,7 @@ public class InfrastructureGatewayProfile extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public Long getFlowEvictionThreshold() {
       return flowEvictionThreshold;
@@ -318,6 +359,7 @@ public class InfrastructureGatewayProfile extends RestObject {
    public void setFlowEvictionThreshold(Long value) { 
       this.flowEvictionThreshold = value;
    }
+   
    
    @JsonIgnore
    public Boolean getForceImmediateSystemSync() {
@@ -329,6 +371,7 @@ public class InfrastructureGatewayProfile extends RestObject {
       this.forceImmediateSystemSync = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -338,6 +381,7 @@ public class InfrastructureGatewayProfile extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getMetadataUpgradePath() {
@@ -349,6 +393,7 @@ public class InfrastructureGatewayProfile extends RestObject {
       this.metadataUpgradePath = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -358,6 +403,7 @@ public class InfrastructureGatewayProfile extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public Long getOpenFlowAuditTimer() {
@@ -369,6 +415,7 @@ public class InfrastructureGatewayProfile extends RestObject {
       this.openFlowAuditTimer = value;
    }
    
+   
    @JsonIgnore
    public String getProxyDNSName() {
       return proxyDNSName;
@@ -379,15 +426,17 @@ public class InfrastructureGatewayProfile extends RestObject {
       this.proxyDNSName = value;
    }
    
+   
    @JsonIgnore
-   public RemoteLogMode getRemoteLogMode() {
+   public ERemoteLogMode getRemoteLogMode() {
       return remoteLogMode;
    }
 
    @JsonIgnore
-   public void setRemoteLogMode(RemoteLogMode value) { 
+   public void setRemoteLogMode(ERemoteLogMode value) { 
       this.remoteLogMode = value;
    }
+   
    
    @JsonIgnore
    public String getRemoteLogServerAddress() {
@@ -399,6 +448,7 @@ public class InfrastructureGatewayProfile extends RestObject {
       this.remoteLogServerAddress = value;
    }
    
+   
    @JsonIgnore
    public Long getRemoteLogServerPort() {
       return remoteLogServerPort;
@@ -408,6 +458,7 @@ public class InfrastructureGatewayProfile extends RestObject {
    public void setRemoteLogServerPort(Long value) { 
       this.remoteLogServerPort = value;
    }
+   
    
    @JsonIgnore
    public Long getStatsCollectorPort() {
@@ -419,6 +470,7 @@ public class InfrastructureGatewayProfile extends RestObject {
       this.statsCollectorPort = value;
    }
    
+   
    @JsonIgnore
    public String getSystemSyncScheduler() {
       return systemSyncScheduler;
@@ -429,15 +481,17 @@ public class InfrastructureGatewayProfile extends RestObject {
       this.systemSyncScheduler = value;
    }
    
+   
    @JsonIgnore
-   public UpgradeAction getUpgradeAction() {
+   public EUpgradeAction getUpgradeAction() {
       return upgradeAction;
    }
 
    @JsonIgnore
-   public void setUpgradeAction(UpgradeAction value) { 
+   public void setUpgradeAction(EUpgradeAction value) { 
       this.upgradeAction = value;
    }
+   
    
    @JsonIgnore
    public Boolean getUseTwoFactor() {
@@ -449,6 +503,7 @@ public class InfrastructureGatewayProfile extends RestObject {
       this.useTwoFactor = value;
    }
    
+   
    @JsonIgnore
    public Long getWebFilterDownloadPort() {
       return webFilterDownloadPort;
@@ -458,6 +513,7 @@ public class InfrastructureGatewayProfile extends RestObject {
    public void setWebFilterDownloadPort(Long value) { 
       this.webFilterDownloadPort = value;
    }
+   
    
    @JsonIgnore
    public Long getWebFilterQueryPort() {

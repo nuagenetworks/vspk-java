@@ -45,42 +45,47 @@ public class RoutingPolicy extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum ContentType { DEFAULT, NETCONF_7X50 };
-   
-   public enum DefaultAction { ACCEPT, REJECT };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum RoutingProtocol { BGP, ISIS, OSPFv2, OSPFv3, ROUTING };
+   public enum EContentType { DEFAULT, NETCONF_7X50 };
+   public enum EDefaultAction { ACCEPT, REJECT };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum ERoutingProtocol { BGP, ISIS, OSPFv2, OSPFv3, ROUTING };
 
    
    @JsonProperty(value = "contentType")
-   protected ContentType contentType;
+   
+   protected EContentType contentType;
    
    @JsonProperty(value = "defaultAction")
-   protected DefaultAction defaultAction;
+   
+   protected EDefaultAction defaultAction;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "policyDefinition")
+   
    protected String policyDefinition;
    
    @JsonProperty(value = "routingProtocol")
-   protected RoutingProtocol routingProtocol;
+   
+   protected ERoutingProtocol routingProtocol;
    
 
    
@@ -100,25 +105,28 @@ public class RoutingPolicy extends RestObject {
    }
 
    
+   
    @JsonIgnore
-   public ContentType getContentType() {
+   public EContentType getContentType() {
       return contentType;
    }
 
    @JsonIgnore
-   public void setContentType(ContentType value) { 
+   public void setContentType(EContentType value) { 
       this.contentType = value;
    }
    
+   
    @JsonIgnore
-   public DefaultAction getDefaultAction() {
+   public EDefaultAction getDefaultAction() {
       return defaultAction;
    }
 
    @JsonIgnore
-   public void setDefaultAction(DefaultAction value) { 
+   public void setDefaultAction(EDefaultAction value) { 
       this.defaultAction = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -130,6 +138,7 @@ public class RoutingPolicy extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -140,15 +149,17 @@ public class RoutingPolicy extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -160,6 +171,7 @@ public class RoutingPolicy extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -169,6 +181,7 @@ public class RoutingPolicy extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public String getPolicyDefinition() {
@@ -180,13 +193,14 @@ public class RoutingPolicy extends RestObject {
       this.policyDefinition = value;
    }
    
+   
    @JsonIgnore
-   public RoutingProtocol getRoutingProtocol() {
+   public ERoutingProtocol getRoutingProtocol() {
       return routingProtocol;
    }
 
    @JsonIgnore
-   public void setRoutingProtocol(RoutingProtocol value) { 
+   public void setRoutingProtocol(ERoutingProtocol value) { 
       this.routingProtocol = value;
    }
    

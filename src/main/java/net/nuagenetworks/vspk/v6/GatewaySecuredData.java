@@ -45,35 +45,43 @@ public class GatewaySecuredData extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "associatedEnterpriseID")
+   
    protected String associatedEnterpriseID;
    
    @JsonProperty(value = "data")
+   
    protected String data;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "gatewayCertSerialNumber")
+   
    protected String gatewayCertSerialNumber;
    
    @JsonProperty(value = "keyserverCertSerialNumber")
+   
    protected String keyserverCertSerialNumber;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "signedData")
+   
    protected String signedData;
    
 
@@ -94,6 +102,7 @@ public class GatewaySecuredData extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAssociatedEnterpriseID() {
       return associatedEnterpriseID;
@@ -103,6 +112,7 @@ public class GatewaySecuredData extends RestObject {
    public void setAssociatedEnterpriseID(String value) { 
       this.associatedEnterpriseID = value;
    }
+   
    
    @JsonIgnore
    public String getData() {
@@ -114,6 +124,7 @@ public class GatewaySecuredData extends RestObject {
       this.data = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -124,15 +135,17 @@ public class GatewaySecuredData extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -144,6 +157,7 @@ public class GatewaySecuredData extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getGatewayCertSerialNumber() {
       return gatewayCertSerialNumber;
@@ -153,6 +167,7 @@ public class GatewaySecuredData extends RestObject {
    public void setGatewayCertSerialNumber(String value) { 
       this.gatewayCertSerialNumber = value;
    }
+   
    
    @JsonIgnore
    public String getKeyserverCertSerialNumber() {
@@ -164,6 +179,7 @@ public class GatewaySecuredData extends RestObject {
       this.keyserverCertSerialNumber = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -173,6 +189,7 @@ public class GatewaySecuredData extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getSignedData() {

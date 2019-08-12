@@ -43,23 +43,27 @@ public class PortMapping extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "privatePort")
+   
    protected String privatePort;
    
    @JsonProperty(value = "publicPort")
+   
    protected String publicPort;
    
 
@@ -70,15 +74,17 @@ public class PortMapping extends RestObject {
    }
 
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -90,6 +96,7 @@ public class PortMapping extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -100,6 +107,7 @@ public class PortMapping extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getPrivatePort() {
       return privatePort;
@@ -109,6 +117,7 @@ public class PortMapping extends RestObject {
    public void setPrivatePort(String value) { 
       this.privatePort = value;
    }
+   
    
    @JsonIgnore
    public String getPublicPort() {

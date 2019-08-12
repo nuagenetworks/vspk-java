@@ -45,32 +45,39 @@ public class PolicyEntry extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "actions")
+   
    protected Object actions;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "matchCriteria")
+   
    protected Object matchCriteria;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
 
@@ -91,6 +98,7 @@ public class PolicyEntry extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Object getActions() {
       return actions;
@@ -100,6 +108,7 @@ public class PolicyEntry extends RestObject {
    public void setActions(Object value) { 
       this.actions = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -111,6 +120,7 @@ public class PolicyEntry extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -121,15 +131,17 @@ public class PolicyEntry extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -141,6 +153,7 @@ public class PolicyEntry extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -151,6 +164,7 @@ public class PolicyEntry extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public Object getMatchCriteria() {
       return matchCriteria;
@@ -160,6 +174,7 @@ public class PolicyEntry extends RestObject {
    public void setMatchCriteria(Object value) { 
       this.matchCriteria = value;
    }
+   
    
    @JsonIgnore
    public String getName() {

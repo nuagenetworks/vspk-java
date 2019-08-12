@@ -48,55 +48,66 @@ public class PolicyGroup extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum EntityState { MARKED_FOR_DELETION, UNDER_CONSTRUCTION };
-   
-   public enum Type { HARDWARE, SOFTWARE };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityState { MARKED_FOR_DELETION, UNDER_CONSTRUCTION };
+   public enum EType { HARDWARE, SOFTWARE };
 
    
    @JsonProperty(value = "EVPNCommunityTag")
+   
    protected String EVPNCommunityTag;
    
    @JsonProperty(value = "assocPolicyGroupCategoryID")
+   
    protected String assocPolicyGroupCategoryID;
    
    @JsonProperty(value = "assocPolicyGroupCategoryName")
+   
    protected String assocPolicyGroupCategoryName;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "entityState")
-   protected EntityState entityState;
+   
+   protected EEntityState entityState;
    
    @JsonProperty(value = "external")
+   
    protected Boolean external;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "policyGroupID")
+   
    protected Long policyGroupID;
    
    @JsonProperty(value = "templateID")
+   
    protected String templateID;
    
    @JsonProperty(value = "type")
-   protected Type type;
+   
+   protected EType type;
    
 
    
@@ -132,6 +143,7 @@ public class PolicyGroup extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getEVPNCommunityTag() {
       return EVPNCommunityTag;
@@ -141,6 +153,7 @@ public class PolicyGroup extends RestObject {
    public void setEVPNCommunityTag(String value) { 
       this.EVPNCommunityTag = value;
    }
+   
    
    @JsonIgnore
    public String getAssocPolicyGroupCategoryID() {
@@ -152,6 +165,7 @@ public class PolicyGroup extends RestObject {
       this.assocPolicyGroupCategoryID = value;
    }
    
+   
    @JsonIgnore
    public String getAssocPolicyGroupCategoryName() {
       return assocPolicyGroupCategoryName;
@@ -161,6 +175,7 @@ public class PolicyGroup extends RestObject {
    public void setAssocPolicyGroupCategoryName(String value) { 
       this.assocPolicyGroupCategoryName = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -172,6 +187,7 @@ public class PolicyGroup extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -182,25 +198,28 @@ public class PolicyGroup extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
    
+   
    @JsonIgnore
-   public EntityState getEntityState() {
+   public EEntityState getEntityState() {
       return entityState;
    }
 
    @JsonIgnore
-   public void setEntityState(EntityState value) { 
+   public void setEntityState(EEntityState value) { 
       this.entityState = value;
    }
+   
    
    @JsonIgnore
    public Boolean getExternal() {
@@ -212,6 +231,7 @@ public class PolicyGroup extends RestObject {
       this.external = value;
    }
    
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -221,6 +241,7 @@ public class PolicyGroup extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -232,6 +253,7 @@ public class PolicyGroup extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -241,6 +263,7 @@ public class PolicyGroup extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public Long getPolicyGroupID() {
@@ -252,6 +275,7 @@ public class PolicyGroup extends RestObject {
       this.policyGroupID = value;
    }
    
+   
    @JsonIgnore
    public String getTemplateID() {
       return templateID;
@@ -262,13 +286,14 @@ public class PolicyGroup extends RestObject {
       this.templateID = value;
    }
    
+   
    @JsonIgnore
-   public Type getType() {
+   public EType getType() {
       return type;
    }
 
    @JsonIgnore
-   public void setType(Type value) { 
+   public void setType(EType value) { 
       this.type = value;
    }
    

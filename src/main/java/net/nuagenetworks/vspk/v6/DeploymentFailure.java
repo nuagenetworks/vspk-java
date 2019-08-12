@@ -45,64 +45,80 @@ public class DeploymentFailure extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum EventType { CREATE, DELETE, UPDATE };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EEventType { CREATE, DELETE, UPDATE };
 
    
    @JsonProperty(value = "affectedEntityID")
+   
    protected String affectedEntityID;
    
    @JsonProperty(value = "affectedEntityType")
+   
    protected String affectedEntityType;
    
    @JsonProperty(value = "assocEntityId")
+   
    protected String assocEntityId;
    
    @JsonProperty(value = "assocEntityType")
+   
    protected String assocEntityType;
    
    @JsonProperty(value = "associatedDomainID")
+   
    protected String associatedDomainID;
    
    @JsonProperty(value = "associatedDomainType")
+   
    protected String associatedDomainType;
    
    @JsonProperty(value = "associatedNetworkEntityID")
+   
    protected String associatedNetworkEntityID;
    
    @JsonProperty(value = "associatedNetworkEntityType")
+   
    protected String associatedNetworkEntityType;
    
    @JsonProperty(value = "diffMap")
+   
    protected String diffMap;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "errorCondition")
+   
    protected Long errorCondition;
    
    @JsonProperty(value = "eventType")
-   protected EventType eventType;
+   
+   protected EEventType eventType;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastFailureReason")
+   
    protected String lastFailureReason;
    
    @JsonProperty(value = "lastKnownError")
+   
    protected String lastKnownError;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "numberOfOccurences")
+   
    protected Long numberOfOccurences;
    
 
@@ -123,6 +139,7 @@ public class DeploymentFailure extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAffectedEntityID() {
       return affectedEntityID;
@@ -132,6 +149,7 @@ public class DeploymentFailure extends RestObject {
    public void setAffectedEntityID(String value) { 
       this.affectedEntityID = value;
    }
+   
    
    @JsonIgnore
    public String getAffectedEntityType() {
@@ -143,6 +161,7 @@ public class DeploymentFailure extends RestObject {
       this.affectedEntityType = value;
    }
    
+   
    @JsonIgnore
    public String getAssocEntityId() {
       return assocEntityId;
@@ -152,6 +171,7 @@ public class DeploymentFailure extends RestObject {
    public void setAssocEntityId(String value) { 
       this.assocEntityId = value;
    }
+   
    
    @JsonIgnore
    public String getAssocEntityType() {
@@ -163,6 +183,7 @@ public class DeploymentFailure extends RestObject {
       this.assocEntityType = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedDomainID() {
       return associatedDomainID;
@@ -172,6 +193,7 @@ public class DeploymentFailure extends RestObject {
    public void setAssociatedDomainID(String value) { 
       this.associatedDomainID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedDomainType() {
@@ -183,6 +205,7 @@ public class DeploymentFailure extends RestObject {
       this.associatedDomainType = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedNetworkEntityID() {
       return associatedNetworkEntityID;
@@ -192,6 +215,7 @@ public class DeploymentFailure extends RestObject {
    public void setAssociatedNetworkEntityID(String value) { 
       this.associatedNetworkEntityID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedNetworkEntityType() {
@@ -203,6 +227,7 @@ public class DeploymentFailure extends RestObject {
       this.associatedNetworkEntityType = value;
    }
    
+   
    @JsonIgnore
    public String getDiffMap() {
       return diffMap;
@@ -212,6 +237,7 @@ public class DeploymentFailure extends RestObject {
    public void setDiffMap(String value) { 
       this.diffMap = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -223,15 +249,17 @@ public class DeploymentFailure extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public Long getErrorCondition() {
@@ -243,15 +271,17 @@ public class DeploymentFailure extends RestObject {
       this.errorCondition = value;
    }
    
+   
    @JsonIgnore
-   public EventType getEventType() {
+   public EEventType getEventType() {
       return eventType;
    }
 
    @JsonIgnore
-   public void setEventType(EventType value) { 
+   public void setEventType(EEventType value) { 
       this.eventType = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -263,6 +293,7 @@ public class DeploymentFailure extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastFailureReason() {
       return lastFailureReason;
@@ -272,6 +303,7 @@ public class DeploymentFailure extends RestObject {
    public void setLastFailureReason(String value) { 
       this.lastFailureReason = value;
    }
+   
    
    @JsonIgnore
    public String getLastKnownError() {
@@ -283,6 +315,7 @@ public class DeploymentFailure extends RestObject {
       this.lastKnownError = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -292,6 +325,7 @@ public class DeploymentFailure extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public Long getNumberOfOccurences() {

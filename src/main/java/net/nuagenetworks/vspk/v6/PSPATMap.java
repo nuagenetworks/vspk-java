@@ -45,34 +45,40 @@ public class PSPATMap extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Family { DUALSTACK, IPV4, IPV6 };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EFamily { DUALSTACK, IPV4, IPV6 };
 
    
    @JsonProperty(value = "associatedSPATSourcesPoolID")
+   
    protected String associatedSPATSourcesPoolID;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "family")
-   protected Family family;
+   
+   protected EFamily family;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "reservedSPATIPs")
+   
    protected java.util.List<String> reservedSPATIPs;
    
 
@@ -93,6 +99,7 @@ public class PSPATMap extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAssociatedSPATSourcesPoolID() {
       return associatedSPATSourcesPoolID;
@@ -102,6 +109,7 @@ public class PSPATMap extends RestObject {
    public void setAssociatedSPATSourcesPoolID(String value) { 
       this.associatedSPATSourcesPoolID = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -113,15 +121,17 @@ public class PSPATMap extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -133,15 +143,17 @@ public class PSPATMap extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
-   public Family getFamily() {
+   public EFamily getFamily() {
       return family;
    }
 
    @JsonIgnore
-   public void setFamily(Family value) { 
+   public void setFamily(EFamily value) { 
       this.family = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -153,6 +165,7 @@ public class PSPATMap extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -162,6 +175,7 @@ public class PSPATMap extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<String> getReservedSPATIPs() {

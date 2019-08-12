@@ -45,138 +45,172 @@ public class AllGateway extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum ZFBMatchAttribute { HOSTNAME, IP_ADDRESS, MAC_ADDRESS, NONE, NSGATEWAY_ID, SERIAL_NUMBER, UUID };
-   
-   public enum BootstrapStatus { ACTIVE, CERTIFICATE_SIGNED, INACTIVE, NOTIFICATION_APP_REQ_ACK, NOTIFICATION_APP_REQ_SENT };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Family { ANY, NSG_AMI, NSG_AZ, NSG_C, NSG_DOCKER, NSG_E, NSG_E200, NSG_E300, NSG_V, NSG_X, NSG_X200, VRS };
-   
-   public enum PermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
-   
-   public enum Personality { DC7X50, EVDF, EVDFB, HARDWARE_VTEP, NETCONF_7X50, NETCONF_THIRDPARTY_HW_VTEP, NSG, NSGBR, NSGDUC, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, OTHER, VDFG, VRSB, VRSG, VSA, VSG };
+   public enum EZFBMatchAttribute { HOSTNAME, IP_ADDRESS, MAC_ADDRESS, NONE, NSGATEWAY_ID, SERIAL_NUMBER, UUID };
+   public enum EBootstrapStatus { ACTIVE, CERTIFICATE_SIGNED, INACTIVE, NOTIFICATION_APP_REQ_ACK, NOTIFICATION_APP_REQ_SENT };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EFamily { ANY, NSG_AMI, NSG_AZ, NSG_C, NSG_DOCKER, NSG_E, NSG_E200, NSG_E300, NSG_V, NSG_X, NSG_X200, VRS };
+   public enum EPermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
+   public enum EPersonality { DC7X50, EVDF, EVDFB, HARDWARE_VTEP, NETCONF_7X50, NETCONF_THIRDPARTY_HW_VTEP, NSG, NSGBR, NSGDUC, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, OTHER, VDFG, VRSB, VRSG, VSA, VSG };
 
    
    @JsonProperty(value = "BIOSReleaseDate")
+   
    protected String BIOSReleaseDate;
    
    @JsonProperty(value = "BIOSVersion")
+   
    protected String BIOSVersion;
    
    @JsonProperty(value = "CPUType")
+   
    protected String CPUType;
    
    @JsonProperty(value = "MACAddress")
+   
    protected String MACAddress;
    
    @JsonProperty(value = "UUID")
+   
    protected String UUID;
    
    @JsonProperty(value = "ZFBMatchAttribute")
-   protected ZFBMatchAttribute ZFBMatchAttribute;
+   
+   protected EZFBMatchAttribute ZFBMatchAttribute;
    
    @JsonProperty(value = "ZFBMatchValue")
+   
    protected String ZFBMatchValue;
    
    @JsonProperty(value = "associatedGatewaySecurityID")
+   
    protected String associatedGatewaySecurityID;
    
    @JsonProperty(value = "associatedGatewaySecurityProfileID")
+   
    protected String associatedGatewaySecurityProfileID;
    
    @JsonProperty(value = "associatedNSGInfoID")
+   
    protected String associatedNSGInfoID;
    
    @JsonProperty(value = "associatedNetconfProfileID")
+   
    protected String associatedNetconfProfileID;
    
    @JsonProperty(value = "autoDiscGatewayID")
+   
    protected String autoDiscGatewayID;
    
    @JsonProperty(value = "bootstrapID")
+   
    protected String bootstrapID;
    
    @JsonProperty(value = "bootstrapStatus")
-   protected BootstrapStatus bootstrapStatus;
+   
+   protected EBootstrapStatus bootstrapStatus;
    
    @JsonProperty(value = "datapathID")
+   
    protected String datapathID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "enterpriseID")
+   
    protected String enterpriseID;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "family")
-   protected Family family;
+   
+   protected EFamily family;
    
    @JsonProperty(value = "gatewayConnected")
+   
    protected Boolean gatewayConnected;
    
    @JsonProperty(value = "gatewayVersion")
+   
    protected String gatewayVersion;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "libraries")
+   
    protected String libraries;
    
    @JsonProperty(value = "locationID")
+   
    protected String locationID;
    
    @JsonProperty(value = "managementID")
+   
    protected String managementID;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "patches")
+   
    protected String patches;
    
    @JsonProperty(value = "peer")
+   
    protected String peer;
    
    @JsonProperty(value = "pending")
+   
    protected Boolean pending;
    
    @JsonProperty(value = "permittedAction")
-   protected PermittedAction permittedAction;
+   
+   protected EPermittedAction permittedAction;
    
    @JsonProperty(value = "personality")
-   protected Personality personality;
+   
+   protected EPersonality personality;
    
    @JsonProperty(value = "productName")
+   
    protected String productName;
    
    @JsonProperty(value = "redundancyGroupID")
+   
    protected String redundancyGroupID;
    
    @JsonProperty(value = "serialNumber")
+   
    protected String serialNumber;
    
    @JsonProperty(value = "systemID")
+   
    protected String systemID;
    
    @JsonProperty(value = "templateID")
+   
    protected String templateID;
    
    @JsonProperty(value = "useGatewayVLANVNID")
+   
    protected Boolean useGatewayVLANVNID;
    
    @JsonProperty(value = "vtep")
+   
    protected String vtep;
    
 
@@ -197,6 +231,7 @@ public class AllGateway extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getBIOSReleaseDate() {
       return BIOSReleaseDate;
@@ -206,6 +241,7 @@ public class AllGateway extends RestObject {
    public void setBIOSReleaseDate(String value) { 
       this.BIOSReleaseDate = value;
    }
+   
    
    @JsonIgnore
    public String getBIOSVersion() {
@@ -217,6 +253,7 @@ public class AllGateway extends RestObject {
       this.BIOSVersion = value;
    }
    
+   
    @JsonIgnore
    public String getCPUType() {
       return CPUType;
@@ -226,6 +263,7 @@ public class AllGateway extends RestObject {
    public void setCPUType(String value) { 
       this.CPUType = value;
    }
+   
    
    @JsonIgnore
    public String getMACAddress() {
@@ -237,6 +275,7 @@ public class AllGateway extends RestObject {
       this.MACAddress = value;
    }
    
+   
    @JsonIgnore
    public String getUUID() {
       return UUID;
@@ -247,15 +286,17 @@ public class AllGateway extends RestObject {
       this.UUID = value;
    }
    
+   
    @JsonIgnore
-   public ZFBMatchAttribute getZFBMatchAttribute() {
+   public EZFBMatchAttribute getZFBMatchAttribute() {
       return ZFBMatchAttribute;
    }
 
    @JsonIgnore
-   public void setZFBMatchAttribute(ZFBMatchAttribute value) { 
+   public void setZFBMatchAttribute(EZFBMatchAttribute value) { 
       this.ZFBMatchAttribute = value;
    }
+   
    
    @JsonIgnore
    public String getZFBMatchValue() {
@@ -267,6 +308,7 @@ public class AllGateway extends RestObject {
       this.ZFBMatchValue = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedGatewaySecurityID() {
       return associatedGatewaySecurityID;
@@ -276,6 +318,7 @@ public class AllGateway extends RestObject {
    public void setAssociatedGatewaySecurityID(String value) { 
       this.associatedGatewaySecurityID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedGatewaySecurityProfileID() {
@@ -287,6 +330,7 @@ public class AllGateway extends RestObject {
       this.associatedGatewaySecurityProfileID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedNSGInfoID() {
       return associatedNSGInfoID;
@@ -296,6 +340,7 @@ public class AllGateway extends RestObject {
    public void setAssociatedNSGInfoID(String value) { 
       this.associatedNSGInfoID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedNetconfProfileID() {
@@ -307,6 +352,7 @@ public class AllGateway extends RestObject {
       this.associatedNetconfProfileID = value;
    }
    
+   
    @JsonIgnore
    public String getAutoDiscGatewayID() {
       return autoDiscGatewayID;
@@ -316,6 +362,7 @@ public class AllGateway extends RestObject {
    public void setAutoDiscGatewayID(String value) { 
       this.autoDiscGatewayID = value;
    }
+   
    
    @JsonIgnore
    public String getBootstrapID() {
@@ -327,15 +374,17 @@ public class AllGateway extends RestObject {
       this.bootstrapID = value;
    }
    
+   
    @JsonIgnore
-   public BootstrapStatus getBootstrapStatus() {
+   public EBootstrapStatus getBootstrapStatus() {
       return bootstrapStatus;
    }
 
    @JsonIgnore
-   public void setBootstrapStatus(BootstrapStatus value) { 
+   public void setBootstrapStatus(EBootstrapStatus value) { 
       this.bootstrapStatus = value;
    }
+   
    
    @JsonIgnore
    public String getDatapathID() {
@@ -347,6 +396,7 @@ public class AllGateway extends RestObject {
       this.datapathID = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -356,6 +406,7 @@ public class AllGateway extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -367,6 +418,7 @@ public class AllGateway extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
    public String getEnterpriseID() {
       return enterpriseID;
@@ -377,15 +429,17 @@ public class AllGateway extends RestObject {
       this.enterpriseID = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -397,15 +451,17 @@ public class AllGateway extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
-   public Family getFamily() {
+   public EFamily getFamily() {
       return family;
    }
 
    @JsonIgnore
-   public void setFamily(Family value) { 
+   public void setFamily(EFamily value) { 
       this.family = value;
    }
+   
    
    @JsonIgnore
    public Boolean getGatewayConnected() {
@@ -417,6 +473,7 @@ public class AllGateway extends RestObject {
       this.gatewayConnected = value;
    }
    
+   
    @JsonIgnore
    public String getGatewayVersion() {
       return gatewayVersion;
@@ -426,6 +483,7 @@ public class AllGateway extends RestObject {
    public void setGatewayVersion(String value) { 
       this.gatewayVersion = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -437,6 +495,7 @@ public class AllGateway extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getLibraries() {
       return libraries;
@@ -446,6 +505,7 @@ public class AllGateway extends RestObject {
    public void setLibraries(String value) { 
       this.libraries = value;
    }
+   
    
    @JsonIgnore
    public String getLocationID() {
@@ -457,6 +517,7 @@ public class AllGateway extends RestObject {
       this.locationID = value;
    }
    
+   
    @JsonIgnore
    public String getManagementID() {
       return managementID;
@@ -466,6 +527,7 @@ public class AllGateway extends RestObject {
    public void setManagementID(String value) { 
       this.managementID = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -477,6 +539,7 @@ public class AllGateway extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public String getPatches() {
       return patches;
@@ -486,6 +549,7 @@ public class AllGateway extends RestObject {
    public void setPatches(String value) { 
       this.patches = value;
    }
+   
    
    @JsonIgnore
    public String getPeer() {
@@ -497,6 +561,7 @@ public class AllGateway extends RestObject {
       this.peer = value;
    }
    
+   
    @JsonIgnore
    public Boolean getPending() {
       return pending;
@@ -507,25 +572,28 @@ public class AllGateway extends RestObject {
       this.pending = value;
    }
    
+   
    @JsonIgnore
-   public PermittedAction getPermittedAction() {
+   public EPermittedAction getPermittedAction() {
       return permittedAction;
    }
 
    @JsonIgnore
-   public void setPermittedAction(PermittedAction value) { 
+   public void setPermittedAction(EPermittedAction value) { 
       this.permittedAction = value;
    }
    
+   
    @JsonIgnore
-   public Personality getPersonality() {
+   public EPersonality getPersonality() {
       return personality;
    }
 
    @JsonIgnore
-   public void setPersonality(Personality value) { 
+   public void setPersonality(EPersonality value) { 
       this.personality = value;
    }
+   
    
    @JsonIgnore
    public String getProductName() {
@@ -537,6 +605,7 @@ public class AllGateway extends RestObject {
       this.productName = value;
    }
    
+   
    @JsonIgnore
    public String getRedundancyGroupID() {
       return redundancyGroupID;
@@ -546,6 +615,7 @@ public class AllGateway extends RestObject {
    public void setRedundancyGroupID(String value) { 
       this.redundancyGroupID = value;
    }
+   
    
    @JsonIgnore
    public String getSerialNumber() {
@@ -557,6 +627,7 @@ public class AllGateway extends RestObject {
       this.serialNumber = value;
    }
    
+   
    @JsonIgnore
    public String getSystemID() {
       return systemID;
@@ -566,6 +637,7 @@ public class AllGateway extends RestObject {
    public void setSystemID(String value) { 
       this.systemID = value;
    }
+   
    
    @JsonIgnore
    public String getTemplateID() {
@@ -577,6 +649,7 @@ public class AllGateway extends RestObject {
       this.templateID = value;
    }
    
+   
    @JsonIgnore
    public Boolean getUseGatewayVLANVNID() {
       return useGatewayVLANVNID;
@@ -586,6 +659,7 @@ public class AllGateway extends RestObject {
    public void setUseGatewayVLANVNID(Boolean value) { 
       this.useGatewayVLANVNID = value;
    }
+   
    
    @JsonIgnore
    public String getVtep() {

@@ -47,37 +47,44 @@ public class NetworkPerformanceMeasurement extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum NPMType { IPSEC, NONE, VXLAN };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum ENPMType { IPSEC, NONE, VXLAN };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "NPMType")
-   protected NPMType NPMType;
+   
+   protected ENPMType NPMType;
    
    @JsonProperty(value = "associatedPerformanceMonitorID")
+   
    protected String associatedPerformanceMonitorID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "readOnly")
+   
    protected Boolean readOnly;
    
 
@@ -108,15 +115,17 @@ public class NetworkPerformanceMeasurement extends RestObject {
    }
 
    
+   
    @JsonIgnore
-   public NPMType getNPMType() {
+   public ENPMType getNPMType() {
       return NPMType;
    }
 
    @JsonIgnore
-   public void setNPMType(NPMType value) { 
+   public void setNPMType(ENPMType value) { 
       this.NPMType = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedPerformanceMonitorID() {
@@ -128,6 +137,7 @@ public class NetworkPerformanceMeasurement extends RestObject {
       this.associatedPerformanceMonitorID = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -137,6 +147,7 @@ public class NetworkPerformanceMeasurement extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -148,15 +159,17 @@ public class NetworkPerformanceMeasurement extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -168,6 +181,7 @@ public class NetworkPerformanceMeasurement extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -178,6 +192,7 @@ public class NetworkPerformanceMeasurement extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -187,6 +202,7 @@ public class NetworkPerformanceMeasurement extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public Boolean getReadOnly() {

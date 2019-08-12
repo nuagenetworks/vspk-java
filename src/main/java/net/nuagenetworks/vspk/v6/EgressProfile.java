@@ -47,53 +47,67 @@ public class EgressProfile extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "assocEntityType")
+   
    protected String assocEntityType;
    
    @JsonProperty(value = "associatedIPFilterProfileID")
+   
    protected String associatedIPFilterProfileID;
    
    @JsonProperty(value = "associatedIPFilterProfileName")
+   
    protected String associatedIPFilterProfileName;
    
    @JsonProperty(value = "associatedIPv6FilterProfileID")
+   
    protected String associatedIPv6FilterProfileID;
    
    @JsonProperty(value = "associatedIPv6FilterProfileName")
+   
    protected String associatedIPv6FilterProfileName;
    
    @JsonProperty(value = "associatedMACFilterProfileID")
+   
    protected String associatedMACFilterProfileID;
    
    @JsonProperty(value = "associatedMACFilterProfileName")
+   
    protected String associatedMACFilterProfileName;
    
    @JsonProperty(value = "associatedSAPEgressQoSProfileID")
+   
    protected String associatedSAPEgressQoSProfileID;
    
    @JsonProperty(value = "associatedSAPEgressQoSProfileName")
+   
    protected String associatedSAPEgressQoSProfileName;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
 
@@ -124,6 +138,7 @@ public class EgressProfile extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAssocEntityType() {
       return assocEntityType;
@@ -133,6 +148,7 @@ public class EgressProfile extends RestObject {
    public void setAssocEntityType(String value) { 
       this.assocEntityType = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedIPFilterProfileID() {
@@ -144,6 +160,7 @@ public class EgressProfile extends RestObject {
       this.associatedIPFilterProfileID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedIPFilterProfileName() {
       return associatedIPFilterProfileName;
@@ -153,6 +170,7 @@ public class EgressProfile extends RestObject {
    public void setAssociatedIPFilterProfileName(String value) { 
       this.associatedIPFilterProfileName = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedIPv6FilterProfileID() {
@@ -164,6 +182,7 @@ public class EgressProfile extends RestObject {
       this.associatedIPv6FilterProfileID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedIPv6FilterProfileName() {
       return associatedIPv6FilterProfileName;
@@ -173,6 +192,7 @@ public class EgressProfile extends RestObject {
    public void setAssociatedIPv6FilterProfileName(String value) { 
       this.associatedIPv6FilterProfileName = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedMACFilterProfileID() {
@@ -184,6 +204,7 @@ public class EgressProfile extends RestObject {
       this.associatedMACFilterProfileID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedMACFilterProfileName() {
       return associatedMACFilterProfileName;
@@ -193,6 +214,7 @@ public class EgressProfile extends RestObject {
    public void setAssociatedMACFilterProfileName(String value) { 
       this.associatedMACFilterProfileName = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedSAPEgressQoSProfileID() {
@@ -204,6 +226,7 @@ public class EgressProfile extends RestObject {
       this.associatedSAPEgressQoSProfileID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedSAPEgressQoSProfileName() {
       return associatedSAPEgressQoSProfileName;
@@ -213,6 +236,7 @@ public class EgressProfile extends RestObject {
    public void setAssociatedSAPEgressQoSProfileName(String value) { 
       this.associatedSAPEgressQoSProfileName = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -224,6 +248,7 @@ public class EgressProfile extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -234,15 +259,17 @@ public class EgressProfile extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -254,6 +281,7 @@ public class EgressProfile extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -263,6 +291,7 @@ public class EgressProfile extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {

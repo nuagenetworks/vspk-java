@@ -45,31 +45,36 @@ public class InfrastructureConfig extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum ConfigStatus { FAILURE, SUCCESS, UNKNOWN };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EConfigStatus { FAILURE, SUCCESS, UNKNOWN };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "associatedEntityType")
+   
    protected String associatedEntityType;
    
    @JsonProperty(value = "config")
+   
    protected Object config;
    
    @JsonProperty(value = "configStatus")
-   protected ConfigStatus configStatus;
+   
+   protected EConfigStatus configStatus;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
 
@@ -90,6 +95,7 @@ public class InfrastructureConfig extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAssociatedEntityType() {
       return associatedEntityType;
@@ -99,6 +105,7 @@ public class InfrastructureConfig extends RestObject {
    public void setAssociatedEntityType(String value) { 
       this.associatedEntityType = value;
    }
+   
    
    @JsonIgnore
    public Object getConfig() {
@@ -110,15 +117,17 @@ public class InfrastructureConfig extends RestObject {
       this.config = value;
    }
    
+   
    @JsonIgnore
-   public ConfigStatus getConfigStatus() {
+   public EConfigStatus getConfigStatus() {
       return configStatus;
    }
 
    @JsonIgnore
-   public void setConfigStatus(ConfigStatus value) { 
+   public void setConfigStatus(EConfigStatus value) { 
       this.configStatus = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -130,15 +139,17 @@ public class InfrastructureConfig extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -149,6 +160,7 @@ public class InfrastructureConfig extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {

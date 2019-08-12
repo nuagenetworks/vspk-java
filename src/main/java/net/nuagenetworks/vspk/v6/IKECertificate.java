@@ -45,47 +45,59 @@ public class IKECertificate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "PEMEncoded")
+   
    protected String PEMEncoded;
    
    @JsonProperty(value = "associatedEnterpriseID")
+   
    protected String associatedEnterpriseID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "issuerDN")
+   
    protected String issuerDN;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "notAfter")
+   
    protected Float notAfter;
    
    @JsonProperty(value = "notBefore")
+   
    protected Float notBefore;
    
    @JsonProperty(value = "serialNumber")
+   
    protected Long serialNumber;
    
    @JsonProperty(value = "subjectDN")
+   
    protected String subjectDN;
    
 
@@ -106,6 +118,7 @@ public class IKECertificate extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getPEMEncoded() {
       return PEMEncoded;
@@ -115,6 +128,7 @@ public class IKECertificate extends RestObject {
    public void setPEMEncoded(String value) { 
       this.PEMEncoded = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedEnterpriseID() {
@@ -126,6 +140,7 @@ public class IKECertificate extends RestObject {
       this.associatedEnterpriseID = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -135,6 +150,7 @@ public class IKECertificate extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -146,15 +162,17 @@ public class IKECertificate extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -166,6 +184,7 @@ public class IKECertificate extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getIssuerDN() {
       return issuerDN;
@@ -175,6 +194,7 @@ public class IKECertificate extends RestObject {
    public void setIssuerDN(String value) { 
       this.issuerDN = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -186,6 +206,7 @@ public class IKECertificate extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -195,6 +216,7 @@ public class IKECertificate extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public Float getNotAfter() {
@@ -206,6 +228,7 @@ public class IKECertificate extends RestObject {
       this.notAfter = value;
    }
    
+   
    @JsonIgnore
    public Float getNotBefore() {
       return notBefore;
@@ -216,6 +239,7 @@ public class IKECertificate extends RestObject {
       this.notBefore = value;
    }
    
+   
    @JsonIgnore
    public Long getSerialNumber() {
       return serialNumber;
@@ -225,6 +249,7 @@ public class IKECertificate extends RestObject {
    public void setSerialNumber(Long value) { 
       this.serialNumber = value;
    }
+   
    
    @JsonIgnore
    public String getSubjectDN() {

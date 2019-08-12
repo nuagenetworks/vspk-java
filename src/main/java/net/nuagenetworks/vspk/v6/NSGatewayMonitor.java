@@ -46,18 +46,23 @@ public class NSGatewayMonitor extends RestObject {
 
    
    @JsonProperty(value = "nsginfo")
+   
    protected Object nsginfo;
    
    @JsonProperty(value = "nsgstate")
+   
    protected Object nsgstate;
    
    @JsonProperty(value = "nsgsummary")
+   
    protected Object nsgsummary;
    
    @JsonProperty(value = "vrsinfo")
+   
    protected Object vrsinfo;
    
    @JsonProperty(value = "vscs")
+   
    protected java.util.List<VSC> vscs;
    
 
@@ -67,6 +72,7 @@ public class NSGatewayMonitor extends RestObject {
       
    }
 
+   
    
    @JsonIgnore
    public Object getNsginfo() {
@@ -78,6 +84,7 @@ public class NSGatewayMonitor extends RestObject {
       this.nsginfo = value;
    }
    
+   
    @JsonIgnore
    public Object getNsgstate() {
       return nsgstate;
@@ -87,6 +94,7 @@ public class NSGatewayMonitor extends RestObject {
    public void setNsgstate(Object value) { 
       this.nsgstate = value;
    }
+   
    
    @JsonIgnore
    public Object getNsgsummary() {
@@ -98,6 +106,7 @@ public class NSGatewayMonitor extends RestObject {
       this.nsgsummary = value;
    }
    
+   
    @JsonIgnore
    public Object getVrsinfo() {
       return vrsinfo;
@@ -107,6 +116,7 @@ public class NSGatewayMonitor extends RestObject {
    public void setVrsinfo(Object value) { 
       this.vrsinfo = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<VSC> getVscs() {

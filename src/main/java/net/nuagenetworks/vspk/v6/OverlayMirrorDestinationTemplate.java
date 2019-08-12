@@ -45,45 +45,51 @@ public class OverlayMirrorDestinationTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum DestinationType { OVERLAY_MIRROR_DESTINATION, REDIRECTION_TARGET };
-   
-   public enum EndPointType { NONE, VIRTUAL_WIRE };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum TriggerType { GARP, NONE };
+   public enum EDestinationType { OVERLAY_MIRROR_DESTINATION, REDIRECTION_TARGET };
+   public enum EEndPointType { NONE, VIRTUAL_WIRE };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum ETriggerType { GARP, NONE };
 
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "destinationType")
-   protected DestinationType destinationType;
+   
+   protected EDestinationType destinationType;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "endPointType")
-   protected EndPointType endPointType;
+   
+   protected EEndPointType endPointType;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "redundancyEnabled")
+   
    protected Boolean redundancyEnabled;
    
    @JsonProperty(value = "triggerType")
-   protected TriggerType triggerType;
+   
+   protected ETriggerType triggerType;
    
 
    
@@ -103,6 +109,7 @@ public class OverlayMirrorDestinationTemplate extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -113,15 +120,17 @@ public class OverlayMirrorDestinationTemplate extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
-   public DestinationType getDestinationType() {
+   public EDestinationType getDestinationType() {
       return destinationType;
    }
 
    @JsonIgnore
-   public void setDestinationType(DestinationType value) { 
+   public void setDestinationType(EDestinationType value) { 
       this.destinationType = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -133,25 +142,28 @@ public class OverlayMirrorDestinationTemplate extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EndPointType getEndPointType() {
+   public EEndPointType getEndPointType() {
       return endPointType;
    }
 
    @JsonIgnore
-   public void setEndPointType(EndPointType value) { 
+   public void setEndPointType(EEndPointType value) { 
       this.endPointType = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -163,6 +175,7 @@ public class OverlayMirrorDestinationTemplate extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -172,6 +185,7 @@ public class OverlayMirrorDestinationTemplate extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -183,6 +197,7 @@ public class OverlayMirrorDestinationTemplate extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public Boolean getRedundancyEnabled() {
       return redundancyEnabled;
@@ -193,13 +208,14 @@ public class OverlayMirrorDestinationTemplate extends RestObject {
       this.redundancyEnabled = value;
    }
    
+   
    @JsonIgnore
-   public TriggerType getTriggerType() {
+   public ETriggerType getTriggerType() {
       return triggerType;
    }
 
    @JsonIgnore
-   public void setTriggerType(TriggerType value) { 
+   public void setTriggerType(ETriggerType value) { 
       this.triggerType = value;
    }
    

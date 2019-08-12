@@ -48,18 +48,23 @@ public class Ltestatistics extends RestObject {
 
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "endTime")
+   
    protected Long endTime;
    
    @JsonProperty(value = "startTime")
+   
    protected Long startTime;
    
    @JsonProperty(value = "statsData")
+   
    protected java.util.List<com.fasterxml.jackson.databind.JsonNode> statsData;
    
    @JsonProperty(value = "version")
+   
    protected Long version;
    
 
@@ -80,6 +85,7 @@ public class Ltestatistics extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -89,6 +95,7 @@ public class Ltestatistics extends RestObject {
    public void setEmbeddedMetadata(java.util.List<Metadata> value) { 
       this.embeddedMetadata = value;
    }
+   
    
    @JsonIgnore
    public Long getEndTime() {
@@ -100,6 +107,7 @@ public class Ltestatistics extends RestObject {
       this.endTime = value;
    }
    
+   
    @JsonIgnore
    public Long getStartTime() {
       return startTime;
@@ -110,6 +118,7 @@ public class Ltestatistics extends RestObject {
       this.startTime = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<com.fasterxml.jackson.databind.JsonNode> getStatsData() {
       return statsData;
@@ -119,6 +128,7 @@ public class Ltestatistics extends RestObject {
    public void setStatsData(java.util.List<com.fasterxml.jackson.databind.JsonNode> value) { 
       this.statsData = value;
    }
+   
    
    @JsonIgnore
    public Long getVersion() {

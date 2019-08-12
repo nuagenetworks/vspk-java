@@ -46,29 +46,35 @@ public class IPReservation extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "IPAddress")
+   
    protected String IPAddress;
    
    @JsonProperty(value = "MAC")
+   
    protected String MAC;
    
    @JsonProperty(value = "dynamicAllocationEnabled")
+   
    protected Boolean dynamicAllocationEnabled;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
 
@@ -94,6 +100,7 @@ public class IPReservation extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getIPAddress() {
       return IPAddress;
@@ -103,6 +110,7 @@ public class IPReservation extends RestObject {
    public void setIPAddress(String value) { 
       this.IPAddress = value;
    }
+   
    
    @JsonIgnore
    public String getMAC() {
@@ -114,6 +122,7 @@ public class IPReservation extends RestObject {
       this.MAC = value;
    }
    
+   
    @JsonIgnore
    public Boolean getDynamicAllocationEnabled() {
       return dynamicAllocationEnabled;
@@ -123,6 +132,7 @@ public class IPReservation extends RestObject {
    public void setDynamicAllocationEnabled(Boolean value) { 
       this.dynamicAllocationEnabled = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -134,15 +144,17 @@ public class IPReservation extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -153,6 +165,7 @@ public class IPReservation extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {

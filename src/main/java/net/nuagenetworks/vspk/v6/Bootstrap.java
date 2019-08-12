@@ -45,46 +45,54 @@ public class Bootstrap extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum ZFBMatchAttribute { HOSTNAME, IP_ADDRESS, MAC_ADDRESS, NONE, NSGATEWAY_ID, SERIAL_NUMBER, UUID };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Status { ACTIVE, CERTIFICATE_SIGNED, INACTIVE, NOTIFICATION_APP_REQ_ACK, NOTIFICATION_APP_REQ_SENT };
+   public enum EZFBMatchAttribute { HOSTNAME, IP_ADDRESS, MAC_ADDRESS, NONE, NSGATEWAY_ID, SERIAL_NUMBER, UUID };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EStatus { ACTIVE, CERTIFICATE_SIGNED, INACTIVE, NOTIFICATION_APP_REQ_ACK, NOTIFICATION_APP_REQ_SENT };
 
    
    @JsonProperty(value = "ZFBInfo")
+   
    protected String ZFBInfo;
    
    @JsonProperty(value = "ZFBMatchAttribute")
-   protected ZFBMatchAttribute ZFBMatchAttribute;
+   
+   protected EZFBMatchAttribute ZFBMatchAttribute;
    
    @JsonProperty(value = "ZFBMatchValue")
+   
    protected String ZFBMatchValue;
    
    @JsonProperty(value = "activationURL")
+   
    protected String activationURL;
    
    @JsonProperty(value = "associatedEntityType")
+   
    protected String associatedEntityType;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "installerID")
+   
    protected String installerID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "status")
-   protected Status status;
+   
+   protected EStatus status;
    
 
    
@@ -105,6 +113,7 @@ public class Bootstrap extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getZFBInfo() {
       return ZFBInfo;
@@ -115,15 +124,17 @@ public class Bootstrap extends RestObject {
       this.ZFBInfo = value;
    }
    
+   
    @JsonIgnore
-   public ZFBMatchAttribute getZFBMatchAttribute() {
+   public EZFBMatchAttribute getZFBMatchAttribute() {
       return ZFBMatchAttribute;
    }
 
    @JsonIgnore
-   public void setZFBMatchAttribute(ZFBMatchAttribute value) { 
+   public void setZFBMatchAttribute(EZFBMatchAttribute value) { 
       this.ZFBMatchAttribute = value;
    }
+   
    
    @JsonIgnore
    public String getZFBMatchValue() {
@@ -135,6 +146,7 @@ public class Bootstrap extends RestObject {
       this.ZFBMatchValue = value;
    }
    
+   
    @JsonIgnore
    public String getActivationURL() {
       return activationURL;
@@ -144,6 +156,7 @@ public class Bootstrap extends RestObject {
    public void setActivationURL(String value) { 
       this.activationURL = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedEntityType() {
@@ -155,6 +168,7 @@ public class Bootstrap extends RestObject {
       this.associatedEntityType = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -165,15 +179,17 @@ public class Bootstrap extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -185,6 +201,7 @@ public class Bootstrap extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getInstallerID() {
       return installerID;
@@ -194,6 +211,7 @@ public class Bootstrap extends RestObject {
    public void setInstallerID(String value) { 
       this.installerID = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -205,13 +223,14 @@ public class Bootstrap extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
-   public Status getStatus() {
+   public EStatus getStatus() {
       return status;
    }
 
    @JsonIgnore
-   public void setStatus(Status value) { 
+   public void setStatus(EStatus value) { 
       this.status = value;
    }
    

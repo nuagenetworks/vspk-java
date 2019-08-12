@@ -45,43 +45,50 @@ public class Job extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum Command { APPLICATION_SIGNATURE_IMPORT, APPLY_POLICY_CHANGES, BATCH_CRUD_REQUEST, BEGIN_POLICY_CHANGES, CERTIFICATE_NSG_RENEW, CERTIFICATE_NSG_REVOKE, CLEAR_IPSEC_DATA, CLEAR_MAC_MOVE_ALARMS, CLOUD_FORCE_CONFIG, CLOUD_SYNC, DEPLOY, DISCARD_POLICY_CHANGES, EXPORT, FORCE_KEYSERVER_UPDATE, FORCE_KEYSERVER_UPDATE_ACK, FORCE_KEYSERVER_VSD_RESYNC, GATEWAY_AUDIT, GET_ZFB_INFO, IMPORT, KEYSERVER_NOTIFICATION_TEST, NETCONF_FORCE_DEPLOY, NETCONF_SYNC, NOTIFY_NSG_REGISTRATION, NOTIFY_NSG_REGISTRATION_ACK, NOTIFY_NSG_REGISTRATION_TEST, NSG_NOTIFICATION_TEST, NSG_REGISTRATION_INFO, REDEPLOY, REJECT_ZFB_REQUEST, RELOAD, RELOAD_GEO_REDUNDANT_INFO, RELOAD_NSG_CONFIG, RESTART, RETRIEVE_ACTIVE_NSGS, SAAS_APPLICATION_TYPE, START, STATUS, STOP, SYNC, UNDEPLOY, VCENTER_ADD_COMPUTERESOURCE_INSCOPE, VCENTER_DELETE_AGENCY, VCENTER_MARK_AGENT_VM_AVAILABLE, VCENTER_RECONNECT, VCENTER_RELOAD, VCENTER_REMOVE_COMPUTERESOURCE_INSCOPE, VCENTER_SCRIPT_UPGRADE_VRS, VCENTER_SYNC, VCENTER_UPGRADE_VRS };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Status { FAILED, RUNNING, SUCCESS };
+   public enum ECommand { APPLICATION_SIGNATURE_IMPORT, APPLY_POLICY_CHANGES, BATCH_CRUD_REQUEST, BEGIN_POLICY_CHANGES, CERTIFICATE_NSG_RENEW, CERTIFICATE_NSG_REVOKE, CLEAR_IPSEC_DATA, CLEAR_MAC_MOVE_ALARMS, CLOUD_FORCE_CONFIG, CLOUD_SYNC, DEPLOY, DISCARD_POLICY_CHANGES, EXPORT, FORCE_KEYSERVER_UPDATE, FORCE_KEYSERVER_UPDATE_ACK, FORCE_KEYSERVER_VSD_RESYNC, GATEWAY_AUDIT, GET_ZFB_INFO, IMPORT, KEYSERVER_NOTIFICATION_TEST, NETCONF_FORCE_DEPLOY, NETCONF_SYNC, NOTIFY_NSG_REGISTRATION, NOTIFY_NSG_REGISTRATION_ACK, NOTIFY_NSG_REGISTRATION_TEST, NSG_NOTIFICATION_TEST, NSG_REGISTRATION_INFO, REDEPLOY, REJECT_ZFB_REQUEST, RELOAD, RELOAD_GEO_REDUNDANT_INFO, RELOAD_NSG_CONFIG, RESTART, RETRIEVE_ACTIVE_NSGS, SAAS_APPLICATION_TYPE, START, STATUS, STOP, SYNC, UNDEPLOY, VCENTER_ADD_COMPUTERESOURCE_INSCOPE, VCENTER_DELETE_AGENCY, VCENTER_MARK_AGENT_VM_AVAILABLE, VCENTER_RECONNECT, VCENTER_RELOAD, VCENTER_REMOVE_COMPUTERESOURCE_INSCOPE, VCENTER_SCRIPT_UPGRADE_VRS, VCENTER_SYNC, VCENTER_UPGRADE_VRS };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EStatus { FAILED, RUNNING, SUCCESS };
 
    
    @JsonProperty(value = "assocEntityType")
+   
    protected String assocEntityType;
    
    @JsonProperty(value = "command")
-   protected Command command;
+   
+   protected ECommand command;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "parameters")
+   
    protected Object parameters;
    
    @JsonProperty(value = "progress")
+   
    protected Float progress;
    
    @JsonProperty(value = "result")
+   
    protected Object result;
    
    @JsonProperty(value = "status")
-   protected Status status;
+   
+   protected EStatus status;
    
 
    
@@ -101,6 +108,7 @@ public class Job extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAssocEntityType() {
       return assocEntityType;
@@ -111,15 +119,17 @@ public class Job extends RestObject {
       this.assocEntityType = value;
    }
    
+   
    @JsonIgnore
-   public Command getCommand() {
+   public ECommand getCommand() {
       return command;
    }
 
    @JsonIgnore
-   public void setCommand(Command value) { 
+   public void setCommand(ECommand value) { 
       this.command = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -131,15 +141,17 @@ public class Job extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -151,6 +163,7 @@ public class Job extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -160,6 +173,7 @@ public class Job extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public Object getParameters() {
@@ -171,6 +185,7 @@ public class Job extends RestObject {
       this.parameters = value;
    }
    
+   
    @JsonIgnore
    public Float getProgress() {
       return progress;
@@ -180,6 +195,7 @@ public class Job extends RestObject {
    public void setProgress(Float value) { 
       this.progress = value;
    }
+   
    
    @JsonIgnore
    public Object getResult() {
@@ -191,13 +207,14 @@ public class Job extends RestObject {
       this.result = value;
    }
    
+   
    @JsonIgnore
-   public Status getStatus() {
+   public EStatus getStatus() {
       return status;
    }
 
    @JsonIgnore
-   public void setStatus(Status value) { 
+   public void setStatus(EStatus value) { 
       this.status = value;
    }
    

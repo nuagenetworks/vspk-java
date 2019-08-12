@@ -50,61 +50,74 @@ public class EgressACLTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum PolicyState { DRAFT, LIVE };
-   
-   public enum PriorityType { BOTTOM, BOTTOM_FIREWALL, MIDDLE_FIREWALL, NONE, TOP, TOP_FIREWALL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EPolicyState { DRAFT, LIVE };
+   public enum EPriorityType { BOTTOM, BOTTOM_FIREWALL, MIDDLE_FIREWALL, NONE, TOP, TOP_FIREWALL };
 
    
    @JsonProperty(value = "active")
+   
    protected Boolean active;
    
    @JsonProperty(value = "associatedLiveEntityID")
+   
    protected String associatedLiveEntityID;
    
    @JsonProperty(value = "associatedVirtualFirewallPolicyID")
+   
    protected String associatedVirtualFirewallPolicyID;
    
    @JsonProperty(value = "autoGeneratePriority")
+   
    protected Boolean autoGeneratePriority;
    
    @JsonProperty(value = "defaultAllowIP")
+   
    protected Boolean defaultAllowIP;
    
    @JsonProperty(value = "defaultAllowNonIP")
+   
    protected Boolean defaultAllowNonIP;
    
    @JsonProperty(value = "defaultInstallACLImplicitRules")
+   
    protected Boolean defaultInstallACLImplicitRules;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "policyState")
-   protected PolicyState policyState;
+   
+   protected EPolicyState policyState;
    
    @JsonProperty(value = "priority")
+   
    protected Long priority;
    
    @JsonProperty(value = "priorityType")
-   protected PriorityType priorityType;
+   
+   protected EPriorityType priorityType;
    
 
    
@@ -149,6 +162,7 @@ public class EgressACLTemplate extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Boolean getActive() {
       return active;
@@ -158,6 +172,7 @@ public class EgressACLTemplate extends RestObject {
    public void setActive(Boolean value) { 
       this.active = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedLiveEntityID() {
@@ -169,6 +184,7 @@ public class EgressACLTemplate extends RestObject {
       this.associatedLiveEntityID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedVirtualFirewallPolicyID() {
       return associatedVirtualFirewallPolicyID;
@@ -178,6 +194,7 @@ public class EgressACLTemplate extends RestObject {
    public void setAssociatedVirtualFirewallPolicyID(String value) { 
       this.associatedVirtualFirewallPolicyID = value;
    }
+   
    
    @JsonIgnore
    public Boolean getAutoGeneratePriority() {
@@ -189,6 +206,7 @@ public class EgressACLTemplate extends RestObject {
       this.autoGeneratePriority = value;
    }
    
+   
    @JsonIgnore
    public Boolean getDefaultAllowIP() {
       return defaultAllowIP;
@@ -198,6 +216,7 @@ public class EgressACLTemplate extends RestObject {
    public void setDefaultAllowIP(Boolean value) { 
       this.defaultAllowIP = value;
    }
+   
    
    @JsonIgnore
    public Boolean getDefaultAllowNonIP() {
@@ -209,6 +228,7 @@ public class EgressACLTemplate extends RestObject {
       this.defaultAllowNonIP = value;
    }
    
+   
    @JsonIgnore
    public Boolean getDefaultInstallACLImplicitRules() {
       return defaultInstallACLImplicitRules;
@@ -218,6 +238,7 @@ public class EgressACLTemplate extends RestObject {
    public void setDefaultInstallACLImplicitRules(Boolean value) { 
       this.defaultInstallACLImplicitRules = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -229,6 +250,7 @@ public class EgressACLTemplate extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -239,15 +261,17 @@ public class EgressACLTemplate extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -259,6 +283,7 @@ public class EgressACLTemplate extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -268,6 +293,7 @@ public class EgressACLTemplate extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -279,15 +305,17 @@ public class EgressACLTemplate extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
-   public PolicyState getPolicyState() {
+   public EPolicyState getPolicyState() {
       return policyState;
    }
 
    @JsonIgnore
-   public void setPolicyState(PolicyState value) { 
+   public void setPolicyState(EPolicyState value) { 
       this.policyState = value;
    }
+   
    
    @JsonIgnore
    public Long getPriority() {
@@ -299,13 +327,14 @@ public class EgressACLTemplate extends RestObject {
       this.priority = value;
    }
    
+   
    @JsonIgnore
-   public PriorityType getPriorityType() {
+   public EPriorityType getPriorityType() {
       return priorityType;
    }
 
    @JsonIgnore
-   public void setPriorityType(PriorityType value) { 
+   public void setPriorityType(EPriorityType value) { 
       this.priorityType = value;
    }
    

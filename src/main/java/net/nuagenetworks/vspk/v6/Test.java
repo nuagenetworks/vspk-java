@@ -45,44 +45,55 @@ public class Test extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "associatedTestDefinitionID")
+   
    protected String associatedTestDefinitionID;
    
    @JsonProperty(value = "associatedTestSuiteID")
+   
    protected String associatedTestSuiteID;
    
    @JsonProperty(value = "command")
+   
    protected String command;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "destination")
+   
    protected String destination;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "order")
+   
    protected Long order;
    
    @JsonProperty(value = "timeout")
+   
    protected Long timeout;
    
 
@@ -103,6 +114,7 @@ public class Test extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAssociatedTestDefinitionID() {
       return associatedTestDefinitionID;
@@ -112,6 +124,7 @@ public class Test extends RestObject {
    public void setAssociatedTestDefinitionID(String value) { 
       this.associatedTestDefinitionID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedTestSuiteID() {
@@ -123,6 +136,7 @@ public class Test extends RestObject {
       this.associatedTestSuiteID = value;
    }
    
+   
    @JsonIgnore
    public String getCommand() {
       return command;
@@ -132,6 +146,7 @@ public class Test extends RestObject {
    public void setCommand(String value) { 
       this.command = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -143,6 +158,7 @@ public class Test extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public String getDestination() {
       return destination;
@@ -152,6 +168,7 @@ public class Test extends RestObject {
    public void setDestination(String value) { 
       this.destination = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -163,15 +180,17 @@ public class Test extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -183,6 +202,7 @@ public class Test extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -192,6 +212,7 @@ public class Test extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -203,6 +224,7 @@ public class Test extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public Long getOrder() {
       return order;
@@ -212,6 +234,7 @@ public class Test extends RestObject {
    public void setOrder(Long value) { 
       this.order = value;
    }
+   
    
    @JsonIgnore
    public Long getTimeout() {

@@ -46,38 +46,45 @@ public class GatewayTemplate extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Personality { DC7X50, EVDF, EVDFB, HARDWARE_VTEP, NETCONF_7X50, NETCONF_THIRDPARTY_HW_VTEP, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, OTHER, VDFG, VRSB, VRSG, VSA, VSG };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EPersonality { DC7X50, EVDF, EVDFB, HARDWARE_VTEP, NETCONF_7X50, NETCONF_THIRDPARTY_HW_VTEP, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, OTHER, VDFG, VRSB, VRSG, VSA, VSG };
 
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "enterpriseID")
+   
    protected String enterpriseID;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "infrastructureProfileID")
+   
    protected String infrastructureProfileID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "personality")
-   protected Personality personality;
+   
+   protected EPersonality personality;
    
 
    
@@ -103,6 +110,7 @@ public class GatewayTemplate extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -112,6 +120,7 @@ public class GatewayTemplate extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -123,6 +132,7 @@ public class GatewayTemplate extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
    public String getEnterpriseID() {
       return enterpriseID;
@@ -133,15 +143,17 @@ public class GatewayTemplate extends RestObject {
       this.enterpriseID = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -153,6 +165,7 @@ public class GatewayTemplate extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getInfrastructureProfileID() {
       return infrastructureProfileID;
@@ -162,6 +175,7 @@ public class GatewayTemplate extends RestObject {
    public void setInfrastructureProfileID(String value) { 
       this.infrastructureProfileID = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -173,6 +187,7 @@ public class GatewayTemplate extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -183,13 +198,14 @@ public class GatewayTemplate extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
-   public Personality getPersonality() {
+   public EPersonality getPersonality() {
       return personality;
    }
 
    @JsonIgnore
-   public void setPersonality(Personality value) { 
+   public void setPersonality(EPersonality value) { 
       this.personality = value;
    }
    

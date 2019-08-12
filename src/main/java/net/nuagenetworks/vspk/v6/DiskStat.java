@@ -45,34 +45,40 @@ public class DiskStat extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum Unit { Bytes, EB, GB, KB, MB, PB, TB, YB, ZB };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EUnit { Bytes, EB, GB, KB, MB, PB, TB, YB, ZB };
 
    
    @JsonProperty(value = "available")
+   
    protected Float available;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "size")
+   
    protected Float size;
    
    @JsonProperty(value = "unit")
-   protected Unit unit;
+   
+   protected EUnit unit;
    
    @JsonProperty(value = "used")
+   
    protected Float used;
    
 
@@ -93,6 +99,7 @@ public class DiskStat extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Float getAvailable() {
       return available;
@@ -102,6 +109,7 @@ public class DiskStat extends RestObject {
    public void setAvailable(Float value) { 
       this.available = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -113,15 +121,17 @@ public class DiskStat extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -133,6 +143,7 @@ public class DiskStat extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -142,6 +153,7 @@ public class DiskStat extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public Float getSize() {
@@ -153,15 +165,17 @@ public class DiskStat extends RestObject {
       this.size = value;
    }
    
+   
    @JsonIgnore
-   public Unit getUnit() {
+   public EUnit getUnit() {
       return unit;
    }
 
    @JsonIgnore
-   public void setUnit(Unit value) { 
+   public void setUnit(EUnit value) { 
       this.unit = value;
    }
+   
    
    @JsonIgnore
    public Float getUsed() {

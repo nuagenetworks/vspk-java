@@ -46,58 +46,72 @@ public class BGPNeighbor extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum IPType { IPV4, IPV6 };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EIPType { IPV4, IPV6 };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "BFDEnabled")
+   
    protected Boolean BFDEnabled;
    
    @JsonProperty(value = "IPType")
-   protected IPType IPType;
+   
+   protected EIPType IPType;
    
    @JsonProperty(value = "IPv6Address")
+   
    protected String IPv6Address;
    
    @JsonProperty(value = "associatedExportRoutingPolicyID")
+   
    protected String associatedExportRoutingPolicyID;
    
    @JsonProperty(value = "associatedImportRoutingPolicyID")
+   
    protected String associatedImportRoutingPolicyID;
    
    @JsonProperty(value = "dampeningEnabled")
+   
    protected Boolean dampeningEnabled;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "domainServiceLabel")
+   
    protected String domainServiceLabel;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "peerAS")
+   
    protected Long peerAS;
    
    @JsonProperty(value = "peerConfiguration")
+   
    protected String peerConfiguration;
    
    @JsonProperty(value = "peerIP")
+   
    protected String peerIP;
    
    @JsonProperty(value = "session")
+   
    protected String session;
    
 
@@ -123,6 +137,7 @@ public class BGPNeighbor extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Boolean getBFDEnabled() {
       return BFDEnabled;
@@ -133,15 +148,17 @@ public class BGPNeighbor extends RestObject {
       this.BFDEnabled = value;
    }
    
+   
    @JsonIgnore
-   public IPType getIPType() {
+   public EIPType getIPType() {
       return IPType;
    }
 
    @JsonIgnore
-   public void setIPType(IPType value) { 
+   public void setIPType(EIPType value) { 
       this.IPType = value;
    }
+   
    
    @JsonIgnore
    public String getIPv6Address() {
@@ -153,6 +170,7 @@ public class BGPNeighbor extends RestObject {
       this.IPv6Address = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedExportRoutingPolicyID() {
       return associatedExportRoutingPolicyID;
@@ -162,6 +180,7 @@ public class BGPNeighbor extends RestObject {
    public void setAssociatedExportRoutingPolicyID(String value) { 
       this.associatedExportRoutingPolicyID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedImportRoutingPolicyID() {
@@ -173,6 +192,7 @@ public class BGPNeighbor extends RestObject {
       this.associatedImportRoutingPolicyID = value;
    }
    
+   
    @JsonIgnore
    public Boolean getDampeningEnabled() {
       return dampeningEnabled;
@@ -182,6 +202,7 @@ public class BGPNeighbor extends RestObject {
    public void setDampeningEnabled(Boolean value) { 
       this.dampeningEnabled = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -193,6 +214,7 @@ public class BGPNeighbor extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public String getDomainServiceLabel() {
       return domainServiceLabel;
@@ -202,6 +224,7 @@ public class BGPNeighbor extends RestObject {
    public void setDomainServiceLabel(String value) { 
       this.domainServiceLabel = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -213,15 +236,17 @@ public class BGPNeighbor extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -233,6 +258,7 @@ public class BGPNeighbor extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -242,6 +268,7 @@ public class BGPNeighbor extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public Long getPeerAS() {
@@ -253,6 +280,7 @@ public class BGPNeighbor extends RestObject {
       this.peerAS = value;
    }
    
+   
    @JsonIgnore
    public String getPeerConfiguration() {
       return peerConfiguration;
@@ -263,6 +291,7 @@ public class BGPNeighbor extends RestObject {
       this.peerConfiguration = value;
    }
    
+   
    @JsonIgnore
    public String getPeerIP() {
       return peerIP;
@@ -272,6 +301,7 @@ public class BGPNeighbor extends RestObject {
    public void setPeerIP(String value) { 
       this.peerIP = value;
    }
+   
    
    @JsonIgnore
    public String getSession() {

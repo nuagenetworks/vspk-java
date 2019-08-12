@@ -45,39 +45,45 @@ public class KeyServerMonitorSEK extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum SeedPayloadAuthenticationAlgorithm { HMAC_SHA1, HMAC_SHA256, HMAC_SHA512 };
-   
-   public enum SeedPayloadEncryptionAlgorithm { AES_128_CBC, AES_256_CBC, TRIPLE_DES_CBC };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum ESeedPayloadAuthenticationAlgorithm { HMAC_SHA1, HMAC_SHA256, HMAC_SHA512 };
+   public enum ESeedPayloadEncryptionAlgorithm { AES_128_CBC, AES_256_CBC, TRIPLE_DES_CBC };
 
    
    @JsonProperty(value = "creationTime")
+   
    protected Long creationTime;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "lifetime")
+   
    protected Long lifetime;
    
    @JsonProperty(value = "seedPayloadAuthenticationAlgorithm")
-   protected SeedPayloadAuthenticationAlgorithm seedPayloadAuthenticationAlgorithm;
+   
+   protected ESeedPayloadAuthenticationAlgorithm seedPayloadAuthenticationAlgorithm;
    
    @JsonProperty(value = "seedPayloadEncryptionAlgorithm")
-   protected SeedPayloadEncryptionAlgorithm seedPayloadEncryptionAlgorithm;
+   
+   protected ESeedPayloadEncryptionAlgorithm seedPayloadEncryptionAlgorithm;
    
    @JsonProperty(value = "startTime")
+   
    protected Long startTime;
    
 
@@ -98,6 +104,7 @@ public class KeyServerMonitorSEK extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Long getCreationTime() {
       return creationTime;
@@ -107,6 +114,7 @@ public class KeyServerMonitorSEK extends RestObject {
    public void setCreationTime(Long value) { 
       this.creationTime = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -118,15 +126,17 @@ public class KeyServerMonitorSEK extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -138,6 +148,7 @@ public class KeyServerMonitorSEK extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -147,6 +158,7 @@ public class KeyServerMonitorSEK extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public Long getLifetime() {
@@ -158,25 +170,28 @@ public class KeyServerMonitorSEK extends RestObject {
       this.lifetime = value;
    }
    
+   
    @JsonIgnore
-   public SeedPayloadAuthenticationAlgorithm getSeedPayloadAuthenticationAlgorithm() {
+   public ESeedPayloadAuthenticationAlgorithm getSeedPayloadAuthenticationAlgorithm() {
       return seedPayloadAuthenticationAlgorithm;
    }
 
    @JsonIgnore
-   public void setSeedPayloadAuthenticationAlgorithm(SeedPayloadAuthenticationAlgorithm value) { 
+   public void setSeedPayloadAuthenticationAlgorithm(ESeedPayloadAuthenticationAlgorithm value) { 
       this.seedPayloadAuthenticationAlgorithm = value;
    }
    
+   
    @JsonIgnore
-   public SeedPayloadEncryptionAlgorithm getSeedPayloadEncryptionAlgorithm() {
+   public ESeedPayloadEncryptionAlgorithm getSeedPayloadEncryptionAlgorithm() {
       return seedPayloadEncryptionAlgorithm;
    }
 
    @JsonIgnore
-   public void setSeedPayloadEncryptionAlgorithm(SeedPayloadEncryptionAlgorithm value) { 
+   public void setSeedPayloadEncryptionAlgorithm(ESeedPayloadEncryptionAlgorithm value) { 
       this.seedPayloadEncryptionAlgorithm = value;
    }
+   
    
    @JsonIgnore
    public Long getStartTime() {

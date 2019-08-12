@@ -43,30 +43,33 @@ public class SysmonUplinkConnection extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum DTLSState { ADMIN_DOWN, DOWN, NONE, UP };
-   
-   public enum JSONState { ADMIN_DOWN, DOWN, NONE, UP };
-   
-   public enum OpenflowState { ADMIN_DOWN, DOWN, NONE, UP };
+   public enum EDTLSState { ADMIN_DOWN, DOWN, NONE, UP };
+   public enum EJSONState { ADMIN_DOWN, DOWN, NONE, UP };
+   public enum EOpenflowState { ADMIN_DOWN, DOWN, NONE, UP };
 
    
    @JsonProperty(value = "DTLSState")
-   protected DTLSState DTLSState;
+   
+   protected EDTLSState DTLSState;
    
    @JsonProperty(value = "JSONState")
-   protected JSONState JSONState;
+   
+   protected EJSONState JSONState;
    
    @JsonProperty(value = "datapathUplinkId")
+   
    protected String datapathUplinkId;
    
    @JsonProperty(value = "openflowState")
-   protected OpenflowState openflowState;
+   
+   protected EOpenflowState openflowState;
    
    @JsonProperty(value = "privateIP")
+   
    protected String privateIP;
    
    @JsonProperty(value = "publicIP")
+   
    protected String publicIP;
    
 
@@ -77,25 +80,28 @@ public class SysmonUplinkConnection extends RestObject {
    }
 
    
+   
    @JsonIgnore
-   public DTLSState getDTLSState() {
+   public EDTLSState getDTLSState() {
       return DTLSState;
    }
 
    @JsonIgnore
-   public void setDTLSState(DTLSState value) { 
+   public void setDTLSState(EDTLSState value) { 
       this.DTLSState = value;
    }
    
+   
    @JsonIgnore
-   public JSONState getJSONState() {
+   public EJSONState getJSONState() {
       return JSONState;
    }
 
    @JsonIgnore
-   public void setJSONState(JSONState value) { 
+   public void setJSONState(EJSONState value) { 
       this.JSONState = value;
    }
+   
    
    @JsonIgnore
    public String getDatapathUplinkId() {
@@ -107,15 +113,17 @@ public class SysmonUplinkConnection extends RestObject {
       this.datapathUplinkId = value;
    }
    
+   
    @JsonIgnore
-   public OpenflowState getOpenflowState() {
+   public EOpenflowState getOpenflowState() {
       return openflowState;
    }
 
    @JsonIgnore
-   public void setOpenflowState(OpenflowState value) { 
+   public void setOpenflowState(EOpenflowState value) { 
       this.openflowState = value;
    }
+   
    
    @JsonIgnore
    public String getPrivateIP() {
@@ -126,6 +134,7 @@ public class SysmonUplinkConnection extends RestObject {
    public void setPrivateIP(String value) { 
       this.privateIP = value;
    }
+   
    
    @JsonIgnore
    public String getPublicIP() {

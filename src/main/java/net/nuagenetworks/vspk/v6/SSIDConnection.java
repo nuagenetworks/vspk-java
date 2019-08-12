@@ -47,88 +47,107 @@ public class SSIDConnection extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum AuthenticationMode { CAPTIVE_PORTAL, OPEN, WEP, WPA, WPA2, WPA_OTP, WPA_WPA2 };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum PermittedAction { USE, READ, ALL, INSTANTIATE, EXTEND, DEPLOY };
-   
-   public enum RedirectOption { CONFIGURED_URL, ORIGINAL_REQUEST };
-   
-   public enum Status { INITIALIZED, ORPHAN, READY, MISMATCH };
+   public enum EAuthenticationMode { CAPTIVE_PORTAL, OPEN, WEP, WPA, WPA2, WPA_OTP, WPA_WPA2 };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EPermittedAction { USE, READ, ALL, INSTANTIATE, EXTEND, DEPLOY };
+   public enum ERedirectOption { CONFIGURED_URL, ORIGINAL_REQUEST };
+   public enum EStatus { INITIALIZED, ORPHAN, READY, MISMATCH };
 
    
    @JsonProperty(value = "associatedCaptivePortalProfileID")
+   
    protected String associatedCaptivePortalProfileID;
    
    @JsonProperty(value = "associatedEgressQOSPolicyID")
+   
    protected String associatedEgressQOSPolicyID;
    
    @JsonProperty(value = "authenticationMode")
-   protected AuthenticationMode authenticationMode;
+   
+   protected EAuthenticationMode authenticationMode;
    
    @JsonProperty(value = "blackList")
+   
    protected java.util.List<String> blackList;
    
    @JsonProperty(value = "broadcastSSID")
+   
    protected Boolean broadcastSSID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "gatewayID")
+   
    protected String gatewayID;
    
    @JsonProperty(value = "genericConfig")
+   
    protected String genericConfig;
    
    @JsonProperty(value = "interfaceName")
+   
    protected String interfaceName;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "passphrase")
+   
    protected String passphrase;
    
    @JsonProperty(value = "permittedAction")
-   protected PermittedAction permittedAction;
+   
+   protected EPermittedAction permittedAction;
    
    @JsonProperty(value = "readonly")
+   
    protected Boolean readonly;
    
    @JsonProperty(value = "redirectOption")
-   protected RedirectOption redirectOption;
+   
+   protected ERedirectOption redirectOption;
    
    @JsonProperty(value = "redirectURL")
+   
    protected String redirectURL;
    
    @JsonProperty(value = "restricted")
+   
    protected Boolean restricted;
    
    @JsonProperty(value = "status")
-   protected Status status;
+   
+   protected EStatus status;
    
    @JsonProperty(value = "vlanID")
+   
    protected Long vlanID;
    
    @JsonProperty(value = "vportID")
+   
    protected String vportID;
    
    @JsonProperty(value = "whiteList")
+   
    protected java.util.List<String> whiteList;
    
 
@@ -159,6 +178,7 @@ public class SSIDConnection extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAssociatedCaptivePortalProfileID() {
       return associatedCaptivePortalProfileID;
@@ -168,6 +188,7 @@ public class SSIDConnection extends RestObject {
    public void setAssociatedCaptivePortalProfileID(String value) { 
       this.associatedCaptivePortalProfileID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedEgressQOSPolicyID() {
@@ -179,15 +200,17 @@ public class SSIDConnection extends RestObject {
       this.associatedEgressQOSPolicyID = value;
    }
    
+   
    @JsonIgnore
-   public AuthenticationMode getAuthenticationMode() {
+   public EAuthenticationMode getAuthenticationMode() {
       return authenticationMode;
    }
 
    @JsonIgnore
-   public void setAuthenticationMode(AuthenticationMode value) { 
+   public void setAuthenticationMode(EAuthenticationMode value) { 
       this.authenticationMode = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<String> getBlackList() {
@@ -199,6 +222,7 @@ public class SSIDConnection extends RestObject {
       this.blackList = value;
    }
    
+   
    @JsonIgnore
    public Boolean getBroadcastSSID() {
       return broadcastSSID;
@@ -208,6 +232,7 @@ public class SSIDConnection extends RestObject {
    public void setBroadcastSSID(Boolean value) { 
       this.broadcastSSID = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -219,6 +244,7 @@ public class SSIDConnection extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -229,15 +255,17 @@ public class SSIDConnection extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -249,6 +277,7 @@ public class SSIDConnection extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getGatewayID() {
       return gatewayID;
@@ -258,6 +287,7 @@ public class SSIDConnection extends RestObject {
    public void setGatewayID(String value) { 
       this.gatewayID = value;
    }
+   
    
    @JsonIgnore
    public String getGenericConfig() {
@@ -269,6 +299,7 @@ public class SSIDConnection extends RestObject {
       this.genericConfig = value;
    }
    
+   
    @JsonIgnore
    public String getInterfaceName() {
       return interfaceName;
@@ -278,6 +309,7 @@ public class SSIDConnection extends RestObject {
    public void setInterfaceName(String value) { 
       this.interfaceName = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -289,6 +321,7 @@ public class SSIDConnection extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -298,6 +331,7 @@ public class SSIDConnection extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public String getPassphrase() {
@@ -309,15 +343,17 @@ public class SSIDConnection extends RestObject {
       this.passphrase = value;
    }
    
+   
    @JsonIgnore
-   public PermittedAction getPermittedAction() {
+   public EPermittedAction getPermittedAction() {
       return permittedAction;
    }
 
    @JsonIgnore
-   public void setPermittedAction(PermittedAction value) { 
+   public void setPermittedAction(EPermittedAction value) { 
       this.permittedAction = value;
    }
+   
    
    @JsonIgnore
    public Boolean getReadonly() {
@@ -329,15 +365,17 @@ public class SSIDConnection extends RestObject {
       this.readonly = value;
    }
    
+   
    @JsonIgnore
-   public RedirectOption getRedirectOption() {
+   public ERedirectOption getRedirectOption() {
       return redirectOption;
    }
 
    @JsonIgnore
-   public void setRedirectOption(RedirectOption value) { 
+   public void setRedirectOption(ERedirectOption value) { 
       this.redirectOption = value;
    }
+   
    
    @JsonIgnore
    public String getRedirectURL() {
@@ -349,6 +387,7 @@ public class SSIDConnection extends RestObject {
       this.redirectURL = value;
    }
    
+   
    @JsonIgnore
    public Boolean getRestricted() {
       return restricted;
@@ -359,15 +398,17 @@ public class SSIDConnection extends RestObject {
       this.restricted = value;
    }
    
+   
    @JsonIgnore
-   public Status getStatus() {
+   public EStatus getStatus() {
       return status;
    }
 
    @JsonIgnore
-   public void setStatus(Status value) { 
+   public void setStatus(EStatus value) { 
       this.status = value;
    }
+   
    
    @JsonIgnore
    public Long getVlanID() {
@@ -379,6 +420,7 @@ public class SSIDConnection extends RestObject {
       this.vlanID = value;
    }
    
+   
    @JsonIgnore
    public String getVportID() {
       return vportID;
@@ -388,6 +430,7 @@ public class SSIDConnection extends RestObject {
    public void setVportID(String value) { 
       this.vportID = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<String> getWhiteList() {

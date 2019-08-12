@@ -45,64 +45,80 @@ public class BootstrapActivation extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum Action { AUTHENTICATE, BOOTSTRAP_COMPLETE, CERTIFICATE_RENEW, CERTIFICATE_REVOKE, CERTIFICATE_SIGNED, CONFIRM, INITIATE, INITIATE_RENEW, NEW_NCPE_AUTH_REQUIRED, NO_AUTH_REQUIRED, ROLLBACK, ROLLED_BACK, UNSPECIFIED };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EAction { AUTHENTICATE, BOOTSTRAP_COMPLETE, CERTIFICATE_RENEW, CERTIFICATE_REVOKE, CERTIFICATE_SIGNED, CONFIRM, INITIATE, INITIATE_RENEW, NEW_NCPE_AUTH_REQUIRED, NO_AUTH_REQUIRED, ROLLBACK, ROLLED_BACK, UNSPECIFIED };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "action")
-   protected Action action;
+   
+   protected EAction action;
    
    @JsonProperty(value = "associatedEntityType")
+   
    protected String associatedEntityType;
    
    @JsonProperty(value = "autoBootstrap")
+   
    protected Boolean autoBootstrap;
    
    @JsonProperty(value = "cacert")
+   
    protected String cacert;
    
    @JsonProperty(value = "cert")
+   
    protected String cert;
    
    @JsonProperty(value = "configURL")
+   
    protected String configURL;
    
    @JsonProperty(value = "csr")
+   
    protected String csr;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "hash")
+   
    protected String hash;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "seed")
+   
    protected String seed;
    
    @JsonProperty(value = "srkPassword")
+   
    protected String srkPassword;
    
    @JsonProperty(value = "status")
+   
    protected String status;
    
    @JsonProperty(value = "tpmOwnerPassword")
+   
    protected String tpmOwnerPassword;
    
    @JsonProperty(value = "tpmState")
+   
    protected Long tpmState;
    
    @JsonProperty(value = "vsdTime")
+   
    protected Long vsdTime;
    
 
@@ -123,15 +139,17 @@ public class BootstrapActivation extends RestObject {
    }
 
    
+   
    @JsonIgnore
-   public Action getAction() {
+   public EAction getAction() {
       return action;
    }
 
    @JsonIgnore
-   public void setAction(Action value) { 
+   public void setAction(EAction value) { 
       this.action = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedEntityType() {
@@ -143,6 +161,7 @@ public class BootstrapActivation extends RestObject {
       this.associatedEntityType = value;
    }
    
+   
    @JsonIgnore
    public Boolean getAutoBootstrap() {
       return autoBootstrap;
@@ -152,6 +171,7 @@ public class BootstrapActivation extends RestObject {
    public void setAutoBootstrap(Boolean value) { 
       this.autoBootstrap = value;
    }
+   
    
    @JsonIgnore
    public String getCacert() {
@@ -163,6 +183,7 @@ public class BootstrapActivation extends RestObject {
       this.cacert = value;
    }
    
+   
    @JsonIgnore
    public String getCert() {
       return cert;
@@ -172,6 +193,7 @@ public class BootstrapActivation extends RestObject {
    public void setCert(String value) { 
       this.cert = value;
    }
+   
    
    @JsonIgnore
    public String getConfigURL() {
@@ -183,6 +205,7 @@ public class BootstrapActivation extends RestObject {
       this.configURL = value;
    }
    
+   
    @JsonIgnore
    public String getCsr() {
       return csr;
@@ -192,6 +215,7 @@ public class BootstrapActivation extends RestObject {
    public void setCsr(String value) { 
       this.csr = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -203,15 +227,17 @@ public class BootstrapActivation extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -223,6 +249,7 @@ public class BootstrapActivation extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getHash() {
       return hash;
@@ -232,6 +259,7 @@ public class BootstrapActivation extends RestObject {
    public void setHash(String value) { 
       this.hash = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {
@@ -243,6 +271,7 @@ public class BootstrapActivation extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getSeed() {
       return seed;
@@ -252,6 +281,7 @@ public class BootstrapActivation extends RestObject {
    public void setSeed(String value) { 
       this.seed = value;
    }
+   
    
    @JsonIgnore
    public String getSrkPassword() {
@@ -263,6 +293,7 @@ public class BootstrapActivation extends RestObject {
       this.srkPassword = value;
    }
    
+   
    @JsonIgnore
    public String getStatus() {
       return status;
@@ -272,6 +303,7 @@ public class BootstrapActivation extends RestObject {
    public void setStatus(String value) { 
       this.status = value;
    }
+   
    
    @JsonIgnore
    public String getTpmOwnerPassword() {
@@ -283,6 +315,7 @@ public class BootstrapActivation extends RestObject {
       this.tpmOwnerPassword = value;
    }
    
+   
    @JsonIgnore
    public Long getTpmState() {
       return tpmState;
@@ -292,6 +325,7 @@ public class BootstrapActivation extends RestObject {
    public void setTpmState(Long value) { 
       this.tpmState = value;
    }
+   
    
    @JsonIgnore
    public Long getVsdTime() {

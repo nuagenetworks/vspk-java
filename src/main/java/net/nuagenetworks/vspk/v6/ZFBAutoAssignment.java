@@ -43,40 +43,48 @@ public class ZFBAutoAssignment extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum ZFBMatchAttribute { HOSTNAME, IP_ADDRESS, MAC_ADDRESS, NSGATEWAY_ID, SERIAL_NUMBER, UUID };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EZFBMatchAttribute { HOSTNAME, IP_ADDRESS, MAC_ADDRESS, NSGATEWAY_ID, SERIAL_NUMBER, UUID };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "ZFBMatchAttribute")
-   protected ZFBMatchAttribute ZFBMatchAttribute;
+   
+   protected EZFBMatchAttribute ZFBMatchAttribute;
    
    @JsonProperty(value = "ZFBMatchAttributeValues")
+   
    protected java.util.List<String> ZFBMatchAttributeValues;
    
    @JsonProperty(value = "associatedEnterpriseID")
+   
    protected String associatedEnterpriseID;
    
    @JsonProperty(value = "associatedEnterpriseName")
+   
    protected String associatedEnterpriseName;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "priority")
+   
    protected Long priority;
    
 
@@ -87,15 +95,17 @@ public class ZFBAutoAssignment extends RestObject {
    }
 
    
+   
    @JsonIgnore
-   public ZFBMatchAttribute getZFBMatchAttribute() {
+   public EZFBMatchAttribute getZFBMatchAttribute() {
       return ZFBMatchAttribute;
    }
 
    @JsonIgnore
-   public void setZFBMatchAttribute(ZFBMatchAttribute value) { 
+   public void setZFBMatchAttribute(EZFBMatchAttribute value) { 
       this.ZFBMatchAttribute = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<String> getZFBMatchAttributeValues() {
@@ -107,6 +117,7 @@ public class ZFBAutoAssignment extends RestObject {
       this.ZFBMatchAttributeValues = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedEnterpriseID() {
       return associatedEnterpriseID;
@@ -116,6 +127,7 @@ public class ZFBAutoAssignment extends RestObject {
    public void setAssociatedEnterpriseID(String value) { 
       this.associatedEnterpriseID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedEnterpriseName() {
@@ -127,6 +139,7 @@ public class ZFBAutoAssignment extends RestObject {
       this.associatedEnterpriseName = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -137,15 +150,17 @@ public class ZFBAutoAssignment extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -157,6 +172,7 @@ public class ZFBAutoAssignment extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -167,6 +183,7 @@ public class ZFBAutoAssignment extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getName() {
       return name;
@@ -176,6 +193,7 @@ public class ZFBAutoAssignment extends RestObject {
    public void setName(String value) { 
       this.name = value;
    }
+   
    
    @JsonIgnore
    public Long getPriority() {

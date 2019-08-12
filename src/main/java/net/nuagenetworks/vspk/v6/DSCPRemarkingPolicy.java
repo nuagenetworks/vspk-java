@@ -45,28 +45,32 @@ public class DSCPRemarkingPolicy extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum ForwardingClass { A, B, C, D, E, F, G, H };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EForwardingClass { A, B, C, D, E, F, G, H };
 
    
    @JsonProperty(value = "DSCP")
+   
    protected String DSCP;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "forwardingClass")
-   protected ForwardingClass forwardingClass;
+   
+   protected EForwardingClass forwardingClass;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
 
@@ -87,6 +91,7 @@ public class DSCPRemarkingPolicy extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getDSCP() {
       return DSCP;
@@ -96,6 +101,7 @@ public class DSCPRemarkingPolicy extends RestObject {
    public void setDSCP(String value) { 
       this.DSCP = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -107,15 +113,17 @@ public class DSCPRemarkingPolicy extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -127,15 +135,17 @@ public class DSCPRemarkingPolicy extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
-   public ForwardingClass getForwardingClass() {
+   public EForwardingClass getForwardingClass() {
       return forwardingClass;
    }
 
    @JsonIgnore
-   public void setForwardingClass(ForwardingClass value) { 
+   public void setForwardingClass(EForwardingClass value) { 
       this.forwardingClass = value;
    }
+   
    
    @JsonIgnore
    public String getLastUpdatedBy() {

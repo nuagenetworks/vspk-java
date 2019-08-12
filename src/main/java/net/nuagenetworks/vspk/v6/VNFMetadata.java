@@ -45,32 +45,39 @@ public class VNFMetadata extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "assocEntityType")
+   
    protected String assocEntityType;
    
    @JsonProperty(value = "blob")
+   
    protected String blob;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
 
@@ -91,6 +98,7 @@ public class VNFMetadata extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAssocEntityType() {
       return assocEntityType;
@@ -100,6 +108,7 @@ public class VNFMetadata extends RestObject {
    public void setAssocEntityType(String value) { 
       this.assocEntityType = value;
    }
+   
    
    @JsonIgnore
    public String getBlob() {
@@ -111,6 +120,7 @@ public class VNFMetadata extends RestObject {
       this.blob = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -120,6 +130,7 @@ public class VNFMetadata extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -131,15 +142,17 @@ public class VNFMetadata extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -151,6 +164,7 @@ public class VNFMetadata extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -160,6 +174,7 @@ public class VNFMetadata extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {

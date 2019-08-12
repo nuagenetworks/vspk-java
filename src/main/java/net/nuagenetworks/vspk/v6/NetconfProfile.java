@@ -45,38 +45,47 @@ public class NetconfProfile extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "assocEntityType")
+   
    protected String assocEntityType;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "password")
+   
    protected String password;
    
    @JsonProperty(value = "port")
+   
    protected Long port;
    
    @JsonProperty(value = "userName")
+   
    protected String userName;
    
 
@@ -97,6 +106,7 @@ public class NetconfProfile extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getAssocEntityType() {
       return assocEntityType;
@@ -106,6 +116,7 @@ public class NetconfProfile extends RestObject {
    public void setAssocEntityType(String value) { 
       this.assocEntityType = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -117,6 +128,7 @@ public class NetconfProfile extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -127,15 +139,17 @@ public class NetconfProfile extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -147,6 +161,7 @@ public class NetconfProfile extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -156,6 +171,7 @@ public class NetconfProfile extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -167,6 +183,7 @@ public class NetconfProfile extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public String getPassword() {
       return password;
@@ -177,6 +194,7 @@ public class NetconfProfile extends RestObject {
       this.password = value;
    }
    
+   
    @JsonIgnore
    public Long getPort() {
       return port;
@@ -186,6 +204,7 @@ public class NetconfProfile extends RestObject {
    public void setPort(Long value) { 
       this.port = value;
    }
+   
    
    @JsonIgnore
    public String getUserName() {

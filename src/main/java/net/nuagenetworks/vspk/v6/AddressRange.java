@@ -46,36 +46,41 @@ public class AddressRange extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum DHCPPoolType { BRIDGE, HOST, VRRP };
-   
-   public enum IPType { IPV4, IPV6 };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EDHCPPoolType { BRIDGE, HOST, VRRP };
+   public enum EIPType { IPV4, IPV6 };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "DHCPPoolType")
-   protected DHCPPoolType DHCPPoolType;
+   
+   protected EDHCPPoolType DHCPPoolType;
    
    @JsonProperty(value = "IPType")
-   protected IPType IPType;
+   
+   protected EIPType IPType;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "maxAddress")
+   
    protected String maxAddress;
    
    @JsonProperty(value = "minAddress")
+   
    protected String minAddress;
    
 
@@ -102,25 +107,28 @@ public class AddressRange extends RestObject {
    }
 
    
+   
    @JsonIgnore
-   public DHCPPoolType getDHCPPoolType() {
+   public EDHCPPoolType getDHCPPoolType() {
       return DHCPPoolType;
    }
 
    @JsonIgnore
-   public void setDHCPPoolType(DHCPPoolType value) { 
+   public void setDHCPPoolType(EDHCPPoolType value) { 
       this.DHCPPoolType = value;
    }
    
+   
    @JsonIgnore
-   public IPType getIPType() {
+   public EIPType getIPType() {
       return IPType;
    }
 
    @JsonIgnore
-   public void setIPType(IPType value) { 
+   public void setIPType(EIPType value) { 
       this.IPType = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -132,15 +140,17 @@ public class AddressRange extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -152,6 +162,7 @@ public class AddressRange extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -162,6 +173,7 @@ public class AddressRange extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
    @JsonIgnore
    public String getMaxAddress() {
       return maxAddress;
@@ -171,6 +183,7 @@ public class AddressRange extends RestObject {
    public void setMaxAddress(String value) { 
       this.maxAddress = value;
    }
+   
    
    @JsonIgnore
    public String getMinAddress() {

@@ -48,45 +48,53 @@ public class InfrastructureAccessProfile extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum SSHAuthMode { KEY_BASED, PASSWORD_AND_KEY_BASED, PASSWORD_BASED };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum SourceIPFilter { DISABLED, ENABLED };
+   public enum ESSHAuthMode { KEY_BASED, PASSWORD_AND_KEY_BASED, PASSWORD_BASED };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum ESourceIPFilter { DISABLED, ENABLED };
 
    
    @JsonProperty(value = "SSHAuthMode")
-   protected SSHAuthMode SSHAuthMode;
+   
+   protected ESSHAuthMode SSHAuthMode;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "enterpriseID")
+   
    protected String enterpriseID;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "password")
+   
    protected String password;
    
    @JsonProperty(value = "sourceIPFilter")
-   protected SourceIPFilter sourceIPFilter;
+   
+   protected ESourceIPFilter sourceIPFilter;
    
    @JsonProperty(value = "userName")
+   
    protected String userName;
    
 
@@ -122,15 +130,17 @@ public class InfrastructureAccessProfile extends RestObject {
    }
 
    
+   
    @JsonIgnore
-   public SSHAuthMode getSSHAuthMode() {
+   public ESSHAuthMode getSSHAuthMode() {
       return SSHAuthMode;
    }
 
    @JsonIgnore
-   public void setSSHAuthMode(SSHAuthMode value) { 
+   public void setSSHAuthMode(ESSHAuthMode value) { 
       this.SSHAuthMode = value;
    }
+   
    
    @JsonIgnore
    public String getDescription() {
@@ -142,6 +152,7 @@ public class InfrastructureAccessProfile extends RestObject {
       this.description = value;
    }
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -151,6 +162,7 @@ public class InfrastructureAccessProfile extends RestObject {
    public void setEmbeddedMetadata(java.util.List<Metadata> value) { 
       this.embeddedMetadata = value;
    }
+   
    
    @JsonIgnore
    public String getEnterpriseID() {
@@ -162,15 +174,17 @@ public class InfrastructureAccessProfile extends RestObject {
       this.enterpriseID = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -182,6 +196,7 @@ public class InfrastructureAccessProfile extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -191,6 +206,7 @@ public class InfrastructureAccessProfile extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -202,6 +218,7 @@ public class InfrastructureAccessProfile extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public String getPassword() {
       return password;
@@ -212,15 +229,17 @@ public class InfrastructureAccessProfile extends RestObject {
       this.password = value;
    }
    
+   
    @JsonIgnore
-   public SourceIPFilter getSourceIPFilter() {
+   public ESourceIPFilter getSourceIPFilter() {
       return sourceIPFilter;
    }
 
    @JsonIgnore
-   public void setSourceIPFilter(SourceIPFilter value) { 
+   public void setSourceIPFilter(ESourceIPFilter value) { 
       this.sourceIPFilter = value;
    }
+   
    
    @JsonIgnore
    public String getUserName() {

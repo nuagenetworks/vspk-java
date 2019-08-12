@@ -45,29 +45,35 @@ public class DefaultGateway extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "gatewayIPAddress")
+   
    protected String gatewayIPAddress;
    
    @JsonProperty(value = "gatewayMACAddress")
+   
    protected String gatewayMACAddress;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
 
@@ -88,6 +94,7 @@ public class DefaultGateway extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
@@ -98,15 +105,17 @@ public class DefaultGateway extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -118,6 +127,7 @@ public class DefaultGateway extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getGatewayIPAddress() {
       return gatewayIPAddress;
@@ -127,6 +137,7 @@ public class DefaultGateway extends RestObject {
    public void setGatewayIPAddress(String value) { 
       this.gatewayIPAddress = value;
    }
+   
    
    @JsonIgnore
    public String getGatewayMACAddress() {
@@ -138,6 +149,7 @@ public class DefaultGateway extends RestObject {
       this.gatewayMACAddress = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -147,6 +159,7 @@ public class DefaultGateway extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {

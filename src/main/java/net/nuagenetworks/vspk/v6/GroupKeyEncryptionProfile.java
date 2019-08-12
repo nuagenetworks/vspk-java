@@ -45,100 +45,118 @@ public class GroupKeyEncryptionProfile extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum SEKPayloadEncryptionAlgorithm { RSA_1024 };
-   
-   public enum SEKPayloadSigningAlgorithm { SHA1withRSA, SHA224withRSA, SHA256withRSA, SHA384withRSA, SHA512withRSA };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum SeedPayloadAuthenticationAlgorithm { HMAC_SHA1, HMAC_SHA256, HMAC_SHA512 };
-   
-   public enum SeedPayloadEncryptionAlgorithm { AES_128_CBC, AES_256_CBC, TRIPLE_DES_CBC };
-   
-   public enum SeedPayloadSigningAlgorithm { SHA1withRSA, SHA224withRSA, SHA256withRSA, SHA384withRSA, SHA512withRSA };
-   
-   public enum TrafficAuthenticationAlgorithm { HMAC_MD5, HMAC_SHA1, HMAC_SHA256, HMAC_SHA384, HMAC_SHA512 };
-   
-   public enum TrafficEncryptionAlgorithm { AES_128_CBC, AES_192_CBC, AES_256_CBC, TRIPLE_DES_CBC };
+   public enum ESEKPayloadEncryptionAlgorithm { RSA_1024 };
+   public enum ESEKPayloadSigningAlgorithm { SHA1withRSA, SHA224withRSA, SHA256withRSA, SHA384withRSA, SHA512withRSA };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum ESeedPayloadAuthenticationAlgorithm { HMAC_SHA1, HMAC_SHA256, HMAC_SHA512 };
+   public enum ESeedPayloadEncryptionAlgorithm { AES_128_CBC, AES_256_CBC, TRIPLE_DES_CBC };
+   public enum ESeedPayloadSigningAlgorithm { SHA1withRSA, SHA224withRSA, SHA256withRSA, SHA384withRSA, SHA512withRSA };
+   public enum ETrafficAuthenticationAlgorithm { HMAC_MD5, HMAC_SHA1, HMAC_SHA256, HMAC_SHA384, HMAC_SHA512 };
+   public enum ETrafficEncryptionAlgorithm { AES_128_CBC, AES_192_CBC, AES_256_CBC, TRIPLE_DES_CBC };
 
    
    @JsonProperty(value = "DRSeedLifetime")
+   
    protected Long DRSeedLifetime;
    
    @JsonProperty(value = "SEKGenerationInterval")
+   
    protected Long SEKGenerationInterval;
    
    @JsonProperty(value = "SEKLifetime")
+   
    protected Long SEKLifetime;
    
    @JsonProperty(value = "SEKPayloadEncryptionAlgorithm")
-   protected SEKPayloadEncryptionAlgorithm SEKPayloadEncryptionAlgorithm;
+   
+   protected ESEKPayloadEncryptionAlgorithm SEKPayloadEncryptionAlgorithm;
    
    @JsonProperty(value = "SEKPayloadEncryptionBCAlgorithm")
+   
    protected String SEKPayloadEncryptionBCAlgorithm;
    
    @JsonProperty(value = "SEKPayloadEncryptionKeyLength")
+   
    protected Long SEKPayloadEncryptionKeyLength;
    
    @JsonProperty(value = "SEKPayloadSigningAlgorithm")
-   protected SEKPayloadSigningAlgorithm SEKPayloadSigningAlgorithm;
+   
+   protected ESEKPayloadSigningAlgorithm SEKPayloadSigningAlgorithm;
    
    @JsonProperty(value = "associatedEnterpriseID")
+   
    protected String associatedEnterpriseID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "name")
+   
    protected String name;
    
    @JsonProperty(value = "seedGenerationInterval")
+   
    protected Long seedGenerationInterval;
    
    @JsonProperty(value = "seedLifetime")
+   
    protected Long seedLifetime;
    
    @JsonProperty(value = "seedPayloadAuthenticationAlgorithm")
-   protected SeedPayloadAuthenticationAlgorithm seedPayloadAuthenticationAlgorithm;
+   
+   protected ESeedPayloadAuthenticationAlgorithm seedPayloadAuthenticationAlgorithm;
    
    @JsonProperty(value = "seedPayloadAuthenticationBCAlgorithm")
+   
    protected String seedPayloadAuthenticationBCAlgorithm;
    
    @JsonProperty(value = "seedPayloadAuthenticationKeyLength")
+   
    protected Long seedPayloadAuthenticationKeyLength;
    
    @JsonProperty(value = "seedPayloadEncryptionAlgorithm")
-   protected SeedPayloadEncryptionAlgorithm seedPayloadEncryptionAlgorithm;
+   
+   protected ESeedPayloadEncryptionAlgorithm seedPayloadEncryptionAlgorithm;
    
    @JsonProperty(value = "seedPayloadEncryptionBCAlgorithm")
+   
    protected String seedPayloadEncryptionBCAlgorithm;
    
    @JsonProperty(value = "seedPayloadEncryptionKeyLength")
+   
    protected Long seedPayloadEncryptionKeyLength;
    
    @JsonProperty(value = "seedPayloadSigningAlgorithm")
-   protected SeedPayloadSigningAlgorithm seedPayloadSigningAlgorithm;
+   
+   protected ESeedPayloadSigningAlgorithm seedPayloadSigningAlgorithm;
    
    @JsonProperty(value = "trafficAuthenticationAlgorithm")
-   protected TrafficAuthenticationAlgorithm trafficAuthenticationAlgorithm;
+   
+   protected ETrafficAuthenticationAlgorithm trafficAuthenticationAlgorithm;
    
    @JsonProperty(value = "trafficEncryptionAlgorithm")
-   protected TrafficEncryptionAlgorithm trafficEncryptionAlgorithm;
+   
+   protected ETrafficEncryptionAlgorithm trafficEncryptionAlgorithm;
    
    @JsonProperty(value = "trafficEncryptionKeyLifetime")
+   
    protected Long trafficEncryptionKeyLifetime;
    
 
@@ -159,6 +177,7 @@ public class GroupKeyEncryptionProfile extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public Long getDRSeedLifetime() {
       return DRSeedLifetime;
@@ -168,6 +187,7 @@ public class GroupKeyEncryptionProfile extends RestObject {
    public void setDRSeedLifetime(Long value) { 
       this.DRSeedLifetime = value;
    }
+   
    
    @JsonIgnore
    public Long getSEKGenerationInterval() {
@@ -179,6 +199,7 @@ public class GroupKeyEncryptionProfile extends RestObject {
       this.SEKGenerationInterval = value;
    }
    
+   
    @JsonIgnore
    public Long getSEKLifetime() {
       return SEKLifetime;
@@ -189,15 +210,17 @@ public class GroupKeyEncryptionProfile extends RestObject {
       this.SEKLifetime = value;
    }
    
+   
    @JsonIgnore
-   public SEKPayloadEncryptionAlgorithm getSEKPayloadEncryptionAlgorithm() {
+   public ESEKPayloadEncryptionAlgorithm getSEKPayloadEncryptionAlgorithm() {
       return SEKPayloadEncryptionAlgorithm;
    }
 
    @JsonIgnore
-   public void setSEKPayloadEncryptionAlgorithm(SEKPayloadEncryptionAlgorithm value) { 
+   public void setSEKPayloadEncryptionAlgorithm(ESEKPayloadEncryptionAlgorithm value) { 
       this.SEKPayloadEncryptionAlgorithm = value;
    }
+   
    
    @JsonIgnore
    public String getSEKPayloadEncryptionBCAlgorithm() {
@@ -209,6 +232,7 @@ public class GroupKeyEncryptionProfile extends RestObject {
       this.SEKPayloadEncryptionBCAlgorithm = value;
    }
    
+   
    @JsonIgnore
    public Long getSEKPayloadEncryptionKeyLength() {
       return SEKPayloadEncryptionKeyLength;
@@ -219,15 +243,17 @@ public class GroupKeyEncryptionProfile extends RestObject {
       this.SEKPayloadEncryptionKeyLength = value;
    }
    
+   
    @JsonIgnore
-   public SEKPayloadSigningAlgorithm getSEKPayloadSigningAlgorithm() {
+   public ESEKPayloadSigningAlgorithm getSEKPayloadSigningAlgorithm() {
       return SEKPayloadSigningAlgorithm;
    }
 
    @JsonIgnore
-   public void setSEKPayloadSigningAlgorithm(SEKPayloadSigningAlgorithm value) { 
+   public void setSEKPayloadSigningAlgorithm(ESEKPayloadSigningAlgorithm value) { 
       this.SEKPayloadSigningAlgorithm = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedEnterpriseID() {
@@ -239,6 +265,7 @@ public class GroupKeyEncryptionProfile extends RestObject {
       this.associatedEnterpriseID = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -248,6 +275,7 @@ public class GroupKeyEncryptionProfile extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -259,15 +287,17 @@ public class GroupKeyEncryptionProfile extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getExternalID() {
@@ -279,6 +309,7 @@ public class GroupKeyEncryptionProfile extends RestObject {
       this.externalID = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -288,6 +319,7 @@ public class GroupKeyEncryptionProfile extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getName() {
@@ -299,6 +331,7 @@ public class GroupKeyEncryptionProfile extends RestObject {
       this.name = value;
    }
    
+   
    @JsonIgnore
    public Long getSeedGenerationInterval() {
       return seedGenerationInterval;
@@ -308,6 +341,7 @@ public class GroupKeyEncryptionProfile extends RestObject {
    public void setSeedGenerationInterval(Long value) { 
       this.seedGenerationInterval = value;
    }
+   
    
    @JsonIgnore
    public Long getSeedLifetime() {
@@ -319,15 +353,17 @@ public class GroupKeyEncryptionProfile extends RestObject {
       this.seedLifetime = value;
    }
    
+   
    @JsonIgnore
-   public SeedPayloadAuthenticationAlgorithm getSeedPayloadAuthenticationAlgorithm() {
+   public ESeedPayloadAuthenticationAlgorithm getSeedPayloadAuthenticationAlgorithm() {
       return seedPayloadAuthenticationAlgorithm;
    }
 
    @JsonIgnore
-   public void setSeedPayloadAuthenticationAlgorithm(SeedPayloadAuthenticationAlgorithm value) { 
+   public void setSeedPayloadAuthenticationAlgorithm(ESeedPayloadAuthenticationAlgorithm value) { 
       this.seedPayloadAuthenticationAlgorithm = value;
    }
+   
    
    @JsonIgnore
    public String getSeedPayloadAuthenticationBCAlgorithm() {
@@ -339,6 +375,7 @@ public class GroupKeyEncryptionProfile extends RestObject {
       this.seedPayloadAuthenticationBCAlgorithm = value;
    }
    
+   
    @JsonIgnore
    public Long getSeedPayloadAuthenticationKeyLength() {
       return seedPayloadAuthenticationKeyLength;
@@ -349,15 +386,17 @@ public class GroupKeyEncryptionProfile extends RestObject {
       this.seedPayloadAuthenticationKeyLength = value;
    }
    
+   
    @JsonIgnore
-   public SeedPayloadEncryptionAlgorithm getSeedPayloadEncryptionAlgorithm() {
+   public ESeedPayloadEncryptionAlgorithm getSeedPayloadEncryptionAlgorithm() {
       return seedPayloadEncryptionAlgorithm;
    }
 
    @JsonIgnore
-   public void setSeedPayloadEncryptionAlgorithm(SeedPayloadEncryptionAlgorithm value) { 
+   public void setSeedPayloadEncryptionAlgorithm(ESeedPayloadEncryptionAlgorithm value) { 
       this.seedPayloadEncryptionAlgorithm = value;
    }
+   
    
    @JsonIgnore
    public String getSeedPayloadEncryptionBCAlgorithm() {
@@ -369,6 +408,7 @@ public class GroupKeyEncryptionProfile extends RestObject {
       this.seedPayloadEncryptionBCAlgorithm = value;
    }
    
+   
    @JsonIgnore
    public Long getSeedPayloadEncryptionKeyLength() {
       return seedPayloadEncryptionKeyLength;
@@ -379,35 +419,39 @@ public class GroupKeyEncryptionProfile extends RestObject {
       this.seedPayloadEncryptionKeyLength = value;
    }
    
+   
    @JsonIgnore
-   public SeedPayloadSigningAlgorithm getSeedPayloadSigningAlgorithm() {
+   public ESeedPayloadSigningAlgorithm getSeedPayloadSigningAlgorithm() {
       return seedPayloadSigningAlgorithm;
    }
 
    @JsonIgnore
-   public void setSeedPayloadSigningAlgorithm(SeedPayloadSigningAlgorithm value) { 
+   public void setSeedPayloadSigningAlgorithm(ESeedPayloadSigningAlgorithm value) { 
       this.seedPayloadSigningAlgorithm = value;
    }
    
+   
    @JsonIgnore
-   public TrafficAuthenticationAlgorithm getTrafficAuthenticationAlgorithm() {
+   public ETrafficAuthenticationAlgorithm getTrafficAuthenticationAlgorithm() {
       return trafficAuthenticationAlgorithm;
    }
 
    @JsonIgnore
-   public void setTrafficAuthenticationAlgorithm(TrafficAuthenticationAlgorithm value) { 
+   public void setTrafficAuthenticationAlgorithm(ETrafficAuthenticationAlgorithm value) { 
       this.trafficAuthenticationAlgorithm = value;
    }
    
+   
    @JsonIgnore
-   public TrafficEncryptionAlgorithm getTrafficEncryptionAlgorithm() {
+   public ETrafficEncryptionAlgorithm getTrafficEncryptionAlgorithm() {
       return trafficEncryptionAlgorithm;
    }
 
    @JsonIgnore
-   public void setTrafficEncryptionAlgorithm(TrafficEncryptionAlgorithm value) { 
+   public void setTrafficEncryptionAlgorithm(ETrafficEncryptionAlgorithm value) { 
       this.trafficEncryptionAlgorithm = value;
    }
+   
    
    @JsonIgnore
    public Long getTrafficEncryptionKeyLifetime() {

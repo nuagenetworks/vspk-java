@@ -45,138 +45,170 @@ public class VirtualFirewallRule extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   
-   public enum Action { DROP, FORWARD };
-   
-   public enum AssociatedTrafficType { L4_SERVICE, L4_SERVICE_GROUP };
-   
-   public enum EntityScope { ENTERPRISE, GLOBAL };
-   
-   public enum LocationType { ANY, ENTERPRISE_NETWORK, NETWORK_MACRO_GROUP, PGEXPRESSION, POLICYGROUP, SUBNET, UNDERLAY_INTERNET_POLICYGROUP, ZONE };
-   
-   public enum NetworkType { ANY, ENTERPRISE_NETWORK, INTERNET_POLICYGROUP, NETWORK_MACRO_GROUP, PGEXPRESSION, POLICYGROUP, SUBNET, ZONE };
-   
-   public enum PolicyState { DRAFT, LIVE };
-   
-   public enum WebFilterType { WEB_CATEGORY, WEB_DOMAIN_NAME };
+   public enum EAction { DROP, FORWARD };
+   public enum EAssociatedTrafficType { L4_SERVICE, L4_SERVICE_GROUP };
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum ELocationType { ANY, ENTERPRISE_NETWORK, NETWORK_MACRO_GROUP, PGEXPRESSION, POLICYGROUP, SUBNET, UNDERLAY_INTERNET_POLICYGROUP, ZONE };
+   public enum ENetworkType { ANY, ENTERPRISE_NETWORK, INTERNET_POLICYGROUP, NETWORK_MACRO_GROUP, PGEXPRESSION, POLICYGROUP, SUBNET, ZONE };
+   public enum EPolicyState { DRAFT, LIVE };
+   public enum EWebFilterType { WEB_CATEGORY, WEB_DOMAIN_NAME };
 
    
    @JsonProperty(value = "ACLTemplateName")
+   
    protected String ACLTemplateName;
    
    @JsonProperty(value = "DSCP")
+   
    protected String DSCP;
    
    @JsonProperty(value = "ICMPCode")
+   
    protected String ICMPCode;
    
    @JsonProperty(value = "ICMPType")
+   
    protected String ICMPType;
    
    @JsonProperty(value = "IPv6AddressOverride")
+   
    protected String IPv6AddressOverride;
    
    @JsonProperty(value = "action")
-   protected Action action;
+   
+   protected EAction action;
    
    @JsonProperty(value = "addressOverride")
+   
    protected String addressOverride;
    
    @JsonProperty(value = "associatedEgressEntryID")
+   
    protected String associatedEgressEntryID;
    
    @JsonProperty(value = "associatedIngressEntryID")
+   
    protected String associatedIngressEntryID;
    
    @JsonProperty(value = "associatedL7ApplicationSignatureID")
+   
    protected String associatedL7ApplicationSignatureID;
    
    @JsonProperty(value = "associatedLiveEntityID")
+   
    protected String associatedLiveEntityID;
    
    @JsonProperty(value = "associatedLiveTemplateID")
+   
    protected String associatedLiveTemplateID;
    
    @JsonProperty(value = "associatedTrafficType")
-   protected AssociatedTrafficType associatedTrafficType;
+   
+   protected EAssociatedTrafficType associatedTrafficType;
    
    @JsonProperty(value = "associatedTrafficTypeID")
+   
    protected String associatedTrafficTypeID;
    
    @JsonProperty(value = "description")
+   
    protected String description;
    
    @JsonProperty(value = "destinationPort")
+   
    protected String destinationPort;
    
    @JsonProperty(value = "domainName")
+   
    protected String domainName;
    
    @JsonProperty(value = "embeddedMetadata")
+   
    protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "enterpriseName")
+   
    protected String enterpriseName;
    
    @JsonProperty(value = "entityScope")
-   protected EntityScope entityScope;
+   
+   protected EEntityScope entityScope;
    
    @JsonProperty(value = "etherType")
+   
    protected String etherType;
    
    @JsonProperty(value = "externalID")
+   
    protected String externalID;
    
    @JsonProperty(value = "flowLoggingEnabled")
+   
    protected Boolean flowLoggingEnabled;
    
    @JsonProperty(value = "lastUpdatedBy")
+   
    protected String lastUpdatedBy;
    
    @JsonProperty(value = "locationID")
+   
    protected String locationID;
    
    @JsonProperty(value = "locationType")
-   protected LocationType locationType;
+   
+   protected ELocationType locationType;
    
    @JsonProperty(value = "mirrorDestinationID")
+   
    protected String mirrorDestinationID;
    
    @JsonProperty(value = "networkID")
+   
    protected String networkID;
    
    @JsonProperty(value = "networkType")
-   protected NetworkType networkType;
+   
+   protected ENetworkType networkType;
    
    @JsonProperty(value = "overlayMirrorDestinationID")
+   
    protected String overlayMirrorDestinationID;
    
    @JsonProperty(value = "policyState")
-   protected PolicyState policyState;
+   
+   protected EPolicyState policyState;
    
    @JsonProperty(value = "priority")
+   
    protected Long priority;
    
    @JsonProperty(value = "protocol")
+   
    protected String protocol;
    
    @JsonProperty(value = "sourcePort")
+   
    protected String sourcePort;
    
    @JsonProperty(value = "stateful")
+   
    protected Boolean stateful;
    
    @JsonProperty(value = "statsID")
+   
    protected String statsID;
    
    @JsonProperty(value = "statsLoggingEnabled")
+   
    protected Boolean statsLoggingEnabled;
    
    @JsonProperty(value = "webFilterID")
+   
    protected String webFilterID;
    
    @JsonProperty(value = "webFilterType")
-   protected WebFilterType webFilterType;
+   
+   protected EWebFilterType webFilterType;
    
 
    
@@ -196,6 +228,7 @@ public class VirtualFirewallRule extends RestObject {
    }
 
    
+   
    @JsonIgnore
    public String getACLTemplateName() {
       return ACLTemplateName;
@@ -205,6 +238,7 @@ public class VirtualFirewallRule extends RestObject {
    public void setACLTemplateName(String value) { 
       this.ACLTemplateName = value;
    }
+   
    
    @JsonIgnore
    public String getDSCP() {
@@ -216,6 +250,7 @@ public class VirtualFirewallRule extends RestObject {
       this.DSCP = value;
    }
    
+   
    @JsonIgnore
    public String getICMPCode() {
       return ICMPCode;
@@ -225,6 +260,7 @@ public class VirtualFirewallRule extends RestObject {
    public void setICMPCode(String value) { 
       this.ICMPCode = value;
    }
+   
    
    @JsonIgnore
    public String getICMPType() {
@@ -236,6 +272,7 @@ public class VirtualFirewallRule extends RestObject {
       this.ICMPType = value;
    }
    
+   
    @JsonIgnore
    public String getIPv6AddressOverride() {
       return IPv6AddressOverride;
@@ -246,15 +283,17 @@ public class VirtualFirewallRule extends RestObject {
       this.IPv6AddressOverride = value;
    }
    
+   
    @JsonIgnore
-   public Action getAction() {
+   public EAction getAction() {
       return action;
    }
 
    @JsonIgnore
-   public void setAction(Action value) { 
+   public void setAction(EAction value) { 
       this.action = value;
    }
+   
    
    @JsonIgnore
    public String getAddressOverride() {
@@ -266,6 +305,7 @@ public class VirtualFirewallRule extends RestObject {
       this.addressOverride = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedEgressEntryID() {
       return associatedEgressEntryID;
@@ -275,6 +315,7 @@ public class VirtualFirewallRule extends RestObject {
    public void setAssociatedEgressEntryID(String value) { 
       this.associatedEgressEntryID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedIngressEntryID() {
@@ -286,6 +327,7 @@ public class VirtualFirewallRule extends RestObject {
       this.associatedIngressEntryID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedL7ApplicationSignatureID() {
       return associatedL7ApplicationSignatureID;
@@ -295,6 +337,7 @@ public class VirtualFirewallRule extends RestObject {
    public void setAssociatedL7ApplicationSignatureID(String value) { 
       this.associatedL7ApplicationSignatureID = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedLiveEntityID() {
@@ -306,6 +349,7 @@ public class VirtualFirewallRule extends RestObject {
       this.associatedLiveEntityID = value;
    }
    
+   
    @JsonIgnore
    public String getAssociatedLiveTemplateID() {
       return associatedLiveTemplateID;
@@ -316,15 +360,17 @@ public class VirtualFirewallRule extends RestObject {
       this.associatedLiveTemplateID = value;
    }
    
+   
    @JsonIgnore
-   public AssociatedTrafficType getAssociatedTrafficType() {
+   public EAssociatedTrafficType getAssociatedTrafficType() {
       return associatedTrafficType;
    }
 
    @JsonIgnore
-   public void setAssociatedTrafficType(AssociatedTrafficType value) { 
+   public void setAssociatedTrafficType(EAssociatedTrafficType value) { 
       this.associatedTrafficType = value;
    }
+   
    
    @JsonIgnore
    public String getAssociatedTrafficTypeID() {
@@ -336,6 +382,7 @@ public class VirtualFirewallRule extends RestObject {
       this.associatedTrafficTypeID = value;
    }
    
+   
    @JsonIgnore
    public String getDescription() {
       return description;
@@ -345,6 +392,7 @@ public class VirtualFirewallRule extends RestObject {
    public void setDescription(String value) { 
       this.description = value;
    }
+   
    
    @JsonIgnore
    public String getDestinationPort() {
@@ -356,6 +404,7 @@ public class VirtualFirewallRule extends RestObject {
       this.destinationPort = value;
    }
    
+   
    @JsonIgnore
    public String getDomainName() {
       return domainName;
@@ -365,6 +414,7 @@ public class VirtualFirewallRule extends RestObject {
    public void setDomainName(String value) { 
       this.domainName = value;
    }
+   
    
    @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
@@ -376,6 +426,7 @@ public class VirtualFirewallRule extends RestObject {
       this.embeddedMetadata = value;
    }
    
+   
    @JsonIgnore
    public String getEnterpriseName() {
       return enterpriseName;
@@ -386,15 +437,17 @@ public class VirtualFirewallRule extends RestObject {
       this.enterpriseName = value;
    }
    
+   
    @JsonIgnore
-   public EntityScope getEntityScope() {
+   public EEntityScope getEntityScope() {
       return entityScope;
    }
 
    @JsonIgnore
-   public void setEntityScope(EntityScope value) { 
+   public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
    }
+   
    
    @JsonIgnore
    public String getEtherType() {
@@ -406,6 +459,7 @@ public class VirtualFirewallRule extends RestObject {
       this.etherType = value;
    }
    
+   
    @JsonIgnore
    public String getExternalID() {
       return externalID;
@@ -415,6 +469,7 @@ public class VirtualFirewallRule extends RestObject {
    public void setExternalID(String value) { 
       this.externalID = value;
    }
+   
    
    @JsonIgnore
    public Boolean getFlowLoggingEnabled() {
@@ -426,6 +481,7 @@ public class VirtualFirewallRule extends RestObject {
       this.flowLoggingEnabled = value;
    }
    
+   
    @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
@@ -435,6 +491,7 @@ public class VirtualFirewallRule extends RestObject {
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
    }
+   
    
    @JsonIgnore
    public String getLocationID() {
@@ -446,15 +503,17 @@ public class VirtualFirewallRule extends RestObject {
       this.locationID = value;
    }
    
+   
    @JsonIgnore
-   public LocationType getLocationType() {
+   public ELocationType getLocationType() {
       return locationType;
    }
 
    @JsonIgnore
-   public void setLocationType(LocationType value) { 
+   public void setLocationType(ELocationType value) { 
       this.locationType = value;
    }
+   
    
    @JsonIgnore
    public String getMirrorDestinationID() {
@@ -466,6 +525,7 @@ public class VirtualFirewallRule extends RestObject {
       this.mirrorDestinationID = value;
    }
    
+   
    @JsonIgnore
    public String getNetworkID() {
       return networkID;
@@ -476,15 +536,17 @@ public class VirtualFirewallRule extends RestObject {
       this.networkID = value;
    }
    
+   
    @JsonIgnore
-   public NetworkType getNetworkType() {
+   public ENetworkType getNetworkType() {
       return networkType;
    }
 
    @JsonIgnore
-   public void setNetworkType(NetworkType value) { 
+   public void setNetworkType(ENetworkType value) { 
       this.networkType = value;
    }
+   
    
    @JsonIgnore
    public String getOverlayMirrorDestinationID() {
@@ -496,15 +558,17 @@ public class VirtualFirewallRule extends RestObject {
       this.overlayMirrorDestinationID = value;
    }
    
+   
    @JsonIgnore
-   public PolicyState getPolicyState() {
+   public EPolicyState getPolicyState() {
       return policyState;
    }
 
    @JsonIgnore
-   public void setPolicyState(PolicyState value) { 
+   public void setPolicyState(EPolicyState value) { 
       this.policyState = value;
    }
+   
    
    @JsonIgnore
    public Long getPriority() {
@@ -516,6 +580,7 @@ public class VirtualFirewallRule extends RestObject {
       this.priority = value;
    }
    
+   
    @JsonIgnore
    public String getProtocol() {
       return protocol;
@@ -525,6 +590,7 @@ public class VirtualFirewallRule extends RestObject {
    public void setProtocol(String value) { 
       this.protocol = value;
    }
+   
    
    @JsonIgnore
    public String getSourcePort() {
@@ -536,6 +602,7 @@ public class VirtualFirewallRule extends RestObject {
       this.sourcePort = value;
    }
    
+   
    @JsonIgnore
    public Boolean getStateful() {
       return stateful;
@@ -545,6 +612,7 @@ public class VirtualFirewallRule extends RestObject {
    public void setStateful(Boolean value) { 
       this.stateful = value;
    }
+   
    
    @JsonIgnore
    public String getStatsID() {
@@ -556,6 +624,7 @@ public class VirtualFirewallRule extends RestObject {
       this.statsID = value;
    }
    
+   
    @JsonIgnore
    public Boolean getStatsLoggingEnabled() {
       return statsLoggingEnabled;
@@ -565,6 +634,7 @@ public class VirtualFirewallRule extends RestObject {
    public void setStatsLoggingEnabled(Boolean value) { 
       this.statsLoggingEnabled = value;
    }
+   
    
    @JsonIgnore
    public String getWebFilterID() {
@@ -576,13 +646,14 @@ public class VirtualFirewallRule extends RestObject {
       this.webFilterID = value;
    }
    
+   
    @JsonIgnore
-   public WebFilterType getWebFilterType() {
+   public EWebFilterType getWebFilterType() {
       return webFilterType;
    }
 
    @JsonIgnore
-   public void setWebFilterType(WebFilterType value) { 
+   public void setWebFilterType(EWebFilterType value) { 
       this.webFilterType = value;
    }
    
