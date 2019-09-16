@@ -74,7 +74,7 @@ public class PolicyEntry extends RestObject {
    
    @JsonProperty(value = "matchCriteria")
    
-   protected Object matchCriteria;
+   protected String matchCriteria;
    
    @JsonProperty(value = "name")
    
@@ -166,12 +166,12 @@ public class PolicyEntry extends RestObject {
    
    
    @JsonIgnore
-   public Object getMatchCriteria() {
+   public String getMatchCriteria() {
       return matchCriteria;
    }
 
    @JsonIgnore
-   public void setMatchCriteria(Object value) { 
+   public void setMatchCriteria(String value) { 
       this.matchCriteria = value;
    }
    

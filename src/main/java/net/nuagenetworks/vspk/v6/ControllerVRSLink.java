@@ -53,6 +53,7 @@ public class ControllerVRSLink extends RestObject {
    public enum EVSCConfigState { PRIMARY, SECONDARY };
    public enum EVSCCurrentState { PRIMARY, SECONDARY };
    public enum EClusterNodeRole { NONE, PRIMARY, SECONDARY };
+   public enum EControllerType { HSC, VSC };
    public enum EEntityScope { ENTERPRISE, GLOBAL };
    public enum ERole { MASTER, NONE, SLAVE };
    public enum EStatus { ADMIN_DOWN, DOWN, UP };
@@ -92,7 +93,7 @@ public class ControllerVRSLink extends RestObject {
    
    @JsonProperty(value = "controllerType")
    
-   protected String controllerType;
+   protected EControllerType controllerType;
    
    @JsonProperty(value = "dynamic")
    
@@ -253,12 +254,12 @@ public class ControllerVRSLink extends RestObject {
    
    
    @JsonIgnore
-   public String getControllerType() {
+   public EControllerType getControllerType() {
       return controllerType;
    }
 
    @JsonIgnore
-   public void setControllerType(String value) { 
+   public void setControllerType(EControllerType value) { 
       this.controllerType = value;
    }
    

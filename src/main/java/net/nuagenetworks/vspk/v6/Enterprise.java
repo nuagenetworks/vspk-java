@@ -101,6 +101,7 @@ import net.nuagenetworks.vspk.v6.fetchers.SaaSApplicationGroupsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.SaaSApplicationTypesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.SharedNetworkResourcesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.SyslogDestinationsFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.TestDefinitionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.TestSuitesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.TrunksFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.UsersFetcher;
@@ -476,6 +477,9 @@ public class Enterprise extends RestObject {
    private SyslogDestinationsFetcher syslogDestinations;
    
    @JsonIgnore
+   private TestDefinitionsFetcher testDefinitions;
+   
+   @JsonIgnore
    private TestSuitesFetcher testSuites;
    
    @JsonIgnore
@@ -639,6 +643,8 @@ public class Enterprise extends RestObject {
       sharedNetworkResources = new SharedNetworkResourcesFetcher(this);
       
       syslogDestinations = new SyslogDestinationsFetcher(this);
+      
+      testDefinitions = new TestDefinitionsFetcher(this);
       
       testSuites = new TestSuitesFetcher(this);
       
@@ -1400,6 +1406,11 @@ public class Enterprise extends RestObject {
    @JsonIgnore
    public SyslogDestinationsFetcher getSyslogDestinations() {
       return syslogDestinations;
+   }
+   
+   @JsonIgnore
+   public TestDefinitionsFetcher getTestDefinitions() {
+      return testDefinitions;
    }
    
    @JsonIgnore
