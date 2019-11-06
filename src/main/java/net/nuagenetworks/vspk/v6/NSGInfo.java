@@ -43,6 +43,7 @@ public class NSGInfo extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum EBootstrapStatus { ACTIVE, CERTIFICATE_SIGNED, INACTIVE, NOTIFICATION_APP_REQ_ACK, NOTIFICATION_APP_REQ_SENT };
    public enum ECmdStatus { ABANDONED, COMPLETED, FAILED, RUNNING, SKIPPED, STARTED, UNKNOWN };
    public enum ECmdType { NSG_DOWNLOAD_OS_IMAGE, NSG_UPGRADE_TO_IMAGE };
    public enum EEntityScope { ENTERPRISE, GLOBAL };
@@ -104,7 +105,7 @@ public class NSGInfo extends RestObject {
    
    @JsonProperty(value = "bootstrapStatus")
    
-   protected String bootstrapStatus;
+   protected EBootstrapStatus bootstrapStatus;
    
    @JsonProperty(value = "cmdDetailedStatus")
    
@@ -124,7 +125,7 @@ public class NSGInfo extends RestObject {
    
    @JsonProperty(value = "cmdLastUpdatedDate")
    
-   protected String cmdLastUpdatedDate;
+   protected Float cmdLastUpdatedDate;
    
    @JsonProperty(value = "cmdStatus")
    
@@ -335,12 +336,12 @@ public class NSGInfo extends RestObject {
    
    
    @JsonIgnore
-   public String getBootstrapStatus() {
+   public EBootstrapStatus getBootstrapStatus() {
       return bootstrapStatus;
    }
 
    @JsonIgnore
-   public void setBootstrapStatus(String value) { 
+   public void setBootstrapStatus(EBootstrapStatus value) { 
       this.bootstrapStatus = value;
    }
    
@@ -390,12 +391,12 @@ public class NSGInfo extends RestObject {
    
    
    @JsonIgnore
-   public String getCmdLastUpdatedDate() {
+   public Float getCmdLastUpdatedDate() {
       return cmdLastUpdatedDate;
    }
 
    @JsonIgnore
-   public void setCmdLastUpdatedDate(String value) { 
+   public void setCmdLastUpdatedDate(Float value) { 
       this.cmdLastUpdatedDate = value;
    }
    

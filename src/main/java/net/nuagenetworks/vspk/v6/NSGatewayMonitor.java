@@ -45,6 +45,10 @@ public class NSGatewayMonitor extends RestObject {
    
 
    
+   @JsonProperty(value = "controllervrslinks")
+   
+   protected java.util.List<ControllerVRSLink> controllervrslinks;
+   
    @JsonProperty(value = "nsginfo")
    
    protected Object nsginfo;
@@ -72,6 +76,17 @@ public class NSGatewayMonitor extends RestObject {
       
    }
 
+   
+   
+   @JsonIgnore
+   public java.util.List<ControllerVRSLink> getControllervrslinks() {
+      return controllervrslinks;
+   }
+
+   @JsonIgnore
+   public void setControllervrslinks(java.util.List<ControllerVRSLink> value) { 
+      this.controllervrslinks = value;
+   }
    
    
    @JsonIgnore
@@ -132,7 +147,7 @@ public class NSGatewayMonitor extends RestObject {
    
 
    public String toString() {
-      return "NSGatewayMonitor [" + "nsginfo=" + nsginfo + ", nsgstate=" + nsgstate + ", nsgsummary=" + nsgsummary + ", vrsinfo=" + vrsinfo + ", vscs=" + vscs + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NSGatewayMonitor [" + "controllervrslinks=" + controllervrslinks + ", nsginfo=" + nsginfo + ", nsgstate=" + nsgstate + ", nsgsummary=" + nsgsummary + ", vrsinfo=" + vrsinfo + ", vscs=" + vscs + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

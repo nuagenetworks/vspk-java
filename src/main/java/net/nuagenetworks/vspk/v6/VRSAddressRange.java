@@ -45,7 +45,7 @@ public class VRSAddressRange extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum EIPType { IPV4, IPV6, DUALSTACK };
+   public enum EIPType { DUALSTACK, IPV4, IPV6 };
    public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
