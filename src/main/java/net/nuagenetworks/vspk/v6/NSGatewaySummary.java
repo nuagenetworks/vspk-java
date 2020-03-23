@@ -45,7 +45,7 @@ public class NSGatewaySummary extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum EBootstrapStatus { ACTIVE, CERTIFICATE_SIGNED, INACTIVE, NOTIFICATION_APP_REQ_ACK, NOTIFICATION_APP_REQ_SENT };
+   public enum EBootstrapStatus { ACTIVE, CERTIFICATE_SIGNED, INACTIVE, NOTIFICATION_APP_REQ_ACK, NOTIFICATION_APP_REQ_SENT, QUARANTINED, REVOKED };
    public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
