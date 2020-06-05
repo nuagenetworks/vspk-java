@@ -47,7 +47,7 @@ public class TCA extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum EAction { Alert, Alert_Add_Policy_Group, Alert_PolicyGroupChange };
+   public enum EAction { Alert, Alert_Add_Network_Macro, Alert_Add_Policy_Group, Alert_PolicyGroupChange };
    public enum EEntityScope { ENTERPRISE, GLOBAL };
    public enum EMetric { ACL_DENY_EVENT_COUNT, ANTI_SPOOF_EVENT_COUNT, BYTES_IN, BYTES_OUT, FIP_PRE_RATE_LIMIT_BYTES, FIP_PRE_RATE_LIMIT_PACKETS, FIP_RATE_LIMIT_DROPPED_BYTES, FIP_RATE_LIMIT_DROPPED_PACKETS, L7_BYTES_IN, L7_BYTES_OUT, L7_PACKETS_IN, L7_PACKETS_OUT, PACKETS_DROPPED_BY_RATE_LIMIT, PACKETS_IN, PACKETS_IN_DROPPED, PACKETS_IN_ERROR, PACKETS_OUT, PACKETS_OUT_DROPPED, PACKETS_OUT_ERROR, PORT_SCAN_PORT_COUNT, PORT_SWEEP_IP_COUNT, TCP_FLAG_ACK_IN, TCP_FLAG_ACK_OUT, TCP_FLAG_NULL_IN, TCP_FLAG_NULL_OUT, TCP_FLAG_RST_IN, TCP_FLAG_RST_OUT, TCP_FLAG_SYN_IN, TCP_FLAG_SYN_OUT };
    public enum EType { BREACH, ROLLING_AVERAGE, UNIQUE_COUNT };
@@ -109,6 +109,10 @@ public class TCA extends RestObject {
    
    protected Boolean status;
    
+   @JsonProperty(value = "targetEntityID")
+   
+   protected String targetEntityID;
+   
    @JsonProperty(value = "targetPolicyGroupID")
    
    protected String targetPolicyGroupID;
@@ -120,6 +124,10 @@ public class TCA extends RestObject {
    @JsonProperty(value = "throttleTime")
    
    protected Long throttleTime;
+   
+   @JsonProperty(value = "triggerInterval")
+   
+   protected Long triggerInterval;
    
    @JsonProperty(value = "type")
    
@@ -311,6 +319,17 @@ public class TCA extends RestObject {
    
    
    @JsonIgnore
+   public String getTargetEntityID() {
+      return targetEntityID;
+   }
+
+   @JsonIgnore
+   public void setTargetEntityID(String value) { 
+      this.targetEntityID = value;
+   }
+   
+   
+   @JsonIgnore
    public String getTargetPolicyGroupID() {
       return targetPolicyGroupID;
    }
@@ -340,6 +359,17 @@ public class TCA extends RestObject {
    @JsonIgnore
    public void setThrottleTime(Long value) { 
       this.throttleTime = value;
+   }
+   
+   
+   @JsonIgnore
+   public Long getTriggerInterval() {
+      return triggerInterval;
+   }
+
+   @JsonIgnore
+   public void setTriggerInterval(Long value) { 
+      this.triggerInterval = value;
    }
    
    
@@ -377,7 +407,7 @@ public class TCA extends RestObject {
    
 
    public String toString() {
-      return "TCA [" + "URLEndPoint=" + URLEndPoint + ", action=" + action + ", count=" + count + ", description=" + description + ", disable=" + disable + ", displayStatus=" + displayStatus + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", metric=" + metric + ", name=" + name + ", period=" + period + ", status=" + status + ", targetPolicyGroupID=" + targetPolicyGroupID + ", threshold=" + threshold + ", throttleTime=" + throttleTime + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "TCA [" + "URLEndPoint=" + URLEndPoint + ", action=" + action + ", count=" + count + ", description=" + description + ", disable=" + disable + ", displayStatus=" + displayStatus + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", metric=" + metric + ", name=" + name + ", period=" + period + ", status=" + status + ", targetEntityID=" + targetEntityID + ", targetPolicyGroupID=" + targetPolicyGroupID + ", threshold=" + threshold + ", throttleTime=" + throttleTime + ", triggerInterval=" + triggerInterval + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

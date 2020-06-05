@@ -58,6 +58,10 @@ public class RedirectionTarget extends RestObject {
    
    protected String ESI;
    
+   @JsonProperty(value = "autoCreated")
+   
+   protected Boolean autoCreated;
+   
    @JsonProperty(value = "description")
    
    protected String description;
@@ -149,6 +153,17 @@ public class RedirectionTarget extends RestObject {
    @JsonIgnore
    public void setESI(String value) { 
       this.ESI = value;
+   }
+   
+   
+   @JsonIgnore
+   public Boolean getAutoCreated() {
+      return autoCreated;
+   }
+
+   @JsonIgnore
+   public void setAutoCreated(Boolean value) { 
+      this.autoCreated = value;
    }
    
    
@@ -312,7 +327,7 @@ public class RedirectionTarget extends RestObject {
    
 
    public String toString() {
-      return "RedirectionTarget [" + "ESI=" + ESI + ", description=" + description + ", destinationType=" + destinationType + ", embeddedMetadata=" + embeddedMetadata + ", endPointType=" + endPointType + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", redundancyEnabled=" + redundancyEnabled + ", templateID=" + templateID + ", triggerType=" + triggerType + ", virtualNetworkID=" + virtualNetworkID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "RedirectionTarget [" + "ESI=" + ESI + ", autoCreated=" + autoCreated + ", description=" + description + ", destinationType=" + destinationType + ", embeddedMetadata=" + embeddedMetadata + ", endPointType=" + endPointType + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", redundancyEnabled=" + redundancyEnabled + ", templateID=" + templateID + ", triggerType=" + triggerType + ", virtualNetworkID=" + virtualNetworkID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -56,10 +56,6 @@ public class VSC extends RestObject {
    public enum EStatus { ADMIN_DOWN, DOWN, UP };
 
    
-   @JsonProperty(value = "address")
-   
-   protected String address;
-   
    @JsonProperty(value = "addresses")
    
    protected java.util.List<String> addresses;
@@ -75,6 +71,10 @@ public class VSC extends RestObject {
    @JsonProperty(value = "averageMemoryUsage")
    
    protected Float averageMemoryUsage;
+   
+   @JsonProperty(value = "communicationId")
+   
+   protected String communicationId;
    
    @JsonProperty(value = "currentCPUUsage")
    
@@ -207,17 +207,6 @@ public class VSC extends RestObject {
    
    
    @JsonIgnore
-   public String getAddress() {
-      return address;
-   }
-
-   @JsonIgnore
-   public void setAddress(String value) { 
-      this.address = value;
-   }
-   
-   
-   @JsonIgnore
    public java.util.List<String> getAddresses() {
       return addresses;
    }
@@ -258,6 +247,17 @@ public class VSC extends RestObject {
    @JsonIgnore
    public void setAverageMemoryUsage(Float value) { 
       this.averageMemoryUsage = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getCommunicationId() {
+      return communicationId;
+   }
+
+   @JsonIgnore
+   public void setCommunicationId(String value) { 
+      this.communicationId = value;
    }
    
    
@@ -518,7 +518,7 @@ public class VSC extends RestObject {
    
 
    public String toString() {
-      return "VSC [" + "address=" + address + ", addresses=" + addresses + ", alreadyMarkedForUnavailable=" + alreadyMarkedForUnavailable + ", averageCPUUsage=" + averageCPUUsage + ", averageMemoryUsage=" + averageMemoryUsage + ", currentCPUUsage=" + currentCPUUsage + ", currentMemoryUsage=" + currentMemoryUsage + ", description=" + description + ", disks=" + disks + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastStateChange=" + lastStateChange + ", lastUpdatedBy=" + lastUpdatedBy + ", location=" + location + ", managementIP=" + managementIP + ", messages=" + messages + ", name=" + name + ", peakCPUUsage=" + peakCPUUsage + ", peakMemoryUsage=" + peakMemoryUsage + ", productVersion=" + productVersion + ", status=" + status + ", unavailableTimestamp=" + unavailableTimestamp + ", vsds=" + vsds + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VSC [" + "addresses=" + addresses + ", alreadyMarkedForUnavailable=" + alreadyMarkedForUnavailable + ", averageCPUUsage=" + averageCPUUsage + ", averageMemoryUsage=" + averageMemoryUsage + ", communicationId=" + communicationId + ", currentCPUUsage=" + currentCPUUsage + ", currentMemoryUsage=" + currentMemoryUsage + ", description=" + description + ", disks=" + disks + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastStateChange=" + lastStateChange + ", lastUpdatedBy=" + lastUpdatedBy + ", location=" + location + ", managementIP=" + managementIP + ", messages=" + messages + ", name=" + name + ", peakCPUUsage=" + peakCPUUsage + ", peakMemoryUsage=" + peakMemoryUsage + ", productVersion=" + productVersion + ", status=" + status + ", unavailableTimestamp=" + unavailableTimestamp + ", vsds=" + vsds + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

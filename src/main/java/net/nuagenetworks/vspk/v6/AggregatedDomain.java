@@ -73,6 +73,7 @@ import net.nuagenetworks.vspk.v6.fetchers.PolicyGroupsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.QOSsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.RedirectionTargetsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.RoutingPoliciesFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.RoutingPolicyBindingsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.SPATSourcesPoolsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.StaticRoutesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.StatisticsFetcher;
@@ -462,6 +463,9 @@ public class AggregatedDomain extends RestObject {
    private RoutingPoliciesFetcher routingPolicies;
    
    @JsonIgnore
+   private RoutingPolicyBindingsFetcher routingPolicyBindings;
+   
+   @JsonIgnore
    private SPATSourcesPoolsFetcher sPATSourcesPools;
    
    @JsonIgnore
@@ -584,6 +588,8 @@ public class AggregatedDomain extends RestObject {
       redirectionTargets = new RedirectionTargetsFetcher(this);
       
       routingPolicies = new RoutingPoliciesFetcher(this);
+      
+      routingPolicyBindings = new RoutingPolicyBindingsFetcher(this);
       
       sPATSourcesPools = new SPATSourcesPoolsFetcher(this);
       
@@ -1446,6 +1452,11 @@ public class AggregatedDomain extends RestObject {
    @JsonIgnore
    public RoutingPoliciesFetcher getRoutingPolicies() {
       return routingPolicies;
+   }
+   
+   @JsonIgnore
+   public RoutingPolicyBindingsFetcher getRoutingPolicyBindings() {
+      return routingPolicyBindings;
    }
    
    @JsonIgnore

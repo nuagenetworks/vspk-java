@@ -63,6 +63,7 @@ import net.nuagenetworks.vspk.v6.fetchers.GatewayTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GroupsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GroupKeyEncryptionProfilesFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.IDPProfilesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.IKECertificatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.IKEEncryptionprofilesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.IKEGatewaysFetcher;
@@ -96,6 +97,7 @@ import net.nuagenetworks.vspk.v6.fetchers.PolicyObjectGroupsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.PublicNetworkMacrosFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.RateLimitersFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.RedundancyGroupsFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.RolesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.RoutingPoliciesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.SaaSApplicationGroupsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.SaaSApplicationTypesFetcher;
@@ -126,6 +128,7 @@ public class Enterprise extends RestObject {
    public enum EEncryptionManagementMode { DISABLED, MANAGED };
    public enum EEntityScope { ENTERPRISE, GLOBAL };
    public enum EFlowCollectionEnabled { DISABLED, ENABLED };
+   public enum EThreatIntelligenceEnabled { DISABLED, ENABLED };
 
    
    @JsonProperty(value = "BGPEnabled")
@@ -264,6 +267,14 @@ public class Enterprise extends RestObject {
    
    protected Boolean sharedEnterprise;
    
+   @JsonProperty(value = "threatIntelligenceEnabled")
+   
+   protected EThreatIntelligenceEnabled threatIntelligenceEnabled;
+   
+   @JsonProperty(value = "threatPreventionManagementEnabled")
+   
+   protected Boolean threatPreventionManagementEnabled;
+   
    @JsonProperty(value = "useGlobalMAC")
    
    protected Boolean useGlobalMAC;
@@ -363,6 +374,9 @@ public class Enterprise extends RestObject {
    private GroupKeyEncryptionProfilesFetcher groupKeyEncryptionProfiles;
    
    @JsonIgnore
+   private IDPProfilesFetcher iDPProfiles;
+   
+   @JsonIgnore
    private IKECertificatesFetcher iKECertificates;
    
    @JsonIgnore
@@ -460,6 +474,9 @@ public class Enterprise extends RestObject {
    
    @JsonIgnore
    private RedundancyGroupsFetcher redundancyGroups;
+   
+   @JsonIgnore
+   private RolesFetcher roles;
    
    @JsonIgnore
    private RoutingPoliciesFetcher routingPolicies;
@@ -568,6 +585,8 @@ public class Enterprise extends RestObject {
       
       groupKeyEncryptionProfiles = new GroupKeyEncryptionProfilesFetcher(this);
       
+      iDPProfiles = new IDPProfilesFetcher(this);
+      
       iKECertificates = new IKECertificatesFetcher(this);
       
       iKEEncryptionprofiles = new IKEEncryptionprofilesFetcher(this);
@@ -633,6 +652,8 @@ public class Enterprise extends RestObject {
       rateLimiters = new RateLimitersFetcher(this);
       
       redundancyGroups = new RedundancyGroupsFetcher(this);
+      
+      roles = new RolesFetcher(this);
       
       routingPolicies = new RoutingPoliciesFetcher(this);
       
@@ -1045,6 +1066,28 @@ public class Enterprise extends RestObject {
    
    
    @JsonIgnore
+   public EThreatIntelligenceEnabled getThreatIntelligenceEnabled() {
+      return threatIntelligenceEnabled;
+   }
+
+   @JsonIgnore
+   public void setThreatIntelligenceEnabled(EThreatIntelligenceEnabled value) { 
+      this.threatIntelligenceEnabled = value;
+   }
+   
+   
+   @JsonIgnore
+   public Boolean getThreatPreventionManagementEnabled() {
+      return threatPreventionManagementEnabled;
+   }
+
+   @JsonIgnore
+   public void setThreatPreventionManagementEnabled(Boolean value) { 
+      this.threatPreventionManagementEnabled = value;
+   }
+   
+   
+   @JsonIgnore
    public Boolean getUseGlobalMAC() {
       return useGlobalMAC;
    }
@@ -1219,6 +1262,11 @@ public class Enterprise extends RestObject {
    }
    
    @JsonIgnore
+   public IDPProfilesFetcher getIDPProfiles() {
+      return iDPProfiles;
+   }
+   
+   @JsonIgnore
    public IKECertificatesFetcher getIKECertificates() {
       return iKECertificates;
    }
@@ -1384,6 +1432,11 @@ public class Enterprise extends RestObject {
    }
    
    @JsonIgnore
+   public RolesFetcher getRoles() {
+      return roles;
+   }
+   
+   @JsonIgnore
    public RoutingPoliciesFetcher getRoutingPolicies() {
       return routingPolicies;
    }
@@ -1465,7 +1518,7 @@ public class Enterprise extends RestObject {
    
 
    public String toString() {
-      return "Enterprise [" + "BGPEnabled=" + BGPEnabled + ", DHCPLeaseInterval=" + DHCPLeaseInterval + ", LDAPAuthorizationEnabled=" + LDAPAuthorizationEnabled + ", LDAPEnabled=" + LDAPEnabled + ", VNFManagementEnabled=" + VNFManagementEnabled + ", allowAdvancedQOSConfiguration=" + allowAdvancedQOSConfiguration + ", allowGatewayManagement=" + allowGatewayManagement + ", allowTrustedForwardingClass=" + allowTrustedForwardingClass + ", allowedForwardingClasses=" + allowedForwardingClasses + ", allowedForwardingMode=" + allowedForwardingMode + ", associatedEnterpriseSecurityID=" + associatedEnterpriseSecurityID + ", associatedGroupKeyEncryptionProfileID=" + associatedGroupKeyEncryptionProfileID + ", associatedKeyServerMonitorID=" + associatedKeyServerMonitorID + ", avatarData=" + avatarData + ", avatarType=" + avatarType + ", customerID=" + customerID + ", description=" + description + ", dictionaryVersion=" + dictionaryVersion + ", embeddedMetadata=" + embeddedMetadata + ", enableApplicationPerformanceManagement=" + enableApplicationPerformanceManagement + ", encryptionManagementMode=" + encryptionManagementMode + ", enterpriseProfileID=" + enterpriseProfileID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", floatingIPsQuota=" + floatingIPsQuota + ", floatingIPsUsed=" + floatingIPsUsed + ", flowCollectionEnabled=" + flowCollectionEnabled + ", forwardingClass=" + forwardingClass + ", lastUpdatedBy=" + lastUpdatedBy + ", localAS=" + localAS + ", name=" + name + ", receiveMultiCastListID=" + receiveMultiCastListID + ", sendMultiCastListID=" + sendMultiCastListID + ", sharedEnterprise=" + sharedEnterprise + ", useGlobalMAC=" + useGlobalMAC + ", virtualFirewallRulesEnabled=" + virtualFirewallRulesEnabled + ", webFilterEnabled=" + webFilterEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Enterprise [" + "BGPEnabled=" + BGPEnabled + ", DHCPLeaseInterval=" + DHCPLeaseInterval + ", LDAPAuthorizationEnabled=" + LDAPAuthorizationEnabled + ", LDAPEnabled=" + LDAPEnabled + ", VNFManagementEnabled=" + VNFManagementEnabled + ", allowAdvancedQOSConfiguration=" + allowAdvancedQOSConfiguration + ", allowGatewayManagement=" + allowGatewayManagement + ", allowTrustedForwardingClass=" + allowTrustedForwardingClass + ", allowedForwardingClasses=" + allowedForwardingClasses + ", allowedForwardingMode=" + allowedForwardingMode + ", associatedEnterpriseSecurityID=" + associatedEnterpriseSecurityID + ", associatedGroupKeyEncryptionProfileID=" + associatedGroupKeyEncryptionProfileID + ", associatedKeyServerMonitorID=" + associatedKeyServerMonitorID + ", avatarData=" + avatarData + ", avatarType=" + avatarType + ", customerID=" + customerID + ", description=" + description + ", dictionaryVersion=" + dictionaryVersion + ", embeddedMetadata=" + embeddedMetadata + ", enableApplicationPerformanceManagement=" + enableApplicationPerformanceManagement + ", encryptionManagementMode=" + encryptionManagementMode + ", enterpriseProfileID=" + enterpriseProfileID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", floatingIPsQuota=" + floatingIPsQuota + ", floatingIPsUsed=" + floatingIPsUsed + ", flowCollectionEnabled=" + flowCollectionEnabled + ", forwardingClass=" + forwardingClass + ", lastUpdatedBy=" + lastUpdatedBy + ", localAS=" + localAS + ", name=" + name + ", receiveMultiCastListID=" + receiveMultiCastListID + ", sendMultiCastListID=" + sendMultiCastListID + ", sharedEnterprise=" + sharedEnterprise + ", threatIntelligenceEnabled=" + threatIntelligenceEnabled + ", threatPreventionManagementEnabled=" + threatPreventionManagementEnabled + ", useGlobalMAC=" + useGlobalMAC + ", virtualFirewallRulesEnabled=" + virtualFirewallRulesEnabled + ", webFilterEnabled=" + webFilterEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

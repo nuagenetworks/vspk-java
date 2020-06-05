@@ -49,6 +49,18 @@ public class VNFDomainMapping extends RestObject {
    public enum ESegmentationType { VLAN };
 
    
+   @JsonProperty(value = "associatedDomainID")
+   
+   protected String associatedDomainID;
+   
+   @JsonProperty(value = "associatedDomainName")
+   
+   protected String associatedDomainName;
+   
+   @JsonProperty(value = "associatedEnterpriseID")
+   
+   protected String associatedEnterpriseID;
+   
    @JsonProperty(value = "associatedNSGatewayID")
    
    protected String associatedNSGatewayID;
@@ -57,9 +69,17 @@ public class VNFDomainMapping extends RestObject {
    
    protected String associatedNSGatewayName;
    
+   @JsonProperty(value = "autoCreated")
+   
+   protected Boolean autoCreated;
+   
    @JsonProperty(value = "embeddedMetadata")
    
    protected java.util.List<Metadata> embeddedMetadata;
+   
+   @JsonProperty(value = "enterpriseName")
+   
+   protected String enterpriseName;
    
    @JsonProperty(value = "entityScope")
    
@@ -81,6 +101,10 @@ public class VNFDomainMapping extends RestObject {
    
    protected ESegmentationType segmentationType;
    
+   @JsonProperty(value = "serviceId")
+   
+   protected String serviceId;
+   
 
    
    @JsonIgnore
@@ -98,6 +122,39 @@ public class VNFDomainMapping extends RestObject {
       
    }
 
+   
+   
+   @JsonIgnore
+   public String getAssociatedDomainID() {
+      return associatedDomainID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedDomainID(String value) { 
+      this.associatedDomainID = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getAssociatedDomainName() {
+      return associatedDomainName;
+   }
+
+   @JsonIgnore
+   public void setAssociatedDomainName(String value) { 
+      this.associatedDomainName = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getAssociatedEnterpriseID() {
+      return associatedEnterpriseID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedEnterpriseID(String value) { 
+      this.associatedEnterpriseID = value;
+   }
    
    
    @JsonIgnore
@@ -123,6 +180,17 @@ public class VNFDomainMapping extends RestObject {
    
    
    @JsonIgnore
+   public Boolean getAutoCreated() {
+      return autoCreated;
+   }
+
+   @JsonIgnore
+   public void setAutoCreated(Boolean value) { 
+      this.autoCreated = value;
+   }
+   
+   
+   @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
    }
@@ -130,6 +198,17 @@ public class VNFDomainMapping extends RestObject {
    @JsonIgnore
    public void setEmbeddedMetadata(java.util.List<Metadata> value) { 
       this.embeddedMetadata = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getEnterpriseName() {
+      return enterpriseName;
+   }
+
+   @JsonIgnore
+   public void setEnterpriseName(String value) { 
+      this.enterpriseName = value;
    }
    
    
@@ -187,6 +266,17 @@ public class VNFDomainMapping extends RestObject {
       this.segmentationType = value;
    }
    
+   
+   @JsonIgnore
+   public String getServiceId() {
+      return serviceId;
+   }
+
+   @JsonIgnore
+   public void setServiceId(String value) { 
+      this.serviceId = value;
+   }
+   
 
    
    @JsonIgnore
@@ -201,7 +291,7 @@ public class VNFDomainMapping extends RestObject {
    
 
    public String toString() {
-      return "VNFDomainMapping [" + "associatedNSGatewayID=" + associatedNSGatewayID + ", associatedNSGatewayName=" + associatedNSGatewayName + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", segmentationID=" + segmentationID + ", segmentationType=" + segmentationType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "VNFDomainMapping [" + "associatedDomainID=" + associatedDomainID + ", associatedDomainName=" + associatedDomainName + ", associatedEnterpriseID=" + associatedEnterpriseID + ", associatedNSGatewayID=" + associatedNSGatewayID + ", associatedNSGatewayName=" + associatedNSGatewayName + ", autoCreated=" + autoCreated + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", segmentationID=" + segmentationID + ", segmentationType=" + segmentationType + ", serviceId=" + serviceId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

@@ -47,6 +47,7 @@ public class NSGatewaySummary extends RestObject {
    
    public enum EBootstrapStatus { ACTIVE, CERTIFICATE_SIGNED, INACTIVE, NOTIFICATION_APP_REQ_ACK, NOTIFICATION_APP_REQ_SENT, QUARANTINED, REVOKED };
    public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EPersonality { NSG, NSGBR, NSGDUC };
 
    
    @JsonProperty(value = "NSGVersion")
@@ -68,6 +69,10 @@ public class NSGatewaySummary extends RestObject {
    @JsonProperty(value = "criticalAlarmsCount")
    
    protected Long criticalAlarmsCount;
+   
+   @JsonProperty(value = "description")
+   
+   protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
    
@@ -125,9 +130,17 @@ public class NSGatewaySummary extends RestObject {
    
    protected Long minorAlarmsCount;
    
+   @JsonProperty(value = "personality")
+   
+   protected EPersonality personality;
+   
    @JsonProperty(value = "redundantGroupID")
    
    protected String redundantGroupID;
+   
+   @JsonProperty(value = "redundantGroupName")
+   
+   protected String redundantGroupName;
    
    @JsonProperty(value = "state")
    
@@ -212,6 +225,17 @@ public class NSGatewaySummary extends RestObject {
    @JsonIgnore
    public void setCriticalAlarmsCount(Long value) { 
       this.criticalAlarmsCount = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getDescription() {
+      return description;
+   }
+
+   @JsonIgnore
+   public void setDescription(String value) { 
+      this.description = value;
    }
    
    
@@ -370,6 +394,17 @@ public class NSGatewaySummary extends RestObject {
    
    
    @JsonIgnore
+   public EPersonality getPersonality() {
+      return personality;
+   }
+
+   @JsonIgnore
+   public void setPersonality(EPersonality value) { 
+      this.personality = value;
+   }
+   
+   
+   @JsonIgnore
    public String getRedundantGroupID() {
       return redundantGroupID;
    }
@@ -377,6 +412,17 @@ public class NSGatewaySummary extends RestObject {
    @JsonIgnore
    public void setRedundantGroupID(String value) { 
       this.redundantGroupID = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getRedundantGroupName() {
+      return redundantGroupName;
+   }
+
+   @JsonIgnore
+   public void setRedundantGroupName(String value) { 
+      this.redundantGroupName = value;
    }
    
    
@@ -426,7 +472,7 @@ public class NSGatewaySummary extends RestObject {
    
 
    public String toString() {
-      return "NSGatewaySummary [" + "NSGVersion=" + NSGVersion + ", address=" + address + ", bootstrapStatus=" + bootstrapStatus + ", country=" + country + ", criticalAlarmsCount=" + criticalAlarmsCount + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayID=" + gatewayID + ", gatewayName=" + gatewayName + ", gatewayType=" + gatewayType + ", infoAlarmsCount=" + infoAlarmsCount + ", lastUpdatedBy=" + lastUpdatedBy + ", latitude=" + latitude + ", locality=" + locality + ", longitude=" + longitude + ", majorAlarmsCount=" + majorAlarmsCount + ", minorAlarmsCount=" + minorAlarmsCount + ", redundantGroupID=" + redundantGroupID + ", state=" + state + ", systemID=" + systemID + ", timezoneID=" + timezoneID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "NSGatewaySummary [" + "NSGVersion=" + NSGVersion + ", address=" + address + ", bootstrapStatus=" + bootstrapStatus + ", country=" + country + ", criticalAlarmsCount=" + criticalAlarmsCount + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayID=" + gatewayID + ", gatewayName=" + gatewayName + ", gatewayType=" + gatewayType + ", infoAlarmsCount=" + infoAlarmsCount + ", lastUpdatedBy=" + lastUpdatedBy + ", latitude=" + latitude + ", locality=" + locality + ", longitude=" + longitude + ", majorAlarmsCount=" + majorAlarmsCount + ", minorAlarmsCount=" + minorAlarmsCount + ", personality=" + personality + ", redundantGroupID=" + redundantGroupID + ", redundantGroupName=" + redundantGroupName + ", state=" + state + ", systemID=" + systemID + ", timezoneID=" + timezoneID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

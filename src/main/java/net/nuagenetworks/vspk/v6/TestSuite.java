@@ -78,6 +78,10 @@ public class TestSuite extends RestObject {
    
    protected String name;
    
+   @JsonProperty(value = "underlayTest")
+   
+   protected Boolean underlayTest;
+   
 
    
    @JsonIgnore
@@ -183,6 +187,17 @@ public class TestSuite extends RestObject {
       this.name = value;
    }
    
+   
+   @JsonIgnore
+   public Boolean getUnderlayTest() {
+      return underlayTest;
+   }
+
+   @JsonIgnore
+   public void setUnderlayTest(Boolean value) { 
+      this.underlayTest = value;
+   }
+   
 
    
    @JsonIgnore
@@ -207,7 +222,7 @@ public class TestSuite extends RestObject {
    
 
    public String toString() {
-      return "TestSuite [" + "description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "TestSuite [" + "description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", underlayTest=" + underlayTest + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

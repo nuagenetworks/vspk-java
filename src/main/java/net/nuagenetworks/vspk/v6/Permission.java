@@ -50,6 +50,30 @@ public class Permission extends RestObject {
    public enum EPermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
 
    
+   @JsonProperty(value = "associatedGroupDescription")
+   
+   protected String associatedGroupDescription;
+   
+   @JsonProperty(value = "associatedGroupID")
+   
+   protected String associatedGroupID;
+   
+   @JsonProperty(value = "associatedGroupName")
+   
+   protected String associatedGroupName;
+   
+   @JsonProperty(value = "associatedRoleDescription")
+   
+   protected String associatedRoleDescription;
+   
+   @JsonProperty(value = "associatedRoleID")
+   
+   protected String associatedRoleID;
+   
+   @JsonProperty(value = "associatedRoleName")
+   
+   protected String associatedRoleName;
+   
    @JsonProperty(value = "embeddedMetadata")
    
    protected java.util.List<Metadata> embeddedMetadata;
@@ -74,9 +98,13 @@ public class Permission extends RestObject {
    
    protected EPermittedAction permittedAction;
    
-   @JsonProperty(value = "permittedEntityDescription")
+   @JsonProperty(value = "permittedEnterpriseDescription")
    
-   protected String permittedEntityDescription;
+   protected String permittedEnterpriseDescription;
+   
+   @JsonProperty(value = "permittedEnterpriseName")
+   
+   protected String permittedEnterpriseName;
    
    @JsonProperty(value = "permittedEntityID")
    
@@ -112,6 +140,72 @@ public class Permission extends RestObject {
       
    }
 
+   
+   
+   @JsonIgnore
+   public String getAssociatedGroupDescription() {
+      return associatedGroupDescription;
+   }
+
+   @JsonIgnore
+   public void setAssociatedGroupDescription(String value) { 
+      this.associatedGroupDescription = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getAssociatedGroupID() {
+      return associatedGroupID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedGroupID(String value) { 
+      this.associatedGroupID = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getAssociatedGroupName() {
+      return associatedGroupName;
+   }
+
+   @JsonIgnore
+   public void setAssociatedGroupName(String value) { 
+      this.associatedGroupName = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getAssociatedRoleDescription() {
+      return associatedRoleDescription;
+   }
+
+   @JsonIgnore
+   public void setAssociatedRoleDescription(String value) { 
+      this.associatedRoleDescription = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getAssociatedRoleID() {
+      return associatedRoleID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedRoleID(String value) { 
+      this.associatedRoleID = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getAssociatedRoleName() {
+      return associatedRoleName;
+   }
+
+   @JsonIgnore
+   public void setAssociatedRoleName(String value) { 
+      this.associatedRoleName = value;
+   }
    
    
    @JsonIgnore
@@ -181,13 +275,24 @@ public class Permission extends RestObject {
    
    
    @JsonIgnore
-   public String getPermittedEntityDescription() {
-      return permittedEntityDescription;
+   public String getPermittedEnterpriseDescription() {
+      return permittedEnterpriseDescription;
    }
 
    @JsonIgnore
-   public void setPermittedEntityDescription(String value) { 
-      this.permittedEntityDescription = value;
+   public void setPermittedEnterpriseDescription(String value) { 
+      this.permittedEnterpriseDescription = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getPermittedEnterpriseName() {
+      return permittedEnterpriseName;
+   }
+
+   @JsonIgnore
+   public void setPermittedEnterpriseName(String value) { 
+      this.permittedEnterpriseName = value;
    }
    
    
@@ -242,7 +347,7 @@ public class Permission extends RestObject {
    
 
    public String toString() {
-      return "Permission [" + "embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", permittedAction=" + permittedAction + ", permittedEntityDescription=" + permittedEntityDescription + ", permittedEntityID=" + permittedEntityID + ", permittedEntityName=" + permittedEntityName + ", permittedEntityType=" + permittedEntityType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Permission [" + "associatedGroupDescription=" + associatedGroupDescription + ", associatedGroupID=" + associatedGroupID + ", associatedGroupName=" + associatedGroupName + ", associatedRoleDescription=" + associatedRoleDescription + ", associatedRoleID=" + associatedRoleID + ", associatedRoleName=" + associatedRoleName + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", permittedAction=" + permittedAction + ", permittedEnterpriseDescription=" + permittedEnterpriseDescription + ", permittedEnterpriseName=" + permittedEnterpriseName + ", permittedEntityID=" + permittedEntityID + ", permittedEntityName=" + permittedEntityName + ", permittedEntityType=" + permittedEntityType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

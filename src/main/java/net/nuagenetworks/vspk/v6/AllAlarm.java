@@ -97,6 +97,10 @@ public class AllAlarm extends RestObject {
    
    protected ESeverity severity;
    
+   @JsonProperty(value = "systemID")
+   
+   protected String systemID;
+   
    @JsonProperty(value = "targetObject")
    
    protected String targetObject;
@@ -261,6 +265,17 @@ public class AllAlarm extends RestObject {
    
    
    @JsonIgnore
+   public String getSystemID() {
+      return systemID;
+   }
+
+   @JsonIgnore
+   public void setSystemID(String value) { 
+      this.systemID = value;
+   }
+   
+   
+   @JsonIgnore
    public String getTargetObject() {
       return targetObject;
    }
@@ -306,7 +321,7 @@ public class AllAlarm extends RestObject {
    
 
    public String toString() {
-      return "AllAlarm [" + "acknowledged=" + acknowledged + ", alarmedObjectID=" + alarmedObjectID + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", errorCondition=" + errorCondition + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", numberOfOccurances=" + numberOfOccurances + ", remedy=" + remedy + ", severity=" + severity + ", targetObject=" + targetObject + ", timestamp=" + timestamp + ", title=" + title + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "AllAlarm [" + "acknowledged=" + acknowledged + ", alarmedObjectID=" + alarmedObjectID + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", errorCondition=" + errorCondition + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", numberOfOccurances=" + numberOfOccurances + ", remedy=" + remedy + ", severity=" + severity + ", systemID=" + systemID + ", targetObject=" + targetObject + ", timestamp=" + timestamp + ", title=" + title + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

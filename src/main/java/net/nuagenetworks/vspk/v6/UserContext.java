@@ -64,6 +64,10 @@ public class UserContext extends RestObject {
    
    protected Long VSSStatsInterval;
    
+   @JsonProperty(value = "deniedFlowCollectionEnabled")
+   
+   protected Boolean deniedFlowCollectionEnabled;
+   
    @JsonProperty(value = "embeddedMetadata")
    
    protected java.util.List<Metadata> embeddedMetadata;
@@ -71,6 +75,10 @@ public class UserContext extends RestObject {
    @JsonProperty(value = "entityScope")
    
    protected EEntityScope entityScope;
+   
+   @JsonProperty(value = "explicitACLMatchingEnabled")
+   
+   protected Boolean explicitACLMatchingEnabled;
    
    @JsonProperty(value = "externalID")
    
@@ -103,6 +111,10 @@ public class UserContext extends RestObject {
    @JsonProperty(value = "statsTSDBServerAddress")
    
    protected String statsTSDBServerAddress;
+   
+   @JsonProperty(value = "threatIntelligenceEnabled")
+   
+   protected Boolean threatIntelligenceEnabled;
    
 
    
@@ -168,6 +180,17 @@ public class UserContext extends RestObject {
    
    
    @JsonIgnore
+   public Boolean getDeniedFlowCollectionEnabled() {
+      return deniedFlowCollectionEnabled;
+   }
+
+   @JsonIgnore
+   public void setDeniedFlowCollectionEnabled(Boolean value) { 
+      this.deniedFlowCollectionEnabled = value;
+   }
+   
+   
+   @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
    }
@@ -186,6 +209,17 @@ public class UserContext extends RestObject {
    @JsonIgnore
    public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
+   }
+   
+   
+   @JsonIgnore
+   public Boolean getExplicitACLMatchingEnabled() {
+      return explicitACLMatchingEnabled;
+   }
+
+   @JsonIgnore
+   public void setExplicitACLMatchingEnabled(Boolean value) { 
+      this.explicitACLMatchingEnabled = value;
    }
    
    
@@ -276,6 +310,17 @@ public class UserContext extends RestObject {
       this.statsTSDBServerAddress = value;
    }
    
+   
+   @JsonIgnore
+   public Boolean getThreatIntelligenceEnabled() {
+      return threatIntelligenceEnabled;
+   }
+
+   @JsonIgnore
+   public void setThreatIntelligenceEnabled(Boolean value) { 
+      this.threatIntelligenceEnabled = value;
+   }
+   
 
    
    @JsonIgnore
@@ -290,7 +335,7 @@ public class UserContext extends RestObject {
    
 
    public String toString() {
-      return "UserContext [" + "AARFlowStatsInterval=" + AARFlowStatsInterval + ", AARProbeStatsInterval=" + AARProbeStatsInterval + ", VSSFeatureEnabled=" + VSSFeatureEnabled + ", VSSStatsInterval=" + VSSStatsInterval + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", flowCollectionEnabled=" + flowCollectionEnabled + ", googleMapsAPIKey=" + googleMapsAPIKey + ", lastUpdatedBy=" + lastUpdatedBy + ", pageSize=" + pageSize + ", statisticsEnabled=" + statisticsEnabled + ", statsDatabaseProxy=" + statsDatabaseProxy + ", statsTSDBServerAddress=" + statsTSDBServerAddress + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "UserContext [" + "AARFlowStatsInterval=" + AARFlowStatsInterval + ", AARProbeStatsInterval=" + AARProbeStatsInterval + ", VSSFeatureEnabled=" + VSSFeatureEnabled + ", VSSStatsInterval=" + VSSStatsInterval + ", deniedFlowCollectionEnabled=" + deniedFlowCollectionEnabled + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", explicitACLMatchingEnabled=" + explicitACLMatchingEnabled + ", externalID=" + externalID + ", flowCollectionEnabled=" + flowCollectionEnabled + ", googleMapsAPIKey=" + googleMapsAPIKey + ", lastUpdatedBy=" + lastUpdatedBy + ", pageSize=" + pageSize + ", statisticsEnabled=" + statisticsEnabled + ", statsDatabaseProxy=" + statsDatabaseProxy + ", statsTSDBServerAddress=" + statsTSDBServerAddress + ", threatIntelligenceEnabled=" + threatIntelligenceEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

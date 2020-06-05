@@ -48,11 +48,11 @@ public class VCenterVRSConfig extends RestObject {
 
    
    public enum EAvrsProfile { AVRS_25G };
-   public enum ECpuCount { DEFAULT_2, MEDIUM_4, LARGE_6, XLARGE_8 };
-   public enum EDestinationMirrorPort { no_mirror, ens160, ens161, ens224, ens256 };
+   public enum ECpuCount { DEFAULT_2, LARGE_6, MEDIUM_4, XLARGE_8 };
+   public enum EDestinationMirrorPort { ens160, ens161, ens224, ens256, no_mirror };
    public enum EEntityScope { ENTERPRISE, GLOBAL };
-   public enum EMemorySizeInGB { DEFAULT_4, MEDIUM_6, LARGE_8 };
-   public enum EPersonality { VRS, VDF };
+   public enum EMemorySizeInGB { DEFAULT_4, LARGE_8, MEDIUM_6 };
+   public enum EPersonality { VDF, VRS };
    public enum ERemoteSyslogServerType { NONE, TCP, UDP };
 
    

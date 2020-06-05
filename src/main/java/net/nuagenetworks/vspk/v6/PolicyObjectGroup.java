@@ -35,6 +35,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v6.fetchers.GatewaysFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.NSGatewaysFetcher;
@@ -47,7 +48,7 @@ public class PolicyObjectGroup extends RestObject {
 
    
    public enum EEntityScope { ENTERPRISE, GLOBAL };
-   public enum EType { NSGateway };
+   public enum EType { Gateway, NSGateway };
 
    
    @JsonProperty(value = "description")
@@ -81,6 +82,9 @@ public class PolicyObjectGroup extends RestObject {
 
    
    @JsonIgnore
+   private GatewaysFetcher gateways;
+   
+   @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
@@ -91,6 +95,8 @@ public class PolicyObjectGroup extends RestObject {
    
 
    public PolicyObjectGroup() {
+      
+      gateways = new GatewaysFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
@@ -179,6 +185,11 @@ public class PolicyObjectGroup extends RestObject {
    }
    
 
+   
+   @JsonIgnore
+   public GatewaysFetcher getGateways() {
+      return gateways;
+   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {

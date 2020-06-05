@@ -59,6 +59,7 @@ import net.nuagenetworks.vspk.v6.fetchers.DomainFIPAclTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EgressQOSPoliciesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EnterprisesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EnterpriseProfilesFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.EthernetSegmentGWGroupsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.FloatingIpsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GatewaysFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GatewayTemplatesFetcher;
@@ -103,6 +104,7 @@ import net.nuagenetworks.vspk.v6.fetchers.RateLimitersFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.RedirectionTargetsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.RedundancyGroupsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.RemoteVrsInfosFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.RolesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.RoutingPoliciesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.SaaSApplicationTypesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.SharedNetworkResourcesFetcher;
@@ -129,6 +131,7 @@ import net.nuagenetworks.vspk.v6.fetchers.VNFThresholdPoliciesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.VRSsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.VCenterVRSConfigsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.vrsInfosFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.VSDConfigsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.VSPsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.ZFBAutoAssignmentsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.ZFBRequestsFetcher;
@@ -308,6 +311,9 @@ public class Me extends RestRootObject {
    private EnterpriseProfilesFetcher enterpriseProfiles;
    
    @JsonIgnore
+   private EthernetSegmentGWGroupsFetcher ethernetSegmentGWGroups;
+   
+   @JsonIgnore
    private FloatingIpsFetcher floatingIps;
    
    @JsonIgnore
@@ -440,6 +446,9 @@ public class Me extends RestRootObject {
    private RemoteVrsInfosFetcher remoteVrsInfos;
    
    @JsonIgnore
+   private RolesFetcher roles;
+   
+   @JsonIgnore
    private RoutingPoliciesFetcher routingPolicies;
    
    @JsonIgnore
@@ -518,6 +527,9 @@ public class Me extends RestRootObject {
    private vrsInfosFetcher vrsInfos;
    
    @JsonIgnore
+   private VSDConfigsFetcher vSDConfigs;
+   
+   @JsonIgnore
    private VSPsFetcher vSPs;
    
    @JsonIgnore
@@ -579,6 +591,8 @@ public class Me extends RestRootObject {
       enterprises = new EnterprisesFetcher(this);
       
       enterpriseProfiles = new EnterpriseProfilesFetcher(this);
+      
+      ethernetSegmentGWGroups = new EthernetSegmentGWGroupsFetcher(this);
       
       floatingIps = new FloatingIpsFetcher(this);
       
@@ -668,6 +682,8 @@ public class Me extends RestRootObject {
       
       remoteVrsInfos = new RemoteVrsInfosFetcher(this);
       
+      roles = new RolesFetcher(this);
+      
       routingPolicies = new RoutingPoliciesFetcher(this);
       
       saaSApplicationTypes = new SaaSApplicationTypesFetcher(this);
@@ -719,6 +735,8 @@ public class Me extends RestRootObject {
       vCenterVRSConfigs = new VCenterVRSConfigsFetcher(this);
       
       vrsInfos = new vrsInfosFetcher(this);
+      
+      vSDConfigs = new VSDConfigsFetcher(this);
       
       vSPs = new VSPsFetcher(this);
       
@@ -1096,6 +1114,11 @@ public class Me extends RestRootObject {
    }
    
    @JsonIgnore
+   public EthernetSegmentGWGroupsFetcher getEthernetSegmentGWGroups() {
+      return ethernetSegmentGWGroups;
+   }
+   
+   @JsonIgnore
    public FloatingIpsFetcher getFloatingIps() {
       return floatingIps;
    }
@@ -1316,6 +1339,11 @@ public class Me extends RestRootObject {
    }
    
    @JsonIgnore
+   public RolesFetcher getRoles() {
+      return roles;
+   }
+   
+   @JsonIgnore
    public RoutingPoliciesFetcher getRoutingPolicies() {
       return routingPolicies;
    }
@@ -1443,6 +1471,11 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public vrsInfosFetcher getvrsInfos() {
       return vrsInfos;
+   }
+   
+   @JsonIgnore
+   public VSDConfigsFetcher getVSDConfigs() {
+      return vSDConfigs;
    }
    
    @JsonIgnore

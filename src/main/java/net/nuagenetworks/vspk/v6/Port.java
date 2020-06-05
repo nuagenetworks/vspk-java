@@ -64,6 +64,22 @@ public class Port extends RestObject {
    
    protected String associatedEgressQOSPolicyID;
    
+   @JsonProperty(value = "associatedEthernetSegmentGroupID")
+   
+   protected String associatedEthernetSegmentGroupID;
+   
+   @JsonProperty(value = "associatedEthernetSegmentID")
+   
+   protected String associatedEthernetSegmentID;
+   
+   @JsonProperty(value = "associatedEthernetSegmentVLANRange")
+   
+   protected String associatedEthernetSegmentVLANRange;
+   
+   @JsonProperty(value = "associatedEthernetSegmentVirtual")
+   
+   protected Boolean associatedEthernetSegmentVirtual;
+   
    @JsonProperty(value = "associatedRedundantPortID")
    
    protected String associatedRedundantPortID;
@@ -187,6 +203,50 @@ public class Port extends RestObject {
    @JsonIgnore
    public void setAssociatedEgressQOSPolicyID(String value) { 
       this.associatedEgressQOSPolicyID = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getAssociatedEthernetSegmentGroupID() {
+      return associatedEthernetSegmentGroupID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedEthernetSegmentGroupID(String value) { 
+      this.associatedEthernetSegmentGroupID = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getAssociatedEthernetSegmentID() {
+      return associatedEthernetSegmentID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedEthernetSegmentID(String value) { 
+      this.associatedEthernetSegmentID = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getAssociatedEthernetSegmentVLANRange() {
+      return associatedEthernetSegmentVLANRange;
+   }
+
+   @JsonIgnore
+   public void setAssociatedEthernetSegmentVLANRange(String value) { 
+      this.associatedEthernetSegmentVLANRange = value;
+   }
+   
+   
+   @JsonIgnore
+   public Boolean getAssociatedEthernetSegmentVirtual() {
+      return associatedEthernetSegmentVirtual;
+   }
+
+   @JsonIgnore
+   public void setAssociatedEthernetSegmentVirtual(Boolean value) { 
+      this.associatedEthernetSegmentVirtual = value;
    }
    
    
@@ -393,7 +453,7 @@ public class Port extends RestObject {
    
 
    public String toString() {
-      return "Port [" + "VLANRange=" + VLANRange + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", associatedRedundantPortID=" + associatedRedundantPortID + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", isResilient=" + isResilient + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", permittedAction=" + permittedAction + ", physicalName=" + physicalName + ", portType=" + portType + ", status=" + status + ", templateID=" + templateID + ", useUserMnemonic=" + useUserMnemonic + ", userMnemonic=" + userMnemonic + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Port [" + "VLANRange=" + VLANRange + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", associatedEthernetSegmentGroupID=" + associatedEthernetSegmentGroupID + ", associatedEthernetSegmentID=" + associatedEthernetSegmentID + ", associatedEthernetSegmentVLANRange=" + associatedEthernetSegmentVLANRange + ", associatedEthernetSegmentVirtual=" + associatedEthernetSegmentVirtual + ", associatedRedundantPortID=" + associatedRedundantPortID + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", isResilient=" + isResilient + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", permittedAction=" + permittedAction + ", physicalName=" + physicalName + ", portType=" + portType + ", status=" + status + ", templateID=" + templateID + ", useUserMnemonic=" + useUserMnemonic + ", userMnemonic=" + userMnemonic + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

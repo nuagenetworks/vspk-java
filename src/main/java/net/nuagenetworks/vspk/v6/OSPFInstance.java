@@ -46,8 +46,13 @@ public class OSPFInstance extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum EIPType { IPV4 };
    public enum EEntityScope { ENTERPRISE, GLOBAL };
 
+   
+   @JsonProperty(value = "IPType")
+   
+   protected EIPType IPType;
    
    @JsonProperty(value = "associatedExportRoutingPolicyID")
    
@@ -123,6 +128,17 @@ public class OSPFInstance extends RestObject {
       
    }
 
+   
+   
+   @JsonIgnore
+   public EIPType getIPType() {
+      return IPType;
+   }
+
+   @JsonIgnore
+   public void setIPType(EIPType value) { 
+      this.IPType = value;
+   }
    
    
    @JsonIgnore
@@ -286,7 +302,7 @@ public class OSPFInstance extends RestObject {
    
 
    public String toString() {
-      return "OSPFInstance [" + "associatedExportRoutingPolicyID=" + associatedExportRoutingPolicyID + ", associatedImportRoutingPolicyID=" + associatedImportRoutingPolicyID + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", exportLimit=" + exportLimit + ", exportToOverlay=" + exportToOverlay + ", externalID=" + externalID + ", externalPreference=" + externalPreference + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", preference=" + preference + ", superBackboneEnabled=" + superBackboneEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "OSPFInstance [" + "IPType=" + IPType + ", associatedExportRoutingPolicyID=" + associatedExportRoutingPolicyID + ", associatedImportRoutingPolicyID=" + associatedImportRoutingPolicyID + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", exportLimit=" + exportLimit + ", exportToOverlay=" + exportToOverlay + ", externalID=" + externalID + ", externalPreference=" + externalPreference + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", preference=" + preference + ", superBackboneEnabled=" + superBackboneEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

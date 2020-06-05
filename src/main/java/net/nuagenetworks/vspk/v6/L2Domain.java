@@ -78,6 +78,7 @@ import net.nuagenetworks.vspk.v6.fetchers.VirtualFirewallPoliciesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.VirtualFirewallRulesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.VMsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.VMInterfacesFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.VMIPReservationsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.VPNConnectionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.VPortsFetcher;
 
@@ -94,10 +95,11 @@ public class L2Domain extends RestObject {
    public enum EEntityScope { ENTERPRISE, GLOBAL };
    public enum EEntityState { MARKED_FOR_DELETION, UNDER_CONSTRUCTION };
    public enum EFlowCollectionEnabled { DISABLED, ENABLED, INHERITED };
-   public enum EL2EncapType { MPLSoUDP, VXLAN };
+   public enum EL2EncapType { MPLS, MPLSoUDP, VXLAN };
    public enum EMaintenanceMode { DISABLED, ENABLED, ENABLED_INHERITED };
    public enum EMulticast { DISABLED, ENABLED, INHERITED };
    public enum EPolicyChangeStatus { APPLIED, DISCARDED, STARTED };
+   public enum EThreatIntelligenceEnabled { DISABLED, ENABLED, INHERITED };
    public enum EUplinkPreference { PRIMARY, PRIMARY_SECONDARY, SECONDARY, SECONDARY_PRIMARY, SYMMETRIC };
    public enum EUseGlobalMAC { DISABLED, ENABLED };
 
@@ -254,6 +256,10 @@ public class L2Domain extends RestObject {
    
    protected String templateID;
    
+   @JsonProperty(value = "threatIntelligenceEnabled")
+   
+   protected EThreatIntelligenceEnabled threatIntelligenceEnabled;
+   
    @JsonProperty(value = "uplinkPreference")
    
    protected EUplinkPreference uplinkPreference;
@@ -398,6 +404,9 @@ public class L2Domain extends RestObject {
    private VMInterfacesFetcher vMInterfaces;
    
    @JsonIgnore
+   private VMIPReservationsFetcher vMIPReservations;
+   
+   @JsonIgnore
    private VPNConnectionsFetcher vPNConnections;
    
    @JsonIgnore
@@ -492,6 +501,8 @@ public class L2Domain extends RestObject {
       vMs = new VMsFetcher(this);
       
       vMInterfaces = new VMInterfacesFetcher(this);
+      
+      vMIPReservations = new VMIPReservationsFetcher(this);
       
       vPNConnections = new VPNConnectionsFetcher(this);
       
@@ -920,6 +931,17 @@ public class L2Domain extends RestObject {
    
    
    @JsonIgnore
+   public EThreatIntelligenceEnabled getThreatIntelligenceEnabled() {
+      return threatIntelligenceEnabled;
+   }
+
+   @JsonIgnore
+   public void setThreatIntelligenceEnabled(EThreatIntelligenceEnabled value) { 
+      this.threatIntelligenceEnabled = value;
+   }
+   
+   
+   @JsonIgnore
    public EUplinkPreference getUplinkPreference() {
       return uplinkPreference;
    }
@@ -1169,6 +1191,11 @@ public class L2Domain extends RestObject {
    }
    
    @JsonIgnore
+   public VMIPReservationsFetcher getVMIPReservations() {
+      return vMIPReservations;
+   }
+   
+   @JsonIgnore
    public VPNConnectionsFetcher getVPNConnections() {
       return vPNConnections;
    }
@@ -1180,7 +1207,7 @@ public class L2Domain extends RestObject {
    
 
    public String toString() {
-      return "L2Domain [" + "DHCPManaged=" + DHCPManaged + ", DPI=" + DPI + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", IPv6Gateway=" + IPv6Gateway + ", VXLANECMPEnabled=" + VXLANECMPEnabled + ", address=" + address + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSharedNetworkResourceID=" + associatedSharedNetworkResourceID + ", associatedUnderlayID=" + associatedUnderlayID + ", color=" + color + ", customerID=" + customerID + ", description=" + description + ", dualStackDynamicIPAllocation=" + dualStackDynamicIPAllocation + ", embeddedMetadata=" + embeddedMetadata + ", enableDHCPv4=" + enableDHCPv4 + ", enableDHCPv6=" + enableDHCPv6 + ", encryption=" + encryption + ", entityScope=" + entityScope + ", entityState=" + entityState + ", externalID=" + externalID + ", flowCollectionEnabled=" + flowCollectionEnabled + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", ingressReplicationEnabled=" + ingressReplicationEnabled + ", l2EncapType=" + l2EncapType + ", lastUpdatedBy=" + lastUpdatedBy + ", maintenanceMode=" + maintenanceMode + ", multicast=" + multicast + ", name=" + name + ", netmask=" + netmask + ", policyChangeStatus=" + policyChangeStatus + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", routedVPLSEnabled=" + routedVPLSEnabled + ", serviceID=" + serviceID + ", stretched=" + stretched + ", templateID=" + templateID + ", uplinkPreference=" + uplinkPreference + ", useGlobalMAC=" + useGlobalMAC + ", vnId=" + vnId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "L2Domain [" + "DHCPManaged=" + DHCPManaged + ", DPI=" + DPI + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", IPv6Gateway=" + IPv6Gateway + ", VXLANECMPEnabled=" + VXLANECMPEnabled + ", address=" + address + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSharedNetworkResourceID=" + associatedSharedNetworkResourceID + ", associatedUnderlayID=" + associatedUnderlayID + ", color=" + color + ", customerID=" + customerID + ", description=" + description + ", dualStackDynamicIPAllocation=" + dualStackDynamicIPAllocation + ", embeddedMetadata=" + embeddedMetadata + ", enableDHCPv4=" + enableDHCPv4 + ", enableDHCPv6=" + enableDHCPv6 + ", encryption=" + encryption + ", entityScope=" + entityScope + ", entityState=" + entityState + ", externalID=" + externalID + ", flowCollectionEnabled=" + flowCollectionEnabled + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", ingressReplicationEnabled=" + ingressReplicationEnabled + ", l2EncapType=" + l2EncapType + ", lastUpdatedBy=" + lastUpdatedBy + ", maintenanceMode=" + maintenanceMode + ", multicast=" + multicast + ", name=" + name + ", netmask=" + netmask + ", policyChangeStatus=" + policyChangeStatus + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", routedVPLSEnabled=" + routedVPLSEnabled + ", serviceID=" + serviceID + ", stretched=" + stretched + ", templateID=" + templateID + ", threatIntelligenceEnabled=" + threatIntelligenceEnabled + ", uplinkPreference=" + uplinkPreference + ", useGlobalMAC=" + useGlobalMAC + ", vnId=" + vnId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    

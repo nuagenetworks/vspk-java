@@ -49,9 +49,9 @@ public class SSIDConnection extends RestObject {
    
    public enum EAuthenticationMode { CAPTIVE_PORTAL, OPEN, WEP, WPA, WPA2, WPA_OTP, WPA_WPA2 };
    public enum EEntityScope { ENTERPRISE, GLOBAL };
-   public enum EPermittedAction { USE, READ, ALL, INSTANTIATE, EXTEND, DEPLOY };
+   public enum EPermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    public enum ERedirectOption { CONFIGURED_URL, ORIGINAL_REQUEST };
-   public enum EStatus { INITIALIZED, ORPHAN, READY, MISMATCH };
+   public enum EStatus { INITIALIZED, MISMATCH, ORPHAN, READY };
 
    
    @JsonProperty(value = "associatedCaptivePortalProfileID")

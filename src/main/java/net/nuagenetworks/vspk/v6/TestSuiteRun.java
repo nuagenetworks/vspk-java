@@ -70,6 +70,14 @@ public class TestSuiteRun extends RestObject {
    
    protected String associatedTestSuiteName;
    
+   @JsonProperty(value = "associatedUnderlayTestID")
+   
+   protected String associatedUnderlayTestID;
+   
+   @JsonProperty(value = "birthCertificate")
+   
+   protected Boolean birthCertificate;
+   
    @JsonProperty(value = "datapathID")
    
    protected String datapathID;
@@ -186,6 +194,28 @@ public class TestSuiteRun extends RestObject {
    @JsonIgnore
    public void setAssociatedTestSuiteName(String value) { 
       this.associatedTestSuiteName = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getAssociatedUnderlayTestID() {
+      return associatedUnderlayTestID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedUnderlayTestID(String value) { 
+      this.associatedUnderlayTestID = value;
+   }
+   
+   
+   @JsonIgnore
+   public Boolean getBirthCertificate() {
+      return birthCertificate;
+   }
+
+   @JsonIgnore
+   public void setBirthCertificate(Boolean value) { 
+      this.birthCertificate = value;
    }
    
    
@@ -317,7 +347,7 @@ public class TestSuiteRun extends RestObject {
    
 
    public String toString() {
-      return "TestSuiteRun [" + "NSGatewayName=" + NSGatewayName + ", VPortName=" + VPortName + ", associatedEntityType=" + associatedEntityType + ", associatedTestSuiteID=" + associatedTestSuiteID + ", associatedTestSuiteName=" + associatedTestSuiteName + ", datapathID=" + datapathID + ", destination=" + destination + ", domainName=" + domainName + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", operationStatus=" + operationStatus + ", subnetName=" + subnetName + ", zoneName=" + zoneName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "TestSuiteRun [" + "NSGatewayName=" + NSGatewayName + ", VPortName=" + VPortName + ", associatedEntityType=" + associatedEntityType + ", associatedTestSuiteID=" + associatedTestSuiteID + ", associatedTestSuiteName=" + associatedTestSuiteName + ", associatedUnderlayTestID=" + associatedUnderlayTestID + ", birthCertificate=" + birthCertificate + ", datapathID=" + datapathID + ", destination=" + destination + ", domainName=" + domainName + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", operationStatus=" + operationStatus + ", subnetName=" + subnetName + ", zoneName=" + zoneName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    
