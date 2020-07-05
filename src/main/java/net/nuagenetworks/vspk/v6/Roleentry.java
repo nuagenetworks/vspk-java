@@ -46,9 +46,9 @@ public class Roleentry extends RestObject {
    public enum ERoleAccessTypeList { CREATE, CUD_CHILDREN, DELETE, MODIFY, NO_ACCESS, NO_ACCESS_CHILDREN, READ, READ_CHILDREN };
 
    
-   @JsonProperty(value = "associatedEntityType")
+   @JsonProperty(value = "endPointType")
    
-   protected String associatedEntityType;
+   protected String endPointType;
    
    @JsonProperty(value = "roleAccessTypeList")
    
@@ -64,13 +64,13 @@ public class Roleentry extends RestObject {
    
    
    @JsonIgnore
-   public String getAssociatedEntityType() {
-      return associatedEntityType;
+   public String getEndPointType() {
+      return endPointType;
    }
 
    @JsonIgnore
-   public void setAssociatedEntityType(String value) { 
-      this.associatedEntityType = value;
+   public void setEndPointType(String value) { 
+      this.endPointType = value;
    }
    
    
@@ -88,7 +88,7 @@ public class Roleentry extends RestObject {
    
 
    public String toString() {
-      return "Roleentry [" + "associatedEntityType=" + associatedEntityType + ", roleAccessTypeList=" + roleAccessTypeList + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
+      return "Roleentry [" + "endPointType=" + endPointType + ", roleAccessTypeList=" + roleAccessTypeList + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
               + lastUpdatedDate + ", owner=" + owner  + "]";
    }
    
