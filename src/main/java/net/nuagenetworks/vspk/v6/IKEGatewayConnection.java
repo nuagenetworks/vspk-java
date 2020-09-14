@@ -40,6 +40,7 @@ import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.PerformanceMonitorsFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.SubnetsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -163,6 +164,9 @@ public class IKEGatewayConnection extends RestObject {
    private PerformanceMonitorsFetcher performanceMonitors;
    
    @JsonIgnore
+   private PermissionsFetcher permissions;
+   
+   @JsonIgnore
    private SubnetsFetcher subnets;
    
 
@@ -177,6 +181,8 @@ public class IKEGatewayConnection extends RestObject {
       metadatas = new MetadatasFetcher(this);
       
       performanceMonitors = new PerformanceMonitorsFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
       subnets = new SubnetsFetcher(this);
       
@@ -450,6 +456,11 @@ public class IKEGatewayConnection extends RestObject {
    @JsonIgnore
    public PerformanceMonitorsFetcher getPerformanceMonitors() {
       return performanceMonitors;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
    @JsonIgnore

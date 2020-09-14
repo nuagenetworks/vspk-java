@@ -51,6 +51,7 @@ import net.nuagenetworks.vspk.v6.fetchers.IKEGatewayConnectionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.IPReservationsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.PATIPEntriesFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.ProxyARPFiltersFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.QOSsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.VMResyncsFetcher;
@@ -336,6 +337,9 @@ public class Subnet extends RestObject {
    private PATIPEntriesFetcher pATIPEntries;
    
    @JsonIgnore
+   private PermissionsFetcher permissions;
+   
+   @JsonIgnore
    private ProxyARPFiltersFetcher proxyARPFilters;
    
    @JsonIgnore
@@ -406,6 +410,8 @@ public class Subnet extends RestObject {
       metadatas = new MetadatasFetcher(this);
       
       pATIPEntries = new PATIPEntriesFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
       proxyARPFilters = new ProxyARPFiltersFetcher(this);
       
@@ -1062,6 +1068,11 @@ public class Subnet extends RestObject {
    @JsonIgnore
    public PATIPEntriesFetcher getPATIPEntries() {
       return pATIPEntries;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
    @JsonIgnore

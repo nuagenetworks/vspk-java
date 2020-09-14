@@ -39,6 +39,7 @@ import net.nuagenetworks.vspk.v6.fetchers.BFDSessionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.CustomPropertiesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "uplinkconnection", resourceName = "uplinkconnections")
@@ -210,6 +211,9 @@ public class UplinkConnection extends RestObject {
    @JsonIgnore
    private MetadatasFetcher metadatas;
    
+   @JsonIgnore
+   private PermissionsFetcher permissions;
+   
 
    public UplinkConnection() {
       
@@ -220,6 +224,8 @@ public class UplinkConnection extends RestObject {
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
    }
 
@@ -629,6 +635,11 @@ public class UplinkConnection extends RestObject {
    @JsonIgnore
    public MetadatasFetcher getMetadatas() {
       return metadatas;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
 

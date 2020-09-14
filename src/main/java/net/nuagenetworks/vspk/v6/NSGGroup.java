@@ -39,6 +39,7 @@ import net.nuagenetworks.vspk.v6.fetchers.DUCGroupBindingsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.NSGatewaysFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "nsggroup", resourceName = "nsggroups")
@@ -92,6 +93,9 @@ public class NSGGroup extends RestObject {
    @JsonIgnore
    private NSGatewaysFetcher nSGateways;
    
+   @JsonIgnore
+   private PermissionsFetcher permissions;
+   
 
    public NSGGroup() {
       
@@ -102,6 +106,8 @@ public class NSGGroup extends RestObject {
       metadatas = new MetadatasFetcher(this);
       
       nSGateways = new NSGatewaysFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
    }
 
@@ -203,6 +209,11 @@ public class NSGGroup extends RestObject {
    @JsonIgnore
    public NSGatewaysFetcher getNSGateways() {
       return nSGateways;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
 

@@ -39,6 +39,7 @@ import net.nuagenetworks.vspk.v6.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.NSPortsFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.PortsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.WANServicesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.WirelessPortsFetcher;
@@ -117,6 +118,9 @@ public class AutoDiscoveredGateway extends RestObject {
    private NSPortsFetcher nSPorts;
    
    @JsonIgnore
+   private PermissionsFetcher permissions;
+   
+   @JsonIgnore
    private PortsFetcher ports;
    
    @JsonIgnore
@@ -135,6 +139,8 @@ public class AutoDiscoveredGateway extends RestObject {
       metadatas = new MetadatasFetcher(this);
       
       nSPorts = new NSPortsFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
       ports = new PortsFetcher(this);
       
@@ -297,6 +303,11 @@ public class AutoDiscoveredGateway extends RestObject {
    @JsonIgnore
    public NSPortsFetcher getNSPorts() {
       return nSPorts;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
    @JsonIgnore

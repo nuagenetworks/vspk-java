@@ -52,6 +52,7 @@ import net.nuagenetworks.vspk.v6.fetchers.IngressACLEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.IngressAdvFwdEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.PolicyGroupsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.PortMappingsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.QOSsFetcher;
@@ -337,6 +338,9 @@ public class VPort extends RestObject {
    private MetadatasFetcher metadatas;
    
    @JsonIgnore
+   private PermissionsFetcher permissions;
+   
+   @JsonIgnore
    private PolicyGroupsFetcher policyGroups;
    
    @JsonIgnore
@@ -421,6 +425,8 @@ public class VPort extends RestObject {
       jobs = new JobsFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
       policyGroups = new PolicyGroupsFetcher(this);
       
@@ -1068,6 +1074,11 @@ public class VPort extends RestObject {
    @JsonIgnore
    public MetadatasFetcher getMetadatas() {
       return metadatas;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
    @JsonIgnore

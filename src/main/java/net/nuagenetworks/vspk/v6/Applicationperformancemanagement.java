@@ -39,6 +39,7 @@ import net.nuagenetworks.vspk.v6.fetchers.ApplicationBindingsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.ApplicationperformancemanagementbindingsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "applicationperformancemanagement", resourceName = "applicationperformancemanagements")
@@ -100,6 +101,9 @@ public class Applicationperformancemanagement extends RestObject {
    @JsonIgnore
    private MetadatasFetcher metadatas;
    
+   @JsonIgnore
+   private PermissionsFetcher permissions;
+   
 
    public Applicationperformancemanagement() {
       
@@ -110,6 +114,8 @@ public class Applicationperformancemanagement extends RestObject {
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
    }
 
@@ -233,6 +239,11 @@ public class Applicationperformancemanagement extends RestObject {
    @JsonIgnore
    public MetadatasFetcher getMetadatas() {
       return metadatas;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
 

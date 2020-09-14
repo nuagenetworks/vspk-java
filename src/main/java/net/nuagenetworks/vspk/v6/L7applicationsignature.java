@@ -38,6 +38,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import net.nuagenetworks.vspk.v6.fetchers.ApplicationsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "l7applicationsignature", resourceName = "l7applicationsignatures")
@@ -136,6 +137,9 @@ public class L7applicationsignature extends RestObject {
    @JsonIgnore
    private MetadatasFetcher metadatas;
    
+   @JsonIgnore
+   private PermissionsFetcher permissions;
+   
 
    public L7applicationsignature() {
       
@@ -144,6 +148,8 @@ public class L7applicationsignature extends RestObject {
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
    }
 
@@ -372,6 +378,11 @@ public class L7applicationsignature extends RestObject {
    @JsonIgnore
    public MetadatasFetcher getMetadatas() {
       return metadatas;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
 

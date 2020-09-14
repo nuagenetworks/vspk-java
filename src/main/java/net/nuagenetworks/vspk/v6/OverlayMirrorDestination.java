@@ -37,6 +37,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.VPortsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -113,6 +114,9 @@ public class OverlayMirrorDestination extends RestObject {
    private MetadatasFetcher metadatas;
    
    @JsonIgnore
+   private PermissionsFetcher permissions;
+   
+   @JsonIgnore
    private VPortsFetcher vPorts;
    
 
@@ -121,6 +125,8 @@ public class OverlayMirrorDestination extends RestObject {
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
       vPorts = new VPortsFetcher(this);
       
@@ -280,6 +286,11 @@ public class OverlayMirrorDestination extends RestObject {
    @JsonIgnore
    public MetadatasFetcher getMetadatas() {
       return metadatas;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
    @JsonIgnore

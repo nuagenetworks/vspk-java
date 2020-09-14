@@ -38,6 +38,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MultiCastChannelMapsFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "multicastlist", resourceName = "multicastlists")
@@ -81,6 +82,9 @@ public class MultiCastList extends RestObject {
    @JsonIgnore
    private MultiCastChannelMapsFetcher multiCastChannelMaps;
    
+   @JsonIgnore
+   private PermissionsFetcher permissions;
+   
 
    public MultiCastList() {
       
@@ -89,6 +93,8 @@ public class MultiCastList extends RestObject {
       metadatas = new MetadatasFetcher(this);
       
       multiCastChannelMaps = new MultiCastChannelMapsFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
    }
 
@@ -163,6 +169,11 @@ public class MultiCastList extends RestObject {
    @JsonIgnore
    public MultiCastChannelMapsFetcher getMultiCastChannelMaps() {
       return multiCastChannelMaps;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
 

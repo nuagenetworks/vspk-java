@@ -39,6 +39,7 @@ import net.nuagenetworks.vspk.v6.fetchers.AlarmsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "ssidconnection", resourceName = "ssidconnections")
@@ -164,6 +165,9 @@ public class SSIDConnection extends RestObject {
    @JsonIgnore
    private MetadatasFetcher metadatas;
    
+   @JsonIgnore
+   private PermissionsFetcher permissions;
+   
 
    public SSIDConnection() {
       
@@ -174,6 +178,8 @@ public class SSIDConnection extends RestObject {
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
    }
 
@@ -462,6 +468,11 @@ public class SSIDConnection extends RestObject {
    @JsonIgnore
    public MetadatasFetcher getMetadatas() {
       return metadatas;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
 

@@ -41,6 +41,7 @@ import net.nuagenetworks.vspk.v6.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MultiCastChannelMapsFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.PolicyDecisionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.PolicyGroupsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.QOSsFetcher;
@@ -169,6 +170,9 @@ public class HostInterface extends RestObject {
    private MultiCastChannelMapsFetcher multiCastChannelMaps;
    
    @JsonIgnore
+   private PermissionsFetcher permissions;
+   
+   @JsonIgnore
    private PolicyDecisionsFetcher policyDecisions;
    
    @JsonIgnore
@@ -203,6 +207,8 @@ public class HostInterface extends RestObject {
       metadatas = new MetadatasFetcher(this);
       
       multiCastChannelMaps = new MultiCastChannelMapsFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
       policyDecisions = new PolicyDecisionsFetcher(this);
       
@@ -493,6 +499,11 @@ public class HostInterface extends RestObject {
    @JsonIgnore
    public MultiCastChannelMapsFetcher getMultiCastChannelMaps() {
       return multiCastChannelMaps;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
    @JsonIgnore

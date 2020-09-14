@@ -40,6 +40,7 @@ import net.nuagenetworks.vspk.v6.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MultiCastListsFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "enterpriseprofile", resourceName = "enterpriseprofiles")
@@ -154,6 +155,9 @@ public class EnterpriseProfile extends RestObject {
    @JsonIgnore
    private MultiCastListsFetcher multiCastLists;
    
+   @JsonIgnore
+   private PermissionsFetcher permissions;
+   
 
    public EnterpriseProfile() {
       floatingIPsQuota = 100L;
@@ -168,6 +172,8 @@ public class EnterpriseProfile extends RestObject {
       metadatas = new MetadatasFetcher(this);
       
       multiCastLists = new MultiCastListsFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
    }
 
@@ -428,6 +434,11 @@ public class EnterpriseProfile extends RestObject {
    @JsonIgnore
    public MultiCastListsFetcher getMultiCastLists() {
       return multiCastLists;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
 

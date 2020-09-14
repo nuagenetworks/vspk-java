@@ -43,6 +43,7 @@ import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MonitoringPortsFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "hsc", resourceName = "hscs")
@@ -186,6 +187,9 @@ public class HSC extends RestObject {
    @JsonIgnore
    private MonitoringPortsFetcher monitoringPorts;
    
+   @JsonIgnore
+   private PermissionsFetcher permissions;
+   
 
    public HSC() {
       
@@ -204,6 +208,8 @@ public class HSC extends RestObject {
       metadatas = new MetadatasFetcher(this);
       
       monitoringPorts = new MonitoringPortsFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
    }
 
@@ -534,6 +540,11 @@ public class HSC extends RestObject {
    @JsonIgnore
    public MonitoringPortsFetcher getMonitoringPorts() {
       return monitoringPorts;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
 

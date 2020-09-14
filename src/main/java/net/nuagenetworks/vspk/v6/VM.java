@@ -39,6 +39,7 @@ import net.nuagenetworks.vspk.v6.fetchers.AlarmsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.VMResyncsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.VMInterfacesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.VRSsFetcher;
@@ -179,6 +180,9 @@ public class VM extends RestObject {
    private MetadatasFetcher metadatas;
    
    @JsonIgnore
+   private PermissionsFetcher permissions;
+   
+   @JsonIgnore
    private VMResyncsFetcher vMResyncs;
    
    @JsonIgnore
@@ -197,6 +201,8 @@ public class VM extends RestObject {
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
       vMResyncs = new VMResyncsFetcher(this);
       
@@ -524,6 +530,11 @@ public class VM extends RestObject {
    @JsonIgnore
    public MetadatasFetcher getMetadatas() {
       return metadatas;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
    @JsonIgnore

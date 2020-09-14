@@ -37,6 +37,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.VNFDescriptorsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -82,6 +83,9 @@ public class VNFCatalog extends RestObject {
    private MetadatasFetcher metadatas;
    
    @JsonIgnore
+   private PermissionsFetcher permissions;
+   
+   @JsonIgnore
    private VNFDescriptorsFetcher vNFDescriptors;
    
 
@@ -90,6 +94,8 @@ public class VNFCatalog extends RestObject {
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
       vNFDescriptors = new VNFDescriptorsFetcher(this);
       
@@ -172,6 +178,11 @@ public class VNFCatalog extends RestObject {
    @JsonIgnore
    public MetadatasFetcher getMetadatas() {
       return metadatas;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
    @JsonIgnore

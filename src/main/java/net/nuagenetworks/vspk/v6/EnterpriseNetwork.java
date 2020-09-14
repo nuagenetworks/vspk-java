@@ -39,6 +39,7 @@ import net.nuagenetworks.vspk.v6.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.NetworkMacroGroupsFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "enterprisenetwork", resourceName = "enterprisenetworks")
@@ -101,6 +102,9 @@ public class EnterpriseNetwork extends RestObject {
    @JsonIgnore
    private NetworkMacroGroupsFetcher networkMacroGroups;
    
+   @JsonIgnore
+   private PermissionsFetcher permissions;
+   
 
    public EnterpriseNetwork() {
       IPType = EIPType.IPV4;
@@ -112,6 +116,8 @@ public class EnterpriseNetwork extends RestObject {
       metadatas = new MetadatasFetcher(this);
       
       networkMacroGroups = new NetworkMacroGroupsFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
    }
 
@@ -235,6 +241,11 @@ public class EnterpriseNetwork extends RestObject {
    @JsonIgnore
    public NetworkMacroGroupsFetcher getNetworkMacroGroups() {
       return networkMacroGroups;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
 

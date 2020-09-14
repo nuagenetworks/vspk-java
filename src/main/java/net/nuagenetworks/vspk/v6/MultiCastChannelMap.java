@@ -39,6 +39,7 @@ import net.nuagenetworks.vspk.v6.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MultiCastRangesFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "multicastchannelmap", resourceName = "multicastchannelmaps")
@@ -88,6 +89,9 @@ public class MultiCastChannelMap extends RestObject {
    @JsonIgnore
    private MultiCastRangesFetcher multiCastRanges;
    
+   @JsonIgnore
+   private PermissionsFetcher permissions;
+   
 
    public MultiCastChannelMap() {
       
@@ -98,6 +102,8 @@ public class MultiCastChannelMap extends RestObject {
       metadatas = new MetadatasFetcher(this);
       
       multiCastRanges = new MultiCastRangesFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
    }
 
@@ -188,6 +194,11 @@ public class MultiCastChannelMap extends RestObject {
    @JsonIgnore
    public MultiCastRangesFetcher getMultiCastRanges() {
       return multiCastRanges;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
 

@@ -39,6 +39,7 @@ import net.nuagenetworks.vspk.v6.fetchers.ApplicationBindingsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MonitorscopesFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "application", resourceName = "applications")
@@ -181,6 +182,9 @@ public class Application extends RestObject {
    @JsonIgnore
    private MonitorscopesFetcher monitorscopes;
    
+   @JsonIgnore
+   private PermissionsFetcher permissions;
+   
 
    public Application() {
       
@@ -191,6 +195,8 @@ public class Application extends RestObject {
       metadatas = new MetadatasFetcher(this);
       
       monitorscopes = new MonitorscopesFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
    }
 
@@ -523,6 +529,11 @@ public class Application extends RestObject {
    @JsonIgnore
    public MonitorscopesFetcher getMonitorscopes() {
       return monitorscopes;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
 

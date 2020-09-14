@@ -40,6 +40,7 @@ import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.HSCsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.NetconfManagersFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.ThreatPreventionServerConnectionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.VSCsFetcher;
 
@@ -103,6 +104,9 @@ public class VSP extends RestObject {
    private NetconfManagersFetcher netconfManagers;
    
    @JsonIgnore
+   private PermissionsFetcher permissions;
+   
+   @JsonIgnore
    private ThreatPreventionServerConnectionsFetcher threatPreventionServerConnections;
    
    @JsonIgnore
@@ -120,6 +124,8 @@ public class VSP extends RestObject {
       metadatas = new MetadatasFetcher(this);
       
       netconfManagers = new NetconfManagersFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
       threatPreventionServerConnections = new ThreatPreventionServerConnectionsFetcher(this);
       
@@ -241,6 +247,11 @@ public class VSP extends RestObject {
    @JsonIgnore
    public NetconfManagersFetcher getNetconfManagers() {
       return netconfManagers;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
    @JsonIgnore

@@ -41,6 +41,7 @@ import net.nuagenetworks.vspk.v6.fetchers.EnterprisePermissionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.PATIPEntriesFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.StaticRoutesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.VPNConnectionsFetcher;
 
@@ -210,6 +211,9 @@ public class SharedNetworkResource extends RestObject {
    private PATIPEntriesFetcher pATIPEntries;
    
    @JsonIgnore
+   private PermissionsFetcher permissions;
+   
+   @JsonIgnore
    private StaticRoutesFetcher staticRoutes;
    
    @JsonIgnore
@@ -231,6 +235,8 @@ public class SharedNetworkResource extends RestObject {
       metadatas = new MetadatasFetcher(this);
       
       pATIPEntries = new PATIPEntriesFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
       staticRoutes = new StaticRoutesFetcher(this);
       
@@ -632,6 +638,11 @@ public class SharedNetworkResource extends RestObject {
    @JsonIgnore
    public PATIPEntriesFetcher getPATIPEntries() {
       return pATIPEntries;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
    @JsonIgnore

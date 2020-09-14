@@ -39,6 +39,7 @@ import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MirrorDestinationsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.OverlayMirrorDestinationsFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "mirrordestinationgroup", resourceName = "mirrordestinationgroups")
@@ -88,6 +89,9 @@ public class MirrorDestinationGroup extends RestObject {
    @JsonIgnore
    private OverlayMirrorDestinationsFetcher overlayMirrorDestinations;
    
+   @JsonIgnore
+   private PermissionsFetcher permissions;
+   
 
    public MirrorDestinationGroup() {
       
@@ -98,6 +102,8 @@ public class MirrorDestinationGroup extends RestObject {
       mirrorDestinations = new MirrorDestinationsFetcher(this);
       
       overlayMirrorDestinations = new OverlayMirrorDestinationsFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
    }
 
@@ -188,6 +194,11 @@ public class MirrorDestinationGroup extends RestObject {
    @JsonIgnore
    public OverlayMirrorDestinationsFetcher getOverlayMirrorDestinations() {
       return overlayMirrorDestinations;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
 

@@ -41,6 +41,7 @@ import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.NextHopsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.OverlayAddressPoolsFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.PolicyStatementsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.PSNATPoolsFetcher;
 
@@ -130,6 +131,9 @@ public class Link extends RestObject {
    private OverlayAddressPoolsFetcher overlayAddressPools;
    
    @JsonIgnore
+   private PermissionsFetcher permissions;
+   
+   @JsonIgnore
    private PolicyStatementsFetcher policyStatements;
    
    @JsonIgnore
@@ -149,6 +153,8 @@ public class Link extends RestObject {
       nextHops = new NextHopsFetcher(this);
       
       overlayAddressPools = new OverlayAddressPoolsFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
       policyStatements = new PolicyStatementsFetcher(this);
       
@@ -330,6 +336,11 @@ public class Link extends RestObject {
    @JsonIgnore
    public OverlayAddressPoolsFetcher getOverlayAddressPools() {
       return overlayAddressPools;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
    @JsonIgnore

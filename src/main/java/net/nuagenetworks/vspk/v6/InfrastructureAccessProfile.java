@@ -39,6 +39,7 @@ import net.nuagenetworks.vspk.v6.fetchers.ConnectionendpointsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.NSGatewayTemplatesFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.SSHKeysFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
@@ -112,6 +113,9 @@ public class InfrastructureAccessProfile extends RestObject {
    private NSGatewayTemplatesFetcher nSGatewayTemplates;
    
    @JsonIgnore
+   private PermissionsFetcher permissions;
+   
+   @JsonIgnore
    private SSHKeysFetcher sSHKeys;
    
 
@@ -124,6 +128,8 @@ public class InfrastructureAccessProfile extends RestObject {
       metadatas = new MetadatasFetcher(this);
       
       nSGatewayTemplates = new NSGatewayTemplatesFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
       sSHKeys = new SSHKeysFetcher(this);
       
@@ -271,6 +277,11 @@ public class InfrastructureAccessProfile extends RestObject {
    @JsonIgnore
    public NSGatewayTemplatesFetcher getNSGatewayTemplates() {
       return nSGatewayTemplates;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
    @JsonIgnore

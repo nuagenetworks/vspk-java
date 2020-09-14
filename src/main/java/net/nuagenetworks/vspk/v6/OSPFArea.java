@@ -38,6 +38,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.OSPFInterfacesFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "ospfarea", resourceName = "ospfareas")
@@ -122,6 +123,9 @@ public class OSPFArea extends RestObject {
    @JsonIgnore
    private OSPFInterfacesFetcher oSPFInterfaces;
    
+   @JsonIgnore
+   private PermissionsFetcher permissions;
+   
 
    public OSPFArea() {
       
@@ -130,6 +134,8 @@ public class OSPFArea extends RestObject {
       metadatas = new MetadatasFetcher(this);
       
       oSPFInterfaces = new OSPFInterfacesFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
    }
 
@@ -314,6 +320,11 @@ public class OSPFArea extends RestObject {
    @JsonIgnore
    public OSPFInterfacesFetcher getOSPFInterfaces() {
       return oSPFInterfaces;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
 

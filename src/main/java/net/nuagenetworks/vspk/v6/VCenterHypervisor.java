@@ -38,6 +38,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.VRSAddressRangesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.VRSMetricsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.VRSRedeploymentpoliciesFetcher;
@@ -627,6 +628,9 @@ public class VCenterHypervisor extends RestObject {
    private MetadatasFetcher metadatas;
    
    @JsonIgnore
+   private PermissionsFetcher permissions;
+   
+   @JsonIgnore
    private VRSAddressRangesFetcher vRSAddressRanges;
    
    @JsonIgnore
@@ -643,6 +647,8 @@ public class VCenterHypervisor extends RestObject {
       jobs = new JobsFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
       vRSAddressRanges = new VRSAddressRangesFetcher(this);
       
@@ -2197,6 +2203,11 @@ public class VCenterHypervisor extends RestObject {
    @JsonIgnore
    public MetadatasFetcher getMetadatas() {
       return metadatas;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
    @JsonIgnore

@@ -40,6 +40,7 @@ import net.nuagenetworks.vspk.v6.fetchers.KeyServerMonitorEncryptedSeedsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.KeyServerMonitorSeedsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.KeyServerMonitorSEKsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "keyservermonitor", resourceName = "keyservermonitors")
@@ -112,6 +113,9 @@ public class KeyServerMonitor extends RestObject {
    @JsonIgnore
    private MetadatasFetcher metadatas;
    
+   @JsonIgnore
+   private PermissionsFetcher permissions;
+   
 
    public KeyServerMonitor() {
       
@@ -124,6 +128,8 @@ public class KeyServerMonitor extends RestObject {
       keyServerMonitorSEKs = new KeyServerMonitorSEKsFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
    }
 
@@ -274,6 +280,11 @@ public class KeyServerMonitor extends RestObject {
    @JsonIgnore
    public MetadatasFetcher getMetadatas() {
       return metadatas;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
 

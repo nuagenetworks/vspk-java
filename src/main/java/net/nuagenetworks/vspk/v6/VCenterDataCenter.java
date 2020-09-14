@@ -39,6 +39,7 @@ import net.nuagenetworks.vspk.v6.fetchers.AutoDiscoverClustersFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.AutoDiscoverHypervisorFromClustersFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.VCenterClustersFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.VCenterHypervisorsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.VRSAddressRangesFetcher;
@@ -495,6 +496,9 @@ public class VCenterDataCenter extends RestObject {
    private MetadatasFetcher metadatas;
    
    @JsonIgnore
+   private PermissionsFetcher permissions;
+   
+   @JsonIgnore
    private VCenterClustersFetcher vCenterClusters;
    
    @JsonIgnore
@@ -516,6 +520,8 @@ public class VCenterDataCenter extends RestObject {
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
       metadatas = new MetadatasFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
       vCenterClusters = new VCenterClustersFetcher(this);
       
@@ -1703,6 +1709,11 @@ public class VCenterDataCenter extends RestObject {
    @JsonIgnore
    public MetadatasFetcher getMetadatas() {
       return metadatas;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
    @JsonIgnore

@@ -41,6 +41,7 @@ import net.nuagenetworks.vspk.v6.fetchers.EnterprisePermissionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.NATMapEntriesFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.StatisticsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.StatisticsPoliciesFetcher;
 
@@ -154,6 +155,9 @@ public class PATNATPool extends RestObject {
    private NATMapEntriesFetcher nATMapEntries;
    
    @JsonIgnore
+   private PermissionsFetcher permissions;
+   
+   @JsonIgnore
    private StatisticsFetcher statistics;
    
    @JsonIgnore
@@ -173,6 +177,8 @@ public class PATNATPool extends RestObject {
       metadatas = new MetadatasFetcher(this);
       
       nATMapEntries = new NATMapEntriesFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
       statistics = new StatisticsFetcher(this);
       
@@ -420,6 +426,11 @@ public class PATNATPool extends RestObject {
    @JsonIgnore
    public NATMapEntriesFetcher getNATMapEntries() {
       return nATMapEntries;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
    @JsonIgnore

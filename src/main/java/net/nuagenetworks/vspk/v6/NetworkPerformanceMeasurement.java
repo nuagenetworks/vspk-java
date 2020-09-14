@@ -39,6 +39,7 @@ import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MonitorscopesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.NetworkPerformanceBindingsFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "networkperformancemeasurement", resourceName = "networkperformancemeasurements")
@@ -101,6 +102,9 @@ public class NetworkPerformanceMeasurement extends RestObject {
    @JsonIgnore
    private NetworkPerformanceBindingsFetcher networkPerformanceBindings;
    
+   @JsonIgnore
+   private PermissionsFetcher permissions;
+   
 
    public NetworkPerformanceMeasurement() {
       
@@ -111,6 +115,8 @@ public class NetworkPerformanceMeasurement extends RestObject {
       monitorscopes = new MonitorscopesFetcher(this);
       
       networkPerformanceBindings = new NetworkPerformanceBindingsFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
    }
 
@@ -234,6 +240,11 @@ public class NetworkPerformanceMeasurement extends RestObject {
    @JsonIgnore
    public NetworkPerformanceBindingsFetcher getNetworkPerformanceBindings() {
       return networkPerformanceBindings;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
 

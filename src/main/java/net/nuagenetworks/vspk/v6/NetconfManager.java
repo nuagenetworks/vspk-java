@@ -39,6 +39,7 @@ import net.nuagenetworks.vspk.v6.fetchers.AlarmsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.NetconfSessionsFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "netconfmanager", resourceName = "netconfmanagers")
@@ -97,6 +98,9 @@ public class NetconfManager extends RestObject {
    @JsonIgnore
    private NetconfSessionsFetcher netconfSessions;
    
+   @JsonIgnore
+   private PermissionsFetcher permissions;
+   
 
    public NetconfManager() {
       
@@ -107,6 +111,8 @@ public class NetconfManager extends RestObject {
       metadatas = new MetadatasFetcher(this);
       
       netconfSessions = new NetconfSessionsFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
    }
 
@@ -219,6 +225,11 @@ public class NetconfManager extends RestObject {
    @JsonIgnore
    public NetconfSessionsFetcher getNetconfSessions() {
       return netconfSessions;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
 

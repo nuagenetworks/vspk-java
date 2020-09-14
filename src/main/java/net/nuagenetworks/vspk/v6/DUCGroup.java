@@ -38,6 +38,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.NSGatewaysFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "ducgroup", resourceName = "ducgroups")
@@ -97,6 +98,9 @@ public class DUCGroup extends RestObject {
    @JsonIgnore
    private NSGatewaysFetcher nSGateways;
    
+   @JsonIgnore
+   private PermissionsFetcher permissions;
+   
 
    public DUCGroup() {
       
@@ -105,6 +109,8 @@ public class DUCGroup extends RestObject {
       metadatas = new MetadatasFetcher(this);
       
       nSGateways = new NSGatewaysFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
    }
 
@@ -223,6 +229,11 @@ public class DUCGroup extends RestObject {
    @JsonIgnore
    public NSGatewaysFetcher getNSGateways() {
       return nSGateways;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
 

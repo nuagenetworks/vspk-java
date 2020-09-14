@@ -92,6 +92,7 @@ import net.nuagenetworks.vspk.v6.fetchers.NSRedundantGatewayGroupsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.OverlayManagementProfilesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.PATNATPoolsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.PerformanceMonitorsFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.PolicyGroupCategoriesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.PolicyObjectGroupsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.PublicNetworkMacrosFetcher;
@@ -461,6 +462,9 @@ public class Enterprise extends RestObject {
    private PerformanceMonitorsFetcher performanceMonitors;
    
    @JsonIgnore
+   private PermissionsFetcher permissions;
+   
+   @JsonIgnore
    private PolicyGroupCategoriesFetcher policyGroupCategories;
    
    @JsonIgnore
@@ -642,6 +646,8 @@ public class Enterprise extends RestObject {
       pATNATPools = new PATNATPoolsFetcher(this);
       
       performanceMonitors = new PerformanceMonitorsFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
       policyGroupCategories = new PolicyGroupCategoriesFetcher(this);
       
@@ -1404,6 +1410,11 @@ public class Enterprise extends RestObject {
    @JsonIgnore
    public PerformanceMonitorsFetcher getPerformanceMonitors() {
       return performanceMonitors;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
    @JsonIgnore

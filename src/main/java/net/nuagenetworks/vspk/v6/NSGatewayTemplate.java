@@ -38,6 +38,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.NSPortTemplatesFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "nsgatewaytemplate", resourceName = "nsgatewaytemplates")
@@ -111,6 +112,9 @@ public class NSGatewayTemplate extends RestObject {
    @JsonIgnore
    private NSPortTemplatesFetcher nSPortTemplates;
    
+   @JsonIgnore
+   private PermissionsFetcher permissions;
+   
 
    public NSGatewayTemplate() {
       
@@ -119,6 +123,8 @@ public class NSGatewayTemplate extends RestObject {
       metadatas = new MetadatasFetcher(this);
       
       nSPortTemplates = new NSPortTemplatesFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
    }
 
@@ -270,6 +276,11 @@ public class NSGatewayTemplate extends RestObject {
    @JsonIgnore
    public NSPortTemplatesFetcher getNSPortTemplates() {
       return nSPortTemplates;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
 

@@ -38,6 +38,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.OverlayPATNATEntriesFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "overlayaddresspool", resourceName = "overlayaddresspools")
@@ -101,6 +102,9 @@ public class OverlayAddressPool extends RestObject {
    @JsonIgnore
    private OverlayPATNATEntriesFetcher overlayPATNATEntries;
    
+   @JsonIgnore
+   private PermissionsFetcher permissions;
+   
 
    public OverlayAddressPool() {
       
@@ -109,6 +113,8 @@ public class OverlayAddressPool extends RestObject {
       metadatas = new MetadatasFetcher(this);
       
       overlayPATNATEntries = new OverlayPATNATEntriesFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
       
    }
 
@@ -238,6 +244,11 @@ public class OverlayAddressPool extends RestObject {
    @JsonIgnore
    public OverlayPATNATEntriesFetcher getOverlayPATNATEntries() {
       return overlayPATNATEntries;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
    }
    
 
