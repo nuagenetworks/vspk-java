@@ -4,7 +4,7 @@
    <modelVersion>4.0.0</modelVersion>
    <groupId>net.nuagenetworks</groupId>
    <artifactId>vspk</artifactId>
-   <version>6.0.7</version>
+   <version>6.0.8</version>
    <packaging>jar</packaging>
 
    <name>${project.groupId}:${project.artifactId}</name>
