@@ -90,7 +90,7 @@ public class HSC extends RestObject {
    
    @JsonProperty(value = "disks")
    
-   protected java.util.List<String> disks;
+   protected java.util.List<DiskStat> disks;
    
    @JsonProperty(value = "embeddedMetadata")
    
@@ -298,12 +298,12 @@ public class HSC extends RestObject {
    
    
    @JsonIgnore
-   public java.util.List<String> getDisks() {
+   public java.util.List<DiskStat> getDisks() {
       return disks;
    }
 
    @JsonIgnore
-   public void setDisks(java.util.List<String> value) { 
+   public void setDisks(java.util.List<DiskStat> value) { 
       this.disks = value;
    }
    
