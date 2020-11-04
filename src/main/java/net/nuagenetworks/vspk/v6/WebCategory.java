@@ -51,6 +51,10 @@ public class WebCategory extends RestObject {
    public enum EType { WEB_DOMAIN_NAME };
 
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "defaultCategory")
    
    protected Boolean defaultCategory;
@@ -75,9 +79,17 @@ public class WebCategory extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "name")
    
    protected String name;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "type")
    
@@ -114,6 +126,17 @@ public class WebCategory extends RestObject {
       
    }
 
+   
+   
+   @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
+   }
    
    
    @JsonIgnore
@@ -183,6 +206,17 @@ public class WebCategory extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public String getName() {
       return name;
    }
@@ -190,6 +224,17 @@ public class WebCategory extends RestObject {
    @JsonIgnore
    public void setName(String value) { 
       this.name = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
    
@@ -238,8 +283,7 @@ public class WebCategory extends RestObject {
    
 
    public String toString() {
-      return "WebCategory [" + "defaultCategory=" + defaultCategory + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", type=" + type + ", webCategoryIdentifier=" + webCategoryIdentifier + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "WebCategory [" + "creationDate=" + creationDate + ", defaultCategory=" + defaultCategory + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", name=" + name + ", owner=" + owner + ", type=" + type + ", webCategoryIdentifier=" + webCategoryIdentifier + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

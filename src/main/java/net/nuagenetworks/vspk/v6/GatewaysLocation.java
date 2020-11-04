@@ -65,6 +65,10 @@ public class GatewaysLocation extends RestObject {
    
    protected String country;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "embeddedMetadata")
    
    protected java.util.List<Metadata> embeddedMetadata;
@@ -85,6 +89,10 @@ public class GatewaysLocation extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "latitude")
    
    protected Float latitude;
@@ -96,6 +104,10 @@ public class GatewaysLocation extends RestObject {
    @JsonProperty(value = "longitude")
    
    protected Float longitude;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "state")
    
@@ -174,6 +186,17 @@ public class GatewaysLocation extends RestObject {
    
    
    @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
+   }
+   
+   
+   @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
    }
@@ -229,6 +252,17 @@ public class GatewaysLocation extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public Float getLatitude() {
       return latitude;
    }
@@ -258,6 +292,17 @@ public class GatewaysLocation extends RestObject {
    @JsonIgnore
    public void setLongitude(Float value) { 
       this.longitude = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
    
@@ -301,8 +346,7 @@ public class GatewaysLocation extends RestObject {
    
 
    public String toString() {
-      return "GatewaysLocation [" + "address=" + address + ", associatedEntityName=" + associatedEntityName + ", associatedEntityType=" + associatedEntityType + ", country=" + country + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", ignoreGeocode=" + ignoreGeocode + ", lastUpdatedBy=" + lastUpdatedBy + ", latitude=" + latitude + ", locality=" + locality + ", longitude=" + longitude + ", state=" + state + ", timeZoneID=" + timeZoneID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "GatewaysLocation [" + "address=" + address + ", associatedEntityName=" + associatedEntityName + ", associatedEntityType=" + associatedEntityType + ", country=" + country + ", creationDate=" + creationDate + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", ignoreGeocode=" + ignoreGeocode + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", latitude=" + latitude + ", locality=" + locality + ", longitude=" + longitude + ", owner=" + owner + ", state=" + state + ", timeZoneID=" + timeZoneID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

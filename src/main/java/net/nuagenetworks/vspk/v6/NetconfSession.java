@@ -59,6 +59,10 @@ public class NetconfSession extends RestObject {
    
    protected String associatedGatewayName;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "embeddedMetadata")
    
    protected java.util.List<Metadata> embeddedMetadata;
@@ -86,6 +90,14 @@ public class NetconfSession extends RestObject {
    @JsonProperty(value = "lastUpdatedBy")
    
    protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "status")
    
@@ -134,6 +146,17 @@ public class NetconfSession extends RestObject {
    @JsonIgnore
    public void setAssociatedGatewayName(String value) { 
       this.associatedGatewayName = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
    }
    
    
@@ -215,6 +238,28 @@ public class NetconfSession extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
+   }
+   
+   
+   @JsonIgnore
    public EStatus getStatus() {
       return status;
    }
@@ -243,8 +288,7 @@ public class NetconfSession extends RestObject {
    
 
    public String toString() {
-      return "NetconfSession [" + "associatedGatewayID=" + associatedGatewayID + ", associatedGatewayName=" + associatedGatewayName + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayModel=" + gatewayModel + ", gatewayVendor=" + gatewayVendor + ", gatewayVersion=" + gatewayVersion + ", lastUpdatedBy=" + lastUpdatedBy + ", status=" + status + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "NetconfSession [" + "associatedGatewayID=" + associatedGatewayID + ", associatedGatewayName=" + associatedGatewayName + ", creationDate=" + creationDate + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayModel=" + gatewayModel + ", gatewayVendor=" + gatewayVendor + ", gatewayVersion=" + gatewayVersion + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", owner=" + owner + ", status=" + status + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

@@ -58,6 +58,10 @@ public class IPReservation extends RestObject {
    
    protected String MAC;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "dynamicAllocationEnabled")
    
    protected Boolean dynamicAllocationEnabled;
@@ -77,6 +81,14 @@ public class IPReservation extends RestObject {
    @JsonProperty(value = "lastUpdatedBy")
    
    protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
 
    
@@ -126,6 +138,17 @@ public class IPReservation extends RestObject {
    @JsonIgnore
    public void setMAC(String value) { 
       this.MAC = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
    }
    
    
@@ -183,6 +206,28 @@ public class IPReservation extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
+   @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
+   }
+   
 
    
    @JsonIgnore
@@ -207,8 +252,7 @@ public class IPReservation extends RestObject {
    
 
    public String toString() {
-      return "IPReservation [" + "IPAddress=" + IPAddress + ", MAC=" + MAC + ", dynamicAllocationEnabled=" + dynamicAllocationEnabled + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "IPReservation [" + "IPAddress=" + IPAddress + ", MAC=" + MAC + ", creationDate=" + creationDate + ", dynamicAllocationEnabled=" + dynamicAllocationEnabled + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", owner=" + owner + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

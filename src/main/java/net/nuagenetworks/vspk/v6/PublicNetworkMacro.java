@@ -63,6 +63,10 @@ public class PublicNetworkMacro extends RestObject {
    
    protected String address;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "embeddedMetadata")
    
    protected java.util.List<Metadata> embeddedMetadata;
@@ -79,6 +83,10 @@ public class PublicNetworkMacro extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "name")
    
    protected String name;
@@ -86,6 +94,10 @@ public class PublicNetworkMacro extends RestObject {
    @JsonProperty(value = "netmask")
    
    protected String netmask;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
 
    
@@ -150,6 +162,17 @@ public class PublicNetworkMacro extends RestObject {
    
    
    @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
+   }
+   
+   
+   @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
    }
@@ -194,6 +217,17 @@ public class PublicNetworkMacro extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public String getName() {
       return name;
    }
@@ -212,6 +246,17 @@ public class PublicNetworkMacro extends RestObject {
    @JsonIgnore
    public void setNetmask(String value) { 
       this.netmask = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
 
@@ -238,8 +283,7 @@ public class PublicNetworkMacro extends RestObject {
    
 
    public String toString() {
-      return "PublicNetworkMacro [" + "IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", address=" + address + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", netmask=" + netmask + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "PublicNetworkMacro [" + "IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", address=" + address + ", creationDate=" + creationDate + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", name=" + name + ", netmask=" + netmask + ", owner=" + owner + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

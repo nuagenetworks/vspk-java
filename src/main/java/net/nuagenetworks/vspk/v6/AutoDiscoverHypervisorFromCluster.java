@@ -50,6 +50,10 @@ public class AutoDiscoverHypervisorFromCluster extends RestObject {
    
    protected String assocEntityID;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "entityScope")
    
    protected EEntityScope entityScope;
@@ -66,6 +70,10 @@ public class AutoDiscoverHypervisorFromCluster extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "managedObjectID")
    
    protected String managedObjectID;
@@ -73,6 +81,10 @@ public class AutoDiscoverHypervisorFromCluster extends RestObject {
    @JsonProperty(value = "networkList")
    
    protected java.util.List<String> networkList;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
 
    
@@ -91,6 +103,17 @@ public class AutoDiscoverHypervisorFromCluster extends RestObject {
    @JsonIgnore
    public void setAssocEntityID(String value) { 
       this.assocEntityID = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
    }
    
    
@@ -139,6 +162,17 @@ public class AutoDiscoverHypervisorFromCluster extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public String getManagedObjectID() {
       return managedObjectID;
    }
@@ -159,12 +193,22 @@ public class AutoDiscoverHypervisorFromCluster extends RestObject {
       this.networkList = value;
    }
    
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
+   }
+   
 
    
 
    public String toString() {
-      return "AutoDiscoverHypervisorFromCluster [" + "assocEntityID=" + assocEntityID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", hypervisorIP=" + hypervisorIP + ", lastUpdatedBy=" + lastUpdatedBy + ", managedObjectID=" + managedObjectID + ", networkList=" + networkList + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "AutoDiscoverHypervisorFromCluster [" + "assocEntityID=" + assocEntityID + ", creationDate=" + creationDate + ", entityScope=" + entityScope + ", externalID=" + externalID + ", hypervisorIP=" + hypervisorIP + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", managedObjectID=" + managedObjectID + ", networkList=" + networkList + ", owner=" + owner + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

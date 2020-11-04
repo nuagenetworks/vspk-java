@@ -81,6 +81,10 @@ public class NSPort extends RestObject {
    
    protected String associatedRedundantPortID;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "description")
    
    protected String description;
@@ -105,6 +109,10 @@ public class NSPort extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "mtu")
    
    protected Long mtu;
@@ -112,6 +120,10 @@ public class NSPort extends RestObject {
    @JsonProperty(value = "name")
    
    protected String name;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "permittedAction")
    
@@ -264,6 +276,17 @@ public class NSPort extends RestObject {
    
    
    @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
+   }
+   
+   
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
@@ -330,6 +353,17 @@ public class NSPort extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public Long getMtu() {
       return mtu;
    }
@@ -348,6 +382,17 @@ public class NSPort extends RestObject {
    @JsonIgnore
    public void setName(String value) { 
       this.name = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
    
@@ -503,8 +548,7 @@ public class NSPort extends RestObject {
    
 
    public String toString() {
-      return "NSPort [" + "NATTraversal=" + NATTraversal + ", TrafficThroughUBROnly=" + TrafficThroughUBROnly + ", VLANRange=" + VLANRange + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", associatedRedundantPortID=" + associatedRedundantPortID + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", enableNATProbes=" + enableNATProbes + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", mtu=" + mtu + ", name=" + name + ", permittedAction=" + permittedAction + ", physicalName=" + physicalName + ", portType=" + portType + ", shuntPort=" + shuntPort + ", speed=" + speed + ", status=" + status + ", templateID=" + templateID + ", useUserMnemonic=" + useUserMnemonic + ", userMnemonic=" + userMnemonic + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "NSPort [" + "NATTraversal=" + NATTraversal + ", TrafficThroughUBROnly=" + TrafficThroughUBROnly + ", VLANRange=" + VLANRange + ", associatedEgressQOSPolicyID=" + associatedEgressQOSPolicyID + ", associatedRedundantPortID=" + associatedRedundantPortID + ", creationDate=" + creationDate + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", enableNATProbes=" + enableNATProbes + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", mtu=" + mtu + ", name=" + name + ", owner=" + owner + ", permittedAction=" + permittedAction + ", physicalName=" + physicalName + ", portType=" + portType + ", shuntPort=" + shuntPort + ", speed=" + speed + ", status=" + status + ", templateID=" + templateID + ", useUserMnemonic=" + useUserMnemonic + ", userMnemonic=" + userMnemonic + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

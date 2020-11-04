@@ -58,7 +58,7 @@ public class EthernetSegmentGWGroup extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum EPersonality { NETCONF_7X50 };
+   public enum EPersonality { NETCONF_7X50, SR_LINUX };
 
    
    @JsonProperty(value = "assocGatewaysNames")
@@ -313,8 +313,7 @@ public class EthernetSegmentGWGroup extends RestObject {
    
 
    public String toString() {
-      return "EthernetSegmentGWGroup [" + "assocGatewaysNames=" + assocGatewaysNames + ", assocGatewaysStatus=" + assocGatewaysStatus + ", associatedGatewayIDs=" + associatedGatewayIDs + ", description=" + description + ", name=" + name + ", personality=" + personality + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "EthernetSegmentGWGroup [" + "assocGatewaysNames=" + assocGatewaysNames + ", assocGatewaysStatus=" + assocGatewaysStatus + ", associatedGatewayIDs=" + associatedGatewayIDs + ", description=" + description + ", name=" + name + ", personality=" + personality + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

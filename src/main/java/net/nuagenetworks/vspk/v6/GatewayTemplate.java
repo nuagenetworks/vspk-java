@@ -48,8 +48,12 @@ public class GatewayTemplate extends RestObject {
 
    
    public enum EEntityScope { ENTERPRISE, GLOBAL };
-   public enum EPersonality { DC7X50, EVDF, EVDFB, HARDWARE_VTEP, NETCONF_7X50, NETCONF_THIRDPARTY_HW_VTEP, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, OTHER, UNMANAGED_GATEWAY, VDFG, VRSB, VRSG, VSA, VSG };
+   public enum EPersonality { DC7X50, EVDF, EVDFB, HARDWARE_VTEP, NETCONF_7X50, NETCONF_THIRDPARTY_HW_VTEP, NUAGE_210_WBX_32_Q, NUAGE_210_WBX_48_S, OTHER, SR_LINUX, UNMANAGED_GATEWAY, VDFG, VRSB, VRSG, VSA, VSG };
 
+   
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
    
    @JsonProperty(value = "description")
    
@@ -79,9 +83,21 @@ public class GatewayTemplate extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "name")
    
    protected String name;
+   
+   @JsonProperty(value = "nativeVLAN")
+   
+   protected String nativeVLAN;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "personality")
    
@@ -115,6 +131,17 @@ public class GatewayTemplate extends RestObject {
       
    }
 
+   
+   
+   @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
+   }
    
    
    @JsonIgnore
@@ -195,6 +222,17 @@ public class GatewayTemplate extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public String getName() {
       return name;
    }
@@ -202,6 +240,28 @@ public class GatewayTemplate extends RestObject {
    @JsonIgnore
    public void setName(String value) { 
       this.name = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getNativeVLAN() {
+      return nativeVLAN;
+   }
+
+   @JsonIgnore
+   public void setNativeVLAN(String value) { 
+      this.nativeVLAN = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
    
@@ -239,8 +299,7 @@ public class GatewayTemplate extends RestObject {
    
 
    public String toString() {
-      return "GatewayTemplate [" + "description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", infrastructureProfileID=" + infrastructureProfileID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", personality=" + personality + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "GatewayTemplate [" + "creationDate=" + creationDate + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", infrastructureProfileID=" + infrastructureProfileID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", name=" + name + ", nativeVLAN=" + nativeVLAN + ", owner=" + owner + ", personality=" + personality + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

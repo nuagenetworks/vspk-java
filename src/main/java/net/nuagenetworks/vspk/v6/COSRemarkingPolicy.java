@@ -54,6 +54,10 @@ public class COSRemarkingPolicy extends RestObject {
    
    protected String DSCP;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "embeddedMetadata")
    
    protected java.util.List<Metadata> embeddedMetadata;
@@ -73,6 +77,14 @@ public class COSRemarkingPolicy extends RestObject {
    @JsonProperty(value = "lastUpdatedBy")
    
    protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
 
    
@@ -106,6 +118,17 @@ public class COSRemarkingPolicy extends RestObject {
    @JsonIgnore
    public void setDSCP(String value) { 
       this.DSCP = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
    }
    
    
@@ -163,6 +186,28 @@ public class COSRemarkingPolicy extends RestObject {
       this.lastUpdatedBy = value;
    }
    
+   
+   @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
+   }
+   
 
    
    @JsonIgnore
@@ -182,8 +227,7 @@ public class COSRemarkingPolicy extends RestObject {
    
 
    public String toString() {
-      return "COSRemarkingPolicy [" + "DSCP=" + DSCP + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", forwardingClass=" + forwardingClass + ", lastUpdatedBy=" + lastUpdatedBy + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "COSRemarkingPolicy [" + "DSCP=" + DSCP + ", creationDate=" + creationDate + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", forwardingClass=" + forwardingClass + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", owner=" + owner + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

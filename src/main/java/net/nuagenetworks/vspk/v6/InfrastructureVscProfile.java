@@ -54,6 +54,10 @@ public class InfrastructureVscProfile extends RestObject {
    
    protected EAddressFamily addressFamily;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "description")
    
    protected String description;
@@ -86,9 +90,17 @@ public class InfrastructureVscProfile extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "name")
    
    protected String name;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "probeInterval")
    
@@ -134,6 +146,17 @@ public class InfrastructureVscProfile extends RestObject {
    @JsonIgnore
    public void setAddressFamily(EAddressFamily value) { 
       this.addressFamily = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
    }
    
    
@@ -226,6 +249,17 @@ public class InfrastructureVscProfile extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public String getName() {
       return name;
    }
@@ -233,6 +267,17 @@ public class InfrastructureVscProfile extends RestObject {
    @JsonIgnore
    public void setName(String value) { 
       this.name = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
    
@@ -287,8 +332,7 @@ public class InfrastructureVscProfile extends RestObject {
    
 
    public String toString() {
-      return "InfrastructureVscProfile [" + "addressFamily=" + addressFamily + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", firstController=" + firstController + ", firstControllerV6=" + firstControllerV6 + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", probeInterval=" + probeInterval + ", secondController=" + secondController + ", secondControllerV6=" + secondControllerV6 + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "InfrastructureVscProfile [" + "addressFamily=" + addressFamily + ", creationDate=" + creationDate + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", firstController=" + firstController + ", firstControllerV6=" + firstControllerV6 + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", name=" + name + ", owner=" + owner + ", probeInterval=" + probeInterval + ", secondController=" + secondController + ", secondControllerV6=" + secondControllerV6 + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

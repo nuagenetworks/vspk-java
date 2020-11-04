@@ -55,7 +55,7 @@ public class VirtualFirewallRule extends RestObject {
    public enum ENetworkEntityType { ENTERPRISENETWORK, NETWORKMACROGROUP, PGEXPRESSION, PGEXPRESSIONTEMPLATE, POLICYGROUP, POLICYGROUPTEMPLATE, PUBLICNETWORK, SAASAPPLICATIONGROUP, SUBNET, SUBNETTEMPLATE, ZONE, ZONETEMPLATE };
    public enum ENetworkType { ANY, ENTERPRISE_NETWORK, NETWORK_MACRO_GROUP, PGEXPRESSION, POLICYGROUP, SUBNET, UNDERLAY_INTERNET_POLICYGROUP, ZONE };
    public enum EPolicyState { DRAFT, LIVE };
-   public enum EType { THREAT_PREVENTION };
+   public enum EType { L4, L7, THREAT_PREVENTION, WEB_FILTER };
    public enum EWebFilterType { WEB_CATEGORY, WEB_DOMAIN_NAME };
 
    
@@ -115,6 +115,10 @@ public class VirtualFirewallRule extends RestObject {
    
    protected String associatedTrafficTypeID;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "description")
    
    protected String description;
@@ -159,6 +163,10 @@ public class VirtualFirewallRule extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "locationEntityType")
    
    protected ELocationEntityType locationEntityType;
@@ -195,6 +203,10 @@ public class VirtualFirewallRule extends RestObject {
    
    protected String overlayMirrorDestinationID;
    
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
+   
    @JsonProperty(value = "policyState")
    
    protected EPolicyState policyState;
@@ -230,6 +242,10 @@ public class VirtualFirewallRule extends RestObject {
    @JsonProperty(value = "webFilterID")
    
    protected String webFilterID;
+   
+   @JsonProperty(value = "webFilterStatsLoggingEnabled")
+   
+   protected Boolean webFilterStatsLoggingEnabled;
    
    @JsonProperty(value = "webFilterType")
    
@@ -414,6 +430,17 @@ public class VirtualFirewallRule extends RestObject {
    
    
    @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
+   }
+   
+   
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
@@ -535,6 +562,17 @@ public class VirtualFirewallRule extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public ELocationEntityType getLocationEntityType() {
       return locationEntityType;
    }
@@ -630,6 +668,17 @@ public class VirtualFirewallRule extends RestObject {
    @JsonIgnore
    public void setOverlayMirrorDestinationID(String value) { 
       this.overlayMirrorDestinationID = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
    
@@ -733,6 +782,17 @@ public class VirtualFirewallRule extends RestObject {
    
    
    @JsonIgnore
+   public Boolean getWebFilterStatsLoggingEnabled() {
+      return webFilterStatsLoggingEnabled;
+   }
+
+   @JsonIgnore
+   public void setWebFilterStatsLoggingEnabled(Boolean value) { 
+      this.webFilterStatsLoggingEnabled = value;
+   }
+   
+   
+   @JsonIgnore
    public EWebFilterType getWebFilterType() {
       return webFilterType;
    }
@@ -761,8 +821,7 @@ public class VirtualFirewallRule extends RestObject {
    
 
    public String toString() {
-      return "VirtualFirewallRule [" + "ACLTemplateName=" + ACLTemplateName + ", DSCP=" + DSCP + ", ICMPCode=" + ICMPCode + ", ICMPType=" + ICMPType + ", IPv6AddressOverride=" + IPv6AddressOverride + ", action=" + action + ", addressOverride=" + addressOverride + ", associatedEgressEntryID=" + associatedEgressEntryID + ", associatedIngressEntryID=" + associatedIngressEntryID + ", associatedL7ApplicationSignatureID=" + associatedL7ApplicationSignatureID + ", associatedLiveEntityID=" + associatedLiveEntityID + ", associatedLiveTemplateID=" + associatedLiveTemplateID + ", associatedTrafficType=" + associatedTrafficType + ", associatedTrafficTypeID=" + associatedTrafficTypeID + ", description=" + description + ", destinationPort=" + destinationPort + ", domainName=" + domainName + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", etherType=" + etherType + ", externalID=" + externalID + ", failsafeDatapath=" + failsafeDatapath + ", flowLoggingEnabled=" + flowLoggingEnabled + ", lastUpdatedBy=" + lastUpdatedBy + ", locationEntityType=" + locationEntityType + ", locationID=" + locationID + ", locationType=" + locationType + ", mirrorDestinationGroupID=" + mirrorDestinationGroupID + ", mirrorDestinationID=" + mirrorDestinationID + ", networkEntityType=" + networkEntityType + ", networkID=" + networkID + ", networkType=" + networkType + ", overlayMirrorDestinationID=" + overlayMirrorDestinationID + ", policyState=" + policyState + ", priority=" + priority + ", protocol=" + protocol + ", sourcePort=" + sourcePort + ", stateful=" + stateful + ", statsID=" + statsID + ", statsLoggingEnabled=" + statsLoggingEnabled + ", type=" + type + ", webFilterID=" + webFilterID + ", webFilterType=" + webFilterType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "VirtualFirewallRule [" + "ACLTemplateName=" + ACLTemplateName + ", DSCP=" + DSCP + ", ICMPCode=" + ICMPCode + ", ICMPType=" + ICMPType + ", IPv6AddressOverride=" + IPv6AddressOverride + ", action=" + action + ", addressOverride=" + addressOverride + ", associatedEgressEntryID=" + associatedEgressEntryID + ", associatedIngressEntryID=" + associatedIngressEntryID + ", associatedL7ApplicationSignatureID=" + associatedL7ApplicationSignatureID + ", associatedLiveEntityID=" + associatedLiveEntityID + ", associatedLiveTemplateID=" + associatedLiveTemplateID + ", associatedTrafficType=" + associatedTrafficType + ", associatedTrafficTypeID=" + associatedTrafficTypeID + ", creationDate=" + creationDate + ", description=" + description + ", destinationPort=" + destinationPort + ", domainName=" + domainName + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", etherType=" + etherType + ", externalID=" + externalID + ", failsafeDatapath=" + failsafeDatapath + ", flowLoggingEnabled=" + flowLoggingEnabled + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", locationEntityType=" + locationEntityType + ", locationID=" + locationID + ", locationType=" + locationType + ", mirrorDestinationGroupID=" + mirrorDestinationGroupID + ", mirrorDestinationID=" + mirrorDestinationID + ", networkEntityType=" + networkEntityType + ", networkID=" + networkID + ", networkType=" + networkType + ", overlayMirrorDestinationID=" + overlayMirrorDestinationID + ", owner=" + owner + ", policyState=" + policyState + ", priority=" + priority + ", protocol=" + protocol + ", sourcePort=" + sourcePort + ", stateful=" + stateful + ", statsID=" + statsID + ", statsLoggingEnabled=" + statsLoggingEnabled + ", type=" + type + ", webFilterID=" + webFilterID + ", webFilterStatsLoggingEnabled=" + webFilterStatsLoggingEnabled + ", webFilterType=" + webFilterType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

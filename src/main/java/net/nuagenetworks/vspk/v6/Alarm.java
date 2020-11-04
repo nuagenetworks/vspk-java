@@ -58,6 +58,10 @@ public class Alarm extends RestObject {
    
    protected String alarmedObjectID;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "description")
    
    protected String description;
@@ -86,9 +90,17 @@ public class Alarm extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "numberOfOccurances")
    
    protected Long numberOfOccurances;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "remedy")
    
@@ -157,6 +169,17 @@ public class Alarm extends RestObject {
    @JsonIgnore
    public void setAlarmedObjectID(String value) { 
       this.alarmedObjectID = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
    }
    
    
@@ -238,6 +261,17 @@ public class Alarm extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public Long getNumberOfOccurances() {
       return numberOfOccurances;
    }
@@ -245,6 +279,17 @@ public class Alarm extends RestObject {
    @JsonIgnore
    public void setNumberOfOccurances(Long value) { 
       this.numberOfOccurances = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
    
@@ -332,8 +377,7 @@ public class Alarm extends RestObject {
    
 
    public String toString() {
-      return "Alarm [" + "acknowledged=" + acknowledged + ", alarmedObjectID=" + alarmedObjectID + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", errorCondition=" + errorCondition + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", numberOfOccurances=" + numberOfOccurances + ", remedy=" + remedy + ", severity=" + severity + ", systemID=" + systemID + ", targetObject=" + targetObject + ", timestamp=" + timestamp + ", title=" + title + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "Alarm [" + "acknowledged=" + acknowledged + ", alarmedObjectID=" + alarmedObjectID + ", creationDate=" + creationDate + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", errorCondition=" + errorCondition + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", numberOfOccurances=" + numberOfOccurances + ", owner=" + owner + ", remedy=" + remedy + ", severity=" + severity + ", systemID=" + systemID + ", targetObject=" + targetObject + ", timestamp=" + timestamp + ", title=" + title + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

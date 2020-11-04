@@ -50,6 +50,10 @@ public class UplinkRD extends RestObject {
    public enum EUplinkType { RD_PRIMARY1, RD_PRIMARY2, RD_PRIMARY3, RD_SECONDARY1, RD_SECONDARY2, RD_SECONDARY3 };
 
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "embeddedMetadata")
    
    protected java.util.List<Metadata> embeddedMetadata;
@@ -65,6 +69,14 @@ public class UplinkRD extends RestObject {
    @JsonProperty(value = "lastUpdatedBy")
    
    protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "routeDistinguisher")
    
@@ -96,6 +108,17 @@ public class UplinkRD extends RestObject {
       
    }
 
+   
+   
+   @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
+   }
    
    
    @JsonIgnore
@@ -143,6 +166,28 @@ public class UplinkRD extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
+   }
+   
+   
+   @JsonIgnore
    public String getRouteDistinguisher() {
       return routeDistinguisher;
    }
@@ -182,8 +227,7 @@ public class UplinkRD extends RestObject {
    
 
    public String toString() {
-      return "UplinkRD [" + "embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", routeDistinguisher=" + routeDistinguisher + ", uplinkType=" + uplinkType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "UplinkRD [" + "creationDate=" + creationDate + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", owner=" + owner + ", routeDistinguisher=" + routeDistinguisher + ", uplinkType=" + uplinkType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

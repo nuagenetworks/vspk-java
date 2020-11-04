@@ -48,6 +48,7 @@ import net.nuagenetworks.vspk.v6.fetchers.DHCPv6OptionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EgressACLEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EgressACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EgressAdvFwdTemplatesFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.EgressAuditACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GatewaysFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
@@ -56,6 +57,8 @@ import net.nuagenetworks.vspk.v6.fetchers.HostInterfacesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.IngressACLEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.IngressACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.IngressAdvFwdTemplatesFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.IngressAuditACLEntryTemplatesFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.IngressAuditACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MirrorDestinationGroupsFetcher;
@@ -95,6 +98,7 @@ public class L2Domain extends RestObject {
    public enum EEntityScope { ENTERPRISE, GLOBAL };
    public enum EEntityState { MARKED_FOR_DELETION, UNDER_CONSTRUCTION };
    public enum EFlowCollectionEnabled { DISABLED, ENABLED, INHERITED };
+   public enum EFlowLimitEnabled { DISABLED, ENABLED };
    public enum EL2EncapType { MPLS, MPLSoUDP, VXLAN };
    public enum EMaintenanceMode { DISABLED, ENABLED, ENABLED_INHERITED };
    public enum EMulticast { DISABLED, ENABLED, INHERITED };
@@ -148,6 +152,10 @@ public class L2Domain extends RestObject {
    
    protected Long color;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "customerID")
    
    protected Long customerID;
@@ -192,6 +200,14 @@ public class L2Domain extends RestObject {
    
    protected EFlowCollectionEnabled flowCollectionEnabled;
    
+   @JsonProperty(value = "flowCount")
+   
+   protected Long flowCount;
+   
+   @JsonProperty(value = "flowLimitEnabled")
+   
+   protected EFlowLimitEnabled flowLimitEnabled;
+   
    @JsonProperty(value = "gateway")
    
    protected String gateway;
@@ -204,6 +220,10 @@ public class L2Domain extends RestObject {
    
    protected Boolean ingressReplicationEnabled;
    
+   @JsonProperty(value = "interfaceID")
+   
+   protected Long interfaceID;
+   
    @JsonProperty(value = "l2EncapType")
    
    protected EL2EncapType l2EncapType;
@@ -211,6 +231,10 @@ public class L2Domain extends RestObject {
    @JsonProperty(value = "lastUpdatedBy")
    
    protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
    
    @JsonProperty(value = "maintenanceMode")
    
@@ -227,6 +251,10 @@ public class L2Domain extends RestObject {
    @JsonProperty(value = "netmask")
    
    protected String netmask;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "policyChangeStatus")
    
@@ -314,6 +342,9 @@ public class L2Domain extends RestObject {
    private EgressAdvFwdTemplatesFetcher egressAdvFwdTemplates;
    
    @JsonIgnore
+   private EgressAuditACLTemplatesFetcher egressAuditACLTemplates;
+   
+   @JsonIgnore
    private EventLogsFetcher eventLogs;
    
    @JsonIgnore
@@ -336,6 +367,12 @@ public class L2Domain extends RestObject {
    
    @JsonIgnore
    private IngressAdvFwdTemplatesFetcher ingressAdvFwdTemplates;
+   
+   @JsonIgnore
+   private IngressAuditACLEntryTemplatesFetcher ingressAuditACLEntryTemplates;
+   
+   @JsonIgnore
+   private IngressAuditACLTemplatesFetcher ingressAuditACLTemplates;
    
    @JsonIgnore
    private JobsFetcher jobs;
@@ -442,6 +479,8 @@ public class L2Domain extends RestObject {
       
       egressAdvFwdTemplates = new EgressAdvFwdTemplatesFetcher(this);
       
+      egressAuditACLTemplates = new EgressAuditACLTemplatesFetcher(this);
+      
       eventLogs = new EventLogsFetcher(this);
       
       gateways = new GatewaysFetcher(this);
@@ -457,6 +496,10 @@ public class L2Domain extends RestObject {
       ingressACLTemplates = new IngressACLTemplatesFetcher(this);
       
       ingressAdvFwdTemplates = new IngressAdvFwdTemplatesFetcher(this);
+      
+      ingressAuditACLEntryTemplates = new IngressAuditACLEntryTemplatesFetcher(this);
+      
+      ingressAuditACLTemplates = new IngressAuditACLTemplatesFetcher(this);
       
       jobs = new JobsFetcher(this);
       
@@ -634,6 +677,17 @@ public class L2Domain extends RestObject {
    
    
    @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
+   }
+   
+   
+   @JsonIgnore
    public Long getCustomerID() {
       return customerID;
    }
@@ -755,6 +809,28 @@ public class L2Domain extends RestObject {
    
    
    @JsonIgnore
+   public Long getFlowCount() {
+      return flowCount;
+   }
+
+   @JsonIgnore
+   public void setFlowCount(Long value) { 
+      this.flowCount = value;
+   }
+   
+   
+   @JsonIgnore
+   public EFlowLimitEnabled getFlowLimitEnabled() {
+      return flowLimitEnabled;
+   }
+
+   @JsonIgnore
+   public void setFlowLimitEnabled(EFlowLimitEnabled value) { 
+      this.flowLimitEnabled = value;
+   }
+   
+   
+   @JsonIgnore
    public String getGateway() {
       return gateway;
    }
@@ -788,6 +864,17 @@ public class L2Domain extends RestObject {
    
    
    @JsonIgnore
+   public Long getInterfaceID() {
+      return interfaceID;
+   }
+
+   @JsonIgnore
+   public void setInterfaceID(Long value) { 
+      this.interfaceID = value;
+   }
+   
+   
+   @JsonIgnore
    public EL2EncapType getL2EncapType() {
       return l2EncapType;
    }
@@ -806,6 +893,17 @@ public class L2Domain extends RestObject {
    @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
    }
    
    
@@ -850,6 +948,17 @@ public class L2Domain extends RestObject {
    @JsonIgnore
    public void setNetmask(String value) { 
       this.netmask = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
    
@@ -1041,6 +1150,11 @@ public class L2Domain extends RestObject {
    }
    
    @JsonIgnore
+   public EgressAuditACLTemplatesFetcher getEgressAuditACLTemplates() {
+      return egressAuditACLTemplates;
+   }
+   
+   @JsonIgnore
    public EventLogsFetcher getEventLogs() {
       return eventLogs;
    }
@@ -1078,6 +1192,16 @@ public class L2Domain extends RestObject {
    @JsonIgnore
    public IngressAdvFwdTemplatesFetcher getIngressAdvFwdTemplates() {
       return ingressAdvFwdTemplates;
+   }
+   
+   @JsonIgnore
+   public IngressAuditACLEntryTemplatesFetcher getIngressAuditACLEntryTemplates() {
+      return ingressAuditACLEntryTemplates;
+   }
+   
+   @JsonIgnore
+   public IngressAuditACLTemplatesFetcher getIngressAuditACLTemplates() {
+      return ingressAuditACLTemplates;
    }
    
    @JsonIgnore
@@ -1207,8 +1331,7 @@ public class L2Domain extends RestObject {
    
 
    public String toString() {
-      return "L2Domain [" + "DHCPManaged=" + DHCPManaged + ", DPI=" + DPI + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", IPv6Gateway=" + IPv6Gateway + ", VXLANECMPEnabled=" + VXLANECMPEnabled + ", address=" + address + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSharedNetworkResourceID=" + associatedSharedNetworkResourceID + ", associatedUnderlayID=" + associatedUnderlayID + ", color=" + color + ", customerID=" + customerID + ", description=" + description + ", dualStackDynamicIPAllocation=" + dualStackDynamicIPAllocation + ", embeddedMetadata=" + embeddedMetadata + ", enableDHCPv4=" + enableDHCPv4 + ", enableDHCPv6=" + enableDHCPv6 + ", encryption=" + encryption + ", entityScope=" + entityScope + ", entityState=" + entityState + ", externalID=" + externalID + ", flowCollectionEnabled=" + flowCollectionEnabled + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", ingressReplicationEnabled=" + ingressReplicationEnabled + ", l2EncapType=" + l2EncapType + ", lastUpdatedBy=" + lastUpdatedBy + ", maintenanceMode=" + maintenanceMode + ", multicast=" + multicast + ", name=" + name + ", netmask=" + netmask + ", policyChangeStatus=" + policyChangeStatus + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", routedVPLSEnabled=" + routedVPLSEnabled + ", serviceID=" + serviceID + ", stretched=" + stretched + ", templateID=" + templateID + ", threatIntelligenceEnabled=" + threatIntelligenceEnabled + ", uplinkPreference=" + uplinkPreference + ", useGlobalMAC=" + useGlobalMAC + ", vnId=" + vnId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "L2Domain [" + "DHCPManaged=" + DHCPManaged + ", DPI=" + DPI + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", IPv6Gateway=" + IPv6Gateway + ", VXLANECMPEnabled=" + VXLANECMPEnabled + ", address=" + address + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSharedNetworkResourceID=" + associatedSharedNetworkResourceID + ", associatedUnderlayID=" + associatedUnderlayID + ", color=" + color + ", creationDate=" + creationDate + ", customerID=" + customerID + ", description=" + description + ", dualStackDynamicIPAllocation=" + dualStackDynamicIPAllocation + ", embeddedMetadata=" + embeddedMetadata + ", enableDHCPv4=" + enableDHCPv4 + ", enableDHCPv6=" + enableDHCPv6 + ", encryption=" + encryption + ", entityScope=" + entityScope + ", entityState=" + entityState + ", externalID=" + externalID + ", flowCollectionEnabled=" + flowCollectionEnabled + ", flowCount=" + flowCount + ", flowLimitEnabled=" + flowLimitEnabled + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", ingressReplicationEnabled=" + ingressReplicationEnabled + ", interfaceID=" + interfaceID + ", l2EncapType=" + l2EncapType + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", maintenanceMode=" + maintenanceMode + ", multicast=" + multicast + ", name=" + name + ", netmask=" + netmask + ", owner=" + owner + ", policyChangeStatus=" + policyChangeStatus + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", routedVPLSEnabled=" + routedVPLSEnabled + ", serviceID=" + serviceID + ", stretched=" + stretched + ", templateID=" + templateID + ", threatIntelligenceEnabled=" + threatIntelligenceEnabled + ", uplinkPreference=" + uplinkPreference + ", useGlobalMAC=" + useGlobalMAC + ", vnId=" + vnId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

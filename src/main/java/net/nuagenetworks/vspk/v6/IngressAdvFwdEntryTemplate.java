@@ -54,9 +54,9 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    public enum EAssociatedTrafficType { L4_SERVICE, L4_SERVICE_GROUP };
    public enum EEntityScope { ENTERPRISE, GLOBAL };
    public enum EFailsafeDatapath { FAIL_TO_BLOCK, FAIL_TO_WIRE };
-   public enum ELocationEntityType { PGEXPRESSION, PGEXPRESSIONTEMPLATE, POLICYGROUP, POLICYGROUPTEMPLATE, REDIRECTIONTARGET, REDIRECTIONTARGETTEMPLATE, SUBNET, SUBNETTEMPLATE, ZONE, ZONETEMPLATE };
+   public enum ELocationEntityType { ENTERPRISENETWORK, NETWORKMACROGROUP, PGEXPRESSION, PGEXPRESSIONTEMPLATE, POLICYGROUP, POLICYGROUPTEMPLATE, PUBLICNETWORK, REDIRECTIONTARGET, REDIRECTIONTARGETTEMPLATE, SUBNET, SUBNETTEMPLATE, ZONE, ZONETEMPLATE };
    public enum ELocationType { ANY, PGEXPRESSION, POLICYGROUP, SUBNET, ZONE };
-   public enum ENetworkEntityType { PGEXPRESSION, PGEXPRESSIONTEMPLATE, POLICYGROUP, POLICYGROUPTEMPLATE, SUBNET, SUBNETTEMPLATE, ZONE, ZONETEMPLATE };
+   public enum ENetworkEntityType { ENTERPRISENETWORK, NETWORKMACROGROUP, PGEXPRESSION, PGEXPRESSIONTEMPLATE, POLICYGROUP, POLICYGROUPTEMPLATE, PUBLICNETWORK, SAASAPPLICATIONGROUP, SUBNET, SUBNETTEMPLATE, ZONE, ZONETEMPLATE };
    public enum ENetworkType { ANY, ENDPOINT_DOMAIN, ENDPOINT_SUBNET, ENDPOINT_ZONE, ENTERPRISE_NETWORK, NETWORK_MACRO_GROUP, PGEXPRESSION, POLICYGROUP, PUBLIC_NETWORK, SAAS_APPLICATION_GROUP, SUBNET, UNDERLAY_INTERNET_POLICYGROUP, ZONE };
    public enum EPolicyState { DRAFT, LIVE };
    public enum ERedirectRewriteType { VLAN };
@@ -138,6 +138,10 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    
    protected String associatedVirtualFirewallRuleID;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "description")
    
    protected String description;
@@ -186,6 +190,10 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "locationEntityType")
    
    protected ELocationEntityType locationEntityType;
@@ -217,6 +225,10 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    @JsonProperty(value = "networkType")
    
    protected ENetworkType networkType;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "policyState")
    
@@ -516,6 +528,17 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    
    
    @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
+   }
+   
+   
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
@@ -648,6 +671,17 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public ELocationEntityType getLocationEntityType() {
       return locationEntityType;
    }
@@ -732,6 +766,17 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    @JsonIgnore
    public void setNetworkType(ENetworkType value) { 
       this.networkType = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
    
@@ -934,8 +979,7 @@ public class IngressAdvFwdEntryTemplate extends RestObject {
    
 
    public String toString() {
-      return "IngressAdvFwdEntryTemplate [" + "ACLTemplateName=" + ACLTemplateName + ", DSCP=" + DSCP + ", DSCPRemarking=" + DSCPRemarking + ", FCOverride=" + FCOverride + ", ICMPCode=" + ICMPCode + ", ICMPType=" + ICMPType + ", IPv6AddressOverride=" + IPv6AddressOverride + ", action=" + action + ", addressOverride=" + addressOverride + ", addressOverrideType=" + addressOverrideType + ", appType=" + appType + ", associatedApplicationID=" + associatedApplicationID + ", associatedForwardingPathListID=" + associatedForwardingPathListID + ", associatedLiveEntityID=" + associatedLiveEntityID + ", associatedLiveTemplateID=" + associatedLiveTemplateID + ", associatedTrafficType=" + associatedTrafficType + ", associatedTrafficTypeID=" + associatedTrafficTypeID + ", associatedVirtualFirewallRuleID=" + associatedVirtualFirewallRuleID + ", description=" + description + ", destinationPort=" + destinationPort + ", domainName=" + domainName + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", etherType=" + etherType + ", externalID=" + externalID + ", failsafeDatapath=" + failsafeDatapath + ", flowLoggingEnabled=" + flowLoggingEnabled + ", isSLAAware=" + isSLAAware + ", lastUpdatedBy=" + lastUpdatedBy + ", locationEntityType=" + locationEntityType + ", locationID=" + locationID + ", locationType=" + locationType + ", mirrorDestinationGroupID=" + mirrorDestinationGroupID + ", mirrorDestinationID=" + mirrorDestinationID + ", networkEntityType=" + networkEntityType + ", networkID=" + networkID + ", networkType=" + networkType + ", policyState=" + policyState + ", priority=" + priority + ", protocol=" + protocol + ", redirectRewriteType=" + redirectRewriteType + ", redirectRewriteValue=" + redirectRewriteValue + ", redirectVPortTagID=" + redirectVPortTagID + ", redirectionTargetEntityType=" + redirectionTargetEntityType + ", remoteUplinkPreference=" + remoteUplinkPreference + ", sourcePort=" + sourcePort + ", statsID=" + statsID + ", statsLoggingEnabled=" + statsLoggingEnabled + ", uplinkPreference=" + uplinkPreference + ", vlanRange=" + vlanRange + ", webFilterID=" + webFilterID + ", webFilterStatsLoggingEnabled=" + webFilterStatsLoggingEnabled + ", webFilterType=" + webFilterType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "IngressAdvFwdEntryTemplate [" + "ACLTemplateName=" + ACLTemplateName + ", DSCP=" + DSCP + ", DSCPRemarking=" + DSCPRemarking + ", FCOverride=" + FCOverride + ", ICMPCode=" + ICMPCode + ", ICMPType=" + ICMPType + ", IPv6AddressOverride=" + IPv6AddressOverride + ", action=" + action + ", addressOverride=" + addressOverride + ", addressOverrideType=" + addressOverrideType + ", appType=" + appType + ", associatedApplicationID=" + associatedApplicationID + ", associatedForwardingPathListID=" + associatedForwardingPathListID + ", associatedLiveEntityID=" + associatedLiveEntityID + ", associatedLiveTemplateID=" + associatedLiveTemplateID + ", associatedTrafficType=" + associatedTrafficType + ", associatedTrafficTypeID=" + associatedTrafficTypeID + ", associatedVirtualFirewallRuleID=" + associatedVirtualFirewallRuleID + ", creationDate=" + creationDate + ", description=" + description + ", destinationPort=" + destinationPort + ", domainName=" + domainName + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", etherType=" + etherType + ", externalID=" + externalID + ", failsafeDatapath=" + failsafeDatapath + ", flowLoggingEnabled=" + flowLoggingEnabled + ", isSLAAware=" + isSLAAware + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", locationEntityType=" + locationEntityType + ", locationID=" + locationID + ", locationType=" + locationType + ", mirrorDestinationGroupID=" + mirrorDestinationGroupID + ", mirrorDestinationID=" + mirrorDestinationID + ", networkEntityType=" + networkEntityType + ", networkID=" + networkID + ", networkType=" + networkType + ", owner=" + owner + ", policyState=" + policyState + ", priority=" + priority + ", protocol=" + protocol + ", redirectRewriteType=" + redirectRewriteType + ", redirectRewriteValue=" + redirectRewriteValue + ", redirectVPortTagID=" + redirectVPortTagID + ", redirectionTargetEntityType=" + redirectionTargetEntityType + ", remoteUplinkPreference=" + remoteUplinkPreference + ", sourcePort=" + sourcePort + ", statsID=" + statsID + ", statsLoggingEnabled=" + statsLoggingEnabled + ", uplinkPreference=" + uplinkPreference + ", vlanRange=" + vlanRange + ", webFilterID=" + webFilterID + ", webFilterStatsLoggingEnabled=" + webFilterStatsLoggingEnabled + ", webFilterType=" + webFilterType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

@@ -72,8 +72,7 @@ public class IDPSignature extends RestObject {
    
 
    public String toString() {
-      return "IDPSignature [" + "IDPSignatures=" + IDPSignatures + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "IDPSignature [" + "IDPSignatures=" + IDPSignatures + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

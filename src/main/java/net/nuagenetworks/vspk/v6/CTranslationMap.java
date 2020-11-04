@@ -54,6 +54,10 @@ public class CTranslationMap extends RestObject {
    
    protected String associatedDomainID;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "customerAliasIP")
    
    protected String customerAliasIP;
@@ -78,9 +82,17 @@ public class CTranslationMap extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "mappingType")
    
    protected EMappingType mappingType;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
 
    
@@ -114,6 +126,17 @@ public class CTranslationMap extends RestObject {
    @JsonIgnore
    public void setAssociatedDomainID(String value) { 
       this.associatedDomainID = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
    }
    
    
@@ -184,6 +207,17 @@ public class CTranslationMap extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public EMappingType getMappingType() {
       return mappingType;
    }
@@ -191,6 +225,17 @@ public class CTranslationMap extends RestObject {
    @JsonIgnore
    public void setMappingType(EMappingType value) { 
       this.mappingType = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
 
@@ -212,8 +257,7 @@ public class CTranslationMap extends RestObject {
    
 
    public String toString() {
-      return "CTranslationMap [" + "associatedDomainID=" + associatedDomainID + ", customerAliasIP=" + customerAliasIP + ", customerIP=" + customerIP + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", mappingType=" + mappingType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "CTranslationMap [" + "associatedDomainID=" + associatedDomainID + ", creationDate=" + creationDate + ", customerAliasIP=" + customerAliasIP + ", customerIP=" + customerIP + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", mappingType=" + mappingType + ", owner=" + owner + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

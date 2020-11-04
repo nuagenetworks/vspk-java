@@ -121,6 +121,10 @@ public class ZFBRequest extends RestObject {
    
    protected String associatedNSGatewayName;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "embeddedMetadata")
    
    protected java.util.List<Metadata> embeddedMetadata;
@@ -149,6 +153,10 @@ public class ZFBRequest extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "originalEnterpriseName")
    
    protected String originalEnterpriseName;
@@ -164,6 +172,10 @@ public class ZFBRequest extends RestObject {
    @JsonProperty(value = "originalUplinkConnectionInfo")
    
    protected String originalUplinkConnectionInfo;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "registrationURL")
    
@@ -398,6 +410,17 @@ public class ZFBRequest extends RestObject {
    
    
    @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
+   }
+   
+   
+   @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
    }
@@ -475,6 +498,17 @@ public class ZFBRequest extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public String getOriginalEnterpriseName() {
       return originalEnterpriseName;
    }
@@ -515,6 +549,17 @@ public class ZFBRequest extends RestObject {
    @JsonIgnore
    public void setOriginalUplinkConnectionInfo(String value) { 
       this.originalUplinkConnectionInfo = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
    
@@ -585,8 +630,7 @@ public class ZFBRequest extends RestObject {
    
 
    public String toString() {
-      return "ZFBRequest [" + "CPUType=" + CPUType + ", IPAddress=" + IPAddress + ", MACAddress=" + MACAddress + ", NSGVersion=" + NSGVersion + ", SKU=" + SKU + ", UUID=" + UUID + ", ZFBApprovalStatus=" + ZFBApprovalStatus + ", ZFBBootstrapEnabled=" + ZFBBootstrapEnabled + ", ZFBInfo=" + ZFBInfo + ", ZFBRequestRetryTimer=" + ZFBRequestRetryTimer + ", associatedEnterpriseID=" + associatedEnterpriseID + ", associatedEnterpriseName=" + associatedEnterpriseName + ", associatedEntityType=" + associatedEntityType + ", associatedGatewayID=" + associatedGatewayID + ", associatedGatewayName=" + associatedGatewayName + ", associatedNSGatewayID=" + associatedNSGatewayID + ", associatedNSGatewayName=" + associatedNSGatewayName + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", family=" + family + ", hostname=" + hostname + ", lastConnectedTime=" + lastConnectedTime + ", lastUpdatedBy=" + lastUpdatedBy + ", originalEnterpriseName=" + originalEnterpriseName + ", originalGatewayDatapathID=" + originalGatewayDatapathID + ", originalGatewayName=" + originalGatewayName + ", originalUplinkConnectionInfo=" + originalUplinkConnectionInfo + ", registrationURL=" + registrationURL + ", requestType=" + requestType + ", serialNumber=" + serialNumber + ", statusString=" + statusString + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "ZFBRequest [" + "CPUType=" + CPUType + ", IPAddress=" + IPAddress + ", MACAddress=" + MACAddress + ", NSGVersion=" + NSGVersion + ", SKU=" + SKU + ", UUID=" + UUID + ", ZFBApprovalStatus=" + ZFBApprovalStatus + ", ZFBBootstrapEnabled=" + ZFBBootstrapEnabled + ", ZFBInfo=" + ZFBInfo + ", ZFBRequestRetryTimer=" + ZFBRequestRetryTimer + ", associatedEnterpriseID=" + associatedEnterpriseID + ", associatedEnterpriseName=" + associatedEnterpriseName + ", associatedEntityType=" + associatedEntityType + ", associatedGatewayID=" + associatedGatewayID + ", associatedGatewayName=" + associatedGatewayName + ", associatedNSGatewayID=" + associatedNSGatewayID + ", associatedNSGatewayName=" + associatedNSGatewayName + ", creationDate=" + creationDate + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", family=" + family + ", hostname=" + hostname + ", lastConnectedTime=" + lastConnectedTime + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", originalEnterpriseName=" + originalEnterpriseName + ", originalGatewayDatapathID=" + originalGatewayDatapathID + ", originalGatewayName=" + originalGatewayName + ", originalUplinkConnectionInfo=" + originalUplinkConnectionInfo + ", owner=" + owner + ", registrationURL=" + registrationURL + ", requestType=" + requestType + ", serialNumber=" + serialNumber + ", statusString=" + statusString + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

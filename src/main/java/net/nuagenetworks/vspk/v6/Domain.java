@@ -50,6 +50,7 @@ import net.nuagenetworks.vspk.v6.fetchers.DomainTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EgressACLEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EgressACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EgressAdvFwdTemplatesFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.EgressAuditACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.DomainFIPAclTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.FirewallAclsFetcher;
@@ -62,6 +63,8 @@ import net.nuagenetworks.vspk.v6.fetchers.HostInterfacesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.IngressACLEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.IngressACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.IngressAdvFwdTemplatesFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.IngressAuditACLEntryTemplatesFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.IngressAuditACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.LinksFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
@@ -112,6 +115,7 @@ public class Domain extends RestObject {
    public enum EEncryption { DISABLED, ENABLED };
    public enum EEntityScope { ENTERPRISE, GLOBAL };
    public enum EFlowCollectionEnabled { DISABLED, ENABLED, INHERITED };
+   public enum EFlowLimitEnabled { DISABLED, ENABLED };
    public enum EMaintenanceMode { DISABLED, ENABLED };
    public enum EMulticast { DISABLED, ENABLED, INHERITED };
    public enum EPermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
@@ -226,6 +230,10 @@ public class Domain extends RestObject {
    
    protected Boolean createBackHaulSubnet;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "customerID")
    
    protected Long customerID;
@@ -278,9 +286,21 @@ public class Domain extends RestObject {
    
    protected String externalLabel;
    
+   @JsonProperty(value = "fecEnabled")
+   
+   protected Boolean fecEnabled;
+   
    @JsonProperty(value = "flowCollectionEnabled")
    
    protected EFlowCollectionEnabled flowCollectionEnabled;
+   
+   @JsonProperty(value = "flowCount")
+   
+   protected Long flowCount;
+   
+   @JsonProperty(value = "flowLimitEnabled")
+   
+   protected EFlowLimitEnabled flowLimitEnabled;
    
    @JsonProperty(value = "globalRoutingEnabled")
    
@@ -297,6 +317,10 @@ public class Domain extends RestObject {
    @JsonProperty(value = "lastUpdatedBy")
    
    protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
    
    @JsonProperty(value = "leakingEnabled")
    
@@ -317,6 +341,10 @@ public class Domain extends RestObject {
    @JsonProperty(value = "name")
    
    protected String name;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "permittedAction")
    
@@ -418,6 +446,9 @@ public class Domain extends RestObject {
    private EgressAdvFwdTemplatesFetcher egressAdvFwdTemplates;
    
    @JsonIgnore
+   private EgressAuditACLTemplatesFetcher egressAuditACLTemplates;
+   
+   @JsonIgnore
    private DomainFIPAclTemplatesFetcher domainFIPAclTemplates;
    
    @JsonIgnore
@@ -452,6 +483,12 @@ public class Domain extends RestObject {
    
    @JsonIgnore
    private IngressAdvFwdTemplatesFetcher ingressAdvFwdTemplates;
+   
+   @JsonIgnore
+   private IngressAuditACLEntryTemplatesFetcher ingressAuditACLEntryTemplates;
+   
+   @JsonIgnore
+   private IngressAuditACLTemplatesFetcher ingressAuditACLTemplates;
    
    @JsonIgnore
    private JobsFetcher jobs;
@@ -585,6 +622,8 @@ public class Domain extends RestObject {
       
       egressAdvFwdTemplates = new EgressAdvFwdTemplatesFetcher(this);
       
+      egressAuditACLTemplates = new EgressAuditACLTemplatesFetcher(this);
+      
       domainFIPAclTemplates = new DomainFIPAclTemplatesFetcher(this);
       
       eventLogs = new EventLogsFetcher(this);
@@ -608,6 +647,10 @@ public class Domain extends RestObject {
       ingressACLTemplates = new IngressACLTemplatesFetcher(this);
       
       ingressAdvFwdTemplates = new IngressAdvFwdTemplatesFetcher(this);
+      
+      ingressAuditACLEntryTemplates = new IngressAuditACLEntryTemplatesFetcher(this);
+      
+      ingressAuditACLTemplates = new IngressAuditACLTemplatesFetcher(this);
       
       jobs = new JobsFetcher(this);
       
@@ -964,6 +1007,17 @@ public class Domain extends RestObject {
    
    
    @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
+   }
+   
+   
+   @JsonIgnore
    public Long getCustomerID() {
       return customerID;
    }
@@ -1107,6 +1161,17 @@ public class Domain extends RestObject {
    
    
    @JsonIgnore
+   public Boolean getFecEnabled() {
+      return fecEnabled;
+   }
+
+   @JsonIgnore
+   public void setFecEnabled(Boolean value) { 
+      this.fecEnabled = value;
+   }
+   
+   
+   @JsonIgnore
    public EFlowCollectionEnabled getFlowCollectionEnabled() {
       return flowCollectionEnabled;
    }
@@ -1114,6 +1179,28 @@ public class Domain extends RestObject {
    @JsonIgnore
    public void setFlowCollectionEnabled(EFlowCollectionEnabled value) { 
       this.flowCollectionEnabled = value;
+   }
+   
+   
+   @JsonIgnore
+   public Long getFlowCount() {
+      return flowCount;
+   }
+
+   @JsonIgnore
+   public void setFlowCount(Long value) { 
+      this.flowCount = value;
+   }
+   
+   
+   @JsonIgnore
+   public EFlowLimitEnabled getFlowLimitEnabled() {
+      return flowLimitEnabled;
+   }
+
+   @JsonIgnore
+   public void setFlowLimitEnabled(EFlowLimitEnabled value) { 
+      this.flowLimitEnabled = value;
    }
    
    
@@ -1158,6 +1245,17 @@ public class Domain extends RestObject {
    @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
    }
    
    
@@ -1213,6 +1311,17 @@ public class Domain extends RestObject {
    @JsonIgnore
    public void setName(String value) { 
       this.name = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
    
@@ -1436,6 +1545,11 @@ public class Domain extends RestObject {
    }
    
    @JsonIgnore
+   public EgressAuditACLTemplatesFetcher getEgressAuditACLTemplates() {
+      return egressAuditACLTemplates;
+   }
+   
+   @JsonIgnore
    public DomainFIPAclTemplatesFetcher getDomainFIPAclTemplates() {
       return domainFIPAclTemplates;
    }
@@ -1493,6 +1607,16 @@ public class Domain extends RestObject {
    @JsonIgnore
    public IngressAdvFwdTemplatesFetcher getIngressAdvFwdTemplates() {
       return ingressAdvFwdTemplates;
+   }
+   
+   @JsonIgnore
+   public IngressAuditACLEntryTemplatesFetcher getIngressAuditACLEntryTemplates() {
+      return ingressAuditACLEntryTemplates;
+   }
+   
+   @JsonIgnore
+   public IngressAuditACLTemplatesFetcher getIngressAuditACLTemplates() {
+      return ingressAuditACLTemplates;
    }
    
    @JsonIgnore
@@ -1657,8 +1781,7 @@ public class Domain extends RestObject {
    
 
    public String toString() {
-      return "Domain [" + "BGPEnabled=" + BGPEnabled + ", DHCPBehavior=" + DHCPBehavior + ", DHCPServerAddress=" + DHCPServerAddress + ", DPI=" + DPI + ", ECMPCount=" + ECMPCount + ", EVPNRT5Type=" + EVPNRT5Type + ", FIPIgnoreDefaultRoute=" + FIPIgnoreDefaultRoute + ", FIPUnderlay=" + FIPUnderlay + ", GRTEnabled=" + GRTEnabled + ", PATEnabled=" + PATEnabled + ", VXLANECMPEnabled=" + VXLANECMPEnabled + ", advertiseCriteria=" + advertiseCriteria + ", aggregateFlowsEnabled=" + aggregateFlowsEnabled + ", aggregationFlowType=" + aggregationFlowType + ", associatedBGPProfileID=" + associatedBGPProfileID + ", associatedIDPProfileID=" + associatedIDPProfileID + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedPATMapperID=" + associatedPATMapperID + ", associatedSharedPATMapperID=" + associatedSharedPATMapperID + ", associatedUnderlayID=" + associatedUnderlayID + ", backHaulRouteDistinguisher=" + backHaulRouteDistinguisher + ", backHaulRouteTarget=" + backHaulRouteTarget + ", backHaulServiceID=" + backHaulServiceID + ", backHaulVNID=" + backHaulVNID + ", color=" + color + ", createBackHaulSubnet=" + createBackHaulSubnet + ", customerID=" + customerID + ", description=" + description + ", dhcpServerAddresses=" + dhcpServerAddresses + ", domainAggregationEnabled=" + domainAggregationEnabled + ", domainID=" + domainID + ", domainVLANID=" + domainVLANID + ", embeddedMetadata=" + embeddedMetadata + ", encryption=" + encryption + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", exportRouteTarget=" + exportRouteTarget + ", externalID=" + externalID + ", externalLabel=" + externalLabel + ", flowCollectionEnabled=" + flowCollectionEnabled + ", globalRoutingEnabled=" + globalRoutingEnabled + ", importRouteTarget=" + importRouteTarget + ", labelID=" + labelID + ", lastUpdatedBy=" + lastUpdatedBy + ", leakingEnabled=" + leakingEnabled + ", localAS=" + localAS + ", maintenanceMode=" + maintenanceMode + ", multicast=" + multicast + ", name=" + name + ", permittedAction=" + permittedAction + ", policyChangeStatus=" + policyChangeStatus + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", secondaryDHCPServerAddress=" + secondaryDHCPServerAddress + ", secondaryRouteTarget=" + secondaryRouteTarget + ", serviceID=" + serviceID + ", stretched=" + stretched + ", templateID=" + templateID + ", threatIntelligenceEnabled=" + threatIntelligenceEnabled + ", tunnelType=" + tunnelType + ", underlayEnabled=" + underlayEnabled + ", uplinkPreference=" + uplinkPreference + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "Domain [" + "BGPEnabled=" + BGPEnabled + ", DHCPBehavior=" + DHCPBehavior + ", DHCPServerAddress=" + DHCPServerAddress + ", DPI=" + DPI + ", ECMPCount=" + ECMPCount + ", EVPNRT5Type=" + EVPNRT5Type + ", FIPIgnoreDefaultRoute=" + FIPIgnoreDefaultRoute + ", FIPUnderlay=" + FIPUnderlay + ", GRTEnabled=" + GRTEnabled + ", PATEnabled=" + PATEnabled + ", VXLANECMPEnabled=" + VXLANECMPEnabled + ", advertiseCriteria=" + advertiseCriteria + ", aggregateFlowsEnabled=" + aggregateFlowsEnabled + ", aggregationFlowType=" + aggregationFlowType + ", associatedBGPProfileID=" + associatedBGPProfileID + ", associatedIDPProfileID=" + associatedIDPProfileID + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedPATMapperID=" + associatedPATMapperID + ", associatedSharedPATMapperID=" + associatedSharedPATMapperID + ", associatedUnderlayID=" + associatedUnderlayID + ", backHaulRouteDistinguisher=" + backHaulRouteDistinguisher + ", backHaulRouteTarget=" + backHaulRouteTarget + ", backHaulServiceID=" + backHaulServiceID + ", backHaulVNID=" + backHaulVNID + ", color=" + color + ", createBackHaulSubnet=" + createBackHaulSubnet + ", creationDate=" + creationDate + ", customerID=" + customerID + ", description=" + description + ", dhcpServerAddresses=" + dhcpServerAddresses + ", domainAggregationEnabled=" + domainAggregationEnabled + ", domainID=" + domainID + ", domainVLANID=" + domainVLANID + ", embeddedMetadata=" + embeddedMetadata + ", encryption=" + encryption + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", exportRouteTarget=" + exportRouteTarget + ", externalID=" + externalID + ", externalLabel=" + externalLabel + ", fecEnabled=" + fecEnabled + ", flowCollectionEnabled=" + flowCollectionEnabled + ", flowCount=" + flowCount + ", flowLimitEnabled=" + flowLimitEnabled + ", globalRoutingEnabled=" + globalRoutingEnabled + ", importRouteTarget=" + importRouteTarget + ", labelID=" + labelID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", leakingEnabled=" + leakingEnabled + ", localAS=" + localAS + ", maintenanceMode=" + maintenanceMode + ", multicast=" + multicast + ", name=" + name + ", owner=" + owner + ", permittedAction=" + permittedAction + ", policyChangeStatus=" + policyChangeStatus + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", secondaryDHCPServerAddress=" + secondaryDHCPServerAddress + ", secondaryRouteTarget=" + secondaryRouteTarget + ", serviceID=" + serviceID + ", stretched=" + stretched + ", templateID=" + templateID + ", threatIntelligenceEnabled=" + threatIntelligenceEnabled + ", tunnelType=" + tunnelType + ", underlayEnabled=" + underlayEnabled + ", uplinkPreference=" + uplinkPreference + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

@@ -67,6 +67,10 @@ public class NSGatewaySummary extends RestObject {
    
    protected String country;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "criticalAlarmsCount")
    
    protected Long criticalAlarmsCount;
@@ -111,6 +115,10 @@ public class NSGatewaySummary extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "latitude")
    
    protected Float latitude;
@@ -130,6 +138,10 @@ public class NSGatewaySummary extends RestObject {
    @JsonProperty(value = "minorAlarmsCount")
    
    protected Long minorAlarmsCount;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "personality")
    
@@ -220,6 +232,17 @@ public class NSGatewaySummary extends RestObject {
    @JsonIgnore
    public void setCountry(String value) { 
       this.country = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
    }
    
    
@@ -345,6 +368,17 @@ public class NSGatewaySummary extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public Float getLatitude() {
       return latitude;
    }
@@ -396,6 +430,17 @@ public class NSGatewaySummary extends RestObject {
    @JsonIgnore
    public void setMinorAlarmsCount(Long value) { 
       this.minorAlarmsCount = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
    
@@ -483,8 +528,7 @@ public class NSGatewaySummary extends RestObject {
    
 
    public String toString() {
-      return "NSGatewaySummary [" + "NSGVersion=" + NSGVersion + ", address=" + address + ", bootstrapStatus=" + bootstrapStatus + ", country=" + country + ", criticalAlarmsCount=" + criticalAlarmsCount + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayID=" + gatewayID + ", gatewayName=" + gatewayName + ", gatewayType=" + gatewayType + ", infoAlarmsCount=" + infoAlarmsCount + ", lastUpdatedBy=" + lastUpdatedBy + ", latitude=" + latitude + ", locality=" + locality + ", longitude=" + longitude + ", majorAlarmsCount=" + majorAlarmsCount + ", minorAlarmsCount=" + minorAlarmsCount + ", personality=" + personality + ", redundantGroupID=" + redundantGroupID + ", redundantGroupName=" + redundantGroupName + ", state=" + state + ", systemID=" + systemID + ", timezoneID=" + timezoneID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "NSGatewaySummary [" + "NSGVersion=" + NSGVersion + ", address=" + address + ", bootstrapStatus=" + bootstrapStatus + ", country=" + country + ", creationDate=" + creationDate + ", criticalAlarmsCount=" + criticalAlarmsCount + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayID=" + gatewayID + ", gatewayName=" + gatewayName + ", gatewayType=" + gatewayType + ", infoAlarmsCount=" + infoAlarmsCount + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", latitude=" + latitude + ", locality=" + locality + ", longitude=" + longitude + ", majorAlarmsCount=" + majorAlarmsCount + ", minorAlarmsCount=" + minorAlarmsCount + ", owner=" + owner + ", personality=" + personality + ", redundantGroupID=" + redundantGroupID + ", redundantGroupName=" + redundantGroupName + ", state=" + state + ", systemID=" + systemID + ", timezoneID=" + timezoneID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

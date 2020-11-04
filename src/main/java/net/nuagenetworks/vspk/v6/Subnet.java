@@ -138,6 +138,10 @@ public class Subnet extends RestObject {
    
    protected Long color;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "customerID")
    
    protected Long customerID;
@@ -194,6 +198,14 @@ public class Subnet extends RestObject {
    
    protected Boolean ingressReplicationEnabled;
    
+   @JsonProperty(value = "interfaceID")
+   
+   protected Long interfaceID;
+   
+   @JsonProperty(value = "irbSubInterfaceID")
+   
+   protected Long irbSubInterfaceID;
+   
    @JsonProperty(value = "l2EncapType")
    
    protected EL2EncapType l2EncapType;
@@ -201,6 +213,10 @@ public class Subnet extends RestObject {
    @JsonProperty(value = "lastUpdatedBy")
    
    protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
    
    @JsonProperty(value = "linkLocalAddress")
    
@@ -225,6 +241,10 @@ public class Subnet extends RestObject {
    @JsonProperty(value = "netmask")
    
    protected String netmask;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "policyGroupID")
    
@@ -583,6 +603,17 @@ public class Subnet extends RestObject {
    
    
    @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
+   }
+   
+   
+   @JsonIgnore
    public Long getCustomerID() {
       return customerID;
    }
@@ -737,6 +768,28 @@ public class Subnet extends RestObject {
    
    
    @JsonIgnore
+   public Long getInterfaceID() {
+      return interfaceID;
+   }
+
+   @JsonIgnore
+   public void setInterfaceID(Long value) { 
+      this.interfaceID = value;
+   }
+   
+   
+   @JsonIgnore
+   public Long getIrbSubInterfaceID() {
+      return irbSubInterfaceID;
+   }
+
+   @JsonIgnore
+   public void setIrbSubInterfaceID(Long value) { 
+      this.irbSubInterfaceID = value;
+   }
+   
+   
+   @JsonIgnore
    public EL2EncapType getL2EncapType() {
       return l2EncapType;
    }
@@ -755,6 +808,17 @@ public class Subnet extends RestObject {
    @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
    }
    
    
@@ -821,6 +885,17 @@ public class Subnet extends RestObject {
    @JsonIgnore
    public void setNetmask(String value) { 
       this.netmask = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
    
@@ -1132,8 +1207,7 @@ public class Subnet extends RestObject {
    
 
    public String toString() {
-      return "Subnet [" + "DHCPRelayStatus=" + DHCPRelayStatus + ", DPI=" + DPI + ", EVPNEnabled=" + EVPNEnabled + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", IPv6Gateway=" + IPv6Gateway + ", PATEnabled=" + PATEnabled + ", accessRestrictionEnabled=" + accessRestrictionEnabled + ", address=" + address + ", advertise=" + advertise + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSharedNetworkResourceID=" + associatedSharedNetworkResourceID + ", color=" + color + ", customerID=" + customerID + ", description=" + description + ", domainServiceLabel=" + domainServiceLabel + ", dualStackDynamicIPAllocation=" + dualStackDynamicIPAllocation + ", embeddedMetadata=" + embeddedMetadata + ", enableDHCPv4=" + enableDHCPv4 + ", enableDHCPv6=" + enableDHCPv6 + ", encryption=" + encryption + ", entityScope=" + entityScope + ", entityState=" + entityState + ", externalID=" + externalID + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", ingressReplicationEnabled=" + ingressReplicationEnabled + ", l2EncapType=" + l2EncapType + ", lastUpdatedBy=" + lastUpdatedBy + ", linkLocalAddress=" + linkLocalAddress + ", maintenanceMode=" + maintenanceMode + ", multiHomeEnabled=" + multiHomeEnabled + ", multicast=" + multicast + ", name=" + name + ", netmask=" + netmask + ", policyGroupID=" + policyGroupID + ", proxyARP=" + proxyARP + ", public_=" + public_ + ", resourceType=" + resourceType + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", serviceID=" + serviceID + ", splitSubnet=" + splitSubnet + ", subnetVLANID=" + subnetVLANID + ", templateID=" + templateID + ", underlay=" + underlay + ", underlayEnabled=" + underlayEnabled + ", useGlobalMAC=" + useGlobalMAC + ", vnId=" + vnId + ", vrrpIPv6BackupAddress=" + vrrpIPv6BackupAddress + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "Subnet [" + "DHCPRelayStatus=" + DHCPRelayStatus + ", DPI=" + DPI + ", EVPNEnabled=" + EVPNEnabled + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", IPv6Gateway=" + IPv6Gateway + ", PATEnabled=" + PATEnabled + ", accessRestrictionEnabled=" + accessRestrictionEnabled + ", address=" + address + ", advertise=" + advertise + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedSharedNetworkResourceID=" + associatedSharedNetworkResourceID + ", color=" + color + ", creationDate=" + creationDate + ", customerID=" + customerID + ", description=" + description + ", domainServiceLabel=" + domainServiceLabel + ", dualStackDynamicIPAllocation=" + dualStackDynamicIPAllocation + ", embeddedMetadata=" + embeddedMetadata + ", enableDHCPv4=" + enableDHCPv4 + ", enableDHCPv6=" + enableDHCPv6 + ", encryption=" + encryption + ", entityScope=" + entityScope + ", entityState=" + entityState + ", externalID=" + externalID + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", ingressReplicationEnabled=" + ingressReplicationEnabled + ", interfaceID=" + interfaceID + ", irbSubInterfaceID=" + irbSubInterfaceID + ", l2EncapType=" + l2EncapType + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", linkLocalAddress=" + linkLocalAddress + ", maintenanceMode=" + maintenanceMode + ", multiHomeEnabled=" + multiHomeEnabled + ", multicast=" + multicast + ", name=" + name + ", netmask=" + netmask + ", owner=" + owner + ", policyGroupID=" + policyGroupID + ", proxyARP=" + proxyARP + ", public_=" + public_ + ", resourceType=" + resourceType + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", serviceID=" + serviceID + ", splitSubnet=" + splitSubnet + ", subnetVLANID=" + subnetVLANID + ", templateID=" + templateID + ", underlay=" + underlay + ", underlayEnabled=" + underlayEnabled + ", useGlobalMAC=" + useGlobalMAC + ", vnId=" + vnId + ", vrrpIPv6BackupAddress=" + vrrpIPv6BackupAddress + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

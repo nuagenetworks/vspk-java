@@ -72,6 +72,10 @@ public class OSPFInterface extends RestObject {
    
    protected EAuthenticationType authenticationType;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "deadInterval")
    
    protected Long deadInterval;
@@ -104,6 +108,10 @@ public class OSPFInterface extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "messageDigestKeys")
    
    protected java.util.List<String> messageDigestKeys;
@@ -119,6 +127,10 @@ public class OSPFInterface extends RestObject {
    @JsonProperty(value = "name")
    
    protected String name;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "passiveEnabled")
    
@@ -204,6 +216,17 @@ public class OSPFInterface extends RestObject {
    @JsonIgnore
    public void setAuthenticationType(EAuthenticationType value) { 
       this.authenticationType = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
    }
    
    
@@ -296,6 +319,17 @@ public class OSPFInterface extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public java.util.List<String> getMessageDigestKeys() {
       return messageDigestKeys;
    }
@@ -340,6 +374,17 @@ public class OSPFInterface extends RestObject {
    
    
    @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
+   }
+   
+   
+   @JsonIgnore
    public Boolean getPassiveEnabled() {
       return passiveEnabled;
    }
@@ -379,8 +424,7 @@ public class OSPFInterface extends RestObject {
    
 
    public String toString() {
-      return "OSPFInterface [" + "BFDEnabled=" + BFDEnabled + ", adminState=" + adminState + ", associatedSubnetID=" + associatedSubnetID + ", authenticationKey=" + authenticationKey + ", authenticationType=" + authenticationType + ", deadInterval=" + deadInterval + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", helloInterval=" + helloInterval + ", interfaceType=" + interfaceType + ", lastUpdatedBy=" + lastUpdatedBy + ", messageDigestKeys=" + messageDigestKeys + ", metric=" + metric + ", mtu=" + mtu + ", name=" + name + ", passiveEnabled=" + passiveEnabled + ", priority=" + priority + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "OSPFInterface [" + "BFDEnabled=" + BFDEnabled + ", adminState=" + adminState + ", associatedSubnetID=" + associatedSubnetID + ", authenticationKey=" + authenticationKey + ", authenticationType=" + authenticationType + ", creationDate=" + creationDate + ", deadInterval=" + deadInterval + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", helloInterval=" + helloInterval + ", interfaceType=" + interfaceType + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", messageDigestKeys=" + messageDigestKeys + ", metric=" + metric + ", mtu=" + mtu + ", name=" + name + ", owner=" + owner + ", passiveEnabled=" + passiveEnabled + ", priority=" + priority + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

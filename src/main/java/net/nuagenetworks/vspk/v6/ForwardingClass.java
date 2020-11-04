@@ -46,6 +46,10 @@ public class ForwardingClass extends RestObject {
    public enum EForwardingClass { A, B, C, D, E, F, G, H };
 
    
+   @JsonProperty(value = "fecEnabled")
+   
+   protected Boolean fecEnabled;
+   
    @JsonProperty(value = "forwardingClass")
    
    protected EForwardingClass forwardingClass;
@@ -61,6 +65,17 @@ public class ForwardingClass extends RestObject {
       
    }
 
+   
+   
+   @JsonIgnore
+   public Boolean getFecEnabled() {
+      return fecEnabled;
+   }
+
+   @JsonIgnore
+   public void setFecEnabled(Boolean value) { 
+      this.fecEnabled = value;
+   }
    
    
    @JsonIgnore
@@ -88,8 +103,7 @@ public class ForwardingClass extends RestObject {
    
 
    public String toString() {
-      return "ForwardingClass [" + "forwardingClass=" + forwardingClass + ", loadBalancing=" + loadBalancing + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "ForwardingClass [" + "fecEnabled=" + fecEnabled + ", forwardingClass=" + forwardingClass + ", loadBalancing=" + loadBalancing + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

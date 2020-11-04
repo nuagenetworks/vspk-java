@@ -61,6 +61,10 @@ public class Test extends RestObject {
    
    protected String command;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "description")
    
    protected String description;
@@ -85,6 +89,10 @@ public class Test extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "name")
    
    protected String name;
@@ -92,6 +100,10 @@ public class Test extends RestObject {
    @JsonProperty(value = "order")
    
    protected Long order;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "timeout")
    
@@ -151,6 +163,17 @@ public class Test extends RestObject {
    @JsonIgnore
    public void setCommand(String value) { 
       this.command = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
    }
    
    
@@ -221,6 +244,17 @@ public class Test extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public String getName() {
       return name;
    }
@@ -239,6 +273,17 @@ public class Test extends RestObject {
    @JsonIgnore
    public void setOrder(Long value) { 
       this.order = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
    
@@ -271,8 +316,7 @@ public class Test extends RestObject {
    
 
    public String toString() {
-      return "Test [" + "associatedTestDefinitionID=" + associatedTestDefinitionID + ", associatedTestSuiteID=" + associatedTestSuiteID + ", command=" + command + ", description=" + description + ", destination=" + destination + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", order=" + order + ", timeout=" + timeout + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "Test [" + "associatedTestDefinitionID=" + associatedTestDefinitionID + ", associatedTestSuiteID=" + associatedTestSuiteID + ", command=" + command + ", creationDate=" + creationDate + ", description=" + description + ", destination=" + destination + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", name=" + name + ", order=" + order + ", owner=" + owner + ", timeout=" + timeout + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

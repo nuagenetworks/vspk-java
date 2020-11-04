@@ -54,6 +54,10 @@ public class VPortMirror extends RestObject {
    
    protected String attachedNetworkType;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "domainName")
    
    protected String domainName;
@@ -78,6 +82,10 @@ public class VPortMirror extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "mirrorDestinationID")
    
    protected String mirrorDestinationID;
@@ -93,6 +101,10 @@ public class VPortMirror extends RestObject {
    @JsonProperty(value = "networkName")
    
    protected String networkName;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "vportId")
    
@@ -135,6 +147,17 @@ public class VPortMirror extends RestObject {
    @JsonIgnore
    public void setAttachedNetworkType(String value) { 
       this.attachedNetworkType = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
    }
    
    
@@ -205,6 +228,17 @@ public class VPortMirror extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public String getMirrorDestinationID() {
       return mirrorDestinationID;
    }
@@ -249,6 +283,17 @@ public class VPortMirror extends RestObject {
    
    
    @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
+   }
+   
+   
+   @JsonIgnore
    public String getVportId() {
       return vportId;
    }
@@ -288,8 +333,7 @@ public class VPortMirror extends RestObject {
    
 
    public String toString() {
-      return "VPortMirror [" + "attachedNetworkType=" + attachedNetworkType + ", domainName=" + domainName + ", embeddedMetadata=" + embeddedMetadata + ", enterpiseName=" + enterpiseName + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", mirrorDestinationID=" + mirrorDestinationID + ", mirrorDestinationName=" + mirrorDestinationName + ", mirrorDirection=" + mirrorDirection + ", networkName=" + networkName + ", vportId=" + vportId + ", vportName=" + vportName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "VPortMirror [" + "attachedNetworkType=" + attachedNetworkType + ", creationDate=" + creationDate + ", domainName=" + domainName + ", embeddedMetadata=" + embeddedMetadata + ", enterpiseName=" + enterpiseName + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", mirrorDestinationID=" + mirrorDestinationID + ", mirrorDestinationName=" + mirrorDestinationName + ", mirrorDirection=" + mirrorDirection + ", networkName=" + networkName + ", owner=" + owner + ", vportId=" + vportId + ", vportName=" + vportName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

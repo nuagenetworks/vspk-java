@@ -43,16 +43,16 @@ public class ThreatPreventionServerConnection extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum EStatus { AUTHENTICATION_FAILED, CONNECTED, DISCONNECTED };
+   public enum EStatus { AUTHENTICATION_FAILED, CONNECTED, DEGRADED, DISCONNECTED, UNREACHABLE };
 
    
    @JsonProperty(value = "FQDN")
    
    protected String FQDN;
    
-   @JsonProperty(value = "VSDName")
+   @JsonProperty(value = "nodeInfo")
    
-   protected String VSDName;
+   protected java.util.List<ThreatPreventionNodeInfo> nodeInfo;
    
    @JsonProperty(value = "status")
    
@@ -79,13 +79,13 @@ public class ThreatPreventionServerConnection extends RestObject {
    
    
    @JsonIgnore
-   public String getVSDName() {
-      return VSDName;
+   public java.util.List<ThreatPreventionNodeInfo> getNodeInfo() {
+      return nodeInfo;
    }
 
    @JsonIgnore
-   public void setVSDName(String value) { 
-      this.VSDName = value;
+   public void setNodeInfo(java.util.List<ThreatPreventionNodeInfo> value) { 
+      this.nodeInfo = value;
    }
    
    
@@ -103,8 +103,7 @@ public class ThreatPreventionServerConnection extends RestObject {
    
 
    public String toString() {
-      return "ThreatPreventionServerConnection [" + "FQDN=" + FQDN + ", VSDName=" + VSDName + ", status=" + status + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "ThreatPreventionServerConnection [" + "FQDN=" + FQDN + ", nodeInfo=" + nodeInfo + ", status=" + status + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

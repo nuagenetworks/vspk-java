@@ -59,6 +59,8 @@ import net.nuagenetworks.vspk.v6.fetchers.DomainFIPAclTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EgressQOSPoliciesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EnterprisesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EnterpriseProfilesFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.EsIlmPoliciesFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.EsIndexConfigsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EthernetSegmentGWGroupsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.FloatingIpsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GatewaysFetcher;
@@ -99,6 +101,7 @@ import net.nuagenetworks.vspk.v6.fetchers.PATNATPoolsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.PerformanceMonitorsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.PolicyGroupsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.PolicyObjectGroupsFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.QOSsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.QosPolicersFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.RateLimitersFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.RedirectionTargetsFetcher;
@@ -168,6 +171,10 @@ public class Me extends RestRootObject {
    
    protected EAvatarType avatarType;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "disabled")
    
    protected Boolean disabled;
@@ -216,9 +223,17 @@ public class Me extends RestRootObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "mobileNumber")
    
    protected String mobileNumber;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "password")
    
@@ -309,6 +324,12 @@ public class Me extends RestRootObject {
    
    @JsonIgnore
    private EnterpriseProfilesFetcher enterpriseProfiles;
+   
+   @JsonIgnore
+   private EsIlmPoliciesFetcher esIlmPolicies;
+   
+   @JsonIgnore
+   private EsIndexConfigsFetcher esIndexConfigs;
    
    @JsonIgnore
    private EthernetSegmentGWGroupsFetcher ethernetSegmentGWGroups;
@@ -429,6 +450,9 @@ public class Me extends RestRootObject {
    
    @JsonIgnore
    private PolicyObjectGroupsFetcher policyObjectGroups;
+   
+   @JsonIgnore
+   private QOSsFetcher qOSs;
    
    @JsonIgnore
    private QosPolicersFetcher qosPolicers;
@@ -592,6 +616,10 @@ public class Me extends RestRootObject {
       
       enterpriseProfiles = new EnterpriseProfilesFetcher(this);
       
+      esIlmPolicies = new EsIlmPoliciesFetcher(this);
+      
+      esIndexConfigs = new EsIndexConfigsFetcher(this);
+      
       ethernetSegmentGWGroups = new EthernetSegmentGWGroupsFetcher(this);
       
       floatingIps = new FloatingIpsFetcher(this);
@@ -671,6 +699,8 @@ public class Me extends RestRootObject {
       policyGroups = new PolicyGroupsFetcher(this);
       
       policyObjectGroups = new PolicyObjectGroupsFetcher(this);
+      
+      qOSs = new QOSsFetcher(this);
       
       qosPolicers = new QosPolicersFetcher(this);
       
@@ -802,6 +832,17 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public void setAvatarType(EAvatarType value) { 
       this.avatarType = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
    }
    
    
@@ -938,6 +979,17 @@ public class Me extends RestRootObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public String getMobileNumber() {
       return mobileNumber;
    }
@@ -945,6 +997,17 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public void setMobileNumber(String value) { 
       this.mobileNumber = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
    
@@ -1111,6 +1174,16 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public EnterpriseProfilesFetcher getEnterpriseProfiles() {
       return enterpriseProfiles;
+   }
+   
+   @JsonIgnore
+   public EsIlmPoliciesFetcher getEsIlmPolicies() {
+      return esIlmPolicies;
+   }
+   
+   @JsonIgnore
+   public EsIndexConfigsFetcher getEsIndexConfigs() {
+      return esIndexConfigs;
    }
    
    @JsonIgnore
@@ -1314,6 +1387,11 @@ public class Me extends RestRootObject {
    }
    
    @JsonIgnore
+   public QOSsFetcher getQOSs() {
+      return qOSs;
+   }
+   
+   @JsonIgnore
    public QosPolicersFetcher getQosPolicers() {
       return qosPolicers;
    }
@@ -1500,8 +1578,7 @@ public class Me extends RestRootObject {
    
 
    public String toString() {
-      return "Me [" + "AARFlowStatsInterval=" + AARFlowStatsInterval + ", AARProbeStatsInterval=" + AARProbeStatsInterval + ", VSSStatsInterval=" + VSSStatsInterval + ", avatarData=" + avatarData + ", avatarType=" + avatarType + ", disabled=" + disabled + ", elasticSearchAddress=" + elasticSearchAddress + ", email=" + email + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseID=" + enterpriseID + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", externalID=" + externalID + ", firstName=" + firstName + ", flowCollectionEnabled=" + flowCollectionEnabled + ", lastName=" + lastName + ", lastUpdatedBy=" + lastUpdatedBy + ", mobileNumber=" + mobileNumber + ", password=" + password + ", role=" + role + ", statisticsEnabled=" + statisticsEnabled + ", userName=" + userName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + ", apiKey=" + apiKey  + "]";
+      return "Me [" + "AARFlowStatsInterval=" + AARFlowStatsInterval + ", AARProbeStatsInterval=" + AARProbeStatsInterval + ", VSSStatsInterval=" + VSSStatsInterval + ", avatarData=" + avatarData + ", avatarType=" + avatarType + ", creationDate=" + creationDate + ", disabled=" + disabled + ", elasticSearchAddress=" + elasticSearchAddress + ", email=" + email + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseID=" + enterpriseID + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", externalID=" + externalID + ", firstName=" + firstName + ", flowCollectionEnabled=" + flowCollectionEnabled + ", lastName=" + lastName + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", mobileNumber=" + mobileNumber + ", owner=" + owner + ", password=" + password + ", role=" + role + ", statisticsEnabled=" + statisticsEnabled + ", userName=" + userName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + ", apiKey=" + apiKey  + "]";
    }
    
    

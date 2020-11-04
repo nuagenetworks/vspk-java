@@ -46,12 +46,29 @@ public class IPFilterProfile extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum EBlobType { SR_LINUX };
    public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "assocEntityType")
    
    protected String assocEntityType;
+   
+   @JsonProperty(value = "blobText")
+   
+   protected String blobText;
+   
+   @JsonProperty(value = "blobType")
+   
+   protected EBlobType blobType;
+   
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
+   @JsonProperty(value = "customerID")
+   
+   protected Long customerID;
    
    @JsonProperty(value = "description")
    
@@ -73,9 +90,17 @@ public class IPFilterProfile extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "name")
    
    protected String name;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
 
    
@@ -109,6 +134,50 @@ public class IPFilterProfile extends RestObject {
    @JsonIgnore
    public void setAssocEntityType(String value) { 
       this.assocEntityType = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getBlobText() {
+      return blobText;
+   }
+
+   @JsonIgnore
+   public void setBlobText(String value) { 
+      this.blobText = value;
+   }
+   
+   
+   @JsonIgnore
+   public EBlobType getBlobType() {
+      return blobType;
+   }
+
+   @JsonIgnore
+   public void setBlobType(EBlobType value) { 
+      this.blobType = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
+   }
+   
+   
+   @JsonIgnore
+   public Long getCustomerID() {
+      return customerID;
+   }
+
+   @JsonIgnore
+   public void setCustomerID(Long value) { 
+      this.customerID = value;
    }
    
    
@@ -168,6 +237,17 @@ public class IPFilterProfile extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public String getName() {
       return name;
    }
@@ -175,6 +255,17 @@ public class IPFilterProfile extends RestObject {
    @JsonIgnore
    public void setName(String value) { 
       this.name = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
 
@@ -196,8 +287,7 @@ public class IPFilterProfile extends RestObject {
    
 
    public String toString() {
-      return "IPFilterProfile [" + "assocEntityType=" + assocEntityType + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "IPFilterProfile [" + "assocEntityType=" + assocEntityType + ", blobText=" + blobText + ", blobType=" + blobType + ", creationDate=" + creationDate + ", customerID=" + customerID + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", name=" + name + ", owner=" + owner + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

@@ -68,6 +68,10 @@ public class OSPFArea extends RestObject {
    
    protected EAreaType areaType;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "defaultMetric")
    
    protected Long defaultMetric;
@@ -95,6 +99,14 @@ public class OSPFArea extends RestObject {
    @JsonProperty(value = "lastUpdatedBy")
    
    protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "redistributeExternalEnabled")
    
@@ -186,6 +198,17 @@ public class OSPFArea extends RestObject {
    
    
    @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
+   }
+   
+   
+   @JsonIgnore
    public Long getDefaultMetric() {
       return defaultMetric;
    }
@@ -263,6 +286,28 @@ public class OSPFArea extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
+   }
+   
+   
+   @JsonIgnore
    public Boolean getRedistributeExternalEnabled() {
       return redistributeExternalEnabled;
    }
@@ -329,8 +374,7 @@ public class OSPFArea extends RestObject {
    
 
    public String toString() {
-      return "OSPFArea [" + "aggregateAreaRange=" + aggregateAreaRange + ", aggregateAreaRangeNSSA=" + aggregateAreaRangeNSSA + ", areaID=" + areaID + ", areaType=" + areaType + ", defaultMetric=" + defaultMetric + ", defaultOriginateOption=" + defaultOriginateOption + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", redistributeExternalEnabled=" + redistributeExternalEnabled + ", summariesEnabled=" + summariesEnabled + ", suppressAreaRange=" + suppressAreaRange + ", suppressAreaRangeNSSA=" + suppressAreaRangeNSSA + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "OSPFArea [" + "aggregateAreaRange=" + aggregateAreaRange + ", aggregateAreaRangeNSSA=" + aggregateAreaRangeNSSA + ", areaID=" + areaID + ", areaType=" + areaType + ", creationDate=" + creationDate + ", defaultMetric=" + defaultMetric + ", defaultOriginateOption=" + defaultOriginateOption + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", owner=" + owner + ", redistributeExternalEnabled=" + redistributeExternalEnabled + ", summariesEnabled=" + summariesEnabled + ", suppressAreaRange=" + suppressAreaRange + ", suppressAreaRangeNSSA=" + suppressAreaRangeNSSA + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

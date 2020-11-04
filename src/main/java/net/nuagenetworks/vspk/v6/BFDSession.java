@@ -70,6 +70,10 @@ public class BFDSession extends RestObject {
    
    protected Long BFDTimer;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "embeddedMetadata")
    
    protected java.util.List<Metadata> embeddedMetadata;
@@ -86,9 +90,17 @@ public class BFDSession extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "multiHopEnabled")
    
    protected Boolean multiHopEnabled;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
 
    
@@ -170,6 +182,17 @@ public class BFDSession extends RestObject {
    
    
    @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
+   }
+   
+   
+   @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
    }
@@ -214,6 +237,17 @@ public class BFDSession extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public Boolean getMultiHopEnabled() {
       return multiHopEnabled;
    }
@@ -221,6 +255,17 @@ public class BFDSession extends RestObject {
    @JsonIgnore
    public void setMultiHopEnabled(Boolean value) { 
       this.multiHopEnabled = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
 
@@ -242,8 +287,7 @@ public class BFDSession extends RestObject {
    
 
    public String toString() {
-      return "BFDSession [" + "BFDDestinationIP=" + BFDDestinationIP + ", BFDDestinationIPType=" + BFDDestinationIPType + ", BFDDestinationIPv6=" + BFDDestinationIPv6 + ", BFDMultiplier=" + BFDMultiplier + ", BFDTimer=" + BFDTimer + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", multiHopEnabled=" + multiHopEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "BFDSession [" + "BFDDestinationIP=" + BFDDestinationIP + ", BFDDestinationIPType=" + BFDDestinationIPType + ", BFDDestinationIPv6=" + BFDDestinationIPv6 + ", BFDMultiplier=" + BFDMultiplier + ", BFDTimer=" + BFDTimer + ", creationDate=" + creationDate + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", multiHopEnabled=" + multiHopEnabled + ", owner=" + owner + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

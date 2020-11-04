@@ -43,7 +43,7 @@ public class Command extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum ECommand { NSG_APPLY_PATCH, NSG_DELETE_PATCH, NSG_DOWNLOAD_OS_IMAGE, NSG_REBOOT, NSG_RENEW_CERT, NSG_UPDATE_INFO, NSG_UPGRADE_TO_IMAGE, UNKNOWN };
+   public enum ECommand { NSG_APPLY_PATCH, NSG_DELETE_PATCH, NSG_DOWNLOAD_OS_IMAGE, NSG_REBOOT, NSG_RENEW_CERT, NSG_UPDATE_INFO, NSG_UPGRADE_TO_IMAGE, NSG_OVERLAY_SYSLOG_CONTAINER_START, NSG_OVERLAY_SYSLOG_CONTAINER_RESTART, NSG_OVERLAY_SYSLOG_CONTAINER_STOP, NSG_CONTAINER_TEST_SUITE_RUN, NSG_CONTAINER_UNDERLAY_TEST, UNKNOWN };
    public enum EEntityScope { ENTERPRISE, GLOBAL };
    public enum EOverride { ABANDON, UNSPECIFIED };
    public enum EStatus { ABANDONED, COMPLETED, FAILED, RUNNING, SKIPPED, STARTED, UNKNOWN };
@@ -68,6 +68,10 @@ public class Command extends RestObject {
    @JsonProperty(value = "commandInformation")
    
    protected String commandInformation;
+   
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
    
    @JsonProperty(value = "detail")
    
@@ -97,9 +101,17 @@ public class Command extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "override")
    
    protected EOverride override;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "progress")
    
@@ -174,6 +186,17 @@ public class Command extends RestObject {
    @JsonIgnore
    public void setCommandInformation(String value) { 
       this.commandInformation = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
    }
    
    
@@ -255,6 +278,17 @@ public class Command extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public EOverride getOverride() {
       return override;
    }
@@ -262,6 +296,17 @@ public class Command extends RestObject {
    @JsonIgnore
    public void setOverride(EOverride value) { 
       this.override = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
    
@@ -301,8 +346,7 @@ public class Command extends RestObject {
    
 
    public String toString() {
-      return "Command [" + "assocEntityType=" + assocEntityType + ", associatedParam=" + associatedParam + ", associatedParamType=" + associatedParamType + ", command=" + command + ", commandInformation=" + commandInformation + ", detail=" + detail + ", detailedStatus=" + detailedStatus + ", detailedStatusCode=" + detailedStatusCode + ", entityScope=" + entityScope + ", externalID=" + externalID + ", fullCommand=" + fullCommand + ", lastUpdatedBy=" + lastUpdatedBy + ", override=" + override + ", progress=" + progress + ", status=" + status + ", summary=" + summary + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "Command [" + "assocEntityType=" + assocEntityType + ", associatedParam=" + associatedParam + ", associatedParamType=" + associatedParamType + ", command=" + command + ", commandInformation=" + commandInformation + ", creationDate=" + creationDate + ", detail=" + detail + ", detailedStatus=" + detailedStatus + ", detailedStatusCode=" + detailedStatusCode + ", entityScope=" + entityScope + ", externalID=" + externalID + ", fullCommand=" + fullCommand + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", override=" + override + ", owner=" + owner + ", progress=" + progress + ", status=" + status + ", summary=" + summary + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

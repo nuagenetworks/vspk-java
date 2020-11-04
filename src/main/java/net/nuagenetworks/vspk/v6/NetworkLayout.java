@@ -54,6 +54,10 @@ public class NetworkLayout extends RestObject {
    
    protected Long autonomousSystemNum;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "embeddedMetadata")
    
    protected java.util.List<Metadata> embeddedMetadata;
@@ -69,6 +73,14 @@ public class NetworkLayout extends RestObject {
    @JsonProperty(value = "lastUpdatedBy")
    
    protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "routeReflectorIP")
    
@@ -110,6 +122,17 @@ public class NetworkLayout extends RestObject {
    @JsonIgnore
    public void setAutonomousSystemNum(Long value) { 
       this.autonomousSystemNum = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
    }
    
    
@@ -158,6 +181,28 @@ public class NetworkLayout extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
+   }
+   
+   
+   @JsonIgnore
    public String getRouteReflectorIP() {
       return routeReflectorIP;
    }
@@ -197,8 +242,7 @@ public class NetworkLayout extends RestObject {
    
 
    public String toString() {
-      return "NetworkLayout [" + "autonomousSystemNum=" + autonomousSystemNum + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", routeReflectorIP=" + routeReflectorIP + ", serviceType=" + serviceType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "NetworkLayout [" + "autonomousSystemNum=" + autonomousSystemNum + ", creationDate=" + creationDate + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", owner=" + owner + ", routeReflectorIP=" + routeReflectorIP + ", serviceType=" + serviceType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

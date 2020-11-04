@@ -74,6 +74,10 @@ public class BootstrapActivation extends RestObject {
    
    protected String configURL;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "csr")
    
    protected String csr;
@@ -97,6 +101,14 @@ public class BootstrapActivation extends RestObject {
    @JsonProperty(value = "lastUpdatedBy")
    
    protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "seed")
    
@@ -213,6 +225,17 @@ public class BootstrapActivation extends RestObject {
    
    
    @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
+   }
+   
+   
+   @JsonIgnore
    public String getCsr() {
       return csr;
    }
@@ -275,6 +298,28 @@ public class BootstrapActivation extends RestObject {
    @JsonIgnore
    public void setLastUpdatedBy(String value) { 
       this.lastUpdatedBy = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
    
@@ -362,8 +407,7 @@ public class BootstrapActivation extends RestObject {
    
 
    public String toString() {
-      return "BootstrapActivation [" + "action=" + action + ", associatedEntityType=" + associatedEntityType + ", autoBootstrap=" + autoBootstrap + ", cacert=" + cacert + ", cert=" + cert + ", configURL=" + configURL + ", csr=" + csr + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", hash=" + hash + ", lastUpdatedBy=" + lastUpdatedBy + ", seed=" + seed + ", srkPassword=" + srkPassword + ", status=" + status + ", tpmOwnerPassword=" + tpmOwnerPassword + ", tpmState=" + tpmState + ", vsdTime=" + vsdTime + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "BootstrapActivation [" + "action=" + action + ", associatedEntityType=" + associatedEntityType + ", autoBootstrap=" + autoBootstrap + ", cacert=" + cacert + ", cert=" + cert + ", configURL=" + configURL + ", creationDate=" + creationDate + ", csr=" + csr + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", hash=" + hash + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", owner=" + owner + ", seed=" + seed + ", srkPassword=" + srkPassword + ", status=" + status + ", tpmOwnerPassword=" + tpmOwnerPassword + ", tpmState=" + tpmState + ", vsdTime=" + vsdTime + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

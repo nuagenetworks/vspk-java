@@ -46,11 +46,15 @@ public class RoutingPolicy extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum EContentType { DEFAULT, NETCONF_7X50 };
+   public enum EContentType { DEFAULT, NETCONF_7X50, SR_LINUX };
    public enum EDefaultAction { ACCEPT, REJECT };
    public enum EEntityScope { ENTERPRISE, GLOBAL };
    public enum ERoutingProtocol { BGP, ISIS, OSPFv2, OSPFv3, ROUTING };
 
+   
+   @JsonProperty(value = "CustomerID")
+   
+   protected Long CustomerID;
    
    @JsonProperty(value = "contentType")
    
@@ -110,6 +114,17 @@ public class RoutingPolicy extends RestObject {
       
    }
 
+   
+   
+   @JsonIgnore
+   public Long getCustomerID() {
+      return CustomerID;
+   }
+
+   @JsonIgnore
+   public void setCustomerID(Long value) { 
+      this.CustomerID = value;
+   }
    
    
    @JsonIgnore
@@ -229,8 +244,7 @@ public class RoutingPolicy extends RestObject {
    
 
    public String toString() {
-      return "RoutingPolicy [" + "contentType=" + contentType + ", defaultAction=" + defaultAction + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", name=" + name + ", policyDefinition=" + policyDefinition + ", routingProtocol=" + routingProtocol + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "RoutingPolicy [" + "CustomerID=" + CustomerID + ", contentType=" + contentType + ", defaultAction=" + defaultAction + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", name=" + name + ", policyDefinition=" + policyDefinition + ", routingProtocol=" + routingProtocol + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

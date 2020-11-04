@@ -68,6 +68,10 @@ public class User extends RestObject {
    
    protected EAvatarType avatarType;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "disableCertificateAuth")
    
    protected Boolean disableCertificateAuth;
@@ -108,6 +112,10 @@ public class User extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "managementMode")
    
    protected EManagementMode managementMode;
@@ -115,6 +123,10 @@ public class User extends RestObject {
    @JsonProperty(value = "mobileNumber")
    
    protected String mobileNumber;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "password")
    
@@ -203,6 +215,17 @@ public class User extends RestObject {
    @JsonIgnore
    public void setAvatarType(EAvatarType value) { 
       this.avatarType = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
    }
    
    
@@ -317,6 +340,17 @@ public class User extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public EManagementMode getManagementMode() {
       return managementMode;
    }
@@ -335,6 +369,17 @@ public class User extends RestObject {
    @JsonIgnore
    public void setMobileNumber(String value) { 
       this.mobileNumber = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
    
@@ -403,8 +448,7 @@ public class User extends RestObject {
    
 
    public String toString() {
-      return "User [" + "LDAPUserDN=" + LDAPUserDN + ", avatarData=" + avatarData + ", avatarType=" + avatarType + ", disableCertificateAuth=" + disableCertificateAuth + ", disablePasswordAuth=" + disablePasswordAuth + ", disabled=" + disabled + ", email=" + email + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", firstName=" + firstName + ", lastName=" + lastName + ", lastUpdatedBy=" + lastUpdatedBy + ", managementMode=" + managementMode + ", mobileNumber=" + mobileNumber + ", password=" + password + ", userName=" + userName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "User [" + "LDAPUserDN=" + LDAPUserDN + ", avatarData=" + avatarData + ", avatarType=" + avatarType + ", creationDate=" + creationDate + ", disableCertificateAuth=" + disableCertificateAuth + ", disablePasswordAuth=" + disablePasswordAuth + ", disabled=" + disabled + ", email=" + email + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", firstName=" + firstName + ", lastName=" + lastName + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", managementMode=" + managementMode + ", mobileNumber=" + mobileNumber + ", owner=" + owner + ", password=" + password + ", userName=" + userName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

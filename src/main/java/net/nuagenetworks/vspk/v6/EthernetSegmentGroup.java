@@ -192,8 +192,7 @@ public class EthernetSegmentGroup extends RestObject {
    
 
    public String toString() {
-      return "EthernetSegmentGroup [" + "VLANRange=" + VLANRange + ", description=" + description + ", ethernetSegmentID=" + ethernetSegmentID + ", name=" + name + ", portType=" + portType + ", virtual=" + virtual + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "EthernetSegmentGroup [" + "VLANRange=" + VLANRange + ", description=" + description + ", ethernetSegmentID=" + ethernetSegmentID + ", name=" + name + ", portType=" + portType + ", virtual=" + virtual + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

@@ -79,6 +79,10 @@ public class TestSuiteRun extends RestObject {
    
    protected Boolean birthCertificate;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "datapathID")
    
    protected String datapathID;
@@ -107,13 +111,25 @@ public class TestSuiteRun extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "operationStatus")
    
    protected EOperationStatus operationStatus;
    
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
+   
    @JsonProperty(value = "subnetName")
    
    protected String subnetName;
+   
+   @JsonProperty(value = "systemID")
+   
+   protected String systemID;
    
    @JsonProperty(value = "zoneName")
    
@@ -226,6 +242,17 @@ public class TestSuiteRun extends RestObject {
    
    
    @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
+   }
+   
+   
+   @JsonIgnore
    public String getDatapathID() {
       return datapathID;
    }
@@ -303,6 +330,17 @@ public class TestSuiteRun extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public EOperationStatus getOperationStatus() {
       return operationStatus;
    }
@@ -314,6 +352,17 @@ public class TestSuiteRun extends RestObject {
    
    
    @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
+   }
+   
+   
+   @JsonIgnore
    public String getSubnetName() {
       return subnetName;
    }
@@ -321,6 +370,17 @@ public class TestSuiteRun extends RestObject {
    @JsonIgnore
    public void setSubnetName(String value) { 
       this.subnetName = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getSystemID() {
+      return systemID;
+   }
+
+   @JsonIgnore
+   public void setSystemID(String value) { 
+      this.systemID = value;
    }
    
    
@@ -358,8 +418,7 @@ public class TestSuiteRun extends RestObject {
    
 
    public String toString() {
-      return "TestSuiteRun [" + "NSGatewayName=" + NSGatewayName + ", VPortName=" + VPortName + ", associatedEntityType=" + associatedEntityType + ", associatedTestSuiteID=" + associatedTestSuiteID + ", associatedTestSuiteName=" + associatedTestSuiteName + ", associatedUnderlayTestID=" + associatedUnderlayTestID + ", birthCertificate=" + birthCertificate + ", datapathID=" + datapathID + ", destination=" + destination + ", domainName=" + domainName + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", operationStatus=" + operationStatus + ", subnetName=" + subnetName + ", zoneName=" + zoneName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "TestSuiteRun [" + "NSGatewayName=" + NSGatewayName + ", VPortName=" + VPortName + ", associatedEntityType=" + associatedEntityType + ", associatedTestSuiteID=" + associatedTestSuiteID + ", associatedTestSuiteName=" + associatedTestSuiteName + ", associatedUnderlayTestID=" + associatedUnderlayTestID + ", birthCertificate=" + birthCertificate + ", creationDate=" + creationDate + ", datapathID=" + datapathID + ", destination=" + destination + ", domainName=" + domainName + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", operationStatus=" + operationStatus + ", owner=" + owner + ", subnetName=" + subnetName + ", systemID=" + systemID + ", zoneName=" + zoneName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

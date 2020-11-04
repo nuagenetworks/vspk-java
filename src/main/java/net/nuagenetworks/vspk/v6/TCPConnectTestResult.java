@@ -162,8 +162,7 @@ public class TCPConnectTestResult extends RestObject {
    
 
    public String toString() {
-      return "TCPConnectTestResult [" + "averageRoundTripTime=" + averageRoundTripTime + ", connectionAttempts=" + connectionAttempts + ", failedAttempts=" + failedAttempts + ", failedPercent=" + failedPercent + ", maximumRoundTripTime=" + maximumRoundTripTime + ", minimumRoundTripTime=" + minimumRoundTripTime + ", successfulConnections=" + successfulConnections + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "TCPConnectTestResult [" + "averageRoundTripTime=" + averageRoundTripTime + ", connectionAttempts=" + connectionAttempts + ", failedAttempts=" + failedAttempts + ", failedPercent=" + failedPercent + ", maximumRoundTripTime=" + maximumRoundTripTime + ", minimumRoundTripTime=" + minimumRoundTripTime + ", successfulConnections=" + successfulConnections + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

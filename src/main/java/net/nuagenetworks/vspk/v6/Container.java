@@ -69,6 +69,10 @@ public class Container extends RestObject {
    
    protected Boolean computeProvisioned;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "deleteExpiry")
    
    protected Long deleteExpiry;
@@ -125,6 +129,10 @@ public class Container extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "name")
    
    protected String name;
@@ -132,6 +140,10 @@ public class Container extends RestObject {
    @JsonProperty(value = "orchestrationID")
    
    protected String orchestrationID;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "reasonType")
    
@@ -252,6 +264,17 @@ public class Container extends RestObject {
    @JsonIgnore
    public void setComputeProvisioned(Boolean value) { 
       this.computeProvisioned = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
    }
    
    
@@ -410,6 +433,17 @@ public class Container extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public String getName() {
       return name;
    }
@@ -428,6 +462,17 @@ public class Container extends RestObject {
    @JsonIgnore
    public void setOrchestrationID(String value) { 
       this.orchestrationID = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
    
@@ -584,8 +629,7 @@ public class Container extends RestObject {
    
 
    public String toString() {
-      return "Container [" + "UUID=" + UUID + ", VRSID=" + VRSID + ", computeProvisioned=" + computeProvisioned + ", deleteExpiry=" + deleteExpiry + ", deleteMode=" + deleteMode + ", domainIDs=" + domainIDs + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseID=" + enterpriseID + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", externalID=" + externalID + ", hypervisorIP=" + hypervisorIP + ", imageID=" + imageID + ", imageName=" + imageName + ", interfaces=" + interfaces + ", l2DomainIDs=" + l2DomainIDs + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", orchestrationID=" + orchestrationID + ", reasonType=" + reasonType + ", resyncInfo=" + resyncInfo + ", siteIdentifier=" + siteIdentifier + ", status=" + status + ", subnetIDs=" + subnetIDs + ", userID=" + userID + ", userName=" + userName + ", vrsRawVersion=" + vrsRawVersion + ", vrsVersion=" + vrsVersion + ", zoneIDs=" + zoneIDs + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "Container [" + "UUID=" + UUID + ", VRSID=" + VRSID + ", computeProvisioned=" + computeProvisioned + ", creationDate=" + creationDate + ", deleteExpiry=" + deleteExpiry + ", deleteMode=" + deleteMode + ", domainIDs=" + domainIDs + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseID=" + enterpriseID + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", externalID=" + externalID + ", hypervisorIP=" + hypervisorIP + ", imageID=" + imageID + ", imageName=" + imageName + ", interfaces=" + interfaces + ", l2DomainIDs=" + l2DomainIDs + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", name=" + name + ", orchestrationID=" + orchestrationID + ", owner=" + owner + ", reasonType=" + reasonType + ", resyncInfo=" + resyncInfo + ", siteIdentifier=" + siteIdentifier + ", status=" + status + ", subnetIDs=" + subnetIDs + ", userID=" + userID + ", userName=" + userName + ", vrsRawVersion=" + vrsRawVersion + ", vrsVersion=" + vrsVersion + ", zoneIDs=" + zoneIDs + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

@@ -90,6 +90,10 @@ public class SharedNetworkResource extends RestObject {
    
    protected Long backHaulVNID;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "description")
    
    protected String description;
@@ -134,6 +138,10 @@ public class SharedNetworkResource extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "name")
    
    protected String name;
@@ -141,6 +149,10 @@ public class SharedNetworkResource extends RestObject {
    @JsonProperty(value = "netmask")
    
    protected String netmask;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "permittedActionType")
    
@@ -335,6 +347,17 @@ public class SharedNetworkResource extends RestObject {
    
    
    @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
+   }
+   
+   
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
@@ -456,6 +479,17 @@ public class SharedNetworkResource extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public String getName() {
       return name;
    }
@@ -474,6 +508,17 @@ public class SharedNetworkResource extends RestObject {
    @JsonIgnore
    public void setNetmask(String value) { 
       this.netmask = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
    
@@ -657,8 +702,7 @@ public class SharedNetworkResource extends RestObject {
    
 
    public String toString() {
-      return "SharedNetworkResource [" + "DHCPManaged=" + DHCPManaged + ", ECMPCount=" + ECMPCount + ", accessRestrictionEnabled=" + accessRestrictionEnabled + ", address=" + address + ", associatedPATMapperID=" + associatedPATMapperID + ", backHaulRouteDistinguisher=" + backHaulRouteDistinguisher + ", backHaulRouteTarget=" + backHaulRouteTarget + ", backHaulVNID=" + backHaulVNID + ", description=" + description + ", domainRouteDistinguisher=" + domainRouteDistinguisher + ", domainRouteTarget=" + domainRouteTarget + ", dynamicPATAllocationEnabled=" + dynamicPATAllocationEnabled + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", netmask=" + netmask + ", permittedActionType=" + permittedActionType + ", sharedResourceParentID=" + sharedResourceParentID + ", subnetRouteDistinguisher=" + subnetRouteDistinguisher + ", subnetRouteTarget=" + subnetRouteTarget + ", type=" + type + ", underlay=" + underlay + ", uplinkGWVlanAttachmentID=" + uplinkGWVlanAttachmentID + ", uplinkInterfaceIP=" + uplinkInterfaceIP + ", uplinkInterfaceMAC=" + uplinkInterfaceMAC + ", uplinkVPortName=" + uplinkVPortName + ", useGlobalMAC=" + useGlobalMAC + ", vnID=" + vnID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "SharedNetworkResource [" + "DHCPManaged=" + DHCPManaged + ", ECMPCount=" + ECMPCount + ", accessRestrictionEnabled=" + accessRestrictionEnabled + ", address=" + address + ", associatedPATMapperID=" + associatedPATMapperID + ", backHaulRouteDistinguisher=" + backHaulRouteDistinguisher + ", backHaulRouteTarget=" + backHaulRouteTarget + ", backHaulVNID=" + backHaulVNID + ", creationDate=" + creationDate + ", description=" + description + ", domainRouteDistinguisher=" + domainRouteDistinguisher + ", domainRouteTarget=" + domainRouteTarget + ", dynamicPATAllocationEnabled=" + dynamicPATAllocationEnabled + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gateway=" + gateway + ", gatewayMACAddress=" + gatewayMACAddress + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", name=" + name + ", netmask=" + netmask + ", owner=" + owner + ", permittedActionType=" + permittedActionType + ", sharedResourceParentID=" + sharedResourceParentID + ", subnetRouteDistinguisher=" + subnetRouteDistinguisher + ", subnetRouteTarget=" + subnetRouteTarget + ", type=" + type + ", underlay=" + underlay + ", uplinkGWVlanAttachmentID=" + uplinkGWVlanAttachmentID + ", uplinkInterfaceIP=" + uplinkInterfaceIP + ", uplinkInterfaceMAC=" + uplinkInterfaceMAC + ", uplinkVPortName=" + uplinkVPortName + ", useGlobalMAC=" + useGlobalMAC + ", vnID=" + vnID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

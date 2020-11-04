@@ -105,8 +105,7 @@ public class ThreatPreventionInfo extends RestObject {
    
 
    public String toString() {
-      return "ThreatPreventionInfo [" + "configurationStatus=" + configurationStatus + ", managementServerConnectionStatus=" + managementServerConnectionStatus + ", serviceStatus=" + serviceStatus + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "ThreatPreventionInfo [" + "configurationStatus=" + configurationStatus + ", managementServerConnectionStatus=" + managementServerConnectionStatus + ", serviceStatus=" + serviceStatus + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

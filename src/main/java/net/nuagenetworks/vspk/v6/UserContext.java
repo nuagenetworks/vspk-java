@@ -47,6 +47,7 @@ public class UserContext extends RestObject {
 
    
    public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum ESystemAvatarType { BASE64, COMPUTEDURL, URL };
 
    
    @JsonProperty(value = "AARFlowStatsInterval")
@@ -64,6 +65,14 @@ public class UserContext extends RestObject {
    @JsonProperty(value = "VSSStatsInterval")
    
    protected Long VSSStatsInterval;
+   
+   @JsonProperty(value = "allowEnterpriseAvatarOnNSG")
+   
+   protected Boolean allowEnterpriseAvatarOnNSG;
+   
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
    
    @JsonProperty(value = "deniedFlowCollectionEnabled")
    
@@ -97,9 +106,21 @@ public class UserContext extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
+   
    @JsonProperty(value = "pageSize")
    
    protected Long pageSize;
+   
+   @JsonProperty(value = "rbacEnabled")
+   
+   protected Boolean rbacEnabled;
    
    @JsonProperty(value = "statisticsEnabled")
    
@@ -112,6 +133,14 @@ public class UserContext extends RestObject {
    @JsonProperty(value = "statsTSDBServerAddress")
    
    protected String statsTSDBServerAddress;
+   
+   @JsonProperty(value = "systemAvatarData")
+   
+   protected String systemAvatarData;
+   
+   @JsonProperty(value = "systemAvatarType")
+   
+   protected ESystemAvatarType systemAvatarType;
    
    @JsonProperty(value = "threatIntelligenceEnabled")
    
@@ -182,6 +211,28 @@ public class UserContext extends RestObject {
    @JsonIgnore
    public void setVSSStatsInterval(Long value) { 
       this.VSSStatsInterval = value;
+   }
+   
+   
+   @JsonIgnore
+   public Boolean getAllowEnterpriseAvatarOnNSG() {
+      return allowEnterpriseAvatarOnNSG;
+   }
+
+   @JsonIgnore
+   public void setAllowEnterpriseAvatarOnNSG(Boolean value) { 
+      this.allowEnterpriseAvatarOnNSG = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
    }
    
    
@@ -274,6 +325,28 @@ public class UserContext extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
+   }
+   
+   
+   @JsonIgnore
    public Long getPageSize() {
       return pageSize;
    }
@@ -281,6 +354,17 @@ public class UserContext extends RestObject {
    @JsonIgnore
    public void setPageSize(Long value) { 
       this.pageSize = value;
+   }
+   
+   
+   @JsonIgnore
+   public Boolean getRbacEnabled() {
+      return rbacEnabled;
+   }
+
+   @JsonIgnore
+   public void setRbacEnabled(Boolean value) { 
+      this.rbacEnabled = value;
    }
    
    
@@ -318,6 +402,28 @@ public class UserContext extends RestObject {
    
    
    @JsonIgnore
+   public String getSystemAvatarData() {
+      return systemAvatarData;
+   }
+
+   @JsonIgnore
+   public void setSystemAvatarData(String value) { 
+      this.systemAvatarData = value;
+   }
+   
+   
+   @JsonIgnore
+   public ESystemAvatarType getSystemAvatarType() {
+      return systemAvatarType;
+   }
+
+   @JsonIgnore
+   public void setSystemAvatarType(ESystemAvatarType value) { 
+      this.systemAvatarType = value;
+   }
+   
+   
+   @JsonIgnore
    public Boolean getThreatIntelligenceEnabled() {
       return threatIntelligenceEnabled;
    }
@@ -346,8 +452,7 @@ public class UserContext extends RestObject {
    
 
    public String toString() {
-      return "UserContext [" + "AARFlowStatsInterval=" + AARFlowStatsInterval + ", AARProbeStatsInterval=" + AARProbeStatsInterval + ", VSSFeatureEnabled=" + VSSFeatureEnabled + ", VSSStatsInterval=" + VSSStatsInterval + ", deniedFlowCollectionEnabled=" + deniedFlowCollectionEnabled + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", explicitACLMatchingEnabled=" + explicitACLMatchingEnabled + ", externalID=" + externalID + ", flowCollectionEnabled=" + flowCollectionEnabled + ", googleMapsAPIKey=" + googleMapsAPIKey + ", lastUpdatedBy=" + lastUpdatedBy + ", pageSize=" + pageSize + ", statisticsEnabled=" + statisticsEnabled + ", statsDatabaseProxy=" + statsDatabaseProxy + ", statsTSDBServerAddress=" + statsTSDBServerAddress + ", threatIntelligenceEnabled=" + threatIntelligenceEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "UserContext [" + "AARFlowStatsInterval=" + AARFlowStatsInterval + ", AARProbeStatsInterval=" + AARProbeStatsInterval + ", VSSFeatureEnabled=" + VSSFeatureEnabled + ", VSSStatsInterval=" + VSSStatsInterval + ", allowEnterpriseAvatarOnNSG=" + allowEnterpriseAvatarOnNSG + ", creationDate=" + creationDate + ", deniedFlowCollectionEnabled=" + deniedFlowCollectionEnabled + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", explicitACLMatchingEnabled=" + explicitACLMatchingEnabled + ", externalID=" + externalID + ", flowCollectionEnabled=" + flowCollectionEnabled + ", googleMapsAPIKey=" + googleMapsAPIKey + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", owner=" + owner + ", pageSize=" + pageSize + ", rbacEnabled=" + rbacEnabled + ", statisticsEnabled=" + statisticsEnabled + ", statsDatabaseProxy=" + statsDatabaseProxy + ", statsTSDBServerAddress=" + statsTSDBServerAddress + ", systemAvatarData=" + systemAvatarData + ", systemAvatarType=" + systemAvatarType + ", threatIntelligenceEnabled=" + threatIntelligenceEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

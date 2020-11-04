@@ -60,6 +60,10 @@ public class AddressRange extends RestObject {
    
    protected EIPType IPType;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "embeddedMetadata")
    
    protected java.util.List<Metadata> embeddedMetadata;
@@ -76,6 +80,10 @@ public class AddressRange extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "maxAddress")
    
    protected String maxAddress;
@@ -83,6 +91,10 @@ public class AddressRange extends RestObject {
    @JsonProperty(value = "minAddress")
    
    protected String minAddress;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
 
    
@@ -137,6 +149,17 @@ public class AddressRange extends RestObject {
    
    
    @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
+   }
+   
+   
+   @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
    }
@@ -181,6 +204,17 @@ public class AddressRange extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public String getMaxAddress() {
       return maxAddress;
    }
@@ -199,6 +233,17 @@ public class AddressRange extends RestObject {
    @JsonIgnore
    public void setMinAddress(String value) { 
       this.minAddress = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
 
@@ -225,8 +270,7 @@ public class AddressRange extends RestObject {
    
 
    public String toString() {
-      return "AddressRange [" + "DHCPPoolType=" + DHCPPoolType + ", IPType=" + IPType + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", maxAddress=" + maxAddress + ", minAddress=" + minAddress + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "AddressRange [" + "DHCPPoolType=" + DHCPPoolType + ", IPType=" + IPType + ", creationDate=" + creationDate + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", maxAddress=" + maxAddress + ", minAddress=" + minAddress + ", owner=" + owner + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    
