@@ -253,8 +253,7 @@ public class OverlayAddressPool extends RestObject {
    
 
    public String toString() {
-      return "OverlayAddressPool [" + "IPType=" + IPType + ", associatedDomainID=" + associatedDomainID + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", endAddressRange=" + endAddressRange + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", startAddressRange=" + startAddressRange + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "OverlayAddressPool [" + "IPType=" + IPType + ", associatedDomainID=" + associatedDomainID + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", endAddressRange=" + endAddressRange + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", startAddressRange=" + startAddressRange + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

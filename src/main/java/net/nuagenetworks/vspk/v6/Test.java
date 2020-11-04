@@ -271,8 +271,7 @@ public class Test extends RestObject {
    
 
    public String toString() {
-      return "Test [" + "associatedTestDefinitionID=" + associatedTestDefinitionID + ", associatedTestSuiteID=" + associatedTestSuiteID + ", command=" + command + ", description=" + description + ", destination=" + destination + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", order=" + order + ", timeout=" + timeout + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "Test [" + "associatedTestDefinitionID=" + associatedTestDefinitionID + ", associatedTestSuiteID=" + associatedTestSuiteID + ", command=" + command + ", description=" + description + ", destination=" + destination + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", order=" + order + ", timeout=" + timeout + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

@@ -258,8 +258,7 @@ public class VSDComponent extends RestObject {
    
 
    public String toString() {
-      return "VSDComponent [" + "address=" + address + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", location=" + location + ", managementIP=" + managementIP + ", name=" + name + ", productVersion=" + productVersion + ", status=" + status + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "VSDComponent [" + "address=" + address + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", location=" + location + ", managementIP=" + managementIP + ", name=" + name + ", productVersion=" + productVersion + ", status=" + status + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

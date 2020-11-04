@@ -302,8 +302,7 @@ public class VNFDomainMapping extends RestObject {
    
 
    public String toString() {
-      return "VNFDomainMapping [" + "associatedDomainID=" + associatedDomainID + ", associatedDomainName=" + associatedDomainName + ", associatedEnterpriseID=" + associatedEnterpriseID + ", associatedNSGatewayID=" + associatedNSGatewayID + ", associatedNSGatewayName=" + associatedNSGatewayName + ", autoCreated=" + autoCreated + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", segmentationID=" + segmentationID + ", segmentationType=" + segmentationType + ", serviceId=" + serviceId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "VNFDomainMapping [" + "associatedDomainID=" + associatedDomainID + ", associatedDomainName=" + associatedDomainName + ", associatedEnterpriseID=" + associatedEnterpriseID + ", associatedNSGatewayID=" + associatedNSGatewayID + ", associatedNSGatewayName=" + associatedNSGatewayName + ", autoCreated=" + autoCreated + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", segmentationID=" + segmentationID + ", segmentationType=" + segmentationType + ", serviceId=" + serviceId + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

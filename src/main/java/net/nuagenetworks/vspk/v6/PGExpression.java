@@ -163,8 +163,7 @@ public class PGExpression extends RestObject {
    
 
    public String toString() {
-      return "PGExpression [" + "description=" + description + ", entityScope=" + entityScope + ", expression=" + expression + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", templateID=" + templateID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "PGExpression [" + "description=" + description + ", entityScope=" + entityScope + ", expression=" + expression + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", templateID=" + templateID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

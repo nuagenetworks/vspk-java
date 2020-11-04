@@ -197,8 +197,7 @@ public class InfrastructureConfig extends RestObject {
    
 
    public String toString() {
-      return "InfrastructureConfig [" + "associatedEntityType=" + associatedEntityType + ", config=" + config + ", configStatus=" + configStatus + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "InfrastructureConfig [" + "associatedEntityType=" + associatedEntityType + ", config=" + config + ", configStatus=" + configStatus + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

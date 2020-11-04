@@ -102,8 +102,7 @@ public class NSPortInfo extends RestObject {
    
 
    public String toString() {
-      return "NSPortInfo [" + "monitoringPorts=" + monitoringPorts + ", ports=" + ports + ", wirelessPorts=" + wirelessPorts + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "NSPortInfo [" + "monitoringPorts=" + monitoringPorts + ", ports=" + ports + ", wirelessPorts=" + wirelessPorts + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

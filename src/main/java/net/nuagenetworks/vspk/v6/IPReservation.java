@@ -207,8 +207,7 @@ public class IPReservation extends RestObject {
    
 
    public String toString() {
-      return "IPReservation [" + "IPAddress=" + IPAddress + ", MAC=" + MAC + ", dynamicAllocationEnabled=" + dynamicAllocationEnabled + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "IPReservation [" + "IPAddress=" + IPAddress + ", MAC=" + MAC + ", dynamicAllocationEnabled=" + dynamicAllocationEnabled + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

@@ -212,8 +212,7 @@ public class PSPATMap extends RestObject {
    
 
    public String toString() {
-      return "PSPATMap [" + "associatedSPATSourcesPoolID=" + associatedSPATSourcesPoolID + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", family=" + family + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", reservedSPATIPs=" + reservedSPATIPs + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "PSPATMap [" + "associatedSPATSourcesPoolID=" + associatedSPATSourcesPoolID + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", family=" + family + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", reservedSPATIPs=" + reservedSPATIPs + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

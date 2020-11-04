@@ -284,8 +284,7 @@ public class UnderlayTest extends RestObject {
    
 
    public String toString() {
-      return "UnderlayTest [" + "associatedDataPathID=" + associatedDataPathID + ", associatedNSGatewayID=" + associatedNSGatewayID + ", associatedNSGatewayName=" + associatedNSGatewayName + ", associatedTestSuiteRunID=" + associatedTestSuiteRunID + ", createOnly=" + createOnly + ", duration=" + duration + ", name=" + name + ", runBandwidthTest=" + runBandwidthTest + ", runConnectivityTest=" + runConnectivityTest + ", runMTUDiscoveryTest=" + runMTUDiscoveryTest + ", startDateTime=" + startDateTime + ", stopDateTime=" + stopDateTime + ", testResult=" + testResult + ", underlayTestServer=" + underlayTestServer + ", underlayTestType=" + underlayTestType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "UnderlayTest [" + "associatedDataPathID=" + associatedDataPathID + ", associatedNSGatewayID=" + associatedNSGatewayID + ", associatedNSGatewayName=" + associatedNSGatewayName + ", associatedTestSuiteRunID=" + associatedTestSuiteRunID + ", createOnly=" + createOnly + ", duration=" + duration + ", name=" + name + ", runBandwidthTest=" + runBandwidthTest + ", runConnectivityTest=" + runConnectivityTest + ", runMTUDiscoveryTest=" + runMTUDiscoveryTest + ", startDateTime=" + startDateTime + ", stopDateTime=" + stopDateTime + ", testResult=" + testResult + ", underlayTestServer=" + underlayTestServer + ", underlayTestType=" + underlayTestType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

@@ -72,8 +72,7 @@ public class BandwidthTestResult extends RestObject {
    
 
    public String toString() {
-      return "BandwidthTestResult [" + "bandwidth=" + bandwidth + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "BandwidthTestResult [" + "bandwidth=" + bandwidth + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

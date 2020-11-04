@@ -87,8 +87,7 @@ public class VSDConfig extends RestObject {
    
 
    public String toString() {
-      return "VSDConfig [" + "attributeValue=" + attributeValue + ", id=" + id + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "VSDConfig [" + "attributeValue=" + attributeValue + ", id=" + id + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

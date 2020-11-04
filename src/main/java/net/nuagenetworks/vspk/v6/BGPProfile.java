@@ -271,8 +271,7 @@ public class BGPProfile extends RestObject {
    
 
    public String toString() {
-      return "BGPProfile [" + "associatedExportRoutingPolicyID=" + associatedExportRoutingPolicyID + ", associatedImportRoutingPolicyID=" + associatedImportRoutingPolicyID + ", dampeningHalfLife=" + dampeningHalfLife + ", dampeningMaxSuppress=" + dampeningMaxSuppress + ", dampeningName=" + dampeningName + ", dampeningReuse=" + dampeningReuse + ", dampeningSuppress=" + dampeningSuppress + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "BGPProfile [" + "associatedExportRoutingPolicyID=" + associatedExportRoutingPolicyID + ", associatedImportRoutingPolicyID=" + associatedImportRoutingPolicyID + ", dampeningHalfLife=" + dampeningHalfLife + ", dampeningMaxSuppress=" + dampeningMaxSuppress + ", dampeningName=" + dampeningName + ", dampeningReuse=" + dampeningReuse + ", dampeningSuppress=" + dampeningSuppress + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

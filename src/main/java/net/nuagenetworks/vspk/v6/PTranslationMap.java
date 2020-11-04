@@ -227,8 +227,7 @@ public class PTranslationMap extends RestObject {
    
 
    public String toString() {
-      return "PTranslationMap [" + "SPATSourceList=" + SPATSourceList + ", associatedDomainID=" + associatedDomainID + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", mappingType=" + mappingType + ", providerAliasIP=" + providerAliasIP + ", providerIP=" + providerIP + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "PTranslationMap [" + "SPATSourceList=" + SPATSourceList + ", associatedDomainID=" + associatedDomainID + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", mappingType=" + mappingType + ", providerAliasIP=" + providerAliasIP + ", providerIP=" + providerIP + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

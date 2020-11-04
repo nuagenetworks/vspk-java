@@ -166,8 +166,7 @@ public class SysmonUplinkConnection extends RestObject {
    
 
    public String toString() {
-      return "SysmonUplinkConnection [" + "datapathUplinkId=" + datapathUplinkId + ", ipsecDtlsState=" + ipsecDtlsState + ", jsonState=" + jsonState + ", openflowState=" + openflowState + ", privateIP=" + privateIP + ", publicIP=" + publicIP + ", vxlanDtlsState=" + vxlanDtlsState + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "SysmonUplinkConnection [" + "datapathUplinkId=" + datapathUplinkId + ", ipsecDtlsState=" + ipsecDtlsState + ", jsonState=" + jsonState + ", openflowState=" + openflowState + ", privateIP=" + privateIP + ", publicIP=" + publicIP + ", vxlanDtlsState=" + vxlanDtlsState + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

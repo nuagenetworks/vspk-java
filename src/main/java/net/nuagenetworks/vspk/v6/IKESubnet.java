@@ -181,8 +181,7 @@ public class IKESubnet extends RestObject {
    
 
    public String toString() {
-      return "IKESubnet [" + "associatedIKEGatewayID=" + associatedIKEGatewayID + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", prefix=" + prefix + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "IKESubnet [" + "associatedIKEGatewayID=" + associatedIKEGatewayID + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", prefix=" + prefix + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

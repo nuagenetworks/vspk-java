@@ -88,8 +88,7 @@ public class ForwardingClass extends RestObject {
    
 
    public String toString() {
-      return "ForwardingClass [" + "forwardingClass=" + forwardingClass + ", loadBalancing=" + loadBalancing + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "ForwardingClass [" + "forwardingClass=" + forwardingClass + ", loadBalancing=" + loadBalancing + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

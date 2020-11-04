@@ -248,8 +248,7 @@ public class Applicationperformancemanagement extends RestObject {
    
 
    public String toString() {
-      return "Applicationperformancemanagement [" + "appGroupUniqueId=" + appGroupUniqueId + ", associatedPerformanceMonitorID=" + associatedPerformanceMonitorID + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", readOnly=" + readOnly + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "Applicationperformancemanagement [" + "appGroupUniqueId=" + appGroupUniqueId + ", associatedPerformanceMonitorID=" + associatedPerformanceMonitorID + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", readOnly=" + readOnly + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

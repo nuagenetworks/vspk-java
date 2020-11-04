@@ -286,8 +286,7 @@ public class IKECertificate extends RestObject {
    
 
    public String toString() {
-      return "IKECertificate [" + "PEMEncoded=" + PEMEncoded + ", associatedEnterpriseID=" + associatedEnterpriseID + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", issuerDN=" + issuerDN + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", notAfter=" + notAfter + ", notBefore=" + notBefore + ", serialNumber=" + serialNumber + ", subjectDN=" + subjectDN + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "IKECertificate [" + "PEMEncoded=" + PEMEncoded + ", associatedEnterpriseID=" + associatedEnterpriseID + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", issuerDN=" + issuerDN + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", notAfter=" + notAfter + ", notBefore=" + notBefore + ", serialNumber=" + serialNumber + ", subjectDN=" + subjectDN + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

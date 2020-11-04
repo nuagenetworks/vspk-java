@@ -196,8 +196,7 @@ public class Applicationperformancemanagementbinding extends RestObject {
    
 
    public String toString() {
-      return "Applicationperformancemanagementbinding [" + "associatedApplicationPerformanceManagementID=" + associatedApplicationPerformanceManagementID + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", priority=" + priority + ", readOnly=" + readOnly + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "Applicationperformancemanagementbinding [" + "associatedApplicationPerformanceManagementID=" + associatedApplicationPerformanceManagementID + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", priority=" + priority + ", readOnly=" + readOnly + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

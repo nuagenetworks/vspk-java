@@ -241,8 +241,7 @@ public class Monitorscope extends RestObject {
    
 
    public String toString() {
-      return "Monitorscope [" + "allowAllDestinationNSGs=" + allowAllDestinationNSGs + ", allowAllSourceNSGs=" + allowAllSourceNSGs + ", destinationNSGs=" + destinationNSGs + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", readOnly=" + readOnly + ", sourceNSGs=" + sourceNSGs + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "Monitorscope [" + "allowAllDestinationNSGs=" + allowAllDestinationNSGs + ", allowAllSourceNSGs=" + allowAllSourceNSGs + ", destinationNSGs=" + destinationNSGs + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", readOnly=" + readOnly + ", sourceNSGs=" + sourceNSGs + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

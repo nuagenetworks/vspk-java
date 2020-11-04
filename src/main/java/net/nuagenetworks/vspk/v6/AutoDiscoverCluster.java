@@ -148,8 +148,7 @@ public class AutoDiscoverCluster extends RestObject {
    
 
    public String toString() {
-      return "AutoDiscoverCluster [" + "assocVCenterDataCenterID=" + assocVCenterDataCenterID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", managedObjectID=" + managedObjectID + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "AutoDiscoverCluster [" + "assocVCenterDataCenterID=" + assocVCenterDataCenterID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", managedObjectID=" + managedObjectID + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

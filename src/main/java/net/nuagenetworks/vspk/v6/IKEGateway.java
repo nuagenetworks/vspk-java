@@ -312,8 +312,7 @@ public class IKEGateway extends RestObject {
    
 
    public String toString() {
-      return "IKEGateway [" + "IKEVersion=" + IKEVersion + ", IKEv1Mode=" + IKEv1Mode + ", IPAddress=" + IPAddress + ", associatedCloudID=" + associatedCloudID + ", associatedCloudType=" + associatedCloudType + ", associatedEnterpriseID=" + associatedEnterpriseID + ", configurationStatus=" + configurationStatus + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "IKEGateway [" + "IKEVersion=" + IKEVersion + ", IKEv1Mode=" + IKEv1Mode + ", IPAddress=" + IPAddress + ", associatedCloudID=" + associatedCloudID + ", associatedCloudType=" + associatedCloudType + ", associatedEnterpriseID=" + associatedEnterpriseID + ", configurationStatus=" + configurationStatus + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

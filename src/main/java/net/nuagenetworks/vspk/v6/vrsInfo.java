@@ -181,8 +181,7 @@ public class vrsInfo extends RestObject {
    
 
    public String toString() {
-      return "vrsInfo [" + "embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", nodeSegmentID=" + nodeSegmentID + ", vrsIP=" + vrsIP + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "vrsInfo [" + "embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", nodeSegmentID=" + nodeSegmentID + ", vrsIP=" + vrsIP + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

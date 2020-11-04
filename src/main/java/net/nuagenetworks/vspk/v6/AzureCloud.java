@@ -278,8 +278,7 @@ public class AzureCloud extends RestObject {
    
 
    public String toString() {
-      return "AzureCloud [" + "associatedIKEEncryptionProfileID=" + associatedIKEEncryptionProfileID + ", associatedIKEPSKID=" + associatedIKEPSKID + ", clientID=" + clientID + ", clientSecret=" + clientSecret + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", subscriptionID=" + subscriptionID + ", tenantID=" + tenantID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "AzureCloud [" + "associatedIKEEncryptionProfileID=" + associatedIKEEncryptionProfileID + ", associatedIKEPSKID=" + associatedIKEPSKID + ", clientID=" + clientID + ", clientSecret=" + clientSecret + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", subscriptionID=" + subscriptionID + ", tenantID=" + tenantID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

@@ -243,8 +243,7 @@ public class VMIPReservation extends RestObject {
    
 
    public String toString() {
-      return "VMIPReservation [" + "IPType=" + IPType + ", IPV4Address=" + IPV4Address + ", IPV6Address=" + IPV6Address + ", IPV6AllocationPools=" + IPV6AllocationPools + ", allocationPools=" + allocationPools + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", state=" + state + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "VMIPReservation [" + "IPType=" + IPType + ", IPV4Address=" + IPV4Address + ", IPV6Address=" + IPV6Address + ", IPV6AllocationPools=" + IPV6AllocationPools + ", allocationPools=" + allocationPools + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", state=" + state + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

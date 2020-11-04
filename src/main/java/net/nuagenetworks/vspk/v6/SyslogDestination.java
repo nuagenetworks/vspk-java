@@ -149,8 +149,7 @@ public class SyslogDestination extends RestObject {
    
 
    public String toString() {
-      return "SyslogDestination [" + "IPAddress=" + IPAddress + ", IPType=" + IPType + ", description=" + description + ", name=" + name + ", port=" + port + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "SyslogDestination [" + "IPAddress=" + IPAddress + ", IPType=" + IPType + ", description=" + description + ", name=" + name + ", port=" + port + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

@@ -241,8 +241,7 @@ public class KeyServerMember extends RestObject {
    
 
    public String toString() {
-      return "KeyServerMember [" + "certificateSerialNumber=" + certificateSerialNumber + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", fqdn=" + fqdn + ", issuerDN=" + issuerDN + ", lastUpdatedBy=" + lastUpdatedBy + ", pemEncoded=" + pemEncoded + ", publicKey=" + publicKey + ", subjectDN=" + subjectDN + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "KeyServerMember [" + "certificateSerialNumber=" + certificateSerialNumber + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", fqdn=" + fqdn + ", issuerDN=" + issuerDN + ", lastUpdatedBy=" + lastUpdatedBy + ", pemEncoded=" + pemEncoded + ", publicKey=" + publicKey + ", subjectDN=" + subjectDN + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

@@ -177,8 +177,7 @@ public class DownloadProgress extends RestObject {
    
 
    public String toString() {
-      return "DownloadProgress [" + "averageSpeed=" + averageSpeed + ", currentSpeed=" + currentSpeed + ", imageFileName=" + imageFileName + ", imageVersion=" + imageVersion + ", percentage=" + percentage + ", startTime=" + startTime + ", timeLeft=" + timeLeft + ", timeSpent=" + timeSpent + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "DownloadProgress [" + "averageSpeed=" + averageSpeed + ", currentSpeed=" + currentSpeed + ", imageFileName=" + imageFileName + ", imageVersion=" + imageVersion + ", percentage=" + percentage + ", startTime=" + startTime + ", timeLeft=" + timeLeft + ", timeSpent=" + timeSpent + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

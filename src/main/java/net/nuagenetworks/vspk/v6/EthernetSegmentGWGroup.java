@@ -313,8 +313,7 @@ public class EthernetSegmentGWGroup extends RestObject {
    
 
    public String toString() {
-      return "EthernetSegmentGWGroup [" + "assocGatewaysNames=" + assocGatewaysNames + ", assocGatewaysStatus=" + assocGatewaysStatus + ", associatedGatewayIDs=" + associatedGatewayIDs + ", description=" + description + ", name=" + name + ", personality=" + personality + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "EthernetSegmentGWGroup [" + "assocGatewaysNames=" + assocGatewaysNames + ", assocGatewaysStatus=" + assocGatewaysStatus + ", associatedGatewayIDs=" + associatedGatewayIDs + ", description=" + description + ", name=" + name + ", personality=" + personality + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

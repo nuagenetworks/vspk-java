@@ -249,8 +249,7 @@ public class PSNATPool extends RestObject {
    
 
    public String toString() {
-      return "PSNATPool [" + "IPType=" + IPType + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", endAddress=" + endAddress + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", startAddress=" + startAddress + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "PSNATPool [" + "IPType=" + IPType + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", endAddress=" + endAddress + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", startAddress=" + startAddress + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    
