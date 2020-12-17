@@ -50,6 +50,7 @@ import net.nuagenetworks.vspk.v6.fetchers.DomainTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EgressACLEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EgressACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EgressAdvFwdTemplatesFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.EgressAuditACLEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EgressAuditACLTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.DomainFIPAclTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EventLogsFetcher;
@@ -446,6 +447,9 @@ public class Domain extends RestObject {
    private EgressAdvFwdTemplatesFetcher egressAdvFwdTemplates;
    
    @JsonIgnore
+   private EgressAuditACLEntryTemplatesFetcher egressAuditACLEntryTemplates;
+   
+   @JsonIgnore
    private EgressAuditACLTemplatesFetcher egressAuditACLTemplates;
    
    @JsonIgnore
@@ -621,6 +625,8 @@ public class Domain extends RestObject {
       egressACLTemplates = new EgressACLTemplatesFetcher(this);
       
       egressAdvFwdTemplates = new EgressAdvFwdTemplatesFetcher(this);
+      
+      egressAuditACLEntryTemplates = new EgressAuditACLEntryTemplatesFetcher(this);
       
       egressAuditACLTemplates = new EgressAuditACLTemplatesFetcher(this);
       
@@ -1542,6 +1548,11 @@ public class Domain extends RestObject {
    @JsonIgnore
    public EgressAdvFwdTemplatesFetcher getEgressAdvFwdTemplates() {
       return egressAdvFwdTemplates;
+   }
+   
+   @JsonIgnore
+   public EgressAuditACLEntryTemplatesFetcher getEgressAuditACLEntryTemplates() {
+      return egressAuditACLEntryTemplates;
    }
    
    @JsonIgnore
