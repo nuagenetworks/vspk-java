@@ -164,8 +164,7 @@ public class CaptivePortalProfile extends RestObject {
    
 
    public String toString() {
-      return "CaptivePortalProfile [" + "captivePage=" + captivePage + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", portalType=" + portalType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "CaptivePortalProfile [" + "captivePage=" + captivePage + ", description=" + description + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", portalType=" + portalType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

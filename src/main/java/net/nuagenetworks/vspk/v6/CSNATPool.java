@@ -227,8 +227,7 @@ public class CSNATPool extends RestObject {
    
 
    public String toString() {
-      return "CSNATPool [" + "IPType=" + IPType + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", endAddress=" + endAddress + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", startAddress=" + startAddress + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "CSNATPool [" + "IPType=" + IPType + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", endAddress=" + endAddress + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", startAddress=" + startAddress + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

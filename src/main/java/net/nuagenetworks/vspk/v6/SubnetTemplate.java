@@ -93,14 +93,6 @@ public class SubnetTemplate extends RestObject {
    
    protected java.util.List<Metadata> embeddedMetadata;
    
-   @JsonProperty(value = "enableDHCPv4")
-   
-   protected Boolean enableDHCPv4;
-   
-   @JsonProperty(value = "enableDHCPv6")
-   
-   protected Boolean enableDHCPv6;
-   
    @JsonProperty(value = "encryption")
    
    protected EEncryption encryption;
@@ -286,28 +278,6 @@ public class SubnetTemplate extends RestObject {
    
    
    @JsonIgnore
-   public Boolean getEnableDHCPv4() {
-      return enableDHCPv4;
-   }
-
-   @JsonIgnore
-   public void setEnableDHCPv4(Boolean value) { 
-      this.enableDHCPv4 = value;
-   }
-   
-   
-   @JsonIgnore
-   public Boolean getEnableDHCPv6() {
-      return enableDHCPv6;
-   }
-
-   @JsonIgnore
-   public void setEnableDHCPv6(Boolean value) { 
-      this.enableDHCPv6 = value;
-   }
-   
-   
-   @JsonIgnore
    public EEncryption getEncryption() {
       return encryption;
    }
@@ -461,8 +431,7 @@ public class SubnetTemplate extends RestObject {
    
 
    public String toString() {
-      return "SubnetTemplate [" + "DPI=" + DPI + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", IPv6Gateway=" + IPv6Gateway + ", address=" + address + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", description=" + description + ", dualStackDynamicIPAllocation=" + dualStackDynamicIPAllocation + ", embeddedMetadata=" + embeddedMetadata + ", enableDHCPv4=" + enableDHCPv4 + ", enableDHCPv6=" + enableDHCPv6 + ", encryption=" + encryption + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gateway=" + gateway + ", lastUpdatedBy=" + lastUpdatedBy + ", multicast=" + multicast + ", name=" + name + ", netmask=" + netmask + ", proxyARP=" + proxyARP + ", splitSubnet=" + splitSubnet + ", useGlobalMAC=" + useGlobalMAC + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "SubnetTemplate [" + "DPI=" + DPI + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", IPv6Gateway=" + IPv6Gateway + ", address=" + address + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", description=" + description + ", dualStackDynamicIPAllocation=" + dualStackDynamicIPAllocation + ", embeddedMetadata=" + embeddedMetadata + ", encryption=" + encryption + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gateway=" + gateway + ", lastUpdatedBy=" + lastUpdatedBy + ", multicast=" + multicast + ", name=" + name + ", netmask=" + netmask + ", proxyARP=" + proxyARP + ", splitSubnet=" + splitSubnet + ", useGlobalMAC=" + useGlobalMAC + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

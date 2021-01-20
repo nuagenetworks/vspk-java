@@ -227,8 +227,7 @@ public class VirtualIP extends RestObject {
    
 
    public String toString() {
-      return "VirtualIP [" + "IPType=" + IPType + ", MAC=" + MAC + ", associatedFloatingIPID=" + associatedFloatingIPID + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", subnetID=" + subnetID + ", virtualIP=" + virtualIP + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "VirtualIP [" + "IPType=" + IPType + ", MAC=" + MAC + ", associatedFloatingIPID=" + associatedFloatingIPID + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", subnetID=" + subnetID + ", virtualIP=" + virtualIP + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

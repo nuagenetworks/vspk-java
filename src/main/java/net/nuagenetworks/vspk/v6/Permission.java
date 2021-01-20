@@ -242,8 +242,7 @@ public class Permission extends RestObject {
    
 
    public String toString() {
-      return "Permission [" + "embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", permittedAction=" + permittedAction + ", permittedEntityDescription=" + permittedEntityDescription + ", permittedEntityID=" + permittedEntityID + ", permittedEntityName=" + permittedEntityName + ", permittedEntityType=" + permittedEntityType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "Permission [" + "embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", permittedAction=" + permittedAction + ", permittedEntityDescription=" + permittedEntityDescription + ", permittedEntityID=" + permittedEntityID + ", permittedEntityName=" + permittedEntityName + ", permittedEntityType=" + permittedEntityType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

@@ -332,8 +332,7 @@ public class BGPNeighbor extends RestObject {
    
 
    public String toString() {
-      return "BGPNeighbor [" + "BFDEnabled=" + BFDEnabled + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", associatedExportRoutingPolicyID=" + associatedExportRoutingPolicyID + ", associatedImportRoutingPolicyID=" + associatedImportRoutingPolicyID + ", dampeningEnabled=" + dampeningEnabled + ", description=" + description + ", domainServiceLabel=" + domainServiceLabel + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", name=" + name + ", peerAS=" + peerAS + ", peerConfiguration=" + peerConfiguration + ", peerIP=" + peerIP + ", session=" + session + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "BGPNeighbor [" + "BFDEnabled=" + BFDEnabled + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", associatedExportRoutingPolicyID=" + associatedExportRoutingPolicyID + ", associatedImportRoutingPolicyID=" + associatedImportRoutingPolicyID + ", dampeningEnabled=" + dampeningEnabled + ", description=" + description + ", domainServiceLabel=" + domainServiceLabel + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", name=" + name + ", peerAS=" + peerAS + ", peerConfiguration=" + peerConfiguration + ", peerIP=" + peerIP + ", session=" + session + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

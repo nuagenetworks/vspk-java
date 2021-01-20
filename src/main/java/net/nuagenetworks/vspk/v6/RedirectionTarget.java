@@ -312,8 +312,7 @@ public class RedirectionTarget extends RestObject {
    
 
    public String toString() {
-      return "RedirectionTarget [" + "ESI=" + ESI + ", description=" + description + ", destinationType=" + destinationType + ", embeddedMetadata=" + embeddedMetadata + ", endPointType=" + endPointType + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", redundancyEnabled=" + redundancyEnabled + ", templateID=" + templateID + ", triggerType=" + triggerType + ", virtualNetworkID=" + virtualNetworkID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "RedirectionTarget [" + "ESI=" + ESI + ", description=" + description + ", destinationType=" + destinationType + ", embeddedMetadata=" + embeddedMetadata + ", endPointType=" + endPointType + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", redundancyEnabled=" + redundancyEnabled + ", templateID=" + templateID + ", triggerType=" + triggerType + ", virtualNetworkID=" + virtualNetworkID + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

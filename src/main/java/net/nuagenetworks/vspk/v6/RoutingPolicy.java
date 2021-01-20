@@ -218,8 +218,7 @@ public class RoutingPolicy extends RestObject {
    
 
    public String toString() {
-      return "RoutingPolicy [" + "contentType=" + contentType + ", defaultAction=" + defaultAction + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", name=" + name + ", policyDefinition=" + policyDefinition + ", routingProtocol=" + routingProtocol + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "RoutingPolicy [" + "contentType=" + contentType + ", defaultAction=" + defaultAction + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", name=" + name + ", policyDefinition=" + policyDefinition + ", routingProtocol=" + routingProtocol + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

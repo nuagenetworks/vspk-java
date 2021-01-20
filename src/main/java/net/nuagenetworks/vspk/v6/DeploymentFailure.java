@@ -351,8 +351,7 @@ public class DeploymentFailure extends RestObject {
    
 
    public String toString() {
-      return "DeploymentFailure [" + "affectedEntityID=" + affectedEntityID + ", affectedEntityType=" + affectedEntityType + ", assocEntityId=" + assocEntityId + ", assocEntityType=" + assocEntityType + ", associatedDomainID=" + associatedDomainID + ", associatedDomainType=" + associatedDomainType + ", associatedNetworkEntityID=" + associatedNetworkEntityID + ", associatedNetworkEntityType=" + associatedNetworkEntityType + ", diffMap=" + diffMap + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", errorCondition=" + errorCondition + ", eventType=" + eventType + ", externalID=" + externalID + ", lastFailureReason=" + lastFailureReason + ", lastKnownError=" + lastKnownError + ", lastUpdatedBy=" + lastUpdatedBy + ", numberOfOccurences=" + numberOfOccurences + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "DeploymentFailure [" + "affectedEntityID=" + affectedEntityID + ", affectedEntityType=" + affectedEntityType + ", assocEntityId=" + assocEntityId + ", assocEntityType=" + assocEntityType + ", associatedDomainID=" + associatedDomainID + ", associatedDomainType=" + associatedDomainType + ", associatedNetworkEntityID=" + associatedNetworkEntityID + ", associatedNetworkEntityType=" + associatedNetworkEntityType + ", diffMap=" + diffMap + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", errorCondition=" + errorCondition + ", eventType=" + eventType + ", externalID=" + externalID + ", lastFailureReason=" + lastFailureReason + ", lastKnownError=" + lastKnownError + ", lastUpdatedBy=" + lastUpdatedBy + ", numberOfOccurences=" + numberOfOccurences + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

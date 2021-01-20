@@ -215,8 +215,7 @@ public class GatewaySecuredData extends RestObject {
    
 
    public String toString() {
-      return "GatewaySecuredData [" + "associatedEnterpriseID=" + associatedEnterpriseID + ", data=" + data + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayCertSerialNumber=" + gatewayCertSerialNumber + ", keyserverCertSerialNumber=" + keyserverCertSerialNumber + ", lastUpdatedBy=" + lastUpdatedBy + ", signedData=" + signedData + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "GatewaySecuredData [" + "associatedEnterpriseID=" + associatedEnterpriseID + ", data=" + data + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayCertSerialNumber=" + gatewayCertSerialNumber + ", keyserverCertSerialNumber=" + keyserverCertSerialNumber + ", lastUpdatedBy=" + lastUpdatedBy + ", signedData=" + signedData + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

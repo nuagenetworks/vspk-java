@@ -169,8 +169,7 @@ public class BulkStatistics extends RestObject {
    
 
    public String toString() {
-      return "BulkStatistics [" + "data=" + data + ", embeddedMetadata=" + embeddedMetadata + ", endTime=" + endTime + ", numberOfDataPoints=" + numberOfDataPoints + ", startTime=" + startTime + ", version=" + version + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "BulkStatistics [" + "data=" + data + ", embeddedMetadata=" + embeddedMetadata + ", endTime=" + endTime + ", numberOfDataPoints=" + numberOfDataPoints + ", startTime=" + startTime + ", version=" + version + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

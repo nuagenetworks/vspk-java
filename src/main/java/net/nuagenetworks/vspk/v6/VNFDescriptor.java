@@ -287,8 +287,7 @@ public class VNFDescriptor extends RestObject {
    
 
    public String toString() {
-      return "VNFDescriptor [" + "CPUCount=" + CPUCount + ", associatedVNFThresholdPolicyID=" + associatedVNFThresholdPolicyID + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", memoryMB=" + memoryMB + ", metadataID=" + metadataID + ", name=" + name + ", storageGB=" + storageGB + ", type=" + type + ", vendor=" + vendor + ", visible=" + visible + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "VNFDescriptor [" + "CPUCount=" + CPUCount + ", associatedVNFThresholdPolicyID=" + associatedVNFThresholdPolicyID + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", memoryMB=" + memoryMB + ", metadataID=" + metadataID + ", name=" + name + ", storageGB=" + storageGB + ", type=" + type + ", vendor=" + vendor + ", visible=" + visible + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

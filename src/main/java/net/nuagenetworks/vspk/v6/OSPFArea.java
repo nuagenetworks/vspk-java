@@ -318,8 +318,7 @@ public class OSPFArea extends RestObject {
    
 
    public String toString() {
-      return "OSPFArea [" + "aggregateAreaRange=" + aggregateAreaRange + ", aggregateAreaRangeNSSA=" + aggregateAreaRangeNSSA + ", areaID=" + areaID + ", areaType=" + areaType + ", defaultMetric=" + defaultMetric + ", defaultOriginateOption=" + defaultOriginateOption + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", redistributeExternalEnabled=" + redistributeExternalEnabled + ", summariesEnabled=" + summariesEnabled + ", suppressAreaRange=" + suppressAreaRange + ", suppressAreaRangeNSSA=" + suppressAreaRangeNSSA + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "OSPFArea [" + "aggregateAreaRange=" + aggregateAreaRange + ", aggregateAreaRangeNSSA=" + aggregateAreaRangeNSSA + ", areaID=" + areaID + ", areaType=" + areaType + ", defaultMetric=" + defaultMetric + ", defaultOriginateOption=" + defaultOriginateOption + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", redistributeExternalEnabled=" + redistributeExternalEnabled + ", summariesEnabled=" + summariesEnabled + ", suppressAreaRange=" + suppressAreaRange + ", suppressAreaRangeNSSA=" + suppressAreaRangeNSSA + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

@@ -318,8 +318,7 @@ public class DomainFIPAclTemplate extends RestObject {
    
 
    public String toString() {
-      return "DomainFIPAclTemplate [" + "active=" + active + ", associatedLiveEntityID=" + associatedLiveEntityID + ", autoGeneratePriority=" + autoGeneratePriority + ", defaultAllowIP=" + defaultAllowIP + ", defaultAllowNonIP=" + defaultAllowNonIP + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", entries=" + entries + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", policyState=" + policyState + ", priority=" + priority + ", priorityType=" + priorityType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "DomainFIPAclTemplate [" + "active=" + active + ", associatedLiveEntityID=" + associatedLiveEntityID + ", autoGeneratePriority=" + autoGeneratePriority + ", defaultAllowIP=" + defaultAllowIP + ", defaultAllowNonIP=" + defaultAllowNonIP + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", entries=" + entries + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", policyState=" + policyState + ", priority=" + priority + ", priorityType=" + priorityType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

@@ -185,8 +185,7 @@ public class ApplicationBinding extends RestObject {
    
 
    public String toString() {
-      return "ApplicationBinding [" + "associatedApplicationID=" + associatedApplicationID + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", priority=" + priority + ", readOnly=" + readOnly + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "ApplicationBinding [" + "associatedApplicationID=" + associatedApplicationID + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", priority=" + priority + ", readOnly=" + readOnly + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

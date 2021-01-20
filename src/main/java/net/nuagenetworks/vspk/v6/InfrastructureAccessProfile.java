@@ -280,8 +280,7 @@ public class InfrastructureAccessProfile extends RestObject {
    
 
    public String toString() {
-      return "InfrastructureAccessProfile [" + "SSHAuthMode=" + SSHAuthMode + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", password=" + password + ", sourceIPFilter=" + sourceIPFilter + ", userName=" + userName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "InfrastructureAccessProfile [" + "SSHAuthMode=" + SSHAuthMode + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", password=" + password + ", sourceIPFilter=" + sourceIPFilter + ", userName=" + userName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

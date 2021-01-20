@@ -320,8 +320,7 @@ public class DomainKindSummary extends RestObject {
    
 
    public String toString() {
-      return "DomainKindSummary [" + "criticalAlarmsCount=" + criticalAlarmsCount + ", domainKindDescription=" + domainKindDescription + ", domainKindName=" + domainKindName + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayCount=" + gatewayCount + ", infoAlarmsCount=" + infoAlarmsCount + ", lastUpdatedBy=" + lastUpdatedBy + ", majorAlarmsCount=" + majorAlarmsCount + ", meshGroupCount=" + meshGroupCount + ", minorAlarmsCount=" + minorAlarmsCount + ", nsgCount=" + nsgCount + ", subNetworkCount=" + subNetworkCount + ", trafficVolume=" + trafficVolume + ", zoneCount=" + zoneCount + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "DomainKindSummary [" + "criticalAlarmsCount=" + criticalAlarmsCount + ", domainKindDescription=" + domainKindDescription + ", domainKindName=" + domainKindName + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", gatewayCount=" + gatewayCount + ", infoAlarmsCount=" + infoAlarmsCount + ", lastUpdatedBy=" + lastUpdatedBy + ", majorAlarmsCount=" + majorAlarmsCount + ", meshGroupCount=" + meshGroupCount + ", minorAlarmsCount=" + minorAlarmsCount + ", nsgCount=" + nsgCount + ", subNetworkCount=" + subNetworkCount + ", trafficVolume=" + trafficVolume + ", zoneCount=" + zoneCount + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

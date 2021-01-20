@@ -286,8 +286,7 @@ public class OSPFInstance extends RestObject {
    
 
    public String toString() {
-      return "OSPFInstance [" + "associatedExportRoutingPolicyID=" + associatedExportRoutingPolicyID + ", associatedImportRoutingPolicyID=" + associatedImportRoutingPolicyID + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", exportLimit=" + exportLimit + ", exportToOverlay=" + exportToOverlay + ", externalID=" + externalID + ", externalPreference=" + externalPreference + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", preference=" + preference + ", superBackboneEnabled=" + superBackboneEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "OSPFInstance [" + "associatedExportRoutingPolicyID=" + associatedExportRoutingPolicyID + ", associatedImportRoutingPolicyID=" + associatedImportRoutingPolicyID + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", exportLimit=" + exportLimit + ", exportToOverlay=" + exportToOverlay + ", externalID=" + externalID + ", externalPreference=" + externalPreference + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", preference=" + preference + ", superBackboneEnabled=" + superBackboneEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

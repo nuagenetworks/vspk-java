@@ -306,8 +306,7 @@ public class InfrastructureEVDFProfile extends RestObject {
    
 
    public String toString() {
-      return "InfrastructureEVDFProfile [" + "NTPServerKey=" + NTPServerKey + ", NTPServerKeyID=" + NTPServerKeyID + ", activeController=" + activeController + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", nuagePlatform=" + nuagePlatform + ", proxyDNSName=" + proxyDNSName + ", serviceIPv4Subnet=" + serviceIPv4Subnet + ", standbyController=" + standbyController + ", useTwoFactor=" + useTwoFactor + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "InfrastructureEVDFProfile [" + "NTPServerKey=" + NTPServerKey + ", NTPServerKeyID=" + NTPServerKeyID + ", activeController=" + activeController + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", nuagePlatform=" + nuagePlatform + ", proxyDNSName=" + proxyDNSName + ", serviceIPv4Subnet=" + serviceIPv4Subnet + ", standbyController=" + standbyController + ", useTwoFactor=" + useTwoFactor + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

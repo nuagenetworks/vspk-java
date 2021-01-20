@@ -226,8 +226,7 @@ public class DHCPOption extends RestObject {
    
 
    public String toString() {
-      return "DHCPOption [" + "actualType=" + actualType + ", actualValues=" + actualValues + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", length=" + length + ", type=" + type + ", value=" + value + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "DHCPOption [" + "actualType=" + actualType + ", actualValues=" + actualValues + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", length=" + length + ", type=" + type + ", value=" + value + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

@@ -363,8 +363,7 @@ public class VirtualFirewallPolicy extends RestObject {
    
 
    public String toString() {
-      return "VirtualFirewallPolicy [" + "active=" + active + ", allowAddressSpoof=" + allowAddressSpoof + ", associatedEgressTemplateID=" + associatedEgressTemplateID + ", associatedIngressTemplateID=" + associatedIngressTemplateID + ", associatedLiveEntityID=" + associatedLiveEntityID + ", autoGeneratePriority=" + autoGeneratePriority + ", defaultAllowIP=" + defaultAllowIP + ", defaultAllowNonIP=" + defaultAllowNonIP + ", defaultInstallACLImplicitRules=" + defaultInstallACLImplicitRules + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", policyState=" + policyState + ", priority=" + priority + ", priorityType=" + priorityType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "VirtualFirewallPolicy [" + "active=" + active + ", allowAddressSpoof=" + allowAddressSpoof + ", associatedEgressTemplateID=" + associatedEgressTemplateID + ", associatedIngressTemplateID=" + associatedIngressTemplateID + ", associatedLiveEntityID=" + associatedLiveEntityID + ", autoGeneratePriority=" + autoGeneratePriority + ", defaultAllowIP=" + defaultAllowIP + ", defaultAllowNonIP=" + defaultAllowNonIP + ", defaultInstallACLImplicitRules=" + defaultInstallACLImplicitRules + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", policyState=" + policyState + ", priority=" + priority + ", priorityType=" + priorityType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

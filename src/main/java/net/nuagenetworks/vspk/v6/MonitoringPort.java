@@ -262,8 +262,7 @@ public class MonitoringPort extends RestObject {
    
 
    public String toString() {
-      return "MonitoringPort [" + "access=" + access + ", description=" + description + ", dpdkEnabled=" + dpdkEnabled + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastStateChange=" + lastStateChange + ", name=" + name + ", resiliencyState=" + resiliencyState + ", resilient=" + resilient + ", state=" + state + ", uplink=" + uplink + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "MonitoringPort [" + "access=" + access + ", description=" + description + ", dpdkEnabled=" + dpdkEnabled + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastStateChange=" + lastStateChange + ", name=" + name + ", resiliencyState=" + resiliencyState + ", resilient=" + resilient + ", state=" + state + ", uplink=" + uplink + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

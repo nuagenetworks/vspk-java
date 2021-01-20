@@ -154,8 +154,7 @@ public class Ltestatistics extends RestObject {
    
 
    public String toString() {
-      return "Ltestatistics [" + "embeddedMetadata=" + embeddedMetadata + ", endTime=" + endTime + ", startTime=" + startTime + ", statsData=" + statsData + ", version=" + version + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "Ltestatistics [" + "embeddedMetadata=" + embeddedMetadata + ", endTime=" + endTime + ", startTime=" + startTime + ", statsData=" + statsData + ", version=" + version + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

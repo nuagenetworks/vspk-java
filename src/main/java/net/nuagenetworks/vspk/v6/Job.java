@@ -232,8 +232,7 @@ public class Job extends RestObject {
    
 
    public String toString() {
-      return "Job [" + "assocEntityType=" + assocEntityType + ", command=" + command + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", parameters=" + parameters + ", progress=" + progress + ", result=" + result + ", status=" + status + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "Job [" + "assocEntityType=" + assocEntityType + ", command=" + command + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", parameters=" + parameters + ", progress=" + progress + ", result=" + result + ", status=" + status + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

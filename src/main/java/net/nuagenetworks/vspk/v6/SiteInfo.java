@@ -215,8 +215,7 @@ public class SiteInfo extends RestObject {
    
 
    public String toString() {
-      return "SiteInfo [" + "address=" + address + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", siteIdentifier=" + siteIdentifier + ", xmppDomain=" + xmppDomain + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "SiteInfo [" + "address=" + address + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", siteIdentifier=" + siteIdentifier + ", xmppDomain=" + xmppDomain + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

@@ -201,8 +201,7 @@ public class StatsCollectorInfo extends RestObject {
    
 
    public String toString() {
-      return "StatsCollectorInfo [" + "addressType=" + addressType + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", ipAddress=" + ipAddress + ", lastUpdatedBy=" + lastUpdatedBy + ", port=" + port + ", protoBufPort=" + protoBufPort + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "StatsCollectorInfo [" + "addressType=" + addressType + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", ipAddress=" + ipAddress + ", lastUpdatedBy=" + lastUpdatedBy + ", port=" + port + ", protoBufPort=" + protoBufPort + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

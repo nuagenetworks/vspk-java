@@ -43,7 +43,7 @@ public class Command extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum ECommand { NSG_APPLY_PATCH, NSG_DELETE_PATCH, NSG_DOWNLOAD_OS_IMAGE, NSG_REBOOT, NSG_RENEW_CERT, NSG_UPDATE_INFO, NSG_UPGRADE_TO_IMAGE, UNKNOWN };
+   public enum ECommand { NSG_APPLY_PATCH, NSG_CONTAINER_TEST_SUITE_RUN, NSG_DELETE_PATCH, NSG_DOWNLOAD_OS_IMAGE, NSG_OVERLAY_SYSLOG_CONTAINER_RESTART, NSG_OVERLAY_SYSLOG_CONTAINER_START, NSG_OVERLAY_SYSLOG_CONTAINER_STOP, NSG_REBOOT, NSG_RENEW_CERT, NSG_UPDATE_INFO, NSG_UPGRADE_TO_IMAGE, UNKNOWN };
    public enum EEntityScope { ENTERPRISE, GLOBAL };
    public enum EOverride { ABANDON, UNSPECIFIED };
    public enum EStatus { ABANDONED, COMPLETED, FAILED, RUNNING, SKIPPED, STARTED, UNKNOWN };
@@ -301,8 +301,7 @@ public class Command extends RestObject {
    
 
    public String toString() {
-      return "Command [" + "assocEntityType=" + assocEntityType + ", associatedParam=" + associatedParam + ", associatedParamType=" + associatedParamType + ", command=" + command + ", commandInformation=" + commandInformation + ", detail=" + detail + ", detailedStatus=" + detailedStatus + ", detailedStatusCode=" + detailedStatusCode + ", entityScope=" + entityScope + ", externalID=" + externalID + ", fullCommand=" + fullCommand + ", lastUpdatedBy=" + lastUpdatedBy + ", override=" + override + ", progress=" + progress + ", status=" + status + ", summary=" + summary + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "Command [" + "assocEntityType=" + assocEntityType + ", associatedParam=" + associatedParam + ", associatedParamType=" + associatedParamType + ", command=" + command + ", commandInformation=" + commandInformation + ", detail=" + detail + ", detailedStatus=" + detailedStatus + ", detailedStatusCode=" + detailedStatusCode + ", entityScope=" + entityScope + ", externalID=" + externalID + ", fullCommand=" + fullCommand + ", lastUpdatedBy=" + lastUpdatedBy + ", override=" + override + ", progress=" + progress + ", status=" + status + ", summary=" + summary + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

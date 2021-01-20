@@ -148,8 +148,7 @@ public class PGExpressionTemplate extends RestObject {
    
 
    public String toString() {
-      return "PGExpressionTemplate [" + "description=" + description + ", entityScope=" + entityScope + ", expression=" + expression + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "PGExpressionTemplate [" + "description=" + description + ", entityScope=" + entityScope + ", expression=" + expression + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

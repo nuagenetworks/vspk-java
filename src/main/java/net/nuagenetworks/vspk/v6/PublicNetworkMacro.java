@@ -227,8 +227,7 @@ public class PublicNetworkMacro extends RestObject {
    
 
    public String toString() {
-      return "PublicNetworkMacro [" + "IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", address=" + address + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", netmask=" + netmask + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "PublicNetworkMacro [" + "IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", address=" + address + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", netmask=" + netmask + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

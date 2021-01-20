@@ -326,8 +326,7 @@ public class PolicyGroup extends RestObject {
    
 
    public String toString() {
-      return "PolicyGroup [" + "EVPNCommunityTag=" + EVPNCommunityTag + ", assocPolicyGroupCategoryID=" + assocPolicyGroupCategoryID + ", assocPolicyGroupCategoryName=" + assocPolicyGroupCategoryName + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", entityState=" + entityState + ", external=" + external + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", policyGroupID=" + policyGroupID + ", templateID=" + templateID + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "PolicyGroup [" + "EVPNCommunityTag=" + EVPNCommunityTag + ", assocPolicyGroupCategoryID=" + assocPolicyGroupCategoryID + ", assocPolicyGroupCategoryName=" + assocPolicyGroupCategoryName + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", entityState=" + entityState + ", external=" + external + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", policyGroupID=" + policyGroupID + ", templateID=" + templateID + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

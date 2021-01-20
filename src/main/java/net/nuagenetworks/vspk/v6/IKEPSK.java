@@ -275,8 +275,7 @@ public class IKEPSK extends RestObject {
    
 
    public String toString() {
-      return "IKEPSK [" + "associatedEnterpriseID=" + associatedEnterpriseID + ", autoCreated=" + autoCreated + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", encryptedPSK=" + encryptedPSK + ", encryptingCertificateSerialNumber=" + encryptingCertificateSerialNumber + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", signature=" + signature + ", signingCertificateSerialNumber=" + signingCertificateSerialNumber + ", unencryptedPSK=" + unencryptedPSK + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "IKEPSK [" + "associatedEnterpriseID=" + associatedEnterpriseID + ", autoCreated=" + autoCreated + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", encryptedPSK=" + encryptedPSK + ", encryptingCertificateSerialNumber=" + encryptingCertificateSerialNumber + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", signature=" + signature + ", signingCertificateSerialNumber=" + signingCertificateSerialNumber + ", unencryptedPSK=" + unencryptedPSK + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

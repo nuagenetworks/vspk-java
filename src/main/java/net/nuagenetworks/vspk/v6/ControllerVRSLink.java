@@ -391,8 +391,7 @@ public class ControllerVRSLink extends RestObject {
    
 
    public String toString() {
-      return "ControllerVRSLink [" + "JSONRPCConnectionState=" + JSONRPCConnectionState + ", VRSID=" + VRSID + ", VRSPersonality=" + VRSPersonality + ", VSCConfigState=" + VSCConfigState + ", VSCCurrentState=" + VSCCurrentState + ", clusterNodeRole=" + clusterNodeRole + ", connections=" + connections + ", controllerID=" + controllerID + ", controllerType=" + controllerType + ", dynamic=" + dynamic + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", peer=" + peer + ", role=" + role + ", status=" + status + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "ControllerVRSLink [" + "JSONRPCConnectionState=" + JSONRPCConnectionState + ", VRSID=" + VRSID + ", VRSPersonality=" + VRSPersonality + ", VSCConfigState=" + VSCConfigState + ", VSCCurrentState=" + VSCCurrentState + ", clusterNodeRole=" + clusterNodeRole + ", connections=" + connections + ", controllerID=" + controllerID + ", controllerType=" + controllerType + ", dynamic=" + dynamic + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", peer=" + peer + ", role=" + role + ", status=" + status + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

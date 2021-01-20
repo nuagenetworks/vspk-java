@@ -201,8 +201,7 @@ public class DiskStat extends RestObject {
    
 
    public String toString() {
-      return "DiskStat [" + "available=" + available + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", name=" + name + ", size=" + size + ", unit=" + unit + ", used=" + used + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "DiskStat [" + "available=" + available + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", name=" + name + ", size=" + size + ", unit=" + unit + ", used=" + used + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

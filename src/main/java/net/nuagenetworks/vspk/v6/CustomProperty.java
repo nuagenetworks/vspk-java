@@ -170,8 +170,7 @@ public class CustomProperty extends RestObject {
    
 
    public String toString() {
-      return "CustomProperty [" + "attributeName=" + attributeName + ", attributeValue=" + attributeValue + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "CustomProperty [" + "attributeName=" + attributeName + ", attributeValue=" + attributeValue + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

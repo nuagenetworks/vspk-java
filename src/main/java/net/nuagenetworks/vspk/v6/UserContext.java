@@ -290,8 +290,7 @@ public class UserContext extends RestObject {
    
 
    public String toString() {
-      return "UserContext [" + "AARFlowStatsInterval=" + AARFlowStatsInterval + ", AARProbeStatsInterval=" + AARProbeStatsInterval + ", VSSFeatureEnabled=" + VSSFeatureEnabled + ", VSSStatsInterval=" + VSSStatsInterval + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", flowCollectionEnabled=" + flowCollectionEnabled + ", googleMapsAPIKey=" + googleMapsAPIKey + ", lastUpdatedBy=" + lastUpdatedBy + ", pageSize=" + pageSize + ", statisticsEnabled=" + statisticsEnabled + ", statsDatabaseProxy=" + statsDatabaseProxy + ", statsTSDBServerAddress=" + statsTSDBServerAddress + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "UserContext [" + "AARFlowStatsInterval=" + AARFlowStatsInterval + ", AARProbeStatsInterval=" + AARProbeStatsInterval + ", VSSFeatureEnabled=" + VSSFeatureEnabled + ", VSSStatsInterval=" + VSSStatsInterval + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", flowCollectionEnabled=" + flowCollectionEnabled + ", googleMapsAPIKey=" + googleMapsAPIKey + ", lastUpdatedBy=" + lastUpdatedBy + ", pageSize=" + pageSize + ", statisticsEnabled=" + statisticsEnabled + ", statsDatabaseProxy=" + statsDatabaseProxy + ", statsTSDBServerAddress=" + statsTSDBServerAddress + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

@@ -232,8 +232,7 @@ public class Connectionendpoint extends RestObject {
    
 
    public String toString() {
-      return "Connectionendpoint [" + "IPAddress=" + IPAddress + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", endPointType=" + endPointType + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "Connectionendpoint [" + "IPAddress=" + IPAddress + ", IPType=" + IPType + ", IPv6Address=" + IPv6Address + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", endPointType=" + endPointType + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

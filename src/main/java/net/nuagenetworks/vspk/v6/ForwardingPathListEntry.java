@@ -249,8 +249,7 @@ public class ForwardingPathListEntry extends RestObject {
    
 
    public String toString() {
-      return "ForwardingPathListEntry [" + "DSCPRemarking=" + DSCPRemarking + ", FCOverride=" + FCOverride + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", forwardingAction=" + forwardingAction + ", lastUpdatedBy=" + lastUpdatedBy + ", priority=" + priority + ", remoteUplinkPreference=" + remoteUplinkPreference + ", slaAware=" + slaAware + ", uplinkPreference=" + uplinkPreference + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "ForwardingPathListEntry [" + "DSCPRemarking=" + DSCPRemarking + ", FCOverride=" + FCOverride + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", forwardingAction=" + forwardingAction + ", lastUpdatedBy=" + lastUpdatedBy + ", priority=" + priority + ", remoteUplinkPreference=" + remoteUplinkPreference + ", slaAware=" + slaAware + ", uplinkPreference=" + uplinkPreference + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

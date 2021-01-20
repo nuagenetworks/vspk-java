@@ -290,8 +290,7 @@ public class EventLog extends RestObject {
    
 
    public String toString() {
-      return "EventLog [" + "diff=" + diff + ", embeddedMetadata=" + embeddedMetadata + ", enterprise=" + enterprise + ", entities=" + entities + ", entityID=" + entityID + ", entityParentID=" + entityParentID + ", entityParentType=" + entityParentType + ", entityScope=" + entityScope + ", entityType=" + entityType + ", eventReceivedTime=" + eventReceivedTime + ", externalID=" + externalID + ", requestID=" + requestID + ", type=" + type + ", user=" + user + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "EventLog [" + "diff=" + diff + ", embeddedMetadata=" + embeddedMetadata + ", enterprise=" + enterprise + ", entities=" + entities + ", entityID=" + entityID + ", entityParentID=" + entityParentID + ", entityParentType=" + entityParentType + ", entityScope=" + entityScope + ", entityType=" + entityType + ", eventReceivedTime=" + eventReceivedTime + ", externalID=" + externalID + ", requestID=" + requestID + ", type=" + type + ", user=" + user + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

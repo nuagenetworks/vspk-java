@@ -148,8 +148,7 @@ public class Autodiscovereddatacenter extends RestObject {
    
 
    public String toString() {
-      return "Autodiscovereddatacenter [" + "associatedVCenterID=" + associatedVCenterID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", managedObjectID=" + managedObjectID + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "Autodiscovereddatacenter [" + "associatedVCenterID=" + associatedVCenterID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", managedObjectID=" + managedObjectID + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

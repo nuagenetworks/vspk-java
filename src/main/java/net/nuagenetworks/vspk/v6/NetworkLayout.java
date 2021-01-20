@@ -186,8 +186,7 @@ public class NetworkLayout extends RestObject {
    
 
    public String toString() {
-      return "NetworkLayout [" + "autonomousSystemNum=" + autonomousSystemNum + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", routeReflectorIP=" + routeReflectorIP + ", serviceType=" + serviceType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "NetworkLayout [" + "autonomousSystemNum=" + autonomousSystemNum + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", routeReflectorIP=" + routeReflectorIP + ", serviceType=" + serviceType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

@@ -147,8 +147,7 @@ public class NSGatewayMonitor extends RestObject {
    
 
    public String toString() {
-      return "NSGatewayMonitor [" + "controllervrslinks=" + controllervrslinks + ", nsginfo=" + nsginfo + ", nsgstate=" + nsgstate + ", nsgsummary=" + nsgsummary + ", vrsinfo=" + vrsinfo + ", vscs=" + vscs + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "NSGatewayMonitor [" + "controllervrslinks=" + controllervrslinks + ", nsginfo=" + nsginfo + ", nsgstate=" + nsgstate + ", nsgsummary=" + nsgsummary + ", vrsinfo=" + vrsinfo + ", vscs=" + vscs + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

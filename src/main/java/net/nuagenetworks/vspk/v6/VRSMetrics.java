@@ -298,8 +298,7 @@ public class VRSMetrics extends RestObject {
    
 
    public String toString() {
-      return "VRSMetrics [" + "ALUbr0Status=" + ALUbr0Status + ", CPUUtilization=" + CPUUtilization + ", VRSProcess=" + VRSProcess + ", VRSVSCStatus=" + VRSVSCStatus + ", appliedMetricsPushInterval=" + appliedMetricsPushInterval + ", associatedVCenterHypervisorID=" + associatedVCenterHypervisorID + ", currentVersion=" + currentVersion + ", entityScope=" + entityScope + ", externalID=" + externalID + ", jesxmonProcess=" + jesxmonProcess + ", lastUpdatedBy=" + lastUpdatedBy + ", logDiskPartitionUtilization=" + logDiskPartitionUtilization + ", memoryUtilization=" + memoryUtilization + ", reDeploy=" + reDeploy + ", receivingMetrics=" + receivingMetrics + ", rootDiskPartitionUtilization=" + rootDiskPartitionUtilization + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "VRSMetrics [" + "ALUbr0Status=" + ALUbr0Status + ", CPUUtilization=" + CPUUtilization + ", VRSProcess=" + VRSProcess + ", VRSVSCStatus=" + VRSVSCStatus + ", appliedMetricsPushInterval=" + appliedMetricsPushInterval + ", associatedVCenterHypervisorID=" + associatedVCenterHypervisorID + ", currentVersion=" + currentVersion + ", entityScope=" + entityScope + ", externalID=" + externalID + ", jesxmonProcess=" + jesxmonProcess + ", lastUpdatedBy=" + lastUpdatedBy + ", logDiskPartitionUtilization=" + logDiskPartitionUtilization + ", memoryUtilization=" + memoryUtilization + ", reDeploy=" + reDeploy + ", receivingMetrics=" + receivingMetrics + ", rootDiskPartitionUtilization=" + rootDiskPartitionUtilization + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

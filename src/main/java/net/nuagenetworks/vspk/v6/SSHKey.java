@@ -201,8 +201,7 @@ public class SSHKey extends RestObject {
    
 
    public String toString() {
-      return "SSHKey [" + "description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", keyType=" + keyType + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", publicKey=" + publicKey + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType + ", creationDate=" + creationDate + ", lastUpdatedDate="
-              + lastUpdatedDate + ", owner=" + owner  + "]";
+      return "SSHKey [" + "description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", keyType=" + keyType + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", publicKey=" + publicKey + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    
