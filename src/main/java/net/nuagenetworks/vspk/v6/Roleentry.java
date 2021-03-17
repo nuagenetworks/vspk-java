@@ -35,6 +35,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "roleentry", resourceName = "roleentries")
@@ -43,12 +46,25 @@ public class Roleentry extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
    public enum ERoleAccessTypeList { CREATE, CUD_CHILDREN, DELETE, MODIFY, NO_ACCESS, NO_ACCESS_CHILDREN, READ, READ_CHILDREN };
 
+   
+   @JsonProperty(value = "embeddedMetadata")
+   
+   protected java.util.List<Metadata> embeddedMetadata;
    
    @JsonProperty(value = "endPointType")
    
    protected String endPointType;
+   
+   @JsonProperty(value = "entityScope")
+   
+   protected EEntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   
+   protected String externalID;
    
    @JsonProperty(value = "roleAccessTypeList")
    
@@ -56,11 +72,37 @@ public class Roleentry extends RestObject {
    
 
    
+   @JsonIgnore
+   private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
+   @JsonIgnore
+   private PermissionsFetcher permissions;
+   
 
    public Roleentry() {
       
+      globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
+      
+      permissions = new PermissionsFetcher(this);
+      
    }
 
+   
+   
+   @JsonIgnore
+   public java.util.List<Metadata> getEmbeddedMetadata() {
+      return embeddedMetadata;
+   }
+
+   @JsonIgnore
+   public void setEmbeddedMetadata(java.util.List<Metadata> value) { 
+      this.embeddedMetadata = value;
+   }
    
    
    @JsonIgnore
@@ -71,6 +113,28 @@ public class Roleentry extends RestObject {
    @JsonIgnore
    public void setEndPointType(String value) { 
       this.endPointType = value;
+   }
+   
+   
+   @JsonIgnore
+   public EEntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EEntityScope value) { 
+      this.entityScope = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
    }
    
    
@@ -86,9 +150,24 @@ public class Roleentry extends RestObject {
    
 
    
+   @JsonIgnore
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
+   @JsonIgnore
+   public PermissionsFetcher getPermissions() {
+      return permissions;
+   }
+   
 
    public String toString() {
-      return "Roleentry [" + "endPointType=" + endPointType + ", roleAccessTypeList=" + roleAccessTypeList + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "Roleentry [" + "embeddedMetadata=" + embeddedMetadata + ", endPointType=" + endPointType + ", entityScope=" + entityScope + ", externalID=" + externalID + ", roleAccessTypeList=" + roleAccessTypeList + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

@@ -37,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "supplementalinfraconfig", resourceName = "supplementalinfraconfigs")
+@RestEntity(restName = "supplementalinfraconfig", resourceName = "supplementalinfraconfig")
 public class SupplementalInfraConfig extends RestObject {
 
    private static final long serialVersionUID = 1L;

@@ -53,7 +53,7 @@ public class UplinkConnection extends RestObject {
    public enum EAdvertisementCriteria { BFD, CONTROL_SESSION, OPERATIONAL_LINK };
    public enum EAuxMode { COLD, HOT, NONE };
    public enum EEntityScope { ENTERPRISE, GLOBAL };
-   public enum EFecEnabled { DISABLED, ENABLED, SUPPORTED };
+   public enum EFecEnabled { ACTIVE, DISABLED, PASSIVE };
    public enum EInterfaceConnectionType { AUTOMATIC, EMBEDDED, PCI_EXPRESS, USB_ETHERNET, USB_MODEM };
    public enum EMode { Any, Dynamic, LTE, PPPoE, Static };
    public enum ERole { NONE, PRIMARY, SECONDARY, TERTIARY, UNKNOWN };
