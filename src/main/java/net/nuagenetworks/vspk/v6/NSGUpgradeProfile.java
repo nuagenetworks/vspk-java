@@ -46,6 +46,10 @@ public class NSGUpgradeProfile extends RestObject {
    public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "description")
    
    protected String description;
@@ -70,6 +74,10 @@ public class NSGUpgradeProfile extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "metadataUpgradePath")
    
    protected String metadataUpgradePath;
@@ -78,6 +86,10 @@ public class NSGUpgradeProfile extends RestObject {
    
    protected String name;
    
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
+   
 
    
 
@@ -85,6 +97,17 @@ public class NSGUpgradeProfile extends RestObject {
       
    }
 
+   
+   
+   @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
+   }
    
    
    @JsonIgnore
@@ -154,6 +177,17 @@ public class NSGUpgradeProfile extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public String getMetadataUpgradePath() {
       return metadataUpgradePath;
    }
@@ -174,11 +208,22 @@ public class NSGUpgradeProfile extends RestObject {
       this.name = value;
    }
    
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
+   }
+   
 
    
 
    public String toString() {
-      return "NSGUpgradeProfile [" + "description=" + description + ", downloadRateLimit=" + downloadRateLimit + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", metadataUpgradePath=" + metadataUpgradePath + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "NSGUpgradeProfile [" + "creationDate=" + creationDate + ", description=" + description + ", downloadRateLimit=" + downloadRateLimit + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", metadataUpgradePath=" + metadataUpgradePath + ", name=" + name + ", owner=" + owner + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

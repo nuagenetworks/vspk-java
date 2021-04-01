@@ -56,6 +56,10 @@ public class GlobalMetadata extends RestObject {
    
    protected String blob;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "description")
    
    protected String description;
@@ -80,6 +84,10 @@ public class GlobalMetadata extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "metadataTagIDs")
    
    protected java.util.List<String> metadataTagIDs;
@@ -91,6 +99,10 @@ public class GlobalMetadata extends RestObject {
    @JsonProperty(value = "networkNotificationDisabled")
    
    protected Boolean networkNotificationDisabled;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
 
    
@@ -130,6 +142,17 @@ public class GlobalMetadata extends RestObject {
    @JsonIgnore
    public void setBlob(String value) { 
       this.blob = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
    }
    
    
@@ -200,6 +223,17 @@ public class GlobalMetadata extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public java.util.List<String> getMetadataTagIDs() {
       return metadataTagIDs;
    }
@@ -231,6 +265,17 @@ public class GlobalMetadata extends RestObject {
       this.networkNotificationDisabled = value;
    }
    
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
+   }
+   
 
    
    @JsonIgnore
@@ -245,7 +290,7 @@ public class GlobalMetadata extends RestObject {
    
 
    public String toString() {
-      return "GlobalMetadata [" + "assocEntityType=" + assocEntityType + ", blob=" + blob + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", globalMetadata=" + globalMetadata + ", lastUpdatedBy=" + lastUpdatedBy + ", metadataTagIDs=" + metadataTagIDs + ", name=" + name + ", networkNotificationDisabled=" + networkNotificationDisabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "GlobalMetadata [" + "assocEntityType=" + assocEntityType + ", blob=" + blob + ", creationDate=" + creationDate + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", globalMetadata=" + globalMetadata + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", metadataTagIDs=" + metadataTagIDs + ", name=" + name + ", networkNotificationDisabled=" + networkNotificationDisabled + ", owner=" + owner + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

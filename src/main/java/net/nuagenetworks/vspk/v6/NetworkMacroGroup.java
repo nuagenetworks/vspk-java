@@ -50,6 +50,10 @@ public class NetworkMacroGroup extends RestObject {
    public enum EMacroGroupType { GATEWAY_AGGREGATE };
 
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "description")
    
    protected String description;
@@ -74,6 +78,10 @@ public class NetworkMacroGroup extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "macroGroupType")
    
    protected EMacroGroupType macroGroupType;
@@ -81,6 +89,10 @@ public class NetworkMacroGroup extends RestObject {
    @JsonProperty(value = "name")
    
    protected String name;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
 
    
@@ -104,6 +116,17 @@ public class NetworkMacroGroup extends RestObject {
       
    }
 
+   
+   
+   @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
+   }
    
    
    @JsonIgnore
@@ -173,6 +196,17 @@ public class NetworkMacroGroup extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public EMacroGroupType getMacroGroupType() {
       return macroGroupType;
    }
@@ -191,6 +225,17 @@ public class NetworkMacroGroup extends RestObject {
    @JsonIgnore
    public void setName(String value) { 
       this.name = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
 
@@ -212,7 +257,7 @@ public class NetworkMacroGroup extends RestObject {
    
 
    public String toString() {
-      return "NetworkMacroGroup [" + "description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", isSaaSType=" + isSaaSType + ", lastUpdatedBy=" + lastUpdatedBy + ", macroGroupType=" + macroGroupType + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "NetworkMacroGroup [" + "creationDate=" + creationDate + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", isSaaSType=" + isSaaSType + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", macroGroupType=" + macroGroupType + ", name=" + name + ", owner=" + owner + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

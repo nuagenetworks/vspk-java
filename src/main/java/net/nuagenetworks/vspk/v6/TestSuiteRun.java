@@ -70,6 +70,10 @@ public class TestSuiteRun extends RestObject {
    
    protected String associatedTestSuiteName;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "datapathID")
    
    protected String datapathID;
@@ -98,9 +102,17 @@ public class TestSuiteRun extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "operationStatus")
    
    protected EOperationStatus operationStatus;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "subnetName")
    
@@ -190,6 +202,17 @@ public class TestSuiteRun extends RestObject {
    
    
    @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
+   }
+   
+   
+   @JsonIgnore
    public String getDatapathID() {
       return datapathID;
    }
@@ -267,6 +290,17 @@ public class TestSuiteRun extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public EOperationStatus getOperationStatus() {
       return operationStatus;
    }
@@ -274,6 +308,17 @@ public class TestSuiteRun extends RestObject {
    @JsonIgnore
    public void setOperationStatus(EOperationStatus value) { 
       this.operationStatus = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
    
@@ -317,7 +362,7 @@ public class TestSuiteRun extends RestObject {
    
 
    public String toString() {
-      return "TestSuiteRun [" + "NSGatewayName=" + NSGatewayName + ", VPortName=" + VPortName + ", associatedEntityType=" + associatedEntityType + ", associatedTestSuiteID=" + associatedTestSuiteID + ", associatedTestSuiteName=" + associatedTestSuiteName + ", datapathID=" + datapathID + ", destination=" + destination + ", domainName=" + domainName + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", operationStatus=" + operationStatus + ", subnetName=" + subnetName + ", zoneName=" + zoneName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "TestSuiteRun [" + "NSGatewayName=" + NSGatewayName + ", VPortName=" + VPortName + ", associatedEntityType=" + associatedEntityType + ", associatedTestSuiteID=" + associatedTestSuiteID + ", associatedTestSuiteName=" + associatedTestSuiteName + ", creationDate=" + creationDate + ", datapathID=" + datapathID + ", destination=" + destination + ", domainName=" + domainName + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", operationStatus=" + operationStatus + ", owner=" + owner + ", subnetName=" + subnetName + ", zoneName=" + zoneName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

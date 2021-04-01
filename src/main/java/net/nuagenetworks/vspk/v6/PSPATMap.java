@@ -53,6 +53,10 @@ public class PSPATMap extends RestObject {
    
    protected String associatedSPATSourcesPoolID;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "embeddedMetadata")
    
    protected java.util.List<Metadata> embeddedMetadata;
@@ -73,9 +77,17 @@ public class PSPATMap extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "name")
    
    protected String name;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "reservedSPATIPs")
    
@@ -108,6 +120,17 @@ public class PSPATMap extends RestObject {
    @JsonIgnore
    public void setAssociatedSPATSourcesPoolID(String value) { 
       this.associatedSPATSourcesPoolID = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
    }
    
    
@@ -167,6 +190,17 @@ public class PSPATMap extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public String getName() {
       return name;
    }
@@ -174,6 +208,17 @@ public class PSPATMap extends RestObject {
    @JsonIgnore
    public void setName(String value) { 
       this.name = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
    
@@ -201,7 +246,7 @@ public class PSPATMap extends RestObject {
    
 
    public String toString() {
-      return "PSPATMap [" + "associatedSPATSourcesPoolID=" + associatedSPATSourcesPoolID + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", family=" + family + ", lastUpdatedBy=" + lastUpdatedBy + ", name=" + name + ", reservedSPATIPs=" + reservedSPATIPs + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "PSPATMap [" + "associatedSPATSourcesPoolID=" + associatedSPATSourcesPoolID + ", creationDate=" + creationDate + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", family=" + family + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", name=" + name + ", owner=" + owner + ", reservedSPATIPs=" + reservedSPATIPs + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

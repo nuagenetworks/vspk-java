@@ -52,6 +52,10 @@ public class NetworkPerformanceBinding extends RestObject {
    
    protected String associatedNetworkMeasurementID;
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "embeddedMetadata")
    
    protected java.util.List<Metadata> embeddedMetadata;
@@ -67,6 +71,14 @@ public class NetworkPerformanceBinding extends RestObject {
    @JsonProperty(value = "lastUpdatedBy")
    
    protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "priority")
    
@@ -103,6 +115,17 @@ public class NetworkPerformanceBinding extends RestObject {
    @JsonIgnore
    public void setAssociatedNetworkMeasurementID(String value) { 
       this.associatedNetworkMeasurementID = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
    }
    
    
@@ -151,6 +174,28 @@ public class NetworkPerformanceBinding extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
+   }
+   
+   
+   @JsonIgnore
    public Long getPriority() {
       return priority;
    }
@@ -185,7 +230,7 @@ public class NetworkPerformanceBinding extends RestObject {
    
 
    public String toString() {
-      return "NetworkPerformanceBinding [" + "associatedNetworkMeasurementID=" + associatedNetworkMeasurementID + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", priority=" + priority + ", readOnly=" + readOnly + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "NetworkPerformanceBinding [" + "associatedNetworkMeasurementID=" + associatedNetworkMeasurementID + ", creationDate=" + creationDate + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", owner=" + owner + ", priority=" + priority + ", readOnly=" + readOnly + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

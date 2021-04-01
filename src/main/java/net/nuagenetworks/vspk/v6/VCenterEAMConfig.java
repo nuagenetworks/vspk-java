@@ -48,6 +48,10 @@ public class VCenterEAMConfig extends RestObject {
    public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
+   
    @JsonProperty(value = "eamServerIP")
    
    protected String eamServerIP;
@@ -80,9 +84,17 @@ public class VCenterEAMConfig extends RestObject {
    
    protected String lastUpdatedBy;
    
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "ovfURL")
    
    protected String ovfURL;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "vibURL")
    
@@ -105,6 +117,17 @@ public class VCenterEAMConfig extends RestObject {
       
    }
 
+   
+   
+   @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
+   }
    
    
    @JsonIgnore
@@ -196,6 +219,17 @@ public class VCenterEAMConfig extends RestObject {
    
    
    @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public String getOvfURL() {
       return ovfURL;
    }
@@ -203,6 +237,17 @@ public class VCenterEAMConfig extends RestObject {
    @JsonIgnore
    public void setOvfURL(String value) { 
       this.ovfURL = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
    
@@ -230,7 +275,7 @@ public class VCenterEAMConfig extends RestObject {
    
 
    public String toString() {
-      return "VCenterEAMConfig [" + "eamServerIP=" + eamServerIP + ", eamServerPortNumber=" + eamServerPortNumber + ", eamServerPortType=" + eamServerPortType + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", extensionKey=" + extensionKey + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", ovfURL=" + ovfURL + ", vibURL=" + vibURL + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "VCenterEAMConfig [" + "creationDate=" + creationDate + ", eamServerIP=" + eamServerIP + ", eamServerPortNumber=" + eamServerPortNumber + ", eamServerPortType=" + eamServerPortType + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", extensionKey=" + extensionKey + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", ovfURL=" + ovfURL + ", owner=" + owner + ", vibURL=" + vibURL + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    
