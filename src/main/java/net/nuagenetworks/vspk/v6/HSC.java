@@ -141,6 +141,10 @@ public class HSC extends RestObject {
    
    protected String name;
    
+   @JsonProperty(value = "numberOfInactiveGateways")
+   
+   protected Long numberOfInactiveGateways;
+   
    @JsonProperty(value = "owner")
    
    protected String owner;
@@ -153,9 +157,17 @@ public class HSC extends RestObject {
    
    protected Float peakMemoryUsage;
    
+   @JsonProperty(value = "primaryRoleCount")
+   
+   protected Long primaryRoleCount;
+   
    @JsonProperty(value = "productVersion")
    
    protected String productVersion;
+   
+   @JsonProperty(value = "secondaryRoleCount")
+   
+   protected Long secondaryRoleCount;
    
    @JsonProperty(value = "status")
    
@@ -459,6 +471,17 @@ public class HSC extends RestObject {
    
    
    @JsonIgnore
+   public Long getNumberOfInactiveGateways() {
+      return numberOfInactiveGateways;
+   }
+
+   @JsonIgnore
+   public void setNumberOfInactiveGateways(Long value) { 
+      this.numberOfInactiveGateways = value;
+   }
+   
+   
+   @JsonIgnore
    public String getOwner() {
       return owner;
    }
@@ -492,6 +515,17 @@ public class HSC extends RestObject {
    
    
    @JsonIgnore
+   public Long getPrimaryRoleCount() {
+      return primaryRoleCount;
+   }
+
+   @JsonIgnore
+   public void setPrimaryRoleCount(Long value) { 
+      this.primaryRoleCount = value;
+   }
+   
+   
+   @JsonIgnore
    public String getProductVersion() {
       return productVersion;
    }
@@ -499,6 +533,17 @@ public class HSC extends RestObject {
    @JsonIgnore
    public void setProductVersion(String value) { 
       this.productVersion = value;
+   }
+   
+   
+   @JsonIgnore
+   public Long getSecondaryRoleCount() {
+      return secondaryRoleCount;
+   }
+
+   @JsonIgnore
+   public void setSecondaryRoleCount(Long value) { 
+      this.secondaryRoleCount = value;
    }
    
    
@@ -594,7 +639,7 @@ public class HSC extends RestObject {
    
 
    public String toString() {
-      return "HSC [" + "addresses=" + addresses + ", alreadyMarkedForUnavailable=" + alreadyMarkedForUnavailable + ", averageCPUUsage=" + averageCPUUsage + ", averageMemoryUsage=" + averageMemoryUsage + ", communicationId=" + communicationId + ", creationDate=" + creationDate + ", currentCPUUsage=" + currentCPUUsage + ", currentMemoryUsage=" + currentMemoryUsage + ", description=" + description + ", disks=" + disks + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastStateChange=" + lastStateChange + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", location=" + location + ", managementIP=" + managementIP + ", messages=" + messages + ", model=" + model + ", name=" + name + ", owner=" + owner + ", peakCPUUsage=" + peakCPUUsage + ", peakMemoryUsage=" + peakMemoryUsage + ", productVersion=" + productVersion + ", status=" + status + ", type=" + type + ", unavailableTimestamp=" + unavailableTimestamp + ", vsds=" + vsds + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "HSC [" + "addresses=" + addresses + ", alreadyMarkedForUnavailable=" + alreadyMarkedForUnavailable + ", averageCPUUsage=" + averageCPUUsage + ", averageMemoryUsage=" + averageMemoryUsage + ", communicationId=" + communicationId + ", creationDate=" + creationDate + ", currentCPUUsage=" + currentCPUUsage + ", currentMemoryUsage=" + currentMemoryUsage + ", description=" + description + ", disks=" + disks + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastStateChange=" + lastStateChange + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", location=" + location + ", managementIP=" + managementIP + ", messages=" + messages + ", model=" + model + ", name=" + name + ", numberOfInactiveGateways=" + numberOfInactiveGateways + ", owner=" + owner + ", peakCPUUsage=" + peakCPUUsage + ", peakMemoryUsage=" + peakMemoryUsage + ", primaryRoleCount=" + primaryRoleCount + ", productVersion=" + productVersion + ", secondaryRoleCount=" + secondaryRoleCount + ", status=" + status + ", type=" + type + ", unavailableTimestamp=" + unavailableTimestamp + ", vsds=" + vsds + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    
