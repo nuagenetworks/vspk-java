@@ -47,12 +47,16 @@ public class Roleentry extends RestObject {
 
    
    public enum EEntityScope { ENTERPRISE, GLOBAL };
-   public enum ERoleAccessTypeList { CREATE, CUD_CHILDREN, DELETE, MODIFY, NO_ACCESS, NO_ACCESS_CHILDREN, READ, READ_CHILDREN };
+   public enum ERoleAccessTypeList { CREATE, CUD_CHILDREN, DELETE, MODIFY, NO_ACCESS, NO_ACCESS_CHILDREN, READ, READ_CHILDREN, USE };
 
    
    @JsonProperty(value = "embeddedMetadata")
    
    protected java.util.List<Metadata> embeddedMetadata;
+   
+   @JsonProperty(value = "endPointRestName")
+   
+   protected String endPointRestName;
    
    @JsonProperty(value = "endPointType")
    
@@ -102,6 +106,17 @@ public class Roleentry extends RestObject {
    @JsonIgnore
    public void setEmbeddedMetadata(java.util.List<Metadata> value) { 
       this.embeddedMetadata = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getEndPointRestName() {
+      return endPointRestName;
+   }
+
+   @JsonIgnore
+   public void setEndPointRestName(String value) { 
+      this.endPointRestName = value;
    }
    
    
@@ -167,7 +182,7 @@ public class Roleentry extends RestObject {
    
 
    public String toString() {
-      return "Roleentry [" + "embeddedMetadata=" + embeddedMetadata + ", endPointType=" + endPointType + ", entityScope=" + entityScope + ", externalID=" + externalID + ", roleAccessTypeList=" + roleAccessTypeList + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "Roleentry [" + "embeddedMetadata=" + embeddedMetadata + ", endPointRestName=" + endPointRestName + ", endPointType=" + endPointType + ", entityScope=" + entityScope + ", externalID=" + externalID + ", roleAccessTypeList=" + roleAccessTypeList + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

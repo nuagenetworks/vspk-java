@@ -83,7 +83,7 @@ public class NSGateway extends RestObject {
    public enum EFamily { ANY, NSG_AMI, NSG_AZ, NSG_C, NSG_E, NSG_E200, NSG_E300, NSG_V, NSG_X, NSG_X200 };
    public enum EFunctions { GATEWAY, HUB, UBR };
    public enum EInheritedSSHServiceState { DISABLED, ENABLED };
-   public enum ENetworkAcceleration { NONE, PERFORMANCE, SESSION_OPTIMIZED, VNF_AWARE };
+   public enum ENetworkAcceleration { NONE, PERFORMANCE, SESSION_OPTIMIZED, TP_AWARE, VNF_AWARE };
    public enum EPermittedAction { ALL, DEPLOY, EXTEND, INSTANTIATE, READ, USE };
    public enum EPersonality { NSG, NSGBR, NSGDUC };
    public enum ESyslogLevel { ALERT, CRITICAL, EMERGENCY, ERROR, INFO, NOTICE, WARNING };

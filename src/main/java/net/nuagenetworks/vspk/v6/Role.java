@@ -54,10 +54,6 @@ public class Role extends RestObject {
    
    protected String creationDate;
    
-   @JsonProperty(value = "cspOnly")
-   
-   protected Boolean cspOnly;
-   
    @JsonProperty(value = "description")
    
    protected String description;
@@ -127,17 +123,6 @@ public class Role extends RestObject {
    @JsonIgnore
    public void setCreationDate(String value) { 
       this.creationDate = value;
-   }
-   
-   
-   @JsonIgnore
-   public Boolean getCspOnly() {
-      return cspOnly;
-   }
-
-   @JsonIgnore
-   public void setCspOnly(Boolean value) { 
-      this.cspOnly = value;
    }
    
    
@@ -252,7 +237,7 @@ public class Role extends RestObject {
    
 
    public String toString() {
-      return "Role [" + "creationDate=" + creationDate + ", cspOnly=" + cspOnly + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", name=" + name + ", owner=" + owner + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "Role [" + "creationDate=" + creationDate + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", name=" + name + ", owner=" + owner + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    
