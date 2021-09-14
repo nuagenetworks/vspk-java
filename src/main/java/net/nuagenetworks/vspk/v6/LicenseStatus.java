@@ -85,6 +85,10 @@ public class LicenseStatus extends RestObject {
    
    protected Long totalLicensedNSGsCount;
    
+   @JsonProperty(value = "totalLicensedOVRSsCount")
+   
+   protected Long totalLicensedOVRSsCount;
+   
    @JsonProperty(value = "totalLicensedUsedAVRSGsCount")
    
    protected Long totalLicensedUsedAVRSGsCount;
@@ -100,6 +104,10 @@ public class LicenseStatus extends RestObject {
    @JsonProperty(value = "totalLicensedUsedNSGsCount")
    
    protected Long totalLicensedUsedNSGsCount;
+   
+   @JsonProperty(value = "totalLicensedUsedOVRSsCount")
+   
+   protected Long totalLicensedUsedOVRSsCount;
    
    @JsonProperty(value = "totalLicensedUsedVDFGsCount")
    
@@ -269,6 +277,17 @@ public class LicenseStatus extends RestObject {
    
    
    @JsonIgnore
+   public Long getTotalLicensedOVRSsCount() {
+      return totalLicensedOVRSsCount;
+   }
+
+   @JsonIgnore
+   public void setTotalLicensedOVRSsCount(Long value) { 
+      this.totalLicensedOVRSsCount = value;
+   }
+   
+   
+   @JsonIgnore
    public Long getTotalLicensedUsedAVRSGsCount() {
       return totalLicensedUsedAVRSGsCount;
    }
@@ -309,6 +328,17 @@ public class LicenseStatus extends RestObject {
    @JsonIgnore
    public void setTotalLicensedUsedNSGsCount(Long value) { 
       this.totalLicensedUsedNSGsCount = value;
+   }
+   
+   
+   @JsonIgnore
+   public Long getTotalLicensedUsedOVRSsCount() {
+      return totalLicensedUsedOVRSsCount;
+   }
+
+   @JsonIgnore
+   public void setTotalLicensedUsedOVRSsCount(Long value) { 
+      this.totalLicensedUsedOVRSsCount = value;
    }
    
    
@@ -451,7 +481,7 @@ public class LicenseStatus extends RestObject {
    
 
    public String toString() {
-      return "LicenseStatus [" + "accumulateLicensesEnabled=" + accumulateLicensesEnabled + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", totalLicensedAVRSGsCount=" + totalLicensedAVRSGsCount + ", totalLicensedAVRSsCount=" + totalLicensedAVRSsCount + ", totalLicensedGatewaysCount=" + totalLicensedGatewaysCount + ", totalLicensedNICsCount=" + totalLicensedNICsCount + ", totalLicensedNSGsCount=" + totalLicensedNSGsCount + ", totalLicensedUsedAVRSGsCount=" + totalLicensedUsedAVRSGsCount + ", totalLicensedUsedAVRSsCount=" + totalLicensedUsedAVRSsCount + ", totalLicensedUsedNICsCount=" + totalLicensedUsedNICsCount + ", totalLicensedUsedNSGsCount=" + totalLicensedUsedNSGsCount + ", totalLicensedUsedVDFGsCount=" + totalLicensedUsedVDFGsCount + ", totalLicensedUsedVDFsCount=" + totalLicensedUsedVDFsCount + ", totalLicensedUsedVMsCount=" + totalLicensedUsedVMsCount + ", totalLicensedUsedVRSGsCount=" + totalLicensedUsedVRSGsCount + ", totalLicensedUsedVRSsCount=" + totalLicensedUsedVRSsCount + ", totalLicensedVDFGsCount=" + totalLicensedVDFGsCount + ", totalLicensedVDFsCount=" + totalLicensedVDFsCount + ", totalLicensedVMsCount=" + totalLicensedVMsCount + ", totalLicensedVRSGsCount=" + totalLicensedVRSGsCount + ", totalLicensedVRSsCount=" + totalLicensedVRSsCount + ", totalUsedGatewaysCount=" + totalUsedGatewaysCount + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "LicenseStatus [" + "accumulateLicensesEnabled=" + accumulateLicensesEnabled + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", totalLicensedAVRSGsCount=" + totalLicensedAVRSGsCount + ", totalLicensedAVRSsCount=" + totalLicensedAVRSsCount + ", totalLicensedGatewaysCount=" + totalLicensedGatewaysCount + ", totalLicensedNICsCount=" + totalLicensedNICsCount + ", totalLicensedNSGsCount=" + totalLicensedNSGsCount + ", totalLicensedOVRSsCount=" + totalLicensedOVRSsCount + ", totalLicensedUsedAVRSGsCount=" + totalLicensedUsedAVRSGsCount + ", totalLicensedUsedAVRSsCount=" + totalLicensedUsedAVRSsCount + ", totalLicensedUsedNICsCount=" + totalLicensedUsedNICsCount + ", totalLicensedUsedNSGsCount=" + totalLicensedUsedNSGsCount + ", totalLicensedUsedOVRSsCount=" + totalLicensedUsedOVRSsCount + ", totalLicensedUsedVDFGsCount=" + totalLicensedUsedVDFGsCount + ", totalLicensedUsedVDFsCount=" + totalLicensedUsedVDFsCount + ", totalLicensedUsedVMsCount=" + totalLicensedUsedVMsCount + ", totalLicensedUsedVRSGsCount=" + totalLicensedUsedVRSGsCount + ", totalLicensedUsedVRSsCount=" + totalLicensedUsedVRSsCount + ", totalLicensedVDFGsCount=" + totalLicensedVDFGsCount + ", totalLicensedVDFsCount=" + totalLicensedVDFsCount + ", totalLicensedVMsCount=" + totalLicensedVMsCount + ", totalLicensedVRSGsCount=" + totalLicensedVRSGsCount + ", totalLicensedVRSsCount=" + totalLicensedVRSsCount + ", totalUsedGatewaysCount=" + totalUsedGatewaysCount + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

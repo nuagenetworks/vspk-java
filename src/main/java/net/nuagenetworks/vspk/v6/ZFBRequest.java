@@ -50,7 +50,7 @@ public class ZFBRequest extends RestObject {
    public enum EZFBApprovalStatus { APPROVED, ASSIGNED, DENIED, UNASSIGNED };
    public enum EAssociatedEntityType { GATEWAY, NSGATEWAY };
    public enum EEntityScope { ENTERPRISE, GLOBAL };
-   public enum ERequestType { SELF_REBOOTSTRAP, ZFB };
+   public enum ERequestType { MIGRATING, SELF_REBOOTSTRAP, ZFB };
 
    
    @JsonProperty(value = "CPUType")

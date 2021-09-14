@@ -92,6 +92,7 @@ import net.nuagenetworks.vspk.v6.fetchers.NSGatewaysFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.NSGatewayTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.NSGGroupsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.NSGInfosFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.NSGMigrationProfilesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.NSGPatchProfilesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.NSRedundantGatewayGroupsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.NSGUpgradeProfilesFetcher;
@@ -158,6 +159,10 @@ public class Me extends RestRootObject {
    @JsonProperty(value = "AARProbeStatsInterval")
    
    protected Long AARProbeStatsInterval;
+   
+   @JsonProperty(value = "APIKeyExpiry")
+   
+   protected Long APIKeyExpiry;
    
    @JsonProperty(value = "VSSStatsInterval")
    
@@ -425,6 +430,9 @@ public class Me extends RestRootObject {
    private NSGInfosFetcher nSGInfos;
    
    @JsonIgnore
+   private NSGMigrationProfilesFetcher nSGMigrationProfiles;
+   
+   @JsonIgnore
    private NSGPatchProfilesFetcher nSGPatchProfiles;
    
    @JsonIgnore
@@ -682,6 +690,8 @@ public class Me extends RestRootObject {
       
       nSGInfos = new NSGInfosFetcher(this);
       
+      nSGMigrationProfiles = new NSGMigrationProfilesFetcher(this);
+      
       nSGPatchProfiles = new NSGPatchProfilesFetcher(this);
       
       nSRedundantGatewayGroups = new NSRedundantGatewayGroupsFetcher(this);
@@ -799,6 +809,17 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public void setAARProbeStatsInterval(Long value) { 
       this.AARProbeStatsInterval = value;
+   }
+   
+   
+   @JsonIgnore
+   public Long getAPIKeyExpiry() {
+      return APIKeyExpiry;
+   }
+
+   @JsonIgnore
+   public void setAPIKeyExpiry(Long value) { 
+      this.APIKeyExpiry = value;
    }
    
    
@@ -1342,6 +1363,11 @@ public class Me extends RestRootObject {
    }
    
    @JsonIgnore
+   public NSGMigrationProfilesFetcher getNSGMigrationProfiles() {
+      return nSGMigrationProfiles;
+   }
+   
+   @JsonIgnore
    public NSGPatchProfilesFetcher getNSGPatchProfiles() {
       return nSGPatchProfiles;
    }
@@ -1578,7 +1604,7 @@ public class Me extends RestRootObject {
    
 
    public String toString() {
-      return "Me [" + "AARFlowStatsInterval=" + AARFlowStatsInterval + ", AARProbeStatsInterval=" + AARProbeStatsInterval + ", VSSStatsInterval=" + VSSStatsInterval + ", avatarData=" + avatarData + ", avatarType=" + avatarType + ", creationDate=" + creationDate + ", disabled=" + disabled + ", elasticSearchAddress=" + elasticSearchAddress + ", email=" + email + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseID=" + enterpriseID + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", externalID=" + externalID + ", firstName=" + firstName + ", flowCollectionEnabled=" + flowCollectionEnabled + ", lastName=" + lastName + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", mobileNumber=" + mobileNumber + ", owner=" + owner + ", password=" + password + ", role=" + role + ", statisticsEnabled=" + statisticsEnabled + ", userName=" + userName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + ", apiKey=" + apiKey  + "]";
+      return "Me [" + "AARFlowStatsInterval=" + AARFlowStatsInterval + ", AARProbeStatsInterval=" + AARProbeStatsInterval + ", APIKeyExpiry=" + APIKeyExpiry + ", VSSStatsInterval=" + VSSStatsInterval + ", avatarData=" + avatarData + ", avatarType=" + avatarType + ", creationDate=" + creationDate + ", disabled=" + disabled + ", elasticSearchAddress=" + elasticSearchAddress + ", email=" + email + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseID=" + enterpriseID + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", externalID=" + externalID + ", firstName=" + firstName + ", flowCollectionEnabled=" + flowCollectionEnabled + ", lastName=" + lastName + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", mobileNumber=" + mobileNumber + ", owner=" + owner + ", password=" + password + ", role=" + role + ", statisticsEnabled=" + statisticsEnabled + ", userName=" + userName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + ", apiKey=" + apiKey  + "]";
    }
    
    
