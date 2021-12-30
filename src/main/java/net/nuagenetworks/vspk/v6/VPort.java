@@ -57,6 +57,7 @@ import net.nuagenetworks.vspk.v6.fetchers.PolicyGroupsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.PortMappingsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.QOSsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.RedirectionTargetsFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.ScheduledtestsuiterunsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.StatisticsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.StatisticsPoliciesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.TCAsFetcher;
@@ -391,6 +392,9 @@ public class VPort extends RestObject {
    private RedirectionTargetsFetcher redirectionTargets;
    
    @JsonIgnore
+   private ScheduledtestsuiterunsFetcher scheduledtestsuiteruns;
+   
+   @JsonIgnore
    private StatisticsFetcher statistics;
    
    @JsonIgnore
@@ -473,6 +477,8 @@ public class VPort extends RestObject {
       qOSs = new QOSsFetcher(this);
       
       redirectionTargets = new RedirectionTargetsFetcher(this);
+      
+      scheduledtestsuiteruns = new ScheduledtestsuiterunsFetcher(this);
       
       statistics = new StatisticsFetcher(this);
       
@@ -1236,6 +1242,11 @@ public class VPort extends RestObject {
    @JsonIgnore
    public RedirectionTargetsFetcher getRedirectionTargets() {
       return redirectionTargets;
+   }
+   
+   @JsonIgnore
+   public ScheduledtestsuiterunsFetcher getScheduledtestsuiteruns() {
+      return scheduledtestsuiteruns;
    }
    
    @JsonIgnore

@@ -88,6 +88,10 @@ public class RoutingPolicy extends RestObject {
    
    protected String policyDefinition;
    
+   @JsonProperty(value = "policyUniqueID")
+   
+   protected Long policyUniqueID;
+   
    @JsonProperty(value = "routingProtocol")
    
    protected ERoutingProtocol routingProtocol;
@@ -216,6 +220,17 @@ public class RoutingPolicy extends RestObject {
    
    
    @JsonIgnore
+   public Long getPolicyUniqueID() {
+      return policyUniqueID;
+   }
+
+   @JsonIgnore
+   public void setPolicyUniqueID(Long value) { 
+      this.policyUniqueID = value;
+   }
+   
+   
+   @JsonIgnore
    public ERoutingProtocol getRoutingProtocol() {
       return routingProtocol;
    }
@@ -244,7 +259,7 @@ public class RoutingPolicy extends RestObject {
    
 
    public String toString() {
-      return "RoutingPolicy [" + "CustomerID=" + CustomerID + ", contentType=" + contentType + ", defaultAction=" + defaultAction + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", name=" + name + ", policyDefinition=" + policyDefinition + ", routingProtocol=" + routingProtocol + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "RoutingPolicy [" + "CustomerID=" + CustomerID + ", contentType=" + contentType + ", defaultAction=" + defaultAction + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", name=" + name + ", policyDefinition=" + policyDefinition + ", policyUniqueID=" + policyUniqueID + ", routingProtocol=" + routingProtocol + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

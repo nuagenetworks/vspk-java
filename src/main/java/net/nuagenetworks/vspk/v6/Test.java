@@ -46,12 +46,17 @@ public class Test extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum EAssociatedTestDefinitionType { ICMP_ECHO_TEST_DEFINITION, TEST_DEFINITION };
    public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
    @JsonProperty(value = "associatedTestDefinitionID")
    
    protected String associatedTestDefinitionID;
+   
+   @JsonProperty(value = "associatedTestDefinitionType")
+   
+   protected EAssociatedTestDefinitionType associatedTestDefinitionType;
    
    @JsonProperty(value = "associatedTestSuiteID")
    
@@ -141,6 +146,17 @@ public class Test extends RestObject {
    @JsonIgnore
    public void setAssociatedTestDefinitionID(String value) { 
       this.associatedTestDefinitionID = value;
+   }
+   
+   
+   @JsonIgnore
+   public EAssociatedTestDefinitionType getAssociatedTestDefinitionType() {
+      return associatedTestDefinitionType;
+   }
+
+   @JsonIgnore
+   public void setAssociatedTestDefinitionType(EAssociatedTestDefinitionType value) { 
+      this.associatedTestDefinitionType = value;
    }
    
    
@@ -316,7 +332,7 @@ public class Test extends RestObject {
    
 
    public String toString() {
-      return "Test [" + "associatedTestDefinitionID=" + associatedTestDefinitionID + ", associatedTestSuiteID=" + associatedTestSuiteID + ", command=" + command + ", creationDate=" + creationDate + ", description=" + description + ", destination=" + destination + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", name=" + name + ", order=" + order + ", owner=" + owner + ", timeout=" + timeout + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "Test [" + "associatedTestDefinitionID=" + associatedTestDefinitionID + ", associatedTestDefinitionType=" + associatedTestDefinitionType + ", associatedTestSuiteID=" + associatedTestSuiteID + ", command=" + command + ", creationDate=" + creationDate + ", description=" + description + ", destination=" + destination + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", name=" + name + ", order=" + order + ", owner=" + owner + ", timeout=" + timeout + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

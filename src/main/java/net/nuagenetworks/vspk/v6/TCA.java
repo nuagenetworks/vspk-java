@@ -50,7 +50,8 @@ public class TCA extends RestObject {
    
    public enum EAction { Alert, Alert_Add_Network_Macro, Alert_Add_Policy_Group, Alert_PolicyGroupChange };
    public enum EEntityScope { ENTERPRISE, GLOBAL };
-   public enum EMetric { ACL_DENY_EVENT_COUNT, ANTI_SPOOF_EVENT_COUNT, BYTES_IN, BYTES_OUT, FIP_PRE_RATE_LIMIT_BYTES, FIP_PRE_RATE_LIMIT_PACKETS, FIP_RATE_LIMIT_DROPPED_BYTES, FIP_RATE_LIMIT_DROPPED_PACKETS, HIGH_RISK_IP_ACCESS_EVENT_COUNT, IDP_EVENT_COUNT, L7_BYTES_IN, L7_BYTES_OUT, L7_PACKETS_IN, L7_PACKETS_OUT, MEDIUM_RISK_IP_ACCESS_EVENT_COUNT, PACKETS_DROPPED_BY_RATE_LIMIT, PACKETS_IN, PACKETS_IN_DROPPED, PACKETS_IN_ERROR, PACKETS_OUT, PACKETS_OUT_DROPPED, PACKETS_OUT_ERROR, PORT_SCAN_PORT_COUNT, PORT_SWEEP_IP_COUNT, TCP_FLAG_ACK_IN, TCP_FLAG_ACK_OUT, TCP_FLAG_NULL_IN, TCP_FLAG_NULL_OUT, TCP_FLAG_RST_IN, TCP_FLAG_RST_OUT, TCP_FLAG_SYN_IN, TCP_FLAG_SYN_OUT };
+   public enum EMetric { ACL_DENY_EVENT_COUNT, ANTI_SPOOF_EVENT_COUNT, BYTES_IN, BYTES_OUT, DESTINATION_PORT_PROTOCOL_COUNT, FIP_PRE_RATE_LIMIT_BYTES, FIP_PRE_RATE_LIMIT_PACKETS, FIP_RATE_LIMIT_DROPPED_BYTES, FIP_RATE_LIMIT_DROPPED_PACKETS, HIGH_RISK_IP_ACCESS_EVENT_COUNT, IDP_EVENT_COUNT, L7_BYTES_IN, L7_BYTES_OUT, L7_PACKETS_IN, L7_PACKETS_OUT, MEDIUM_RISK_IP_ACCESS_EVENT_COUNT, PACKETS_DROPPED_BY_RATE_LIMIT, PACKETS_IN, PACKETS_IN_DROPPED, PACKETS_IN_ERROR, PACKETS_OUT, PACKETS_OUT_DROPPED, PACKETS_OUT_ERROR, PORT_SCAN_PORT_COUNT, PORT_SWEEP_IP_COUNT, TCP_FLAG_ACK_IN, TCP_FLAG_ACK_OUT, TCP_FLAG_NULL_IN, TCP_FLAG_NULL_OUT, TCP_FLAG_RST_IN, TCP_FLAG_RST_OUT, TCP_FLAG_SYN_IN, TCP_FLAG_SYN_OUT };
+   public enum EProtocol { NONE, TCP, UDP };
    public enum EType { BREACH, ROLLING_AVERAGE, UNIQUE_COUNT };
 
    
@@ -73,6 +74,10 @@ public class TCA extends RestObject {
    @JsonProperty(value = "description")
    
    protected String description;
+   
+   @JsonProperty(value = "destinationPort")
+   
+   protected Long destinationPort;
    
    @JsonProperty(value = "disable")
    
@@ -117,6 +122,10 @@ public class TCA extends RestObject {
    @JsonProperty(value = "period")
    
    protected Long period;
+   
+   @JsonProperty(value = "protocol")
+   
+   protected EProtocol protocol;
    
    @JsonProperty(value = "status")
    
@@ -234,6 +243,17 @@ public class TCA extends RestObject {
    @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
+   }
+   
+   
+   @JsonIgnore
+   public Long getDestinationPort() {
+      return destinationPort;
+   }
+
+   @JsonIgnore
+   public void setDestinationPort(Long value) { 
+      this.destinationPort = value;
    }
    
    
@@ -359,6 +379,17 @@ public class TCA extends RestObject {
    
    
    @JsonIgnore
+   public EProtocol getProtocol() {
+      return protocol;
+   }
+
+   @JsonIgnore
+   public void setProtocol(EProtocol value) { 
+      this.protocol = value;
+   }
+   
+   
+   @JsonIgnore
    public Boolean getStatus() {
       return status;
    }
@@ -463,7 +494,7 @@ public class TCA extends RestObject {
    
 
    public String toString() {
-      return "TCA [" + "URLEndPoint=" + URLEndPoint + ", action=" + action + ", count=" + count + ", creationDate=" + creationDate + ", description=" + description + ", disable=" + disable + ", displayStatus=" + displayStatus + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", metric=" + metric + ", name=" + name + ", owner=" + owner + ", period=" + period + ", status=" + status + ", targetEntityID=" + targetEntityID + ", targetPolicyGroupID=" + targetPolicyGroupID + ", threshold=" + threshold + ", throttleTime=" + throttleTime + ", triggerInterval=" + triggerInterval + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "TCA [" + "URLEndPoint=" + URLEndPoint + ", action=" + action + ", count=" + count + ", creationDate=" + creationDate + ", description=" + description + ", destinationPort=" + destinationPort + ", disable=" + disable + ", displayStatus=" + displayStatus + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", metric=" + metric + ", name=" + name + ", owner=" + owner + ", period=" + period + ", protocol=" + protocol + ", status=" + status + ", targetEntityID=" + targetEntityID + ", targetPolicyGroupID=" + targetPolicyGroupID + ", threshold=" + threshold + ", throttleTime=" + throttleTime + ", triggerInterval=" + triggerInterval + ", type=" + type + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

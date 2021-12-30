@@ -98,6 +98,10 @@ public class EnterpriseProfile extends RestObject {
    
    protected Boolean enableApplicationPerformanceManagement;
    
+   @JsonProperty(value = "enableOAMConnectivityStatisticsCollection")
+   
+   protected Boolean enableOAMConnectivityStatisticsCollection;
+   
    @JsonProperty(value = "encryptionManagementMode")
    
    protected EEncryptionManagementMode encryptionManagementMode;
@@ -313,6 +317,17 @@ public class EnterpriseProfile extends RestObject {
    
    
    @JsonIgnore
+   public Boolean getEnableOAMConnectivityStatisticsCollection() {
+      return enableOAMConnectivityStatisticsCollection;
+   }
+
+   @JsonIgnore
+   public void setEnableOAMConnectivityStatisticsCollection(Boolean value) { 
+      this.enableOAMConnectivityStatisticsCollection = value;
+   }
+   
+   
+   @JsonIgnore
    public EEncryptionManagementMode getEncryptionManagementMode() {
       return encryptionManagementMode;
    }
@@ -488,7 +503,7 @@ public class EnterpriseProfile extends RestObject {
    
 
    public String toString() {
-      return "EnterpriseProfile [" + "BGPEnabled=" + BGPEnabled + ", DHCPLeaseInterval=" + DHCPLeaseInterval + ", VNFManagementEnabled=" + VNFManagementEnabled + ", allowAdvancedQOSConfiguration=" + allowAdvancedQOSConfiguration + ", allowGatewayManagement=" + allowGatewayManagement + ", allowTrustedForwardingClass=" + allowTrustedForwardingClass + ", allowedForwardingClasses=" + allowedForwardingClasses + ", creationDate=" + creationDate + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", enableApplicationPerformanceManagement=" + enableApplicationPerformanceManagement + ", encryptionManagementMode=" + encryptionManagementMode + ", entityScope=" + entityScope + ", externalID=" + externalID + ", floatingIPsQuota=" + floatingIPsQuota + ", forwardingClass=" + forwardingClass + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", name=" + name + ", owner=" + owner + ", receiveMultiCastListID=" + receiveMultiCastListID + ", sendMultiCastListID=" + sendMultiCastListID + ", threatPreventionManagementEnabled=" + threatPreventionManagementEnabled + ", webFilterEnabled=" + webFilterEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "EnterpriseProfile [" + "BGPEnabled=" + BGPEnabled + ", DHCPLeaseInterval=" + DHCPLeaseInterval + ", VNFManagementEnabled=" + VNFManagementEnabled + ", allowAdvancedQOSConfiguration=" + allowAdvancedQOSConfiguration + ", allowGatewayManagement=" + allowGatewayManagement + ", allowTrustedForwardingClass=" + allowTrustedForwardingClass + ", allowedForwardingClasses=" + allowedForwardingClasses + ", creationDate=" + creationDate + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", enableApplicationPerformanceManagement=" + enableApplicationPerformanceManagement + ", enableOAMConnectivityStatisticsCollection=" + enableOAMConnectivityStatisticsCollection + ", encryptionManagementMode=" + encryptionManagementMode + ", entityScope=" + entityScope + ", externalID=" + externalID + ", floatingIPsQuota=" + floatingIPsQuota + ", forwardingClass=" + forwardingClass + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", name=" + name + ", owner=" + owner + ", receiveMultiCastListID=" + receiveMultiCastListID + ", sendMultiCastListID=" + sendMultiCastListID + ", threatPreventionManagementEnabled=" + threatPreventionManagementEnabled + ", webFilterEnabled=" + webFilterEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

@@ -65,6 +65,7 @@ import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GNMIProfilesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GroupsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GroupKeyEncryptionProfilesFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.ICMPEchoTestDefinitionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.IDPProfilesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.IKECertificatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.IKEEncryptionprofilesFetcher;
@@ -109,6 +110,7 @@ import net.nuagenetworks.vspk.v6.fetchers.SaaSApplicationGroupsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.SaaSApplicationTypesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.SAPEgressQoSProfilesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.SAPIngressQoSProfilesFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.ScheduledTestSuitesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.SharedNetworkResourcesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.SyslogDestinationsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.TestDefinitionsFetcher;
@@ -409,6 +411,9 @@ public class Enterprise extends RestObject {
    private GroupKeyEncryptionProfilesFetcher groupKeyEncryptionProfiles;
    
    @JsonIgnore
+   private ICMPEchoTestDefinitionsFetcher iCMPEchoTestDefinitions;
+   
+   @JsonIgnore
    private IDPProfilesFetcher iDPProfiles;
    
    @JsonIgnore
@@ -541,6 +546,9 @@ public class Enterprise extends RestObject {
    private SAPIngressQoSProfilesFetcher sAPIngressQoSProfiles;
    
    @JsonIgnore
+   private ScheduledTestSuitesFetcher scheduledTestSuites;
+   
+   @JsonIgnore
    private SharedNetworkResourcesFetcher sharedNetworkResources;
    
    @JsonIgnore
@@ -642,6 +650,8 @@ public class Enterprise extends RestObject {
       
       groupKeyEncryptionProfiles = new GroupKeyEncryptionProfilesFetcher(this);
       
+      iCMPEchoTestDefinitions = new ICMPEchoTestDefinitionsFetcher(this);
+      
       iDPProfiles = new IDPProfilesFetcher(this);
       
       iKECertificates = new IKECertificatesFetcher(this);
@@ -729,6 +739,8 @@ public class Enterprise extends RestObject {
       sAPEgressQoSProfiles = new SAPEgressQoSProfilesFetcher(this);
       
       sAPIngressQoSProfiles = new SAPIngressQoSProfilesFetcher(this);
+      
+      scheduledTestSuites = new ScheduledTestSuitesFetcher(this);
       
       sharedNetworkResources = new SharedNetworkResourcesFetcher(this);
       
@@ -1396,6 +1408,11 @@ public class Enterprise extends RestObject {
    }
    
    @JsonIgnore
+   public ICMPEchoTestDefinitionsFetcher getICMPEchoTestDefinitions() {
+      return iCMPEchoTestDefinitions;
+   }
+   
+   @JsonIgnore
    public IDPProfilesFetcher getIDPProfiles() {
       return iDPProfiles;
    }
@@ -1613,6 +1630,11 @@ public class Enterprise extends RestObject {
    @JsonIgnore
    public SAPIngressQoSProfilesFetcher getSAPIngressQoSProfiles() {
       return sAPIngressQoSProfiles;
+   }
+   
+   @JsonIgnore
+   public ScheduledTestSuitesFetcher getScheduledTestSuites() {
+      return scheduledTestSuites;
    }
    
    @JsonIgnore

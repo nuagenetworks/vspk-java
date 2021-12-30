@@ -47,6 +47,7 @@ public class VirtualFirewallRule extends RestObject {
 
    
    public enum EAction { DROP, FORWARD };
+   public enum EAppType { ALL, APPLICATION, NONE };
    public enum EAssociatedTrafficType { L4_SERVICE, L4_SERVICE_GROUP };
    public enum EEntityScope { ENTERPRISE, GLOBAL };
    public enum EFailsafeDatapath { FAIL_TO_BLOCK, FAIL_TO_WIRE };
@@ -55,8 +56,10 @@ public class VirtualFirewallRule extends RestObject {
    public enum ENetworkEntityType { ENTERPRISENETWORK, NETWORKMACROGROUP, PGEXPRESSION, PGEXPRESSIONTEMPLATE, POLICYGROUP, POLICYGROUPTEMPLATE, PUBLICNETWORK, SAASAPPLICATIONGROUP, SUBNET, SUBNETTEMPLATE, ZONE, ZONETEMPLATE };
    public enum ENetworkType { ANY, ENTERPRISE_NETWORK, NETWORK_MACRO_GROUP, PGEXPRESSION, POLICYGROUP, SUBNET, UNDERLAY_INTERNET_POLICYGROUP, ZONE };
    public enum EPolicyState { DRAFT, LIVE };
+   public enum ERemoteUplinkPreference { DEFAULT, PRIMARY, PRIMARY_SECONDARY, SECONDARY, SECONDARY_PRIMARY };
    public enum EReputationScore { HIGH_RISK, LOW_RISK, MEDIUM_RISK };
    public enum EType { L4, L7, THREAT_PREVENTION, WEB_FILTER };
+   public enum EUplinkPreference { DEFAULT, PRIMARY, PRIMARY_SECONDARY, SECONDARY, SECONDARY_PRIMARY, SYMMETRIC };
    public enum EWebFilterType { WEB_CATEGORY, WEB_DOMAIN_NAME, WEB_DOMAIN_REPUTATION };
 
    
@@ -87,6 +90,14 @@ public class VirtualFirewallRule extends RestObject {
    @JsonProperty(value = "addressOverride")
    
    protected String addressOverride;
+   
+   @JsonProperty(value = "appType")
+   
+   protected EAppType appType;
+   
+   @JsonProperty(value = "associatedApplicationID")
+   
+   protected String associatedApplicationID;
    
    @JsonProperty(value = "associatedEgressEntryID")
    
@@ -160,6 +171,10 @@ public class VirtualFirewallRule extends RestObject {
    
    protected Boolean flowLoggingEnabled;
    
+   @JsonProperty(value = "isSLAAware")
+   
+   protected Boolean isSLAAware;
+   
    @JsonProperty(value = "lastUpdatedBy")
    
    protected String lastUpdatedBy;
@@ -220,6 +235,10 @@ public class VirtualFirewallRule extends RestObject {
    
    protected String protocol;
    
+   @JsonProperty(value = "remoteUplinkPreference")
+   
+   protected ERemoteUplinkPreference remoteUplinkPreference;
+   
    @JsonProperty(value = "reputationScore")
    
    protected EReputationScore reputationScore;
@@ -243,6 +262,10 @@ public class VirtualFirewallRule extends RestObject {
    @JsonProperty(value = "type")
    
    protected EType type;
+   
+   @JsonProperty(value = "uplinkPreference")
+   
+   protected EUplinkPreference uplinkPreference;
    
    @JsonProperty(value = "webFilterID")
    
@@ -354,6 +377,28 @@ public class VirtualFirewallRule extends RestObject {
    @JsonIgnore
    public void setAddressOverride(String value) { 
       this.addressOverride = value;
+   }
+   
+   
+   @JsonIgnore
+   public EAppType getAppType() {
+      return appType;
+   }
+
+   @JsonIgnore
+   public void setAppType(EAppType value) { 
+      this.appType = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getAssociatedApplicationID() {
+      return associatedApplicationID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedApplicationID(String value) { 
+      this.associatedApplicationID = value;
    }
    
    
@@ -556,6 +601,17 @@ public class VirtualFirewallRule extends RestObject {
    
    
    @JsonIgnore
+   public Boolean getIsSLAAware() {
+      return isSLAAware;
+   }
+
+   @JsonIgnore
+   public void setIsSLAAware(Boolean value) { 
+      this.isSLAAware = value;
+   }
+   
+   
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
@@ -721,6 +777,17 @@ public class VirtualFirewallRule extends RestObject {
    
    
    @JsonIgnore
+   public ERemoteUplinkPreference getRemoteUplinkPreference() {
+      return remoteUplinkPreference;
+   }
+
+   @JsonIgnore
+   public void setRemoteUplinkPreference(ERemoteUplinkPreference value) { 
+      this.remoteUplinkPreference = value;
+   }
+   
+   
+   @JsonIgnore
    public EReputationScore getReputationScore() {
       return reputationScore;
    }
@@ -787,6 +854,17 @@ public class VirtualFirewallRule extends RestObject {
    
    
    @JsonIgnore
+   public EUplinkPreference getUplinkPreference() {
+      return uplinkPreference;
+   }
+
+   @JsonIgnore
+   public void setUplinkPreference(EUplinkPreference value) { 
+      this.uplinkPreference = value;
+   }
+   
+   
+   @JsonIgnore
    public String getWebFilterID() {
       return webFilterID;
    }
@@ -837,7 +915,7 @@ public class VirtualFirewallRule extends RestObject {
    
 
    public String toString() {
-      return "VirtualFirewallRule [" + "ACLTemplateName=" + ACLTemplateName + ", DSCP=" + DSCP + ", ICMPCode=" + ICMPCode + ", ICMPType=" + ICMPType + ", IPv6AddressOverride=" + IPv6AddressOverride + ", action=" + action + ", addressOverride=" + addressOverride + ", associatedEgressEntryID=" + associatedEgressEntryID + ", associatedIngressEntryID=" + associatedIngressEntryID + ", associatedL7ApplicationSignatureID=" + associatedL7ApplicationSignatureID + ", associatedLiveEntityID=" + associatedLiveEntityID + ", associatedLiveTemplateID=" + associatedLiveTemplateID + ", associatedTrafficType=" + associatedTrafficType + ", associatedTrafficTypeID=" + associatedTrafficTypeID + ", creationDate=" + creationDate + ", description=" + description + ", destinationPort=" + destinationPort + ", domainName=" + domainName + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", etherType=" + etherType + ", externalID=" + externalID + ", failsafeDatapath=" + failsafeDatapath + ", flowLoggingEnabled=" + flowLoggingEnabled + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", locationEntityType=" + locationEntityType + ", locationID=" + locationID + ", locationType=" + locationType + ", mirrorDestinationGroupID=" + mirrorDestinationGroupID + ", mirrorDestinationID=" + mirrorDestinationID + ", networkEntityType=" + networkEntityType + ", networkID=" + networkID + ", networkType=" + networkType + ", overlayMirrorDestinationID=" + overlayMirrorDestinationID + ", owner=" + owner + ", policyState=" + policyState + ", priority=" + priority + ", protocol=" + protocol + ", reputationScore=" + reputationScore + ", sourcePort=" + sourcePort + ", stateful=" + stateful + ", statsID=" + statsID + ", statsLoggingEnabled=" + statsLoggingEnabled + ", type=" + type + ", webFilterID=" + webFilterID + ", webFilterStatsLoggingEnabled=" + webFilterStatsLoggingEnabled + ", webFilterType=" + webFilterType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "VirtualFirewallRule [" + "ACLTemplateName=" + ACLTemplateName + ", DSCP=" + DSCP + ", ICMPCode=" + ICMPCode + ", ICMPType=" + ICMPType + ", IPv6AddressOverride=" + IPv6AddressOverride + ", action=" + action + ", addressOverride=" + addressOverride + ", appType=" + appType + ", associatedApplicationID=" + associatedApplicationID + ", associatedEgressEntryID=" + associatedEgressEntryID + ", associatedIngressEntryID=" + associatedIngressEntryID + ", associatedL7ApplicationSignatureID=" + associatedL7ApplicationSignatureID + ", associatedLiveEntityID=" + associatedLiveEntityID + ", associatedLiveTemplateID=" + associatedLiveTemplateID + ", associatedTrafficType=" + associatedTrafficType + ", associatedTrafficTypeID=" + associatedTrafficTypeID + ", creationDate=" + creationDate + ", description=" + description + ", destinationPort=" + destinationPort + ", domainName=" + domainName + ", embeddedMetadata=" + embeddedMetadata + ", enterpriseName=" + enterpriseName + ", entityScope=" + entityScope + ", etherType=" + etherType + ", externalID=" + externalID + ", failsafeDatapath=" + failsafeDatapath + ", flowLoggingEnabled=" + flowLoggingEnabled + ", isSLAAware=" + isSLAAware + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", locationEntityType=" + locationEntityType + ", locationID=" + locationID + ", locationType=" + locationType + ", mirrorDestinationGroupID=" + mirrorDestinationGroupID + ", mirrorDestinationID=" + mirrorDestinationID + ", networkEntityType=" + networkEntityType + ", networkID=" + networkID + ", networkType=" + networkType + ", overlayMirrorDestinationID=" + overlayMirrorDestinationID + ", owner=" + owner + ", policyState=" + policyState + ", priority=" + priority + ", protocol=" + protocol + ", remoteUplinkPreference=" + remoteUplinkPreference + ", reputationScore=" + reputationScore + ", sourcePort=" + sourcePort + ", stateful=" + stateful + ", statsID=" + statsID + ", statsLoggingEnabled=" + statsLoggingEnabled + ", type=" + type + ", uplinkPreference=" + uplinkPreference + ", webFilterID=" + webFilterID + ", webFilterStatsLoggingEnabled=" + webFilterStatsLoggingEnabled + ", webFilterType=" + webFilterType + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

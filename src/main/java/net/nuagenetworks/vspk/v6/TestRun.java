@@ -46,12 +46,17 @@ public class TestRun extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum EAssociatedTestSuiteRunType { SCHEDULED_TEST_SUITE_RUN, TEST_SUITE_RUN };
    public enum EEntityScope { ENTERPRISE, GLOBAL };
    public enum EOperationStatus { COMPLETED, FAILED, STARTED, TIMED_OUT, UNKNOWN };
-   public enum ETestResult { DEGRADED, FAIL, NOT_APPLICABLE, PASS };
+   public enum ETestResult { DEGRADED, FAIL, NOT_APPLICABLE, PASS, RUNNING };
    public enum ETestResultDataType { BandwidthTestResult, MTUDiscoveryTestResult, None, TCPConnectTestResult, UDPProbeTestResult };
    public enum EUnderlayTestCategory { BANDWIDTH, CONNECTIVITY, MTU_DISCOVERY };
 
+   
+   @JsonProperty(value = "additionalTestRunDetails")
+   
+   protected Object additionalTestRunDetails;
    
    @JsonProperty(value = "associatedTestID")
    
@@ -60,6 +65,10 @@ public class TestRun extends RestObject {
    @JsonProperty(value = "associatedTestSuiteRunID")
    
    protected String associatedTestSuiteRunID;
+   
+   @JsonProperty(value = "associatedTestSuiteRunType")
+   
+   protected EAssociatedTestSuiteRunType associatedTestSuiteRunType;
    
    @JsonProperty(value = "command")
    
@@ -174,6 +183,17 @@ public class TestRun extends RestObject {
    
    
    @JsonIgnore
+   public Object getAdditionalTestRunDetails() {
+      return additionalTestRunDetails;
+   }
+
+   @JsonIgnore
+   public void setAdditionalTestRunDetails(Object value) { 
+      this.additionalTestRunDetails = value;
+   }
+   
+   
+   @JsonIgnore
    public String getAssociatedTestID() {
       return associatedTestID;
    }
@@ -192,6 +212,17 @@ public class TestRun extends RestObject {
    @JsonIgnore
    public void setAssociatedTestSuiteRunID(String value) { 
       this.associatedTestSuiteRunID = value;
+   }
+   
+   
+   @JsonIgnore
+   public EAssociatedTestSuiteRunType getAssociatedTestSuiteRunType() {
+      return associatedTestSuiteRunType;
+   }
+
+   @JsonIgnore
+   public void setAssociatedTestSuiteRunType(EAssociatedTestSuiteRunType value) { 
+      this.associatedTestSuiteRunType = value;
    }
    
    
@@ -455,7 +486,7 @@ public class TestRun extends RestObject {
    
 
    public String toString() {
-      return "TestRun [" + "associatedTestID=" + associatedTestID + ", associatedTestSuiteRunID=" + associatedTestSuiteRunID + ", command=" + command + ", commandExitCode=" + commandExitCode + ", commandOutput=" + commandOutput + ", commandOutputSummary=" + commandOutputSummary + ", creationDate=" + creationDate + ", duration=" + duration + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", operationStatus=" + operationStatus + ", owner=" + owner + ", startDateTime=" + startDateTime + ", stopDateTime=" + stopDateTime + ", testResult=" + testResult + ", testResultData=" + testResultData + ", testResultDataType=" + testResultDataType + ", testResultSpecificationEntityName=" + testResultSpecificationEntityName + ", underlayTestCategory=" + underlayTestCategory + ", underlayTestDescription=" + underlayTestDescription + ", underlayTestName=" + underlayTestName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "TestRun [" + "additionalTestRunDetails=" + additionalTestRunDetails + ", associatedTestID=" + associatedTestID + ", associatedTestSuiteRunID=" + associatedTestSuiteRunID + ", associatedTestSuiteRunType=" + associatedTestSuiteRunType + ", command=" + command + ", commandExitCode=" + commandExitCode + ", commandOutput=" + commandOutput + ", commandOutputSummary=" + commandOutputSummary + ", creationDate=" + creationDate + ", duration=" + duration + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", operationStatus=" + operationStatus + ", owner=" + owner + ", startDateTime=" + startDateTime + ", stopDateTime=" + stopDateTime + ", testResult=" + testResult + ", testResultData=" + testResultData + ", testResultDataType=" + testResultDataType + ", testResultSpecificationEntityName=" + testResultSpecificationEntityName + ", underlayTestCategory=" + underlayTestCategory + ", underlayTestDescription=" + underlayTestDescription + ", underlayTestName=" + underlayTestName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    
