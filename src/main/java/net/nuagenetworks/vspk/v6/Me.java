@@ -85,6 +85,7 @@ import net.nuagenetworks.vspk.v6.fetchers.LicenseStatusFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MirrorDestinationsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MultiCastChannelMapsFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.NetconfGlobalConfigurationsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.NetconfProfilesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.NetworkLayoutsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.NetworkPerformanceMeasurementsFetcher;
@@ -409,6 +410,9 @@ public class Me extends RestRootObject {
    private MultiCastChannelMapsFetcher multiCastChannelMaps;
    
    @JsonIgnore
+   private NetconfGlobalConfigurationsFetcher netconfGlobalConfigurations;
+   
+   @JsonIgnore
    private NetconfProfilesFetcher netconfProfiles;
    
    @JsonIgnore
@@ -675,6 +679,8 @@ public class Me extends RestRootObject {
       mirrorDestinations = new MirrorDestinationsFetcher(this);
       
       multiCastChannelMaps = new MultiCastChannelMapsFetcher(this);
+      
+      netconfGlobalConfigurations = new NetconfGlobalConfigurationsFetcher(this);
       
       netconfProfiles = new NetconfProfilesFetcher(this);
       
@@ -1325,6 +1331,11 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public MultiCastChannelMapsFetcher getMultiCastChannelMaps() {
       return multiCastChannelMaps;
+   }
+   
+   @JsonIgnore
+   public NetconfGlobalConfigurationsFetcher getNetconfGlobalConfigurations() {
+      return netconfGlobalConfigurations;
    }
    
    @JsonIgnore

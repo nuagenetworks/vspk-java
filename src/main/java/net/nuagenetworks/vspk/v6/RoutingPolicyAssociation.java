@@ -40,27 +40,19 @@ import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "ducgroupbinding", resourceName = "ducgroupbindings")
-public class DUCGroupBinding extends RestObject {
+@RestEntity(restName = "routingpolicyassociation", resourceName = "routingpolicyassociations")
+public class RoutingPolicyAssociation extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
-   public enum EAssociatedUBRGroupFunction { GATEWAY, UBR, HUB };
    public enum EEntityScope { ENTERPRISE, GLOBAL };
+   public enum EIpType { IPV4, IPV6 };
 
    
-   @JsonProperty(value = "associatedDUCGroupID")
+   @JsonProperty(value = "associatedRoutingPolicyID")
    
-   protected String associatedDUCGroupID;
-   
-   @JsonProperty(value = "associatedUBRGroupFunction")
-   
-   protected EAssociatedUBRGroupFunction associatedUBRGroupFunction;
-   
-   @JsonProperty(value = "associatedUBRGroupName")
-   
-   protected String associatedUBRGroupName;
+   protected String associatedRoutingPolicyID;
    
    @JsonProperty(value = "creationDate")
    
@@ -78,6 +70,10 @@ public class DUCGroupBinding extends RestObject {
    
    protected String externalID;
    
+   @JsonProperty(value = "ipType")
+   
+   protected EIpType ipType;
+   
    @JsonProperty(value = "lastUpdatedBy")
    
    protected String lastUpdatedBy;
@@ -86,17 +82,13 @@ public class DUCGroupBinding extends RestObject {
    
    protected String lastUpdatedDate;
    
-   @JsonProperty(value = "oneWayDelay")
+   @JsonProperty(value = "netconfGatewayIDs")
    
-   protected Long oneWayDelay;
+   protected java.util.List<String> netconfGatewayIDs;
    
    @JsonProperty(value = "owner")
    
    protected String owner;
-   
-   @JsonProperty(value = "priority")
-   
-   protected Long priority;
    
 
    
@@ -110,7 +102,7 @@ public class DUCGroupBinding extends RestObject {
    private PermissionsFetcher permissions;
    
 
-   public DUCGroupBinding() {
+   public RoutingPolicyAssociation() {
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
@@ -123,35 +115,13 @@ public class DUCGroupBinding extends RestObject {
    
    
    @JsonIgnore
-   public String getAssociatedDUCGroupID() {
-      return associatedDUCGroupID;
+   public String getAssociatedRoutingPolicyID() {
+      return associatedRoutingPolicyID;
    }
 
    @JsonIgnore
-   public void setAssociatedDUCGroupID(String value) { 
-      this.associatedDUCGroupID = value;
-   }
-   
-   
-   @JsonIgnore
-   public EAssociatedUBRGroupFunction getAssociatedUBRGroupFunction() {
-      return associatedUBRGroupFunction;
-   }
-
-   @JsonIgnore
-   public void setAssociatedUBRGroupFunction(EAssociatedUBRGroupFunction value) { 
-      this.associatedUBRGroupFunction = value;
-   }
-   
-   
-   @JsonIgnore
-   public String getAssociatedUBRGroupName() {
-      return associatedUBRGroupName;
-   }
-
-   @JsonIgnore
-   public void setAssociatedUBRGroupName(String value) { 
-      this.associatedUBRGroupName = value;
+   public void setAssociatedRoutingPolicyID(String value) { 
+      this.associatedRoutingPolicyID = value;
    }
    
    
@@ -200,6 +170,17 @@ public class DUCGroupBinding extends RestObject {
    
    
    @JsonIgnore
+   public EIpType getIpType() {
+      return ipType;
+   }
+
+   @JsonIgnore
+   public void setIpType(EIpType value) { 
+      this.ipType = value;
+   }
+   
+   
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
@@ -222,13 +203,13 @@ public class DUCGroupBinding extends RestObject {
    
    
    @JsonIgnore
-   public Long getOneWayDelay() {
-      return oneWayDelay;
+   public java.util.List<String> getNetconfGatewayIDs() {
+      return netconfGatewayIDs;
    }
 
    @JsonIgnore
-   public void setOneWayDelay(Long value) { 
-      this.oneWayDelay = value;
+   public void setNetconfGatewayIDs(java.util.List<String> value) { 
+      this.netconfGatewayIDs = value;
    }
    
    
@@ -240,17 +221,6 @@ public class DUCGroupBinding extends RestObject {
    @JsonIgnore
    public void setOwner(String value) { 
       this.owner = value;
-   }
-   
-   
-   @JsonIgnore
-   public Long getPriority() {
-      return priority;
-   }
-
-   @JsonIgnore
-   public void setPriority(Long value) { 
-      this.priority = value;
    }
    
 
@@ -272,7 +242,7 @@ public class DUCGroupBinding extends RestObject {
    
 
    public String toString() {
-      return "DUCGroupBinding [" + "associatedDUCGroupID=" + associatedDUCGroupID + ", associatedUBRGroupFunction=" + associatedUBRGroupFunction + ", associatedUBRGroupName=" + associatedUBRGroupName + ", creationDate=" + creationDate + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", oneWayDelay=" + oneWayDelay + ", owner=" + owner + ", priority=" + priority + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "RoutingPolicyAssociation [" + "associatedRoutingPolicyID=" + associatedRoutingPolicyID + ", creationDate=" + creationDate + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", ipType=" + ipType + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", netconfGatewayIDs=" + netconfGatewayIDs + ", owner=" + owner + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

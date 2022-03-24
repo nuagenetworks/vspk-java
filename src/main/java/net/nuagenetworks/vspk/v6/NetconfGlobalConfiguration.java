@@ -35,36 +35,32 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v6.fetchers.DeploymentFailuresFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.PermissionsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@RestEntity(restName = "ducgroupbinding", resourceName = "ducgroupbindings")
-public class DUCGroupBinding extends RestObject {
+@RestEntity(restName = "netconfglobalconfiguration", resourceName = "netconfglobalconfigurations")
+public class NetconfGlobalConfiguration extends RestObject {
 
    private static final long serialVersionUID = 1L;
 
    
-   public enum EAssociatedUBRGroupFunction { GATEWAY, UBR, HUB };
    public enum EEntityScope { ENTERPRISE, GLOBAL };
 
    
-   @JsonProperty(value = "associatedDUCGroupID")
+   @JsonProperty(value = "configDefinition")
    
-   protected String associatedDUCGroupID;
-   
-   @JsonProperty(value = "associatedUBRGroupFunction")
-   
-   protected EAssociatedUBRGroupFunction associatedUBRGroupFunction;
-   
-   @JsonProperty(value = "associatedUBRGroupName")
-   
-   protected String associatedUBRGroupName;
+   protected String configDefinition;
    
    @JsonProperty(value = "creationDate")
    
    protected String creationDate;
+   
+   @JsonProperty(value = "description")
+   
+   protected String description;
    
    @JsonProperty(value = "embeddedMetadata")
    
@@ -86,19 +82,22 @@ public class DUCGroupBinding extends RestObject {
    
    protected String lastUpdatedDate;
    
-   @JsonProperty(value = "oneWayDelay")
+   @JsonProperty(value = "name")
    
-   protected Long oneWayDelay;
+   protected String name;
+   
+   @JsonProperty(value = "netconfGatewayIDs")
+   
+   protected java.util.List<String> netconfGatewayIDs;
    
    @JsonProperty(value = "owner")
    
    protected String owner;
    
-   @JsonProperty(value = "priority")
-   
-   protected Long priority;
-   
 
+   
+   @JsonIgnore
+   private DeploymentFailuresFetcher deploymentFailures;
    
    @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
@@ -110,7 +109,9 @@ public class DUCGroupBinding extends RestObject {
    private PermissionsFetcher permissions;
    
 
-   public DUCGroupBinding() {
+   public NetconfGlobalConfiguration() {
+      
+      deploymentFailures = new DeploymentFailuresFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
@@ -123,35 +124,13 @@ public class DUCGroupBinding extends RestObject {
    
    
    @JsonIgnore
-   public String getAssociatedDUCGroupID() {
-      return associatedDUCGroupID;
+   public String getConfigDefinition() {
+      return configDefinition;
    }
 
    @JsonIgnore
-   public void setAssociatedDUCGroupID(String value) { 
-      this.associatedDUCGroupID = value;
-   }
-   
-   
-   @JsonIgnore
-   public EAssociatedUBRGroupFunction getAssociatedUBRGroupFunction() {
-      return associatedUBRGroupFunction;
-   }
-
-   @JsonIgnore
-   public void setAssociatedUBRGroupFunction(EAssociatedUBRGroupFunction value) { 
-      this.associatedUBRGroupFunction = value;
-   }
-   
-   
-   @JsonIgnore
-   public String getAssociatedUBRGroupName() {
-      return associatedUBRGroupName;
-   }
-
-   @JsonIgnore
-   public void setAssociatedUBRGroupName(String value) { 
-      this.associatedUBRGroupName = value;
+   public void setConfigDefinition(String value) { 
+      this.configDefinition = value;
    }
    
    
@@ -163,6 +142,17 @@ public class DUCGroupBinding extends RestObject {
    @JsonIgnore
    public void setCreationDate(String value) { 
       this.creationDate = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getDescription() {
+      return description;
+   }
+
+   @JsonIgnore
+   public void setDescription(String value) { 
+      this.description = value;
    }
    
    
@@ -222,13 +212,24 @@ public class DUCGroupBinding extends RestObject {
    
    
    @JsonIgnore
-   public Long getOneWayDelay() {
-      return oneWayDelay;
+   public String getName() {
+      return name;
    }
 
    @JsonIgnore
-   public void setOneWayDelay(Long value) { 
-      this.oneWayDelay = value;
+   public void setName(String value) { 
+      this.name = value;
+   }
+   
+   
+   @JsonIgnore
+   public java.util.List<String> getNetconfGatewayIDs() {
+      return netconfGatewayIDs;
+   }
+
+   @JsonIgnore
+   public void setNetconfGatewayIDs(java.util.List<String> value) { 
+      this.netconfGatewayIDs = value;
    }
    
    
@@ -242,18 +243,12 @@ public class DUCGroupBinding extends RestObject {
       this.owner = value;
    }
    
+
    
    @JsonIgnore
-   public Long getPriority() {
-      return priority;
+   public DeploymentFailuresFetcher getDeploymentFailures() {
+      return deploymentFailures;
    }
-
-   @JsonIgnore
-   public void setPriority(Long value) { 
-      this.priority = value;
-   }
-   
-
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {
@@ -272,7 +267,7 @@ public class DUCGroupBinding extends RestObject {
    
 
    public String toString() {
-      return "DUCGroupBinding [" + "associatedDUCGroupID=" + associatedDUCGroupID + ", associatedUBRGroupFunction=" + associatedUBRGroupFunction + ", associatedUBRGroupName=" + associatedUBRGroupName + ", creationDate=" + creationDate + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", oneWayDelay=" + oneWayDelay + ", owner=" + owner + ", priority=" + priority + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "NetconfGlobalConfiguration [" + "configDefinition=" + configDefinition + ", creationDate=" + creationDate + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", name=" + name + ", netconfGatewayIDs=" + netconfGatewayIDs + ", owner=" + owner + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

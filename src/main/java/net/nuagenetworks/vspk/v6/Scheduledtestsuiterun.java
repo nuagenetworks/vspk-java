@@ -95,6 +95,10 @@ public class Scheduledtestsuiterun extends RestObject {
    
    protected String secondarySystemID;
    
+   @JsonProperty(value = "sourceIP")
+   
+   protected String sourceIP;
+   
    @JsonProperty(value = "subnetName")
    
    protected String subnetName;
@@ -266,6 +270,17 @@ public class Scheduledtestsuiterun extends RestObject {
    
    
    @JsonIgnore
+   public String getSourceIP() {
+      return sourceIP;
+   }
+
+   @JsonIgnore
+   public void setSourceIP(String value) { 
+      this.sourceIP = value;
+   }
+   
+   
+   @JsonIgnore
    public String getSubnetName() {
       return subnetName;
    }
@@ -339,7 +354,7 @@ public class Scheduledtestsuiterun extends RestObject {
    
 
    public String toString() {
-      return "Scheduledtestsuiterun [" + "NSGatewayName=" + NSGatewayName + ", VPortName=" + VPortName + ", associatedScheduledTestSuiteID=" + associatedScheduledTestSuiteID + ", associatedScheduledTestSuiteName=" + associatedScheduledTestSuiteName + ", datapathID=" + datapathID + ", destination=" + destination + ", domainName=" + domainName + ", macAddress=" + macAddress + ", operationStatus=" + operationStatus + ", secondaryDatapathID=" + secondaryDatapathID + ", secondaryNSGatewayName=" + secondaryNSGatewayName + ", secondarySystemID=" + secondarySystemID + ", subnetName=" + subnetName + ", systemID=" + systemID + ", vlanID=" + vlanID + ", vportPortName=" + vportPortName + ", vportVlanID=" + vportVlanID + ", zoneName=" + zoneName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "Scheduledtestsuiterun [" + "NSGatewayName=" + NSGatewayName + ", VPortName=" + VPortName + ", associatedScheduledTestSuiteID=" + associatedScheduledTestSuiteID + ", associatedScheduledTestSuiteName=" + associatedScheduledTestSuiteName + ", datapathID=" + datapathID + ", destination=" + destination + ", domainName=" + domainName + ", macAddress=" + macAddress + ", operationStatus=" + operationStatus + ", secondaryDatapathID=" + secondaryDatapathID + ", secondaryNSGatewayName=" + secondaryNSGatewayName + ", secondarySystemID=" + secondarySystemID + ", sourceIP=" + sourceIP + ", subnetName=" + subnetName + ", systemID=" + systemID + ", vlanID=" + vlanID + ", vportPortName=" + vportPortName + ", vportVlanID=" + vportVlanID + ", zoneName=" + zoneName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

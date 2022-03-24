@@ -82,6 +82,7 @@ import net.nuagenetworks.vspk.v6.fetchers.PolicyGroupsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.QOSsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.RedirectionTargetsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.RoutingPoliciesFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.RoutingPolicyAssociationsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.RoutingPolicyBindingsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.SPATSourcesPoolsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.StaticRoutesFetcher;
@@ -163,6 +164,14 @@ public class Domain extends RestObject {
    @JsonProperty(value = "GRTEnabled")
    
    protected Boolean GRTEnabled;
+   
+   @JsonProperty(value = "IPv4IBGPMaxPaths")
+   
+   protected Long IPv4IBGPMaxPaths;
+   
+   @JsonProperty(value = "IPv6IBGPMaxPaths")
+   
+   protected Long IPv6IBGPMaxPaths;
    
    @JsonProperty(value = "PATEnabled")
    
@@ -320,6 +329,10 @@ public class Domain extends RestObject {
    
    protected String importRouteTarget;
    
+   @JsonProperty(value = "l2DomainAggregationEnabled")
+   
+   protected Boolean l2DomainAggregationEnabled;
+   
    @JsonProperty(value = "labelID")
    
    protected Long labelID;
@@ -339,6 +352,26 @@ public class Domain extends RestObject {
    @JsonProperty(value = "localAS")
    
    protected Long localAS;
+   
+   @JsonProperty(value = "loopbackIntfDescription")
+   
+   protected String loopbackIntfDescription;
+   
+   @JsonProperty(value = "loopbackIntfEnabled")
+   
+   protected Boolean loopbackIntfEnabled;
+   
+   @JsonProperty(value = "loopbackIntfIPv4Address")
+   
+   protected String loopbackIntfIPv4Address;
+   
+   @JsonProperty(value = "loopbackIntfIPv6Address")
+   
+   protected String loopbackIntfIPv6Address;
+   
+   @JsonProperty(value = "loopbackIntfId")
+   
+   protected Long loopbackIntfId;
    
    @JsonProperty(value = "maintenanceMode")
    
@@ -552,6 +585,9 @@ public class Domain extends RestObject {
    private RoutingPoliciesFetcher routingPolicies;
    
    @JsonIgnore
+   private RoutingPolicyAssociationsFetcher routingPolicyAssociations;
+   
+   @JsonIgnore
    private RoutingPolicyBindingsFetcher routingPolicyBindings;
    
    @JsonIgnore
@@ -699,6 +735,8 @@ public class Domain extends RestObject {
       
       routingPolicies = new RoutingPoliciesFetcher(this);
       
+      routingPolicyAssociations = new RoutingPolicyAssociationsFetcher(this);
+      
       routingPolicyBindings = new RoutingPolicyBindingsFetcher(this);
       
       sPATSourcesPools = new SPATSourcesPoolsFetcher(this);
@@ -831,6 +869,28 @@ public class Domain extends RestObject {
    @JsonIgnore
    public void setGRTEnabled(Boolean value) { 
       this.GRTEnabled = value;
+   }
+   
+   
+   @JsonIgnore
+   public Long getIPv4IBGPMaxPaths() {
+      return IPv4IBGPMaxPaths;
+   }
+
+   @JsonIgnore
+   public void setIPv4IBGPMaxPaths(Long value) { 
+      this.IPv4IBGPMaxPaths = value;
+   }
+   
+   
+   @JsonIgnore
+   public Long getIPv6IBGPMaxPaths() {
+      return IPv6IBGPMaxPaths;
+   }
+
+   @JsonIgnore
+   public void setIPv6IBGPMaxPaths(Long value) { 
+      this.IPv6IBGPMaxPaths = value;
    }
    
    
@@ -1264,6 +1324,17 @@ public class Domain extends RestObject {
    
    
    @JsonIgnore
+   public Boolean getL2DomainAggregationEnabled() {
+      return l2DomainAggregationEnabled;
+   }
+
+   @JsonIgnore
+   public void setL2DomainAggregationEnabled(Boolean value) { 
+      this.l2DomainAggregationEnabled = value;
+   }
+   
+   
+   @JsonIgnore
    public Long getLabelID() {
       return labelID;
    }
@@ -1315,6 +1386,61 @@ public class Domain extends RestObject {
    @JsonIgnore
    public void setLocalAS(Long value) { 
       this.localAS = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getLoopbackIntfDescription() {
+      return loopbackIntfDescription;
+   }
+
+   @JsonIgnore
+   public void setLoopbackIntfDescription(String value) { 
+      this.loopbackIntfDescription = value;
+   }
+   
+   
+   @JsonIgnore
+   public Boolean getLoopbackIntfEnabled() {
+      return loopbackIntfEnabled;
+   }
+
+   @JsonIgnore
+   public void setLoopbackIntfEnabled(Boolean value) { 
+      this.loopbackIntfEnabled = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getLoopbackIntfIPv4Address() {
+      return loopbackIntfIPv4Address;
+   }
+
+   @JsonIgnore
+   public void setLoopbackIntfIPv4Address(String value) { 
+      this.loopbackIntfIPv4Address = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getLoopbackIntfIPv6Address() {
+      return loopbackIntfIPv6Address;
+   }
+
+   @JsonIgnore
+   public void setLoopbackIntfIPv6Address(String value) { 
+      this.loopbackIntfIPv6Address = value;
+   }
+   
+   
+   @JsonIgnore
+   public Long getLoopbackIntfId() {
+      return loopbackIntfId;
+   }
+
+   @JsonIgnore
+   public void setLoopbackIntfId(Long value) { 
+      this.loopbackIntfId = value;
    }
    
    
@@ -1742,6 +1868,11 @@ public class Domain extends RestObject {
    }
    
    @JsonIgnore
+   public RoutingPolicyAssociationsFetcher getRoutingPolicyAssociations() {
+      return routingPolicyAssociations;
+   }
+   
+   @JsonIgnore
    public RoutingPolicyBindingsFetcher getRoutingPolicyBindings() {
       return routingPolicyBindings;
    }
@@ -1823,7 +1954,7 @@ public class Domain extends RestObject {
    
 
    public String toString() {
-      return "Domain [" + "BGPEnabled=" + BGPEnabled + ", DHCPBehavior=" + DHCPBehavior + ", DHCPServerAddress=" + DHCPServerAddress + ", DPI=" + DPI + ", ECMPCount=" + ECMPCount + ", EVPNRT5Type=" + EVPNRT5Type + ", FIPIgnoreDefaultRoute=" + FIPIgnoreDefaultRoute + ", FIPUnderlay=" + FIPUnderlay + ", GRTEnabled=" + GRTEnabled + ", PATEnabled=" + PATEnabled + ", VXLANECMPEnabled=" + VXLANECMPEnabled + ", advertiseCriteria=" + advertiseCriteria + ", aggregateFlowsEnabled=" + aggregateFlowsEnabled + ", aggregationFlowType=" + aggregationFlowType + ", associatedBGPProfileID=" + associatedBGPProfileID + ", associatedIDPProfileID=" + associatedIDPProfileID + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedPATMapperID=" + associatedPATMapperID + ", associatedSharedPATMapperID=" + associatedSharedPATMapperID + ", associatedUnderlayID=" + associatedUnderlayID + ", backHaulRouteDistinguisher=" + backHaulRouteDistinguisher + ", backHaulRouteTarget=" + backHaulRouteTarget + ", backHaulServiceID=" + backHaulServiceID + ", backHaulVNID=" + backHaulVNID + ", color=" + color + ", createBackHaulSubnet=" + createBackHaulSubnet + ", creationDate=" + creationDate + ", customerID=" + customerID + ", description=" + description + ", dhcpServerAddresses=" + dhcpServerAddresses + ", domainAggregationEnabled=" + domainAggregationEnabled + ", domainID=" + domainID + ", domainVLANID=" + domainVLANID + ", embeddedMetadata=" + embeddedMetadata + ", encryption=" + encryption + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", exportRouteTarget=" + exportRouteTarget + ", externalID=" + externalID + ", externalLabel=" + externalLabel + ", fecEnabled=" + fecEnabled + ", flowCollectionEnabled=" + flowCollectionEnabled + ", flowCount=" + flowCount + ", flowLimitEnabled=" + flowLimitEnabled + ", flowSetupRate=" + flowSetupRate + ", flowSetupRateLimitEnabled=" + flowSetupRateLimitEnabled + ", globalRoutingEnabled=" + globalRoutingEnabled + ", importRouteTarget=" + importRouteTarget + ", labelID=" + labelID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", leakingEnabled=" + leakingEnabled + ", localAS=" + localAS + ", maintenanceMode=" + maintenanceMode + ", multicast=" + multicast + ", name=" + name + ", owner=" + owner + ", permittedAction=" + permittedAction + ", policyChangeStatus=" + policyChangeStatus + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", secondaryDHCPServerAddress=" + secondaryDHCPServerAddress + ", secondaryRouteTarget=" + secondaryRouteTarget + ", serviceID=" + serviceID + ", stretched=" + stretched + ", templateID=" + templateID + ", threatIntelligenceEnabled=" + threatIntelligenceEnabled + ", tunnelType=" + tunnelType + ", underlayEnabled=" + underlayEnabled + ", uplinkPreference=" + uplinkPreference + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "Domain [" + "BGPEnabled=" + BGPEnabled + ", DHCPBehavior=" + DHCPBehavior + ", DHCPServerAddress=" + DHCPServerAddress + ", DPI=" + DPI + ", ECMPCount=" + ECMPCount + ", EVPNRT5Type=" + EVPNRT5Type + ", FIPIgnoreDefaultRoute=" + FIPIgnoreDefaultRoute + ", FIPUnderlay=" + FIPUnderlay + ", GRTEnabled=" + GRTEnabled + ", IPv4IBGPMaxPaths=" + IPv4IBGPMaxPaths + ", IPv6IBGPMaxPaths=" + IPv6IBGPMaxPaths + ", PATEnabled=" + PATEnabled + ", VXLANECMPEnabled=" + VXLANECMPEnabled + ", advertiseCriteria=" + advertiseCriteria + ", aggregateFlowsEnabled=" + aggregateFlowsEnabled + ", aggregationFlowType=" + aggregationFlowType + ", associatedBGPProfileID=" + associatedBGPProfileID + ", associatedIDPProfileID=" + associatedIDPProfileID + ", associatedMulticastChannelMapID=" + associatedMulticastChannelMapID + ", associatedPATMapperID=" + associatedPATMapperID + ", associatedSharedPATMapperID=" + associatedSharedPATMapperID + ", associatedUnderlayID=" + associatedUnderlayID + ", backHaulRouteDistinguisher=" + backHaulRouteDistinguisher + ", backHaulRouteTarget=" + backHaulRouteTarget + ", backHaulServiceID=" + backHaulServiceID + ", backHaulVNID=" + backHaulVNID + ", color=" + color + ", createBackHaulSubnet=" + createBackHaulSubnet + ", creationDate=" + creationDate + ", customerID=" + customerID + ", description=" + description + ", dhcpServerAddresses=" + dhcpServerAddresses + ", domainAggregationEnabled=" + domainAggregationEnabled + ", domainID=" + domainID + ", domainVLANID=" + domainVLANID + ", embeddedMetadata=" + embeddedMetadata + ", encryption=" + encryption + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", exportRouteTarget=" + exportRouteTarget + ", externalID=" + externalID + ", externalLabel=" + externalLabel + ", fecEnabled=" + fecEnabled + ", flowCollectionEnabled=" + flowCollectionEnabled + ", flowCount=" + flowCount + ", flowLimitEnabled=" + flowLimitEnabled + ", flowSetupRate=" + flowSetupRate + ", flowSetupRateLimitEnabled=" + flowSetupRateLimitEnabled + ", globalRoutingEnabled=" + globalRoutingEnabled + ", importRouteTarget=" + importRouteTarget + ", l2DomainAggregationEnabled=" + l2DomainAggregationEnabled + ", labelID=" + labelID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", leakingEnabled=" + leakingEnabled + ", localAS=" + localAS + ", loopbackIntfDescription=" + loopbackIntfDescription + ", loopbackIntfEnabled=" + loopbackIntfEnabled + ", loopbackIntfIPv4Address=" + loopbackIntfIPv4Address + ", loopbackIntfIPv6Address=" + loopbackIntfIPv6Address + ", loopbackIntfId=" + loopbackIntfId + ", maintenanceMode=" + maintenanceMode + ", multicast=" + multicast + ", name=" + name + ", owner=" + owner + ", permittedAction=" + permittedAction + ", policyChangeStatus=" + policyChangeStatus + ", routeDistinguisher=" + routeDistinguisher + ", routeTarget=" + routeTarget + ", secondaryDHCPServerAddress=" + secondaryDHCPServerAddress + ", secondaryRouteTarget=" + secondaryRouteTarget + ", serviceID=" + serviceID + ", stretched=" + stretched + ", templateID=" + templateID + ", threatIntelligenceEnabled=" + threatIntelligenceEnabled + ", tunnelType=" + tunnelType + ", underlayEnabled=" + underlayEnabled + ", uplinkPreference=" + uplinkPreference + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

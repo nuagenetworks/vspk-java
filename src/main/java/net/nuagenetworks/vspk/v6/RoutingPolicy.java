@@ -46,7 +46,7 @@ public class RoutingPolicy extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
-   public enum EContentType { DEFAULT, NETCONF_7X50, SR_LINUX };
+   public enum EContentType { DEFAULT, NETCONF_7X50, NETCONF_THIRDPARTY_HW_VTEP, SR_LINUX };
    public enum EDefaultAction { ACCEPT, REJECT };
    public enum EEntityScope { ENTERPRISE, GLOBAL };
    public enum ERoutingProtocol { BGP, ISIS, OSPFv2, OSPFv3, ROUTING };

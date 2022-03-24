@@ -55,6 +55,7 @@ import net.nuagenetworks.vspk.v6.fetchers.EgressProfilesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EgressQOSPoliciesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EnterpriseNetworksFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EnterpriseSecuritiesFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.EthernetSegmentGWGroupsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.FirewallAclsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.FirewallRulesFetcher;
@@ -381,6 +382,9 @@ public class Enterprise extends RestObject {
    private EnterpriseSecuritiesFetcher enterpriseSecurities;
    
    @JsonIgnore
+   private EthernetSegmentGWGroupsFetcher ethernetSegmentGWGroups;
+   
+   @JsonIgnore
    private EventLogsFetcher eventLogs;
    
    @JsonIgnore
@@ -629,6 +633,8 @@ public class Enterprise extends RestObject {
       enterpriseNetworks = new EnterpriseNetworksFetcher(this);
       
       enterpriseSecurities = new EnterpriseSecuritiesFetcher(this);
+      
+      ethernetSegmentGWGroups = new EthernetSegmentGWGroupsFetcher(this);
       
       eventLogs = new EventLogsFetcher(this);
       
@@ -1355,6 +1361,11 @@ public class Enterprise extends RestObject {
    @JsonIgnore
    public EnterpriseSecuritiesFetcher getEnterpriseSecurities() {
       return enterpriseSecurities;
+   }
+   
+   @JsonIgnore
+   public EthernetSegmentGWGroupsFetcher getEthernetSegmentGWGroups() {
+      return ethernetSegmentGWGroups;
    }
    
    @JsonIgnore
