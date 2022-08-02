@@ -39,6 +39,7 @@ import net.nuagenetworks.vspk.v6.fetchers.AlarmsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.BootstrapsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.BootstrapActivationsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.CommandsFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.DdnsconfigsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EnterprisePermissionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EventLogsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GatewaySecuritiesFetcher;
@@ -389,6 +390,9 @@ public class NSGateway extends RestObject {
    private CommandsFetcher commands;
    
    @JsonIgnore
+   private DdnsconfigsFetcher ddnsconfigs;
+   
+   @JsonIgnore
    private EnterprisePermissionsFetcher enterprisePermissions;
    
    @JsonIgnore
@@ -470,6 +474,8 @@ public class NSGateway extends RestObject {
       bootstrapActivations = new BootstrapActivationsFetcher(this);
       
       commands = new CommandsFetcher(this);
+      
+      ddnsconfigs = new DdnsconfigsFetcher(this);
       
       enterprisePermissions = new EnterprisePermissionsFetcher(this);
       
@@ -1323,6 +1329,11 @@ public class NSGateway extends RestObject {
    @JsonIgnore
    public CommandsFetcher getCommands() {
       return commands;
+   }
+   
+   @JsonIgnore
+   public DdnsconfigsFetcher getDdnsconfigs() {
+      return ddnsconfigs;
    }
    
    @JsonIgnore

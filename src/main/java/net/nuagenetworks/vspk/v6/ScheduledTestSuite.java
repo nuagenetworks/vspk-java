@@ -35,6 +35,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.ScheduledtestsuiterunsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.TestsFetcher;
 
@@ -45,20 +47,49 @@ public class ScheduledTestSuite extends RestObject {
    private static final long serialVersionUID = 1L;
 
    
+   public enum EEntityScope { ENTERPRISE, GLOBAL };
    public enum EScheduleIntervalUnits { DAYS, HOURS, MINUTES, MONTHS };
 
+   
+   @JsonProperty(value = "creationDate")
+   
+   protected String creationDate;
    
    @JsonProperty(value = "description")
    
    protected String description;
    
+   @JsonProperty(value = "embeddedMetadata")
+   
+   protected java.util.List<Metadata> embeddedMetadata;
+   
    @JsonProperty(value = "endDateTime")
    
    protected Float endDateTime;
    
+   @JsonProperty(value = "entityScope")
+   
+   protected EEntityScope entityScope;
+   
+   @JsonProperty(value = "externalID")
+   
+   protected String externalID;
+   
+   @JsonProperty(value = "lastUpdatedBy")
+   
+   protected String lastUpdatedBy;
+   
+   @JsonProperty(value = "lastUpdatedDate")
+   
+   protected String lastUpdatedDate;
+   
    @JsonProperty(value = "name")
    
    protected String name;
+   
+   @JsonProperty(value = "owner")
+   
+   protected String owner;
    
    @JsonProperty(value = "scheduleInterval")
    
@@ -75,6 +106,12 @@ public class ScheduledTestSuite extends RestObject {
 
    
    @JsonIgnore
+   private GlobalMetadatasFetcher globalMetadatas;
+   
+   @JsonIgnore
+   private MetadatasFetcher metadatas;
+   
+   @JsonIgnore
    private ScheduledtestsuiterunsFetcher scheduledtestsuiteruns;
    
    @JsonIgnore
@@ -82,6 +119,10 @@ public class ScheduledTestSuite extends RestObject {
    
 
    public ScheduledTestSuite() {
+      
+      globalMetadatas = new GlobalMetadatasFetcher(this);
+      
+      metadatas = new MetadatasFetcher(this);
       
       scheduledtestsuiteruns = new ScheduledtestsuiterunsFetcher(this);
       
@@ -92,6 +133,17 @@ public class ScheduledTestSuite extends RestObject {
    
    
    @JsonIgnore
+   public String getCreationDate() {
+      return creationDate;
+   }
+
+   @JsonIgnore
+   public void setCreationDate(String value) { 
+      this.creationDate = value;
+   }
+   
+   
+   @JsonIgnore
    public String getDescription() {
       return description;
    }
@@ -99,6 +151,17 @@ public class ScheduledTestSuite extends RestObject {
    @JsonIgnore
    public void setDescription(String value) { 
       this.description = value;
+   }
+   
+   
+   @JsonIgnore
+   public java.util.List<Metadata> getEmbeddedMetadata() {
+      return embeddedMetadata;
+   }
+
+   @JsonIgnore
+   public void setEmbeddedMetadata(java.util.List<Metadata> value) { 
+      this.embeddedMetadata = value;
    }
    
    
@@ -114,6 +177,50 @@ public class ScheduledTestSuite extends RestObject {
    
    
    @JsonIgnore
+   public EEntityScope getEntityScope() {
+      return entityScope;
+   }
+
+   @JsonIgnore
+   public void setEntityScope(EEntityScope value) { 
+      this.entityScope = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getExternalID() {
+      return externalID;
+   }
+
+   @JsonIgnore
+   public void setExternalID(String value) { 
+      this.externalID = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getLastUpdatedBy() {
+      return lastUpdatedBy;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedBy(String value) { 
+      this.lastUpdatedBy = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getLastUpdatedDate() {
+      return lastUpdatedDate;
+   }
+
+   @JsonIgnore
+   public void setLastUpdatedDate(String value) { 
+      this.lastUpdatedDate = value;
+   }
+   
+   
+   @JsonIgnore
    public String getName() {
       return name;
    }
@@ -121,6 +228,17 @@ public class ScheduledTestSuite extends RestObject {
    @JsonIgnore
    public void setName(String value) { 
       this.name = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getOwner() {
+      return owner;
+   }
+
+   @JsonIgnore
+   public void setOwner(String value) { 
+      this.owner = value;
    }
    
    
@@ -159,6 +277,16 @@ public class ScheduledTestSuite extends RestObject {
 
    
    @JsonIgnore
+   public GlobalMetadatasFetcher getGlobalMetadatas() {
+      return globalMetadatas;
+   }
+   
+   @JsonIgnore
+   public MetadatasFetcher getMetadatas() {
+      return metadatas;
+   }
+   
+   @JsonIgnore
    public ScheduledtestsuiterunsFetcher getScheduledtestsuiteruns() {
       return scheduledtestsuiteruns;
    }
@@ -170,7 +298,7 @@ public class ScheduledTestSuite extends RestObject {
    
 
    public String toString() {
-      return "ScheduledTestSuite [" + "description=" + description + ", endDateTime=" + endDateTime + ", name=" + name + ", scheduleInterval=" + scheduleInterval + ", scheduleIntervalUnits=" + scheduleIntervalUnits + ", startDateTime=" + startDateTime + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "ScheduledTestSuite [" + "creationDate=" + creationDate + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", endDateTime=" + endDateTime + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", name=" + name + ", owner=" + owner + ", scheduleInterval=" + scheduleInterval + ", scheduleIntervalUnits=" + scheduleIntervalUnits + ", startDateTime=" + startDateTime + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    
