@@ -68,6 +68,18 @@ public class ControllerVRSLink extends RestObject {
    
    protected String VRSID;
    
+   @JsonProperty(value = "VRSISSUFailureReason")
+   
+   protected String VRSISSUFailureReason;
+   
+   @JsonProperty(value = "VRSISSUState")
+   
+   protected String VRSISSUState;
+   
+   @JsonProperty(value = "VRSLastISSUState")
+   
+   protected String VRSLastISSUState;
+   
    @JsonProperty(value = "VRSPersonality")
    
    protected EVRSPersonality VRSPersonality;
@@ -206,6 +218,39 @@ public class ControllerVRSLink extends RestObject {
    @JsonIgnore
    public void setVRSID(String value) { 
       this.VRSID = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getVRSISSUFailureReason() {
+      return VRSISSUFailureReason;
+   }
+
+   @JsonIgnore
+   public void setVRSISSUFailureReason(String value) { 
+      this.VRSISSUFailureReason = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getVRSISSUState() {
+      return VRSISSUState;
+   }
+
+   @JsonIgnore
+   public void setVRSISSUState(String value) { 
+      this.VRSISSUState = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getVRSLastISSUState() {
+      return VRSLastISSUState;
+   }
+
+   @JsonIgnore
+   public void setVRSLastISSUState(String value) { 
+      this.VRSLastISSUState = value;
    }
    
    
@@ -462,7 +507,7 @@ public class ControllerVRSLink extends RestObject {
    
 
    public String toString() {
-      return "ControllerVRSLink [" + "JSONRPCConnectionState=" + JSONRPCConnectionState + ", VRSID=" + VRSID + ", VRSPersonality=" + VRSPersonality + ", VRSSystemId=" + VRSSystemId + ", VSCConfigState=" + VSCConfigState + ", VSCCurrentState=" + VSCCurrentState + ", clusterNodeRole=" + clusterNodeRole + ", connections=" + connections + ", controllerID=" + controllerID + ", controllerType=" + controllerType + ", creationDate=" + creationDate + ", dynamic=" + dynamic + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", name=" + name + ", owner=" + owner + ", peer=" + peer + ", role=" + role + ", status=" + status + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "ControllerVRSLink [" + "JSONRPCConnectionState=" + JSONRPCConnectionState + ", VRSID=" + VRSID + ", VRSISSUFailureReason=" + VRSISSUFailureReason + ", VRSISSUState=" + VRSISSUState + ", VRSLastISSUState=" + VRSLastISSUState + ", VRSPersonality=" + VRSPersonality + ", VRSSystemId=" + VRSSystemId + ", VSCConfigState=" + VSCConfigState + ", VSCCurrentState=" + VSCCurrentState + ", clusterNodeRole=" + clusterNodeRole + ", connections=" + connections + ", controllerID=" + controllerID + ", controllerType=" + controllerType + ", creationDate=" + creationDate + ", dynamic=" + dynamic + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", name=" + name + ", owner=" + owner + ", peer=" + peer + ", role=" + role + ", status=" + status + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

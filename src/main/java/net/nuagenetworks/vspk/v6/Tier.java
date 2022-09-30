@@ -95,6 +95,10 @@ public class Tier extends RestObject {
    
    protected Long probeInterval;
    
+   @JsonProperty(value = "probePerformanceStats")
+   
+   protected Boolean probePerformanceStats;
+   
    @JsonProperty(value = "tierType")
    
    protected ETierType tierType;
@@ -254,6 +258,17 @@ public class Tier extends RestObject {
    
    
    @JsonIgnore
+   public Boolean getProbePerformanceStats() {
+      return probePerformanceStats;
+   }
+
+   @JsonIgnore
+   public void setProbePerformanceStats(Boolean value) { 
+      this.probePerformanceStats = value;
+   }
+   
+   
+   @JsonIgnore
    public ETierType getTierType() {
       return tierType;
    }
@@ -298,7 +313,7 @@ public class Tier extends RestObject {
    
 
    public String toString() {
-      return "Tier [" + "creationDate=" + creationDate + ", description=" + description + ", downThresholdCount=" + downThresholdCount + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", owner=" + owner + ", packetCount=" + packetCount + ", probeInterval=" + probeInterval + ", tierType=" + tierType + ", timeout=" + timeout + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "Tier [" + "creationDate=" + creationDate + ", description=" + description + ", downThresholdCount=" + downThresholdCount + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", owner=" + owner + ", packetCount=" + packetCount + ", probeInterval=" + probeInterval + ", probePerformanceStats=" + probePerformanceStats + ", tierType=" + tierType + ", timeout=" + timeout + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    
