@@ -61,6 +61,10 @@ public class NetconfManager extends RestObject {
    
    protected String creationDate;
    
+   @JsonProperty(value = "description")
+   
+   protected String description;
+   
    @JsonProperty(value = "embeddedMetadata")
    
    protected java.util.List<Metadata> embeddedMetadata;
@@ -159,6 +163,17 @@ public class NetconfManager extends RestObject {
    @JsonIgnore
    public void setCreationDate(String value) { 
       this.creationDate = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getDescription() {
+      return description;
+   }
+
+   @JsonIgnore
+   public void setDescription(String value) { 
+      this.description = value;
    }
    
    
@@ -305,7 +320,7 @@ public class NetconfManager extends RestObject {
    
 
    public String toString() {
-      return "NetconfManager [" + "assocEntityType=" + assocEntityType + ", creationDate=" + creationDate + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", eventProcessingEnabled=" + eventProcessingEnabled + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", name=" + name + ", owner=" + owner + ", release=" + release + ", status=" + status + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "NetconfManager [" + "assocEntityType=" + assocEntityType + ", creationDate=" + creationDate + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", eventProcessingEnabled=" + eventProcessingEnabled + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", name=" + name + ", owner=" + owner + ", release=" + release + ", status=" + status + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

@@ -53,9 +53,17 @@ public class Group extends RestObject {
    public enum ERole { ADMINOPERATOR, AUDITADMIN, CMS, CSPOPERATOR, CSPROOT, JMS, NETCONFMGR, ORGADMIN, ORGNETWORKDESIGNER, ORGUSER, POSTACTIVATION, PREACTIVATION, SECURITYADMINISTRATOR, STATS, SYSTEM, UNKNOWN, USER };
 
    
+   @JsonProperty(value = "LDAPDomain")
+   
+   protected String LDAPDomain;
+   
    @JsonProperty(value = "LDAPGroupDN")
    
    protected String LDAPGroupDN;
+   
+   @JsonProperty(value = "LDAPId")
+   
+   protected String LDAPId;
    
    @JsonProperty(value = "accountRestrictions")
    
@@ -148,6 +156,17 @@ public class Group extends RestObject {
    
    
    @JsonIgnore
+   public String getLDAPDomain() {
+      return LDAPDomain;
+   }
+
+   @JsonIgnore
+   public void setLDAPDomain(String value) { 
+      this.LDAPDomain = value;
+   }
+   
+   
+   @JsonIgnore
    public String getLDAPGroupDN() {
       return LDAPGroupDN;
    }
@@ -155,6 +174,17 @@ public class Group extends RestObject {
    @JsonIgnore
    public void setLDAPGroupDN(String value) { 
       this.LDAPGroupDN = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getLDAPId() {
+      return LDAPId;
+   }
+
+   @JsonIgnore
+   public void setLDAPId(String value) { 
+      this.LDAPId = value;
    }
    
    
@@ -340,7 +370,7 @@ public class Group extends RestObject {
    
 
    public String toString() {
-      return "Group [" + "LDAPGroupDN=" + LDAPGroupDN + ", accountRestrictions=" + accountRestrictions + ", creationDate=" + creationDate + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", managementMode=" + managementMode + ", name=" + name + ", owner=" + owner + ", private_=" + private_ + ", restrictionDate=" + restrictionDate + ", role=" + role + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "Group [" + "LDAPDomain=" + LDAPDomain + ", LDAPGroupDN=" + LDAPGroupDN + ", LDAPId=" + LDAPId + ", accountRestrictions=" + accountRestrictions + ", creationDate=" + creationDate + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", managementMode=" + managementMode + ", name=" + name + ", owner=" + owner + ", private_=" + private_ + ", restrictionDate=" + restrictionDate + ", role=" + role + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

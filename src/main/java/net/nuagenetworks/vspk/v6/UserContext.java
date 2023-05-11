@@ -82,6 +82,10 @@ public class UserContext extends RestObject {
    
    protected java.util.List<Metadata> embeddedMetadata;
    
+   @JsonProperty(value = "enhancedSecurityEnabled")
+   
+   protected Boolean enhancedSecurityEnabled;
+   
    @JsonProperty(value = "entityScope")
    
    protected EEntityScope entityScope;
@@ -97,6 +101,10 @@ public class UserContext extends RestObject {
    @JsonProperty(value = "flowCollectionEnabled")
    
    protected Boolean flowCollectionEnabled;
+   
+   @JsonProperty(value = "globalNetworkMacroGroupsEnabled")
+   
+   protected Boolean globalNetworkMacroGroupsEnabled;
    
    @JsonProperty(value = "googleMapsAPIKey")
    
@@ -263,6 +271,17 @@ public class UserContext extends RestObject {
    
    
    @JsonIgnore
+   public Boolean getEnhancedSecurityEnabled() {
+      return enhancedSecurityEnabled;
+   }
+
+   @JsonIgnore
+   public void setEnhancedSecurityEnabled(Boolean value) { 
+      this.enhancedSecurityEnabled = value;
+   }
+   
+   
+   @JsonIgnore
    public EEntityScope getEntityScope() {
       return entityScope;
    }
@@ -303,6 +322,17 @@ public class UserContext extends RestObject {
    @JsonIgnore
    public void setFlowCollectionEnabled(Boolean value) { 
       this.flowCollectionEnabled = value;
+   }
+   
+   
+   @JsonIgnore
+   public Boolean getGlobalNetworkMacroGroupsEnabled() {
+      return globalNetworkMacroGroupsEnabled;
+   }
+
+   @JsonIgnore
+   public void setGlobalNetworkMacroGroupsEnabled(Boolean value) { 
+      this.globalNetworkMacroGroupsEnabled = value;
    }
    
    
@@ -467,7 +497,7 @@ public class UserContext extends RestObject {
    
 
    public String toString() {
-      return "UserContext [" + "AARFlowStatsInterval=" + AARFlowStatsInterval + ", AARProbeStatsInterval=" + AARProbeStatsInterval + ", VSSFeatureEnabled=" + VSSFeatureEnabled + ", VSSStatsInterval=" + VSSStatsInterval + ", allowEnterpriseAvatarOnNSG=" + allowEnterpriseAvatarOnNSG + ", creationDate=" + creationDate + ", deniedFlowCollectionEnabled=" + deniedFlowCollectionEnabled + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", explicitACLMatchingEnabled=" + explicitACLMatchingEnabled + ", externalID=" + externalID + ", flowCollectionEnabled=" + flowCollectionEnabled + ", googleMapsAPIKey=" + googleMapsAPIKey + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", maintenanceModeEnabled=" + maintenanceModeEnabled + ", owner=" + owner + ", pageSize=" + pageSize + ", rbacEnabled=" + rbacEnabled + ", statisticsEnabled=" + statisticsEnabled + ", statsDatabaseProxy=" + statsDatabaseProxy + ", statsTSDBServerAddress=" + statsTSDBServerAddress + ", systemAvatarData=" + systemAvatarData + ", systemAvatarType=" + systemAvatarType + ", threatIntelligenceEnabled=" + threatIntelligenceEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "UserContext [" + "AARFlowStatsInterval=" + AARFlowStatsInterval + ", AARProbeStatsInterval=" + AARProbeStatsInterval + ", VSSFeatureEnabled=" + VSSFeatureEnabled + ", VSSStatsInterval=" + VSSStatsInterval + ", allowEnterpriseAvatarOnNSG=" + allowEnterpriseAvatarOnNSG + ", creationDate=" + creationDate + ", deniedFlowCollectionEnabled=" + deniedFlowCollectionEnabled + ", embeddedMetadata=" + embeddedMetadata + ", enhancedSecurityEnabled=" + enhancedSecurityEnabled + ", entityScope=" + entityScope + ", explicitACLMatchingEnabled=" + explicitACLMatchingEnabled + ", externalID=" + externalID + ", flowCollectionEnabled=" + flowCollectionEnabled + ", globalNetworkMacroGroupsEnabled=" + globalNetworkMacroGroupsEnabled + ", googleMapsAPIKey=" + googleMapsAPIKey + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", maintenanceModeEnabled=" + maintenanceModeEnabled + ", owner=" + owner + ", pageSize=" + pageSize + ", rbacEnabled=" + rbacEnabled + ", statisticsEnabled=" + statisticsEnabled + ", statsDatabaseProxy=" + statsDatabaseProxy + ", statsTSDBServerAddress=" + statsTSDBServerAddress + ", systemAvatarData=" + systemAvatarData + ", systemAvatarType=" + systemAvatarType + ", threatIntelligenceEnabled=" + threatIntelligenceEnabled + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

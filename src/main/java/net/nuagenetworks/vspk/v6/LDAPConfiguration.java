@@ -73,6 +73,10 @@ public class LDAPConfiguration extends RestObject {
    
    protected String creationDate;
    
+   @JsonProperty(value = "domain")
+   
+   protected String domain;
+   
    @JsonProperty(value = "embeddedMetadata")
    
    protected java.util.List<Metadata> embeddedMetadata;
@@ -84,6 +88,10 @@ public class LDAPConfiguration extends RestObject {
    @JsonProperty(value = "entityScope")
    
    protected EEntityScope entityScope;
+   
+   @JsonProperty(value = "everybodyGroupEnabled")
+   
+   protected Boolean everybodyGroupEnabled;
    
    @JsonProperty(value = "externalID")
    
@@ -224,6 +232,17 @@ public class LDAPConfiguration extends RestObject {
    
    
    @JsonIgnore
+   public String getDomain() {
+      return domain;
+   }
+
+   @JsonIgnore
+   public void setDomain(String value) { 
+      this.domain = value;
+   }
+   
+   
+   @JsonIgnore
    public java.util.List<Metadata> getEmbeddedMetadata() {
       return embeddedMetadata;
    }
@@ -253,6 +272,17 @@ public class LDAPConfiguration extends RestObject {
    @JsonIgnore
    public void setEntityScope(EEntityScope value) { 
       this.entityScope = value;
+   }
+   
+   
+   @JsonIgnore
+   public Boolean getEverybodyGroupEnabled() {
+      return everybodyGroupEnabled;
+   }
+
+   @JsonIgnore
+   public void setEverybodyGroupEnabled(Boolean value) { 
+      this.everybodyGroupEnabled = value;
    }
    
    
@@ -406,7 +436,7 @@ public class LDAPConfiguration extends RestObject {
    
 
    public String toString() {
-      return "LDAPConfiguration [" + "SSLEnabled=" + SSLEnabled + ", acceptAllCertificates=" + acceptAllCertificates + ", authorizationEnabled=" + authorizationEnabled + ", authorizingUserDN=" + authorizingUserDN + ", certificate=" + certificate + ", creationDate=" + creationDate + ", embeddedMetadata=" + embeddedMetadata + ", enabled=" + enabled + ", entityScope=" + entityScope + ", externalID=" + externalID + ", groupDN=" + groupDN + ", groupNamePrefix=" + groupNamePrefix + ", groupNameSuffix=" + groupNameSuffix + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", owner=" + owner + ", password=" + password + ", port=" + port + ", server=" + server + ", userDNTemplate=" + userDNTemplate + ", userNameAttribute=" + userNameAttribute + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "LDAPConfiguration [" + "SSLEnabled=" + SSLEnabled + ", acceptAllCertificates=" + acceptAllCertificates + ", authorizationEnabled=" + authorizationEnabled + ", authorizingUserDN=" + authorizingUserDN + ", certificate=" + certificate + ", creationDate=" + creationDate + ", domain=" + domain + ", embeddedMetadata=" + embeddedMetadata + ", enabled=" + enabled + ", entityScope=" + entityScope + ", everybodyGroupEnabled=" + everybodyGroupEnabled + ", externalID=" + externalID + ", groupDN=" + groupDN + ", groupNamePrefix=" + groupNamePrefix + ", groupNameSuffix=" + groupNameSuffix + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", owner=" + owner + ", password=" + password + ", port=" + port + ", server=" + server + ", userDNTemplate=" + userDNTemplate + ", userNameAttribute=" + userNameAttribute + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

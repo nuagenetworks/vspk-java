@@ -95,6 +95,10 @@ public class FloatingIp extends RestObject {
    
    protected String ingressRateLimiterID;
    
+   @JsonProperty(value = "isSecondaryFIP")
+   
+   protected Boolean isSecondaryFIP;
+   
    @JsonProperty(value = "lastUpdatedBy")
    
    protected String lastUpdatedBy;
@@ -263,6 +267,17 @@ public class FloatingIp extends RestObject {
    
    
    @JsonIgnore
+   public Boolean getIsSecondaryFIP() {
+      return isSecondaryFIP;
+   }
+
+   @JsonIgnore
+   public void setIsSecondaryFIP(Boolean value) { 
+      this.isSecondaryFIP = value;
+   }
+   
+   
+   @JsonIgnore
    public String getLastUpdatedBy() {
       return lastUpdatedBy;
    }
@@ -323,7 +338,7 @@ public class FloatingIp extends RestObject {
    
 
    public String toString() {
-      return "FloatingIp [" + "accessControl=" + accessControl + ", address=" + address + ", assigned=" + assigned + ", assignedToObjectType=" + assignedToObjectType + ", associatedSharedNetworkResourceID=" + associatedSharedNetworkResourceID + ", creationDate=" + creationDate + ", egressRateLimiterID=" + egressRateLimiterID + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", ingressRateLimiterID=" + ingressRateLimiterID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", owner=" + owner + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "FloatingIp [" + "accessControl=" + accessControl + ", address=" + address + ", assigned=" + assigned + ", assignedToObjectType=" + assignedToObjectType + ", associatedSharedNetworkResourceID=" + associatedSharedNetworkResourceID + ", creationDate=" + creationDate + ", egressRateLimiterID=" + egressRateLimiterID + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", ingressRateLimiterID=" + ingressRateLimiterID + ", isSecondaryFIP=" + isSecondaryFIP + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", owner=" + owner + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

@@ -63,6 +63,10 @@ public class VirtualIP extends RestObject {
    
    protected String associatedFloatingIPID;
    
+   @JsonProperty(value = "associatedSecondaryFloatingIPID")
+   
+   protected String associatedSecondaryFloatingIPID;
+   
    @JsonProperty(value = "creationDate")
    
    protected String creationDate;
@@ -158,6 +162,17 @@ public class VirtualIP extends RestObject {
    @JsonIgnore
    public void setAssociatedFloatingIPID(String value) { 
       this.associatedFloatingIPID = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getAssociatedSecondaryFloatingIPID() {
+      return associatedSecondaryFloatingIPID;
+   }
+
+   @JsonIgnore
+   public void setAssociatedSecondaryFloatingIPID(String value) { 
+      this.associatedSecondaryFloatingIPID = value;
    }
    
    
@@ -283,7 +298,7 @@ public class VirtualIP extends RestObject {
    
 
    public String toString() {
-      return "VirtualIP [" + "IPType=" + IPType + ", MAC=" + MAC + ", associatedFloatingIPID=" + associatedFloatingIPID + ", creationDate=" + creationDate + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", owner=" + owner + ", subnetID=" + subnetID + ", virtualIP=" + virtualIP + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "VirtualIP [" + "IPType=" + IPType + ", MAC=" + MAC + ", associatedFloatingIPID=" + associatedFloatingIPID + ", associatedSecondaryFloatingIPID=" + associatedSecondaryFloatingIPID + ", creationDate=" + creationDate + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", owner=" + owner + ", subnetID=" + subnetID + ", virtualIP=" + virtualIP + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

@@ -35,6 +35,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v6.fetchers.TestRunsFetcher;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @RestEntity(restName = "underlaytest", resourceName = "underlaytests")
@@ -121,8 +122,13 @@ public class UnderlayTest extends RestObject {
    
 
    
+   @JsonIgnore
+   private TestRunsFetcher testRuns;
+   
 
    public UnderlayTest() {
+      
+      testRuns = new TestRunsFetcher(this);
       
    }
 
@@ -326,6 +332,11 @@ public class UnderlayTest extends RestObject {
    }
    
 
+   
+   @JsonIgnore
+   public TestRunsFetcher getTestRuns() {
+      return testRuns;
+   }
    
 
    public String toString() {

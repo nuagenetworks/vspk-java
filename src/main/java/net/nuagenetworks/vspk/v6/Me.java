@@ -66,6 +66,7 @@ import net.nuagenetworks.vspk.v6.fetchers.FloatingIpsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GatewaysFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GatewayTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.GNMIProfilesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.HostInterfacesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.InfrastructureAccessProfilesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.InfrastructureEVDFProfilesFetcher;
@@ -79,6 +80,7 @@ import net.nuagenetworks.vspk.v6.fetchers.JobsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.KeyServerMembersFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.L2DomainsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.L4ServicesFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.L4ServiceGroupsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.L7applicationsignaturesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.LicensesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.LicenseStatusFetcher;
@@ -116,6 +118,7 @@ import net.nuagenetworks.vspk.v6.fetchers.SharedNetworkResourcesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.SiteInfosFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.StaticRoutesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.StatsCollectorInfosFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.StatisticsprofilesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.SubnetsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.SystemConfigsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.TCAsFetcher;
@@ -353,6 +356,9 @@ public class Me extends RestRootObject {
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
+   private GNMIProfilesFetcher gNMIProfiles;
+   
+   @JsonIgnore
    private HostInterfacesFetcher hostInterfaces;
    
    @JsonIgnore
@@ -390,6 +396,9 @@ public class Me extends RestRootObject {
    
    @JsonIgnore
    private L4ServicesFetcher l4Services;
+   
+   @JsonIgnore
+   private L4ServiceGroupsFetcher l4ServiceGroups;
    
    @JsonIgnore
    private L7applicationsignaturesFetcher l7applicationsignatures;
@@ -501,6 +510,9 @@ public class Me extends RestRootObject {
    
    @JsonIgnore
    private StatsCollectorInfosFetcher statsCollectorInfos;
+   
+   @JsonIgnore
+   private StatisticsprofilesFetcher statisticsprofiles;
    
    @JsonIgnore
    private SubnetsFetcher subnets;
@@ -642,6 +654,8 @@ public class Me extends RestRootObject {
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
+      gNMIProfiles = new GNMIProfilesFetcher(this);
+      
       hostInterfaces = new HostInterfacesFetcher(this);
       
       infrastructureAccessProfiles = new InfrastructureAccessProfilesFetcher(this);
@@ -667,6 +681,8 @@ public class Me extends RestRootObject {
       l2Domains = new L2DomainsFetcher(this);
       
       l4Services = new L4ServicesFetcher(this);
+      
+      l4ServiceGroups = new L4ServiceGroupsFetcher(this);
       
       l7applicationsignatures = new L7applicationsignaturesFetcher(this);
       
@@ -741,6 +757,8 @@ public class Me extends RestRootObject {
       staticRoutes = new StaticRoutesFetcher(this);
       
       statsCollectorInfos = new StatsCollectorInfosFetcher(this);
+      
+      statisticsprofiles = new StatisticsprofilesFetcher(this);
       
       subnets = new SubnetsFetcher(this);
       
@@ -1239,6 +1257,11 @@ public class Me extends RestRootObject {
    }
    
    @JsonIgnore
+   public GNMIProfilesFetcher getGNMIProfiles() {
+      return gNMIProfiles;
+   }
+   
+   @JsonIgnore
    public HostInterfacesFetcher getHostInterfaces() {
       return hostInterfaces;
    }
@@ -1301,6 +1324,11 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public L4ServicesFetcher getL4Services() {
       return l4Services;
+   }
+   
+   @JsonIgnore
+   public L4ServiceGroupsFetcher getL4ServiceGroups() {
+      return l4ServiceGroups;
    }
    
    @JsonIgnore
@@ -1486,6 +1514,11 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public StatsCollectorInfosFetcher getStatsCollectorInfos() {
       return statsCollectorInfos;
+   }
+   
+   @JsonIgnore
+   public StatisticsprofilesFetcher getStatisticsprofiles() {
+      return statisticsprofiles;
    }
    
    @JsonIgnore

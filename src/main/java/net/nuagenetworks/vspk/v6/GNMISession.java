@@ -35,6 +35,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import net.nuagenetworks.vspk.v6.fetchers.AlarmsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.MetadatasFetcher;
 
@@ -122,6 +123,9 @@ public class GNMISession extends RestObject {
 
    
    @JsonIgnore
+   private AlarmsFetcher alarms;
+   
+   @JsonIgnore
    private GlobalMetadatasFetcher globalMetadatas;
    
    @JsonIgnore
@@ -129,6 +133,8 @@ public class GNMISession extends RestObject {
    
 
    public GNMISession() {
+      
+      alarms = new AlarmsFetcher(this);
       
       globalMetadatas = new GlobalMetadatasFetcher(this);
       
@@ -325,6 +331,11 @@ public class GNMISession extends RestObject {
    }
    
 
+   
+   @JsonIgnore
+   public AlarmsFetcher getAlarms() {
+      return alarms;
+   }
    
    @JsonIgnore
    public GlobalMetadatasFetcher getGlobalMetadatas() {

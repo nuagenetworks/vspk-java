@@ -56,6 +56,18 @@ public class User extends RestObject {
    public enum EManagementMode { CMS, DEFAULT };
 
    
+   @JsonProperty(value = "LDAPDomain")
+   
+   protected String LDAPDomain;
+   
+   @JsonProperty(value = "LDAPEnabled")
+   
+   protected Boolean LDAPEnabled;
+   
+   @JsonProperty(value = "LDAPId")
+   
+   protected String LDAPId;
+   
    @JsonProperty(value = "LDAPUserDN")
    
    protected String LDAPUserDN;
@@ -183,6 +195,39 @@ public class User extends RestObject {
       
    }
 
+   
+   
+   @JsonIgnore
+   public String getLDAPDomain() {
+      return LDAPDomain;
+   }
+
+   @JsonIgnore
+   public void setLDAPDomain(String value) { 
+      this.LDAPDomain = value;
+   }
+   
+   
+   @JsonIgnore
+   public Boolean getLDAPEnabled() {
+      return LDAPEnabled;
+   }
+
+   @JsonIgnore
+   public void setLDAPEnabled(Boolean value) { 
+      this.LDAPEnabled = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getLDAPId() {
+      return LDAPId;
+   }
+
+   @JsonIgnore
+   public void setLDAPId(String value) { 
+      this.LDAPId = value;
+   }
    
    
    @JsonIgnore
@@ -448,7 +493,7 @@ public class User extends RestObject {
    
 
    public String toString() {
-      return "User [" + "LDAPUserDN=" + LDAPUserDN + ", avatarData=" + avatarData + ", avatarType=" + avatarType + ", creationDate=" + creationDate + ", disableCertificateAuth=" + disableCertificateAuth + ", disablePasswordAuth=" + disablePasswordAuth + ", disabled=" + disabled + ", email=" + email + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", firstName=" + firstName + ", lastName=" + lastName + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", managementMode=" + managementMode + ", mobileNumber=" + mobileNumber + ", owner=" + owner + ", password=" + password + ", userName=" + userName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "User [" + "LDAPDomain=" + LDAPDomain + ", LDAPEnabled=" + LDAPEnabled + ", LDAPId=" + LDAPId + ", LDAPUserDN=" + LDAPUserDN + ", avatarData=" + avatarData + ", avatarType=" + avatarType + ", creationDate=" + creationDate + ", disableCertificateAuth=" + disableCertificateAuth + ", disablePasswordAuth=" + disablePasswordAuth + ", disabled=" + disabled + ", email=" + email + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", firstName=" + firstName + ", lastName=" + lastName + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", managementMode=" + managementMode + ", mobileNumber=" + mobileNumber + ", owner=" + owner + ", password=" + password + ", userName=" + userName + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    
