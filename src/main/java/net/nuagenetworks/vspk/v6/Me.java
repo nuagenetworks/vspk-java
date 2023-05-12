@@ -58,6 +58,7 @@ import net.nuagenetworks.vspk.v6.fetchers.EgressAdvFwdEntryTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.DomainFIPAclTemplatesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EgressQOSPoliciesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EnterprisesFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.EnterpriseNetworksFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EnterpriseProfilesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EsIlmPoliciesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EsIndexConfigsFetcher;
@@ -90,6 +91,7 @@ import net.nuagenetworks.vspk.v6.fetchers.MultiCastChannelMapsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.NetconfGlobalConfigurationsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.NetconfProfilesFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.NetworkLayoutsFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.NetworkMacroGroupsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.NetworkPerformanceMeasurementsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.NSGatewaysFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.NSGatewayTemplatesFetcher;
@@ -332,6 +334,9 @@ public class Me extends RestRootObject {
    private EnterprisesFetcher enterprises;
    
    @JsonIgnore
+   private EnterpriseNetworksFetcher enterpriseNetworks;
+   
+   @JsonIgnore
    private EnterpriseProfilesFetcher enterpriseProfiles;
    
    @JsonIgnore
@@ -426,6 +431,9 @@ public class Me extends RestRootObject {
    
    @JsonIgnore
    private NetworkLayoutsFetcher networkLayouts;
+   
+   @JsonIgnore
+   private NetworkMacroGroupsFetcher networkMacroGroups;
    
    @JsonIgnore
    private NetworkPerformanceMeasurementsFetcher networkPerformanceMeasurements;
@@ -638,6 +646,8 @@ public class Me extends RestRootObject {
       
       enterprises = new EnterprisesFetcher(this);
       
+      enterpriseNetworks = new EnterpriseNetworksFetcher(this);
+      
       enterpriseProfiles = new EnterpriseProfilesFetcher(this);
       
       esIlmPolicies = new EsIlmPoliciesFetcher(this);
@@ -701,6 +711,8 @@ public class Me extends RestRootObject {
       netconfProfiles = new NetconfProfilesFetcher(this);
       
       networkLayouts = new NetworkLayoutsFetcher(this);
+      
+      networkMacroGroups = new NetworkMacroGroupsFetcher(this);
       
       networkPerformanceMeasurements = new NetworkPerformanceMeasurementsFetcher(this);
       
@@ -1217,6 +1229,11 @@ public class Me extends RestRootObject {
    }
    
    @JsonIgnore
+   public EnterpriseNetworksFetcher getEnterpriseNetworks() {
+      return enterpriseNetworks;
+   }
+   
+   @JsonIgnore
    public EnterpriseProfilesFetcher getEnterpriseProfiles() {
       return enterpriseProfiles;
    }
@@ -1374,6 +1391,11 @@ public class Me extends RestRootObject {
    @JsonIgnore
    public NetworkLayoutsFetcher getNetworkLayouts() {
       return networkLayouts;
+   }
+   
+   @JsonIgnore
+   public NetworkMacroGroupsFetcher getNetworkMacroGroups() {
+      return networkMacroGroups;
    }
    
    @JsonIgnore

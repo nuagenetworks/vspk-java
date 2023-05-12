@@ -48,6 +48,10 @@ public class Statisticsprofile extends RestObject {
    
 
    
+   @JsonProperty(value = "cloneFrom")
+   
+   protected String cloneFrom;
+   
    @JsonProperty(value = "description")
    
    protected String description;
@@ -82,6 +86,17 @@ public class Statisticsprofile extends RestObject {
       
    }
 
+   
+   
+   @JsonIgnore
+   public String getCloneFrom() {
+      return cloneFrom;
+   }
+
+   @JsonIgnore
+   public void setCloneFrom(String value) { 
+      this.cloneFrom = value;
+   }
    
    
    @JsonIgnore
@@ -135,7 +150,7 @@ public class Statisticsprofile extends RestObject {
    
 
    public String toString() {
-      return "Statisticsprofile [" + "description=" + description + ", flowStatsAggregationEnabled=" + flowStatsAggregationEnabled + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "Statisticsprofile [" + "cloneFrom=" + cloneFrom + ", description=" + description + ", flowStatsAggregationEnabled=" + flowStatsAggregationEnabled + ", name=" + name + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

@@ -177,6 +177,14 @@ public class InfrastructureGatewayProfile extends RestObject {
    
    protected Boolean runUnderlayMTUDiscoveryTest;
    
+   @JsonProperty(value = "secondaryRemoteLogServerAddress")
+   
+   protected String secondaryRemoteLogServerAddress;
+   
+   @JsonProperty(value = "secondaryRemoteLogServerPort")
+   
+   protected Long secondaryRemoteLogServerPort;
+   
    @JsonProperty(value = "statsCollectorPort")
    
    protected Long statsCollectorPort;
@@ -581,6 +589,28 @@ public class InfrastructureGatewayProfile extends RestObject {
    
    
    @JsonIgnore
+   public String getSecondaryRemoteLogServerAddress() {
+      return secondaryRemoteLogServerAddress;
+   }
+
+   @JsonIgnore
+   public void setSecondaryRemoteLogServerAddress(String value) { 
+      this.secondaryRemoteLogServerAddress = value;
+   }
+   
+   
+   @JsonIgnore
+   public Long getSecondaryRemoteLogServerPort() {
+      return secondaryRemoteLogServerPort;
+   }
+
+   @JsonIgnore
+   public void setSecondaryRemoteLogServerPort(Long value) { 
+      this.secondaryRemoteLogServerPort = value;
+   }
+   
+   
+   @JsonIgnore
    public Long getStatsCollectorPort() {
       return statsCollectorPort;
    }
@@ -686,7 +716,7 @@ public class InfrastructureGatewayProfile extends RestObject {
    
 
    public String toString() {
-      return "InfrastructureGatewayProfile [" + "NTPServerKey=" + NTPServerKey + ", NTPServerKeyID=" + NTPServerKeyID + ", controllerLessDuration=" + controllerLessDuration + ", controllerLessEnabled=" + controllerLessEnabled + ", controllerLessForwardingMode=" + controllerLessForwardingMode + ", controllerLessRemoteDuration=" + controllerLessRemoteDuration + ", creationDate=" + creationDate + ", datapathSyncTimeout=" + datapathSyncTimeout + ", deadTimer=" + deadTimer + ", deadTimerEnabled=" + deadTimerEnabled + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", enableUnderlayTestsDuringActivation=" + enableUnderlayTestsDuringActivation + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", flowEvictionThreshold=" + flowEvictionThreshold + ", forceImmediateSystemSync=" + forceImmediateSystemSync + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", metadataUpgradePath=" + metadataUpgradePath + ", name=" + name + ", openFlowAuditTimer=" + openFlowAuditTimer + ", owner=" + owner + ", proxyDNSName=" + proxyDNSName + ", remoteLogMode=" + remoteLogMode + ", remoteLogServerAddress=" + remoteLogServerAddress + ", remoteLogServerPort=" + remoteLogServerPort + ", runUnderlayBandwidthTest=" + runUnderlayBandwidthTest + ", runUnderlayConnectivityTest=" + runUnderlayConnectivityTest + ", runUnderlayMTUDiscoveryTest=" + runUnderlayMTUDiscoveryTest + ", statsCollectorPort=" + statsCollectorPort + ", systemSyncScheduler=" + systemSyncScheduler + ", underlayTestServer=" + underlayTestServer + ", underlayTestUplinkMode=" + underlayTestUplinkMode + ", upgradeAction=" + upgradeAction + ", useTwoFactor=" + useTwoFactor + ", webFilterDownloadPort=" + webFilterDownloadPort + ", webFilterQueryPort=" + webFilterQueryPort + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "InfrastructureGatewayProfile [" + "NTPServerKey=" + NTPServerKey + ", NTPServerKeyID=" + NTPServerKeyID + ", controllerLessDuration=" + controllerLessDuration + ", controllerLessEnabled=" + controllerLessEnabled + ", controllerLessForwardingMode=" + controllerLessForwardingMode + ", controllerLessRemoteDuration=" + controllerLessRemoteDuration + ", creationDate=" + creationDate + ", datapathSyncTimeout=" + datapathSyncTimeout + ", deadTimer=" + deadTimer + ", deadTimerEnabled=" + deadTimerEnabled + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", enableUnderlayTestsDuringActivation=" + enableUnderlayTestsDuringActivation + ", enterpriseID=" + enterpriseID + ", entityScope=" + entityScope + ", externalID=" + externalID + ", flowEvictionThreshold=" + flowEvictionThreshold + ", forceImmediateSystemSync=" + forceImmediateSystemSync + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", metadataUpgradePath=" + metadataUpgradePath + ", name=" + name + ", openFlowAuditTimer=" + openFlowAuditTimer + ", owner=" + owner + ", proxyDNSName=" + proxyDNSName + ", remoteLogMode=" + remoteLogMode + ", remoteLogServerAddress=" + remoteLogServerAddress + ", remoteLogServerPort=" + remoteLogServerPort + ", runUnderlayBandwidthTest=" + runUnderlayBandwidthTest + ", runUnderlayConnectivityTest=" + runUnderlayConnectivityTest + ", runUnderlayMTUDiscoveryTest=" + runUnderlayMTUDiscoveryTest + ", secondaryRemoteLogServerAddress=" + secondaryRemoteLogServerAddress + ", secondaryRemoteLogServerPort=" + secondaryRemoteLogServerPort + ", statsCollectorPort=" + statsCollectorPort + ", systemSyncScheduler=" + systemSyncScheduler + ", underlayTestServer=" + underlayTestServer + ", underlayTestUplinkMode=" + underlayTestUplinkMode + ", upgradeAction=" + upgradeAction + ", useTwoFactor=" + useTwoFactor + ", webFilterDownloadPort=" + webFilterDownloadPort + ", webFilterQueryPort=" + webFilterQueryPort + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    

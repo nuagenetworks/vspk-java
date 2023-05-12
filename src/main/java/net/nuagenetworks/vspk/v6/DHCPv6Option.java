@@ -90,6 +90,10 @@ public class DHCPv6Option extends RestObject {
    
    protected String owner;
    
+   @JsonProperty(value = "subOptionType")
+   
+   protected String subOptionType;
+   
    @JsonProperty(value = "type")
    
    protected String type;
@@ -238,6 +242,17 @@ public class DHCPv6Option extends RestObject {
    
    
    @JsonIgnore
+   public String getSubOptionType() {
+      return subOptionType;
+   }
+
+   @JsonIgnore
+   public void setSubOptionType(String value) { 
+      this.subOptionType = value;
+   }
+   
+   
+   @JsonIgnore
    public String getType() {
       return type;
    }
@@ -282,7 +297,7 @@ public class DHCPv6Option extends RestObject {
    
 
    public String toString() {
-      return "DHCPv6Option [" + "actualType=" + actualType + ", actualValues=" + actualValues + ", creationDate=" + creationDate + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", length=" + length + ", owner=" + owner + ", type=" + type + ", value=" + value + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "DHCPv6Option [" + "actualType=" + actualType + ", actualValues=" + actualValues + ", creationDate=" + creationDate + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", length=" + length + ", owner=" + owner + ", subOptionType=" + subOptionType + ", type=" + type + ", value=" + value + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    
