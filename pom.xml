@@ -4,7 +4,7 @@
    <modelVersion>4.0.0</modelVersion>
    <groupId>net.nuagenetworks</groupId>
    <artifactId>vspk</artifactId>
-   <version>20.10.14</version>
+   <version>20.10.14.1</version>
    <packaging>jar</packaging>
 
    <name>${project.groupId}:${project.artifactId}</name>
@@ -51,7 +51,7 @@
       <dependency>
          <groupId>net.nuagenetworks</groupId>
          <artifactId>bambou</artifactId>
-         <version>2.0.31</version>
+         <version>2.0.32</version>
       </dependency>
    </dependencies>
 </project>
