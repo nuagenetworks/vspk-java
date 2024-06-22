@@ -46,6 +46,7 @@ import net.nuagenetworks.vspk.v6.fetchers.DHCPOptionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.DHCPv6OptionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EnterprisePermissionsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.EventLogsFetcher;
+import net.nuagenetworks.vspk.v6.fetchers.FloatingIpsFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GatewaysFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.GlobalMetadatasFetcher;
 import net.nuagenetworks.vspk.v6.fetchers.IKEGatewayConnectionsFetcher;
@@ -381,6 +382,9 @@ public class Subnet extends RestObject {
    private EventLogsFetcher eventLogs;
    
    @JsonIgnore
+   private FloatingIpsFetcher floatingIps;
+   
+   @JsonIgnore
    private GatewaysFetcher gateways;
    
    @JsonIgnore
@@ -468,6 +472,8 @@ public class Subnet extends RestObject {
       enterprisePermissions = new EnterprisePermissionsFetcher(this);
       
       eventLogs = new EventLogsFetcher(this);
+      
+      floatingIps = new FloatingIpsFetcher(this);
       
       gateways = new GatewaysFetcher(this);
       
@@ -1271,6 +1277,11 @@ public class Subnet extends RestObject {
    @JsonIgnore
    public EventLogsFetcher getEventLogs() {
       return eventLogs;
+   }
+   
+   @JsonIgnore
+   public FloatingIpsFetcher getFloatingIps() {
+      return floatingIps;
    }
    
    @JsonIgnore

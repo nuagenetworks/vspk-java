@@ -58,6 +58,10 @@ public class IPv6FilterProfile extends RestObject {
    
    protected String blobText;
    
+   @JsonProperty(value = "blobText_SRL_23_10")
+   
+   protected String blobText_SRL_23_10;
+   
    @JsonProperty(value = "blobType")
    
    protected EBlobType blobType;
@@ -145,6 +149,17 @@ public class IPv6FilterProfile extends RestObject {
    @JsonIgnore
    public void setBlobText(String value) { 
       this.blobText = value;
+   }
+   
+   
+   @JsonIgnore
+   public String getBlobText_SRL_23_10() {
+      return blobText_SRL_23_10;
+   }
+
+   @JsonIgnore
+   public void setBlobText_SRL_23_10(String value) { 
+      this.blobText_SRL_23_10 = value;
    }
    
    
@@ -287,7 +302,7 @@ public class IPv6FilterProfile extends RestObject {
    
 
    public String toString() {
-      return "IPv6FilterProfile [" + "assocEntityType=" + assocEntityType + ", blobText=" + blobText + ", blobType=" + blobType + ", creationDate=" + creationDate + ", customerID=" + customerID + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", name=" + name + ", owner=" + owner + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
+      return "IPv6FilterProfile [" + "assocEntityType=" + assocEntityType + ", blobText=" + blobText + ", blobText_SRL_23_10=" + blobText_SRL_23_10 + ", blobType=" + blobType + ", creationDate=" + creationDate + ", customerID=" + customerID + ", description=" + description + ", embeddedMetadata=" + embeddedMetadata + ", entityScope=" + entityScope + ", externalID=" + externalID + ", lastUpdatedBy=" + lastUpdatedBy + ", lastUpdatedDate=" + lastUpdatedDate + ", name=" + name + ", owner=" + owner + ", id=" + id + ", parentId=" + parentId + ", parentType=" + parentType  + "]";
    }
    
    
